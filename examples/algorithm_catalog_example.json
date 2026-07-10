@@ -1,0 +1,33 @@
+{
+  "description": "Ejemplo ilustrativo de una ficha de metadatos devuelta por GET /api/v1/algorithms/{algorithm_name}. La respuesta real se genera dinámicamente desde el registro.",
+  "name": "heuristic_3d_bpp_v1",
+  "display_name": "Volume First Candidate Placement",
+  "problem_types": ["3D_BPP", "SINGLE_CONTAINER_LOADING"],
+  "algorithm_family": "constructive_heuristic",
+  "status": "implemented",
+  "deterministic": true,
+  "supports_random_seed": false,
+  "supports_time_limit": false,
+  "supports_rotation": true,
+  "supports_multi_container": true,
+  "supported_constraints": ["containment", "non_overlap", "max_weight", "orientation"],
+  "unsupported_constraints": ["fragility", "center_of_gravity", "load_bearing", "unloading_sequence", "advanced_stability"],
+  "metrics": [
+    "volume_utilization",
+    "waste_volume",
+    "containers_used",
+    "items_packed",
+    "items_unpacked",
+    "packed_volume",
+    "unpacked_volume",
+    "total_item_volume",
+    "loaded_weight",
+    "execution_time_seconds",
+    "constraint_violations"
+  ],
+  "limitations": [
+    "Algoritmo heurístico; no garantiza optimalidad",
+    "Solo factibilidad geométrica básica",
+    "Sin estabilidad física avanzada"
+  ]
+}

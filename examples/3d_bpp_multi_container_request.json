@@ -1,0 +1,26 @@
+{
+  "problem_type": "3D_BPP",
+  "request_id": "example-multi-001",
+  "containers": [
+    { "id": "C1", "length": 100, "width": 100, "height": 100, "max_weight": 500 },
+    { "id": "C2", "length": 100, "width": 100, "height": 100, "max_weight": 500 }
+  ],
+  "items": [
+    { "id": "BIG", "length": 90, "width": 90, "height": 90, "weight": 100, "quantity": 2, "allowed_orientations": "all" },
+    { "id": "MED", "length": 50, "width": 50, "height": 50, "weight": 40, "quantity": 4, "allowed_orientations": "all" },
+    { "id": "SML", "length": 30, "width": 30, "height": 30, "weight": 10, "quantity": 6, "allowed_orientations": "all" }
+  ],
+  "constraints": {
+    "non_overlap": true,
+    "containment": true,
+    "allow_rotation": true,
+    "max_weight": true
+  },
+  "objective": "minimize_containers",
+  "algorithm": {
+    "name": "first_fit_decreasing_3d",
+    "parameters": { "sort_strategy": "volume_desc" },
+    "random_seed": null,
+    "time_limit_seconds": 10
+  }
+}

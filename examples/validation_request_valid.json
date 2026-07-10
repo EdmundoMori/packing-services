@@ -1,0 +1,33 @@
+{
+  "problem_type": "3D_BPP",
+  "request_id": "valid-001",
+  "containers": [
+    { "id": "C1", "length": 120, "width": 80, "height": 100, "max_weight": 1000 }
+  ],
+  "items": [
+    { "id": "I1", "length": 40, "width": 40, "height": 40, "weight": 10, "quantity": 1 },
+    { "id": "I2", "length": 40, "width": 40, "height": 40, "weight": 10, "quantity": 1 }
+  ],
+  "constraints": {
+    "non_overlap": true,
+    "containment": true,
+    "allow_rotation": true,
+    "max_weight": true
+  },
+  "packed_items": [
+    {
+      "item_id": "I1",
+      "container_id": "C1",
+      "position": { "x": 0, "y": 0, "z": 0 },
+      "orientation": { "length": 40, "width": 40, "height": 40 },
+      "weight": 10
+    },
+    {
+      "item_id": "I2",
+      "container_id": "C1",
+      "position": { "x": 40, "y": 0, "z": 0 },
+      "orientation": { "length": 40, "width": 40, "height": 40 },
+      "weight": 10
+    }
+  ]
+}

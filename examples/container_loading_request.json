@@ -1,0 +1,23 @@
+{
+  "problem_type": "CONTAINER_LOADING",
+  "request_id": "cl-001",
+  "containers": [
+    { "id": "TRUCK1", "length": 240, "width": 120, "height": 120, "max_weight": 500 }
+  ],
+  "items": [
+    { "id": "PALLET_A", "length": 80, "width": 60, "height": 100, "weight": 120, "quantity": 3, "allowed_orientations": "all" },
+    { "id": "BOX_B", "length": 60, "width": 40, "height": 40, "weight": 30, "quantity": 8, "allowed_orientations": "all" },
+    { "id": "BOX_C", "length": 120, "width": 40, "height": 40, "weight": 45, "quantity": 4, "allowed_orientations": "all" }
+  ],
+  "constraints": {
+    "non_overlap": true,
+    "containment": true,
+    "allow_rotation": true,
+    "max_weight": true
+  },
+  "objective": "maximize_volume_utilization",
+  "algorithm": {
+    "name": "weight_aware_container_loading",
+    "parameters": { "sort_strategy": "weight_desc" }
+  }
+}
