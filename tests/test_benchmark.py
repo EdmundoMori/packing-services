@@ -103,7 +103,7 @@ def test_benchmark_container_loading_group():
     response = BenchmarkService().benchmark(BenchmarkRequest(**data))
     assert response.details["benchmark_group"] == "CONTAINER_LOADING"
     assert response.details["benchmark_profile"] == "constructive"
-    assert len(response.results) == 3
+    assert len(response.results) == 4
     engines = {r.engine: r for r in response.results}
     assert engines["single_container_constructive"].is_valid
     assert engines["weight_aware_container_loading"].is_valid

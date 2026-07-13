@@ -6,7 +6,7 @@ from typing import Any
 
 from fastapi import APIRouter, Body
 
-from ...schemas.responses import CartonizationResponse, PackResponse
+from ...schemas.responses import AlgorithmExecuteResponse
 from ...services.algorithm_execution_service import AlgorithmExecutionService
 
 router = APIRouter(tags=["algorithm-execute"])
@@ -15,13 +15,15 @@ _service = AlgorithmExecutionService()
 
 @router.post(
     "/algorithms/{algorithm_name}/execute",
-    response_model=None,
+    response_model=AlgorithmExecuteResponse,
     summary="Ejecutar un algoritmo por nombre",
     description=(
         "Ejecuta el algoritmo indicado en la URL. El JSON de entrada está "
         "normalizado por tipo de problema: "
         "**PackAlgorithmInput** (3D_BPP, CONTAINER_LOADING, SINGLE_CONTAINER_LOADING) "
         "o **CartonizationAlgorithmInput** (CARTONIZATION). "
+        "La salida es siempre **AlgorithmExecuteResponse** con la solución en "
+        "``solution`` y metadatos de cartonization opcionales. "
         "No incluye el campo `algorithm` en el body."
     ),
 )
@@ -78,7 +80,7 @@ def execute_algorithm(
             },
         },
     ),
-) -> PackResponse | CartonizationResponse:
+) -> AlgorithmExecuteResponse:
     """Ejecuta el algoritmo ``algorithm_name`` sobre la instancia del body."""
 
     return _service.execute(algorithm_name, payload)

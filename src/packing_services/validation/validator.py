@@ -26,6 +26,7 @@ from ..domain.geometry import (
     AABB,
     Dimensions,
     Position,
+    EPS,
     fits_within,
     is_same_box,
     overlaps,
@@ -82,6 +83,8 @@ class PackingValidator:
             )
         if constraints.basic_stability:
             violations += self._check_basic_stability(packed_items, item_by_id)
+        if constraints.load_bearing:
+            violations += self._check_load_bearing(packed_items, item_by_id)
 
         is_valid = all(v.severity != "error" for v in violations)
         return ValidationReport(is_valid=is_valid, violations=violations)
@@ -303,6 +306,57 @@ class PackingValidator:
                             container_id=container_id,
                             item_ids=[p.item_id],
                             severity="warning",  # No invalida la solución.
+                        )
+                    )
+        return violations
+
+    def _check_load_bearing(
+        self,
+        packed_items: list[PackedItem],
+        item_by_id: dict[str, Item],
+    ) -> list[Violation]:
+        violations: list[Violation] = []
+        by_container: dict[str, list[PackedItem]] = defaultdict(list)
+        for p in packed_items:
+            by_container[p.container_id].append(p)
+
+        for container_id, group in by_container.items():
+            boxes = [_to_aabb(p) for p in group]
+            load_on_top: dict[str, float] = defaultdict(float)
+
+            for idx, upper in enumerate(group):
+                upper_box = boxes[idx]
+                if upper_box.position.z <= EPS:
+                    continue
+                iz0 = upper_box.min_corner[2]
+                ix0, iy0, _ = upper_box.min_corner
+                ix1, iy1, _ = upper_box.max_corner
+                for jdx, lower in enumerate(group):
+                    if jdx == idx:
+                        continue
+                    lower_box = boxes[jdx]
+                    if abs(lower_box.max_corner[2] - iz0) > EPS:
+                        continue
+                    sx0, sy0, _ = lower_box.min_corner
+                    sx1, sy1, _ = lower_box.max_corner
+                    overlap_x = min(ix1, sx1) - max(ix0, sx0)
+                    overlap_y = min(iy1, sy1) - max(iy0, sy0)
+                    if overlap_x <= EPS or overlap_y <= EPS:
+                        continue
+                    load_on_top[lower.item_id] += upper.weight
+
+            for item_id, total_load in load_on_top.items():
+                item = item_by_id.get(item_id)
+                if item is None or item.max_load_on_top is None:
+                    continue
+                if total_load > item.max_load_on_top + EPS:
+                    violations.append(
+                        make_violation(
+                            ViolationType.LOAD_BEARING,
+                            f"El ítem {item_id} soporta {total_load:.2f} kg pero "
+                            f"max_load_on_top={item.max_load_on_top}",
+                            container_id=container_id,
+                            item_ids=[item_id],
                         )
                     )
         return violations

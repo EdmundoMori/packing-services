@@ -1,0 +1,21 @@
+{
+  "request_id": "stack-001",
+  "problem_type": "STACKING_AWARE",
+  "containers": [
+    { "id": "PALLET_1", "length": 100, "width": 80, "height": 120, "max_weight": 500 }
+  ],
+  "items": [
+    { "id": "BASE", "length": 50, "width": 40, "height": 20, "weight": 15, "quantity": 2, "allowed_orientations": "all", "max_load_on_top": 40 },
+    { "id": "MID", "length": 45, "width": 35, "height": 18, "weight": 10, "quantity": 2, "allowed_orientations": "all", "max_load_on_top": 20 },
+    { "id": "TOP", "length": 40, "width": 30, "height": 15, "weight": 5, "quantity": 2, "allowed_orientations": "all" }
+  ],
+  "constraints": {
+    "non_overlap": true,
+    "containment": true,
+    "allow_rotation": true,
+    "max_weight": true,
+    "basic_stability": true,
+    "load_bearing": true
+  },
+  "parameters": { "sort_strategy": "weight_desc", "min_support_ratio": 0.6 }
+}

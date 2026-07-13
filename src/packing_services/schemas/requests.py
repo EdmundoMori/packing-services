@@ -107,6 +107,80 @@ class ContainerLoadingRequest(BaseModel):
         )
 
 
+class PalletizationRequest(BaseModel):
+    """Entrada del Palletization Service."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    problem_type: ProblemType = ProblemType.PALLETIZATION
+    request_id: str | None = None
+    containers: list[Container]
+    items: list[Item]
+    constraints: ConstraintFlags = Field(default_factory=ConstraintFlags)
+    objective: str = "maximize_volume_utilization"
+    algorithm: AlgorithmConfig | None = None
+
+    def to_problem(self) -> PackingProblem:
+        algorithm = self.algorithm or AlgorithmConfig(name="layer_based_palletization")
+        expanded: list[Item] = []
+        for item in self.items:
+            if item.quantity == 1:
+                expanded.append(item)
+            else:
+                for n in range(1, item.quantity + 1):
+                    expanded.append(item.model_copy(update={"id": f"{item.id}#{n}"}))
+        return PackingProblem(
+            problem_type=self.problem_type,
+            request_id=self.request_id,
+            containers=self.containers,
+            items=expanded,
+            constraints=self.constraints,
+            objective=self.objective,
+            algorithm=algorithm,
+        )
+
+
+class StackingAwareRequest(BaseModel):
+    """Entrada del Stacking-aware Packing Service."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    problem_type: ProblemType = ProblemType.STACKING_AWARE
+    request_id: str | None = None
+    containers: list[Container]
+    items: list[Item]
+    constraints: ConstraintFlags = Field(
+        default_factory=lambda: ConstraintFlags(
+            basic_stability=True,
+            load_bearing=True,
+        )
+    )
+    objective: str = "maximize_volume_utilization"
+    algorithm: AlgorithmConfig | None = None
+
+    def to_problem(self) -> PackingProblem:
+        algorithm = self.algorithm or AlgorithmConfig(
+            name="stacking_aware_constructive",
+            parameters={"sort_strategy": "weight_desc", "min_support_ratio": 0.6},
+        )
+        expanded: list[Item] = []
+        for item in self.items:
+            if item.quantity == 1:
+                expanded.append(item)
+            else:
+                for n in range(1, item.quantity + 1):
+                    expanded.append(item.model_copy(update={"id": f"{item.id}#{n}"}))
+        return PackingProblem(
+            problem_type=self.problem_type,
+            request_id=self.request_id,
+            containers=self.containers,
+            items=expanded,
+            constraints=self.constraints,
+            objective=self.objective,
+            algorithm=algorithm,
+        )
+
+
 class BoxOption(BaseModel):
     """Caja candidata del catálogo de cartonization (con coste opcional)."""
 

@@ -67,6 +67,14 @@ def test_benchmark_single_container_profile():
     assert all(r.is_valid for r in response.results)
 
 
+def test_resolve_profile_metaheuristic_3d_bpp():
+    engines = resolve_profile_engines(ProblemType.THREE_D_BPP, "metaheuristic")
+    assert len(engines) >= 3
+    names = {e.name for e in engines}
+    assert "simulated_annealing_3d_bpp" in names
+    assert "best_fit_decreasing_3d" in names
+
+
 def test_benchmark_request_requires_engines_or_profile():
     with pytest.raises(ValueError, match="engines"):
         BenchmarkRequest(

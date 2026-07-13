@@ -48,7 +48,11 @@ def test_list_algorithms_filter_status():
 def test_get_algorithm_detail():
     response = client.get("/api/v1/algorithms/heuristic_3d_bpp_v1")
     assert response.status_code == 200
-    assert response.json()["display_name"] == "Volume First Candidate Placement"
+    body = response.json()
+    assert body["display_name"] == "Volume First Candidate Placement"
+    assert body["execution_endpoint"] == "POST /api/v1/algorithms/heuristic_3d_bpp_v1/execute"
+    assert body["input_schema"] == "PackAlgorithmInput"
+    assert body["output_schema"] == "AlgorithmExecuteResponse"
 
 
 def test_get_unknown_algorithm_404():
@@ -68,7 +72,7 @@ def test_pack_endpoint():
 
 def test_pack_future_algorithm_returns_400():
     payload = _load("3d_bpp_basic_request.json")
-    payload["algorithm"]["name"] = "genetic_algorithm_3d_bpp"
+    payload["algorithm"]["name"] = "online_3d_bpp_heuristic"
     response = client.post("/api/v1/pack/3d-bpp", json=payload)
     assert response.status_code == 400
 
@@ -110,7 +114,7 @@ def test_benchmark_container_loading_endpoint():
     body = response.json()
     assert body["details"]["benchmark_group"] == "CONTAINER_LOADING"
     assert body["details"]["benchmark_profile"] == "constructive"
-    assert len(body["results"]) == 3
+    assert len(body["results"]) == 4
 
 
 def test_benchmark_cartonization_endpoint():

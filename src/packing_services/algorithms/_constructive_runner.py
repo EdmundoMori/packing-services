@@ -9,6 +9,7 @@ from .best_fit_decreasing_3d import BestFitDecreasing3D
 from .extreme_points_3d import ExtremePoints3D
 from .first_fit_decreasing_3d import FirstFitDecreasing3D
 from .heuristic_3d_bpp import Heuristic3DBPPv1
+from .maximal_spaces_3d import MaximalSpaces3D
 from .single_container import SingleContainerConstructive
 from .weight_aware_container_loading import WeightAwareContainerLoading
 
@@ -16,6 +17,7 @@ _CONSTRUCTIVES = {
     "heuristic_3d_bpp_v1": Heuristic3DBPPv1,
     "first_fit_decreasing_3d": FirstFitDecreasing3D,
     "extreme_points_3d": ExtremePoints3D,
+    "maximal_spaces_3d": MaximalSpaces3D,
     "best_fit_decreasing_3d": BestFitDecreasing3D,
     "single_container_constructive": SingleContainerConstructive,
     "weight_aware_container_loading": WeightAwareContainerLoading,

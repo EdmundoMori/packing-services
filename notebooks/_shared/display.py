@@ -9,7 +9,11 @@ import matplotlib.pyplot as plt
 from IPython.display import HTML, display as ipy_display
 
 from packing_services.domain.models import Container, Metrics, PackingSolution
-from packing_services.schemas.responses import BenchmarkResponse, ValidateResponse
+from packing_services.schemas.responses import (
+    AlgorithmExecuteResponse,
+    BenchmarkResponse,
+    ValidateResponse,
+)
 
 
 def _pct(value: float) -> str:
@@ -168,6 +172,34 @@ def show_kpis(
     </div>
     """
     ipy_display(HTML(html))
+
+
+def show_execute_result(
+    result: AlgorithmExecuteResponse,
+    *,
+    extra: dict[str, str] | None = None,
+) -> PackingSolution:
+    """Muestra KPIs de una respuesta estandarizada ``AlgorithmExecuteResponse``."""
+
+    merged = dict(extra or {})
+    if result.cartonization:
+        if result.cartonization.selected_box_ids:
+            if len(result.cartonization.selected_box_ids) == 1:
+                merged.setdefault("Caja elegida", result.cartonization.selected_box_ids[0])
+            else:
+                merged.setdefault(
+                    "Cajas usadas",
+                    ", ".join(result.cartonization.selected_box_ids),
+                )
+        elif result.cartonization.selected_box_id:
+            merged.setdefault("Caja elegida", result.cartonization.selected_box_id)
+    show_kpis(
+        result.solution.metrics,
+        valid=result.solution.validation_report.is_valid if result.solution.validation_report else None,
+        algorithm=result.algorithm_name,
+        extra=merged or None,
+    )
+    return result.solution
 
 
 def show_weight_kpis(loaded: float, max_weight: float | None, valid: bool) -> None:

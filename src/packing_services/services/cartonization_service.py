@@ -36,15 +36,14 @@ class CartonizationService:
 
         solution = self.registry.execute(algorithm_name, problem)
 
-        # La caja elegida es el contenedor donde se colocaron los ítems.
-        selected_box_id = (
-            solution.packed_items[0].container_id if solution.packed_items else None
-        )
+        box_ids = sorted({p.container_id for p in solution.packed_items})
+        selected_box_id = box_ids[0] if len(box_ids) == 1 else None
 
         return CartonizationResponse(
             request_id=request.request_id,
             status=solution.status.value,
             selected_box_id=selected_box_id,
+            selected_box_ids=box_ids,
             algorithm_name=algorithm_name,
             solution=solution,
             evaluated_boxes=self._evaluation_summary(problem),

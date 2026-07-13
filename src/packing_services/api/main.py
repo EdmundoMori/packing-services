@@ -31,6 +31,8 @@ from .routes import (
     pack_3d_bpp,
     pack_cartonization,
     pack_container_loading,
+    pack_palletization,
+    pack_stacking_aware,
     services,
     validate,
 )
@@ -91,5 +93,7 @@ app.include_router(algorithm_execute.router, prefix="/api/v1")
 app.include_router(pack_3d_bpp.router, prefix="/api/v1")
 app.include_router(pack_container_loading.router, prefix="/api/v1")
 app.include_router(pack_cartonization.router, prefix="/api/v1")
+app.include_router(pack_palletization.router, prefix="/api/v1")
+app.include_router(pack_stacking_aware.router, prefix="/api/v1")
 app.include_router(validate.router, prefix="/api/v1")
 app.include_router(benchmark.router, prefix="/api/v1")

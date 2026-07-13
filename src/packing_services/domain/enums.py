@@ -82,6 +82,7 @@ class SortStrategy(str, Enum):
     VOLUME_DESC = "volume_desc"
     WEIGHT_DESC = "weight_desc"
     LONGEST_DIM_DESC = "longest_dim_desc"
+    INPUT_ORDER = "input_order"
 
 
 class PositionStrategy(str, Enum):

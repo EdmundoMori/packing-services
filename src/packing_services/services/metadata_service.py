@@ -8,9 +8,9 @@ from ..domain.enums import AlgorithmStatus
 from ..schemas.responses import ServiceMetadataResponse
 
 SERVICE_DESCRIPTION = (
-    "Servicios modulares de Cutting and Packing. Versión inicial centrada en "
-    "3D Bin Packing Offline con heurísticas constructivas, validador geométrico "
-    "propio y comparador. Preparado para adaptadores a motores externos."
+    "Servicios modulares de Cutting and Packing. Incluye heurísticas constructivas, "
+    "mejora local, metaheurísticas 3D-BPP, validador geométrico propio y comparador. "
+    "Preparado para adaptadores a motores externos."
 )
 
 SUPPORTED_PROBLEM_TYPES = [
@@ -18,6 +18,8 @@ SUPPORTED_PROBLEM_TYPES = [
     "SINGLE_CONTAINER_LOADING",
     "CONTAINER_LOADING",
     "CARTONIZATION",
+    "PALLETIZATION",
+    "STACKING_AWARE",
     "VALIDATION",
     "BENCHMARK",
 ]
@@ -28,10 +30,13 @@ ENDPOINTS = {
     "services": "GET /api/v1/services",
     "algorithms": "GET /api/v1/algorithms",
     "algorithm_detail": "GET /api/v1/algorithms/{algorithm_name}",
+    "algorithm_input_example": "GET /api/v1/algorithms/{algorithm_name}/input-example",
     "algorithm_execute": "POST /api/v1/algorithms/{algorithm_name}/execute",
     "pack_3d_bpp": "POST /api/v1/pack/3d-bpp",
     "pack_container_loading": "POST /api/v1/pack/container-loading",
     "pack_cartonization": "POST /api/v1/pack/cartonization",
+    "pack_palletization": "POST /api/v1/pack/palletization",
+    "pack_stacking_aware": "POST /api/v1/pack/stacking-aware",
     "validate": "POST /api/v1/validate",
     "benchmark": "POST /api/v1/benchmark",
 }
@@ -39,9 +44,8 @@ ENDPOINTS = {
 LIMITATIONS = [
     "Los algoritmos son heurísticos; no garantizan optimalidad",
     "Estabilidad física avanzada no soportada en la primera versión",
-    "Fragilidad, load-bearing, centro de gravedad y secuencia de descarga: fases posteriores",
-    "Palletization y Stacking-aware: vía adaptadores/motores futuros",
-    "Cartonization selecciona una sola caja (no multi-caja todavía)",
+    "Fragilidad, load-bearing avanzado, centro de gravedad y secuencia de descarga: fases posteriores",
+    "Cartonization single-box y multi-box disponibles; motor industrial futuro: BoxPacker",
     "Motores externos se integran mediante adaptadores, sin modificar sus repositorios",
     "No integrado aún en un espacio de datos; solo preparado mediante metadatos y trazabilidad",
 ]

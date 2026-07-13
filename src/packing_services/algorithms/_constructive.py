@@ -49,11 +49,21 @@ class _ContainerState:
 
 
 def _sort_key(item: Item, strategy: SortStrategy):
+    if strategy == SortStrategy.INPUT_ORDER:
+        return (0,)
     if strategy == SortStrategy.WEIGHT_DESC:
         return (-item.weight, -item.volume)
     if strategy == SortStrategy.LONGEST_DIM_DESC:
         return (-max(item.dimensions.as_tuple()), -item.volume)
     return (-item.volume, -item.weight)  # VOLUME_DESC por defecto
+
+
+def order_items(items: list[Item], strategy: SortStrategy) -> list[Item]:
+    """Ordena ítems; con ``INPUT_ORDER`` preserva la secuencia del input."""
+
+    if strategy == SortStrategy.INPUT_ORDER:
+        return list(items)
+    return sorted(items, key=lambda it: _sort_key(it, strategy))
 
 
 def _blb_key(position: Position) -> tuple[float, float, float]:
@@ -135,9 +145,7 @@ class ConstructivePacker:
         allow_rotation = constraints.allow_rotation
 
         states = [_ContainerState(container=c) for c in problem.containers]
-        ordered_items = sorted(
-            problem.items, key=lambda it: _sort_key(it, self.sort_strategy)
-        )
+        ordered_items = order_items(problem.items, self.sort_strategy)
 
         packed: list[PackedItem] = []
         unpacked: list[UnpackedItem] = []

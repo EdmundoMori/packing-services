@@ -38,6 +38,7 @@ def _problem(pt: ProblemType, containers, items, algo: str, **params):
         "first_fit_decreasing_3d",
         "best_fit_decreasing_3d",
         "extreme_points_3d",
+        "maximal_spaces_3d",
     ],
 )
 def test_3d_bpp_works_with_arbitrary_instance(algo: str):
@@ -69,6 +70,31 @@ def test_container_loading_compaction_default_base():
     assert sol.execution_metadata.parameters["base_algorithm_used"] == (
         "weight_aware_container_loading"
     )
+
+
+@pytest.mark.parametrize(
+    "algo",
+    [
+        "solution_compaction",
+        "constructive_plus_local_search",
+        "relocation_improvement",
+        "swap_improvement",
+        "orientation_improvement",
+        "bin_reduction",
+    ],
+)
+def test_3d_improvement_works_with_arbitrary_instance(algo: str):
+    registry = get_default_registry()
+    problem = _problem(
+        ProblemType.THREE_D_BPP,
+        [Container(id="BIN", length=90, width=70, height=60, max_weight=400)],
+        [Item(id="SKU", length=30, width=25, height=20, weight=2, quantity=5)],
+        algo,
+        base_algorithm="best_fit_decreasing_3d",
+    )
+    sol = registry.execute(algo, problem)
+    assert sol.validation_report.is_valid
+    assert sol.metrics.items_packed > 0
 
 
 @pytest.mark.parametrize(
@@ -106,3 +132,68 @@ def test_registry_rejects_incompatible_problem_type():
     )
     with pytest.raises(InvalidInputError, match="no soporta problem_type"):
         registry.execute("smallest_feasible_box", problem)
+
+
+def test_wall_building_with_arbitrary_instance():
+    registry = get_default_registry()
+    problem = _problem(
+        ProblemType.CONTAINER_LOADING,
+        [Container(id="T1", length=100, width=80, height=70, max_weight=300)],
+        [Item(id="L1", length=40, width=30, height=25, weight=12, quantity=2)],
+        "wall_building_3d",
+    )
+    sol = registry.execute("wall_building_3d", problem)
+    assert sol.validation_report.is_valid
+    assert sol.metrics.items_packed > 0
+
+
+def test_multi_box_cartonization_with_arbitrary_catalog():
+    registry = get_default_registry()
+    boxes = [
+        BoxOption(id="S", length=30, width=25, height=20, max_weight=10),
+        BoxOption(id="M", length=45, width=35, height=30, max_weight=20),
+    ]
+    problem = PackingProblem(
+        problem_type=ProblemType.CARTONIZATION,
+        containers=[b.to_container() for b in boxes],
+        items=_expand([Item(id="O1", length=15, width=12, height=10, weight=1, quantity=5)]),
+        algorithm=AlgorithmConfig(name="multi_box_cartonization"),
+    )
+    sol = registry.execute("multi_box_cartonization", problem)
+    assert sol.validation_report.is_valid
+    assert sol.metrics.items_packed > 0
+
+
+def test_palletization_with_arbitrary_instance():
+    registry = get_default_registry()
+    problem = _problem(
+        ProblemType.PALLETIZATION,
+        [Container(id="P", length=100, width=80, height=120, max_weight=400)],
+        [Item(id="B", length=30, width=25, height=20, weight=3, quantity=4)],
+        "layer_based_palletization",
+    )
+    sol = registry.execute("layer_based_palletization", problem)
+    assert sol.validation_report.is_valid
+    assert sol.metrics.items_packed > 0
+
+
+def test_stacking_aware_with_arbitrary_instance():
+    registry = get_default_registry()
+    from packing_services.domain.models import ConstraintFlags
+
+    problem = PackingProblem(
+        problem_type=ProblemType.STACKING_AWARE,
+        containers=[Container(id="P", length=90, width=70, height=100, max_weight=300)],
+        items=_expand([
+            Item(id="L", length=40, width=30, height=18, weight=8, max_load_on_top=20),
+            Item(id="S", length=35, width=25, height=15, weight=4),
+        ]),
+        constraints=ConstraintFlags(basic_stability=True, load_bearing=True),
+        algorithm=AlgorithmConfig(
+            name="stacking_aware_constructive",
+            parameters={"sort_strategy": "weight_desc"},
+        ),
+    )
+    sol = registry.execute("stacking_aware_constructive", problem)
+    assert sol.validation_report.is_valid
+    assert sol.metrics.items_packed > 0

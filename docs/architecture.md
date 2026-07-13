@@ -30,9 +30,11 @@ Núcleo común, sin dependencias de framework.
 ### `schemas/`
 Contratos de la API. Reutilizan los modelos de dominio.
 
-- `requests.py`: `PackRequest`, `ValidateRequest`, `BenchmarkRequest`. Incluye la
-  expansión de `quantity` en ítems individuales con id único (`I1#1`, `I1#2`...).
-- `responses.py`: respuestas de salud, metadata, validación y benchmark.
+- `requests.py`: `PackRequest`, `ValidateRequest`, `BenchmarkRequest`,
+  `PackAlgorithmInput`, `CartonizationAlgorithmInput`. Incluye la expansión de
+  `quantity` en ítems individuales con id único (`I1#1`, `I1#2`...).
+- `responses.py`: respuestas de salud, metadata, validación, benchmark y
+  `AlgorithmExecuteResponse` (salida homogénea por algoritmo).
 
 ### `validation/`
 Packing Validation Service propio. `PackingValidator` comprueba contención,
@@ -48,11 +50,15 @@ de forma que cualquier motor produce cifras comparables.
 - `base.py`: interfaz `PackingAlgorithm` + `build_solution` (valida, calcula
   métricas y construye la metadata de ejecución para todos los algoritmos).
 - `registry.py`: `AlgorithmRegistry` (listar, filtrar, describir, ejecutar).
-- `_constructive.py`: motor constructivo compartido por las heurísticas.
-- Implementados: `heuristic_3d_bpp.py`, `first_fit_decreasing_3d.py`.
-- Catálogo (metadatos `future`/`stub`): `best_fit_decreasing_3d.py`,
-  `extreme_points_3d.py`, `layer_based_3d.py`, `improvement.py`,
-  `exact_reference.py`, `metaheuristics.py`.
+- Motores compartidos generalizables:
+  - `_constructive.py`, `_constructive_runner.py`: colocación constructiva.
+  - `_extreme_points.py`: puntos extremos y best-fit.
+  - `_maximal_spaces.py`: espacios vacíos máximos (guillotina).
+  - `_compaction.py`, `_improvement_ops.py`, `_improvement_runner.py`: mejora local.
+  - `_metaheuristic_core.py`, `_metaheuristic_searches.py`: metaheurísticas 3D-BPP.
+- **29 algoritmos implementados** (constructivos, mejora, híbridos, metaheurísticas, cartonization, palletization, stacking),
+  registrados en `registry.py`. Catálogo completo en `docs/algorithm_catalog.md`.
+- Metadatos `future` / `adapter`: métodos exactos, online/DRL, adaptadores externos, etc.
 
 ### `adapters/`
 Adaptadores a motores externos. `ExternalAdapter` comparte interfaz con los
@@ -60,29 +66,53 @@ algoritmos locales pero su ejecución depende de una dependencia/motor externo.
 Si no está disponible, `run` lanza `AdapterUnavailableError` con instrucciones.
 
 ### `services/`
-Orquestan registro + validador + métricas: `PackingService`,
-`ValidationService`, `BenchmarkService`, `MetadataService`,
-`AlgorithmCatalogService`.
+Orquestan registro + validador + métricas:
+
+| Servicio | Rol |
+|----------|-----|
+| `AlgorithmExecutionService` | Ejecuta un algoritmo por nombre (`/algorithms/{name}/execute`) |
+| `AlgorithmInputService` | Esquemas de entrada, ejemplos y endpoint por algoritmo |
+| `AlgorithmCatalogService` | Listado y detalle del catálogo |
+| `PackingService` | Endpoints legacy `/pack/*` |
+| `ValidationService` | Validación independiente |
+| `BenchmarkService` | Comparación multi-algoritmo |
+| `DataspaceService` | Descriptores publicables (`/services`) |
+| `MetadataService` | Metadatos del servicio |
 
 ### `api/`
 FastAPI: `main.py` (app + manejadores de errores de dominio → HTTP) y routers en
-`routes/`.
+`routes/`. Patrón canónico de ejecución: `algorithm_execute.py`.
 
 ### `utils/`
 `logging.py`, `timing.py` (incluye `Deadline` para futuros límites de tiempo),
 `errors.py` (jerarquía de errores mapeada a códigos HTTP).
 
-## Flujo de una petición de packing
+## Flujo de ejecución por algoritmo (canónico)
+
+```
+PackAlgorithmInput | CartonizationAlgorithmInput (JSON)
+  → AlgorithmExecutionService.execute(name, input)
+  → schemas → PackingProblem (expande quantity, normaliza)
+  → AlgorithmRegistry.execute(name, problem)
+  → PackingAlgorithm.run()                # heurística / mejora / cartonization
+  → build_solution()                      # valida + métricas + metadata
+  → AlgorithmExecuteResponse (JSON)     # solution + cartonization opcional
+```
+
+## Flujo legacy (`/pack/*`)
 
 ```
 PackRequest (JSON)
-  → schemas.PackRequest.to_problem()      # expande quantity, normaliza
+  → schemas.PackRequest.to_problem()
   → PackingService.pack()
   → AlgorithmRegistry.execute(name, problem)
-  → PackingAlgorithm.run()                # heurística constructiva
-  → build_solution()                      # valida + métricas + metadata
+  → build_solution()
   → PackingSolution (JSON)
 ```
+
+Los endpoints `/pack/3d-bpp`, `/pack/container-loading` y `/pack/cartonization`
+permanecen por retrocompatibilidad; el patrón preferido es
+`/algorithms/{name}/execute`.
 
 ## Principios de diseño
 
@@ -90,6 +120,9 @@ PackRequest (JSON)
   arte): el validador es independiente del algoritmo que generó la solución.
 - **Homogeneidad**: toda salida pasa por `build_solution`, de modo que motores
   internos y externos son directamente comparables.
+- **Generalización**: motores compartidos (`_constructive_runner`, `_improvement_runner`,
+  `_maximal_spaces`) parametrizados por instancia arbitraria; sin acoplamiento a
+  casos demo concretos.
 - **Extensibilidad sin sobreingeniería**: añadir un algoritmo = crear una clase
   con su `metadata` y registrarla; añadir un motor externo = un adaptador.
 - **Trazabilidad**: cada solución incluye `execution_metadata` (algoritmo,

@@ -17,6 +17,14 @@ curl -X POST http://localhost:8000/api/v1/algorithms/heuristic_3d_bpp_v1/execute
   -d @examples/algorithm_execute_3d_bpp.json
 ```
 
+Metaheurística 3D-BPP (requiere `random_seed` / `iterations` en `parameters` o body):
+
+```bash
+curl -X POST http://localhost:8000/api/v1/algorithms/simulated_annealing_3d_bpp/execute \
+  -H "Content-Type: application/json" \
+  -d @examples/algorithm_execute_3d_bpp.json
+```
+
 ```json
 {
   "problem_type": "3D_BPP",
@@ -40,9 +48,35 @@ Ejemplos adicionales:
 | `SINGLE_CONTAINER_LOADING` | `algorithm_execute_single_container.json` | `best_fit_decreasing_3d` |
 | Mejora local | `algorithm_execute_improvement.json` | `solution_compaction` |
 
-La respuesta tiene la misma forma que `POST /api/v1/pack/3d-bpp` (`PackResponse`).
+La respuesta es siempre **`AlgorithmExecuteResponse`** (salida homogénea):
 
-### Cartonization
+```json
+{
+  "request_id": "example-001",
+  "algorithm_name": "heuristic_3d_bpp_v1",
+  "problem_type": "3D_BPP",
+  "status": "success",
+  "solution": {
+    "algorithm_name": "heuristic_3d_bpp_v1",
+    "problem_type": "3D_BPP",
+    "packed_items": [],
+    "metrics": { "volume_utilization": 0.7, "items_packed": 12 },
+    "validation_report": { "is_valid": true, "violations": [] },
+    "execution_metadata": { "algorithm": "heuristic_3d_bpp_v1" }
+  },
+  "cartonization": null
+}
+```
+
+Para cartonization, `cartonization` incluye `selected_box_id` y `evaluated_boxes`; la solución de packing va en `solution`.
+
+Consulta el contrato de cada algoritmo:
+
+```bash
+GET /api/v1/algorithms/heuristic_3d_bpp_v1
+GET /api/v1/algorithms/heuristic_3d_bpp_v1/input-example?problem_type=3D_BPP
+```
+
 
 Request (`examples/algorithm_execute_cartonization.json`):
 
@@ -62,7 +96,7 @@ curl -X POST http://localhost:8000/api/v1/algorithms/smallest_feasible_box/execu
 }
 ```
 
-La respuesta tiene la misma forma que `POST /api/v1/pack/cartonization` (`CartonizationResponse`).
+La respuesta usa la misma envoltura `AlgorithmExecuteResponse`; `cartonization.selected_box_id` indica la caja elegida.
 
 ---
 
@@ -250,6 +284,8 @@ El JSON solo necesita `problem_type`, `profile`, `items`/`containers`/`boxes` se
 |-------|--------------|
 | `3D_BPP` constructivo | `examples/benchmark_3d_bpp_profile_request.json` |
 | `3D_BPP` híbrido | `examples/benchmark_hybrid_request.json` |
+| `3D_BPP` mejora | `examples/benchmark_improvement_request.json` |
+| `3D_BPP` metaheurísticas | `examples/benchmark_metaheuristic_request.json` |
 | `CONTAINER_LOADING` | `examples/benchmark_container_loading_request.json` |
 | `CARTONIZATION` | `examples/benchmark_cartonization_request.json` |
 | `SINGLE_CONTAINER_LOADING` | `examples/benchmark_single_container_request.json` |

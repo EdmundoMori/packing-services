@@ -8,15 +8,15 @@ from pydantic import ValidationError
 
 from ..algorithms.registry import AlgorithmRegistry, get_default_registry
 from ..domain.enums import ProblemType
-from ..domain.models import PackingSolution
 from ..schemas.requests import CartonizationAlgorithmInput, PackAlgorithmInput
-from ..schemas.responses import CartonizationResponse
+from ..schemas.responses import AlgorithmExecuteResponse, CartonizationResponse
 from ..utils.errors import (
     AlgorithmNotExecutableError,
     AlgorithmNotFoundError,
     InvalidInputError,
 )
 from ..utils.logging import get_logger
+from .algorithm_input_service import AlgorithmInputService
 from .cartonization_service import CartonizationService
 from .packing_service import PackingService
 
@@ -28,19 +28,30 @@ class AlgorithmExecutionService:
 
     def __init__(self, registry: AlgorithmRegistry | None = None) -> None:
         self.registry = registry or get_default_registry()
+        self._input = AlgorithmInputService(self.registry)
         self._packing = PackingService(self.registry)
         self._cartonization = CartonizationService(self.registry)
 
-    @staticmethod
-    def _is_cartonization_only(problem_types: list[ProblemType]) -> bool:
-        return problem_types == [ProblemType.CARTONIZATION]
+    def _resolve_branch(self, algorithm_name: str, payload: dict[str, Any]) -> str:
+        meta = self.registry.get_metadata(algorithm_name)
+        pack_types = self._input.pack_compatible_types(meta)
+        has_carton = self._input.supports_cartonization(meta)
 
-    def _pack_compatible_types(self, problem_types: list[ProblemType]) -> list[ProblemType]:
-        return [pt for pt in problem_types if pt != ProblemType.CARTONIZATION]
+        if has_carton and not pack_types:
+            return "cartonization"
+        if not has_carton:
+            return "pack"
 
-    def execute(
-        self, algorithm_name: str, payload: dict[str, Any]
-    ) -> PackingSolution | CartonizationResponse:
+        explicit = payload.get("problem_type")
+        if explicit == ProblemType.CARTONIZATION.value:
+            return "cartonization"
+        if explicit in {pt.value for pt in pack_types}:
+            return "pack"
+        if "boxes" in payload and "containers" not in payload:
+            return "cartonization"
+        return "pack"
+
+    def execute(self, algorithm_name: str, payload: dict[str, Any]) -> AlgorithmExecuteResponse:
         if not self.registry.has(algorithm_name):
             raise AlgorithmNotFoundError(f"Algoritmo no encontrado: {algorithm_name}")
         if not self.registry.is_executable(algorithm_name):
@@ -50,23 +61,23 @@ class AlgorithmExecutionService:
                 f"(estado: {status})."
             )
 
-        meta = self.registry.get_metadata(algorithm_name)
-        if self._is_cartonization_only(meta.problem_types):
+        branch = self._resolve_branch(algorithm_name, payload)
+        if branch == "cartonization":
             return self._execute_cartonization(algorithm_name, payload)
-
-        allowed = self._pack_compatible_types(meta.problem_types)
-        if not allowed:
-            raise InvalidInputError(
-                f"El algoritmo '{algorithm_name}' no tiene tipos de problema ejecutables."
-            )
-        return self._execute_pack(algorithm_name, payload, allowed)
+        return self._execute_pack(algorithm_name, payload)
 
     def _execute_pack(
         self,
         algorithm_name: str,
         payload: dict[str, Any],
-        allowed: list[ProblemType],
-    ) -> PackingSolution:
+    ) -> AlgorithmExecuteResponse:
+        meta = self.registry.get_metadata(algorithm_name)
+        allowed = self._input.pack_compatible_types(meta)
+        if not allowed:
+            raise InvalidInputError(
+                f"El algoritmo '{algorithm_name}' no admite entrada de packing."
+            )
+
         try:
             data = PackAlgorithmInput.model_validate(payload)
         except ValidationError as exc:
@@ -83,11 +94,14 @@ class AlgorithmExecutionService:
             pack_request.problem_type.value,
             pack_request.request_id,
         )
-        return self._packing.pack(pack_request)
+        solution = self._packing.pack(pack_request)
+        return AlgorithmExecuteResponse.from_pack(solution)
 
     def _execute_cartonization(
-        self, algorithm_name: str, payload: dict[str, Any]
-    ) -> CartonizationResponse:
+        self,
+        algorithm_name: str,
+        payload: dict[str, Any],
+    ) -> AlgorithmExecuteResponse:
         try:
             data = CartonizationAlgorithmInput.model_validate(payload)
         except ValidationError as exc:
@@ -98,6 +112,7 @@ class AlgorithmExecutionService:
             algorithm_name,
             data.request_id,
         )
-        return self._cartonization.cartonize(
+        response = self._cartonization.cartonize(
             data.to_cartonization_request(algorithm_name)
         )
+        return AlgorithmExecuteResponse.from_cartonization(response)

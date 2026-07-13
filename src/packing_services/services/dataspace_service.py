@@ -17,6 +17,12 @@ from ..algorithms.metadata import DEFAULT_METRICS
 from ..algorithms.registry import AlgorithmRegistry, get_default_registry
 from ..domain.enums import AlgorithmStatus, ProblemType
 from ..schemas.responses import DataspaceCatalogResponse, ServiceDescriptor
+from .algorithm_input_service import (
+    CARTONIZATION_INPUT_SCHEMA,
+    EXECUTE_OUTPUT_SCHEMA,
+    PACK_INPUT_SCHEMA,
+    AlgorithmInputService,
+)
 
 _TRACEABILITY = [
     "execution_metadata (algoritmo, familia, parámetros, semilla, versión)",
@@ -33,6 +39,7 @@ class DataspaceService:
 
     def __init__(self, registry: AlgorithmRegistry | None = None) -> None:
         self.registry = registry or get_default_registry()
+        self._input = AlgorithmInputService(self.registry)
 
     def _implemented_names(self, problem_type: ProblemType) -> list[str]:
         return [
@@ -41,6 +48,44 @@ class DataspaceService:
                 problem_type=problem_type, status=AlgorithmStatus.IMPLEMENTED
             )
         ]
+
+    def _algorithm_service_descriptors(self) -> list[ServiceDescriptor]:
+        """Un descriptor publicable por algoritmo ejecutable."""
+
+        descriptors: list[ServiceDescriptor] = []
+        for meta in self.registry.list_metadata():
+            if not meta.is_executable:
+                continue
+            primary_type = meta.problem_types[0].value
+            descriptors.append(
+                ServiceDescriptor(
+                    service_name=f"{meta.display_name} Algorithm Service",
+                    service_version=SERVICE_VERSION,
+                    problem_type=primary_type,
+                    description=meta.description or meta.display_name,
+                    algorithms=[meta.name],
+                    engine=(
+                        f"external ({meta.external_engine})"
+                        if meta.external_engine
+                        else f"internal ({meta.algorithm_family.value})"
+                    ),
+                    license="MIT",
+                    input_schema=self._input.input_schema_for(meta),
+                    output_schema=EXECUTE_OUTPUT_SCHEMA,
+                    supported_constraints=_COMMON_CONSTRAINTS,
+                    unsupported_constraints=[
+                        c.value for c in meta.unsupported_constraints
+                    ],
+                    metrics=meta.metrics or DEFAULT_METRICS,
+                    execution_endpoint=self._input.execution_endpoint(meta.name),
+                    validation_endpoint="POST /api/v1/validate",
+                    metadata_endpoint=f"GET /api/v1/algorithms/{meta.name}",
+                    traceability=_TRACEABILITY,
+                    limitations=meta.limitations
+                    or ["Heurístico; ver catálogo para limitaciones específicas"],
+                )
+            )
+        return descriptors
 
     def catalog(self) -> DataspaceCatalogResponse:
         services = [
@@ -52,8 +97,8 @@ class DataspaceService:
                 algorithms=self._implemented_names(ProblemType.THREE_D_BPP),
                 engine="internal (constructive heuristics)",
                 license="MIT",
-                input_schema="PackRequest",
-                output_schema="PackingSolution",
+                input_schema=PACK_INPUT_SCHEMA,
+                output_schema=EXECUTE_OUTPUT_SCHEMA,
                 supported_constraints=_COMMON_CONSTRAINTS,
                 unsupported_constraints=[
                     "fragility",
@@ -63,7 +108,7 @@ class DataspaceService:
                     "unloading_sequence",
                 ],
                 metrics=DEFAULT_METRICS,
-                execution_endpoint="POST /api/v1/pack/3d-bpp",
+                execution_endpoint="POST /api/v1/algorithms/{algorithm_name}/execute",
                 validation_endpoint="POST /api/v1/validate",
                 metadata_endpoint="GET /api/v1/algorithms",
                 traceability=_TRACEABILITY,
@@ -77,8 +122,8 @@ class DataspaceService:
                 algorithms=self._implemented_names(ProblemType.CONTAINER_LOADING),
                 engine="internal (weight-aware / single-container)",
                 license="MIT",
-                input_schema="ContainerLoadingRequest",
-                output_schema="PackingSolution",
+                input_schema=PACK_INPUT_SCHEMA,
+                output_schema=EXECUTE_OUTPUT_SCHEMA,
                 supported_constraints=_COMMON_CONSTRAINTS,
                 unsupported_constraints=[
                     "center_of_gravity",
@@ -87,7 +132,7 @@ class DataspaceService:
                     "fragility",
                 ],
                 metrics=DEFAULT_METRICS,
-                execution_endpoint="POST /api/v1/pack/container-loading",
+                execution_endpoint="POST /api/v1/algorithms/{algorithm_name}/execute",
                 validation_endpoint="POST /api/v1/validate",
                 metadata_endpoint="GET /api/v1/algorithms",
                 traceability=_TRACEABILITY,
@@ -103,17 +148,70 @@ class DataspaceService:
                 algorithms=self._implemented_names(ProblemType.CARTONIZATION),
                 engine="internal (box selection + extreme points)",
                 license="MIT",
-                input_schema="CartonizationRequest",
-                output_schema="CartonizationResponse",
+                input_schema=CARTONIZATION_INPUT_SCHEMA,
+                output_schema=EXECUTE_OUTPUT_SCHEMA,
                 supported_constraints=_COMMON_CONSTRAINTS,
                 unsupported_constraints=["fragility", "load_bearing", "multi_box"],
                 metrics=DEFAULT_METRICS,
-                execution_endpoint="POST /api/v1/pack/cartonization",
+                execution_endpoint="POST /api/v1/algorithms/{algorithm_name}/execute",
                 validation_endpoint="POST /api/v1/validate",
                 metadata_endpoint="GET /api/v1/algorithms",
                 traceability=_TRACEABILITY,
                 limitations=[
-                    "Selecciona una sola caja; motor principal futuro: BoxPacker",
+                    "Selecciona una sola caja en algoritmos single-box; multi_box disponible",
+                ],
+            ),
+            ServiceDescriptor(
+                service_name="Palletization Service",
+                service_version=SERVICE_VERSION,
+                problem_type=ProblemType.PALLETIZATION.value,
+                description="Empaqueta ítems en pallets (capas o columnas).",
+                algorithms=self._implemented_names(ProblemType.PALLETIZATION),
+                engine="internal (layer-based / stack-based)",
+                license="MIT",
+                input_schema=PACK_INPUT_SCHEMA,
+                output_schema=EXECUTE_OUTPUT_SCHEMA,
+                supported_constraints=_COMMON_CONSTRAINTS,
+                unsupported_constraints=[
+                    "basic_stability",
+                    "load_bearing",
+                    "center_of_gravity",
+                    "advanced_stability",
+                ],
+                metrics=DEFAULT_METRICS,
+                execution_endpoint="POST /api/v1/algorithms/{algorithm_name}/execute",
+                validation_endpoint="POST /api/v1/validate",
+                metadata_endpoint="GET /api/v1/algorithms",
+                traceability=_TRACEABILITY,
+                limitations=[
+                    "Baseline local; motor avanzado futuro: PackingSolver boxstacks",
+                ],
+            ),
+            ServiceDescriptor(
+                service_name="Stacking-aware Packing Service",
+                service_version=SERVICE_VERSION,
+                problem_type=ProblemType.STACKING_AWARE.value,
+                description="Empaqueta con reglas de soporte y carga máxima soportada.",
+                algorithms=self._implemented_names(ProblemType.STACKING_AWARE),
+                engine="internal (stacking-aware constructive)",
+                license="MIT",
+                input_schema=PACK_INPUT_SCHEMA,
+                output_schema=EXECUTE_OUTPUT_SCHEMA,
+                supported_constraints=_COMMON_CONSTRAINTS
+                + ["basic_stability", "load_bearing"],
+                unsupported_constraints=[
+                    "center_of_gravity",
+                    "advanced_stability",
+                    "fragility",
+                    "unloading_sequence",
+                ],
+                metrics=DEFAULT_METRICS,
+                execution_endpoint="POST /api/v1/algorithms/{algorithm_name}/execute",
+                validation_endpoint="POST /api/v1/validate",
+                metadata_endpoint="GET /api/v1/algorithms",
+                traceability=_TRACEABILITY,
+                limitations=[
+                    "Requiere max_load_on_top en ítems para load_bearing efectivo",
                 ],
             ),
             ServiceDescriptor(
@@ -154,6 +252,7 @@ class DataspaceService:
                 traceability=_TRACEABILITY,
                 limitations=["Integra motores externos solo cuando estén disponibles"],
             ),
+            *self._algorithm_service_descriptors(),
         ]
 
         return DataspaceCatalogResponse(
@@ -163,6 +262,10 @@ class DataspaceService:
             notes=[
                 "Servicios preparados para publicación; aún NO integrados en un "
                 "espacio de datos real.",
+                "Cada algoritmo implementado expone su propio endpoint: "
+                "POST /api/v1/algorithms/{algorithm_name}/execute.",
+                "Entrada homogénea: PackAlgorithmInput o CartonizationAlgorithmInput. "
+                "Salida homogénea: AlgorithmExecuteResponse.",
                 "Flujo previsto: publicar → descubrir → negociar → ejecutar → "
                 "validar → comparar → registrar evidencias.",
                 "Los motores externos (skjolber, BoxPacker, 3DContainerPacking, "

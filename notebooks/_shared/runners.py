@@ -15,6 +15,7 @@ from packing_services.schemas.requests import (
 from packing_services.schemas.responses import (
     BenchmarkResponse,
     CartonizationResponse,
+    AlgorithmExecuteResponse,
     ValidateResponse,
 )
 from packing_services.services.algorithm_execution_service import AlgorithmExecutionService
@@ -57,7 +58,7 @@ def list_algorithms(**filters):
 
 def run_algorithm_execute(
     algorithm_name: str, data: dict[str, Any]
-) -> PackingSolution | CartonizationResponse:
+) -> AlgorithmExecuteResponse:
     """Ejecuta un algoritmo por nombre (equivalente a POST /algorithms/{name}/execute)."""
 
     return AlgorithmExecutionService().execute(algorithm_name, data)

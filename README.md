@@ -4,14 +4,14 @@ Arquitectura local, modular y extensible de **servicios independientes para
 problemas de Cutting and Packing** (3D Bin Packing, Container Loading,
 Cartonization, Palletization, Stacking-aware, Validación y Benchmark).
 
-El objetivo **no** es implementar un único algoritmo, sino una **base robusta**
-donde cada algoritmo pueda registrarse, ejecutarse, validarse, compararse y
-documentarse de forma homogénea, para poder integrarse más adelante en un
-espacio de datos.
+El objetivo **no** es implementar un único algoritmo, sino una **base robusta y
+generalizable** donde cada algoritmo pueda registrarse, ejecutarse, validarse,
+compararse y documentarse de forma homogénea, para integrarse en un espacio de
+datos.
 
-Esta primera versión prioriza **heurísticas constructivas 3D-BPP + un validador
-geométrico propio** antes que metaheurísticas, métodos exactos o IA (ver
-`docs/roadmap.md`).
+Esta versión prioriza **heurísticas constructivas + mejora local + validador
+geométrico propio** como base; las **metaheurísticas 3D-BPP** ya están
+implementadas. Métodos exactos e IA siguen en roadmap (ver `docs/roadmap.md`).
 
 > Fuentes de requisitos: los dos documentos de contexto
 > *"Resumen del estado del arte sobre Packing Management Algorithms orientados a
@@ -29,25 +29,58 @@ geométrico propio** antes que metaheurísticas, métodos exactos o IA (ver
 | Validador geométrico propio | ✅ |
 | Métricas comunes | ✅ |
 | Logs de ejecución + trazabilidad | ✅ |
-| Registro homogéneo de algoritmos (catálogo completo) | ✅ |
-| `heuristic_3d_bpp_v1` (Volume First Candidate Placement) | ✅ implementado |
-| `first_fit_decreasing_3d` (First Fit Decreasing 3D) | ✅ implementado |
-| `extreme_points_3d` (Extreme Points Heuristic) | ✅ implementado |
-| `best_fit_decreasing_3d` (Best Fit Decreasing 3D) | ✅ implementado |
-| `solution_compaction` (Compaction / mejora local) | ✅ implementado |
-| `constructive_plus_local_search` (Constructivo + mejora local) | ✅ implementado |
-| **3D Bin Packing Offline Service** (`/pack/3d-bpp`) | ✅ operativo |
-| **Container Loading Service** (`/pack/container-loading`) | ✅ operativo (baseline weight-aware) |
-| **Cartonization Service** (`/pack/cartonization`) | ✅ operativo (selección de caja) |
+| Registro homogéneo de algoritmos (52 en catálogo) | ✅ |
+| **29 algoritmos implementados** (ejecutables vía `/algorithms/{name}/execute`) | ✅ |
+| **6 adaptadores** externos (`py3dbp` activo con `pip install py3dbp`) | ✅ |
 | **Packing Validation Service** (`/validate`) | ✅ operativo |
 | **Packing Benchmark / Comparison Service** (`/benchmark`) | ✅ operativo |
 | **Preparación espacio de datos** (`/services`) | ✅ descriptores publicables |
+| Endpoints legacy `/pack/*` | ✅ retrocompatibilidad |
 | API local (FastAPI) | ✅ |
-| Tests (pytest) | ✅ 93 tests |
-| Adaptador `py3dbp` | ✅ (ejecutable si se instala `py3dbp`) |
-| Adaptadores skjolber / BoxPacker / 3DContainerPacking / PackingSolver / D-Wave | 🟡 stubs documentados |
-| Palletization / Stacking-aware Services | 🔜 fase posterior (PackingSolver) |
-| Metaheurísticas, métodos exactos, DRL | 🔜 registrados como `future` |
+| Tests (pytest) | ✅ 209 tests |
+| Notebooks didácticos (00–09) | ✅ 10 notebooks |
+| Palletization / Stacking-aware | ✅ operativos |
+| Metaheurísticas 3D-BPP (7) | ✅ SA, GA, GRASP, Tabu, LNS, VNS, ACO |
+| Métodos exactos, online, DRL | 🔜 registrados como `future` |
+
+### Algoritmos implementados (29)
+
+| Grupo | Algoritmos |
+|-------|------------|
+| **3D-BPP constructivos** | `heuristic_3d_bpp_v1`, `first_fit_decreasing_3d`, `best_fit_decreasing_3d`, `extreme_points_3d`, `maximal_spaces_3d` |
+| **3D-BPP mejora / híbrido** | `solution_compaction`, `constructive_plus_local_search`, `relocation_improvement`, `swap_improvement`, `orientation_improvement`, `bin_reduction` |
+| **3D-BPP metaheurísticas** | `simulated_annealing_3d_bpp`, `genetic_algorithm_3d_bpp`, `grasp_3d_bpp`, `tabu_search_3d_bpp`, `lns_3d_bpp`, `vns_3d_bpp`, `aco_3d_bpp` |
+| **Container Loading** | `single_container_constructive`, `weight_aware_container_loading`, `wall_building_3d` |
+| **Cartonization** | `smallest_feasible_box`, `best_box_volume_utilization`, `first_fit_box`, `largest_feasible_box`, `multi_box_cartonization` |
+| **Palletization** | `layer_based_palletization`, `stack_based_palletization` |
+| **Stacking-aware** | `stacking_aware_constructive` (+ `stack_based_palletization` comparable) |
+
+Detalle, estados y tabla completa: `docs/algorithm_catalog.md`.
+Checklist de trazabilidad: `docs/algorithm_implementation_traceability.md`.
+
+---
+
+## Patrón de ejecución canónico
+
+Cada algoritmo implementado expone **un endpoint propio** con contrato homogéneo:
+
+```
+POST /api/v1/algorithms/{algorithm_name}/execute
+```
+
+- **Entrada pack** (`3D_BPP`, `CONTAINER_LOADING`, `SINGLE_CONTAINER_LOADING`, `PALLETIZATION`, `STACKING_AWARE`):
+  `PackAlgorithmInput` — sin campo `algorithm` en el body (el nombre va en la URL).
+- **Entrada cartonization**: `CartonizationAlgorithmInput`.
+- **Salida**: `AlgorithmExecuteResponse` con `solution` (`PackingSolution`) y
+  `cartonization` opcional.
+
+Metadatos enriquecidos por algoritmo:
+
+- `GET /api/v1/algorithms/{name}` — esquemas de entrada/salida y endpoint de ejecución.
+- `GET /api/v1/algorithms/{name}/input-example` — ejemplo JSON listo para ejecutar.
+
+Los endpoints `/pack/3d-bpp`, `/pack/container-loading`, `/pack/cartonization`,
+`/pack/palletization` y `/pack/stacking-aware` siguen activos por retrocompatibilidad.
 
 ---
 
@@ -60,14 +93,15 @@ packing-services/
 │   ├── schemas/        # requests / responses (contratos API, Pydantic)
 │   ├── validation/     # validador geométrico propio + violations
 │   ├── metrics/        # métricas comunes
-│   ├── algorithms/     # base, metadata, registry + catálogo completo
+│   ├── algorithms/     # base, metadata, registry + motores compartidos
 │   ├── adapters/       # base + py3dbp + stubs de motores externos
-│   ├── services/       # packing / container-loading / cartonization / validation / benchmark / dataspace / metadata / catalog
+│   ├── services/       # execution, catalog, benchmark, dataspace, ...
 │   ├── api/            # FastAPI app + routers
 │   └── utils/          # logging, timing, errors
 ├── examples/           # requests JSON ejecutables
+├── notebooks/          # 10 notebooks didácticos (00–09)
 ├── tests/              # pytest
-└── docs/               # architecture, algorithm_catalog, api_examples, roadmap, external_adapters
+└── docs/               # architecture, algorithm_catalog, api_examples, roadmap
 ```
 
 Detalles en `docs/architecture.md`.
@@ -76,8 +110,7 @@ Detalles en `docs/architecture.md`.
 
 ## Instalación
 
-Requiere **Python 3.10+** (recomendado 3.11+; el entorno de desarrollo usó
-3.10.12).
+Requiere **Python 3.10+** (recomendado 3.11+).
 
 ```bash
 python -m venv .venv
@@ -85,12 +118,10 @@ source .venv/bin/activate      # Linux/Mac
 .venv\Scripts\activate         # Windows
 
 pip install -r requirements.txt
-pip install -e .               # instala el paquete (layout src/) en modo editable
+pip install -e .               # layout src/ en modo editable
 ```
 
-> El proyecto usa **layout `src/`**. El `pip install -e .` es necesario para que
-> `packing_services` sea importable por `uvicorn` desde cualquier directorio. Si
-> prefieres no instalarlo, antepón `PYTHONPATH=src` a los comandos.
+> Si prefieres no instalar el paquete, antepón `PYTHONPATH=src` a los comandos.
 
 Adaptador opcional `py3dbp` (baseline externo):
 
@@ -104,15 +135,16 @@ pip install py3dbp
 
 ```bash
 pytest
+# o con PYTHONPATH explícito:
+PYTHONPATH=src pytest tests/ -q
 ```
 
 ---
 
-## Notebooks didácticos (presentación al tutor)
+## Notebooks didácticos
 
-Para explicar el avance de forma **visual** (sin depender de la terminal), hay
-**8 notebooks** en `notebooks/` con gráficos de layouts, comparaciones y KPIs
-filtrados para audiencia no técnica.
+**10 notebooks** (00–09) en `notebooks/` para explicar el avance de forma visual
+(layouts, benchmarks, catálogo, espacio de datos).
 
 ```bash
 pip install -e ".[notebooks]"
@@ -120,27 +152,26 @@ cd notebooks
 jupyter notebook
 ```
 
-Guía completa: `notebooks/README.md` (orden de presentación ~40 min).
+Validación de todos los notebooks:
+
+```bash
+MPLBACKEND=Agg python notebooks/_build_notebooks.py   # regenerar desde fuentes
+MPLBACKEND=Agg python notebooks/_execute_all.py       # ejecutar 00→09
+```
+
+Guía: `notebooks/README.md`.
 
 ---
 
 ## Levantar la API local
 
-Deja este proceso **corriendo en una terminal** (no lo cierres) y usa `curl`
-desde **otra** terminal.
-
 ```bash
-# Si hiciste `pip install -e .`:
 uvicorn packing_services.api.main:app --reload
-
-# Si NO instalaste el paquete:
+# sin pip install -e .:
 PYTHONPATH=src uvicorn packing_services.api.main:app --reload
 ```
 
-Verás una línea como `Uvicorn running on http://127.0.0.1:8000`. Mientras no
-aparezca, `curl` a `localhost:8000` dará `Connection refused`.
-
-Docs interactivas en `http://localhost:8000/docs` (usa `http://`, no `https://`).
+Docs interactivas: `http://localhost:8000/docs`
 
 ### Ejemplos con curl
 
@@ -151,39 +182,61 @@ curl -X GET http://localhost:8000/api/v1/algorithms
 
 curl -X GET "http://localhost:8000/api/v1/algorithms?status=implemented"
 
-curl -X POST http://localhost:8000/api/v1/pack/3d-bpp \
+# Ejecución canónica por algoritmo
+curl -X POST http://localhost:8000/api/v1/algorithms/heuristic_3d_bpp_v1/execute \
   -H "Content-Type: application/json" \
-  -d @examples/3d_bpp_basic_request.json
+  -d @examples/algorithm_execute_3d_bpp.json
 
-curl -X POST http://localhost:8000/api/v1/pack/container-loading \
+curl -X POST http://localhost:8000/api/v1/algorithms/weight_aware_container_loading/execute \
   -H "Content-Type: application/json" \
-  -d @examples/container_loading_request.json
+  -d @examples/algorithm_execute_container_loading.json
 
-curl -X POST http://localhost:8000/api/v1/pack/cartonization \
+curl -X POST http://localhost:8000/api/v1/algorithms/smallest_feasible_box/execute \
   -H "Content-Type: application/json" \
-  -d @examples/cartonization_request.json
+  -d @examples/algorithm_execute_cartonization.json
 
+curl -X POST http://localhost:8000/api/v1/algorithms/solution_compaction/execute \
+  -H "Content-Type: application/json" \
+  -d @examples/algorithm_execute_improvement.json
+
+curl -X POST http://localhost:8000/api/v1/algorithms/multi_box_cartonization/execute \
+  -H "Content-Type: application/json" \
+  -d @examples/algorithm_execute_cartonization.json
+
+curl -X POST http://localhost:8000/api/v1/algorithms/wall_building_3d/execute \
+  -H "Content-Type: application/json" \
+  -d @examples/algorithm_execute_container_loading.json
+
+curl -X POST http://localhost:8000/api/v1/pack/palletization \
+  -H "Content-Type: application/json" \
+  -d @examples/palletization_request.json
+
+curl -X POST http://localhost:8000/api/v1/pack/stacking-aware \
+  -H "Content-Type: application/json" \
+  -d @examples/stacking_aware_request.json
+
+curl -X POST http://localhost:8000/api/v1/algorithms/layer_based_palletization/execute \
+  -H "Content-Type: application/json" \
+  -d @examples/algorithm_execute_palletization.json
+
+curl -X POST http://localhost:8000/api/v1/algorithms/stacking_aware_constructive/execute \
+  -H "Content-Type: application/json" \
+  -d @examples/algorithm_execute_stacking_aware.json
+
+curl -X POST http://localhost:8000/api/v1/algorithms/simulated_annealing_3d_bpp/execute \
+  -H "Content-Type: application/json" \
+  -d @examples/algorithm_execute_3d_bpp.json
+
+# Validación y benchmark
 curl -X POST http://localhost:8000/api/v1/validate \
   -H "Content-Type: application/json" \
   -d @examples/validation_request_invalid_overlap.json
 
 curl -X POST http://localhost:8000/api/v1/benchmark \
   -H "Content-Type: application/json" \
-  -d @examples/benchmark_request.json
+  -d @examples/benchmark_metaheuristic_request.json
 
-curl -X POST http://localhost:8000/api/v1/benchmark \
-  -H "Content-Type: application/json" \
-  -d @examples/benchmark_container_loading_request.json
-
-curl -X POST http://localhost:8000/api/v1/benchmark \
-  -H "Content-Type: application/json" \
-  -d @examples/benchmark_cartonization_request.json
-
-curl -X POST http://localhost:8000/api/v1/benchmark \
-  -H "Content-Type: application/json" \
-  -d @examples/benchmark_hybrid_request.json
-
-# Descriptores de servicios listos para un espacio de datos
+# Descriptores para espacio de datos
 curl -X GET http://localhost:8000/api/v1/services
 ```
 
@@ -197,17 +250,19 @@ Más ejemplos en `docs/api_examples.md`.
 |--------|------|-------------|
 | GET | `/health` | Estado del servicio |
 | GET | `/api/v1/metadata` | Metadatos del servicio |
-| GET | `/api/v1/services` | Descriptores de servicios para espacio de datos |
-| GET | `/api/v1/algorithms` | Catálogo de algoritmos (filtros: `problem_type`, `family`, `status`, `supported_constraint`) |
-| GET | `/api/v1/algorithms/{name}` | Metadatos de un algoritmo |
-| POST | `/api/v1/pack/3d-bpp` | Ejecuta un algoritmo 3D-BPP |
-| POST | `/api/v1/pack/container-loading` | Carga de contenedores/camiones (weight-aware) |
-| POST | `/api/v1/pack/cartonization` | Selección de caja para un pedido |
+| GET | `/api/v1/services` | Descriptores para espacio de datos |
+| GET | `/api/v1/algorithms` | Catálogo (filtros: `problem_type`, `family`, `status`, …) |
+| GET | `/api/v1/algorithms/{name}` | Metadatos + esquemas + endpoint de ejecución |
+| GET | `/api/v1/algorithms/{name}/input-example` | Ejemplo de entrada JSON |
+| **POST** | **`/api/v1/algorithms/{name}/execute`** | **Ejecución canónica por algoritmo** |
+| POST | `/api/v1/pack/3d-bpp` | Legacy: 3D-BPP |
+| POST | `/api/v1/pack/container-loading` | Legacy: Container Loading |
+| POST | `/api/v1/pack/palletization` | Legacy: Palletization |
+| POST | `/api/v1/pack/stacking-aware` | Legacy: Stacking-aware |
 | POST | `/api/v1/validate` | Valida una solución |
-| POST | `/api/v1/benchmark` | Compara varios algoritmos (3D-BPP, Container Loading o Cartonization) |
+| POST | `/api/v1/benchmark` | Compara varios algoritmos |
 
-Los endpoints de Palletization y Stacking-aware están en el roadmap
-(`docs/roadmap.md`), previstos vía el adaptador PackingSolver.
+Palletization y Stacking-aware operativos con heurísticas locales (`docs/roadmap.md`).
 
 ---
 
@@ -223,55 +278,36 @@ Los endpoints de Palletization y Stacking-aware están en el roadmap
 ## Limitaciones actuales
 
 - Los algoritmos iniciales son **heurísticos, no óptimos**.
-- La **estabilidad física avanzada** no está completamente soportada (hay una
-  comprobación básica de superficie de soporte en el validador).
-- **Fragilidad, compatibilidad, secuencia de descarga, load-bearing y centro de
-  gravedad** quedan para fases posteriores.
-- **Container Loading** y **Cartonization** ya están operativos como baseline
-  local; **Palletization y Stacking-aware** se implementarán después mediante
-  adaptadores o motores específicos.
-- **Cartonization** selecciona por ahora **una sola caja** (no multi-caja).
-- Los **repositorios externos** se integran mediante adaptadores, **sin
-  modificar** su código.
-- **Métodos exactos, metaheurísticas, híbridos y DRL** quedan como fases futuras.
-- El proyecto **aún no está integrado en un espacio de datos**; solo queda
-  preparado mediante metadatos, entradas/salidas estandarizadas y trazabilidad.
+- Estabilidad física avanzada, fragilidad, load-bearing y centro de gravedad:
+  fases posteriores.
+- **Cartonization** selecciona una sola caja en algoritmos single-box; `multi_box_cartonization` permite varias cajas por pedido.
+- Motores externos vía adaptadores, **sin modificar** sus repositorios.
+- Integración real en espacio de datos: preparada vía metadatos y `/services`.
 
 ---
 
 ## Próximos pasos (resumen)
 
-Detalle completo en `docs/roadmap.md`.
+Detalle en `docs/roadmap.md`.
 
-**Corto plazo — mejorar calidad y cerrar grupos de servicio**
-- `maximal_spaces_3d` (espacios vacíos máximos) para mayor calidad 3D-BPP.
-- Heurísticas de mejora (`relocation_improvement`, `swap_improvement`,
-  `solution_compaction`, `bin_reduction`) e híbrido constructivo + búsqueda local.
-- **Palletization** y **Stacking-aware** como servicios operativos (reglas de
-  soporte, carga máxima y capas), previstos vía `packingsolver_adapter`.
-- Cartonization **multi-caja** (usar más de una caja por pedido).
+**Corto plazo**
+- Activar adaptadores externos reales (PackingSolver, skjolber, BoxPacker, EB-AFIT).
 
-**Medio plazo — motores externos y restricciones avanzadas**
-- Activar adaptadores reales: `skjolber`, `BoxPacker`, `3DContainerPacking`
-  (EB-AFIT), `PackingSolver`, `D-Wave`, sin modificar sus repositorios.
-- Restricciones avanzadas: distribución de peso, centro de gravedad, estabilidad
-  avanzada, `load_bearing`, fragilidad y secuencia de carga/descarga.
-
-**Largo plazo — optimización avanzada e integración**
-- Metaheurísticas (GA, Tabu, SA, GRASP, VNS, LNS), métodos exactos (MIP, CP-SAT)
-  y enfoques híbridos, con trazabilidad de parámetros/semilla/tiempo.
-- Online 3D-BPP y DRL (`drl_policy_3d_bpp`).
-- **Integración real en un espacio de datos**: publicar → descubrir → negociar →
-  ejecutar → validar → comparar → registrar evidencias (hoy solo *preparado* vía
-  `GET /api/v1/services`).
-- Empaquetado con **Docker** y despliegue por microservicios.
+**Medio / largo plazo**
+- Restricciones avanzadas (peso, secuencia, fragilidad).
+- Metaheurísticas, métodos exactos, DRL.
+- Integración en espacio de datos y despliegue Docker.
 
 ---
 
 ## Documentación
 
-- `docs/architecture.md` — arquitectura y flujo de datos.
-- `docs/algorithm_catalog.md` — catálogo completo de algoritmos y estados.
-- `docs/api_examples.md` — ejemplos de request/response.
-- `docs/roadmap.md` — fases y evolución por servicio.
-- `docs/external_adapters.md` — estrategia de integración de motores externos.
+| Documento | Contenido |
+|-----------|-----------|
+| `docs/architecture.md` | Capas, flujos, principios de diseño |
+| `docs/algorithm_catalog.md` | Catálogo completo (52 algoritmos, 29 implementados) |
+| `docs/algorithm_implementation_traceability.md` | Checklist por algoritmo |
+| `docs/api_examples.md` | Ejemplos request/response (incl. `/execute`) |
+| `docs/roadmap.md` | Fases y evolución |
+| `docs/external_adapters.md` | Integración de motores externos |
+| `notebooks/README.md` | Guía de presentación didáctica |

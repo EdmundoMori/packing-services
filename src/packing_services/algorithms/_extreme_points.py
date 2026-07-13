@@ -44,7 +44,7 @@ from ..domain.models import (
     Point3D,
     UnpackedItem,
 )
-from ._constructive import _sort_key
+from ._constructive import order_items
 
 
 @dataclass
@@ -115,7 +115,7 @@ class ExtremePointPacker:
         allow_rotation = constraints.allow_rotation
 
         states = [_BinState(container=c) for c in problem.containers]
-        ordered = sorted(problem.items, key=lambda it: _sort_key(it, self.sort_strategy))
+        ordered = order_items(problem.items, self.sort_strategy)
 
         packed: list[PackedItem] = []
         unpacked: list[UnpackedItem] = []

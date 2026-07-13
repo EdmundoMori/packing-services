@@ -1,0 +1,18 @@
+{
+  "request_id": "pallet-001",
+  "problem_type": "PALLETIZATION",
+  "containers": [
+    { "id": "PALLET_1", "length": 120, "width": 80, "height": 150, "max_weight": 1000 }
+  ],
+  "items": [
+    { "id": "BOX_A", "length": 40, "width": 30, "height": 25, "weight": 8, "quantity": 4, "allowed_orientations": "all" },
+    { "id": "BOX_B", "length": 35, "width": 35, "height": 20, "weight": 6, "quantity": 3, "allowed_orientations": "all" }
+  ],
+  "constraints": {
+    "non_overlap": true,
+    "containment": true,
+    "allow_rotation": true,
+    "max_weight": true
+  },
+  "parameters": { "sort_strategy": "volume_desc" }
+}

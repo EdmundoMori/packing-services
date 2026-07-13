@@ -30,6 +30,11 @@ def test_implemented_algorithms_present():
     assert "first_fit_decreasing_3d" in names
     assert "solution_compaction" in names
     assert "constructive_plus_local_search" in names
+    assert "maximal_spaces_3d" in names
+    assert "relocation_improvement" in names
+    assert "swap_improvement" in names
+    assert "orientation_improvement" in names
+    assert "bin_reduction" in names
     assert "first_fit_box" in names
     assert "largest_feasible_box" in names
 
@@ -50,10 +55,10 @@ def test_future_algorithm_not_executable():
         problem_type="3D_BPP",
         containers=[Container(id="C1", length=10, width=10, height=10)],
         items=[Item(id="I1", length=5, width=5, height=5)],
-        algorithm=AlgorithmConfig(name="genetic_algorithm_3d_bpp"),
+        algorithm=AlgorithmConfig(name="online_3d_bpp_heuristic"),
     )
     with pytest.raises(AlgorithmNotExecutableError):
-        default_registry.execute("genetic_algorithm_3d_bpp", problem)
+        default_registry.execute("online_3d_bpp_heuristic", problem)
 
 
 def test_stub_adapter_raises_unavailable():
@@ -78,6 +83,8 @@ def test_filter_by_family_and_constraint():
         family=AlgorithmFamily.METAHEURISTIC
     )
     assert all(m.algorithm_family == AlgorithmFamily.METAHEURISTIC for m in metaheuristics)
+    assert len(metaheuristics) == 7
+    assert all(m.status == AlgorithmStatus.IMPLEMENTED for m in metaheuristics)
 
     weight_aware = default_registry.list_metadata(
         supported_constraint=Constraint.MAX_WEIGHT

@@ -19,11 +19,27 @@ _PROFILE_ENGINES: dict[tuple[str, str], list[dict[str, Any]]] = {
         {"name": "heuristic_3d_bpp_v1", "parameters": {"sort_strategy": "volume_desc"}},
         {"name": "first_fit_decreasing_3d", "parameters": {"sort_strategy": "volume_desc"}},
         {"name": "extreme_points_3d", "parameters": {"sort_strategy": "volume_desc"}},
+        {"name": "maximal_spaces_3d", "parameters": {"sort_strategy": "volume_desc"}},
         {"name": "best_fit_decreasing_3d", "parameters": {"sort_strategy": "volume_desc"}},
         {
             "name": "py3dbp_adapter",
             "parameters": {"bigger_first": True, "distribute_items": True},
             "optional": True,
+        },
+    ],
+    ("3D_BPP", "improvement"): [
+        {"name": "best_fit_decreasing_3d", "parameters": {"sort_strategy": "volume_desc"}},
+        {
+            "name": "relocation_improvement",
+            "parameters": {"base_algorithm": "best_fit_decreasing_3d", "relocation_passes": 2},
+        },
+        {
+            "name": "swap_improvement",
+            "parameters": {"base_algorithm": "best_fit_decreasing_3d", "improvement_passes": 1},
+        },
+        {
+            "name": "orientation_improvement",
+            "parameters": {"base_algorithm": "best_fit_decreasing_3d", "improvement_passes": 1},
         },
     ],
     ("3D_BPP", "hybrid"): [
@@ -41,10 +57,41 @@ _PROFILE_ENGINES: dict[tuple[str, str], list[dict[str, Any]]] = {
             },
         },
     ],
+    ("3D_BPP", "metaheuristic"): [
+        {"name": "best_fit_decreasing_3d", "parameters": {"sort_strategy": "volume_desc"}},
+        {
+            "name": "simulated_annealing_3d_bpp",
+            "parameters": {
+                "base_algorithm": "best_fit_decreasing_3d",
+                "iterations": 20,
+                "random_seed": 42,
+                "time_limit_seconds": 10,
+            },
+        },
+        {
+            "name": "grasp_3d_bpp",
+            "parameters": {
+                "base_algorithm": "best_fit_decreasing_3d",
+                "iterations": 15,
+                "random_seed": 42,
+                "alpha": 0.3,
+            },
+        },
+        {
+            "name": "lns_3d_bpp",
+            "parameters": {
+                "base_algorithm": "best_fit_decreasing_3d",
+                "iterations": 15,
+                "random_seed": 42,
+                "destroy_fraction": 0.25,
+            },
+        },
+    ],
     # --- Container Loading ---
     ("CONTAINER_LOADING", "constructive"): [
         {"name": "single_container_constructive", "parameters": {"sort_strategy": "volume_desc"}},
         {"name": "weight_aware_container_loading", "parameters": {"sort_strategy": "weight_desc"}},
+        {"name": "wall_building_3d", "parameters": {"sort_strategy": "volume_desc"}},
         {"name": "extreme_points_3d", "parameters": {"sort_strategy": "volume_desc"}},
     ],
     ("CONTAINER_LOADING", "improvement"): [
@@ -72,11 +119,30 @@ _PROFILE_ENGINES: dict[tuple[str, str], list[dict[str, Any]]] = {
         {"name": "first_fit_box", "parameters": {"sort_strategy": "volume_desc"}},
         {"name": "largest_feasible_box", "parameters": {"sort_strategy": "volume_desc"}},
     ],
+    ("CARTONIZATION", "multi_box"): [
+        {
+            "name": "multi_box_cartonization",
+            "parameters": {"sort_strategy": "volume_desc", "box_selection": "smallest_first"},
+        },
+        {"name": "smallest_feasible_box", "parameters": {"sort_strategy": "volume_desc"}},
+        {"name": "largest_feasible_box", "parameters": {"sort_strategy": "volume_desc"}},
+    ],
     # --- Single Container Loading ---
     ("SINGLE_CONTAINER_LOADING", "constructive"): [
         {"name": "single_container_constructive", "parameters": {"sort_strategy": "volume_desc"}},
         {"name": "best_fit_decreasing_3d", "parameters": {"sort_strategy": "volume_desc"}},
         {"name": "first_fit_decreasing_3d", "parameters": {"sort_strategy": "volume_desc"}},
+    ],
+    ("PALLETIZATION", "constructive"): [
+        {"name": "layer_based_palletization", "parameters": {"sort_strategy": "volume_desc"}},
+        {"name": "stack_based_palletization", "parameters": {"sort_strategy": "volume_desc"}},
+    ],
+    ("STACKING_AWARE", "constructive"): [
+        {
+            "name": "stacking_aware_constructive",
+            "parameters": {"sort_strategy": "weight_desc", "min_support_ratio": 0.6},
+        },
+        {"name": "stack_based_palletization", "parameters": {"sort_strategy": "volume_desc"}},
     ],
 }
 
@@ -86,6 +152,8 @@ DEFAULT_PROFILE_BY_PROBLEM: dict[str, str] = {
     "CONTAINER_LOADING": "constructive",
     "CARTONIZATION": "box_selection",
     "SINGLE_CONTAINER_LOADING": "constructive",
+    "PALLETIZATION": "constructive",
+    "STACKING_AWARE": "constructive",
 }
 
 

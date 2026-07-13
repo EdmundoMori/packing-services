@@ -12,9 +12,13 @@ SHOWCASE_MASTER_CATALOG = "showcase_master_catalog"
 SHOWCASE_INSTANCES: dict[str, str] = {
     "3D_BPP": "showcase_3d_bpp_instance",
     "3D_HYBRID": "showcase_3d_bpp_instance",
+    "3D_IMPROVEMENT": "showcase_3d_bpp_instance",
+    "3D_METAHEURISTIC": "showcase_3d_bpp_instance",
     "CONTAINER_LOADING": "showcase_container_loading_instance",
     "CARTONIZATION": "showcase_cartonization_instance",
     "SINGLE_CONTAINER_LOADING": "showcase_single_container_instance",
+    "PALLETIZATION": "showcase_palletization_instance",
+    "STACKING_AWARE": "showcase_stacking_aware_instance",
 }
 
 # Grupo de benchmark asociado a cada notebook didáctico (01–09).
@@ -35,9 +39,13 @@ NOTEBOOK_BENCHMARK_GROUP: dict[str, str | None] = {
 SHOWCASE_DIFFERENTIATION: dict[str, str] = {
     "3D_BPP": "best_fit ~27 emp. (85% util) vs extreme_points ~22 (66%)",
     "3D_HYBRID": "misma cantidad empacada; compaction/LS mueven 8–11 piezas",
-    "CONTAINER_LOADING": "weight_aware ~27 emp. vs single_container ~17 (alta util) vs extreme_points ~22",
-    "CARTONIZATION": "minimalistas → BOX_M (~49% util) vs largest_feasible → BOX_L (~21%)",
+    "3D_IMPROVEMENT": "misma baseline; relocation/swap/orientation/bin_reduction refinan layout",
+    "3D_METAHEURISTIC": "metaheurísticas optimizan orden de colocación sobre baseline constructivo",
+    "CONTAINER_LOADING": "weight_aware ~27 emp. vs wall_building ~24 vs single_container ~17",
+    "CARTONIZATION": "single-box → BOX_M (~49%) vs multi_box → varias cajas S/M",
     "SINGLE_CONTAINER_LOADING": "best_fit/single ~13 emp. (94% util) vs first_fit ~16 (89%)",
+    "PALLETIZATION": "layer_based ~capas horizontales vs stack_based ~columnas",
+    "STACKING_AWARE": "stacking_aware respeta soporte/carga vs stack_based libre",
 }
 
 # Alias retrocompatible (misma mercancía que showcase 3D-BPP).
@@ -66,6 +74,11 @@ COMPARABLE_3D_BPP_ENGINES: list[dict[str, Any]] = [
         "parameters": {"sort_strategy": "volume_desc"},
     },
     {
+        "name": "maximal_spaces_3d",
+        "label": "Maximal Empty Spaces 3D",
+        "parameters": {"sort_strategy": "volume_desc"},
+    },
+    {
         "name": "py3dbp_adapter",
         "label": "py3dbp Adapter (baseline externo)",
         "parameters": {"bigger_first": True, "distribute_items": True},
@@ -83,6 +96,11 @@ COMPARABLE_CONTAINER_LOADING_ENGINES: list[dict[str, Any]] = [
         "name": "weight_aware_container_loading",
         "label": "Weight-aware Container Loading",
         "parameters": {"sort_strategy": "weight_desc"},
+    },
+    {
+        "name": "wall_building_3d",
+        "label": "Wall-building Heuristic",
+        "parameters": {"sort_strategy": "volume_desc"},
     },
     {
         "name": "extreme_points_3d",
@@ -111,6 +129,11 @@ COMPARABLE_CARTONIZATION_ENGINES: list[dict[str, Any]] = [
         "name": "largest_feasible_box",
         "label": "Largest Feasible Box",
         "parameters": {"sort_strategy": "volume_desc"},
+    },
+    {
+        "name": "multi_box_cartonization",
+        "label": "Multi-box Cartonization",
+        "parameters": {"sort_strategy": "volume_desc", "box_selection": "smallest_first"},
     },
 ]
 
@@ -157,6 +180,98 @@ COMPARABLE_3D_HYBRID_ENGINES: list[dict[str, Any]] = [
     },
 ]
 
+COMPARABLE_3D_IMPROVEMENT_ENGINES: list[dict[str, Any]] = [
+    {
+        "name": "best_fit_decreasing_3d",
+        "label": "Best Fit Decreasing 3D (baseline)",
+        "parameters": {"sort_strategy": "volume_desc"},
+    },
+    {
+        "name": "relocation_improvement",
+        "label": "Relocation Improvement",
+        "parameters": {"base_algorithm": "best_fit_decreasing_3d", "relocation_passes": 2},
+    },
+    {
+        "name": "swap_improvement",
+        "label": "Swap Improvement",
+        "parameters": {"base_algorithm": "best_fit_decreasing_3d", "improvement_passes": 1},
+    },
+    {
+        "name": "orientation_improvement",
+        "label": "Orientation Improvement",
+        "parameters": {"base_algorithm": "best_fit_decreasing_3d", "improvement_passes": 1},
+    },
+    {
+        "name": "bin_reduction",
+        "label": "Bin Reduction",
+        "parameters": {"base_algorithm": "best_fit_decreasing_3d", "improvement_passes": 1},
+    },
+]
+
+COMPARABLE_3D_METAHEURISTIC_ENGINES: list[dict[str, Any]] = [
+    {
+        "name": "best_fit_decreasing_3d",
+        "label": "Best Fit Decreasing 3D (baseline)",
+        "parameters": {"sort_strategy": "volume_desc"},
+    },
+    {
+        "name": "simulated_annealing_3d_bpp",
+        "label": "Simulated Annealing",
+        "parameters": {
+            "base_algorithm": "best_fit_decreasing_3d",
+            "iterations": 20,
+            "random_seed": 42,
+            "time_limit_seconds": 10,
+        },
+    },
+    {
+        "name": "grasp_3d_bpp",
+        "label": "GRASP",
+        "parameters": {
+            "base_algorithm": "best_fit_decreasing_3d",
+            "iterations": 15,
+            "random_seed": 42,
+            "alpha": 0.3,
+        },
+    },
+    {
+        "name": "lns_3d_bpp",
+        "label": "Large Neighborhood Search",
+        "parameters": {
+            "base_algorithm": "best_fit_decreasing_3d",
+            "iterations": 15,
+            "random_seed": 42,
+            "destroy_fraction": 0.25,
+        },
+    },
+]
+
+COMPARABLE_PALLETIZATION_ENGINES: list[dict[str, Any]] = [
+    {
+        "name": "layer_based_palletization",
+        "label": "Layer-based Palletization",
+        "parameters": {"sort_strategy": "volume_desc"},
+    },
+    {
+        "name": "stack_based_palletization",
+        "label": "Stack-based Palletization",
+        "parameters": {"sort_strategy": "volume_desc"},
+    },
+]
+
+COMPARABLE_STACKING_AWARE_ENGINES: list[dict[str, Any]] = [
+    {
+        "name": "stacking_aware_constructive",
+        "label": "Stacking-aware Constructive",
+        "parameters": {"sort_strategy": "weight_desc", "min_support_ratio": 0.6},
+    },
+    {
+        "name": "stack_based_palletization",
+        "label": "Stack-based (sin reglas de apilamiento)",
+        "parameters": {"sort_strategy": "volume_desc"},
+    },
+]
+
 BENCHMARK_GROUPS: dict[str, dict[str, Any]] = {
     "3D_BPP": {
         "title": "3D Bin Packing",
@@ -169,6 +284,19 @@ BENCHMARK_GROUPS: dict[str, dict[str, Any]] = {
         "engines": COMPARABLE_3D_HYBRID_ENGINES,
         "example": "benchmark_hybrid_request",
         "builder": "build_benchmark_hybrid_request",
+    },
+    "3D_IMPROVEMENT": {
+        "title": "3D Bin Packing — Mejora local extendida",
+        "engines": COMPARABLE_3D_IMPROVEMENT_ENGINES,
+        "example": "benchmark_improvement_request",
+        "builder": "build_benchmark_improvement_request",
+    },
+    "3D_METAHEURISTIC": {
+        "title": "3D Bin Packing — Metaheurísticas",
+        "engines": COMPARABLE_3D_METAHEURISTIC_ENGINES,
+        "example": "benchmark_metaheuristic_request",
+        "builder": "build_benchmark_metaheuristic_request",
+        "profile": "metaheuristic",
     },
     "CONTAINER_LOADING": {
         "title": "Container Loading",
@@ -188,6 +316,20 @@ BENCHMARK_GROUPS: dict[str, dict[str, Any]] = {
         "engines": COMPARABLE_SINGLE_CONTAINER_ENGINES,
         "example": "benchmark_single_container_request",
         "builder": "build_benchmark_single_container_request",
+        "profile": "constructive",
+    },
+    "PALLETIZATION": {
+        "title": "Palletization",
+        "engines": COMPARABLE_PALLETIZATION_ENGINES,
+        "example": "benchmark_palletization_request",
+        "builder": "build_benchmark_palletization_request",
+        "profile": "constructive",
+    },
+    "STACKING_AWARE": {
+        "title": "Stacking-aware Packing",
+        "engines": COMPARABLE_STACKING_AWARE_ENGINES,
+        "example": "benchmark_stacking_aware_request",
+        "builder": "build_benchmark_stacking_aware_request",
         "profile": "constructive",
     },
 }
@@ -449,6 +591,34 @@ def build_benchmark_hybrid_request(
     return data
 
 
+def build_benchmark_improvement_request(
+    instance: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Benchmark de heurísticas de mejora local (Fase A)."""
+
+    data = _problem_payload(instance or load_showcase_instance("3D_BPP"))
+    data["problem_type"] = "3D_BPP"
+    data["request_id"] = data.get("request_id", "showcase-3d-bpp-001").replace(
+        "showcase-3d-bpp", "benchmark-improvement"
+    )
+    data["profile"] = "improvement"
+    return data
+
+
+def build_benchmark_metaheuristic_request(
+    instance: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    """Benchmark de metaheurísticas 3D-BPP (Fase D)."""
+
+    data = _problem_payload(instance or load_showcase_instance("3D_BPP"))
+    data["problem_type"] = "3D_BPP"
+    data["request_id"] = data.get("request_id", "showcase-3d-bpp-001").replace(
+        "showcase-3d-bpp", "benchmark-metaheuristic"
+    )
+    data["profile"] = "metaheuristic"
+    return data
+
+
 def build_benchmark_cartonization_request(
     instance: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
@@ -472,6 +642,30 @@ def build_benchmark_single_container_request(
     data["problem_type"] = "SINGLE_CONTAINER_LOADING"
     data["request_id"] = data.get("request_id", "showcase-scl-001").replace(
         "showcase-scl", "benchmark-scl"
+    )
+    data["profile"] = "constructive"
+    return data
+
+
+def build_benchmark_palletization_request(
+    instance: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    data = _problem_payload(instance or load_showcase_instance("PALLETIZATION"))
+    data["problem_type"] = "PALLETIZATION"
+    data["request_id"] = data.get("request_id", "showcase-pallet-001").replace(
+        "showcase-pallet", "benchmark-pallet"
+    )
+    data["profile"] = "constructive"
+    return data
+
+
+def build_benchmark_stacking_aware_request(
+    instance: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    data = _problem_payload(instance or load_showcase_instance("STACKING_AWARE"))
+    data["problem_type"] = "STACKING_AWARE"
+    data["request_id"] = data.get("request_id", "showcase-stack-001").replace(
+        "showcase-stack", "benchmark-stack"
     )
     data["profile"] = "constructive"
     return data
@@ -564,7 +758,7 @@ def build_single_container_request(
 def problem_type_for_benchmark_group(group: str) -> str:
     """Tipo de problema asociado a un grupo de benchmark."""
 
-    if group == "3D_HYBRID":
+    if group in ("3D_HYBRID", "3D_IMPROVEMENT", "3D_METAHEURISTIC"):
         return "3D_BPP"
     return group
 
@@ -580,9 +774,13 @@ def build_benchmark_for_group(
     builders = {
         "3D_BPP": build_benchmark_3d_bpp_request,
         "3D_HYBRID": build_benchmark_hybrid_request,
+        "3D_IMPROVEMENT": build_benchmark_improvement_request,
+        "3D_METAHEURISTIC": build_benchmark_metaheuristic_request,
         "CONTAINER_LOADING": build_benchmark_container_loading_request,
         "CARTONIZATION": build_benchmark_cartonization_request,
         "SINGLE_CONTAINER_LOADING": build_benchmark_single_container_request,
+        "PALLETIZATION": build_benchmark_palletization_request,
+        "STACKING_AWARE": build_benchmark_stacking_aware_request,
     }
     if group not in builders:
         raise ValueError(f"Grupo de benchmark desconocido: {group}")

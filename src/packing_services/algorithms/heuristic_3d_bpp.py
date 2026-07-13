@@ -55,7 +55,7 @@ METADATA = AlgorithmMetadata(
         Constraint.ADVANCED_STABILITY,
     ],
     parameters={
-        "sort_strategy": "Orden de ítems: volume_desc | weight_desc | longest_dim_desc",
+        "sort_strategy": "Orden de ítems: volume_desc | weight_desc | longest_dim_desc | input_order",
         "position_strategy": "Orden de posiciones candidatas (bottom_left_back)",
     },
     metrics=DEFAULT_METRICS,

@@ -1,8 +1,8 @@
 # Roadmap
 
 Orden de evolución alineado con los documentos de contexto. El principio rector
-es: **base robusta (heurísticas + validador) antes que metaheurísticas, métodos
-exactos o IA**.
+es: **base robusta (heurísticas + validador) como núcleo**; las metaheurísticas
+3D-BPP ya están operativas. Métodos exactos e IA siguen planificados.
 
 ## Estado por fase
 
@@ -31,19 +31,36 @@ exactos o IA**.
 | Packing Validation | `POST /validate` | ✅ operativo |
 | Benchmark / Comparison | `POST /benchmark` | ✅ operativo |
 | Descriptores espacio de datos | `GET /services` | ✅ operativo |
-| Palletization | `POST /pack/palletization` | 🔜 fase posterior |
-| Stacking-aware | `POST /pack/stacking-aware` | 🔜 fase posterior |
+| Palletization | `POST /pack/palletization` | ✅ operativo |
+| Stacking-aware | `POST /pack/stacking-aware` | ✅ operativo |
 
 ## Algoritmos implementados hasta ahora
 
 Constructivos (todos ejecutables, validables y comparables):
 - **3D-BPP**: `heuristic_3d_bpp_v1`, `first_fit_decreasing_3d`,
-  `extreme_points_3d`, `best_fit_decreasing_3d`.
+  `extreme_points_3d`, `best_fit_decreasing_3d`, `maximal_spaces_3d`.
 - **Mejora / híbrido 3D-BPP**: `solution_compaction`,
-  `constructive_plus_local_search`.
+  `constructive_plus_local_search`, `relocation_improvement`, `swap_improvement`,
+  `orientation_improvement`, `bin_reduction`.
 - **Container Loading**: `single_container_constructive`,
   `weight_aware_container_loading`.
-- **Cartonization**: `smallest_feasible_box`, `best_box_volume_utilization`.
+- **Cartonization**: `smallest_feasible_box`, `best_box_volume_utilization`,
+  `first_fit_box`, `largest_feasible_box`, `multi_box_cartonization`.
+- **Container Loading (Fase B)**: `wall_building_3d`.
+
+- **3D-BPP metaheurísticas**: `simulated_annealing_3d_bpp`, `genetic_algorithm_3d_bpp`,
+  `grasp_3d_bpp`, `tabu_search_3d_bpp`, `lns_3d_bpp`, `vns_3d_bpp`, `aco_3d_bpp`.
+
+- **Palletization**: `layer_based_palletization`, `stack_based_palletization`.
+- **Stacking-aware**: `stacking_aware_constructive`.
+
+**29 algoritmos implementados** — cada uno expone
+`POST /api/v1/algorithms/{algorithm_name}/execute` con contrato homogéneo
+(`PackAlgorithmInput` / `CartonizationAlgorithmInput` → `AlgorithmExecuteResponse`).
+
+**Adaptador activo**: `py3dbp_adapter` (ejecutable con `pip install py3dbp`).
+
+Ver checklist de trazabilidad: `docs/algorithm_implementation_traceability.md`.
 
 ## Próximos pasos recomendados
 
@@ -51,13 +68,14 @@ Constructivos (todos ejecutables, validables y comparables):
 1. ✅ `extreme_points_3d` — hecho.
 2. ✅ `best_fit_decreasing_3d` — hecho.
 3. ✅ `solution_compaction` + `constructive_plus_local_search` — hecho (mejora local).
-4. `maximal_spaces_3d` — representación de espacios vacíos máximos (siguiente
-   extensión constructiva de mayor calidad).
-5. Heurísticas de mejora adicionales (`relocation_improvement`,
-   `orientation_improvement`, `swap_improvement`, `bin_reduction`) como segunda capa
-   sobre una solución válida.
-6. Palletization y Stacking-aware (vía `packingsolver_adapter` / reglas de
-   soporte y carga máxima) para completar los grupos de servicio restantes.
+4. ✅ `maximal_spaces_3d` — hecho.
+5. ✅ Heurísticas de mejora adicionales (`relocation_improvement`,
+   `orientation_improvement`, `swap_improvement`, `bin_reduction`) — hecho.
+6. ✅ Fase B: `multi_box_cartonization`, `wall_building_3d`, `py3dbp_adapter` activo — hecho.
+7. ✅ Fase C: `layer_based_palletization`, `stack_based_palletization`, `stacking_aware_constructive` + endpoints `/pack/palletization` y `/pack/stacking-aware` — hecho.
+8. ✅ Fase D: metaheurísticas 3D-BPP (7) + perfil benchmark `metaheuristic` — hecho.
+9. `bottom_left_back_3d` como servicio dedicado (opcional; ya existe como estrategia interna).
+10. Activar `packingsolver_adapter` u otros adaptadores externos reales.
 
 ### Servicios por grupo (según análisis de repositorios)
 
@@ -78,8 +96,8 @@ se instala `py3dbp`.
 - ✅ `POST /api/v1/pack/container-loading`
 - ✅ `POST /api/v1/pack/cartonization`
 - ✅ `GET /api/v1/services` (descriptores para espacio de datos)
-- 🔜 `POST /api/v1/pack/palletization`
-- 🔜 `POST /api/v1/pack/stacking-aware`
+- 🔜 `POST /api/v1/pack/palletization` → ✅ operativo
+- 🔜 `POST /api/v1/pack/stacking-aware` → ✅ operativo
 
 ### Restricciones avanzadas (fases posteriores)
 - Peso: distribución, centro de gravedad, estabilidad avanzada.
@@ -88,13 +106,12 @@ se instala `py3dbp`.
 - Estabilidad por superficie de soporte ya tiene una comprobación básica en el
   validador (`basic_stability`).
 
-### Optimización avanzada (fases futuras)
-- Metaheurísticas: GA, Tabu Search, SA, GRASP, VNS, LNS, ACO. Cada una debe
-  registrar parámetros, semilla, tiempo máximo, iteraciones, mejor solución y
-  trazabilidad.
+### Optimización avanzada
+- ✅ Metaheurísticas 3D-BPP: GA, Tabu Search, SA, GRASP, VNS, LNS, ACO
+  (`metaheuristic_3d_bpp.py`, perfil benchmark `3D_BPP/metaheuristic`).
 - Métodos exactos / referencia: MIP, CP-SAT (OR-Tools), Branch&Bound/Cut/Price,
   generación de columnas. Para instancias pequeñas y benchmarking.
-- Enfoques híbridos: constructivo + búsqueda local, extreme points + SA,
+- Enfoques híbridos adicionales: extreme points + SA (`extreme_points_plus_sa`),
   descomposición por capas + knapsack, MIP para subproblemas + heurística.
 
 ### Investigación (línea avanzada)

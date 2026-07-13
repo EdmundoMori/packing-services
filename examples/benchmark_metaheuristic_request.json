@@ -1,0 +1,61 @@
+{
+  "problem_type": "3D_BPP",
+  "request_id": "benchmark-metaheuristic-001",
+  "profile": "metaheuristic",
+  "containers": [
+    {
+      "id": "C1",
+      "length": 100,
+      "width": 80,
+      "height": 80,
+      "max_weight": 500
+    },
+    {
+      "id": "C2",
+      "length": 100,
+      "width": 80,
+      "height": 80,
+      "max_weight": 500
+    }
+  ],
+  "items": [
+    {
+      "id": "P1",
+      "length": 50,
+      "width": 40,
+      "height": 30,
+      "weight": 6,
+      "quantity": 6,
+      "allowed_orientations": "all"
+    },
+    {
+      "id": "P2",
+      "length": 60,
+      "width": 30,
+      "height": 40,
+      "weight": 7,
+      "quantity": 5,
+      "allowed_orientations": "all"
+    },
+    {
+      "id": "P3",
+      "length": 80,
+      "width": 40,
+      "height": 30,
+      "weight": 8,
+      "quantity": 2,
+      "allowed_orientations": "all"
+    }
+  ],
+  "constraints": {
+    "non_overlap": true,
+    "containment": true,
+    "allow_rotation": true,
+    "max_weight": true,
+    "basic_stability": false,
+    "load_bearing": false,
+    "fragility": false,
+    "unloading_sequence": false
+  },
+  "objective": "maximize_volume_utilization"
+}

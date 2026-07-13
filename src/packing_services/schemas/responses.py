@@ -96,9 +96,93 @@ class CartonizationResponse(BaseModel):
     request_id: str | None = None
     status: str
     selected_box_id: str | None = None
+    selected_box_ids: list[str] = Field(default_factory=list)
     algorithm_name: str
     solution: PackingSolution
     evaluated_boxes: list[dict[str, Any]] = Field(default_factory=list)
+
+
+class CartonizationExtras(BaseModel):
+    """Campos adicionales de cartonization en la respuesta estandarizada."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    selected_box_id: str | None = None
+    selected_box_ids: list[str] = Field(default_factory=list)
+    evaluated_boxes: list[dict[str, Any]] = Field(default_factory=list)
+
+
+class AlgorithmExecuteResponse(BaseModel):
+    """Salida estandarizada de ``POST /api/v1/algorithms/{algorithm_name}/execute``.
+
+    Todos los algoritmos devuelven la misma envoltura: la solución de packing
+    canónica en ``solution`` y, solo para cartonization, metadatos en
+    ``cartonization``.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    request_id: str | None = None
+    algorithm_name: str
+    problem_type: str
+    status: str
+    solution: PackingSolution
+    cartonization: CartonizationExtras | None = None
+
+    @classmethod
+    def from_pack(cls, solution: PackingSolution) -> AlgorithmExecuteResponse:
+        return cls(
+            request_id=solution.request_id,
+            algorithm_name=solution.algorithm_name,
+            problem_type=solution.problem_type.value,
+            status=solution.status.value,
+            solution=solution,
+        )
+
+    @classmethod
+    def from_cartonization(cls, response: CartonizationResponse) -> AlgorithmExecuteResponse:
+        return cls(
+            request_id=response.request_id,
+            algorithm_name=response.algorithm_name,
+            problem_type="CARTONIZATION",
+            status=response.status,
+            solution=response.solution,
+            cartonization=CartonizationExtras(
+                selected_box_id=response.selected_box_id,
+                selected_box_ids=response.selected_box_ids,
+                evaluated_boxes=response.evaluated_boxes,
+            ),
+        )
+
+
+class AlgorithmDetailResponse(BaseModel):
+    """Metadatos de algoritmo enriquecidos con contrato API de ejecución."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    name: str
+    display_name: str
+    problem_types: list[str]
+    algorithm_family: str
+    status: str
+    description: str = ""
+    deterministic: bool = True
+    supports_random_seed: bool = False
+    supports_time_limit: bool = False
+    supports_rotation: bool = True
+    supports_multi_container: bool = True
+    supported_constraints: list[str] = Field(default_factory=list)
+    unsupported_constraints: list[str] = Field(default_factory=list)
+    parameters: dict[str, str] = Field(default_factory=dict)
+    metrics: list[str] = Field(default_factory=list)
+    limitations: list[str] = Field(default_factory=list)
+    external_engine: str | None = None
+    external_language: str | None = None
+    external_repository: str | None = None
+    execution_endpoint: str
+    input_schema: str
+    output_schema: str = "AlgorithmExecuteResponse"
+    is_executable: bool
 
 
 class BenchmarkEngineResult(BaseModel):

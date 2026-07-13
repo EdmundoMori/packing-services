@@ -130,6 +130,7 @@ def _build_default_registry() -> AlgorithmRegistry:
         metaheuristics,
     )
     from .best_fit_decreasing_3d import BestFitDecreasing3D
+    from .bin_reduction import BinReduction
     from .cartonization import (
         BestBoxVolumeUtilization,
         FirstFitBox,
@@ -140,8 +141,18 @@ def _build_default_registry() -> AlgorithmRegistry:
     from .extreme_points_3d import ExtremePoints3D
     from .first_fit_decreasing_3d import FirstFitDecreasing3D
     from .heuristic_3d_bpp import Heuristic3DBPPv1
+    from .layer_based_palletization import LayerBasedPalletization
+    from .maximal_spaces_3d import MaximalSpaces3D
+    from .metaheuristic_3d_bpp import METAHEURISTIC_ALGORITHMS
+    from .multi_box_cartonization import MultiBoxCartonization
+    from .orientation_improvement import OrientationImprovement
+    from .relocation_improvement import RelocationImprovement
     from .single_container import SingleContainerConstructive
     from .solution_compaction import SolutionCompaction
+    from .stack_based_palletization import StackBasedPalletization
+    from .stacking_aware_constructive import StackingAwareConstructive
+    from .swap_improvement import SwapImprovement
+    from .wall_building_3d import WallBuilding3D
     from .weight_aware_container_loading import WeightAwareContainerLoading
 
     registry = AlgorithmRegistry()
@@ -152,16 +163,30 @@ def _build_default_registry() -> AlgorithmRegistry:
     registry.register_algorithm(FirstFitDecreasing3D())
     registry.register_algorithm(ExtremePoints3D())
     registry.register_algorithm(BestFitDecreasing3D())
+    registry.register_algorithm(MaximalSpaces3D())
     registry.register_algorithm(SolutionCompaction())
     registry.register_algorithm(ConstructivePlusLocalSearch())
+    registry.register_algorithm(RelocationImprovement())
+    registry.register_algorithm(SwapImprovement())
+    registry.register_algorithm(OrientationImprovement())
+    registry.register_algorithm(BinReduction())
+    for algorithm in METAHEURISTIC_ALGORITHMS:
+        registry.register_algorithm(algorithm)
     # Container Loading.
     registry.register_algorithm(SingleContainerConstructive())
     registry.register_algorithm(WeightAwareContainerLoading())
+    registry.register_algorithm(WallBuilding3D())
     # Cartonization / Order Packing.
     registry.register_algorithm(SmallestFeasibleBox())
     registry.register_algorithm(BestBoxVolumeUtilization())
     registry.register_algorithm(FirstFitBox())
     registry.register_algorithm(LargestFeasibleBox())
+    registry.register_algorithm(MultiBoxCartonization())
+    # Palletization.
+    registry.register_algorithm(LayerBasedPalletization())
+    registry.register_algorithm(StackBasedPalletization())
+    # Stacking-aware.
+    registry.register_algorithm(StackingAwareConstructive())
 
     # Adaptadores a motores externos (registran su metadata; ejecutan solo si la
     # dependencia está disponible).

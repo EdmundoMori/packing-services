@@ -39,6 +39,14 @@ RANKING_CARTONIZATION = (
     "Ranking Cartonization: (1) válidas; (2) todos los ítems empacados; "
     "(3) mayor volume_utilization; (4) menor tiempo."
 )
+RANKING_PALLETIZATION = (
+    "Ranking Palletization: (1) válidas; (2) mayor volume_utilization; "
+    "(3) menor items_unpacked; (4) menor tiempo."
+)
+RANKING_STACKING_AWARE = (
+    "Ranking Stacking-aware: (1) válidas; (2) menor items_unpacked; "
+    "(3) mayor volume_utilization; (4) menor tiempo."
+)
 
 
 def _ranking_key_packing(result: BenchmarkEngineResult) -> tuple:
@@ -88,6 +96,10 @@ class BenchmarkService:
             return self._benchmark_container_loading(request)
         if request.problem_type == ProblemType.SINGLE_CONTAINER_LOADING:
             return self._benchmark_single_container(request)
+        if request.problem_type == ProblemType.PALLETIZATION:
+            return self._benchmark_palletization(request)
+        if request.problem_type == ProblemType.STACKING_AWARE:
+            return self._benchmark_stacking_aware(request)
         return self._benchmark_packing(request)
 
     def _benchmark_packing(self, request: BenchmarkRequest) -> BenchmarkResponse:
@@ -132,6 +144,26 @@ class BenchmarkService:
             _ranking_key_cartonization,
             RANKING_CARTONIZATION,
             benchmark_group="CARTONIZATION",
+        )
+
+    def _benchmark_palletization(self, request: BenchmarkRequest) -> BenchmarkResponse:
+        results = [self._run_engine(request, e) for e in request.engines]
+        return self._build_response(
+            request,
+            results,
+            _ranking_key_packing,
+            RANKING_PALLETIZATION,
+            benchmark_group="PALLETIZATION",
+        )
+
+    def _benchmark_stacking_aware(self, request: BenchmarkRequest) -> BenchmarkResponse:
+        results = [self._run_engine(request, e) for e in request.engines]
+        return self._build_response(
+            request,
+            results,
+            _ranking_key_container_loading,
+            RANKING_STACKING_AWARE,
+            benchmark_group="STACKING_AWARE",
         )
 
     def _build_response(
