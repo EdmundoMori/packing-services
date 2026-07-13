@@ -1,6 +1,6 @@
 {
   "problem_type": "3D_BPP",
-  "request_id": "benchmark-3d-001",
+  "request_id": "improvement-001",
   "containers": [
     { "id": "C1", "length": 100, "width": 80, "height": 80, "max_weight": 500 },
     { "id": "C2", "length": 100, "width": 80, "height": 80, "max_weight": 500 }
@@ -19,11 +19,8 @@
     "max_weight": true
   },
   "objective": "maximize_volume_utilization",
-  "engines": [
-    { "name": "heuristic_3d_bpp_v1", "parameters": { "sort_strategy": "volume_desc" } },
-    { "name": "first_fit_decreasing_3d", "parameters": { "sort_strategy": "volume_desc" } },
-    { "name": "extreme_points_3d", "parameters": { "sort_strategy": "volume_desc" } },
-    { "name": "best_fit_decreasing_3d", "parameters": { "sort_strategy": "volume_desc" } },
-    { "name": "py3dbp_adapter", "parameters": { "bigger_first": true, "distribute_items": true } }
-  ]
+  "parameters": {
+    "base_algorithm": "best_fit_decreasing_3d",
+    "compaction_passes": 3
+  }
 }

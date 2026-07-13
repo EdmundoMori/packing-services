@@ -23,6 +23,7 @@ from ..utils.errors import (
 )
 from ..utils.logging import configure_logging
 from .routes import (
+    algorithm_execute,
     algorithms,
     benchmark,
     health,
@@ -86,6 +87,7 @@ app.include_router(health.router)
 app.include_router(metadata.router, prefix="/api/v1")
 app.include_router(services.router, prefix="/api/v1")
 app.include_router(algorithms.router, prefix="/api/v1")
+app.include_router(algorithm_execute.router, prefix="/api/v1")
 app.include_router(pack_3d_bpp.router, prefix="/api/v1")
 app.include_router(pack_container_loading.router, prefix="/api/v1")
 app.include_router(pack_cartonization.router, prefix="/api/v1")

@@ -90,11 +90,58 @@ def test_validate_invalid_overlap():
 
 
 def test_benchmark_endpoint():
-    response = client.post("/api/v1/benchmark", json=_load("benchmark_request.json"))
+    data = _load("benchmark_request.json")
+    response = client.post("/api/v1/benchmark", json=data)
     assert response.status_code == 200
     body = response.json()
-    assert len(body["ranking"]) == 4
+    assert len(body["ranking"]) == len(data["engines"])
     assert body["ranking_explanation"]
+    assert body["details"]["benchmark_group"] == "3D_BPP"
+    # La instancia de benchmark debe diferenciar claramente los motores.
+    utils = {r["engine"]: r["metrics"]["volume_utilization"] for r in body["results"]}
+    assert len(set(round(u, 3) for u in utils.values())) >= 3
+    assert body["ranking"][0] == "best_fit_decreasing_3d"
+
+
+def test_benchmark_container_loading_endpoint():
+    data = _load("benchmark_container_loading_request.json")
+    response = client.post("/api/v1/benchmark", json=data)
+    assert response.status_code == 200
+    body = response.json()
+    assert body["details"]["benchmark_group"] == "CONTAINER_LOADING"
+    assert body["details"]["benchmark_profile"] == "constructive"
+    assert len(body["results"]) == 3
+
+
+def test_benchmark_cartonization_endpoint():
+    data = _load("benchmark_cartonization_request.json")
+    response = client.post("/api/v1/benchmark", json=data)
+    assert response.status_code == 200
+    body = response.json()
+    assert body["details"]["benchmark_group"] == "CARTONIZATION"
+    assert body["details"]["benchmark_profile"] == "box_selection"
+    assert len(body["results"]) == 4
+    boxes = {r["details"]["selected_box_id"] for r in body["results"]}
+    assert len(boxes) >= 2
+
+
+def test_benchmark_single_container_endpoint():
+    data = _load("benchmark_single_container_request.json")
+    response = client.post("/api/v1/benchmark", json=data)
+    assert response.status_code == 200
+    body = response.json()
+    assert body["details"]["benchmark_group"] == "SINGLE_CONTAINER_LOADING"
+    assert len(body["results"]) == 3
+
+
+def test_benchmark_hybrid_endpoint():
+    data = _load("benchmark_hybrid_request.json")
+    response = client.post("/api/v1/benchmark", json=data)
+    assert response.status_code == 200
+    body = response.json()
+    assert body["details"]["benchmark_group"] == "3D_BPP"
+    assert len(body["results"]) == 3
+    assert all(r["is_valid"] for r in body["results"])
 
 
 def test_container_loading_endpoint():

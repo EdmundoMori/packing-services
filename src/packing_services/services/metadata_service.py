@@ -28,6 +28,7 @@ ENDPOINTS = {
     "services": "GET /api/v1/services",
     "algorithms": "GET /api/v1/algorithms",
     "algorithm_detail": "GET /api/v1/algorithms/{algorithm_name}",
+    "algorithm_execute": "POST /api/v1/algorithms/{algorithm_name}/execute",
     "pack_3d_bpp": "POST /api/v1/pack/3d-bpp",
     "pack_container_loading": "POST /api/v1/pack/container-loading",
     "pack_cartonization": "POST /api/v1/pack/cartonization",

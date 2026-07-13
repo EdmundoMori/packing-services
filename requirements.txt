@@ -8,6 +8,11 @@ pydantic>=2.6
 pytest>=8.0
 httpx>=0.27
 
-# --- Adaptadores externos opcionales (NO obligatorios) ---
+# --- Notebooks didácticos (demos visuales) ---
+# pip install -e ".[notebooks]"
+# jupyter>=1.0
+# ipykernel>=6.29
+# matplotlib>=3.8
+# pandas>=2.1
 # Descomentar para habilitar el baseline externo py3dbp:
 # py3dbp>=1.1

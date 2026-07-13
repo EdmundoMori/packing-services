@@ -23,6 +23,13 @@ dev = [
 ]
 # Adaptadores opcionales. py3dbp habilita el baseline externo en Python puro.
 py3dbp = ["py3dbp>=1.1"]
+# Notebooks didácticos (demos visuales para presentar el avance).
+notebooks = [
+    "jupyter>=1.0",
+    "ipykernel>=6.29",
+    "matplotlib>=3.8",
+    "pandas>=2.1",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -113,6 +113,7 @@ class BenchmarkEngineResult(BaseModel):
     validation_report: ValidationReport | None = None
     solution: PackingSolution | None = None
     error: str | None = None
+    details: dict[str, Any] = Field(default_factory=dict)
 
 
 class BenchmarkResponse(BaseModel):

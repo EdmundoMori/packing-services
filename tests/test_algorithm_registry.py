@@ -28,6 +28,10 @@ def test_implemented_algorithms_present():
     names = default_registry.list_names()
     assert "heuristic_3d_bpp_v1" in names
     assert "first_fit_decreasing_3d" in names
+    assert "solution_compaction" in names
+    assert "constructive_plus_local_search" in names
+    assert "first_fit_box" in names
+    assert "largest_feasible_box" in names
 
 
 def test_get_metadata():

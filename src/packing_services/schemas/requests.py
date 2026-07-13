@@ -10,7 +10,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from ..domain.enums import ProblemType
 from ..domain.models import (
@@ -205,21 +205,63 @@ class BenchmarkEngineConfig(BaseModel):
 
 
 class BenchmarkRequest(BaseModel):
-    """Entrada para comparar varios algoritmos sobre una misma instancia."""
+    """Entrada para comparar varios algoritmos sobre una misma instancia.
+
+    Grupos soportados por ``problem_type``:
+
+    - ``3D_BPP``: ``containers`` + ``items`` + ``engines``
+    - ``CONTAINER_LOADING``: ``containers`` + ``items`` + ``engines``
+    - ``CARTONIZATION``: ``items`` + ``boxes`` + ``engines`` (o ``profile``)
+    - ``SINGLE_CONTAINER_LOADING``: un contenedor + ``items`` + ``engines`` (o ``profile``)
+
+    Si se indica ``profile``, se resuelve el conjunto estándar de motores comparables.
+    Los ``engines`` explícitos tienen prioridad sobre ``profile``.
+    """
 
     model_config = ConfigDict(extra="forbid")
 
     problem_type: ProblemType = ProblemType.THREE_D_BPP
     request_id: str | None = None
-    containers: list[Container]
-    items: list[Item]
+    profile: str | None = None
+    containers: list[Container] = Field(default_factory=list)
+    items: list[Item] = Field(default_factory=list)
+    boxes: list[BoxOption] = Field(default_factory=list)
     constraints: ConstraintFlags = Field(default_factory=ConstraintFlags)
     objective: str = "maximize_volume_utilization"
-    engines: list[BenchmarkEngineConfig] = Field(min_length=1)
+    engines: list[BenchmarkEngineConfig] = Field(default_factory=list)
 
-    def to_problem(self, engine: BenchmarkEngineConfig) -> PackingProblem:
-        """Construye una instancia interna para un motor concreto."""
+    @model_validator(mode="after")
+    def resolve_profile_and_validate(self) -> BenchmarkRequest:
+        from ..benchmark.profiles import resolve_profile_engines
 
+        if not self.engines:
+            if not self.profile:
+                raise ValueError(
+                    "Benchmark requiere 'engines' (≥2 motores) o 'profile' estándar"
+                )
+            object.__setattr__(
+                self,
+                "engines",
+                resolve_profile_engines(self.problem_type, self.profile),
+            )
+        if len(self.engines) < 2:
+            raise ValueError("Benchmark requiere al menos 2 motores en 'engines'")
+
+        if self.problem_type == ProblemType.CARTONIZATION:
+            if not self.boxes:
+                raise ValueError("CARTONIZATION benchmark requiere 'boxes'")
+            if not self.items:
+                raise ValueError("CARTONIZATION benchmark requiere 'items'")
+        else:
+            if not self.containers:
+                raise ValueError(
+                    f"{self.problem_type.value} benchmark requiere 'containers'"
+                )
+            if not self.items:
+                raise ValueError(f"{self.problem_type.value} benchmark requiere 'items'")
+        return self
+
+    def _expand_items(self) -> list[Item]:
         expanded: list[Item] = []
         for item in self.items:
             if item.quantity == 1:
@@ -227,13 +269,121 @@ class BenchmarkRequest(BaseModel):
             else:
                 for n in range(1, item.quantity + 1):
                     expanded.append(item.model_copy(update={"id": f"{item.id}#{n}"}))
+        return expanded
+
+    def to_problem(self, engine: BenchmarkEngineConfig) -> PackingProblem:
+        """Construye una instancia interna para un motor concreto (packing/CL)."""
 
         return PackingProblem(
             problem_type=self.problem_type,
             request_id=self.request_id,
             containers=self.containers,
-            items=expanded,
+            items=self._expand_items(),
             constraints=self.constraints,
             objective=self.objective,
             algorithm=engine.to_algorithm_config(),
+        )
+
+    def to_cartonization_request(self, engine: BenchmarkEngineConfig) -> CartonizationRequest:
+        return CartonizationRequest(
+            request_id=self.request_id,
+            items=self.items,
+            boxes=self.boxes,
+            constraints=self.constraints,
+            algorithm=engine.to_algorithm_config(),
+        )
+
+    def to_container_loading_request(
+        self, engine: BenchmarkEngineConfig
+    ) -> ContainerLoadingRequest:
+        return ContainerLoadingRequest(
+            problem_type=ProblemType.CONTAINER_LOADING,
+            request_id=self.request_id,
+            containers=self.containers,
+            items=self.items,
+            constraints=self.constraints,
+            objective=self.objective,
+            algorithm=engine.to_algorithm_config(),
+        )
+
+
+class PackAlgorithmInput(BaseModel):
+    """Entrada normalizada para ejecutar un algoritmo de packing vía URL.
+
+    El nombre del algoritmo va en el path (``/algorithms/{name}/execute``).
+    Si el algoritmo admite varios ``problem_type``, el campo ``problem_type`` es
+    obligatorio (estrategia A3).
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    problem_type: ProblemType | None = None
+    request_id: str | None = None
+    containers: list[Container]
+    items: list[Item]
+    constraints: ConstraintFlags = Field(default_factory=ConstraintFlags)
+    objective: str = "maximize_volume_utilization"
+    parameters: dict[str, Any] = Field(default_factory=dict)
+    random_seed: int | None = None
+    time_limit_seconds: float | None = Field(default=None, gt=0)
+
+    def resolve_problem_type(self, allowed: list[ProblemType]) -> ProblemType:
+        if self.problem_type is not None:
+            if self.problem_type not in allowed:
+                allowed_values = ", ".join(p.value for p in allowed)
+                raise ValueError(
+                    f"problem_type={self.problem_type.value} no es compatible con "
+                    f"este algoritmo. Valores permitidos: {allowed_values}"
+                )
+            return self.problem_type
+        if len(allowed) == 1:
+            return allowed[0]
+        allowed_values = ", ".join(p.value for p in allowed)
+        raise ValueError(
+            f"El campo 'problem_type' es obligatorio para este algoritmo. "
+            f"Valores permitidos: {allowed_values}"
+        )
+
+    def to_pack_request(self, algorithm_name: str, allowed: list[ProblemType]) -> PackRequest:
+        return PackRequest(
+            problem_type=self.resolve_problem_type(allowed),
+            request_id=self.request_id,
+            containers=self.containers,
+            items=self.items,
+            constraints=self.constraints,
+            objective=self.objective,
+            algorithm=AlgorithmConfig(
+                name=algorithm_name,
+                parameters=self.parameters,
+                random_seed=self.random_seed,
+                time_limit_seconds=self.time_limit_seconds,
+            ),
+        )
+
+
+class CartonizationAlgorithmInput(BaseModel):
+    """Entrada normalizada para algoritmos de cartonization vía URL."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    request_id: str | None = None
+    items: list[Item]
+    boxes: list[BoxOption] = Field(min_length=1)
+    constraints: ConstraintFlags = Field(default_factory=ConstraintFlags)
+    parameters: dict[str, Any] = Field(default_factory=dict)
+    random_seed: int | None = None
+    time_limit_seconds: float | None = Field(default=None, gt=0)
+
+    def to_cartonization_request(self, algorithm_name: str) -> CartonizationRequest:
+        return CartonizationRequest(
+            request_id=self.request_id,
+            items=self.items,
+            boxes=self.boxes,
+            constraints=self.constraints,
+            algorithm=AlgorithmConfig(
+                name=algorithm_name,
+                parameters=self.parameters,
+                random_seed=self.random_seed,
+                time_limit_seconds=self.time_limit_seconds,
+            ),
         )

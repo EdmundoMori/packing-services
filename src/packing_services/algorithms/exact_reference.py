@@ -70,17 +70,6 @@ CATALOG = [
         "Selección de capas mediante knapsack en enfoques por capas.",
         limitations=["Enfoque híbrido; fase futura"],
     ),
-    # --- Enfoques híbridos ---
-    catalog_metadata(
-        "constructive_plus_local_search",
-        "Constructive Heuristic + Local Improvement",
-        _PROBLEMS,
-        AlgorithmFamily.HYBRID,
-        AlgorithmStatus.FUTURE,
-        "Heurística constructiva seguida de mejora local.",
-        supports_time_limit=True,
-        limitations=["Evolución natural tras heurística + validador"],
-    ),
     catalog_metadata(
         "extreme_points_plus_sa",
         "Extreme Points + Simulated Annealing",

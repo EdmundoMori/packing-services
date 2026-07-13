@@ -34,6 +34,8 @@ geométrico propio** antes que metaheurísticas, métodos exactos o IA (ver
 | `first_fit_decreasing_3d` (First Fit Decreasing 3D) | ✅ implementado |
 | `extreme_points_3d` (Extreme Points Heuristic) | ✅ implementado |
 | `best_fit_decreasing_3d` (Best Fit Decreasing 3D) | ✅ implementado |
+| `solution_compaction` (Compaction / mejora local) | ✅ implementado |
+| `constructive_plus_local_search` (Constructivo + mejora local) | ✅ implementado |
 | **3D Bin Packing Offline Service** (`/pack/3d-bpp`) | ✅ operativo |
 | **Container Loading Service** (`/pack/container-loading`) | ✅ operativo (baseline weight-aware) |
 | **Cartonization Service** (`/pack/cartonization`) | ✅ operativo (selección de caja) |
@@ -41,11 +43,11 @@ geométrico propio** antes que metaheurísticas, métodos exactos o IA (ver
 | **Packing Benchmark / Comparison Service** (`/benchmark`) | ✅ operativo |
 | **Preparación espacio de datos** (`/services`) | ✅ descriptores publicables |
 | API local (FastAPI) | ✅ |
-| Tests (pytest) | ✅ 80 tests |
+| Tests (pytest) | ✅ 93 tests |
 | Adaptador `py3dbp` | ✅ (ejecutable si se instala `py3dbp`) |
 | Adaptadores skjolber / BoxPacker / 3DContainerPacking / PackingSolver / D-Wave | 🟡 stubs documentados |
 | Palletization / Stacking-aware Services | 🔜 fase posterior (PackingSolver) |
-| Metaheurísticas, métodos exactos, híbridos, DRL | 🔜 registrados como `future` |
+| Metaheurísticas, métodos exactos, DRL | 🔜 registrados como `future` |
 
 ---
 
@@ -106,6 +108,22 @@ pytest
 
 ---
 
+## Notebooks didácticos (presentación al tutor)
+
+Para explicar el avance de forma **visual** (sin depender de la terminal), hay
+**8 notebooks** en `notebooks/` con gráficos de layouts, comparaciones y KPIs
+filtrados para audiencia no técnica.
+
+```bash
+pip install -e ".[notebooks]"
+cd notebooks
+jupyter notebook
+```
+
+Guía completa: `notebooks/README.md` (orden de presentación ~40 min).
+
+---
+
 ## Levantar la API local
 
 Deja este proceso **corriendo en una terminal** (no lo cierres) y usa `curl`
@@ -153,6 +171,18 @@ curl -X POST http://localhost:8000/api/v1/benchmark \
   -H "Content-Type: application/json" \
   -d @examples/benchmark_request.json
 
+curl -X POST http://localhost:8000/api/v1/benchmark \
+  -H "Content-Type: application/json" \
+  -d @examples/benchmark_container_loading_request.json
+
+curl -X POST http://localhost:8000/api/v1/benchmark \
+  -H "Content-Type: application/json" \
+  -d @examples/benchmark_cartonization_request.json
+
+curl -X POST http://localhost:8000/api/v1/benchmark \
+  -H "Content-Type: application/json" \
+  -d @examples/benchmark_hybrid_request.json
+
 # Descriptores de servicios listos para un espacio de datos
 curl -X GET http://localhost:8000/api/v1/services
 ```
@@ -174,7 +204,7 @@ Más ejemplos en `docs/api_examples.md`.
 | POST | `/api/v1/pack/container-loading` | Carga de contenedores/camiones (weight-aware) |
 | POST | `/api/v1/pack/cartonization` | Selección de caja para un pedido |
 | POST | `/api/v1/validate` | Valida una solución |
-| POST | `/api/v1/benchmark` | Compara varios algoritmos |
+| POST | `/api/v1/benchmark` | Compara varios algoritmos (3D-BPP, Container Loading o Cartonization) |
 
 Los endpoints de Palletization y Stacking-aware están en el roadmap
 (`docs/roadmap.md`), previstos vía el adaptador PackingSolver.

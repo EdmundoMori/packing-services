@@ -39,6 +39,8 @@ exactos o IA**.
 Constructivos (todos ejecutables, validables y comparables):
 - **3D-BPP**: `heuristic_3d_bpp_v1`, `first_fit_decreasing_3d`,
   `extreme_points_3d`, `best_fit_decreasing_3d`.
+- **Mejora / híbrido 3D-BPP**: `solution_compaction`,
+  `constructive_plus_local_search`.
 - **Container Loading**: `single_container_constructive`,
   `weight_aware_container_loading`.
 - **Cartonization**: `smallest_feasible_box`, `best_box_volume_utilization`.
@@ -48,12 +50,13 @@ Constructivos (todos ejecutables, validables y comparables):
 ### Corto plazo (mejorar calidad 3D-BPP)
 1. ✅ `extreme_points_3d` — hecho.
 2. ✅ `best_fit_decreasing_3d` — hecho.
-3. `maximal_spaces_3d` — representación de espacios vacíos máximos (siguiente
+3. ✅ `solution_compaction` + `constructive_plus_local_search` — hecho (mejora local).
+4. `maximal_spaces_3d` — representación de espacios vacíos máximos (siguiente
    extensión constructiva de mayor calidad).
-4. Heurísticas de mejora (`relocation_improvement`, `orientation_improvement`,
-   `swap_improvement`, `solution_compaction`, `bin_reduction`) como segunda capa
-   sobre una solución válida, y el híbrido `constructive_plus_local_search`.
-5. Palletization y Stacking-aware (vía `packingsolver_adapter` / reglas de
+5. Heurísticas de mejora adicionales (`relocation_improvement`,
+   `orientation_improvement`, `swap_improvement`, `bin_reduction`) como segunda capa
+   sobre una solución válida.
+6. Palletization y Stacking-aware (vía `packingsolver_adapter` / reglas de
    soporte y carga máxima) para completar los grupos de servicio restantes.
 
 ### Servicios por grupo (según análisis de repositorios)

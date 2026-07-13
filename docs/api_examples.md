@@ -2,7 +2,71 @@
 
 Los archivos JSON referenciados están en `examples/`.
 
-## `POST /api/v1/pack/3d-bpp`
+## `POST /api/v1/algorithms/{algorithm_name}/execute`
+
+Endpoint principal por algoritmo (Opción A3). El nombre del algoritmo va en la URL;
+el body es el input normalizado por tipo de problema, **sin** el campo `algorithm`.
+
+### Pack (3D_BPP, CONTAINER_LOADING, SINGLE_CONTAINER_LOADING)
+
+Request (`examples/algorithm_execute_3d_bpp.json`):
+
+```bash
+curl -X POST http://localhost:8000/api/v1/algorithms/heuristic_3d_bpp_v1/execute \
+  -H "Content-Type: application/json" \
+  -d @examples/algorithm_execute_3d_bpp.json
+```
+
+```json
+{
+  "problem_type": "3D_BPP",
+  "request_id": "example-001",
+  "containers": [{ "id": "C1", "length": 120, "width": 80, "height": 100, "max_weight": 1000 }],
+  "items": [
+    { "id": "I1", "length": 40, "width": 40, "height": 40, "weight": 10, "quantity": 4, "allowed_orientations": "all" }
+  ],
+  "constraints": { "non_overlap": true, "containment": true, "allow_rotation": true, "max_weight": true },
+  "objective": "maximize_volume_utilization",
+  "parameters": { "sort_strategy": "volume_desc", "position_strategy": "bottom_left_back" }
+}
+```
+
+Si el algoritmo admite varios `problem_type`, el campo es **obligatorio** (estrategia A3).
+Ejemplos adicionales:
+
+| Tipo | Archivo | Algoritmo de ejemplo |
+|------|---------|----------------------|
+| `CONTAINER_LOADING` | `algorithm_execute_container_loading.json` | `weight_aware_container_loading` |
+| `SINGLE_CONTAINER_LOADING` | `algorithm_execute_single_container.json` | `best_fit_decreasing_3d` |
+| Mejora local | `algorithm_execute_improvement.json` | `solution_compaction` |
+
+La respuesta tiene la misma forma que `POST /api/v1/pack/3d-bpp` (`PackResponse`).
+
+### Cartonization
+
+Request (`examples/algorithm_execute_cartonization.json`):
+
+```bash
+curl -X POST http://localhost:8000/api/v1/algorithms/smallest_feasible_box/execute \
+  -H "Content-Type: application/json" \
+  -d @examples/algorithm_execute_cartonization.json
+```
+
+```json
+{
+  "request_id": "carton-001",
+  "items": [{ "id": "SKU1", "length": 20, "width": 15, "height": 10, "weight": 2, "quantity": 3 }],
+  "boxes": [{ "id": "BOX_M", "length": 40, "width": 30, "height": 20, "max_weight": 30 }],
+  "constraints": { "non_overlap": true, "containment": true, "allow_rotation": true, "max_weight": true },
+  "parameters": { "sort_strategy": "volume_desc" }
+}
+```
+
+La respuesta tiene la misma forma que `POST /api/v1/pack/cartonization` (`CartonizationResponse`).
+
+---
+
+## `POST /api/v1/pack/3d-bpp` (legacy)
 
 Request (`examples/3d_bpp_basic_request.json`):
 
@@ -149,19 +213,77 @@ solapan. Response:
 
 ## `POST /api/v1/benchmark`
 
-Request (`examples/benchmark_request.json`) compara `heuristic_3d_bpp_v1` y
-`first_fit_decreasing_3d`. Response:
+Compara varios motores sobre la **misma instancia**. Hay dos formas de indicar los motores:
+
+1. **`profile`** (recomendado): conjunto estándar predefinido (≥2 motores comparables).
+2. **`engines`** explícito: lista manual (tiene prioridad si ambos están presentes).
+
+Descubre perfiles disponibles:
+
+```bash
+curl http://localhost:8000/api/v1/benchmark/profiles
+curl "http://localhost:8000/api/v1/benchmark/profiles?problem_type=CARTONIZATION"
+```
+
+### Perfiles estándar por tipo de problema
+
+| `problem_type` | Perfil | Motores comparados |
+|----------------|--------|-------------------|
+| `3D_BPP` | `constructive` | 4 heurísticas + `py3dbp_adapter` (opcional) |
+| `3D_BPP` | `hybrid` | `best_fit` → `solution_compaction` → `constructive_plus_local_search` |
+| `CONTAINER_LOADING` | `constructive` | `single_container_constructive`, `weight_aware`, `extreme_points_3d` |
+| `CONTAINER_LOADING` | `improvement` | `weight_aware` + compactación + híbrido |
+| `CARTONIZATION` | `box_selection` | `smallest_feasible_box`, `best_box_volume_utilization`, `first_fit_box`, `largest_feasible_box` |
+| `SINGLE_CONTAINER_LOADING` | `constructive` | `single_container_constructive`, `best_fit`, `first_fit` |
+
+Ejemplo mínimo con perfil (sin listar motores a mano):
+
+```bash
+curl -X POST http://localhost:8000/api/v1/benchmark \
+  -H "Content-Type: application/json" \
+  -d @examples/benchmark_cartonization_request.json
+```
+
+El JSON solo necesita `problem_type`, `profile`, `items`/`containers`/`boxes` según el tipo.
+
+| Grupo | Ejemplo JSON |
+|-------|--------------|
+| `3D_BPP` constructivo | `examples/benchmark_3d_bpp_profile_request.json` |
+| `3D_BPP` híbrido | `examples/benchmark_hybrid_request.json` |
+| `CONTAINER_LOADING` | `examples/benchmark_container_loading_request.json` |
+| `CARTONIZATION` | `examples/benchmark_cartonization_request.json` |
+| `SINGLE_CONTAINER_LOADING` | `examples/benchmark_single_container_request.json` |
+
+El ejemplo 3D-BPP usa **30 piezas** y **2 contenedores**, diseñado para mostrar
+diferencias claras de utilización y piezas empacadas. Response:
 
 ```json
 {
   "request_id": "benchmark-001",
   "results": [
-    { "engine": "heuristic_3d_bpp_v1", "status": "partial", "is_valid": true, "metrics": { "...": "..." } },
-    { "engine": "first_fit_decreasing_3d", "status": "partial", "is_valid": true, "metrics": { "...": "..." } }
+    {
+      "engine": "heuristic_3d_bpp_v1",
+      "status": "partial",
+      "is_valid": true,
+      "metrics": { "...": "..." },
+      "details": {}
+    },
+    {
+      "engine": "smallest_feasible_box",
+      "status": "partial",
+      "is_valid": true,
+      "metrics": { "...": "..." },
+      "details": { "selected_box_id": "BOX_L", "evaluated_boxes": [] }
+    }
   ],
-  "ranking": ["heuristic_3d_bpp_v1", "first_fit_decreasing_3d"],
-  "ranking_explanation": "Ranking: (1) soluciones válidas antes que inválidas; (2) mayor volume_utilization; (3) menor items_unpacked; (4) menor containers_used; (5) menor execution_time_seconds.",
-  "details": { "engines_total": 2, "engines_valid": 2, "best_engine": "heuristic_3d_bpp_v1" }
+  "ranking": ["best_fit_decreasing_3d", "first_fit_decreasing_3d"],
+  "ranking_explanation": "Ranking 3D-BPP: (1) soluciones válidas; (2) mayor volume_utilization; ...",
+  "details": {
+    "benchmark_group": "3D_BPP",
+    "engines_total": 5,
+    "engines_valid": 5,
+    "best_engine": "best_fit_decreasing_3d"
+  }
 }
 ```
 

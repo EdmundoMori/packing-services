@@ -41,15 +41,6 @@ CATALOG = [
         limitations=["Requiere una solución inicial válida"],
     ),
     catalog_metadata(
-        "solution_compaction",
-        "Compaction",
-        _PROBLEMS,
-        AlgorithmFamily.IMPROVEMENT_HEURISTIC,
-        AlgorithmStatus.FUTURE,
-        "Compacta la solución hacia el origen o una esquina.",
-        limitations=["Requiere una solución inicial válida"],
-    ),
-    catalog_metadata(
         "bin_reduction",
         "Bin Reduction",
         _PROBLEMS,

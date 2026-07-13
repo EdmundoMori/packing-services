@@ -17,6 +17,7 @@ from ..domain.models import PackingProblem, PackingSolution
 from ..utils.errors import (
     AlgorithmNotExecutableError,
     AlgorithmNotFoundError,
+    InvalidInputError,
 )
 from .base import PackingAlgorithm
 from .metadata import AlgorithmMetadata
@@ -108,6 +109,13 @@ class AlgorithmRegistry:
                 f"El algoritmo '{name}' no es ejecutable en esta versión "
                 f"(estado: {status})."
             )
+        meta = self._metadata[name]
+        if problem.problem_type not in meta.problem_types:
+            raise InvalidInputError(
+                f"El algoritmo '{name}' no soporta problem_type="
+                f"{problem.problem_type.value}. "
+                f"Tipos compatibles: {[p.value for p in meta.problem_types]}"
+            )
         return self._executables[name].run(problem)
 
 
@@ -122,11 +130,18 @@ def _build_default_registry() -> AlgorithmRegistry:
         metaheuristics,
     )
     from .best_fit_decreasing_3d import BestFitDecreasing3D
-    from .cartonization import BestBoxVolumeUtilization, SmallestFeasibleBox
+    from .cartonization import (
+        BestBoxVolumeUtilization,
+        FirstFitBox,
+        LargestFeasibleBox,
+        SmallestFeasibleBox,
+    )
+    from .constructive_plus_local_search import ConstructivePlusLocalSearch
     from .extreme_points_3d import ExtremePoints3D
     from .first_fit_decreasing_3d import FirstFitDecreasing3D
     from .heuristic_3d_bpp import Heuristic3DBPPv1
     from .single_container import SingleContainerConstructive
+    from .solution_compaction import SolutionCompaction
     from .weight_aware_container_loading import WeightAwareContainerLoading
 
     registry = AlgorithmRegistry()
@@ -137,12 +152,16 @@ def _build_default_registry() -> AlgorithmRegistry:
     registry.register_algorithm(FirstFitDecreasing3D())
     registry.register_algorithm(ExtremePoints3D())
     registry.register_algorithm(BestFitDecreasing3D())
+    registry.register_algorithm(SolutionCompaction())
+    registry.register_algorithm(ConstructivePlusLocalSearch())
     # Container Loading.
     registry.register_algorithm(SingleContainerConstructive())
     registry.register_algorithm(WeightAwareContainerLoading())
     # Cartonization / Order Packing.
     registry.register_algorithm(SmallestFeasibleBox())
     registry.register_algorithm(BestBoxVolumeUtilization())
+    registry.register_algorithm(FirstFitBox())
+    registry.register_algorithm(LargestFeasibleBox())
 
     # Adaptadores a motores externos (registran su metadata; ejecutan solo si la
     # dependencia está disponible).

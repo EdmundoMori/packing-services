@@ -8,6 +8,9 @@ candidatas y eligen una según la estrategia:
 - ``smallest_feasible_box``: la caja de menor volumen donde caben todos los ítems.
 - ``best_box_volume_utilization``: entre las cajas donde caben todos los ítems,
   la de mayor utilización volumétrica (equivale a la más ajustada).
+- ``first_fit_box``: la primera caja del catálogo (orden de entrada) donde caben
+  todos los ítems.
+- ``largest_feasible_box``: la caja de mayor volumen donde caben todos los ítems.
 
 Ambos producen una ``PackingSolution`` estándar (con la caja elegida como
 contenedor), por lo que pasan por el validador, las métricas y el benchmark igual
@@ -185,3 +188,71 @@ class BestBoxVolumeUtilization(_CartonizationBase):
             ),
         )
         return best[0], best[1], best[2]
+
+
+class FirstFitBox(_CartonizationBase):
+    """Elige la primera caja del catálogo (orden de entrada) donde caben todos los ítems."""
+
+    metadata = AlgorithmMetadata(
+        name="first_fit_box",
+        display_name="First Fit Box",
+        problem_types=[ProblemType.CARTONIZATION],
+        algorithm_family=AlgorithmFamily.CONSTRUCTIVE_HEURISTIC,
+        status=AlgorithmStatus.IMPLEMENTED,
+        description=(
+            "Recorre las cajas candidatas en el orden del catálogo y selecciona "
+            "la primera donde caben todos los ítems del pedido."
+        ),
+        parameters={"sort_strategy": "Orden de ítems dentro de la caja"},
+        metrics=DEFAULT_METRICS,
+        limitations=[
+            "Selecciona una sola caja (baseline); no combina varias cajas",
+            "Sensible al orden del catálogo de cajas",
+        ],
+        **_CARTON_CONSTRAINTS,
+    )
+
+    def run(self, problem: PackingProblem) -> PackingSolution:
+        return self._solve(problem, self._select)
+
+    @staticmethod
+    def _select(evaluated):
+        for box, packed, unpacked, fits_all in evaluated:
+            if fits_all:
+                return box, packed, unpacked
+        return max(evaluated, key=lambda r: (len(r[1]), -r[0].volume))
+
+
+class LargestFeasibleBox(_CartonizationBase):
+    """Elige la caja más grande donde caben todos los ítems (baseline derrochador)."""
+
+    metadata = AlgorithmMetadata(
+        name="largest_feasible_box",
+        display_name="Largest Feasible Box",
+        problem_types=[ProblemType.CARTONIZATION],
+        algorithm_family=AlgorithmFamily.CONSTRUCTIVE_HEURISTIC,
+        status=AlgorithmStatus.IMPLEMENTED,
+        description=(
+            "Ordena las cajas por volumen descendente y selecciona la primera "
+            "(más grande) donde caben todos los ítems. Útil como contraste "
+            "frente a ``smallest_feasible_box``."
+        ),
+        parameters={"sort_strategy": "Orden de ítems dentro de la caja"},
+        metrics=DEFAULT_METRICS,
+        limitations=[
+            "Selecciona una sola caja (baseline); suele desperdiciar espacio",
+            "Algoritmo heurístico; la factibilidad depende del empaquetador interno",
+        ],
+        **_CARTON_CONSTRAINTS,
+    )
+
+    def run(self, problem: PackingProblem) -> PackingSolution:
+        return self._solve(problem, self._select)
+
+    @staticmethod
+    def _select(evaluated):
+        by_volume_desc = sorted(evaluated, key=lambda r: r[0].volume, reverse=True)
+        for box, packed, unpacked, fits_all in by_volume_desc:
+            if fits_all:
+                return box, packed, unpacked
+        return max(by_volume_desc, key=lambda r: (len(r[1]), r[0].volume))
