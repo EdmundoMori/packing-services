@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benchmark · packing-services</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">packing-services <small>Benchmark comparativo</small></div>
+    <nav class="nav">
+      <a href="index.html" data-page="home">Inicio</a>
+      <a href="catalog.html" data-page="catalog">Catálogo</a>
+      <a href="execute.html" data-page="execute">Ejecutar</a>
+      <a href="benchmark.html" data-page="benchmark">Benchmark</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Benchmark de algoritmos</h1>
+      <p class="muted">Mismo flujo: tipo de problema → motores compatibles → instancia showcase diferenciada por tipo.</p>
+    </section>
+
+    <div id="benchmark-alert"></div>
+
+    <section class="panel">
+      <div class="selector-bar">
+        <label>
+          Tipo de problema
+          <select id="problem-type-select"></select>
+        </label>
+        <label>
+          Perfil (opcional)
+          <select id="profile-select"></select>
+        </label>
+        <div class="selector-hint" id="instance-hint"></div>
+      </div>
+
+      <h3>Algoritmos a comparar (≥2, o usa un perfil)</h3>
+      <div id="engine-grid" class="checkbox-grid"></div>
+
+      <div class="toolbar" style="margin-top:1rem">
+        <button id="load-showcase-btn" class="secondary" type="button">Recargar instancia showcase</button>
+        <button id="benchmark-btn" type="button">Ejecutar benchmark</button>
+      </div>
+      <details style="margin-top:0.75rem">
+        <summary class="muted">Ver / editar JSON de instancia</summary>
+        <textarea id="benchmark-json" spellcheck="false" style="margin-top:0.5rem; min-height:180px"></textarea>
+      </details>
+    </section>
+
+    <section class="panel compare-table">
+      <h2>Métricas comparativas</h2>
+      <p id="ranking-box" class="muted"></p>
+      <div id="benchmark-table"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Validación de restricciones por motor</h2>
+      <div id="benchmark-validation">
+        <p class="muted">Ejecuta un benchmark para ver el cumplimiento de restricciones de cada algoritmo.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Visualización: mejor vs peor (utilización %)</h2>
+      <p class="muted">Comparación de layouts según la métrica de utilización de volumen. El JSON completo sigue disponible abajo.</p>
+      <div id="benchmark-layout">
+        <p class="muted">Ejecuta un benchmark para comparar layouts mejor vs peor.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Respuesta completa (JSON)</h2>
+      <pre id="benchmark-json-out" class="json-output">{}</pre>
+    </section>
+  </main>
+
+  <script src="/assets/js/common.js"></script>
+  <script src="/assets/js/problem-context.js"></script>
+  <script src="/assets/js/layout-viz.js"></script>
+  <script src="/assets/js/constraint-validation.js"></script>
+  <script src="/assets/js/benchmark.js"></script>
+</body>
+</html>

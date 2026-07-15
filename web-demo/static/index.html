@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>packing-services · Demo Web</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      packing-services
+      <small>Simulación de espacio de datos (funcional)</small>
+    </div>
+    <nav class="nav">
+      <a href="index.html" data-page="home">Inicio</a>
+      <a href="catalog.html" data-page="catalog">Catálogo</a>
+      <a href="execute.html" data-page="execute">Ejecutar</a>
+      <a href="benchmark.html" data-page="benchmark">Benchmark</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Portal de servicios de Cutting &amp; Packing</h1>
+      <p>
+        Simulación de lo que podría ocurrir en un espacio de datos: descubrir
+        algoritmos, ejecutar uno con JSON de entrada y comparar varios motores
+        en benchmark. <strong>Sin contratos, políticas ni soberanía</strong> por ahora.
+      </p>
+    </section>
+
+    <div id="summary"></div>
+
+    <section class="grid">
+      <a class="card" href="catalog.html">
+        <h3>1 · Catálogo</h3>
+        <p class="muted">Tipo de problema → tarjetas de modelo → detalle completo.</p>
+      </a>
+      <a class="card" href="execute.html">
+        <h3>2 · Ejecutar</h3>
+        <p class="muted">Tipo de problema → algoritmo → formulario o JSON.</p>
+      </a>
+      <a class="card" href="benchmark.html">
+        <h3>3 · Benchmark</h3>
+        <p class="muted">Tipo de problema → motores → instancia showcase diferenciada.</p>
+      </a>
+    </section>
+
+    <section class="panel">
+      <h2>Arquitectura del demo</h2>
+      <p class="muted">
+        Un único servidor expone esta interfaz web (puerto 8080) y hace proxy a la API
+        <code>packing-services</code> (puerto 8000). El núcleo del proyecto no se modifica:
+        la UI consume los endpoints existentes <code>/api/v1/algorithms</code>,
+        <code>/api/v1/algorithms/{name}/execute</code> y <code>/api/v1/benchmark</code>.
+      </p>
+    </section>
+  </main>
+
+  <script src="/assets/js/common.js"></script>
+  <script>
+    setActiveNav("home");
+    loadServiceSummary("summary");
+  </script>
+</body>
+</html>

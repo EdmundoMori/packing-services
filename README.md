@@ -37,7 +37,7 @@ implementadas. Métodos exactos e IA siguen en roadmap (ver `docs/roadmap.md`).
 | **Preparación espacio de datos** (`/services`) | ✅ descriptores publicables |
 | Endpoints legacy `/pack/*` | ✅ retrocompatibilidad |
 | API local (FastAPI) | ✅ |
-| Tests (pytest) | ✅ 209 tests |
+| Tests (pytest) | ✅ 215 tests |
 | Notebooks didácticos (00–09) | ✅ 10 notebooks |
 | Palletization / Stacking-aware | ✅ operativos |
 | Metaheurísticas 3D-BPP (7) | ✅ SA, GA, GRASP, Tabu, LNS, VNS, ACO |
@@ -139,6 +139,13 @@ pytest
 PYTHONPATH=src pytest tests/ -q
 ```
 
+### Scripts de mantenimiento
+
+| Script | Uso |
+|--------|-----|
+| `scripts/regenerate_algorithm_catalog.py` | Regenera `docs/algorithm_catalog.md` desde el registry |
+| `scripts/sync_web_demo_showcase.py` | Sincroniza `examples/showcase_*` → `web-demo/static/assets/data/` |
+
 ---
 
 ## Notebooks didácticos
@@ -160,6 +167,15 @@ MPLBACKEND=Agg python notebooks/_execute_all.py       # ejecutar 00→09
 ```
 
 Guía: `notebooks/README.md`.
+
+### Demo web (simulación de espacio de datos)
+
+Interfaz adicional en `web-demo/` — catálogo, ejecución individual y benchmark
+sin modificar la API existente. Ver `web-demo/README.md`.
+
+```bash
+./web-demo/start.sh   # API :8000 + UI :8080
+```
 
 ---
 

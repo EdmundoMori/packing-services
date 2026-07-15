@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejecutar algoritmo · packing-services</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">packing-services <small>Ejecución individual</small></div>
+    <nav class="nav">
+      <a href="index.html" data-page="home">Inicio</a>
+      <a href="catalog.html" data-page="catalog">Catálogo</a>
+      <a href="execute.html" data-page="execute">Ejecutar</a>
+      <a href="benchmark.html" data-page="benchmark">Benchmark</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Ejecutar un algoritmo</h1>
+      <p class="muted">Tipo de problema → algoritmo → entrada en <strong>formulario</strong> o <strong>JSON</strong>.</p>
+    </section>
+
+    <div id="execute-alert"></div>
+
+    <section class="panel">
+      <div class="selector-bar">
+        <label>
+          Tipo de problema
+          <select id="problem-type-select"></select>
+        </label>
+        <label>
+          Algoritmo
+          <select id="algorithm-select" style="min-width:300px"></select>
+        </label>
+        <div class="selector-hint" id="problem-hint"></div>
+      </div>
+      <div id="algo-meta" class="muted"></div>
+    </section>
+
+    <section class="panel">
+      <div class="tabs">
+        <button type="button" class="tab-btn active" data-tab="form">Formulario</button>
+        <button type="button" class="tab-btn" data-tab="json">JSON</button>
+      </div>
+      <div id="tab-form" class="tab-panel active">
+        <div id="input-form"></div>
+      </div>
+      <div id="tab-json" class="tab-panel">
+        <textarea id="input-json" spellcheck="false" placeholder="Selecciona algoritmo para cargar ejemplo…"></textarea>
+        <button id="format-btn" class="secondary" type="button" style="margin-top:0.5rem">Formatear JSON</button>
+      </div>
+      <div style="margin-top:1rem">
+        <button id="run-btn" type="button">Ejecutar algoritmo</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Resultado</h2>
+      <div id="result-kpis" class="kpis"></div>
+      <div id="result-validation" class="validation-panel">
+        <p class="muted">Tras ejecutar, aquí verás el cumplimiento de cada restricción solicitada.</p>
+      </div>
+      <div class="tabs result-tabs">
+        <button type="button" class="tab-btn active" data-result-tab="visual">Visual</button>
+        <button type="button" class="tab-btn" data-result-tab="json">JSON</button>
+      </div>
+      <div id="result-tab-visual" class="tab-panel active">
+        <div id="result-layout" class="layout-panel">
+          <p class="muted">Ejecuta un algoritmo para ver el layout 2D de la solución.</p>
+        </div>
+      </div>
+      <div id="result-tab-json" class="tab-panel">
+        <pre id="result-json" class="json-output">{}</pre>
+      </div>
+    </section>
+  </main>
+
+  <script src="/assets/js/common.js"></script>
+  <script src="/assets/js/problem-context.js"></script>
+  <script src="/assets/js/form-builder.js"></script>
+  <script src="/assets/js/layout-viz.js"></script>
+  <script src="/assets/js/constraint-validation.js"></script>
+  <script src="/assets/js/execute.js"></script>
+</body>
+</html>

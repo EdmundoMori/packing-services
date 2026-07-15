@@ -1,0 +1,24 @@
+{
+  "catalog_version": "showcase-v2",
+  "problem_type": "CONTAINER_LOADING",
+  "request_id": "showcase-cl-001",
+  "description": "Showcase Container Loading (mismo catálogo P1–P5, 30 uds, 2 contenedores). Benchmark: weight_aware ~27 empacados vs single_container ~17 (alta util) vs extreme_points ~22.",
+  "containers": [
+    { "id": "C1", "length": 100, "width": 80, "height": 80, "max_weight": 500 },
+    { "id": "C2", "length": 100, "width": 80, "height": 80, "max_weight": 500 }
+  ],
+  "items": [
+    { "id": "P1", "length": 50, "width": 40, "height": 30, "weight": 6, "quantity": 6, "allowed_orientations": "all" },
+    { "id": "P2", "length": 60, "width": 30, "height": 40, "weight": 7, "quantity": 5, "allowed_orientations": "all" },
+    { "id": "P3", "length": 45, "width": 45, "height": 25, "weight": 5, "quantity": 4, "allowed_orientations": "all" },
+    { "id": "P4", "length": 30, "width": 25, "height": 55, "weight": 4, "quantity": 5, "allowed_orientations": "all" },
+    { "id": "P5", "length": 20, "width": 20, "height": 20, "weight": 2, "quantity": 10, "allowed_orientations": "all" }
+  ],
+  "constraints": {
+    "non_overlap": true,
+    "containment": true,
+    "allow_rotation": true,
+    "max_weight": true
+  },
+  "objective": "maximize_items_packed"
+}

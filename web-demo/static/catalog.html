@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo · packing-services</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">packing-services <small>Catálogo de algoritmos</small></div>
+    <nav class="nav">
+      <a href="index.html" data-page="home">Inicio</a>
+      <a href="catalog.html" data-page="catalog">Catálogo</a>
+      <a href="execute.html" data-page="execute">Ejecutar</a>
+      <a href="benchmark.html" data-page="benchmark">Benchmark</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Catálogo de algoritmos</h1>
+      <p class="muted">Primero elige el <strong>tipo de problema</strong>; luego explora las tarjetas de modelo o el detalle completo.</p>
+    </section>
+
+    <div id="catalog-alert"></div>
+
+    <section class="panel">
+      <div class="selector-bar">
+        <label>
+          Tipo de problema
+          <select id="problem-type-select"></select>
+        </label>
+        <div class="selector-hint" id="problem-hint"></div>
+        <input id="filter-search" type="search" placeholder="Buscar por nombre…" style="min-width:200px">
+        <span id="catalog-count" class="badge info">0 modelos</span>
+      </div>
+
+      <div id="model-grid" class="model-grid"></div>
+
+      <div id="detail-panel" class="detail-panel" hidden>
+        <h2 id="detail-title">Detalle del algoritmo</h2>
+        <div id="detail-body"></div>
+        <p style="margin-top:1rem">
+          <a id="detail-execute-link" class="btn" href="execute.html">Ejecutar este algoritmo</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/assets/js/common.js"></script>
+  <script src="/assets/js/problem-context.js"></script>
+  <script src="/assets/js/catalog.js"></script>
+</body>
+</html>

@@ -70,6 +70,8 @@ Cada grupo de benchmark usa una instancia compleja donde los resultados **se dif
 | Container Loading | `showcase_container_loading_instance.json` | weight_aware 27 vs single_container 17 |
 | Single Container | `showcase_single_container_instance.json` (altura 70) | best_fit 13 (94%) vs first_fit 16 (89%) |
 | Cartonization | `showcase_cartonization_instance.json` | single-box BOX_M vs multi_box varias cajas |
+| Palletization | `showcase_palletization_instance.json` | layer_based vs stack_based |
+| Stacking-aware | `showcase_stacking_aware_instance.json` | stacking_aware vs stack_based con max_load_on_top |
 
 Todos los notebooks usan la función homogénea `display.run_and_show_showcase_benchmark(group)`.
 

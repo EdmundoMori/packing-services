@@ -31,3 +31,10 @@ htmlcov/
 *.log
 runs/
 outputs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Variables de entorno locales
+.env
+.env.*

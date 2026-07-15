@@ -167,6 +167,26 @@ def test_every_implemented_algorithm_has_execute_contract():
         assert detail["output_schema"] == "AlgorithmExecuteResponse"
 
 
+def test_execute_reports_validation_for_requested_constraints():
+    payload = _input.build_input_example(
+        "stacking_aware_constructive", problem_type=ProblemType.STACKING_AWARE
+    )
+    payload["constraints"] = {
+        "non_overlap": True,
+        "containment": True,
+        "allow_rotation": True,
+        "max_weight": True,
+        "basic_stability": True,
+        "load_bearing": True,
+    }
+    response = _execute("stacking_aware_constructive", payload)
+    assert response.status_code == 200, response.text
+    report = response.json()["solution"]["validation_report"]
+    assert report is not None
+    assert "is_valid" in report
+    assert isinstance(report["violations"], list)
+
+
 def test_py3dbp_adapter_execute_api_when_installed():
     registry = get_default_registry()
     if not registry.is_executable("py3dbp_adapter"):
