@@ -1,4 +1,4 @@
-"""Servicio de metadatos del servicio (para publicación en espacio de datos)."""
+"""Metadatos globales del servicio."""
 
 from __future__ import annotations
 
@@ -8,9 +8,9 @@ from ..domain.enums import AlgorithmStatus
 from ..schemas.responses import ServiceMetadataResponse
 
 SERVICE_DESCRIPTION = (
-    "Servicios modulares de Cutting and Packing. Incluye heurísticas constructivas, "
-    "mejora local, metaheurísticas 3D-BPP, validador geométrico propio y comparador. "
-    "Preparado para adaptadores a motores externos."
+    "Comparar metodologías de Cutting and Packing sobre entradas homogéneas. "
+    "Heurísticas, mejora local, metaheurísticas 3D-BPP, validador y benchmark. "
+    "Empaque online en roadmap; espacio de datos despriorizado."
 )
 
 SUPPORTED_PROBLEM_TYPES = [
@@ -39,6 +39,10 @@ ENDPOINTS = {
     "pack_stacking_aware": "POST /api/v1/pack/stacking-aware",
     "validate": "POST /api/v1/validate",
     "benchmark": "POST /api/v1/benchmark",
+    "benchmark_profiles": "GET /api/v1/benchmark/profiles",
+    "benchmark_joint_single_container": "POST /api/v1/benchmark/joint-single-container",
+    "bed_bpp_sample": "GET /api/v1/datasets/bed-bpp/sample",
+    "bed_bpp_convert": "POST /api/v1/datasets/bed-bpp/convert",
 }
 
 LIMITATIONS = [
@@ -47,7 +51,7 @@ LIMITATIONS = [
     "Fragilidad, load-bearing avanzado, centro de gravedad y secuencia de descarga: fases posteriores",
     "Cartonization single-box y multi-box disponibles; motor industrial futuro: BoxPacker",
     "Motores externos se integran mediante adaptadores, sin modificar sus repositorios",
-    "No integrado aún en un espacio de datos; solo preparado mediante metadatos y trazabilidad",
+    "Espacio de datos despriorizado: descriptores en /services, sin integración real",
 ]
 
 

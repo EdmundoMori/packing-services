@@ -65,6 +65,16 @@ def test_gateway_serves_static_pages():
         response = client.get(path)
         assert response.status_code == 200
         assert "packing-services" in response.text
+    execute = client.get("/execute.html")
+    assert "BED-BPP" in execute.text
+    assert 'id="bedbpp-order-select"' in execute.text
+    assert 'id="params-form"' in execute.text
+    assert 'id="algorithm-input-json"' in execute.text
+    assert "Entrada del algoritmo" in execute.text
+    assert 'id="input-json"' not in execute.text
+    bench = client.get("/benchmark.html")
+    assert "Dataset BED-BPP" in bench.text
+    assert "showcase" not in bench.text.lower() or "Recargar instancia showcase" not in bench.text
     data = client.get("/assets/data/showcase_3d_bpp_instance.json")
     assert data.status_code == 200
     assert data.json()["problem_type"] == "3D_BPP"

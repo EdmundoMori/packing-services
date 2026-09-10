@@ -16,6 +16,7 @@ from ..schemas.responses import (
     BenchmarkEngineResult,
     BenchmarkResponse,
 )
+from ..services.algorithm_input_service import AlgorithmInputService
 from ..services.cartonization_service import CartonizationService
 from ..services.container_loading_service import ContainerLoadingService
 from ..utils.errors import PackingError
@@ -86,8 +87,14 @@ class BenchmarkService:
 
     def __init__(self, registry: AlgorithmRegistry | None = None) -> None:
         self.registry = registry or get_default_registry()
+        self._input = AlgorithmInputService(self.registry)
         self._cartonization = CartonizationService(self.registry)
         self._container_loading = ContainerLoadingService(self.registry)
+
+    def _engine_with_defaults(self, engine):
+        """Rellena parameters opcionales del motor sin pisar los del usuario."""
+        merged = self._input.merge_parameters(engine.name, engine.parameters)
+        return engine.model_copy(update={"parameters": merged})
 
     def benchmark(self, request: BenchmarkRequest) -> BenchmarkResponse:
         if request.problem_type == ProblemType.CARTONIZATION:
@@ -216,6 +223,7 @@ class BenchmarkService:
                     f"problem_type={request.problem_type.value}"
                 ),
             )
+        engine = self._engine_with_defaults(engine)
         if request.problem_type == ProblemType.CARTONIZATION:
             return self._run_cartonization_engine(request, engine)
         if request.problem_type == ProblemType.CONTAINER_LOADING:

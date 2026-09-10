@@ -1,14 +1,21 @@
 # Arquitectura
 
-`packing-services` está organizado en capas con dependencias unidireccionales
-(las capas superiores dependen de las inferiores, nunca al revés).
+Documento hijo de [`../README.md`](../README.md). Índice: [`README.md`](README.md).
+Prioridades: [`roadmap.md`](roadmap.md).
+
+El código está organizado para **homogeneizar ejecución, validación y
+comparación**. El espacio de datos no estructura estas capas.
+
+`packing-services` usa capas con dependencias unidireccionales
+(las superiores dependen de las inferiores, nunca al revés).
 
 ```
 api ── services ── algorithms ─┬─ validation ─┐
                                ├─ metrics ─────┤
-                               └─ adapters     │
+                               ├─ adapters     │
+                               └─ datasets     │
                                                │
-                        schemas ── domain ─────┘
+              benchmark ── schemas ── domain ──┘
                                      │
                                    utils
 ```
@@ -64,24 +71,37 @@ de forma que cualquier motor produce cifras comparables.
 Adaptadores a motores externos. `ExternalAdapter` comparte interfaz con los
 algoritmos locales pero su ejecución depende de una dependencia/motor externo.
 Si no está disponible, `run` lanza `AdapterUnavailableError` con instrucciones.
+Solo `py3dbp_adapter` es ejecutable si se instala `py3dbp`; el resto son stubs.
+
+### `datasets/`
+Conversión de entradas externas al contrato interno. `bed_bpp.py` traduce
+pedidos BED-BPP (`item_sequence` + target) a `PackAlgorithmInput` /
+`BenchmarkRequest` sin cambiar los algoritmos.
+
+### `benchmark/`
+Perfiles por `problem_type` y el experimento conjunto
+`joint_single_container.py` (un euro-pallet, secuencia `input_order`,
+varios tipos de servicio, mismo validador).
 
 ### `services/`
 Orquestan registro + validador + métricas:
 
 | Servicio | Rol |
 |----------|-----|
-| `AlgorithmExecutionService` | Ejecuta un algoritmo por nombre (`/algorithms/{name}/execute`) |
+| `AlgorithmExecutionService` | Ejecuta un algoritmo por nombre (`/algorithms/{name}/execute`); normaliza BED-BPP si aplica |
 | `AlgorithmInputService` | Esquemas de entrada, ejemplos y endpoint por algoritmo |
 | `AlgorithmCatalogService` | Listado y detalle del catálogo |
 | `PackingService` | Endpoints legacy `/pack/*` |
+| `CartonizationService` / `PalletizationService` / `StackingAwareService` | Orquestación por tipo |
 | `ValidationService` | Validación independiente |
-| `BenchmarkService` | Comparación multi-algoritmo |
-| `DataspaceService` | Descriptores publicables (`/services`) |
+| `BenchmarkService` | Comparación multi-algoritmo por `problem_type` |
 | `MetadataService` | Metadatos del servicio |
+| `DataspaceService` | Descriptores `GET /services` (despriorizado; no es línea crítica) |
 
 ### `api/`
 FastAPI: `main.py` (app + manejadores de errores de dominio → HTTP) y routers en
-`routes/`. Patrón canónico de ejecución: `algorithm_execute.py`.
+`routes/`. Patrón canónico de ejecución: `algorithm_execute.py`. Datasets:
+`routes/datasets.py`. Benchmark conjunto: `POST /benchmark/joint-single-container`.
 
 ### `utils/`
 `logging.py`, `timing.py` (incluye `Deadline` para futuros límites de tiempo),
@@ -90,13 +110,14 @@ FastAPI: `main.py` (app + manejadores de errores de dominio → HTTP) y routers 
 ## Flujo de ejecución por algoritmo (canónico)
 
 ```
-PackAlgorithmInput | CartonizationAlgorithmInput (JSON)
+PackAlgorithmInput | CartonizationAlgorithmInput | wrapper BED-BPP (JSON)
   → AlgorithmExecutionService.execute(name, input)
+  → (si BED-BPP) datasets.bed_bpp.normalize_execute_payload
   → schemas → PackingProblem (expande quantity, normaliza)
   → AlgorithmRegistry.execute(name, problem)
-  → PackingAlgorithm.run()                # heurística / mejora / cartonization
+  → PackingAlgorithm.run()
   → build_solution()                      # valida + métricas + metadata
-  → AlgorithmExecuteResponse (JSON)     # solution + cartonization opcional
+  → AlgorithmExecuteResponse (JSON)
 ```
 
 ## Flujo legacy (`/pack/*`)
@@ -110,9 +131,9 @@ PackRequest (JSON)
   → PackingSolution (JSON)
 ```
 
-Los endpoints `/pack/3d-bpp`, `/pack/container-loading` y `/pack/cartonization`
-permanecen por retrocompatibilidad; el patrón preferido es
-`/algorithms/{name}/execute`.
+Los endpoints `/pack/3d-bpp`, `/pack/container-loading`, `/pack/cartonization`,
+`/pack/palletization` y `/pack/stacking-aware` permanecen por retrocompatibilidad;
+el patrón preferido es `/algorithms/{name}/execute`.
 
 ## Principios de diseño
 

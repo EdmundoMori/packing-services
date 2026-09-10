@@ -403,6 +403,9 @@ button.small { padding: 0.35rem 0.6rem; font-size: 0.82rem; }
 .layout-compare-card.best { border-color: #86efac; }
 .layout-compare-card.worst { border-color: #fdba74; }
 .layout-compare-single { grid-template-columns: 1fr; max-width: 720px; }
+.layout-panel-3d { margin-top: 1.25rem; }
+.layout-3d-plot { min-height: 360px; width: 100%; }
+.layout-grid-3d .layout-container-block { min-width: 0; }
 .layout-compare-title {
   display: flex;
   flex-direction: column;

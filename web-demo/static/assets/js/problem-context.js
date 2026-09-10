@@ -1,41 +1,42 @@
-/** Contexto compartido: tipo de problema, filtrado y instancias showcase. */
+/** Contexto compartido: tipos de problema y filtrado (entrada UI = BED-BPP). */
 
-const PROBLEM_TYPES = [
-  {
-    id: "3D_BPP",
-    label: "3D Bin Packing",
-    hint: "Empaque offline en uno o varios contenedores 3D.",
-    showcaseFile: "showcase_3d_bpp_instance.json",
-  },
-  {
-    id: "CONTAINER_LOADING",
-    label: "Container Loading",
-    hint: "Carga en contenedores con criterios de peso y distribución.",
-    showcaseFile: "showcase_container_loading_instance.json",
-  },
-  {
-    id: "SINGLE_CONTAINER_LOADING",
-    label: "Single Container Loading",
-    hint: "Un único contenedor (p. ej. un camión).",
-    showcaseFile: "showcase_single_container_instance.json",
-  },
-  {
-    id: "CARTONIZATION",
-    label: "Cartonization",
-    hint: "Selección de caja y empaque de un pedido.",
-    showcaseFile: "showcase_cartonization_instance.json",
-  },
+/** Tipos compatibles con entrada BED-BPP en Ejecutar / Benchmark. */
+const BED_BPP_PROBLEM_TYPES = [
   {
     id: "PALLETIZATION",
     label: "Palletization",
-    hint: "Distribución de cajas sobre un pallet.",
-    showcaseFile: "showcase_palletization_instance.json",
+    hint: "Distribución sobre pallet/rollcontainer (encaje natural con BED-BPP).",
   },
   {
     id: "STACKING_AWARE",
     label: "Stacking-aware",
-    hint: "Apilamiento con soporte, estabilidad y carga máxima.",
-    showcaseFile: "showcase_stacking_aware_instance.json",
+    hint: "Apilamiento con soporte y estabilidad sobre el target BED-BPP.",
+  },
+  {
+    id: "SINGLE_CONTAINER_LOADING",
+    label: "Single Container Loading",
+    hint: "Un único contenedor = target del pedido BED-BPP.",
+  },
+  {
+    id: "3D_BPP",
+    label: "3D Bin Packing",
+    hint: "Empaque 3D usando el target del pedido como contenedor.",
+  },
+  {
+    id: "CONTAINER_LOADING",
+    label: "Container Loading",
+    hint: "Carga en contenedor con el target BED-BPP.",
+  },
+];
+
+/** Catálogo completo (p. ej. página Catálogo); CARTONIZATION no usa BED-BPP. */
+const PROBLEM_TYPES = [
+  ...BED_BPP_PROBLEM_TYPES,
+  {
+    id: "CARTONIZATION",
+    label: "Cartonization",
+    hint: "Selección de caja (requiere catálogo de boxes; no usa BED-BPP).",
+    showcaseFile: "showcase_cartonization_instance.json",
   },
 ];
 
@@ -60,45 +61,27 @@ const ProblemContext = {
     return algorithms.filter((algo) => (algo.problem_types || []).includes(problemType));
   },
 
-  mountSelector(selectEl, { includeAll = false, onChange } = {}) {
+  mountSelector(selectEl, { includeAll = false, bedBppOnly = false, onChange } = {}) {
     const saved = this.getSelected();
+    const source = bedBppOnly ? BED_BPP_PROBLEM_TYPES : PROBLEM_TYPES;
     const options = [];
     if (includeAll) options.push(`<option value="">Todos los tipos</option>`);
     options.push(
-      ...PROBLEM_TYPES.map(
-        (p) => `<option value="${p.id}">${p.label} (${p.id})</option>`
-      )
+      ...source.map((p) => `<option value="${p.id}">${p.label} (${p.id})</option>`)
     );
     selectEl.innerHTML = options.join("");
+    const fallback = bedBppOnly ? "PALLETIZATION" : "";
     if (saved && [...selectEl.options].some((o) => o.value === saved)) {
       selectEl.value = saved;
+    } else if (fallback && [...selectEl.options].some((o) => o.value === fallback)) {
+      selectEl.value = fallback;
+      this.setSelected(fallback);
     }
     selectEl.addEventListener("change", () => {
       this.setSelected(selectEl.value);
       if (onChange) onChange(selectEl.value);
     });
     if (onChange) onChange(selectEl.value);
-  },
-
-  async loadShowcase(problemType) {
-    const meta = this.meta(problemType);
-    if (!meta) throw new Error(`Tipo de problema desconocido: ${problemType}`);
-    const response = await fetch(`/assets/data/${meta.showcaseFile}`);
-    if (!response.ok) throw new Error(`No se pudo cargar la instancia ${meta.showcaseFile}`);
-    const data = await response.json();
-    const { description, catalog_version, ...payload } = data;
-    return { payload, description, catalog_version };
-  },
-
-  benchmarkPayloadFromShowcase(showcasePayload, problemType) {
-    const copy = JSON.parse(JSON.stringify(showcasePayload));
-    copy.problem_type = problemType;
-    copy.request_id = `web-benchmark-${problemType.toLowerCase().replace(/_/g, "-")}`;
-    delete copy.description;
-    delete copy.catalog_version;
-    delete copy.engines;
-    delete copy.profile;
-    return copy;
   },
 };
 

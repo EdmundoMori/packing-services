@@ -1,5 +1,9 @@
 # Adaptadores a motores externos
 
+Documento hijo de [`../README.md`](../README.md). Índice: [`README.md`](README.md).
+Activar adaptadores reales va **después** de online / inputs / benchmark
+([`roadmap.md`](roadmap.md)).
+
 ## Principio
 
 **No se modifican los repositorios externos.** Cada adaptador traduce entre el

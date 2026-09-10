@@ -1,13 +1,7 @@
-"""Servicio de preparación para espacio de datos.
+"""Descriptores de servicios (espacio de datos: despriorizado).
 
-Genera descriptores publicables (activos) por cada servicio operativo, con los
-metadatos recomendados por el estado del arte: tipo de problema, algoritmos,
-motor, licencia, formatos de entrada/salida, restricciones, métricas, endpoints,
-trazabilidad y limitaciones.
-
-El proyecto NO está integrado en un espacio de datos todavía; este servicio deja
-todo preparado para el flujo: publicar → descubrir → negociar → ejecutar →
-validar → comparar → registrar evidencias.
+Genera fichas por servicio y algoritmo. El proyecto no está integrado en un
+espacio de datos; este módulo no es línea crítica (ver docs/roadmap.md).
 """
 
 from __future__ import annotations
@@ -151,7 +145,7 @@ class DataspaceService:
                 input_schema=CARTONIZATION_INPUT_SCHEMA,
                 output_schema=EXECUTE_OUTPUT_SCHEMA,
                 supported_constraints=_COMMON_CONSTRAINTS,
-                unsupported_constraints=["fragility", "load_bearing", "multi_box"],
+                unsupported_constraints=["fragility", "load_bearing"],
                 metrics=DEFAULT_METRICS,
                 execution_endpoint="POST /api/v1/algorithms/{algorithm_name}/execute",
                 validation_endpoint="POST /api/v1/validate",
@@ -260,15 +254,14 @@ class DataspaceService:
             dataspace_ready=True,
             services=services,
             notes=[
-                "Servicios preparados para publicación; aún NO integrados en un "
-                "espacio de datos real.",
-                "Cada algoritmo implementado expone su propio endpoint: "
+                "Espacio de datos DESPRIORIZADO: no hay integración real "
+                "(publicar / negociar / registrar evidencias).",
+                "Cada algoritmo implementado expone "
                 "POST /api/v1/algorithms/{algorithm_name}/execute.",
                 "Entrada homogénea: PackAlgorithmInput o CartonizationAlgorithmInput. "
                 "Salida homogénea: AlgorithmExecuteResponse.",
-                "Flujo previsto: publicar → descubrir → negociar → ejecutar → "
-                "validar → comparar → registrar evidencias.",
-                "Los motores externos (skjolber, BoxPacker, 3DContainerPacking, "
-                "PackingSolver, D-Wave) se integran vía adaptadores.",
+                "Línea crítica: homogenizar inputs, benchmark de metodologías, "
+                "empaquetado online (ver README.md y docs/roadmap.md).",
+                "Los motores externos se integran vía adaptadores cuando existan.",
             ],
         )

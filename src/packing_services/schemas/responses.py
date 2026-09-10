@@ -27,7 +27,7 @@ class HealthResponse(BaseModel):
 
 
 class ServiceMetadataResponse(BaseModel):
-    """Metadatos del servicio, útiles para publicación en un espacio de datos."""
+    """Metadatos globales del servicio (catálogo, execute, límites)."""
 
     model_config = ConfigDict(extra="forbid")
 
@@ -41,11 +41,9 @@ class ServiceMetadataResponse(BaseModel):
 
 
 class ServiceDescriptor(BaseModel):
-    """Descriptor publicable de un servicio (activo de espacio de datos).
+    """Descriptor de un servicio o algoritmo (también usable como ficha dataspace).
 
-    Reúne los metadatos recomendados en el estado del arte para publicar,
-    descubrir, ejecutar, validar y comparar el servicio dentro de un espacio de
-    datos.
+    No implica integración en un espacio de datos.
     """
 
     model_config = ConfigDict(extra="forbid")
@@ -70,7 +68,7 @@ class ServiceDescriptor(BaseModel):
 
 
 class DataspaceCatalogResponse(BaseModel):
-    """Catálogo de servicios listo para publicación en un espacio de datos."""
+    """Listado de descriptores. El flag dataspace_ready no significa integración real."""
 
     model_config = ConfigDict(extra="forbid")
 
@@ -174,6 +172,10 @@ class AlgorithmDetailResponse(BaseModel):
     supported_constraints: list[str] = Field(default_factory=list)
     unsupported_constraints: list[str] = Field(default_factory=list)
     parameters: dict[str, str] = Field(default_factory=dict)
+    default_parameters: dict[str, Any] = Field(
+        default_factory=dict,
+        description="Valores por defecto seguros si el cliente no envía parameters.",
+    )
     metrics: list[str] = Field(default_factory=list)
     limitations: list[str] = Field(default_factory=list)
     external_engine: str | None = None

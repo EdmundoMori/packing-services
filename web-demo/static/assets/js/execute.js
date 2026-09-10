@@ -1,32 +1,10 @@
 let implemented = [];
 let currentDetail = null;
-let currentPayload = {};
-let syncing = false;
-let jsonListenerAttached = false;
+let configPayload = {};
+let lastConvertedInput = null;
+let previewSeq = 0;
 
-function attachJsonListener() {
-  if (jsonListenerAttached) return;
-  $("input-json").addEventListener("input", () => {
-    if (syncing) return;
-    syncing = true;
-    syncFormFromJson();
-    syncing = false;
-  });
-  jsonListenerAttached = true;
-}
-
-function initTabs() {
-  document.querySelectorAll(".tabs:not(.result-tabs) .tab-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const section = btn.closest("section");
-      section.querySelectorAll(".tabs:not(.result-tabs) .tab-btn").forEach((b) => b.classList.remove("active"));
-      section.querySelectorAll(".tab-panel").forEach((p) => {
-        if (!p.id.startsWith("result-tab-")) p.classList.remove("active");
-      });
-      btn.classList.add("active");
-      $(`tab-${btn.dataset.tab}`).classList.add("active");
-    });
-  });
+function initResultTabs() {
   document.querySelectorAll(".result-tabs .tab-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const section = btn.closest("section");
@@ -62,47 +40,122 @@ function renderAlgorithmMeta(detail) {
     <p>${familyBadge(detail.algorithm_family)} <span class="badge ok">${detail.status}</span></p>`;
 }
 
-function syncJsonFromForm() {
-  $("input-json").value = prettyJson(currentPayload);
+function currentConfig() {
+  if (FormBuilder.container && FormBuilder.mode === "config") {
+    FormBuilder.applyParameters();
+    return {
+      parameters: { ...(FormBuilder.payload.parameters || {}) },
+      constraints: { ...(FormBuilder.payload.constraints || {}) },
+      random_seed: FormBuilder.payload.random_seed,
+      time_limit_seconds: FormBuilder.payload.time_limit_seconds,
+    };
+  }
+  return {
+    parameters: { ...(configPayload.parameters || {}) },
+    constraints: { ...(configPayload.constraints || {}) },
+    random_seed: configPayload.random_seed,
+    time_limit_seconds: configPayload.time_limit_seconds,
+  };
 }
 
-function syncFormFromJson() {
+function mountConfigForm() {
+  FormBuilder.mountConfig($("params-form"), configPayload, currentDetail?.parameters || {}, (payload) => {
+    configPayload = payload;
+  });
+}
+
+function clearAlgorithmInputPreview(message) {
+  lastConvertedInput = null;
+  $("algorithm-input-json").value = "";
+  $("algorithm-input-json").placeholder = message || "Selecciona un pedido para ver la entrada convertida…";
+}
+
+async function refreshAlgorithmInputPreview({ silent = false } = {}) {
+  const alertBox = $("execute-alert");
+  const orderId = $("bedbpp-order-select").value;
+  const problemType = $("problem-type-select").value || "PALLETIZATION";
+  if (!orderId) {
+    clearAlgorithmInputPreview();
+    $("bedbpp-hint").textContent = BedBpp.sample
+      ? `${BedBpp.orderSummaries.length} pedidos en el dataset. Elige uno para ver la entrada del algoritmo.`
+      : "";
+    return null;
+  }
+  if (!BedBpp.sample) {
+    clearAlgorithmInputPreview("Carga la muestra o pega un dataset BED-BPP.");
+    return null;
+  }
+
+  const seq = ++previewSeq;
+  const cfg = currentConfig();
   try {
-    currentPayload = JSON.parse($("input-json").value);
-    FormBuilder.setPayload(currentPayload, currentDetail?.parameters || {});
-  } catch {
-    showAlert($("execute-alert"), "JSON inválido; no se actualizó el formulario.");
+    const converted = await BedBpp.convert({
+      orderId,
+      problemType,
+      mode: "execute",
+      parameters: cfg.parameters,
+      constraints: cfg.constraints,
+    });
+    if (seq !== previewSeq) return null;
+
+    const input = { ...converted.input };
+    if (cfg.random_seed != null && cfg.random_seed !== "") input.random_seed = cfg.random_seed;
+    if (cfg.time_limit_seconds != null && cfg.time_limit_seconds !== "") {
+      input.time_limit_seconds = cfg.time_limit_seconds;
+    }
+    lastConvertedInput = input;
+    $("algorithm-input-json").value = prettyJson(input);
+
+    const d = converted.details || {};
+    $("bedbpp-hint").textContent =
+      `Pedido ${orderId} · ${d.n_items ?? "?"} ítems · target ${d.target || "?"} → entrada del algoritmo (1 contenedor + ítems).`;
+    if (!silent) {
+      showAlert(alertBox, `Entrada actualizada para el pedido ${orderId}.`, "ok");
+    }
+    return input;
+  } catch (err) {
+    if (seq !== previewSeq) return null;
+    clearAlgorithmInputPreview();
+    showAlert(alertBox, err.message);
+    return null;
   }
 }
 
 async function onAlgorithmChange() {
   const name = $("algorithm-select").value;
-  const problemType = $("problem-type-select").value;
   const alertBox = $("execute-alert");
   alertBox.innerHTML = "";
   $("result-kpis").innerHTML = "";
   $("result-json").textContent = "{}";
   $("result-layout").innerHTML = '<p class="muted">Ejecuta un algoritmo para ver el layout 2D de la solución.</p>';
+  $("result-layout-3d").innerHTML = '<p class="muted">La vista 3D interactiva (Plotly) aparecerá aquí tras ejecutar.</p>';
   $("result-validation").innerHTML = '<p class="muted">Tras ejecutar, aquí verás el cumplimiento de cada restricción solicitada.</p>';
   if (!name) {
     currentDetail = null;
-    currentPayload = {};
+    configPayload = {};
     $("algo-meta").innerHTML = "";
-    $("input-json").value = "";
-    $("input-form").innerHTML = "";
+    $("params-form").innerHTML = '<p class="muted">Selecciona un algoritmo para cargar su configuración.</p>';
+    await refreshAlgorithmInputPreview({ silent: true });
     return;
   }
   try {
     currentDetail = await API.getAlgorithm(name);
     renderAlgorithmMeta(currentDetail);
-    currentPayload = await API.inputExample(name, problemType);
-    $("input-json").value = prettyJson(currentPayload);
-    FormBuilder.mount($("input-form"), currentPayload, currentDetail.parameters || {}, (payload) => {
-      if (syncing) return;
-      currentPayload = payload;
-      syncJsonFromForm();
-    });
-    attachJsonListener();
+    configPayload = {
+      parameters: { ...(currentDetail.default_parameters || {}) },
+      constraints: {
+        non_overlap: true,
+        containment: true,
+        allow_rotation: true,
+        max_weight: true,
+        basic_stability: $("problem-type-select").value === "STACKING_AWARE",
+        load_bearing: false,
+      },
+      random_seed: currentDetail.default_parameters?.random_seed ?? null,
+      time_limit_seconds: currentDetail.default_parameters?.time_limit_seconds ?? null,
+    };
+    mountConfigForm();
+    await refreshAlgorithmInputPreview({ silent: true });
   } catch (err) {
     showAlert(alertBox, err.message);
   }
@@ -113,6 +166,27 @@ function onProblemChange(problemType) {
   populateAlgorithms(problemType);
   $("algorithm-select").value = "";
   onAlgorithmChange();
+}
+
+function syncDatasetFromTextarea() {
+  const raw = $("bedbpp-raw").value.trim();
+  if (!raw) return;
+  BedBpp.ingestRaw(raw);
+  const keep = $("bedbpp-order-select").value;
+  BedBpp.fillOrderSelect($("bedbpp-order-select"), keep);
+}
+
+async function ensureBedBppSample() {
+  if (BedBpp.sample) {
+    BedBpp.fillOrderSelect($("bedbpp-order-select"), $("bedbpp-order-select").value);
+    $("bedbpp-raw").value = prettyJson(BedBpp.sample);
+    return;
+  }
+  await BedBpp.loadSample();
+  $("bedbpp-raw").value = prettyJson(BedBpp.sample);
+  BedBpp.fillOrderSelect($("bedbpp-order-select"));
+  $("bedbpp-hint").textContent =
+    `${BedBpp.orderSummaries.length} pedidos cargados. Selecciona uno para ver la entrada del algoritmo.`;
 }
 
 function renderExecuteResult(data, inputPayload) {
@@ -134,7 +208,13 @@ function renderExecuteResult(data, inputPayload) {
     solution,
     containers: inputPayload?.containers,
     boxes: inputPayload?.boxes,
-    title: "Layout de la solución",
+    title: "Layout 2D de la solución",
+  });
+  LayoutViz3D.render($("result-layout-3d"), {
+    solution,
+    containers: inputPayload?.containers,
+    boxes: inputPayload?.boxes,
+    title: "Layout 3D interactivo",
   });
 }
 
@@ -146,23 +226,42 @@ async function runExecute() {
     showAlert(alertBox, "Selecciona tipo de problema y algoritmo.");
     return;
   }
-  FormBuilder.applyEntityTables();
-  FormBuilder.applyParameters();
-  syncJsonFromForm();
-  let payload;
-  try {
-    payload = JSON.parse($("input-json").value);
-  } catch {
-    showAlert(alertBox, "El JSON de entrada no es válido.");
+  const orderId = $("bedbpp-order-select").value;
+  if (!orderId) {
+    showAlert(alertBox, "Selecciona un pedido del dataset BED-BPP.");
     return;
   }
+
+  // Asegura que el preview refleje config + pedido actuales.
+  let payload;
+  try {
+    const raw = $("algorithm-input-json").value.trim();
+    if (raw) {
+      payload = JSON.parse(raw);
+    } else {
+      payload = await refreshAlgorithmInputPreview({ silent: true });
+    }
+  } catch {
+    showAlert(alertBox, "El JSON de entrada del algoritmo no es válido.");
+    return;
+  }
+  if (!payload || !payload.containers || !payload.items) {
+    payload = await refreshAlgorithmInputPreview({ silent: true });
+  }
+  if (!payload) {
+    showAlert(alertBox, "No hay entrada del algoritmo para el pedido seleccionado.");
+    return;
+  }
+
   const button = $("run-btn");
   button.disabled = true;
   button.textContent = "Ejecutando…";
   try {
     const result = await API.execute(name, payload);
+    lastConvertedInput = payload;
+    $("algorithm-input-json").value = prettyJson(payload);
     renderExecuteResult(result, payload);
-    showAlert(alertBox, "Ejecución completada.", "ok");
+    showAlert(alertBox, `Ejecución completada (pedido ${orderId}).`, "ok");
   } catch (err) {
     showAlert(alertBox, err.message);
   } finally {
@@ -173,25 +272,41 @@ async function runExecute() {
 
 document.addEventListener("DOMContentLoaded", async () => {
   setActiveNav("execute");
-  initTabs();
+  initResultTabs();
   const alertBox = $("execute-alert");
-  $("format-btn").addEventListener("click", () => {
-    try {
-      $("input-json").value = prettyJson(JSON.parse($("input-json").value));
-      syncFormFromJson();
-    } catch {
-      showAlert(alertBox, "JSON inválido.");
-    }
-  });
+  $("params-form").innerHTML = '<p class="muted">Selecciona un algoritmo para cargar su configuración.</p>';
   $("run-btn").addEventListener("click", runExecute);
   $("algorithm-select").addEventListener("change", onAlgorithmChange);
+  $("bedbpp-order-select").addEventListener("change", () => refreshAlgorithmInputPreview());
+  $("refresh-input-btn").addEventListener("click", () => refreshAlgorithmInputPreview());
+  $("bedbpp-load-btn").addEventListener("click", async () => {
+    try {
+      BedBpp.sample = null;
+      await ensureBedBppSample();
+      clearAlgorithmInputPreview();
+      showAlert(alertBox, "Muestra BED-BPP cargada. Selecciona un pedido.", "ok");
+    } catch (err) {
+      showAlert(alertBox, err.message);
+    }
+  });
+  $("bedbpp-raw").addEventListener("change", async () => {
+    try {
+      syncDatasetFromTextarea();
+      BedBpp.fillOrderSelect($("bedbpp-order-select"), $("bedbpp-order-select").value);
+      await refreshAlgorithmInputPreview({ silent: true });
+      showAlert(alertBox, "Dataset BED-BPP actualizado.", "ok");
+    } catch (err) {
+      showAlert(alertBox, err.message);
+    }
+  });
   try {
     implemented = await API.listAlgorithms({ status: "implemented" });
     ProblemContext.mountSelector($("problem-type-select"), {
+      bedBppOnly: true,
       onChange: onProblemChange,
     });
     const params = new URLSearchParams(window.location.search);
-    if (params.get("problem_type")) {
+    if (params.get("problem_type") && BED_BPP_PROBLEM_TYPES.some((p) => p.id === params.get("problem_type"))) {
       $("problem-type-select").value = params.get("problem_type");
       ProblemContext.setSelected(params.get("problem_type"));
       onProblemChange(params.get("problem_type"));
@@ -200,6 +315,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       $("algorithm-select").value = params.get("algorithm");
       await onAlgorithmChange();
     }
+    await ensureBedBppSample();
   } catch (err) {
     showAlert(alertBox, err.message);
   }

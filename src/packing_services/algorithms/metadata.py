@@ -1,8 +1,7 @@
 """Metadatos homogéneos de algoritmos.
 
-Cada algoritmo (implementado, adaptador, stub o futuro) se describe con la misma
-estructura de metadatos. Esto permite descubrirlos, filtrarlos y publicarlos en
-un espacio de datos, tal como exige el estado del arte revisado.
+Misma ficha para implemented, adapter y future: listar, filtrar y ejecutar
+por nombre. Sirve al catálogo y al benchmark, no a un espacio de datos.
 """
 
 from __future__ import annotations

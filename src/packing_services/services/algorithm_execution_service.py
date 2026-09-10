@@ -61,6 +61,17 @@ class AlgorithmExecutionService:
                 f"(estado: {status})."
             )
 
+        from ..datasets.bed_bpp import normalize_execute_payload
+
+        payload = normalize_execute_payload(payload)
+        if isinstance(payload, dict):
+            payload = {
+                **payload,
+                "parameters": self._input.merge_parameters(
+                    algorithm_name, payload.get("parameters")
+                ),
+            }
+
         branch = self._resolve_branch(algorithm_name, payload)
         if branch == "cartonization":
             return self._execute_cartonization(algorithm_name, payload)

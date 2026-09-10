@@ -244,19 +244,23 @@ def plot_algorithm_catalog_counts(implemented: int, adapter: int, future: int) -
     labels = [f"Implementados\n({implemented})", f"Adaptadores\n({adapter})", f"Futuros\n({future})"]
     colors = ["#43a047", "#fb8c00", "#bdbdbd"]
     ax.pie(sizes, labels=labels, colors=colors, autopct="%1.0f%%", startangle=90)
-    ax.set_title("Catálogo de algoritmos (50 en total)", fontweight="bold")
+    ax.set_title(
+        f"Catálogo de algoritmos ({implemented + adapter + future} en total)",
+        fontweight="bold",
+    )
     fig.tight_layout()
     return fig
 
 
 def plot_roadmap_phases() -> Figure:
     phases = [
-        ("Fase 0–9\nCore + API", 1),
-        ("Fase 10\nCL + Carton", 1),
-        ("Fase 11\nDataspace", 1),
-        ("Palletization", 0),
-        ("Metaheurísticas", 0),
-        ("Integración\nespacio de datos", 0),
+        ("Fase 0–11\nCore + API + CL", 1),
+        ("Pallet +\nStacking", 1),
+        ("Metaheurísticas\n3D-BPP", 1),
+        ("BED-BPP +\nexperimento conjunto", 1),
+        ("Online / DRL", 0),
+        ("Adaptadores\nreales", 0),
+        ("Espacio de datos\n(despriorizado)", 0),
     ]
     fig, ax = plt.subplots(figsize=(10, 2.5))
     for i, (name, done) in enumerate(phases):

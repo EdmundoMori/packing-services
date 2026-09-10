@@ -79,11 +79,12 @@ _ALGORITHM_PARAMETERS: dict[str, dict[str, Any]] = {
     },
 }
 
+# Defaults modestos: suficientes para demos sin saturar CPU/tiempo.
 _METAHEURISTIC_DEFAULTS = {
     "base_algorithm": "best_fit_decreasing_3d",
-    "iterations": 30,
+    "iterations": 20,
     "random_seed": 42,
-    "time_limit_seconds": 15,
+    "time_limit_seconds": 10,
 }
 
 for _meta_name in (
@@ -150,6 +151,20 @@ class AlgorithmInputService:
             )
         return ProblemType.CARTONIZATION
 
+    def default_parameters(self, algorithm_name: str) -> dict[str, Any]:
+        """Parámetros opcionales con valores seguros si el cliente no los envía."""
+        if algorithm_name in _IMPROVEMENT_ALGORITHMS:
+            return dict(_IMPROVEMENT_ALGORITHMS[algorithm_name])
+        return dict(
+            _ALGORITHM_PARAMETERS.get(algorithm_name, {"sort_strategy": "volume_desc"})
+        )
+
+    def merge_parameters(
+        self, algorithm_name: str, user_parameters: dict[str, Any] | None
+    ) -> dict[str, Any]:
+        """Defaults primero; lo enviado por el usuario sobrescribe."""
+        return {**self.default_parameters(algorithm_name), **(user_parameters or {})}
+
     def enrich_metadata(self, name: str) -> AlgorithmDetailResponse:
         if not self.registry.has(name):
             raise AlgorithmNotFoundError(f"Algoritmo no encontrado: {name}")
@@ -169,6 +184,7 @@ class AlgorithmInputService:
             supported_constraints=[c.value for c in meta.supported_constraints],
             unsupported_constraints=[c.value for c in meta.unsupported_constraints],
             parameters=meta.parameters,
+            default_parameters=self.default_parameters(name),
             metrics=meta.metrics,
             limitations=meta.limitations,
             external_engine=meta.external_engine,
@@ -202,8 +218,5 @@ class AlgorithmInputService:
             example = self._load_example_file(_EXAMPLE_FILES[resolved])
             example["problem_type"] = resolved.value
 
-        params = dict(_ALGORITHM_PARAMETERS.get(algorithm_name, {"sort_strategy": "volume_desc"}))
-        if algorithm_name in _IMPROVEMENT_ALGORITHMS:
-            params = dict(_IMPROVEMENT_ALGORITHMS[algorithm_name])
-        example["parameters"] = params
+        example["parameters"] = self.default_parameters(algorithm_name)
         return example

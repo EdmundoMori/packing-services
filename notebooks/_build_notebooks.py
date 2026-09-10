@@ -29,6 +29,7 @@ else:
 from _shared.loaders import setup_paths
 ROOT = setup_paths(_cwd)
 from _shared import display, viz, runners
+from _shared import viz_3d
 
 plt.rcParams.update({"figure.dpi": 110, "font.size": 11})
 print(f"Proyecto: {ROOT}")
@@ -120,19 +121,19 @@ NOTEBOOKS = {
             "- Respetar peso máximo y no solapar piezas",
             "- Reportar qué piezas no cupieron",
             "",
-            "Eso pertenece a la familia *Cutting and Packing*, con **cuatro formulaciones** en este proyecto:",
-            "3D-BPP, Container Loading, Cartonization y Single Container Loading.",
+            "Eso pertenece a la familia *Cutting and Packing*, con **seis formulaciones** en este proyecto:",
+            "3D-BPP, Container Loading, Single Container Loading, Cartonization, Palletization y Stacking-aware.",
             "",
             "## La brecha que identifiqué",
             "",
             "Existen muchos algoritmos, pero cada implementación usa **formatos distintos**.",
-            "No se pueden comparar de forma justa ni integrar en un espacio de datos.",
+            "Sin un contrato común no se pueden **comparar metodologías** ni avanzar a empaque **online**.",
             "",
             "## Mi propuesta",
             "",
-            "Plataforma de **servicios** donde cada algoritmo implementado expone su propio endpoint "
-            "``POST /api/v1/algorithms/{algorithm_name}/execute`` con entrada/salida JSON homogénea.",
-            "El **benchmark** usa perfiles estándar (`constructive`, `hybrid`, `box_selection`, …) para comparar ≥2 motores sobre la misma instancia.",
+            "Plataforma donde cada algoritmo expone ``POST /api/v1/algorithms/{algorithm_name}/execute`` "
+            "con JSON homogéneo. El **benchmark** compara ≥2 motores sobre la misma instancia. "
+            "Prioridad: inputs homogéneos, comparación, empaque online. Espacio de datos: despriorizado.",
         ),
         code(SETUP_CELL.strip()),
         code(
@@ -172,11 +173,11 @@ NOTEBOOKS = {
             "",
             "| Decisión del informe | Evidencia en el repositorio |",
             "|----------------------|----------------------------|",
-            "| Priorizar heurísticas constructivas | 4 heurísticas 3D-BPP + py3dbp opcional |",
+            "| Priorizar heurísticas constructivas | 5 heurísticas 3D-BPP + py3dbp opcional |",
             "| Mejora local reutilizable | `solution_compaction`, `constructive_plus_local_search` |",
             "| Validador geométrico propio | `PackingValidator` + tests |",
-            "| Servicios independientes | 5 agregados + 1 endpoint por algoritmo |",
-            "| Preparación espacio de datos | `GET /api/v1/services` + `GET /api/v1/algorithms/{name}` |",
+            "| Benchmark de metodologías | perfiles + `/benchmark/joint-single-container` |",
+            "| Empaque online | `sort_strategy=input_order` + BED-BPP; heurístico `future` |",
             "",
             "**Siguiente:** `01_arquitectura_y_servicios.ipynb`",
         ),
@@ -215,7 +216,7 @@ NOTEBOOKS = {
             "    ('Container Loading (legacy)', 'POST /pack/container-loading', 'Carga multi-contenedor + peso'),",
             "    ('Cartonization (legacy)', 'POST /pack/cartonization', 'Elegir caja + layout'),",
             "    ('Validation', 'POST /validate', 'Juez independiente'),",
-            "    ('Dataspace', 'GET /services', 'Descriptores publicables'),",
+            "    ('Joint un contenedor', 'POST /benchmark/joint-single-container', 'BED-BPP + input_order'),",
             "]",
             "ipy_display(pd.DataFrame(endpoints, columns=['Servicio', 'Endpoint', 'Rol']).style.hide(axis='index'))",
             "profiles = list_profiles()",
@@ -274,6 +275,12 @@ NOTEBOOKS = {
             "fig = viz.plot_utilization_bar(solution.metrics.volume_utilization, title='Aprovechamiento global')",
             "plt.show()",
         ),
+        code(
+            "# Vista 3D interactiva (Plotly Mesh3d, estilo D-Wave adaptado)",
+            "figs_3d = viz_3d.plot_solution_3d(solution, containers, title_prefix='3D')",
+            "for fig3d in figs_3d:",
+            "    fig3d.show()",
+        ),
         code(BENCHMARK_CELL.format(group="3D_BPP").strip()),
         md(
             "**Siguiente:** comparar en detalle → `03_comparacion_de_algoritmos.ipynb`",
@@ -290,7 +297,7 @@ NOTEBOOKS = {
             "## Flujo de este notebook",
             "",
             "1. **Problema** — qué hay que empacar y bajo qué reglas",
-            "2. **Algoritmos** — 4 heurísticas internas + adaptador `py3dbp` (si está instalado)",
+            "2. **Algoritmos** — 5 heurísticas internas + adaptador `py3dbp` (si está instalado)",
             "3. **Ejecución** — misma instancia, mismo validador, mismas métricas",
             "4. **Resultados** — quién empaca más y quién aprovecha mejor el espacio",
             "5. **Layouts** — comparación visual del mejor vs el peor",
@@ -323,6 +330,8 @@ NOTEBOOKS = {
             "        print(f'--- {label}: {result.engine} ({result.metrics.items_packed} empacados, {result.metrics.volume_utilization*100:.1f}%) ---')",
             "        fig = viz.plot_all_container_views(result.solution, containers, title_prefix=label)",
             "        if fig: plt.show()",
+            "        for fig3d in viz_3d.plot_solution_3d(result.solution, containers, title_prefix=f'{label} 3D'):",
+            "            fig3d.show()",
         ),
         md(
             "**Mensaje clave:** misma entrada, distintas salidas — el benchmark cuantifica la brecha entre heurísticas.",
@@ -583,11 +592,12 @@ NOTEBOOKS = {
     ],
     "09_preparacion_espacio_de_datos.ipynb": [
         md(
-            "# 09 — Preparación para espacio de datos",
+            "# 09 — Contratos, catálogo y cierre (espacio de datos despriorizado)",
             "",
             SHOWCASE_NOTE,
             "",
-            "Cada algoritmo implementado queda descrito como activo publicable con endpoint, esquemas de entrada/salida y tipos de problema soportados.",
+            "Los algoritmos quedan descritos con endpoint y esquemas. Eso sirve al **benchmark**. "
+            "Publicarlos en un espacio de datos está **fuera de la línea crítica** (ver README / roadmap).",
         ),
         code(SETUP_CELL.strip()),
         code(
@@ -621,11 +631,11 @@ NOTEBOOKS = {
         md(
             "## Cierre del recorrido didáctico",
             "",
-            "1. **Cuatro tipos de problema** con instancia showcase dedicada (`examples/showcase_*_instance.json`)",
+            "1. **Seis tipos de problema** (3D-BPP, CL, SCL, Cartonization, Palletization, Stacking-aware) con instancia showcase dedicada (`examples/showcase_*_instance.json`)",
             "2. **Veintinueve algoritmos** implementados + adaptador ``py3dbp`` (si está instalado)",
             "3. **Nueve benchmarks** comparativos: 3D-BPP, híbrido, mejora 3D, metaheurísticas 3D, CL, Cartonization, SCL, Palletization, Stacking-aware",
             "4. **Perfiles estándar** (`constructive`, `hybrid`, `box_selection`) para comparación reproducible",
-            "5. **Validación independiente** y **descriptores** listos para espacio de datos (`GET /api/v1/services`)",
+            "5. **Validación independiente**; espacio de datos **despriorizado** (`GET /api/v1/services` existe, no es el objetivo)",
             "6. **Un endpoint por algoritmo** con salida `AlgorithmExecuteResponse` estandarizada",
             "",
             "Cada benchmark usa un caso diseñado para **diferenciar** estrategias del mismo grupo — evidencia cuantitativa del avance del proyecto.",

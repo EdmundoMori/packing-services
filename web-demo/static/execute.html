@@ -20,7 +20,7 @@
   <main>
     <section class="hero">
       <h1>Ejecutar un algoritmo</h1>
-      <p class="muted">Tipo de problema → algoritmo → entrada en <strong>formulario</strong> o <strong>JSON</strong>.</p>
+      <p class="muted">Elige un pedido BED-BPP → el JSON muestra <strong>solo esa instancia</strong> (lo que recibe el algoritmo) → configura parámetros → ejecuta.</p>
     </section>
 
     <div id="execute-alert"></div>
@@ -41,17 +41,32 @@
     </section>
 
     <section class="panel">
-      <div class="tabs">
-        <button type="button" class="tab-btn active" data-tab="form">Formulario</button>
-        <button type="button" class="tab-btn" data-tab="json">JSON</button>
+      <h2>1. Pedido BED-BPP</h2>
+      <div class="selector-bar">
+        <label>
+          Pedido
+          <select id="bedbpp-order-select" style="min-width:280px"></select>
+        </label>
+        <button type="button" id="bedbpp-load-btn" class="secondary">Cargar muestra (5 pedidos)</button>
+        <button type="button" id="refresh-input-btn" class="secondary">Actualizar entrada</button>
       </div>
-      <div id="tab-form" class="tab-panel active">
-        <div id="input-form"></div>
-      </div>
-      <div id="tab-json" class="tab-panel">
-        <textarea id="input-json" spellcheck="false" placeholder="Selecciona algoritmo para cargar ejemplo…"></textarea>
-        <button id="format-btn" class="secondary" type="button" style="margin-top:0.5rem">Formatear JSON</button>
-      </div>
+      <p id="bedbpp-hint" class="muted" style="margin-top:0.5rem"></p>
+
+      <h3 style="margin-top:1rem">Entrada del algoritmo (pedido seleccionado)</h3>
+      <p class="muted">Este JSON es lo que realmente se envía al ejecutar. Cambia al elegir otro pedido.</p>
+      <textarea id="algorithm-input-json" spellcheck="false" style="min-height:220px;margin-top:0.5rem" placeholder="Selecciona un pedido para ver la entrada convertida…"></textarea>
+
+      <details style="margin-top:0.75rem">
+        <summary class="muted">Dataset BED-BPP completo (batch · solo para cargar / pegar)</summary>
+        <p class="muted" style="margin-top:0.5rem">El mapa completo no se envía entero al algoritmo: solo se usa el pedido elegido arriba.</p>
+        <textarea id="bedbpp-raw" spellcheck="false" style="min-height:140px;margin-top:0.5rem" placeholder="Pega aquí un dataset BED-BPP (mapa de pedidos)…"></textarea>
+      </details>
+    </section>
+
+    <section class="panel">
+      <h2>2. Configuración del algoritmo</h2>
+      <p class="muted">Parámetros opcionales con valores por defecto seguros. Tras editar, pulsa «Actualizar entrada» o cambia de pedido para reflejarlos en el JSON.</p>
+      <div id="params-form"></div>
       <div style="margin-top:1rem">
         <button id="run-btn" type="button">Ejecutar algoritmo</button>
       </div>
@@ -71,6 +86,9 @@
         <div id="result-layout" class="layout-panel">
           <p class="muted">Ejecuta un algoritmo para ver el layout 2D de la solución.</p>
         </div>
+        <div id="result-layout-3d" class="layout-panel layout-panel-3d">
+          <p class="muted">La vista 3D interactiva (Plotly) aparecerá aquí tras ejecutar.</p>
+        </div>
       </div>
       <div id="result-tab-json" class="tab-panel">
         <pre id="result-json" class="json-output">{}</pre>
@@ -78,11 +96,14 @@
     </section>
   </main>
 
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <script src="/assets/js/common.js"></script>
   <script src="/assets/js/problem-context.js"></script>
   <script src="/assets/js/form-builder.js"></script>
   <script src="/assets/js/layout-viz.js"></script>
+  <script src="/assets/js/layout-viz-3d.js"></script>
   <script src="/assets/js/constraint-validation.js"></script>
+  <script src="/assets/js/bed-bpp.js"></script>
   <script src="/assets/js/execute.js"></script>
 </body>
 </html>

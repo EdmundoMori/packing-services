@@ -20,7 +20,7 @@
   <main>
     <section class="hero">
       <h1>Benchmark de algoritmos</h1>
-      <p class="muted">Mismo flujo: tipo de problema → motores compatibles → instancia showcase diferenciada por tipo.</p>
+      <p class="muted">Entrada homogénea <strong>BED-BPP</strong>: carga un dataset (batch) → elige un pedido → compara ≥2 algoritmos o un perfil.</p>
     </section>
 
     <div id="benchmark-alert"></div>
@@ -40,15 +40,21 @@
 
       <h3>Algoritmos a comparar (≥2, o usa un perfil)</h3>
       <div id="engine-grid" class="checkbox-grid"></div>
+    </section>
 
-      <div class="toolbar" style="margin-top:1rem">
-        <button id="load-showcase-btn" class="secondary" type="button">Recargar instancia showcase</button>
+    <section class="panel">
+      <h2>Dataset BED-BPP (batch)</h2>
+      <p class="muted">Estructura esperada: mapa <code>order_id → { item_sequence, properties }</code>. Selecciona un pedido como instancia de comparación.</p>
+      <div class="selector-bar">
+        <label>
+          Pedido
+          <select id="bedbpp-order-select" style="min-width:280px"></select>
+        </label>
+        <button type="button" id="bedbpp-load-btn" class="secondary">Cargar muestra (5 pedidos)</button>
         <button id="benchmark-btn" type="button">Ejecutar benchmark</button>
       </div>
-      <details style="margin-top:0.75rem">
-        <summary class="muted">Ver / editar JSON de instancia</summary>
-        <textarea id="benchmark-json" spellcheck="false" style="margin-top:0.5rem; min-height:180px"></textarea>
-      </details>
+      <p id="bedbpp-hint" class="muted" style="margin-top:0.5rem"></p>
+      <textarea id="bedbpp-raw" spellcheck="false" style="margin-top:0.5rem; min-height:180px" placeholder="Pega aquí un dataset BED-BPP completo…"></textarea>
     </section>
 
     <section class="panel compare-table">
@@ -66,9 +72,12 @@
 
     <section class="panel">
       <h2>Visualización: mejor vs peor (utilización %)</h2>
-      <p class="muted">Comparación de layouts según la métrica de utilización de volumen. El JSON completo sigue disponible abajo.</p>
+      <p class="muted">Comparación de layouts según la métrica de utilización de volumen.</p>
       <div id="benchmark-layout">
         <p class="muted">Ejecuta un benchmark para comparar layouts mejor vs peor.</p>
+      </div>
+      <div id="benchmark-layout-3d" class="layout-panel-3d">
+        <p class="muted">Vista 3D (Plotly) del mejor vs peor tras el benchmark.</p>
       </div>
     </section>
 
@@ -78,10 +87,13 @@
     </section>
   </main>
 
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <script src="/assets/js/common.js"></script>
   <script src="/assets/js/problem-context.js"></script>
   <script src="/assets/js/layout-viz.js"></script>
+  <script src="/assets/js/layout-viz-3d.js"></script>
   <script src="/assets/js/constraint-validation.js"></script>
+  <script src="/assets/js/bed-bpp.js"></script>
   <script src="/assets/js/benchmark.js"></script>
 </body>
 </html>

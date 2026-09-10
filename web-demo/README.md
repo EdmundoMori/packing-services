@@ -1,38 +1,53 @@
-# Demo web — simulación de espacio de datos
+# Demo web — catálogo, execute y benchmark
 
-Interfaz web **adicional** al proyecto `packing-services`. No modifica la API ni
-el núcleo existente: consume los endpoints ya implementados mediante un gateway
-que sirve la UI y hace proxy al backend.
+Documento hijo de [`../README.md`](../README.md).
 
-## Flujo homogéneo (3 pestañas)
+Interfaz **adicional**. No modifica la API: gateway estático + proxy al backend.
+Sirve para **descubrir algoritmos, ejecutar uno y comparar metodologías** con
+entrada BED-BPP. No es un espacio de datos (sin contratos, políticas ni
+negociación de acceso).
 
-En **Catálogo**, **Ejecutar** y **Benchmark** el primer paso es siempre:
+## Flujo homogéneo (entrada BED-BPP)
 
-1. **Tipo de problema** (3D_BPP, Container Loading, Cartonization, …)
-2. Filtrado automático de algoritmos compatibles
-3. Acción específica de cada vista
+En **Ejecutar** y **Benchmark** la instancia de entrada es siempre un dataset
+**BED-BPP** (`order_id → { item_sequence, properties }`). El núcleo interno sigue
+usando `containers` + `items` (conversión automática).
+
+1. **Tipo de problema** (solo tipos compatibles con BED-BPP)
+2. Filtrado de algoritmos compatibles
+3. Pedido del dataset + configuración de parámetros (defaults seguros)
 
 | Pestaña | Qué hace |
 |---------|----------|
-| Catálogo | Tarjetas de modelo + detalle al seleccionar |
-| Ejecutar | Formulario UI o JSON → un solo algoritmo |
-| Benchmark | Instancia showcase por tipo + tabla comparativa |
-
-Las instancias showcase viven en `static/assets/data/` (sincronizadas desde `examples/showcase_*`).
-
-```bash
-python scripts/sync_web_demo_showcase.py   # tras editar instancias en examples/
-```
+| Catálogo | Tarjetas de modelo + detalle (incluye cartonization) |
+| Ejecutar | Pedido BED-BPP + parámetros → un algoritmo |
+| Benchmark | Dataset BED-BPP (batch) → un pedido → comparar motores |
 
 | Paso | Página | API usada |
 |------|--------|-----------|
 | Portal | `/` | `/demo/health`, `/api/v1/metadata` |
 | Catálogo | `/catalog.html` | `GET /api/v1/algorithms?status=implemented` |
-| Ejecutar uno | `/execute.html` | `GET .../input-example`, `POST .../execute` |
+| Ejecutar uno | `/execute.html` | `GET .../algorithms/{name}`, `POST .../execute` |
 | Benchmark | `/benchmark.html` | `GET /benchmark/profiles`, `POST /benchmark` |
 
-**No incluye** contratos, políticas de uso, soberanía ni negociación de acceso.
-Solo la funcionalidad de descubrir → ejecutar → comparar.
+Endpoints de dataset:
+
+- `GET /api/v1/datasets/bed-bpp/sample`
+- `POST /api/v1/datasets/bed-bpp/convert`
+- Execute/benchmark aceptan `{ "input_format": "bed_bpp", "order_id", "orders", "parameters"? }`
+
+### Visualización de layouts
+
+Tras ejecutar un algoritmo o un benchmark, la pestaña/sección visual muestra:
+
+1. **Layout 2D** (canvas): vistas superior (XY) y lateral (XZ) — `layout-viz.js`
+2. **Layout 3D** (Plotly.js): cuboides Mesh3d + wireframe del contenedor — `layout-viz-3d.js`
+
+La lógica 3D está adaptada del ejemplo [dwave-examples/3d-bin-packing](https://github.com/dwave-examples/3d-bin-packing)
+(Apache-2.0), desacoplada del solver CQM y alimentada con `solution.packed_items`.
+
+**No incluye** espacio de datos (contratos, políticas, soberanía, negociación).
+Flujo: descubrir → ejecutar → comparar.
 
 ## Arquitectura en un mismo servidor
 

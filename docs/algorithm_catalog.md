@@ -1,5 +1,8 @@
 # Catálogo de algoritmos
 
+Documento hijo de [`../README.md`](../README.md). Índice: [`README.md`](README.md).
+Se regenera con `python scripts/regenerate_algorithm_catalog.py`.
+
 Resumen: **52 algoritmos** — 29 implementados, 6 adaptadores, 17 futuros.
 
 | name | display_name | family | status | problem_types |

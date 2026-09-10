@@ -1,4 +1,4 @@
-"""Endpoint del catálogo de servicios para espacio de datos."""
+"""Endpoint residual de descriptores (`GET /services`). Despriorizado."""
 
 from __future__ import annotations
 
@@ -13,6 +13,6 @@ _service = DataspaceService()
 
 @router.get("/services", response_model=DataspaceCatalogResponse)
 def list_services() -> DataspaceCatalogResponse:
-    """Descriptores de servicios listos para publicación en un espacio de datos."""
+    """Descriptores de servicios. No es la línea de trabajo actual."""
 
     return _service.catalog()

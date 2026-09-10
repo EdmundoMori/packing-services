@@ -5,12 +5,24 @@ const FormBuilder = {
   payload: {},
   parameterHints: {},
   onChange: null,
+  mode: "full",
 
   mount(containerEl, payload, parameterHints = {}, onChange) {
     this.container = containerEl;
     this.payload = JSON.parse(JSON.stringify(payload || {}));
     this.parameterHints = parameterHints || {};
     this.onChange = onChange;
+    this.mode = "full";
+    this.render();
+  },
+
+  /** Solo restricciones + parámetros (entrada geométrica = BED-BPP). */
+  mountConfig(containerEl, payload, parameterHints = {}, onChange) {
+    this.container = containerEl;
+    this.payload = JSON.parse(JSON.stringify(payload || {}));
+    this.parameterHints = parameterHints || {};
+    this.onChange = onChange;
+    this.mode = "config";
     this.render();
   },
 
@@ -28,6 +40,35 @@ const FormBuilder = {
     const p = this.payload;
     const constraints = p.constraints || {};
     const parameters = p.parameters || {};
+
+    if (this.mode === "config") {
+      this.container.innerHTML = `
+        <div class="form-grid">
+          <section class="form-section">
+            <h3>General</h3>
+            ${this.field("random_seed", "Semilla aleatoria", p.random_seed ?? "", "number")}
+            ${this.field("time_limit_seconds", "Límite de tiempo (s)", p.time_limit_seconds ?? "", "number")}
+          </section>
+          <section class="form-section">
+            <h3>Restricciones</h3>
+            <div class="checkbox-grid compact">
+              ${this.checkbox("constraints.non_overlap", "No solapamiento", constraints.non_overlap !== false)}
+              ${this.checkbox("constraints.containment", "Contención", constraints.containment !== false)}
+              ${this.checkbox("constraints.allow_rotation", "Rotación", constraints.allow_rotation !== false)}
+              ${this.checkbox("constraints.max_weight", "Peso máximo", constraints.max_weight !== false)}
+              ${this.checkbox("constraints.basic_stability", "Estabilidad básica", !!constraints.basic_stability)}
+              ${this.checkbox("constraints.load_bearing", "Capacidad de carga", !!constraints.load_bearing)}
+            </div>
+          </section>
+          <section class="form-section full">
+            <h3>Parámetros del algoritmo</h3>
+            <div id="fb-parameters">${this.renderParameters(parameters)}</div>
+            <button type="button" class="secondary small" data-action="add-param">Añadir parámetro</button>
+          </section>
+        </div>`;
+      this.bindEvents();
+      return;
+    }
 
     this.container.innerHTML = `
       <div class="form-grid">
@@ -101,14 +142,16 @@ const FormBuilder = {
     const keys = Object.keys(parameters);
     if (!keys.length) return '<p class="muted">Sin parámetros. Añade clave/valor si el algoritmo los requiere.</p>';
     return keys
-      .map(
-        (key) => `
-        <div class="param-row">
+      .map((key) => {
+        const hint = this.parameterHints[key] ? `<span class="muted" style="font-size:0.85em">${this.escape(this.parameterHints[key])}</span>` : "";
+        return `
+        <div class="param-row" style="flex-wrap:wrap">
           <input data-param-key="${this.escape(key)}" value="${this.escape(key)}" placeholder="clave">
           <input data-param-val-key="${this.escape(key)}" value="${this.escape(parameters[key])}" placeholder="valor">
           <button type="button" class="secondary small" data-remove-param="${this.escape(key)}">✕</button>
-        </div>`
-      )
+          ${hint}
+        </div>`;
+      })
       .join("");
   },
 

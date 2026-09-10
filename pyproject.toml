@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "packing-services"
 version = "0.1.0"
-description = "Servicios modulares e independientes para problemas de Cutting and Packing (3D-BPP, Container Loading, Cartonization, Palletization, Stacking-aware, Validation, Benchmark)."
+description = "Comparar metodologías de empaquetado 3D sobre entradas homogéneas (BED-BPP, validador y benchmark comunes). Online packing en roadmap."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -29,6 +29,8 @@ notebooks = [
     "ipykernel>=6.29",
     "matplotlib>=3.8",
     "pandas>=2.1",
+    "plotly>=5.18",
+    "numpy>=1.24",
 ]
 
 [tool.setuptools.packages.find]

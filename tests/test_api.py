@@ -184,3 +184,8 @@ def test_metadata_lists_new_endpoints():
     body = response.json()
     assert "CARTONIZATION" in body["supported_problem_types"]
     assert "CONTAINER_LOADING" in body["supported_problem_types"]
+    assert "PALLETIZATION" in body["supported_problem_types"]
+    assert body["endpoints"]["pack_cartonization"].endswith("/pack/cartonization")
+    assert "benchmark_profiles" in body["endpoints"]
+    assert "benchmark_joint_single_container" in body["endpoints"]
+    assert "bed_bpp_convert" in body["endpoints"]

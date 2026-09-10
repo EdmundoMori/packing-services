@@ -1,13 +1,15 @@
 # Ejemplos de API
 
-Los archivos JSON referenciados están en `examples/`.
+Documento hijo de [`../README.md`](../README.md). Índice: [`README.md`](README.md).
+Los JSON están en `examples/`. Prioridad: execute canónico, BED-BPP, benchmark
+(por tipo y conjunto). `GET /api/v1/services` es residual.
 
 ## `POST /api/v1/algorithms/{algorithm_name}/execute`
 
 Endpoint principal por algoritmo (Opción A3). El nombre del algoritmo va en la URL;
 el body es el input normalizado por tipo de problema, **sin** el campo `algorithm`.
 
-### Pack (3D_BPP, CONTAINER_LOADING, SINGLE_CONTAINER_LOADING)
+### Pack (3D_BPP, CONTAINER_LOADING, SINGLE_CONTAINER_LOADING, PALLETIZATION, STACKING_AWARE)
 
 Request (`examples/algorithm_execute_3d_bpp.json`):
 
@@ -77,6 +79,44 @@ GET /api/v1/algorithms/heuristic_3d_bpp_v1
 GET /api/v1/algorithms/heuristic_3d_bpp_v1/input-example?problem_type=3D_BPP
 ```
 
+### Dataset BED-BPP (mismo execute / benchmark)
+
+Muestra: `examples/5_bed-bpp.json`. Conversión y ejecución integradas (no hay flujo aparte):
+
+```bash
+GET /api/v1/datasets/bed-bpp/sample
+POST /api/v1/datasets/bed-bpp/convert
+```
+
+Execute con wrapper (el servicio normaliza a `containers` + `items`):
+
+```json
+{
+  "input_format": "bed_bpp",
+  "order_id": "00100001",
+  "orders": { },
+  "problem_type": "PALLETIZATION",
+  "parameters": { "sort_strategy": "volume_desc" }
+}
+```
+
+En la demo web: pestaña **BED-BPP** en Ejecutar y bloque **Instancia BED-BPP** en Benchmark.
+
+### Experimento conjunto (un euro-pallet, cuatro tipos)
+
+Compara `3D_BPP`, `SINGLE_CONTAINER_LOADING`, `PALLETIZATION` y `STACKING_AWARE`
+sobre el pedido más pequeño de `examples/5_bed-bpp.json`, forzado a euro-pallet,
+con `sort_strategy=input_order`. Mismo validador y mismas métricas.
+
+```bash
+curl -X POST http://localhost:8000/api/v1/benchmark/joint-single-container \
+  -H "Content-Type: application/json" \
+  -d '{}'
+
+PYTHONPATH=src python scripts/run_joint_single_container.py
+```
+
+Cartonization no entra: elige caja del catálogo, no recibe el contenedor fijado.
 
 Request (`examples/algorithm_execute_cartonization.json`):
 
@@ -323,12 +363,10 @@ diferencias claras de utilización y piezas empacadas. Response:
 }
 ```
 
-## `GET /api/v1/services`
+## `GET /api/v1/services` (despriorizado)
 
-Devuelve los **descriptores publicables** de cada servicio operativo, listos para
-un espacio de datos (tipo de problema, algoritmos, motor, licencia, formatos I/O,
-restricciones soportadas/no soportadas, métricas, endpoints, trazabilidad y
-limitaciones).
+Catálogo de descriptores residual. **No** forma parte de la línea de trabajo
+(inputs, benchmark, online). Ver [`roadmap.md`](roadmap.md) apartado 5.
 
 ```json
 {

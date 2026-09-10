@@ -26,6 +26,7 @@ from .routes import (
     algorithm_execute,
     algorithms,
     benchmark,
+    datasets,
     health,
     metadata,
     pack_3d_bpp,
@@ -43,8 +44,8 @@ app = FastAPI(
     title="packing-services",
     version=SERVICE_VERSION,
     description=(
-        "Servicios modulares de Cutting and Packing (3D-BPP offline, validación "
-        "y benchmark) con catálogo homogéneo de algoritmos."
+        "Comparar metodologías de empaquetado 3D sobre entradas homogéneas "
+        "(execute, BED-BPP, validador, benchmark). Online packing en roadmap."
     ),
 )
 
@@ -97,3 +98,4 @@ app.include_router(pack_palletization.router, prefix="/api/v1")
 app.include_router(pack_stacking_aware.router, prefix="/api/v1")
 app.include_router(validate.router, prefix="/api/v1")
 app.include_router(benchmark.router, prefix="/api/v1")
+app.include_router(datasets.router, prefix="/api/v1")

@@ -1,11 +1,12 @@
 let implemented = [];
 let profiles = [];
-let showcaseDescription = "";
 
 function updateHint(problemType) {
   const meta = ProblemContext.meta(problemType);
+  const orderId = $("bedbpp-order-select")?.value;
+  const extra = orderId ? `Pedido seleccionado: ${orderId}.` : "Selecciona un pedido del dataset.";
   $("instance-hint").innerHTML = meta
-    ? `<strong>${meta.label}</strong> — ${showcaseDescription || meta.hint}`
+    ? `<strong>${meta.label}</strong> — ${meta.hint} ${extra}`
     : "";
 }
 
@@ -25,27 +26,15 @@ function renderEngineChoices(problemType) {
   }
   grid.innerHTML = compatible
     .map((algo, idx) => {
-      const params = algo.name.includes("metaheuristic")
-        ? { base_algorithm: "best_fit_decreasing_3d", iterations: 15, random_seed: 42 }
-        : algo.algorithm_family === "cartonization" || algo.name.includes("box")
-          ? { sort_strategy: "volume_desc" }
-          : { sort_strategy: "volume_desc" };
+      // parameters vacíos: el backend rellena defaults seguros por algoritmo.
       const checked = idx < 3 ? "checked" : "";
       return `
       <label>
-        <input class="engine-check" type="checkbox" value="${algo.name}" data-parameters='${JSON.stringify(params)}' ${checked}>
+        <input class="engine-check" type="checkbox" value="${algo.name}" data-parameters='{}' ${checked}>
         <span><strong>${algo.display_name}</strong><br><span class="muted">${algo.name}</span></span>
       </label>`;
     })
     .join("");
-}
-
-async function loadShowcaseInstance(problemType) {
-  const { payload, description } = await ProblemContext.loadShowcase(problemType);
-  showcaseDescription = description || "";
-  const bench = ProblemContext.benchmarkPayloadFromShowcase(payload, problemType);
-  $("benchmark-json").value = prettyJson(bench);
-  updateHint(problemType);
 }
 
 async function refreshProfiles(problemType) {
@@ -103,6 +92,7 @@ function renderBenchmarkTable(data) {
 
 function renderBenchmarkLayout(result, inputPayload) {
   LayoutViz.renderCompare($("benchmark-layout"), result.results, inputPayload?.containers, inputPayload?.boxes);
+  LayoutViz3D.renderCompare($("benchmark-layout-3d"), result.results, inputPayload?.containers, inputPayload?.boxes);
 }
 
 function renderBenchmarkValidation(result, inputPayload) {
@@ -113,16 +103,40 @@ function renderBenchmarkValidation(result, inputPayload) {
   );
 }
 
+function syncDatasetFromTextarea() {
+  const raw = $("bedbpp-raw").value.trim();
+  if (!raw) return;
+  BedBpp.ingestRaw(raw);
+  const keep = $("bedbpp-order-select").value;
+  BedBpp.fillOrderSelect($("bedbpp-order-select"), keep);
+  $("bedbpp-hint").textContent = `${BedBpp.orderSummaries.length} pedidos en el dataset.`;
+  updateHint($("problem-type-select").value);
+}
+
+async function ensureBedBppSample() {
+  if (BedBpp.sample) {
+    BedBpp.fillOrderSelect($("bedbpp-order-select"), $("bedbpp-order-select").value);
+    return;
+  }
+  await BedBpp.loadSample();
+  $("bedbpp-raw").value = prettyJson(BedBpp.sample);
+  BedBpp.fillOrderSelect($("bedbpp-order-select"));
+  $("bedbpp-hint").textContent = `${BedBpp.orderSummaries.length} pedidos en la muestra BED-BPP.`;
+  updateHint($("problem-type-select").value);
+}
+
 async function onProblemChange(problemType) {
   const alertBox = $("benchmark-alert");
   alertBox.innerHTML = "";
   $("benchmark-layout").innerHTML = '<p class="muted">Ejecuta un benchmark para comparar layouts mejor vs peor.</p>';
+  $("benchmark-layout-3d").innerHTML = '<p class="muted">Vista 3D (Plotly) del mejor vs peor tras el benchmark.</p>';
   $("benchmark-validation").innerHTML =
     '<p class="muted">Ejecuta un benchmark para ver el cumplimiento de restricciones de cada algoritmo.</p>';
   $("profile-select").value = "";
   try {
-    await Promise.all([refreshProfiles(problemType), loadShowcaseInstance(problemType)]);
+    await refreshProfiles(problemType);
     renderEngineChoices(problemType);
+    updateHint(problemType);
   } catch (err) {
     showAlert(alertBox, err.message);
   }
@@ -131,37 +145,60 @@ async function onProblemChange(problemType) {
 async function runBenchmark() {
   const alertBox = $("benchmark-alert");
   alertBox.innerHTML = "";
-  let payload;
   try {
-    payload = JSON.parse($("benchmark-json").value);
-  } catch {
-    showAlert(alertBox, "JSON de instancia inválido.");
+    syncDatasetFromTextarea();
+  } catch (err) {
+    showAlert(alertBox, err.message);
     return;
   }
+  if (!BedBpp.sample) {
+    try {
+      await ensureBedBppSample();
+    } catch (err) {
+      showAlert(alertBox, err.message);
+      return;
+    }
+  }
+  const orderId = $("bedbpp-order-select").value;
+  if (!orderId) {
+    showAlert(alertBox, "Selecciona un pedido del dataset BED-BPP.");
+    return;
+  }
+  const problemType = $("problem-type-select").value;
   const profile = $("profile-select").value;
   const engines = selectedEngines();
-  if (profile) {
-    payload.profile = profile;
-    delete payload.engines;
-  } else if (engines.length >= 2) {
-    payload.engines = engines;
-    delete payload.profile;
-  } else {
+  if (!profile && engines.length < 2) {
     showAlert(alertBox, "Selecciona ≥2 algoritmos o un perfil predefinido.");
     return;
   }
-  payload.problem_type = $("problem-type-select").value;
+
+  const wrapper = BedBpp.buildWrapper({
+    orderId,
+    problemType,
+    profile: profile || undefined,
+    engines: profile ? undefined : engines,
+  });
+
   const button = $("benchmark-btn");
   button.disabled = true;
   button.textContent = "Ejecutando…";
   $("benchmark-layout").innerHTML = '<p class="muted">Generando visualizaciones…</p>';
   try {
-    const result = await API.benchmark(payload);
+    const [result, converted] = await Promise.all([
+      API.benchmark(wrapper),
+      BedBpp.convert({
+        orderId,
+        problemType,
+        mode: "benchmark",
+        profile: profile || undefined,
+        engines: profile ? undefined : engines,
+      }),
+    ]);
     renderBenchmarkTable(result);
     $("benchmark-json-out").textContent = prettyJson(result);
-    renderBenchmarkValidation(result, payload);
-    renderBenchmarkLayout(result, payload);
-    showAlert(alertBox, `Benchmark completado (${result.results.length} motores).`, "ok");
+    renderBenchmarkValidation(result, converted.input);
+    renderBenchmarkLayout(result, converted.input);
+    showAlert(alertBox, `Benchmark completado (${result.results.length} motores) · pedido ${orderId}.`, "ok");
   } catch (err) {
     showAlert(alertBox, err.message);
   } finally {
@@ -173,7 +210,24 @@ async function runBenchmark() {
 document.addEventListener("DOMContentLoaded", async () => {
   setActiveNav("benchmark");
   $("benchmark-btn").addEventListener("click", runBenchmark);
-  $("load-showcase-btn").addEventListener("click", () => onProblemChange($("problem-type-select").value));
+  $("bedbpp-load-btn").addEventListener("click", async () => {
+    try {
+      BedBpp.sample = null;
+      await ensureBedBppSample();
+      showAlert($("benchmark-alert"), "Muestra BED-BPP cargada.", "ok");
+    } catch (err) {
+      showAlert($("benchmark-alert"), err.message);
+    }
+  });
+  $("bedbpp-order-select").addEventListener("change", () => updateHint($("problem-type-select").value));
+  $("bedbpp-raw").addEventListener("change", () => {
+    try {
+      syncDatasetFromTextarea();
+      showAlert($("benchmark-alert"), "Dataset BED-BPP actualizado.", "ok");
+    } catch (err) {
+      showAlert($("benchmark-alert"), err.message);
+    }
+  });
   $("profile-select").addEventListener("change", () => {
     if ($("profile-select").value) {
       document.querySelectorAll(".engine-check").forEach((el) => {
@@ -183,7 +237,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
   try {
     implemented = await API.listAlgorithms({ status: "implemented" });
-    ProblemContext.mountSelector($("problem-type-select"), { onChange: onProblemChange });
+    ProblemContext.mountSelector($("problem-type-select"), {
+      bedBppOnly: true,
+      onChange: onProblemChange,
+    });
+    ensureBedBppSample().catch(() => {});
   } catch (err) {
     showAlert($("benchmark-alert"), err.message);
   }

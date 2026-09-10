@@ -1,15 +1,17 @@
 # Trazabilidad: implementar un algoritmo de extremo a extremo
 
-Cada algoritmo nuevo debe quedar **publicable como servicio** vía
+Documento hijo de [`../README.md`](../README.md). Índice: [`README.md`](README.md).
+
+Cada algoritmo nuevo debe quedar ejecutable vía
 `POST /api/v1/algorithms/{algorithm_name}/execute`, con contrato homogéneo por
-tipo de problema y **sin valores hardcodeados** de instancia (dimensiones, ids,
-cantidades): todo debe derivarse del input normalizado.
+tipo de problema y **sin valores hardcodeados** de instancia: todo deriva del
+input normalizado. Eso alimenta el **benchmark**, no un espacio de datos.
 
 ## Contratos homogéneos por tipo de problema
 
 | Tipo | Input (body) | Output | Validación / métricas |
 |------|--------------|--------|------------------------|
-| `3D_BPP`, `CONTAINER_LOADING`, `SINGLE_CONTAINER_LOADING` | `PackAlgorithmInput` | `AlgorithmExecuteResponse.solution` (`PackingSolution`) | `validation_report`, `metrics` (DEFAULT_METRICS) |
+| `3D_BPP`, `CONTAINER_LOADING`, `SINGLE_CONTAINER_LOADING`, `PALLETIZATION`, `STACKING_AWARE` | `PackAlgorithmInput` | `AlgorithmExecuteResponse.solution` (`PackingSolution`) | `validation_report`, `metrics` (DEFAULT_METRICS) |
 | `CARTONIZATION` | `CartonizationAlgorithmInput` | `AlgorithmExecuteResponse` + `cartonization.*` | `solution.validation_report`, `solution.metrics` |
 
 Parámetros del algoritmo van en `parameters` del body (no en la URL). Si el
@@ -37,13 +39,13 @@ Marca cada ítem al añadir un algoritmo `{name}`:
 | 2.3 | `src/packing_services/api/routes/algorithm_execute.py` | Sin cambio (path genérico) |
 | 2.4 | `src/packing_services/services/metadata_service.py` | Verificar `ENDPOINTS` (ya genérico) |
 
-### 3. Espacio de datos / descubrimiento
+### 3. Descubrimiento (catálogo API)
 
 | # | Archivo | Acción |
 |---|---------|--------|
-| 3.1 | `src/packing_services/services/dataspace_service.py` | Descriptor auto vía `_algorithm_service_descriptors()` |
-| 3.2 | `GET /api/v1/algorithms/{name}` | Auto vía `AlgorithmInputService.enrich_metadata()` |
-| 3.3 | `GET /api/v1/algorithms/{name}/input-example` | Auto si hay ejemplo en `examples/` o builder |
+| 3.1 | `GET /api/v1/algorithms/{name}` | Auto vía `AlgorithmInputService.enrich_metadata()` |
+| 3.2 | `GET /api/v1/algorithms/{name}/input-example` | Auto si hay ejemplo en `examples/` o builder |
+| 3.3 | `DataspaceService` | No tocar salvo que se pida explícitamente (despriorizado) |
 
 ### 4. Ejemplos y tests
 
@@ -78,7 +80,7 @@ Marca cada ítem al añadir un algoritmo `{name}`:
 | 7.1 | `docs/algorithm_catalog.md` | Fila en tabla + detalle (`python scripts/regenerate_algorithm_catalog.py`) |
 | 7.2 | `docs/roadmap.md` | Marcar ✅ |
 | 7.3 | `docs/api_examples.md` | curl + JSON si el flujo es nuevo |
-| 7.4 | `README.md` | Conteo de algoritmos si cambia |
+| 7.4 | `README.md` | Solo si cambia el objetivo, el conteo o los endpoints canónicos |
 
 ## Fase A (este batch)
 

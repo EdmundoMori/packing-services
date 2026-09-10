@@ -1,139 +1,106 @@
 # Roadmap
 
-Orden de evolución alineado con los documentos de contexto. El principio rector
-es: **base robusta (heurísticas + validador) como núcleo**; las metaheurísticas
-3D-BPP ya están operativas. Métodos exactos e IA siguen planificados.
+Documento hijo de [`../README.md`](../README.md). Índice: [`README.md`](README.md).
 
-## Estado por fase
+Prioridad actual, de primero a último:
 
-| Fase | Contenido | Estado |
-|------|-----------|--------|
-| 0 | Setup del proyecto | ✅ |
-| 1 | Core común (dominio, schemas, geometría, métricas, errores, logging) | ✅ |
-| 2 | Catálogo + `AlgorithmRegistry` + endpoint `/algorithms` | ✅ |
-| 3 | Validador geométrico + tests | ✅ |
-| 4 | `heuristic_3d_bpp_v1` | ✅ |
-| 5 | `first_fit_decreasing_3d` | ✅ |
-| 6 | API local (FastAPI) | ✅ |
-| 7 | Benchmark básico | ✅ |
-| 8 | Interfaz de adaptadores + `py3dbp` + stubs | ✅ |
-| 9 | Documentación / roadmap | ✅ |
-| 10 | Servicios Container Loading + Cartonization operativos | ✅ |
-| 11 | Descriptores para espacio de datos (`/services`) | ✅ |
+1. Homogeneizar inputs.
+2. Benchmark de metodologías.
+3. Empaquetado online.
+4. Calidad extra (restricciones, adaptadores reales, exactos).
+5. Espacio de datos (despriorizado).
 
-## Servicios operativos (Prioridad 1)
+---
 
-| Servicio | Endpoint | Estado |
-|----------|----------|--------|
-| 3D Bin Packing Offline | `POST /pack/3d-bpp` | ✅ operativo |
-| Container Loading | `POST /pack/container-loading` | ✅ operativo (baseline weight-aware) |
-| Cartonization / Order Packing | `POST /pack/cartonization` | ✅ operativo (selección de caja) |
-| Packing Validation | `POST /validate` | ✅ operativo |
-| Benchmark / Comparison | `POST /benchmark` | ✅ operativo |
-| Descriptores espacio de datos | `GET /services` | ✅ operativo |
-| Palletization | `POST /pack/palletization` | ✅ operativo |
-| Stacking-aware | `POST /pack/stacking-aware` | ✅ operativo |
+## Hecho (base operativa)
 
-## Algoritmos implementados hasta ahora
+| Bloque | Contenido |
+|--------|-----------|
+| Core | Dominio, schemas, geometría AABB, métricas, logging, API FastAPI |
+| Catálogo | `AlgorithmRegistry` — 29 implemented, 6 adapter, 17 future |
+| Validador | Independiente del algoritmo (`POST /validate`) |
+| Execute | `POST /api/v1/algorithms/{name}/execute` |
+| Tipos | 3D-BPP, CL, SCL, Cartonization, Palletization, Stacking-aware |
+| Metaheurísticas 3D-BPP | SA, GA, GRASP, Tabu, LNS, VNS, ACO |
+| Inputs | Contrato canónico + conversión BED-BPP (`examples/5_bed-bpp.json`) |
+| Benchmark | Perfiles por tipo + `POST /benchmark/joint-single-container` |
+| UI | `web-demo/` (catálogo, execute, benchmark) |
 
-Constructivos (todos ejecutables, validables y comparables):
-- **3D-BPP**: `heuristic_3d_bpp_v1`, `first_fit_decreasing_3d`,
-  `extreme_points_3d`, `best_fit_decreasing_3d`, `maximal_spaces_3d`.
-- **Mejora / híbrido 3D-BPP**: `solution_compaction`,
-  `constructive_plus_local_search`, `relocation_improvement`, `swap_improvement`,
-  `orientation_improvement`, `bin_reduction`.
-- **Container Loading**: `single_container_constructive`,
-  `weight_aware_container_loading`.
-- **Cartonization**: `smallest_feasible_box`, `best_box_volume_utilization`,
-  `first_fit_box`, `largest_feasible_box`, `multi_box_cartonization`.
-- **Container Loading (Fase B)**: `wall_building_3d`.
+Los endpoints legacy `/pack/*` siguen; el patrón canónico es `/algorithms/{name}/execute`.
 
-- **3D-BPP metaheurísticas**: `simulated_annealing_3d_bpp`, `genetic_algorithm_3d_bpp`,
-  `grasp_3d_bpp`, `tabu_search_3d_bpp`, `lns_3d_bpp`, `vns_3d_bpp`, `aco_3d_bpp`.
+---
 
-- **Palletization**: `layer_based_palletization`, `stack_based_palletization`.
-- **Stacking-aware**: `stacking_aware_constructive`.
+## 1. Homogeneizar inputs (en curso / reforzar)
 
-**29 algoritmos implementados** — cada uno expone
-`POST /api/v1/algorithms/{algorithm_name}/execute` con contrato homogéneo
-(`PackAlgorithmInput` / `CartonizationAlgorithmInput` → `AlgorithmExecuteResponse`).
+Ya existe:
 
-**Adaptador activo**: `py3dbp_adapter` (ejecutable con `pip install py3dbp`).
+- `PackAlgorithmInput` / `CartonizationAlgorithmInput` → `PackingProblem`.
+- BED-BPP (`item_sequence`) → `containers` + `items` (`datasets/bed_bpp.py`).
+- `sort_strategy=input_order` conserva la llegada.
 
-Ver checklist de trazabilidad: `docs/algorithm_implementation_traceability.md`.
+Pendiente (no bloquea el online, pero sí la comparabilidad estricta):
 
-## Próximos pasos recomendados
+- Unidades: showcase usa unidades abstractas; BED-BPP usa mm/kg.
+- `showcase_master_catalog` no es la geometría de pallet/stacking/cartonization.
+- BED-BPP no mapea `max_load_on_top` ni fragilidad; no convierte a CARTONIZATION.
 
-### Corto plazo (mejorar calidad 3D-BPP)
-1. ✅ `extreme_points_3d` — hecho.
-2. ✅ `best_fit_decreasing_3d` — hecho.
-3. ✅ `solution_compaction` + `constructive_plus_local_search` — hecho (mejora local).
-4. ✅ `maximal_spaces_3d` — hecho.
-5. ✅ Heurísticas de mejora adicionales (`relocation_improvement`,
-   `orientation_improvement`, `swap_improvement`, `bin_reduction`) — hecho.
-6. ✅ Fase B: `multi_box_cartonization`, `wall_building_3d`, `py3dbp_adapter` activo — hecho.
-7. ✅ Fase C: `layer_based_palletization`, `stack_based_palletization`, `stacking_aware_constructive` + endpoints `/pack/palletization` y `/pack/stacking-aware` — hecho.
-8. ✅ Fase D: metaheurísticas 3D-BPP (7) + perfil benchmark `metaheuristic` — hecho.
-9. `bottom_left_back_3d` como servicio dedicado (opcional; ya existe como estrategia interna).
-10. Activar `packingsolver_adapter` u otros adaptadores externos reales.
+---
 
-### Servicios por grupo (según análisis de repositorios)
+## 2. Benchmark de metodologías (en curso / reforzar)
 
-| Servicio | Motor principal (futuro) | Adaptador |
-|----------|--------------------------|-----------|
-| 3D Bin Packing Offline | skjolber/3d-bin-container-packing (Java) | `skjolber_adapter` |
-| Container Loading | davidmchapman/3DContainerPacking (C#, EB-AFIT) | `container_packing_adapter` |
-| Cartonization / Order Packing | dvdoug/BoxPacker (PHP) | `boxpacker_adapter` |
-| Palletization | fontanf/packingsolver `boxstacks` (C++) | `packingsolver_adapter` |
-| Stacking-aware Packing | fontanf/packingsolver `boxstacks` (C++) | `packingsolver_adapter` |
-| Benchmark / Comparison | servicio propio | — (integra todos) |
-| Validation | servicio propio | — |
+Ya existe:
 
-Baseline en Python puro: `py3dbp_adapter` (enzoruiz/3dbinpacking), ejecutable si
-se instala `py3dbp`.
+- `POST /api/v1/benchmark` + `GET /benchmark/profiles` (un `problem_type`).
+- Experimento conjunto: un euro-pallet, cuatro tipos, `input_order`
+  (`scripts/run_joint_single_container.py`).
 
-### Endpoints
-- ✅ `POST /api/v1/pack/container-loading`
-- ✅ `POST /api/v1/pack/cartonization`
-- ✅ `GET /api/v1/services` (descriptores para espacio de datos)
-- 🔜 `POST /api/v1/pack/palletization` → ✅ operativo
-- 🔜 `POST /api/v1/pack/stacking-aware` → ✅ operativo
+Pendiente:
 
-### Restricciones avanzadas (fases posteriores)
-- Peso: distribución, centro de gravedad, estabilidad avanzada.
-- `load_bearing` (requiere poblar `max_load_on_top` en los ítems).
-- Fragilidad, compatibilidad entre ítems, secuencia de carga/descarga.
-- Estabilidad por superficie de soporte ya tiene una comprobación básica en el
-  validador (`basic_stability`).
+- Más pedidos BED-BPP (no solo el más pequeño).
+- Comparar explícitamente `input_order` vs `volume_desc` (offline vs llegada).
+- No mezclar cartonization en el conjunto de “un contenedor fijado”.
 
-### Optimización avanzada
-- ✅ Metaheurísticas 3D-BPP: GA, Tabu Search, SA, GRASP, VNS, LNS, ACO
-  (`metaheuristic_3d_bpp.py`, perfil benchmark `3D_BPP/metaheuristic`).
-- Métodos exactos / referencia: MIP, CP-SAT (OR-Tools), Branch&Bound/Cut/Price,
-  generación de columnas. Para instancias pequeñas y benchmarking.
-- Enfoques híbridos adicionales: extreme points + SA (`extreme_points_plus_sa`),
-  descomposición por capas + knapsack, MIP para subproblemas + heurística.
+---
 
-### Investigación (línea avanzada)
-- Online 3D-BPP heurístico (ítems secuenciales).
-- DRL (`drl_policy_3d_bpp`, alexfrom0815/Online-3D-BPP-PCT): requiere dataset,
-  simulador, modelo entrenado y validación estricta.
+## 3. Empaquetado online (siguiente línea de implementación)
 
-## Integración futura en espacio de datos
+Hoy el baseline es ejecutar constructivos con `sort_strategy=input_order` sobre
+BED-BPP. Eso **no** es todavía el servicio `online_3d_bpp_heuristic`.
 
-El proyecto queda **preparado** (no integrado) mediante:
-- entradas/salidas JSON estandarizadas,
-- metadatos por algoritmo y por servicio (`/api/v1/metadata`, `/api/v1/algorithms`),
-- **descriptores publicables por servicio** (`GET /api/v1/services`) con tipo de
-  problema, motor, licencia, formatos I/O, restricciones, métricas, endpoints,
-  trazabilidad y limitaciones,
-- trazabilidad de ejecución (`execution_metadata`),
-- separación de servicios (optimización / validación / comparación).
+Siguiente implementación:
 
-Lógica prevista: publicar → descubrir → negociar acceso → ejecutar → validar →
-comparar → registrar evidencias.
+1. Heurístico online ejecutable (`online_3d_bpp_heuristic`): un ítem a la vez,
+   sin reordenar el resto.
+2. Mismo validador y métricas que el experimento conjunto.
+3. DRL (`drl_policy_3d_bpp`) después: dataset + simulador + política entrenada.
+   Referencia de investigación: alexfrom0815/Online-3D-BPP-PCT.
 
-## Nota de entorno
-- Docker: no incluido aún; queda como documentación futura (un contenedor por la
-  API Python y microservicios separados por motor externo).
-- Sin base de datos en la primera versión.
+Las metaheurísticas ya hechas son **offline**: conocen todos los ítems y buscan
+una permutación. No sustituyen al online.
+
+---
+
+## 4. Calidad extra (después del online)
+
+- Adaptadores reales cuando el motor esté en el entorno (`skjolber`, BoxPacker,
+  3DContainerPacking, PackingSolver). Hoy solo `py3dbp` puede activarse.
+- Restricciones: CoG, fragilidad, load-bearing poblado, secuencia de descarga.
+- Métodos exactos de referencia (MIP, CP-SAT) para instancias pequeñas.
+- `bottom_left_back_3d` como servicio propio es opcional (ya es estrategia interna).
+
+---
+
+## 5. Espacio de datos (último)
+
+`GET /api/v1/services` y `DataspaceService` generan descriptores. **No** hay
+integración real (publicar → descubrir → negociar → ejecutar).
+
+No planificar trabajo de dataspace mientras 1–3 estén abiertos.
+
+---
+
+## Entorno
+
+- Docker de la UI: `web-demo/Dockerfile` + `web-demo/docker-compose.yml`.
+- Sin base de datos.
+- Un contenedor por motor externo: no está en esta versión.

@@ -23,6 +23,9 @@ def main() -> None:
     lines = [
         "# Catálogo de algoritmos",
         "",
+        "Documento hijo de [`../README.md`](../README.md). Índice: [`README.md`](README.md).",
+        "Se regenera con `python scripts/regenerate_algorithm_catalog.py`.",
+        "",
         (
             f"Resumen: **{len(all_meta)} algoritmos** — "
             f"{implemented} implementados, {adapters} adaptadores, {future} futuros."

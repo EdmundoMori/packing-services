@@ -22,8 +22,8 @@ app = FastAPI(
     title="packing-services Web Demo",
     version="0.1.0",
     description=(
-        "Simulación funcional de un espacio de datos: catálogo, ejecución "
-        "individual y benchmark. Sin contratos, políticas ni soberanía."
+        "Catálogo, ejecución individual y benchmark sobre packing-services. "
+        "No es un espacio de datos."
     ),
 )
 
