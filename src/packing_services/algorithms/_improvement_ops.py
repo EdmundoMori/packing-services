@@ -3,10 +3,11 @@
 from __future__ import annotations
 
 from ..domain.geometry import EPS, unique_orientations
-from ..domain.models import Orientation, PackedItem, PackingProblem, Point3D
+from ..domain.models import Orientation, PackedItem, PackingProblem
 from ._compaction import (
     _candidate_positions,
     _is_valid_placement,
+    _slide_item,
     packed_to_aabb,
 )
 
@@ -22,11 +23,21 @@ def _group_by_container(packed: list[PackedItem]) -> dict[str, list[PackedItem]]
     return groups
 
 
+def _compactness_score(packed: PackedItem) -> tuple[float, float, float]:
+    """Menor es más compacto: techo, fondo en y, fondo en x."""
+
+    return (
+        packed.position.z + packed.orientation.height,
+        packed.position.y + packed.orientation.width,
+        packed.position.x + packed.orientation.length,
+    )
+
+
 def orientation_improvement_pass(
     packed: list[PackedItem],
     problem: PackingProblem,
 ) -> list[PackedItem]:
-    """Prueba orientaciones alternativas en la misma posición."""
+    """Prueba orientaciones alternativas; desliza si la nueva forma lo permite."""
 
     require_support = problem.constraints.basic_stability
     items = _item_by_id(problem)
@@ -40,11 +51,9 @@ def orientation_improvement_pass(
         allow_rot = problem.constraints.allow_rotation and item.allow_rotation
         orientations = unique_orientations(item.dimensions, allow_rot)
         container = container_by_id[current.container_id]
-        others = [
-            packed_to_aabb(result[j]) for j in range(len(result)) if j != idx
-        ]
+        others = [packed_to_aabb(result[j]) for j in range(len(result)) if j != idx]
         best = current
-        best_score = _manhattan(current.position)
+        best_score = _compactness_score(current)
 
         for dims in orientations:
             trial = current.model_copy(
@@ -54,20 +63,24 @@ def orientation_improvement_pass(
                     )
                 }
             )
-            if _is_valid_placement(
+            if not _is_valid_placement(
                 trial, others, container, require_support=require_support
             ):
-                score = _manhattan(trial.position)
-                if score + EPS < best_score:
-                    best_score = score
-                    best = trial
+                continue
+            trial = _slide_item(
+                trial, others, container, require_support=require_support
+            )
+            if not _is_valid_placement(
+                trial, others, container, require_support=require_support
+            ):
+                continue
+            score = _compactness_score(trial)
+            if score < best_score:
+                best_score = score
+                best = trial
         result[idx] = best
 
     return result
-
-
-def _manhattan(pos: Point3D) -> float:
-    return pos.x + pos.y + pos.z
 
 
 def swap_improvement_pass(
@@ -76,55 +89,86 @@ def swap_improvement_pass(
     *,
     max_attempts: int | None = None,
 ) -> tuple[list[PackedItem], int]:
-    """Intercambia posiciones/orientaciones entre pares si mejora compactación."""
+    """Intercambia posiciones entre pares usando orientaciones válidas de cada ítem."""
 
     require_support = problem.constraints.basic_stability
     container_by_id = {c.id: c for c in problem.containers}
+    items = _item_by_id(problem)
     result = [p.model_copy() for p in packed]
     n = len(result)
-    limit = max_attempts if max_attempts is not None else max(1, n * (n - 1) // 2)
+    pair_limit = max_attempts if max_attempts is not None else max(1, n * (n - 1) // 2)
     swaps = 0
+    attempts = 0
 
-    for attempt in range(limit):
-        if n < 2:
-            break
-        i = attempt % n
-        j = (attempt * 7 + 1) % n
-        if i == j:
-            continue
+    for i in range(n):
+        for j in range(i + 1, n):
+            if attempts >= pair_limit:
+                return result, swaps
+            attempts += 1
+            a, b = result[i], result[j]
+            if a.container_id != b.container_id:
+                continue
+            item_a = items.get(a.item_id)
+            item_b = items.get(b.item_id)
+            if item_a is None or item_b is None:
+                continue
 
-        a, b = result[i], result[j]
-        if a.container_id != b.container_id:
-            continue
-
-        container = container_by_id[a.container_id]
-        others = [packed_to_aabb(result[k]) for k in range(n) if k not in (i, j)]
-
-        trial_a = b.model_copy(update={"item_id": a.item_id, "weight": a.weight})
-        trial_b = a.model_copy(update={"item_id": b.item_id, "weight": b.weight})
-
-        if not (
-            _is_valid_placement(
-                trial_a,
-                others + [packed_to_aabb(trial_b)],
-                container,
-                require_support=require_support,
+            container = container_by_id[a.container_id]
+            others = [packed_to_aabb(result[k]) for k in range(n) if k not in (i, j)]
+            allow_a = problem.constraints.allow_rotation and item_a.allow_rotation
+            allow_b = problem.constraints.allow_rotation and item_b.allow_rotation
+            best_pair = None
+            best_score = (
+                _compactness_score(a)[0] + _compactness_score(b)[0],
+                _compactness_score(a)[1] + _compactness_score(b)[1],
+                _compactness_score(a)[2] + _compactness_score(b)[2],
             )
-            and _is_valid_placement(
-                trial_b,
-                others + [packed_to_aabb(trial_a)],
-                container,
-                require_support=require_support,
-            )
-        ):
-            continue
 
-        before_score = _manhattan(a.position) + _manhattan(b.position)
-        after_score = _manhattan(trial_a.position) + _manhattan(trial_b.position)
-        if after_score + EPS < before_score:
-            result[i] = trial_a
-            result[j] = trial_b
-            swaps += 1
+            for da in unique_orientations(item_a.dimensions, allow_a):
+                trial_a = a.model_copy(
+                    update={
+                        "position": b.position,
+                        "orientation": Orientation(
+                            length=da.length, width=da.width, height=da.height
+                        ),
+                    }
+                )
+                for db in unique_orientations(item_b.dimensions, allow_b):
+                    trial_b = b.model_copy(
+                        update={
+                            "position": a.position,
+                            "orientation": Orientation(
+                                length=db.length, width=db.width, height=db.height
+                            ),
+                        }
+                    )
+                    if not (
+                        _is_valid_placement(
+                            trial_a,
+                            others + [packed_to_aabb(trial_b)],
+                            container,
+                            require_support=require_support,
+                        )
+                        and _is_valid_placement(
+                            trial_b,
+                            others + [packed_to_aabb(trial_a)],
+                            container,
+                            require_support=require_support,
+                        )
+                    ):
+                        continue
+                    score = (
+                        _compactness_score(trial_a)[0] + _compactness_score(trial_b)[0],
+                        _compactness_score(trial_a)[1] + _compactness_score(trial_b)[1],
+                        _compactness_score(trial_a)[2] + _compactness_score(trial_b)[2],
+                    )
+                    if score < best_score:
+                        best_score = score
+                        best_pair = (trial_a, trial_b)
+
+            if best_pair is not None:
+                result[i], result[j] = best_pair
+                swaps += 1
 
     return result, swaps
 

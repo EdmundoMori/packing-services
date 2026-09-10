@@ -13,8 +13,8 @@ En **Ejecutar** y **Benchmark** la instancia de entrada es siempre un dataset
 **BED-BPP** (`order_id → { item_sequence, properties }`). El núcleo interno sigue
 usando `containers` + `items` (conversión automática).
 
-1. **Tipo de problema** (solo tipos compatibles con BED-BPP)
-2. Filtrado de algoritmos compatibles
+1. **Modo de packing** (`offline` u `online`) y **tipo de problema**
+2. Filtrado de algoritmos compatibles con ese modo
 3. Pedido del dataset + configuración de parámetros (defaults seguros)
 
 | Pestaña | Qué hace |
@@ -34,7 +34,7 @@ Endpoints de dataset:
 
 - `GET /api/v1/datasets/bed-bpp/sample`
 - `POST /api/v1/datasets/bed-bpp/convert`
-- Execute/benchmark aceptan `{ "input_format": "bed_bpp", "order_id", "orders", "parameters"? }`
+- Execute/benchmark aceptan `{ "input_format": "bed_bpp", "order_id", "orders", "packing_mode"? }`
 
 ### Visualización de layouts
 

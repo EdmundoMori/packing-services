@@ -40,7 +40,8 @@ def test_build_joint_instance_forces_euro_pallet():
     assert len(payload["containers"]) == 1
     c = payload["containers"][0]
     assert (c["length"], c["width"], c["height"]) == TARGET_SIZES_MM["euro-pallet"]
-    assert payload["parameters"]["sort_strategy"] == DEFAULT_SORT
+    assert payload["parameters"]["sort_strategy"] == "volume_desc"
+    assert payload["packing_mode"] == "offline"
     assert len(payload["items"]) == len(orders[order_id]["item_sequence"])
 
 
@@ -51,7 +52,8 @@ def test_joint_single_container_same_instance_validator_and_metrics():
     assert response.details["benchmark_group"] == "JOINT_SINGLE_CONTAINER"
     assert response.details["order_id"] == "00100408"
     assert response.details["target"] == "euro-pallet"
-    assert response.details["sort_strategy"] == "input_order"
+    assert response.details["sort_strategy"] == "volume_desc"
+    assert response.details["packing_mode"] == "offline"
     assert response.details["container_size"] == list(TARGET_SIZES_MM["euro-pallet"])
     assert response.details["n_items"] == 26
     assert set(response.details["problem_types"]) == {p.value for p in JOINT_PROBLEM_TYPES}
@@ -72,8 +74,8 @@ def test_joint_single_container_same_instance_validator_and_metrics():
         assert result.status != "error", result.error
         assert result.validation_report is not None
         assert result.solution is not None
-        assert result.details["sort_strategy"] == "input_order"
-        assert result.solution.execution_metadata.parameters["sort_strategy"] == "input_order"
+        assert result.details["sort_strategy"] == "volume_desc"
+        assert result.solution.execution_metadata.parameters["sort_strategy"] == "volume_desc"
         assert metric_fields.issubset(result.metrics.model_dump())
         types_seen.add(result.details["problem_type"])
         packed_containers = {p.container_id for p in result.solution.packed_items}
@@ -100,12 +102,20 @@ def test_joint_forces_euro_pallet_on_rollcontainer_order():
     assert payload["details"]["target"] == "euro-pallet"
 
 
+def test_build_joint_instance_online_uses_input_order():
+    orders = _orders()
+    _, payload = build_joint_instance(orders, packing_mode="online")
+    assert payload["packing_mode"] == "online"
+    assert payload["parameters"]["sort_strategy"] == "input_order"
+
+
 def test_joint_single_container_api():
     response = client.post("/api/v1/benchmark/joint-single-container", json={})
     assert response.status_code == 200, response.text
     body = response.json()
     assert body["details"]["order_id"] == "00100408"
-    assert body["details"]["sort_strategy"] == "input_order"
+    assert body["details"]["sort_strategy"] == "volume_desc"
+    assert body["details"]["packing_mode"] == "offline"
     assert len(body["results"]) == len(JOINT_ENGINES)
     assert body["details"]["engines_error"] == 0
     assert "3D_BPP" in body["details"]["problem_types"]

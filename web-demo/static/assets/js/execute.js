@@ -21,9 +21,17 @@ function updateHint(problemType) {
   $("problem-hint").textContent = meta ? meta.hint : "";
 }
 
+function currentPackingMode() {
+  return $("packing-mode-select")?.value || "offline";
+}
+
 function populateAlgorithms(problemType) {
   const select = $("algorithm-select");
-  const compatible = ProblemContext.filterAlgorithms(implemented, problemType);
+  const compatible = ProblemContext.filterAlgorithms(
+    implemented,
+    problemType,
+    currentPackingMode()
+  );
   select.innerHTML =
     `<option value="">Selecciona algoritmo…</option>` +
     compatible
@@ -95,10 +103,12 @@ async function refreshAlgorithmInputPreview({ silent = false } = {}) {
       mode: "execute",
       parameters: cfg.parameters,
       constraints: cfg.constraints,
+      packingMode: currentPackingMode(),
     });
     if (seq !== previewSeq) return null;
 
     const input = { ...converted.input };
+    input.packing_mode = currentPackingMode();
     if (cfg.random_seed != null && cfg.random_seed !== "") input.random_seed = cfg.random_seed;
     if (cfg.time_limit_seconds != null && cfg.time_limit_seconds !== "") {
       input.time_limit_seconds = cfg.time_limit_seconds;
@@ -141,8 +151,11 @@ async function onAlgorithmChange() {
   try {
     currentDetail = await API.getAlgorithm(name);
     renderAlgorithmMeta(currentDetail);
+    const packingMode = currentPackingMode();
+    const defaults = { ...(currentDetail.default_parameters || {}) };
+    if (packingMode === "online") defaults.sort_strategy = "input_order";
     configPayload = {
-      parameters: { ...(currentDetail.default_parameters || {}) },
+      parameters: defaults,
       constraints: {
         non_overlap: true,
         containment: true,
@@ -165,6 +178,16 @@ function onProblemChange(problemType) {
   updateHint(problemType);
   populateAlgorithms(problemType);
   $("algorithm-select").value = "";
+  onAlgorithmChange();
+}
+
+function onPackingModeChange() {
+  const problemType = $("problem-type-select").value;
+  populateAlgorithms(problemType);
+  const keep = $("algorithm-select").value;
+  if (keep && ![...$("algorithm-select").options].some((o) => o.value === keep)) {
+    $("algorithm-select").value = "";
+  }
   onAlgorithmChange();
 }
 
@@ -301,6 +324,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
   try {
     implemented = await API.listAlgorithms({ status: "implemented" });
+    ProblemContext.mountPackingMode($("packing-mode-select"), onPackingModeChange);
     ProblemContext.mountSelector($("problem-type-select"), {
       bedBppOnly: true,
       onChange: onProblemChange,

@@ -39,7 +39,7 @@ Código de verdad: `src/packing_services/`. Si un `.md` y el código discrepan, 
 
 1. **Homogeneizar inputs** — un contrato (`PackAlgorithmInput` / BED-BPP → canónico) para todas las metodologías.
 2. **Benchmark de metodologías** — perfiles por tipo + experimento conjunto en un contenedor, mismo validador y métricas.
-3. **Empaquetado online** — ítems en orden de llegada (`input_order` ya existe; el heurístico `online_3d_bpp_heuristic` y DRL siguen en `future`).
+3. **Empaquetado online** — modo `packing_mode=online` (puerta abierta: constructivos en orden de llegada). Heurístico dedicado y DRL: capas siguientes.
 4. Restricciones avanzadas, adaptadores externos reales, métodos exactos.
 5. **Espacio de datos** — despriorizado. Hay descriptores en `GET /api/v1/services`; no es el objetivo ni el siguiente paso.
 
@@ -56,7 +56,8 @@ Detalle: [`docs/roadmap.md`](docs/roadmap.md).
 | 29 algoritmos ejecutables (`POST /api/v1/algorithms/{name}/execute`) | Listo |
 | Benchmark por `problem_type` (perfiles `constructive`, `hybrid`, `metaheuristic`, …) | Listo |
 | Entrada BED-BPP (secuencia real de pedidos) | Listo |
-| Experimento conjunto un euro-pallet + `input_order` | Listo (`/benchmark/joint-single-container`) |
+| Modos `offline` / `online` (mismo input) | Offline cerrado; online como puerta (constructivos + `input_order`) |
+| Experimento conjunto un euro-pallet | Listo (`/benchmark/joint-single-container`, default offline) |
 | Heurístico online / DRL | Solo metadatos `future` |
 | Adaptadores externos | Registrados; ejecutable solo `py3dbp` si se instala |
 | Espacio de datos | Preparado, **fuera de la línea crítica** |
@@ -87,11 +88,12 @@ POST /api/v1/algorithms/{algorithm_name}/execute
 ```
 
 - Pack (`3D_BPP`, `CONTAINER_LOADING`, `SINGLE_CONTAINER_LOADING`, `PALLETIZATION`, `STACKING_AWARE`): body `PackAlgorithmInput`.
-- Cartonization: body `CartonizationAlgorithmInput`.
+- Cartonization: body `CartonizationAlgorithmInput` (**solo offline**).
+- Campo `packing_mode`: `offline` (default) u `online`. Mismo JSON de ítems/contenedor.
 - Salida siempre `AlgorithmExecuteResponse` (solución + validador + métricas).
-- BED-BPP: el mismo execute acepta `{ "input_format": "bed_bpp", "order_id", "orders" }` y normaliza al contrato interno.
+- BED-BPP: el mismo execute acepta `{ "input_format": "bed_bpp", "order_id", "orders", "packing_mode" }` y normaliza al contrato interno. `sequence` → `arrival_index` siempre. Offline reordena (defaults del algoritmo); online fuerza `input_order`.
 
-`sort_strategy=input_order` conserva la secuencia de llegada. Los perfiles por defecto usan `volume_desc` / `weight_desc` (offline).
+Catálogo filtrable: `GET /api/v1/algorithms?packing_mode=offline`. Descripción de modos: `GET /api/v1/packing-modes`.
 
 Ejemplos: [`docs/api_examples.md`](docs/api_examples.md).
 
@@ -111,7 +113,7 @@ PYTHONPATH=src uvicorn packing_services.api.main:app --reload
 Docs interactivas: http://localhost:8000/docs
 
 ```bash
-# Experimento conjunto (pedido BED-BPP más pequeño, euro-pallet, input_order)
+# Experimento conjunto (pedido BED-BPP más pequeño, euro-pallet, default offline)
 PYTHONPATH=src python scripts/run_joint_single_container.py
 
 # UI de catálogo / execute / benchmark
@@ -127,13 +129,14 @@ Opcional: `pip install py3dbp` activa el baseline externo.
 | Método | Ruta | Uso |
 |--------|------|-----|
 | GET | `/health` | Salud |
-| GET | `/api/v1/algorithms` | Catálogo (filtros `status`, `problem_type`, `family`) |
+| GET | `/api/v1/packing-modes` | `offline` / `online`, mismo contrato de entrada |
+| GET | `/api/v1/algorithms` | Catálogo (filtros `status`, `problem_type`, `family`, `packing_mode`) |
 | GET | `/api/v1/algorithms/{name}` | Metadatos + esquemas + ejemplo |
 | **POST** | **`/api/v1/algorithms/{name}/execute`** | Ejecución canónica |
 | POST | `/api/v1/validate` | Validador independiente |
 | POST | `/api/v1/benchmark` | Comparar ≥2 motores, **un** `problem_type` |
 | GET | `/api/v1/benchmark/profiles` | Perfiles de motores por tipo |
-| POST | `/api/v1/benchmark/joint-single-container` | Cuatro tipos, un euro-pallet, `input_order` |
+| POST | `/api/v1/benchmark/joint-single-container` | Cuatro tipos, un euro-pallet; default `packing_mode=offline` |
 | GET/POST | `/api/v1/datasets/bed-bpp/*` | Muestra y conversión BED-BPP |
 | POST | `/api/v1/pack/*` | Legacy por tipo; preferir `/algorithms/{name}/execute` |
 | GET | `/api/v1/services` | Descriptores (espacio de datos, **no prioritario**) |

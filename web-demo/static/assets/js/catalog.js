@@ -75,7 +75,11 @@ async function selectModel(name) {
 
 function onProblemChange(problemType) {
   updateHint(problemType);
-  filtered = ProblemContext.filterAlgorithms(allAlgorithms, problemType);
+  filtered = ProblemContext.filterAlgorithms(
+    allAlgorithms,
+    problemType,
+    $("packing-mode-select")?.value || "offline"
+  );
   selectedName = null;
   $("detail-panel").hidden = true;
   renderCards();
@@ -87,6 +91,9 @@ async function initCatalog() {
   try {
     allAlgorithms = await API.listAlgorithms({ status: "implemented" });
     allAlgorithms.sort((a, b) => a.display_name.localeCompare(b.display_name));
+    ProblemContext.mountPackingMode($("packing-mode-select"), () =>
+      onProblemChange($("problem-type-select").value)
+    );
     ProblemContext.mountSelector($("problem-type-select"), {
       includeAll: true,
       onChange: onProblemChange,

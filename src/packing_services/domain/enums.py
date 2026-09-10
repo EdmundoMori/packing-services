@@ -76,6 +76,18 @@ class SolutionStatus(str, Enum):
     ERROR = "error"
 
 
+class PackingMode(str, Enum):
+    """Modo de ejecución sobre el mismo contrato de entrada.
+
+    Offline: pedido completo conocido; se puede reordenar y buscar permutaciones.
+    Online: se respeta la llegada (``arrival_index`` / BED-BPP ``sequence``);
+    no se reordena ni se mira el resto del pedido para decidir el orden.
+    """
+
+    OFFLINE = "offline"
+    ONLINE = "online"
+
+
 class SortStrategy(str, Enum):
     """Criterios de ordenamiento de ítems para heurísticas constructivas."""
 

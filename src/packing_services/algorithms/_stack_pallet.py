@@ -29,7 +29,7 @@ from ..domain.models import (
     Point3D,
     UnpackedItem,
 )
-from ._constructive import _sort_key
+from ._constructive import order_items
 
 
 @dataclass
@@ -82,9 +82,7 @@ class StackPalletPacker:
         item_by_id = {it.id: it for it in problem.items}
 
         states = [_StackBinState(container=c) for c in problem.containers]
-        ordered = sorted(
-            problem.items, key=lambda it: _sort_key(it, self.config.sort_strategy)
-        )
+        ordered = order_items(problem.items, self.config.sort_strategy)
 
         packed: list[PackedItem] = []
         unpacked: list[UnpackedItem] = []

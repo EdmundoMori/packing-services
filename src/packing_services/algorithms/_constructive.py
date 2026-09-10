@@ -59,9 +59,27 @@ def _sort_key(item: Item, strategy: SortStrategy):
 
 
 def order_items(items: list[Item], strategy: SortStrategy) -> list[Item]:
-    """Ordena ítems; con ``INPUT_ORDER`` preserva la secuencia del input."""
+    """Ordena ítems según la estrategia.
+
+    ``INPUT_ORDER`` usa ``arrival_index`` si algún ítem lo trae (p. ej. BED-BPP
+    ``sequence``). Si nadie lo declara, se deja el orden de la lista.
+    """
 
     if strategy == SortStrategy.INPUT_ORDER:
+        if any(it.arrival_index is not None for it in items):
+            return [
+                item
+                for _, item in sorted(
+                    enumerate(items),
+                    key=lambda pair: (
+                        pair[1].arrival_index is None,
+                        pair[1].arrival_index
+                        if pair[1].arrival_index is not None
+                        else 0,
+                        pair[0],
+                    ),
+                )
+            ]
         return list(items)
     return sorted(items, key=lambda it: _sort_key(it, strategy))
 

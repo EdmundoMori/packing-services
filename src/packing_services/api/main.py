@@ -45,7 +45,8 @@ app = FastAPI(
     version=SERVICE_VERSION,
     description=(
         "Comparar metodologías de empaquetado 3D sobre entradas homogéneas "
-        "(execute, BED-BPP, validador, benchmark). Online packing en roadmap."
+        "(execute, BED-BPP, validador, benchmark). "
+        "Modos packing_mode=offline (listo) y packing_mode=online (misma entrada)."
     ),
 )
 

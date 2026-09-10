@@ -76,11 +76,12 @@ Solo `py3dbp_adapter` es ejecutable si se instala `py3dbp`; el resto son stubs.
 ### `datasets/`
 Conversión de entradas externas al contrato interno. `bed_bpp.py` traduce
 pedidos BED-BPP (`item_sequence` + target) a `PackAlgorithmInput` /
-`BenchmarkRequest` sin cambiar los algoritmos.
+`BenchmarkRequest`: `sequence` → `arrival_index`. El campo `packing_mode`
+decide si se reordena (offline) o se respeta la llegada (online).
 
 ### `benchmark/`
 Perfiles por `problem_type` y el experimento conjunto
-`joint_single_container.py` (un euro-pallet, secuencia `input_order`,
+`joint_single_container.py` (un euro-pallet, `packing_mode` offline u online,
 varios tipos de servicio, mismo validador).
 
 ### `services/`

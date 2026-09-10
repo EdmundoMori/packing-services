@@ -189,3 +189,4 @@ def test_metadata_lists_new_endpoints():
     assert "benchmark_profiles" in body["endpoints"]
     assert "benchmark_joint_single_container" in body["endpoints"]
     assert "bed_bpp_convert" in body["endpoints"]
+    assert "packing_modes" in body["endpoints"]

@@ -9,8 +9,8 @@ from ..schemas.responses import ServiceMetadataResponse
 
 SERVICE_DESCRIPTION = (
     "Comparar metodologías de Cutting and Packing sobre entradas homogéneas. "
-    "Heurísticas, mejora local, metaheurísticas 3D-BPP, validador y benchmark. "
-    "Empaque online en roadmap; espacio de datos despriorizado."
+    "Dos modos (mismo input): offline (listo) y online (puerta abierta). "
+    "Espacio de datos despriorizado."
 )
 
 SUPPORTED_PROBLEM_TYPES = [
@@ -28,6 +28,7 @@ ENDPOINTS = {
     "health": "GET /health",
     "metadata": "GET /api/v1/metadata",
     "services": "GET /api/v1/services",
+    "packing_modes": "GET /api/v1/packing-modes",
     "algorithms": "GET /api/v1/algorithms",
     "algorithm_detail": "GET /api/v1/algorithms/{algorithm_name}",
     "algorithm_input_example": "GET /api/v1/algorithms/{algorithm_name}/input-example",

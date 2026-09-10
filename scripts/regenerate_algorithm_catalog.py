@@ -31,14 +31,15 @@ def main() -> None:
             f"{implemented} implementados, {adapters} adaptadores, {future} futuros."
         ),
         "",
-        "| name | display_name | family | status | problem_types |",
-        "|------|--------------|--------|--------|---------------|",
+        "| name | display_name | family | status | packing_modes | problem_types |",
+        "|------|--------------|--------|--------|---------------|---------------|",
     ]
     for meta in sorted(all_meta, key=lambda m: (m.status.value, m.name)):
         pts = ", ".join(p.value for p in meta.problem_types)
+        modes = ", ".join(m.value for m in meta.packing_modes)
         lines.append(
             f"| `{meta.name}` | {meta.display_name} | "
-            f"{meta.algorithm_family.value} | {meta.status.value} | {pts} |"
+            f"{meta.algorithm_family.value} | {meta.status.value} | {modes} | {pts} |"
         )
     lines.append("")
     out = ROOT / "docs" / "algorithm_catalog.md"

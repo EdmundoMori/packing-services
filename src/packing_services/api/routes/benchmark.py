@@ -12,7 +12,6 @@ from pydantic import ValidationError
 from pathlib import Path
 
 from ...benchmark.joint_single_container import (
-    DEFAULT_SORT,
     DEFAULT_TARGET,
     run_joint_single_container,
 )
@@ -71,8 +70,9 @@ def benchmark_joint_single_container(
 ) -> BenchmarkResponse:
     """Compara 3D_BPP, SCL, PALLETIZATION y STACKING_AWARE en un euro-pallet.
 
-    Misma secuencia BED-BPP (pedido más pequeño si no se indica ``order_id``),
-    ``sort_strategy=input_order``, mismo validador y mismas métricas.
+    Mismo pedido BED-BPP (el más pequeño si no se indica ``order_id``),
+    mismo validador y mismas métricas. ``packing_mode=offline`` (default)
+    reordena por volumen; ``packing_mode=online`` respeta la llegada.
     """
 
     body = payload or {}
@@ -86,6 +86,7 @@ def benchmark_joint_single_container(
         orders,
         order_id=body.get("order_id"),
         target=body.get("target") or DEFAULT_TARGET,
-        sort_strategy=body.get("sort_strategy") or DEFAULT_SORT,
+        sort_strategy=body.get("sort_strategy"),
+        packing_mode=body.get("packing_mode"),
         request_id=body.get("request_id"),
     )

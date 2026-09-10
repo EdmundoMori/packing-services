@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Ejecuta el experimento conjunto BED-BPP (euro-pallet, input_order).
+"""Ejecuta el experimento conjunto BED-BPP (euro-pallet, packing_mode=offline).
 
 Uso::
 
@@ -27,7 +27,8 @@ def main() -> int:
     d = response.details
     print(
         f"Pedido {d['order_id']} · {d['n_items']} ítems · "
-        f"target={d['target']} {d['container_size']} · sort={d['sort_strategy']}"
+        f"mode={d.get('packing_mode')} · target={d['target']} {d['container_size']} · "
+        f"sort={d['sort_strategy']}"
     )
     print(f"Válidos: {d['engines_valid']}/{d['engines_total']} · mejor: {d['best_engine']}")
     print()

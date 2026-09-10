@@ -39,6 +39,8 @@ class Item(BaseModel):
     weight: float = Field(default=0.0, ge=0)
     quantity: int = Field(default=1, ge=1)
     allowed_orientations: AllowedOrientations = "all"
+    # Índice de llegada (1-based en BED-BPP ``sequence``). None = no hay orden de flujo.
+    arrival_index: int | None = Field(default=None, ge=0)
     # Campos opcionales previstos para fases stacking-aware (aún no optimizados).
     max_load_on_top: float | None = Field(default=None, ge=0)
     fragile: bool = False

@@ -176,6 +176,10 @@ class AlgorithmDetailResponse(BaseModel):
         default_factory=dict,
         description="Valores por defecto seguros si el cliente no envía parameters.",
     )
+    packing_modes: list[str] = Field(
+        default_factory=list,
+        description="Modos de packing en los que el algoritmo está disponible.",
+    )
     metrics: list[str] = Field(default_factory=list)
     limitations: list[str] = Field(default_factory=list)
     external_engine: str | None = None

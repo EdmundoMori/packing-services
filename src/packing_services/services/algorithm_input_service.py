@@ -8,7 +8,8 @@ from typing import Any
 
 from ..algorithms.metadata import AlgorithmMetadata
 from ..algorithms.registry import AlgorithmRegistry, get_default_registry
-from ..domain.enums import ProblemType
+from ..domain.enums import PackingMode, ProblemType
+from ..domain.packing_modes import DEFAULT_PACKING_MODE, apply_mode_to_parameters
 from ..schemas.responses import AlgorithmDetailResponse
 from ..utils.errors import AlgorithmNotFoundError, InvalidInputError
 
@@ -151,24 +152,46 @@ class AlgorithmInputService:
             )
         return ProblemType.CARTONIZATION
 
-    def default_parameters(self, algorithm_name: str) -> dict[str, Any]:
+    def default_parameters(
+        self,
+        algorithm_name: str,
+        packing_mode: PackingMode | None = None,
+    ) -> dict[str, Any]:
         """Parámetros opcionales con valores seguros si el cliente no los envía."""
         if algorithm_name in _IMPROVEMENT_ALGORITHMS:
-            return dict(_IMPROVEMENT_ALGORITHMS[algorithm_name])
-        return dict(
-            _ALGORITHM_PARAMETERS.get(algorithm_name, {"sort_strategy": "volume_desc"})
-        )
+            base = dict(_IMPROVEMENT_ALGORITHMS[algorithm_name])
+        else:
+            base = dict(
+                _ALGORITHM_PARAMETERS.get(algorithm_name, {"sort_strategy": "volume_desc"})
+            )
+        mode = packing_mode or DEFAULT_PACKING_MODE
+        if mode == PackingMode.ONLINE:
+            return apply_mode_to_parameters(mode, None, base)
+        return base
 
     def merge_parameters(
-        self, algorithm_name: str, user_parameters: dict[str, Any] | None
+        self,
+        algorithm_name: str,
+        user_parameters: dict[str, Any] | None,
+        packing_mode: PackingMode | None = None,
     ) -> dict[str, Any]:
-        """Defaults primero; lo enviado por el usuario sobrescribe."""
-        return {**self.default_parameters(algorithm_name), **(user_parameters or {})}
+        """Defaults primero; lo enviado por el usuario sobrescribe; el modo puede forzar orden."""
+        mode = packing_mode or DEFAULT_PACKING_MODE
+        return apply_mode_to_parameters(
+            mode,
+            user_parameters,
+            self.default_parameters(algorithm_name, packing_mode=DEFAULT_PACKING_MODE),
+        )
 
-    def enrich_metadata(self, name: str) -> AlgorithmDetailResponse:
+    def enrich_metadata(
+        self,
+        name: str,
+        packing_mode: PackingMode | None = None,
+    ) -> AlgorithmDetailResponse:
         if not self.registry.has(name):
             raise AlgorithmNotFoundError(f"Algoritmo no encontrado: {name}")
         meta = self.registry.get_metadata(name)
+        mode = packing_mode or DEFAULT_PACKING_MODE
         return AlgorithmDetailResponse(
             name=meta.name,
             display_name=meta.display_name,
@@ -184,7 +207,8 @@ class AlgorithmInputService:
             supported_constraints=[c.value for c in meta.supported_constraints],
             unsupported_constraints=[c.value for c in meta.unsupported_constraints],
             parameters=meta.parameters,
-            default_parameters=self.default_parameters(name),
+            default_parameters=self.default_parameters(name, packing_mode=mode),
+            packing_modes=[m.value for m in meta.packing_modes],
             metrics=meta.metrics,
             limitations=meta.limitations,
             external_engine=meta.external_engine,
@@ -206,11 +230,13 @@ class AlgorithmInputService:
         self,
         algorithm_name: str,
         problem_type: ProblemType | None = None,
+        packing_mode: PackingMode | None = None,
     ) -> dict[str, Any]:
         if not self.registry.has(algorithm_name):
             raise AlgorithmNotFoundError(f"Algoritmo no encontrado: {algorithm_name}")
         meta = self.registry.get_metadata(algorithm_name)
         resolved = self.default_problem_type(meta, problem_type)
+        mode = packing_mode or DEFAULT_PACKING_MODE
 
         if resolved == ProblemType.CARTONIZATION:
             example = self._load_example_file(_EXAMPLE_FILES[ProblemType.CARTONIZATION])
@@ -218,5 +244,6 @@ class AlgorithmInputService:
             example = self._load_example_file(_EXAMPLE_FILES[resolved])
             example["problem_type"] = resolved.value
 
-        example["parameters"] = self.default_parameters(algorithm_name)
+        example["packing_mode"] = mode.value
+        example["parameters"] = self.default_parameters(algorithm_name, packing_mode=mode)
         return example

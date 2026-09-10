@@ -39,7 +39,31 @@ def test_wall_building_3d_valid():
     assert solution.validation_report.is_valid
     assert solution.metrics.items_packed > 0
     for packed in solution.packed_items:
-        assert packed.position.y <= 1e-6
+        assert packed.position.y >= -1e-6
+
+
+def test_wall_building_opens_successive_walls():
+    """La segunda pared debe arrancar en y > 0 cuando la primera se llena."""
+
+    items = [
+        Item(id=f"W{i}", length=40, width=20, height=40, weight=4, quantity=1)
+        for i in range(4)
+    ]
+    solution = WallBuilding3D().run(
+        _pack_problem(
+            items,
+            "wall_building_3d",
+            problem_type="CONTAINER_LOADING",
+            containers=[
+                Container(id="T1", length=40, width=80, height=40, max_weight=200),
+            ],
+        )
+    )
+    assert solution.validation_report.is_valid
+    assert solution.metrics.items_packed == 4
+    wall_ys = {round(p.position.y, 6) for p in solution.packed_items}
+    assert 0.0 in wall_ys
+    assert any(y > 1e-6 for y in wall_ys)
 
 
 def test_wall_building_3d_deterministic():

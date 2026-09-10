@@ -9,7 +9,8 @@ from __future__ import annotations
 
 from ..algorithms.registry import AlgorithmRegistry, get_default_registry
 from ..benchmark.profiles import DEFAULT_PROFILE_BY_PROBLEM
-from ..domain.enums import ProblemType
+from ..domain.enums import PackingMode, ProblemType
+from ..domain.packing_modes import ensure_algorithm_allowed
 from ..domain.models import Metrics
 from ..schemas.requests import BenchmarkRequest
 from ..schemas.responses import (
@@ -91,12 +92,25 @@ class BenchmarkService:
         self._cartonization = CartonizationService(self.registry)
         self._container_loading = ContainerLoadingService(self.registry)
 
-    def _engine_with_defaults(self, engine):
+    def _engine_with_defaults(self, engine, packing_mode: PackingMode | None = None):
         """Rellena parameters opcionales del motor sin pisar los del usuario."""
-        merged = self._input.merge_parameters(engine.name, engine.parameters)
+        merged = self._input.merge_parameters(
+            engine.name, engine.parameters, packing_mode=packing_mode
+        )
         return engine.model_copy(update={"parameters": merged})
 
+    def _ensure_engines_for_mode(self, request: BenchmarkRequest) -> None:
+        mode = request.packing_mode
+        for engine in request.engines:
+            if not self.registry.has(engine.name):
+                continue
+            meta = self.registry.get_metadata(engine.name)
+            ensure_algorithm_allowed(
+                meta.name, meta.algorithm_family, meta.problem_types, mode
+            )
+
     def benchmark(self, request: BenchmarkRequest) -> BenchmarkResponse:
+        self._ensure_engines_for_mode(request)
         if request.problem_type == ProblemType.CARTONIZATION:
             return self._benchmark_cartonization(request)
         if request.problem_type == ProblemType.CONTAINER_LOADING:
@@ -200,6 +214,7 @@ class BenchmarkService:
                 "engines_valid": sum(1 for r in results if r.is_valid),
                 "engines_error": sum(1 for r in results if r.status == "error"),
                 "best_engine": ranking[0] if ranking else None,
+                "packing_mode": request.packing_mode.value,
             },
         )
 
@@ -223,7 +238,7 @@ class BenchmarkService:
                     f"problem_type={request.problem_type.value}"
                 ),
             )
-        engine = self._engine_with_defaults(engine)
+        engine = self._engine_with_defaults(engine, request.packing_mode)
         if request.problem_type == ProblemType.CARTONIZATION:
             return self._run_cartonization_engine(request, engine)
         if request.problem_type == ProblemType.CONTAINER_LOADING:

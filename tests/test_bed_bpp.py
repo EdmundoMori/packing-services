@@ -9,6 +9,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from packing_services.api.main import app
+from packing_services.algorithms._constructive import order_items
 from packing_services.datasets.bed_bpp import (
     TARGET_SIZES_MM,
     convert_order_to_benchmark_input,
@@ -18,7 +19,8 @@ from packing_services.datasets.bed_bpp import (
     normalize_execute_payload,
     smallest_order_id,
 )
-from packing_services.domain.enums import ProblemType
+from packing_services.domain.enums import ProblemType, SortStrategy
+from packing_services.domain.models import Item
 from packing_services.utils.errors import InvalidInputError
 
 client = TestClient(app)
@@ -56,6 +58,8 @@ def test_convert_order_euro_pallet(bed_orders):
     assert len(payload["items"]) == len(bed_orders[order_id]["item_sequence"])
     assert all(it["quantity"] == 1 for it in payload["items"])
     assert all("length/mm" not in it for it in payload["items"])
+    assert payload["packing_mode"] == "offline"
+    assert "sort_strategy" not in payload["parameters"]
 
 
 def test_convert_order_rollcontainer(bed_orders):
@@ -142,8 +146,8 @@ def test_api_execute_with_bed_bpp_wrapper(bed_orders):
     assert data["solution"]["metrics"]["items_packed"] >= 0
 
 
-def test_execute_bed_bpp_merges_default_parameters(bed_orders):
-    """Sin parameters en el wrapper, el servicio rellena defaults seguros."""
+def test_execute_bed_bpp_offline_uses_algorithm_sort(bed_orders):
+    """Sin packing_mode, BED-BPP es offline: el algoritmo aplica su sort default."""
     order_id = min(bed_orders.items(), key=lambda kv: len(kv[1]["item_sequence"]))[0]
     payload = {
         "input_format": "bed_bpp",
@@ -156,10 +160,26 @@ def test_execute_bed_bpp_merges_default_parameters(bed_orders):
         json=payload,
     )
     assert response.status_code == 200, response.text
-    detail = client.get("/api/v1/algorithms/layer_based_palletization")
-    assert detail.status_code == 200
-    assert "default_parameters" in detail.json()
-    assert detail.json()["default_parameters"].get("sort_strategy")
+    used = response.json()["solution"]["execution_metadata"]["parameters"]
+    assert used["sort_strategy"] == "volume_desc"
+
+
+def test_execute_bed_bpp_online_forces_input_order(bed_orders):
+    order_id = min(bed_orders.items(), key=lambda kv: len(kv[1]["item_sequence"]))[0]
+    payload = {
+        "input_format": "bed_bpp",
+        "order_id": order_id,
+        "orders": bed_orders,
+        "problem_type": "PALLETIZATION",
+        "packing_mode": "online",
+    }
+    response = client.post(
+        "/api/v1/algorithms/layer_based_palletization/execute",
+        json=payload,
+    )
+    assert response.status_code == 200, response.text
+    used = response.json()["solution"]["execution_metadata"]["parameters"]
+    assert used["sort_strategy"] == "input_order"
 
 
 def test_api_benchmark_with_bed_bpp_wrapper(bed_orders):
@@ -197,6 +217,8 @@ def test_convert_benchmark_helper(bed_orders):
     )
     assert bench["profile"] == "constructive"
     assert bench["problem_type"] == "STACKING_AWARE"
+    assert bench["packing_mode"] == "offline"
+    assert "engines" not in bench
     assert normalize_benchmark_payload(
         {
             "input_format": "bed_bpp",
@@ -227,3 +249,55 @@ def test_target_override_forces_euro_pallet(bed_orders):
     c = payload["containers"][0]
     assert (c["length"], c["width"], c["height"]) == TARGET_SIZES_MM["euro-pallet"]
     assert payload["details"]["target"] == "euro-pallet"
+
+
+def test_convert_maps_sequence_to_arrival_index(bed_orders):
+    """Cada ítem BED-BPP conserva su sequence como arrival_index, en orden de llegada."""
+    for order_id, order in bed_orders.items():
+        payload = convert_order_to_pack_input(bed_orders, order_id)
+        raw_by_seq = {
+            int(raw["sequence"]): raw
+            for raw in order["item_sequence"].values()
+        }
+        items = payload["items"]
+        assert [it["arrival_index"] for it in items] == sorted(raw_by_seq)
+        for it in items:
+            raw = raw_by_seq[it["arrival_index"]]
+            assert it["id"] == f"{raw['id']}#{raw['sequence']}"
+            assert it["length"] == raw["length/mm"]
+            assert it["width"] == raw["width/mm"]
+            assert it["height"] == raw["height/mm"]
+            assert it["weight"] == raw["weight/kg"]
+
+
+def test_arrival_index_restores_shuffled_list():
+    items = [
+        Item(id="late", length=1, width=1, height=1, arrival_index=3),
+        Item(id="first", length=2, width=2, height=2, arrival_index=1),
+        Item(id="mid", length=3, width=3, height=3, arrival_index=2),
+    ]
+    restored = order_items(items, SortStrategy.INPUT_ORDER)
+    assert [it.id for it in restored] == ["first", "mid", "late"]
+    # volume_desc sigue reordenando (offline); no pisa arrival_index, solo el orden de packing
+    by_volume = order_items(items, SortStrategy.VOLUME_DESC)
+    assert [it.id for it in by_volume] == ["mid", "first", "late"]
+
+
+def test_convert_keeps_explicit_offline_sort(bed_orders):
+    order_id = next(iter(bed_orders))
+    payload = convert_order_to_pack_input(
+        bed_orders,
+        order_id,
+        parameters={"sort_strategy": "volume_desc"},
+    )
+    assert payload["parameters"]["sort_strategy"] == "volume_desc"
+    assert all(it["arrival_index"] is not None for it in payload["items"])
+
+
+def test_convert_online_sets_input_order(bed_orders):
+    order_id = next(iter(bed_orders))
+    payload = convert_order_to_pack_input(
+        bed_orders, order_id, packing_mode="online"
+    )
+    assert payload["packing_mode"] == "online"
+    assert payload["parameters"]["sort_strategy"] == "input_order"

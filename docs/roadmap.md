@@ -36,7 +36,9 @@ Ya existe:
 
 - `PackAlgorithmInput` / `CartonizationAlgorithmInput` → `PackingProblem`.
 - BED-BPP (`item_sequence`) → `containers` + `items` (`datasets/bed_bpp.py`).
-- `sort_strategy=input_order` conserva la llegada.
+- `sequence` → `Item.arrival_index`; BED-BPP siempre conserva la llegada en el ítem.
+- `packing_mode=offline` (default): el solver puede reordenar; defaults `volume_desc` / `weight_desc`.
+- `packing_mode=online`: solo constructivos (y futuros online/DRL); fuerza `input_order`.
 
 Pendiente (no bloquea el online, pero sí la comparabilidad estricta):
 
@@ -51,32 +53,31 @@ Pendiente (no bloquea el online, pero sí la comparabilidad estricta):
 Ya existe:
 
 - `POST /api/v1/benchmark` + `GET /benchmark/profiles` (un `problem_type`).
-- Experimento conjunto: un euro-pallet, cuatro tipos, `input_order`
-  (`scripts/run_joint_single_container.py`).
+- Experimento conjunto: un euro-pallet, cuatro tipos
+  (`scripts/run_joint_single_container.py`). Default `packing_mode=offline`.
 
 Pendiente:
 
 - Más pedidos BED-BPP (no solo el más pequeño).
-- Comparar explícitamente `input_order` vs `volume_desc` (offline vs llegada).
+- Comparar explícitamente `packing_mode=offline` vs `online` en los 5 pedidos.
 - No mezclar cartonization en el conjunto de “un contenedor fijado”.
 
 ---
 
 ## 3. Empaquetado online (siguiente línea de implementación)
 
-Hoy el baseline es ejecutar constructivos con `sort_strategy=input_order` sobre
-BED-BPP. Eso **no** es todavía el servicio `online_3d_bpp_heuristic`.
+La **puerta** ya existe: `packing_mode=online` (mismo BED-BPP / `PackAlgorithmInput`).
+Hoy solo admite constructivos con `input_order`. Eso **no** es todavía
+`online_3d_bpp_heuristic`.
 
-Siguiente implementación:
+Siguiente implementación (capas):
 
 1. Heurístico online ejecutable (`online_3d_bpp_heuristic`): un ítem a la vez,
    sin reordenar el resto.
 2. Mismo validador y métricas que el experimento conjunto.
 3. DRL (`drl_policy_3d_bpp`) después: dataset + simulador + política entrenada.
-   Referencia de investigación: alexfrom0815/Online-3D-BPP-PCT.
 
-Las metaheurísticas ya hechas son **offline**: conocen todos los ítems y buscan
-una permutación. No sustituyen al online.
+Las metaheurísticas son **offline** y el modo online las rechaza.
 
 ---
 

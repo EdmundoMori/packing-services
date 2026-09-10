@@ -56,9 +56,28 @@ const ProblemContext = {
     return PROBLEM_TYPES.find((p) => p.id === problemType) || null;
   },
 
-  filterAlgorithms(algorithms, problemType) {
-    if (!problemType) return algorithms;
-    return algorithms.filter((algo) => (algo.problem_types || []).includes(problemType));
+  filterAlgorithms(algorithms, problemType, packingMode) {
+    let list = algorithms;
+    if (problemType) {
+      list = list.filter((algo) => (algo.problem_types || []).includes(problemType));
+    }
+    if (packingMode) {
+      list = list.filter((algo) => (algo.packing_modes || ["offline"]).includes(packingMode));
+    }
+    return list;
+  },
+
+  mountPackingMode(selectEl, onChange) {
+    const key = "ps_packing_mode";
+    selectEl.innerHTML =
+      `<option value="offline">Offline — pedido completo</option>` +
+      `<option value="online">Online — orden de llegada</option>`;
+    const saved = sessionStorage.getItem(key) || "offline";
+    selectEl.value = saved;
+    selectEl.addEventListener("change", () => {
+      sessionStorage.setItem(key, selectEl.value);
+      if (onChange) onChange(selectEl.value);
+    });
   },
 
   mountSelector(selectEl, { includeAll = false, bedBppOnly = false, onChange } = {}) {

@@ -1,9 +1,8 @@
 """Motor de heurística wall-building para Container Loading.
 
-Coloca ítems formando **paredes verticales** contra la cara trasera del
-contenedor (``y = 0``): cada ítem toca el plano de la pared o se apila sobre
-otro ítem que ya forma parte de la misma pared. Se extiende en ``x`` a lo largo
-de la pared y en ``z`` hacia arriba.
+Coloca ítems formando **paredes verticales** sucesivas a lo largo de ``y``:
+la primera contra ``y = 0`` y las siguientes en ``y = frente de la pared
+anterior``. Dentro de cada pared se apila en ``z`` y se extiende en ``x``.
 
 No garantiza optimalidad; opera sobre cualquier instancia normalizada.
 """
@@ -31,7 +30,15 @@ from ..domain.models import (
     Point3D,
     UnpackedItem,
 )
-from ._constructive import _sort_key
+from ._constructive import order_items
+
+
+@dataclass
+class _Wall:
+    """Una pared: plano de arranque en ``y`` y espesor (dimensión en y)."""
+
+    y: float
+    depth: float = 0.0
 
 
 @dataclass
@@ -39,18 +46,33 @@ class _WallBinState:
     container: Container
     placed: list[AABB] = field(default_factory=list)
     loaded_weight: float = 0.0
+    walls: list[_Wall] = field(default_factory=list)
+
+    def __post_init__(self) -> None:
+        if not self.walls:
+            self.walls = [_Wall(y=0.0, depth=0.0)]
 
 
-def _touches_wall(box: AABB) -> bool:
-    return box.position.y <= EPS
+def _touches_wall(box: AABB, wall_y: float) -> bool:
+    return abs(box.position.y - wall_y) <= EPS
 
 
-def _wall_anchors(state: _WallBinState) -> list[Position]:
-    """Genera posiciones candidatas sobre la pared (``y = 0``)."""
+def _wall_max_depth(state: _WallBinState, wall: _Wall) -> float:
+    """Espesor máximo de la pared sin invadir la siguiente ni el contenedor."""
+
+    next_y = state.container.width
+    for other in state.walls:
+        if other.y > wall.y + EPS:
+            next_y = min(next_y, other.y)
+    return max(0.0, next_y - wall.y)
+
+
+def _wall_anchors(state: _WallBinState, wall_y: float) -> list[Position]:
+    """Posiciones candidatas sobre el plano de la pared (``y`` fijo)."""
 
     anchors: list[tuple[float, float]] = [(0.0, 0.0)]
     for box in state.placed:
-        if not _touches_wall(box):
+        if not _touches_wall(box, wall_y):
             continue
         x0, _, z0 = box.min_corner
         x1, _, z1 = box.max_corner
@@ -63,11 +85,11 @@ def _wall_anchors(state: _WallBinState) -> list[Position]:
         if key not in seen:
             seen.add(key)
             unique.append((x, z))
-    return [Position(x, 0.0, z) for x, z in sorted(unique, key=lambda t: (t[1], t[0]))]
+    return [Position(x, wall_y, z) for x, z in sorted(unique, key=lambda t: (t[1], t[0]))]
 
 
 class WallBuildingPacker:
-    """Empaquetador constructivo por paredes verticales."""
+    """Empaquetador constructivo por paredes verticales sucesivas."""
 
     def __init__(self, sort_strategy: SortStrategy = SortStrategy.VOLUME_DESC) -> None:
         self.sort_strategy = sort_strategy
@@ -79,7 +101,7 @@ class WallBuildingPacker:
         allow_rotation = constraints.allow_rotation
 
         states = [_WallBinState(container=c) for c in problem.containers]
-        ordered = sorted(problem.items, key=lambda it: _sort_key(it, self.sort_strategy))
+        ordered = order_items(problem.items, self.sort_strategy)
 
         packed: list[PackedItem] = []
         unpacked: list[UnpackedItem] = []
@@ -98,8 +120,8 @@ class WallBuildingPacker:
                 )
                 continue
 
-            bin_index, position, dims = placement
-            self._place(states[bin_index], position, dims, item)
+            bin_index, wall, position, dims = placement
+            self._place(states[bin_index], wall, position, dims, item)
             packed.append(
                 PackedItem(
                     item_id=item.id,
@@ -118,20 +140,44 @@ class WallBuildingPacker:
         best = None
         best_key = None
         for bin_index, state in enumerate(states):
-            for position in _wall_anchors(state):
-                for dims in orientations:
-                    if not self._feasible_wall(state, position, dims, item, constraints):
-                        continue
-                    key = (round(position.z, 6), round(position.x, 6))
-                    if best_key is None or key < best_key:
-                        best_key = key
-                        best = (bin_index, position, dims)
+            walls_to_try = list(state.walls)
+            last = state.walls[-1]
+            next_y = last.y + last.depth
+            if last.depth > EPS and next_y < state.container.width - EPS:
+                walls_to_try.append(_Wall(y=next_y, depth=0.0))
+
+            for wall in walls_to_try:
+                for position in _wall_anchors(state, wall.y):
+                    for dims in orientations:
+                        if not self._feasible_wall(
+                            state, wall, position, dims, item, constraints
+                        ):
+                            continue
+                        key = (
+                            bin_index,
+                            round(wall.y, 6),
+                            round(position.z, 6),
+                            round(position.x, 6),
+                            round(dims.width, 6),
+                        )
+                        if best_key is None or key < best_key:
+                            best_key = key
+                            best = (bin_index, wall, position, dims)
         return best
 
     def _feasible_wall(
-        self, state: _WallBinState, position: Position, dims: Dimensions, item: Item, constraints
+        self,
+        state: _WallBinState,
+        wall: _Wall,
+        position: Position,
+        dims: Dimensions,
+        item: Item,
+        constraints,
     ) -> bool:
-        if position.y > EPS:
+        if abs(position.y - wall.y) > EPS:
+            return False
+        max_depth = _wall_max_depth(state, wall)
+        if dims.width > max_depth + EPS:
             return False
         box = AABB(position=position, dimensions=dims)
         if constraints.containment and not fits_within(box, state.container.dimensions):
@@ -146,15 +192,13 @@ class WallBuildingPacker:
             for placed in state.placed:
                 if overlaps(box, placed):
                     return False
-        if not _touches_wall(box):
-            return False
-        if not self._supported_on_wall(box, state):
+        if not self._supported_on_wall(box, state, wall.y):
             return False
         return True
 
     @staticmethod
-    def _supported_on_wall(box: AABB, state: _WallBinState) -> bool:
-        """En ``z > 0`` exige apoyo sobre la pared o sobre otro ítem de la pared."""
+    def _supported_on_wall(box: AABB, state: _WallBinState, wall_y: float) -> bool:
+        """En ``z > 0`` exige apoyo sobre otro ítem de la misma pared."""
 
         if box.position.z <= EPS:
             return True
@@ -165,10 +209,10 @@ class WallBuildingPacker:
             return False
         supported = 0.0
         for placed in state.placed:
-            if not _touches_wall(placed):
+            if not _touches_wall(placed, wall_y):
                 continue
-            px0, _, pz1 = placed.min_corner
-            px1, _, _ = placed.max_corner
+            px0, _, _ = placed.min_corner
+            px1, _, pz1 = placed.max_corner
             if abs(pz1 - z0) > EPS:
                 continue
             overlap_x = min(x1, px1) - max(x0, px0)
@@ -177,7 +221,18 @@ class WallBuildingPacker:
         return supported >= 0.5 * footprint_area - EPS
 
     def _place(
-        self, state: _WallBinState, position: Position, dims: Dimensions, item: Item
+        self,
+        state: _WallBinState,
+        wall: _Wall,
+        position: Position,
+        dims: Dimensions,
+        item: Item,
     ) -> None:
+        existing = next((w for w in state.walls if abs(w.y - wall.y) <= EPS), None)
+        if existing is None:
+            existing = _Wall(y=wall.y, depth=0.0)
+            state.walls.append(existing)
+            state.walls.sort(key=lambda w: w.y)
+        existing.depth = max(existing.depth, dims.width)
         state.placed.append(AABB(position=position, dimensions=dims))
         state.loaded_weight += item.weight

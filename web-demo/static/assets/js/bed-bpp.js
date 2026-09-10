@@ -57,7 +57,7 @@ const BedBpp = {
         .join("");
   },
 
-  async convert({ orderId, problemType, mode = "execute", parameters, profile, engines, constraints }) {
+  async convert({ orderId, problemType, mode = "execute", parameters, profile, engines, constraints, packingMode }) {
     const body = {
       order_id: orderId,
       problem_type: problemType,
@@ -68,13 +68,14 @@ const BedBpp = {
     if (profile) body.profile = profile;
     if (engines) body.engines = engines;
     if (constraints) body.constraints = constraints;
+    if (packingMode) body.packing_mode = packingMode;
     return API.request("/api/v1/datasets/bed-bpp/convert", {
       method: "POST",
       body: JSON.stringify(body),
     });
   },
 
-  buildWrapper({ orderId, problemType, parameters, constraints, profile, engines, random_seed, time_limit_seconds }) {
+  buildWrapper({ orderId, problemType, parameters, constraints, profile, engines, random_seed, time_limit_seconds, packingMode }) {
     const wrapper = {
       input_format: "bed_bpp",
       problem_type: problemType,
@@ -85,6 +86,7 @@ const BedBpp = {
     if (constraints) wrapper.constraints = constraints;
     if (profile) wrapper.profile = profile;
     if (engines) wrapper.engines = engines;
+    if (packingMode) wrapper.packing_mode = packingMode;
     if (random_seed != null && random_seed !== "") wrapper.random_seed = random_seed;
     if (time_limit_seconds != null && time_limit_seconds !== "") {
       wrapper.time_limit_seconds = time_limit_seconds;

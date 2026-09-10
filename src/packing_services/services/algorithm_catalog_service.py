@@ -12,6 +12,7 @@ from ..domain.enums import (
     AlgorithmFamily,
     AlgorithmStatus,
     Constraint,
+    PackingMode,
     ProblemType,
 )
 
@@ -28,12 +29,14 @@ class AlgorithmCatalogService:
         family: AlgorithmFamily | None = None,
         status: AlgorithmStatus | None = None,
         supported_constraint: Constraint | None = None,
+        packing_mode: PackingMode | None = None,
     ) -> list[AlgorithmMetadata]:
         return self.registry.list_metadata(
             problem_type=problem_type,
             family=family,
             status=status,
             supported_constraint=supported_constraint,
+            packing_mode=packing_mode,
         )
 
     def get(self, name: str) -> AlgorithmMetadata:

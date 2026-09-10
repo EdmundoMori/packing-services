@@ -11,6 +11,7 @@ from ..domain.enums import (
     AlgorithmFamily,
     AlgorithmStatus,
     Constraint,
+    PackingMode,
     ProblemType,
 )
 from ..domain.models import PackingProblem, PackingSolution
@@ -75,6 +76,7 @@ class AlgorithmRegistry:
         family: AlgorithmFamily | None = None,
         status: AlgorithmStatus | None = None,
         supported_constraint: Constraint | None = None,
+        packing_mode: PackingMode | None = None,
     ) -> list[AlgorithmMetadata]:
         """Lista los metadatos, con filtros opcionales combinables."""
 
@@ -89,6 +91,8 @@ class AlgorithmRegistry:
             result = [
                 m for m in result if supported_constraint in m.supported_constraints
             ]
+        if packing_mode is not None:
+            result = [m for m in result if packing_mode in m.packing_modes]
         return sorted(result, key=lambda m: (m.status.value, m.name))
 
     def list_names(self) -> list[str]:

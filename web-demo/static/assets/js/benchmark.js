@@ -19,7 +19,8 @@ function selectedEngines() {
 
 function renderEngineChoices(problemType) {
   const grid = $("engine-grid");
-  const compatible = ProblemContext.filterAlgorithms(implemented, problemType);
+  const packingMode = $("packing-mode-select")?.value || "offline";
+  const compatible = ProblemContext.filterAlgorithms(implemented, problemType, packingMode);
   if (!compatible.length) {
     grid.innerHTML = '<p class="muted">No hay algoritmos implementados para este tipo.</p>';
     return;
@@ -177,6 +178,7 @@ async function runBenchmark() {
     problemType,
     profile: profile || undefined,
     engines: profile ? undefined : engines,
+    packingMode: $("packing-mode-select")?.value || "offline",
   });
 
   const button = $("benchmark-btn");
@@ -192,6 +194,7 @@ async function runBenchmark() {
         mode: "benchmark",
         profile: profile || undefined,
         engines: profile ? undefined : engines,
+        packingMode: $("packing-mode-select")?.value || "offline",
       }),
     ]);
     renderBenchmarkTable(result);
@@ -237,6 +240,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
   try {
     implemented = await API.listAlgorithms({ status: "implemented" });
+    ProblemContext.mountPackingMode($("packing-mode-select"), () =>
+      onProblemChange($("problem-type-select").value)
+    );
     ProblemContext.mountSelector($("problem-type-select"), {
       bedBppOnly: true,
       onChange: onProblemChange,

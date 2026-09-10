@@ -20,7 +20,7 @@
   <main>
     <section class="hero">
       <h1>Ejecutar un algoritmo</h1>
-      <p class="muted">Elige un pedido BED-BPP → el JSON muestra <strong>solo esa instancia</strong> (lo que recibe el algoritmo) → configura parámetros → ejecuta.</p>
+      <p class="muted">Elige un pedido BED-BPP → el JSON muestra <strong>solo esa instancia</strong> (lo que recibe el algoritmo) → configura parámetros → ejecuta. El <strong>modo</strong> (offline u online) usa el mismo dataset.</p>
     </section>
 
     <div id="execute-alert"></div>
@@ -30,6 +30,10 @@
         <label>
           Tipo de problema
           <select id="problem-type-select"></select>
+        </label>
+        <label>
+          Modo de packing
+          <select id="packing-mode-select"></select>
         </label>
         <label>
           Algoritmo

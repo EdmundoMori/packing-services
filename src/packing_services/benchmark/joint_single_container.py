@@ -1,9 +1,9 @@
-"""Experimento conjunto: un contenedor, varios tipos de servicio, misma secuencia.
+"""Experimento conjunto: un contenedor, varios tipos de servicio.
 
 Compara ``3D_BPP``, ``SINGLE_CONTAINER_LOADING``, ``PALLETIZATION`` y
-``STACKING_AWARE`` sobre el mismo pedido BED-BPP forzado a un euro-pallet,
-con ``sort_strategy=input_order`` (sin reordenar la llegada). Todas las
-ejecuciones pasan por ``build_solution``: mismo validador y mismas métricas.
+``STACKING_AWARE`` sobre el mismo pedido BED-BPP forzado a un euro-pallet.
+``packing_mode=offline`` (default) reordena por volumen; ``online`` respeta
+la llegada. Todas las ejecuciones pasan por ``build_solution``.
 """
 
 from __future__ import annotations
@@ -16,7 +16,8 @@ from ..datasets.bed_bpp import (
     convert_order_to_pack_input,
     smallest_order_id,
 )
-from ..domain.enums import ProblemType, SortStrategy
+from ..domain.enums import PackingMode, ProblemType, SortStrategy
+from ..domain.packing_modes import default_sort_for_mode, parse_packing_mode
 from ..domain.models import ConstraintFlags, Metrics, PackingProblem
 from ..schemas.requests import PackAlgorithmInput
 from ..schemas.responses import BenchmarkEngineResult, BenchmarkResponse
@@ -50,10 +51,10 @@ JOINT_ENGINES: tuple[tuple[ProblemType, str], ...] = (
 )
 
 DEFAULT_TARGET = "euro-pallet"
-DEFAULT_SORT = SortStrategy.INPUT_ORDER.value
+DEFAULT_SORT = SortStrategy.VOLUME_DESC.value
 
 RANKING_JOINT = (
-    "Ranking conjunto (un contenedor, secuencia de llegada): "
+    "Ranking conjunto (un contenedor, mismo packing_mode): "
     "(1) soluciones válidas; (2) mayor volume_utilization; "
     "(3) menor items_unpacked; (4) menor tiempo. "
     "Mismo validador geométrico y mismas métricas en todos los tipos."
@@ -106,11 +107,14 @@ def build_joint_instance(
     *,
     order_id: str | None = None,
     target: str = DEFAULT_TARGET,
-    sort_strategy: str = DEFAULT_SORT,
+    sort_strategy: str | None = None,
     request_id: str | None = None,
+    packing_mode: PackingMode | str | None = None,
 ) -> tuple[str, dict[str, Any]]:
     """Convierte un pedido BED-BPP a un único contenedor (euro-pallet por defecto)."""
 
+    mode = parse_packing_mode(packing_mode)
+    sort_strategy = sort_strategy or default_sort_for_mode(mode)
     resolved_id = order_id or smallest_order_id(orders)
     payload = convert_order_to_pack_input(
         orders,
@@ -119,6 +123,7 @@ def build_joint_instance(
         parameters={"sort_strategy": sort_strategy},
         request_id=request_id or f"joint-single-container-{resolved_id}",
         target_override=target,
+        packing_mode=mode,
     )
     return resolved_id, payload
 
@@ -209,12 +214,15 @@ def run_joint_single_container(
     *,
     order_id: str | None = None,
     target: str = DEFAULT_TARGET,
-    sort_strategy: str = DEFAULT_SORT,
+    sort_strategy: str | None = None,
     request_id: str | None = None,
+    packing_mode: PackingMode | str | None = None,
     registry: AlgorithmRegistry | None = None,
 ) -> BenchmarkResponse:
     """Ejecuta el experimento conjunto sobre un pedido BED-BPP."""
 
+    mode = parse_packing_mode(packing_mode)
+    sort_strategy = sort_strategy or default_sort_for_mode(mode)
     registry = registry or get_default_registry()
     resolved_id, payload = build_joint_instance(
         orders,
@@ -222,6 +230,7 @@ def run_joint_single_container(
         target=target,
         sort_strategy=sort_strategy,
         request_id=request_id,
+        packing_mode=mode,
     )
     details_src = payload.pop("details", {}) or {}
     results = [
@@ -239,7 +248,8 @@ def run_joint_single_container(
         ranking_explanation=RANKING_JOINT,
         details={
             "benchmark_group": "JOINT_SINGLE_CONTAINER",
-            "benchmark_profile": "input_order",
+            "benchmark_profile": sort_strategy,
+            "packing_mode": mode.value,
             "problem_types": [p.value for p in JOINT_PROBLEM_TYPES],
             "order_id": resolved_id,
             "n_items": len(payload["items"]),

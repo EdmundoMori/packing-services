@@ -31,7 +31,7 @@ from ..domain.models import (
     Point3D,
     UnpackedItem,
 )
-from ._constructive import _sort_key
+from ._constructive import order_items
 
 
 @dataclass
@@ -43,10 +43,10 @@ class _LayerBinState:
     layer_height: float = 0.0
 
 
-def _layer_anchors(state: _LayerBinState) -> list[Position]:
+def _layer_anchors(state: _LayerBinState, layer_z: float) -> list[Position]:
     anchors: list[tuple[float, float]] = [(0.0, 0.0)]
     for box in state.placed:
-        if abs(box.position.z - state.layer_z) > EPS:
+        if abs(box.position.z - layer_z) > EPS:
             continue
         x0, y0, _ = box.min_corner
         x1, y1, _ = box.max_corner
@@ -60,7 +60,7 @@ def _layer_anchors(state: _LayerBinState) -> list[Position]:
             seen.add(key)
             unique.append((x, y))
     return [
-        Position(x, y, state.layer_z)
+        Position(x, y, layer_z)
         for x, y in sorted(unique, key=lambda t: (t[1], t[0]))
     ]
 
@@ -78,7 +78,7 @@ class LayerPalletPacker:
         allow_rotation = constraints.allow_rotation
 
         states = [_LayerBinState(container=c) for c in problem.containers]
-        ordered = sorted(problem.items, key=lambda it: _sort_key(it, self.sort_strategy))
+        ordered = order_items(problem.items, self.sort_strategy)
 
         packed: list[PackedItem] = []
         unpacked: list[UnpackedItem] = []
@@ -117,11 +117,14 @@ class LayerPalletPacker:
         best = None
         best_key = None
         for bin_index, state in enumerate(states):
-            attempts = 0
-            while attempts < 64:
-                for position in _layer_anchors(state):
+            layer_z = state.layer_z
+            layer_height = state.layer_height
+            for _ in range(64):
+                for position in _layer_anchors(state, layer_z):
                     for dims in orientations:
-                        if not self._feasible(state, position, dims, item, constraints):
+                        if not self._feasible(
+                            state, position, dims, item, constraints, layer_z
+                        ):
                             continue
                         key = (
                             bin_index,
@@ -134,15 +137,24 @@ class LayerPalletPacker:
                             best = (bin_index, position, dims)
                 if best is not None and best[0] == bin_index:
                     break
-                if not self._try_advance_layer(state):
+                if layer_height <= EPS:
                     break
-                attempts += 1
+                layer_z = layer_z + layer_height
+                layer_height = 0.0
+                if layer_z >= state.container.height - EPS:
+                    break
         return best
 
     def _feasible(
-        self, state: _LayerBinState, position: Position, dims: Dimensions, item: Item, constraints
+        self,
+        state: _LayerBinState,
+        position: Position,
+        dims: Dimensions,
+        item: Item,
+        constraints,
+        layer_z: float,
     ) -> bool:
-        if abs(position.z - state.layer_z) > EPS:
+        if abs(position.z - layer_z) > EPS:
             return False
         if position.z + dims.height > state.container.height + EPS:
             return False
@@ -161,16 +173,12 @@ class LayerPalletPacker:
                     return False
         return True
 
-    def _try_advance_layer(self, state: _LayerBinState) -> bool:
-        if state.layer_height <= EPS:
-            return False
-        state.layer_z += state.layer_height
-        state.layer_height = 0.0
-        return state.layer_z < state.container.height - EPS
-
     def _place(
         self, state: _LayerBinState, position: Position, dims: Dimensions, item: Item
     ) -> None:
+        if abs(position.z - state.layer_z) > EPS:
+            state.layer_z = position.z
+            state.layer_height = 0.0
         box = AABB(position=position, dimensions=dims)
         state.placed.append(box)
         state.loaded_weight += item.weight

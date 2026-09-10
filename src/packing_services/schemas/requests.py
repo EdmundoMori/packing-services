@@ -12,7 +12,8 @@ from typing import Any
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-from ..domain.enums import ProblemType
+from ..domain.enums import PackingMode, ProblemType
+from ..domain.packing_modes import DEFAULT_PACKING_MODE
 from ..domain.models import (
     AlgorithmConfig,
     Container,
@@ -302,6 +303,7 @@ class BenchmarkRequest(BaseModel):
     boxes: list[BoxOption] = Field(default_factory=list)
     constraints: ConstraintFlags = Field(default_factory=ConstraintFlags)
     objective: str = "maximize_volume_utilization"
+    packing_mode: PackingMode = DEFAULT_PACKING_MODE
     engines: list[BenchmarkEngineConfig] = Field(default_factory=list)
 
     @model_validator(mode="after")
@@ -397,6 +399,7 @@ class PackAlgorithmInput(BaseModel):
     items: list[Item]
     constraints: ConstraintFlags = Field(default_factory=ConstraintFlags)
     objective: str = "maximize_volume_utilization"
+    packing_mode: PackingMode = DEFAULT_PACKING_MODE
     parameters: dict[str, Any] = Field(default_factory=dict)
     random_seed: int | None = None
     time_limit_seconds: float | None = Field(default=None, gt=0)
@@ -444,6 +447,7 @@ class CartonizationAlgorithmInput(BaseModel):
     items: list[Item]
     boxes: list[BoxOption] = Field(min_length=1)
     constraints: ConstraintFlags = Field(default_factory=ConstraintFlags)
+    packing_mode: PackingMode = DEFAULT_PACKING_MODE
     parameters: dict[str, Any] = Field(default_factory=dict)
     random_seed: int | None = None
     time_limit_seconds: float | None = Field(default=None, gt=0)

@@ -117,6 +117,7 @@ def convert_bed_bpp(
             constraints=payload.get("constraints"),
             request_id=payload.get("request_id"),
             target_override=payload.get("target"),
+            packing_mode=payload.get("packing_mode"),
         )
     else:
         converted = convert_order_to_pack_input(
@@ -129,6 +130,7 @@ def convert_bed_bpp(
             random_seed=payload.get("random_seed"),
             time_limit_seconds=payload.get("time_limit_seconds"),
             target_override=payload.get("target"),
+            packing_mode=payload.get("packing_mode"),
         )
 
     details = converted.pop("details", {})

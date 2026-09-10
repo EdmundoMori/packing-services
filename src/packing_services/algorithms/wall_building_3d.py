@@ -22,9 +22,9 @@ METADATA = AlgorithmMetadata(
     algorithm_family=AlgorithmFamily.CONSTRUCTIVE_HEURISTIC,
     status=AlgorithmStatus.IMPLEMENTED,
     description=(
-        "Construye paredes verticales contra la cara trasera del contenedor "
-        "(y=0), apilando ítems en z y extendiendo en x. Heurística orientada "
-        "a carga de camiones con bloques compactos."
+        "Construye paredes verticales sucesivas a lo largo de y: la primera "
+        "en y=0 y las siguientes en el frente de la pared anterior, apilando "
+        "en z y extendiendo en x. Heurística orientada a carga de camiones."
     ),
     deterministic=True,
     supports_random_seed=False,
@@ -48,7 +48,7 @@ METADATA = AlgorithmMetadata(
     metrics=DEFAULT_METRICS,
     limitations=[
         "Algoritmo heurístico; no garantiza optimalidad",
-        "Solo coloca ítems en paredes verticales (y=0)",
+        "Una vez cerrada una pared, no reabre huecos de paredes anteriores",
         "Sin estabilidad física avanzada ni secuencia de descarga",
     ],
 )

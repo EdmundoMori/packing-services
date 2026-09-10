@@ -96,7 +96,7 @@ Execute con wrapper (el servicio normaliza a `containers` + `items`):
   "order_id": "00100001",
   "orders": { },
   "problem_type": "PALLETIZATION",
-  "parameters": { "sort_strategy": "volume_desc" }
+  "packing_mode": "offline"
 }
 ```
 
@@ -105,8 +105,8 @@ En la demo web: pestaña **BED-BPP** en Ejecutar y bloque **Instancia BED-BPP** 
 ### Experimento conjunto (un euro-pallet, cuatro tipos)
 
 Compara `3D_BPP`, `SINGLE_CONTAINER_LOADING`, `PALLETIZATION` y `STACKING_AWARE`
-sobre el pedido más pequeño de `examples/5_bed-bpp.json`, forzado a euro-pallet,
-con `sort_strategy=input_order`. Mismo validador y mismas métricas.
+sobre el pedido más pequeño de `examples/5_bed-bpp.json`, forzado a euro-pallet.
+Default `packing_mode=offline`. Para llegada: `"packing_mode": "online"`.
 
 ```bash
 curl -X POST http://localhost:8000/api/v1/benchmark/joint-single-container \

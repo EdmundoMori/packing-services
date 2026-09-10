@@ -6,14 +6,16 @@ por nombre. Sirve al catálogo y al benchmark, no a un espacio de datos.
 
 from __future__ import annotations
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, computed_field
 
 from ..domain.enums import (
     AlgorithmFamily,
     AlgorithmStatus,
     Constraint,
+    PackingMode,
     ProblemType,
 )
+from ..domain.packing_modes import modes_for_algorithm
 
 
 class AlgorithmMetadata(BaseModel):
@@ -48,6 +50,14 @@ class AlgorithmMetadata(BaseModel):
     external_engine: str | None = None
     external_language: str | None = None
     external_repository: str | None = None
+
+    @computed_field
+    @property
+    def packing_modes(self) -> list[PackingMode]:
+        """Modos (offline / online) en los que este algoritmo está disponible."""
+        return list(
+            modes_for_algorithm(self.name, self.algorithm_family, self.problem_types)
+        )
 
     @property
     def is_executable(self) -> bool:

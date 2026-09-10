@@ -12,8 +12,9 @@ from __future__ import annotations
 
 from typing import Any
 
-from ..domain.enums import ProblemType
+from ..domain.enums import PackingMode, ProblemType
 from ..domain.models import ConstraintFlags, Container, Item
+from ..domain.packing_modes import parse_packing_mode
 from ..utils.errors import InvalidInputError
 
 # Dimensiones oficiales del entorno bed-bpp-env (mm).
@@ -116,6 +117,7 @@ def _items_from_sequence(item_sequence: dict[str, Any]) -> list[Item]:
                     height=float(raw["height/mm"]),
                     weight=float(raw.get("weight/kg", 0.0)),
                     quantity=1,
+                    arrival_index=seq,
                     # bed-bpp-env usa orientación xy (rotar en planta) ≈ all axis-aligned.
                     allowed_orientations="all",
                 )
@@ -147,6 +149,63 @@ def _default_constraints(problem_type: ProblemType) -> ConstraintFlags:
     )
 
 
+def _merge_parameters(
+    parameters: dict[str, Any] | None,
+    packing_mode: PackingMode,
+) -> dict[str, Any]:
+    """Offline: no impone sort (el algoritmo aplica volume_desc/weight_desc).
+    Online: fuerza ``input_order``.
+    """
+    merged: dict[str, Any] = {}
+    if packing_mode == PackingMode.ONLINE:
+        merged["sort_strategy"] = "input_order"
+    if parameters:
+        merged.update(parameters)
+    if packing_mode == PackingMode.ONLINE:
+        sort = merged.get("sort_strategy")
+        if sort not in (None, "input_order"):
+            raise InvalidInputError(
+                f"packing_mode=online no permite sort_strategy={sort!r}. "
+                "Use input_order o packing_mode=offline."
+            )
+        merged["sort_strategy"] = "input_order"
+    return merged
+
+
+def _engines_with_sort(
+    engines: list[dict[str, Any]],
+    sort_strategy: str,
+    *,
+    overwrite: bool,
+) -> list[dict[str, Any]]:
+    """Aplica sort_strategy a motores. ``overwrite=False`` no pisa un valor ya puesto."""
+    out: list[dict[str, Any]] = []
+    for engine in engines:
+        params = dict(engine.get("parameters") or {})
+        if overwrite or "sort_strategy" not in params:
+            params["sort_strategy"] = sort_strategy
+        out.append({**engine, "parameters": params})
+    return out
+
+
+def _profile_engines_with_arrival_sort(
+    problem_type: ProblemType | str,
+    profile: str,
+    sort_strategy: str,
+) -> list[dict[str, Any]]:
+    """Resuelve un perfil y fuerza el orden de llegada BED-BPP."""
+    from ..benchmark.profiles import resolve_profile_engines
+
+    configs = resolve_profile_engines(problem_type, profile)
+    return [
+        {
+            "name": engine.name,
+            "parameters": {**dict(engine.parameters or {}), "sort_strategy": sort_strategy},
+        }
+        for engine in configs
+    ]
+
+
 def convert_order_to_pack_input(
     orders: dict[str, Any],
     order_id: str,
@@ -158,8 +217,10 @@ def convert_order_to_pack_input(
     random_seed: int | None = None,
     time_limit_seconds: float | None = None,
     target_override: str | None = None,
+    packing_mode: PackingMode | str | None = None,
 ) -> dict[str, Any]:
     """Convierte un pedido BED-BPP a dict compatible con ``PackAlgorithmInput``."""
+    mode = parse_packing_mode(packing_mode)
     if order_id not in orders:
         available = ", ".join(list_order_ids(orders)[:12])
         raise InvalidInputError(
@@ -197,6 +258,7 @@ def convert_order_to_pack_input(
     else:
         flags = _default_constraints(pt)
 
+    params = _merge_parameters(parameters, mode)
     payload: dict[str, Any] = {
         "problem_type": pt.value,
         "request_id": request_id or f"bed-bpp-{order_id}",
@@ -204,7 +266,8 @@ def convert_order_to_pack_input(
         "items": [it.model_dump() for it in items],
         "constraints": flags.model_dump(),
         "objective": "maximize_volume_utilization",
-        "parameters": parameters or {"sort_strategy": "volume_desc"},
+        "packing_mode": mode.value,
+        "parameters": params,
         "details": {
             "input_format": "bed_bpp",
             "order_id": order_id,
@@ -213,6 +276,9 @@ def convert_order_to_pack_input(
             "target": target,
             "units": "mm_kg",
             "n_items": len(items),
+            "arrival_field": "sequence",
+            "packing_mode": mode.value,
+            "sort_strategy": params.get("sort_strategy"),
         },
     }
     if random_seed is not None:
@@ -233,8 +299,10 @@ def convert_order_to_benchmark_input(
     constraints: dict[str, Any] | ConstraintFlags | None = None,
     request_id: str | None = None,
     target_override: str | None = None,
+    packing_mode: PackingMode | str | None = None,
 ) -> dict[str, Any]:
     """Convierte un pedido BED-BPP a dict compatible con ``BenchmarkRequest``."""
+    mode = parse_packing_mode(packing_mode)
     pack = convert_order_to_pack_input(
         orders,
         order_id,
@@ -243,6 +311,7 @@ def convert_order_to_benchmark_input(
         constraints=constraints,
         request_id=request_id,
         target_override=target_override,
+        packing_mode=mode,
     )
     bench: dict[str, Any] = {
         "problem_type": pack["problem_type"],
@@ -251,14 +320,23 @@ def convert_order_to_benchmark_input(
         "items": pack["items"],
         "constraints": pack["constraints"],
         "objective": pack["objective"],
+        "packing_mode": mode.value,
         "details": pack.get("details", {}),
     }
     if engines:
-        bench["engines"] = engines
-    elif profile:
-        bench["profile"] = profile
+        if mode == PackingMode.ONLINE:
+            bench["engines"] = _engines_with_sort(
+                engines, "input_order", overwrite=False
+            )
+        else:
+            bench["engines"] = engines
     else:
-        bench["profile"] = "constructive"
+        prof = profile or "constructive"
+        bench["profile"] = prof
+        if mode == PackingMode.ONLINE:
+            bench["engines"] = _profile_engines_with_arrival_sort(
+                pack["problem_type"], prof, "input_order"
+            )
     return bench
 
 
@@ -311,6 +389,7 @@ def normalize_execute_payload(payload: dict[str, Any]) -> dict[str, Any]:
         request_id=payload.get("request_id"),
         random_seed=payload.get("random_seed"),
         time_limit_seconds=payload.get("time_limit_seconds"),
+        packing_mode=payload.get("packing_mode"),
     )
     # PackAlgorithmInput forbids extra fields — strip details for validation.
     details = converted.pop("details", None)
@@ -336,6 +415,7 @@ def normalize_benchmark_payload(payload: dict[str, Any]) -> dict[str, Any]:
         parameters=payload.get("parameters"),
         constraints=payload.get("constraints"),
         request_id=payload.get("request_id"),
+        packing_mode=payload.get("packing_mode"),
     )
     converted.pop("details", None)
     return converted
