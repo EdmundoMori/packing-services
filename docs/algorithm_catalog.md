@@ -1,12 +1,28 @@
-# Catálogo de algoritmos
+# Catálogo de Algoritmos
 
-Documento hijo de [`../README.md`](../README.md). Índice: [`README.md`](README.md).
-Se regenera con `python scripts/regenerate_algorithm_catalog.py`.
+Documento complementario de [`../README.md`](../README.md). Para el índice de documentación técnica, consultar [`README.md`](README.md).
 
-Resumen: **52 algoritmos** — 29 implementados, 6 adaptadores, 17 futuros.
+Este catálogo se genera automáticamente mediante el script `python scripts/regenerate_algorithm_catalog.py`.
 
-| name | display_name | family | status | packing_modes | problem_types |
-|------|--------------|--------|--------|---------------|---------------|
+## Propósito
+
+Los algoritmos de este catálogo sirven al objetivo del proyecto: comparar metodologías de empaquetado bajo condiciones homogéneas (misma entrada, mismo validador, mismas métricas) en los modos `packing_mode=offline` y `packing_mode=online`.
+
+## Resumen del Inventario
+
+| Categoría | Cantidad |
+|-----------|:--------:|
+| Implementados | 31 |
+| Adaptadores | 6 |
+| Futuros | 15 |
+| **Total** | **52** |
+
+---
+
+## Tabla de Algoritmos
+
+| Nombre | Nombre para Mostrar | Familia | Estado | Modos de Packing | Tipos de Problema |
+|--------|---------------------|---------|--------|------------------|-------------------|
 | `boxpacker_adapter` | BoxPacker Adapter (dvdoug/BoxPacker) | adapter | adapter | offline, online | CARTONIZATION, 3D_BPP |
 | `container_packing_adapter` | 3DContainerPacking Adapter (EB-AFIT) | adapter | adapter | offline, online | CONTAINER_LOADING, 3D_BPP |
 | `dwave_adapter` | D-Wave CQM Adapter (dwave-examples/3d-bin-packing) | adapter | adapter | offline, online | 3D_BPP, BENCHMARK |
@@ -19,7 +35,6 @@ Resumen: **52 algoritmos** — 29 implementados, 6 adaptadores, 17 futuros.
 | `branch_and_cut_reference` | Branch and Cut (reference) | exact | future | offline | 3D_BPP |
 | `column_generation_cutting_packing` | Branch and Price / Column Generation | exact | future | offline | 3D_BPP |
 | `cp_sat_3d_bpp_reference` | Constraint Programming / CP-SAT (reference) | exact | future | offline | 3D_BPP |
-| `drl_policy_3d_bpp` | Deep Reinforcement Learning Policy | machine_learning | future | online | 3D_BPP |
 | `extreme_points_plus_sa` | Extreme Points + Simulated Annealing | hybrid | future | offline | 3D_BPP |
 | `knapsack_layer_selection` | Knapsack-based Layer Selection | hybrid | future | offline | 3D_BPP, PALLETIZATION |
 | `layer_based_3d` | Layer-based Packing | constructive_heuristic | future | offline, online | 3D_BPP, PALLETIZATION |
@@ -27,7 +42,6 @@ Resumen: **52 algoritmos** — 29 implementados, 6 adaptadores, 17 futuros.
 | `load_bearing_validator` | Load-bearing Constraint Check | validator | future | offline, online | STACKING_AWARE, VALIDATION |
 | `mip_3d_bpp_reference` | Mixed Integer Programming (reference) | exact | future | offline | 3D_BPP |
 | `mip_heuristic_hybrid` | MIP for Small Subproblems + Heuristic Packing | hybrid | future | offline | 3D_BPP |
-| `online_3d_bpp_heuristic` | Online 3D-BPP Heuristic | constructive_heuristic | future | online | 3D_BPP |
 | `packingsolver_plus_internal_validator` | PackingSolver Adapter + Local Validation | hybrid | future | offline | 3D_BPP, STACKING_AWARE, PALLETIZATION |
 | `sequence_aware_loading` | Sequence-aware Loading | constructive_heuristic | future | offline, online | CONTAINER_LOADING |
 | `aco_3d_bpp` | Ant Colony Optimization 3D-BPP | metaheuristic | implemented | offline | 3D_BPP |
@@ -35,6 +49,7 @@ Resumen: **52 algoritmos** — 29 implementados, 6 adaptadores, 17 futuros.
 | `best_fit_decreasing_3d` | Best Fit Decreasing 3D | constructive_heuristic | implemented | offline, online | 3D_BPP, SINGLE_CONTAINER_LOADING |
 | `bin_reduction` | Bin Reduction | improvement_heuristic | implemented | offline | 3D_BPP, CONTAINER_LOADING |
 | `constructive_plus_local_search` | Constructive Heuristic + Local Improvement | hybrid | implemented | offline | 3D_BPP, CONTAINER_LOADING |
+| `drl_policy_3d_bpp` | Deep Reinforcement Learning Policy | machine_learning | implemented | online | 3D_BPP, CONTAINER_LOADING, SINGLE_CONTAINER_LOADING, PALLETIZATION, STACKING_AWARE |
 | `extreme_points_3d` | Extreme Points Heuristic | constructive_heuristic | implemented | offline, online | 3D_BPP, CONTAINER_LOADING |
 | `first_fit_box` | First Fit Box | constructive_heuristic | implemented | offline | CARTONIZATION |
 | `first_fit_decreasing_3d` | First Fit Decreasing 3D | constructive_heuristic | implemented | offline, online | 3D_BPP, SINGLE_CONTAINER_LOADING |
@@ -46,6 +61,7 @@ Resumen: **52 algoritmos** — 29 implementados, 6 adaptadores, 17 futuros.
 | `lns_3d_bpp` | Large Neighborhood Search 3D-BPP | metaheuristic | implemented | offline | 3D_BPP |
 | `maximal_spaces_3d` | Maximal Empty Spaces Heuristic | constructive_heuristic | implemented | offline, online | 3D_BPP, CONTAINER_LOADING |
 | `multi_box_cartonization` | Multi-box Cartonization | constructive_heuristic | implemented | offline | CARTONIZATION |
+| `online_3d_bpp_heuristic` | Online 3D-BPP Heuristic | constructive_heuristic | implemented | online | 3D_BPP, CONTAINER_LOADING, SINGLE_CONTAINER_LOADING, PALLETIZATION, STACKING_AWARE |
 | `orientation_improvement` | Orientation Improvement | improvement_heuristic | implemented | offline | 3D_BPP, CONTAINER_LOADING |
 | `relocation_improvement` | Relocation Improvement | improvement_heuristic | implemented | offline | 3D_BPP, CONTAINER_LOADING |
 | `simulated_annealing_3d_bpp` | Simulated Annealing 3D-BPP | metaheuristic | implemented | offline | 3D_BPP |

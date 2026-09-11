@@ -1,0 +1,184 @@
+{
+  "fase": 3,
+  "seed": 42,
+  "hidden_size": 64,
+  "teacher": "privileged_volume_ep",
+  "linear": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/linear_v1.json",
+  "mlp": {
+    "p1s1": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/mlp_v1_p1s1.pt",
+    "p3s2": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/mlp_v1_p3s2.pt"
+  },
+  "bc_linear_acc": {
+    "train": 0.9968152866242038,
+    "val": 0.9908256880733946
+  },
+  "mlp_train": {
+    "p1s1": {
+      "lr": 0.001,
+      "best_epoch": 5,
+      "best_val_acc": 0.9908256880733946,
+      "best_val_loss": 0.4240339524326248,
+      "select_best": "val_acc"
+    },
+    "p3s2": {
+      "lr": 0.0003,
+      "best_epoch": 4,
+      "best_val_acc": 0.9285714285714286,
+      "best_val_loss": 9.779347055260681,
+      "select_best": "val_acc"
+    }
+  },
+  "val_p1s1": [
+    {
+      "model": "heuristic",
+      "n": 8,
+      "util": 0.677,
+      "packed": 13.625,
+      "valid": 1.0,
+      "sec": 0.0461
+    },
+    {
+      "model": "linear_v1.json",
+      "n": 8,
+      "util": 0.6838,
+      "packed": 13.75,
+      "valid": 1.0,
+      "sec": 0.0559
+    },
+    {
+      "model": "mlp_v1_p1s1.pt",
+      "n": 8,
+      "util": 0.6838,
+      "packed": 13.75,
+      "valid": 1.0,
+      "sec": 0.0672
+    },
+    {
+      "model": "online_policy_linear_v1.json",
+      "n": 8,
+      "util": 0.677,
+      "packed": 13.625,
+      "valid": 1.0,
+      "sec": 0.0542
+    }
+  ],
+  "test_p1s1": [
+    {
+      "model": "heuristic",
+      "n": 8,
+      "util": 0.6716,
+      "packed": 13.0,
+      "valid": 1.0,
+      "sec": 0.0474
+    },
+    {
+      "model": "linear_v1.json",
+      "n": 8,
+      "util": 0.6793,
+      "packed": 13.125,
+      "valid": 1.0,
+      "sec": 0.0471
+    },
+    {
+      "model": "mlp_v1_p1s1.pt",
+      "n": 8,
+      "util": 0.6793,
+      "packed": 13.125,
+      "valid": 1.0,
+      "sec": 0.0583
+    },
+    {
+      "model": "online_policy_linear_v1.json",
+      "n": 8,
+      "util": 0.6716,
+      "packed": 13.0,
+      "valid": 1.0,
+      "sec": 0.049
+    }
+  ],
+  "val_p3s2_subset": [
+    {
+      "model": "heuristic",
+      "n": 3,
+      "util": 0.6924,
+      "packed": 13.6667,
+      "valid": 1.0,
+      "sec": 3.186
+    },
+    {
+      "model": "linear_v1.json",
+      "n": 3,
+      "util": 0.6738,
+      "packed": 13.3333,
+      "valid": 1.0,
+      "sec": 0.1276
+    },
+    {
+      "model": "mlp_v1_p3s2.pt",
+      "n": 3,
+      "util": 0.6738,
+      "packed": 13.3333,
+      "valid": 1.0,
+      "sec": 0.1369
+    },
+    {
+      "model": "online_policy_linear_v1.json",
+      "n": 3,
+      "util": 0.6738,
+      "packed": 13.3333,
+      "valid": 1.0,
+      "sec": 0.1231
+    }
+  ],
+  "smoke_holdout": [
+    {
+      "order_id": "00100408",
+      "engine": "learned",
+      "model_path": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/linear_v1.json",
+      "lookahead_p": 1,
+      "select_s": 1,
+      "volume_utilization": 0.646376,
+      "items_packed": 26,
+      "items_unpacked": 0,
+      "is_valid": true,
+      "seconds": 0.671899796998332,
+      "n_items": 26,
+      "checkpoint": "linear"
+    },
+    {
+      "order_id": "00100408",
+      "engine": "learned",
+      "model_path": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/mlp_v1_p1s1.pt",
+      "lookahead_p": 1,
+      "select_s": 1,
+      "volume_utilization": 0.646376,
+      "items_packed": 26,
+      "items_unpacked": 0,
+      "is_valid": true,
+      "seconds": 0.6873030669994478,
+      "n_items": 26,
+      "checkpoint": "mlp_p1s1"
+    },
+    {
+      "order_id": "00100408",
+      "engine": "learned",
+      "model_path": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/mlp_v1_p3s2.pt",
+      "lookahead_p": 1,
+      "select_s": 1,
+      "volume_utilization": 0.646376,
+      "items_packed": 26,
+      "items_unpacked": 0,
+      "is_valid": true,
+      "seconds": 0.5078933999975561,
+      "n_items": 26,
+      "checkpoint": "mlp_p3s2"
+    }
+  ],
+  "production": {
+    "model_path": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/mlp_v1_p1s1.pt",
+    "packing_mode": "online",
+    "lookahead_p": 1,
+    "select_s": 1,
+    "note": "Si usas mlp_v1_p3s2.pt pon lookahead_p=3 y select_s=2"
+  }
+}

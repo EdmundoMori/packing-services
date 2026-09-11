@@ -70,11 +70,21 @@ def test_gateway_serves_static_pages():
     assert 'id="bedbpp-order-select"' in execute.text
     assert 'id="params-form"' in execute.text
     assert 'id="algorithm-input-json"' in execute.text
+    assert "mlp_v1_p1s1.pt" in execute.text
     assert "Entrada del algoritmo" in execute.text
     assert 'id="input-json"' not in execute.text
     bench = client.get("/benchmark.html")
     assert "Dataset BED-BPP" in bench.text
-    assert "showcase" not in bench.text.lower() or "Recargar instancia showcase" not in bench.text
+    assert "Recargar instancia showcase" not in bench.text
+    catalog = client.get("/catalog.html")
+    assert catalog.status_code == 200
+    assert "solo-online" in catalog.text
+    js = client.get("/assets/js/catalog.js")
+    assert js.status_code == 200
+    assert "default_parameters" in js.text
+    ctx = client.get("/assets/js/problem-context.js")
+    assert ctx.status_code == 200
+    assert "fromUrl" in ctx.text
     data = client.get("/assets/data/showcase_3d_bpp_instance.json")
     assert data.status_code == 200
     assert data.json()["problem_type"] == "3D_BPP"
@@ -89,5 +99,9 @@ def test_gateway_proxies_algorithms(api_server, monkeypatch):
     response = client.get("/api/v1/algorithms", params={"status": "implemented"})
     assert response.status_code == 200
     data = response.json()
-    assert isinstance(data, list)
-    assert len(data) >= 29
+    names = {row["name"] for row in data}
+    assert "drl_policy_3d_bpp" in names
+    detail = client.get("/api/v1/algorithms/drl_policy_3d_bpp")
+    assert detail.status_code == 200
+    body = detail.json()
+    assert body["default_parameters"]["model_path"].endswith("mlp_v1_p1s1.pt")

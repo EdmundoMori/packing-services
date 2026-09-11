@@ -9,7 +9,12 @@ from typing import Any
 from ..algorithms.metadata import AlgorithmMetadata
 from ..algorithms.registry import AlgorithmRegistry, get_default_registry
 from ..domain.enums import PackingMode, ProblemType
-from ..domain.packing_modes import DEFAULT_PACKING_MODE, apply_mode_to_parameters
+from ..domain.packing_modes import (
+    DEFAULT_PACKING_MODE,
+    ONLINE_ONLY_NAMES,
+    apply_mode_to_parameters,
+)
+from ..online.learned.production import default_learned_parameters
 from ..schemas.responses import AlgorithmDetailResponse
 from ..utils.errors import AlgorithmNotFoundError, InvalidInputError
 
@@ -78,6 +83,13 @@ _ALGORITHM_PARAMETERS: dict[str, dict[str, Any]] = {
         "sort_strategy": "volume_desc",
         "position_strategy": "bottom_left_back",
     },
+    "online_3d_bpp_heuristic": {
+        "sort_strategy": "input_order",
+        "lookahead_p": 1,
+        "select_s": 1,
+        "selection": "best_fit",
+    },
+    "drl_policy_3d_bpp": default_learned_parameters(),
 }
 
 # Defaults modestos: suficientes para demos sin saturar CPU/tiempo.
@@ -152,6 +164,17 @@ class AlgorithmInputService:
             )
         return ProblemType.CARTONIZATION
 
+    @staticmethod
+    def _effective_packing_mode(
+        algorithm_name: str,
+        packing_mode: PackingMode | None,
+    ) -> PackingMode:
+        if packing_mode is not None:
+            return packing_mode
+        if algorithm_name in ONLINE_ONLY_NAMES:
+            return PackingMode.ONLINE
+        return DEFAULT_PACKING_MODE
+
     def default_parameters(
         self,
         algorithm_name: str,
@@ -164,7 +187,7 @@ class AlgorithmInputService:
             base = dict(
                 _ALGORITHM_PARAMETERS.get(algorithm_name, {"sort_strategy": "volume_desc"})
             )
-        mode = packing_mode or DEFAULT_PACKING_MODE
+        mode = self._effective_packing_mode(algorithm_name, packing_mode)
         if mode == PackingMode.ONLINE:
             return apply_mode_to_parameters(mode, None, base)
         return base
@@ -191,7 +214,7 @@ class AlgorithmInputService:
         if not self.registry.has(name):
             raise AlgorithmNotFoundError(f"Algoritmo no encontrado: {name}")
         meta = self.registry.get_metadata(name)
-        mode = packing_mode or DEFAULT_PACKING_MODE
+        mode = self._effective_packing_mode(name, packing_mode)
         return AlgorithmDetailResponse(
             name=meta.name,
             display_name=meta.display_name,
@@ -236,7 +259,7 @@ class AlgorithmInputService:
             raise AlgorithmNotFoundError(f"Algoritmo no encontrado: {algorithm_name}")
         meta = self.registry.get_metadata(algorithm_name)
         resolved = self.default_problem_type(meta, problem_type)
-        mode = packing_mode or DEFAULT_PACKING_MODE
+        mode = self._effective_packing_mode(algorithm_name, packing_mode)
 
         if resolved == ProblemType.CARTONIZATION:
             example = self._load_example_file(_EXAMPLE_FILES[ProblemType.CARTONIZATION])

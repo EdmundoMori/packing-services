@@ -1,7 +1,8 @@
 """Descriptores de servicios (espacio de datos: despriorizado).
 
-Genera fichas por servicio y algoritmo. El proyecto no está integrado en un
-espacio de datos; este módulo no es línea crítica (ver docs/roadmap.md).
+Genera fichas por servicio y algoritmo. El objetivo del producto es comparar
+metodologías (ver README.md); este módulo no es el siguiente paso
+(ver docs/roadmap.md §5).
 """
 
 from __future__ import annotations
@@ -260,8 +261,9 @@ class DataspaceService:
                 "POST /api/v1/algorithms/{algorithm_name}/execute.",
                 "Entrada homogénea: PackAlgorithmInput o CartonizationAlgorithmInput. "
                 "Salida homogénea: AlgorithmExecuteResponse.",
-                "Línea crítica: homogenizar inputs, benchmark de metodologías, "
-                "empaquetado online (ver README.md y docs/roadmap.md).",
+                "Línea 1–3 operativa (inputs, benchmark, online). Siguiente: "
+                "calidad extra (ver README.md y docs/roadmap.md). "
+                "El espacio de datos no es el objetivo.",
                 "Los motores externos se integran vía adaptadores cuando existan.",
             ],
         )

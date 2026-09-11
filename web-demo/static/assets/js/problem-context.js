@@ -69,6 +69,10 @@ const ProblemContext = {
 
   mountPackingMode(selectEl, onChange) {
     const key = "ps_packing_mode";
+    const fromUrl = new URLSearchParams(window.location.search).get("packing_mode");
+    if (fromUrl === "offline" || fromUrl === "online") {
+      sessionStorage.setItem(key, fromUrl);
+    }
     selectEl.innerHTML =
       `<option value="offline">Offline — pedido completo</option>` +
       `<option value="online">Online — orden de llegada</option>`;

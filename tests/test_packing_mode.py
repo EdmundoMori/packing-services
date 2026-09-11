@@ -31,6 +31,7 @@ def test_packing_modes_endpoint():
     assert body["same_input"] is True
     ids = [m["id"] for m in body["modes"]]
     assert ids == ["offline", "online"]
+    assert body["modes"][1]["status"] == "ready"
 
 
 def test_catalog_filter_packing_mode():
@@ -49,6 +50,16 @@ def test_catalog_filter_packing_mode():
     assert "online_3d_bpp_heuristic" in on_names
     assert "online_3d_bpp_heuristic" not in off_names
     assert "drl_policy_3d_bpp" in on_names
+    heuristic = client.get("/api/v1/algorithms/online_3d_bpp_heuristic").json()
+    assert heuristic["packing_modes"] == ["online"]
+    assert heuristic["is_executable"] is True
+    drl = client.get("/api/v1/algorithms/drl_policy_3d_bpp").json()
+    assert drl["packing_modes"] == ["online"]
+    assert drl["is_executable"] is True
+    assert drl["status"] == "implemented"
+    assert drl["default_parameters"]["model_path"].endswith("mlp_v1_p1s1.pt")
+    assert drl["default_parameters"]["lookahead_p"] == 1
+    assert drl["default_parameters"]["select_s"] == 1
 
 
 def test_algorithm_detail_includes_packing_modes():

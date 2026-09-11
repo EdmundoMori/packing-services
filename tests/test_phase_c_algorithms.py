@@ -126,9 +126,9 @@ def test_benchmark_palletization_and_stacking_profiles():
         assert all(r.is_valid for r in response.results)
 
 
-def test_registry_has_29_implemented():
+def test_registry_has_31_implemented():
     registry = get_default_registry()
     from packing_services.domain.enums import AlgorithmStatus
 
     implemented = registry.list_metadata(status=AlgorithmStatus.IMPLEMENTED)
-    assert len(implemented) == 29
+    assert len(implemented) == 31

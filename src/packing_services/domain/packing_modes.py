@@ -11,7 +11,7 @@ from .enums import AlgorithmFamily, PackingMode, ProblemType, SortStrategy
 
 DEFAULT_PACKING_MODE = PackingMode.OFFLINE
 
-# Heurístico online y DRL: aún no ejecutables; solo aparecen en modo online.
+# Solo modo online: heurístico y política aprendida (model_path de producción por default).
 ONLINE_ONLY_NAMES = frozenset(
     {
         "online_3d_bpp_heuristic",
@@ -45,6 +45,16 @@ def parse_packing_mode(value: object | None) -> PackingMode:
         raise InvalidInputError(
             f"packing_mode={value!r} no es válido. Use uno de: {allowed}."
         ) from exc
+
+
+def resolve_execute_packing_mode(
+    algorithm_name: str,
+    raw_value: object | None,
+) -> PackingMode:
+    """Si el algoritmo es solo-online y el cliente no envía modo, usar online."""
+    if raw_value in (None, "") and algorithm_name in ONLINE_ONLY_NAMES:
+        return PackingMode.ONLINE
+    return parse_packing_mode(raw_value)
 
 
 def modes_for_algorithm(
@@ -88,7 +98,7 @@ def ensure_algorithm_allowed(
         extra = (
             " El modo online no admite metaheurísticas, mejora local ni "
             "cartonization (miran o necesitan el pedido completo). "
-            "Use un constructivo, o packing_mode=offline."
+            "Use online_3d_bpp_heuristic u otro constructivo, o packing_mode=offline."
         )
     raise InvalidInputError(
         f"El algoritmo '{name}' no está disponible en packing_mode={mode.value}. "
@@ -143,10 +153,14 @@ def packing_modes_catalog() -> dict:
                 "label": "Packing online",
                 "description": (
                     "Se respeta sequence/arrival_index; no se reordena. "
-                    "Hoy: constructivos en orden de llegada. "
-                    "Heurístico dedicado y DRL: capas siguientes."
+                    "Heurístico dedicado online_3d_bpp_heuristic (presupuesto "
+                    "lookahead_p / select_s). Política aprendida de producción: "
+                    "drl_policy_3d_bpp o POST /online/learned/execute "
+                    "(default model_path=mlp_v1_p1s1.pt, p=1 s=1; cinta "
+                    "mlp_v1_p3s2.pt p=3 s=2). Constructivos también admiten "
+                    "este modo con input_order."
                 ),
-                "status": "door_open",
+                "status": "ready",
             },
         ],
     }

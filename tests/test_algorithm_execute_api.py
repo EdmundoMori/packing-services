@@ -11,6 +11,7 @@ from fastapi.testclient import TestClient
 from packing_services.algorithms.registry import get_default_registry
 from packing_services.api.main import app
 from packing_services.domain.enums import AlgorithmStatus, ProblemType
+from packing_services.domain.packing_modes import ONLINE_ONLY_NAMES, PackingMode
 from packing_services.services.algorithm_input_service import AlgorithmInputService
 
 client = TestClient(app)
@@ -64,6 +65,11 @@ IMPLEMENTED_PACK_CASES = [
     ("stack_based_palletization", "PALLETIZATION"),
     ("stack_based_palletization", "STACKING_AWARE"),
     ("stacking_aware_constructive", "STACKING_AWARE"),
+    ("online_3d_bpp_heuristic", "3D_BPP"),
+    ("online_3d_bpp_heuristic", "PALLETIZATION"),
+    ("online_3d_bpp_heuristic", "CONTAINER_LOADING"),
+    ("online_3d_bpp_heuristic", "SINGLE_CONTAINER_LOADING"),
+    ("online_3d_bpp_heuristic", "STACKING_AWARE"),
 ]
 
 IMPLEMENTED_CARTON_CASES = [
@@ -77,8 +83,11 @@ IMPLEMENTED_CARTON_CASES = [
 
 @pytest.mark.parametrize("algorithm_name,problem_type", IMPLEMENTED_PACK_CASES)
 def test_all_implemented_pack_algorithms_execute(algorithm_name: str, problem_type: str):
+    mode = PackingMode.ONLINE if algorithm_name in ONLINE_ONLY_NAMES else None
     payload = _input.build_input_example(
-        algorithm_name, problem_type=ProblemType(problem_type)
+        algorithm_name,
+        problem_type=ProblemType(problem_type),
+        packing_mode=mode,
     )
     response = _execute(algorithm_name, payload)
     assert response.status_code == 200, response.text
@@ -116,7 +125,7 @@ def test_algorithm_execute_unknown_algorithm_404():
 
 def test_algorithm_execute_future_algorithm_400():
     payload = _load("algorithm_execute_3d_bpp.json")
-    response = _execute("online_3d_bpp_heuristic", payload)
+    response = _execute("mip_3d_bpp_reference", payload)
     assert response.status_code == 400
 
 
@@ -154,6 +163,7 @@ def test_metadata_lists_algorithm_execute_endpoint():
     assert response.status_code == 200
     endpoints = response.json()["endpoints"]
     assert endpoints["algorithm_execute"] == "POST /api/v1/algorithms/{algorithm_name}/execute"
+    assert endpoints["online_learned_execute"] == "POST /api/v1/online/learned/execute"
     assert endpoints["algorithm_input_example"] == (
         "GET /api/v1/algorithms/{algorithm_name}/input-example"
     )

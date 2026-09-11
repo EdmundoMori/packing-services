@@ -1,8 +1,7 @@
 """packing-services: comparar metodologías de Cutting and Packing.
 
-Contrato homogéneo, validador propio, benchmark y entrada BED-BPP.
-Empaque online y DRL: catálogo ``future``. Espacio de datos: despriorizado
-(ver README.md y docs/roadmap.md).
+Misma entrada, mismo validador y mismas métricas en packing_mode=offline
+y packing_mode=online. No es un algoritmo óptimo ni un espacio de datos.
 """
 
 __version__ = "0.1.0"

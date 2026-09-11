@@ -27,6 +27,11 @@ def main() -> None:
         "Se regenera con `python scripts/regenerate_algorithm_catalog.py`.",
         "",
         (
+            "Sirven al objetivo del README: misma entrada, validador y métricas "
+            "en packing_mode=offline y packing_mode=online."
+        ),
+        "",
+        (
             f"Resumen: **{len(all_meta)} algoritmos** — "
             f"{implemented} implementados, {adapters} adaptadores, {future} futuros."
         ),

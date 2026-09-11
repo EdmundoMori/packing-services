@@ -149,7 +149,7 @@ async function onAlgorithmChange() {
     return;
   }
   try {
-    currentDetail = await API.getAlgorithm(name);
+    currentDetail = await API.getAlgorithm(name, currentPackingMode());
     renderAlgorithmMeta(currentDetail);
     const packingMode = currentPackingMode();
     const defaults = { ...(currentDetail.default_parameters || {}) };
@@ -329,17 +329,31 @@ document.addEventListener("DOMContentLoaded", async () => {
       bedBppOnly: true,
       onChange: onProblemChange,
     });
+    await ensureBedBppSample();
     const params = new URLSearchParams(window.location.search);
     if (params.get("problem_type") && BED_BPP_PROBLEM_TYPES.some((p) => p.id === params.get("problem_type"))) {
       $("problem-type-select").value = params.get("problem_type");
       ProblemContext.setSelected(params.get("problem_type"));
       onProblemChange(params.get("problem_type"));
     }
-    if (params.get("algorithm")) {
-      $("algorithm-select").value = params.get("algorithm");
-      await onAlgorithmChange();
+    const orderId = params.get("order_id");
+    if (orderId && [...$("bedbpp-order-select").options].some((o) => o.value === orderId)) {
+      $("bedbpp-order-select").value = orderId;
     }
-    await ensureBedBppSample();
+    if (params.get("algorithm")) {
+      const wanted = params.get("algorithm");
+      if (![...$("algorithm-select").options].some((o) => o.value === wanted)) {
+        showAlert(
+          alertBox,
+          `El algoritmo ${wanted} no está en el modo ${currentPackingMode()}. Cambia a Online si es una política aprendida.`
+        );
+      } else {
+        $("algorithm-select").value = wanted;
+        await onAlgorithmChange();
+      }
+    } else if (orderId) {
+      await refreshAlgorithmInputPreview({ silent: true });
+    }
   } catch (err) {
     showAlert(alertBox, err.message);
   }

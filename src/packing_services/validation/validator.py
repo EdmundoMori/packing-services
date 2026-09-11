@@ -89,6 +89,28 @@ class PackingValidator:
         is_valid = all(v.severity != "error" for v in violations)
         return ValidationReport(is_valid=is_valid, violations=violations)
 
+    def rejects_trial(
+        self,
+        containers: list[Container],
+        items: list[Item],
+        packed_items: list[PackedItem],
+        constraints: ConstraintFlags | None = None,
+    ) -> bool:
+        """True si un layout incremental tiene violaciones de severidad error.
+
+        No exige coherencia de unpacked: el resto del pedido aún no se ha
+        decidido (bucle online). Las advertencias (p. ej. soporte) no rechazan.
+        """
+
+        report = self.validate(
+            containers=containers,
+            items=items,
+            packed_items=packed_items,
+            constraints=constraints,
+            expected_unpacked_ids=None,
+        )
+        return not report.is_valid
+
     # ------------------------------------------------------------------ #
     # Comprobaciones individuales
     # ------------------------------------------------------------------ #

@@ -38,3 +38,9 @@ outputs/
 # Variables de entorno locales
 .env
 .env.*
+
+# Transiciones P2O generadas por los notebooks de entrenamiento (~280 MB)
+online_policy_ml/data/**/*.pkl
+
+# Informe local fuera de la cascada técnica
+docs/*.docx

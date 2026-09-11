@@ -25,9 +25,9 @@ def test_registry_total_counts():
     registry = get_default_registry()
     all_meta = registry.list_metadata()
     assert len(all_meta) == 52
-    assert len(registry.list_metadata(status=AlgorithmStatus.IMPLEMENTED)) == 29
+    assert len(registry.list_metadata(status=AlgorithmStatus.IMPLEMENTED)) == 31
     assert len(registry.list_metadata(status=AlgorithmStatus.ADAPTER)) == 6
-    assert len(registry.list_metadata(status=AlgorithmStatus.FUTURE)) == 17
+    assert len(registry.list_metadata(status=AlgorithmStatus.FUTURE)) == 15
 
 
 def test_registry_unique_names():

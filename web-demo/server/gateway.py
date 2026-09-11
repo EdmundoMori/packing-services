@@ -22,8 +22,8 @@ app = FastAPI(
     title="packing-services Web Demo",
     version="0.1.0",
     description=(
-        "Catálogo, ejecución individual y benchmark sobre packing-services. "
-        "No es un espacio de datos."
+        "Catálogo, execute y benchmark: misma entrada, validador y métricas "
+        "en packing_mode=offline y packing_mode=online. No es un espacio de datos."
     ),
 )
 

@@ -20,8 +20,10 @@ _service = AlgorithmExecutionService()
     description=(
         "Ejecuta el algoritmo indicado en la URL. El JSON de entrada está "
         "normalizado por tipo de problema: "
-        "**PackAlgorithmInput** (3D_BPP, CONTAINER_LOADING, SINGLE_CONTAINER_LOADING) "
+        "**PackAlgorithmInput** (3D_BPP, CONTAINER_LOADING, SINGLE_CONTAINER_LOADING, "
+        "PALLETIZATION, STACKING_AWARE) "
         "o **CartonizationAlgorithmInput** (CARTONIZATION). "
+        "Campo packing_mode: offline (default) u online. "
         "La salida es siempre **AlgorithmExecuteResponse** con la solución en "
         "``solution`` y metadatos de cartonization opcionales. "
         "No incluye el campo `algorithm` en el body."

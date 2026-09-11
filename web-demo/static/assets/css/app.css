@@ -107,6 +107,8 @@ main {
 .badge.ok { background: #dcfce7; color: var(--ok); }
 .badge.warn { background: #ffedd5; color: var(--warn); }
 .badge.info { background: var(--accent-soft); color: var(--accent); }
+.badge.mode-online { background: #e0e7ff; color: #3730a3; }
+.badge.mode-offline { background: #dcfce7; color: var(--ok); }
 
 .toolbar {
   display: flex;

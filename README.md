@@ -1,183 +1,269 @@
 # packing-services
 
-Plataforma local para **empaquetar, validar y comparar** metodologías de
-Cutting and Packing (3D-BPP, Container Loading, Cartonization, Palletization,
-Stacking-aware) sobre **entradas homogéneas**.
+## Descripción General
 
-El objetivo único **no** es un algoritmo óptimo ni publicar un espacio de datos.
-Es poder decir, con el mismo contrato, el mismo validador y las mismas métricas:
-*esta metodología empaca mejor que esta otra, en esta instancia, con esta
-regla de orden* — incluyendo el caso en que los paquetes **llegan en secuencia**.
+**packing-services** es una plataforma de software desarrollada en Python 3.10 con FastAPI que permite empaquetar, validar y comparar metodologías del dominio *Cutting and Packing*. El sistema soporta múltiples formulaciones del problema: 3D Bin Packing Problem (3D-BPP), Container Loading, Cartonization, Palletization y Stacking-aware Packing.
 
-Versión: **0.1.0** · Python 3.10+ · API FastAPI.
+### Objetivo del Proyecto
 
----
+El objetivo principal de este proyecto es proporcionar un marco de comparación justo entre diferentes metodologías de empaquetado. Para ello, todas las metodologías se evalúan bajo las mismas condiciones:
 
-## Cómo leer la documentación (cascada)
+- **Misma entrada:** formato de datos homogéneo para todos los algoritmos.
+- **Mismo validador:** verificación geométrica independiente del algoritmo que genera la solución.
+- **Mismas métricas:** indicadores de rendimiento calculados de forma uniforme.
 
-Este README es el documento principal. El resto son hijos: bajar solo el nivel
-que haga falta.
+El sistema soporta dos modos de operación:
+- **Modo offline** (`packing_mode=offline`): el pedido completo se conoce de antemano y puede reordenarse.
+- **Modo online** (`packing_mode=online`): los ítems llegan en secuencia y deben procesarse en orden de llegada.
 
-| Nivel | Documento | Qué responde |
-|------|-----------|--------------|
-| 0 | **Este README** | Objetivo, prioridades, estado, cómo ejecutar |
-| 1 | [`docs/README.md`](docs/README.md) | Índice de `docs/` y orden de lectura |
-| 1 | [`docs/roadmap.md`](docs/roadmap.md) | Qué está hecho y **qué sigue**, en orden de prioridad |
-| 2 | [`docs/architecture.md`](docs/architecture.md) | Capas, flujos, contratos internos |
-| 2 | [`docs/algorithm_catalog.md`](docs/algorithm_catalog.md) | 52 algoritmos: implemented / adapter / future |
-| 2 | [`docs/api_examples.md`](docs/api_examples.md) | Contratos HTTP, curl, BED-BPP, benchmark conjunto |
-| 3 | [`docs/algorithm_implementation_traceability.md`](docs/algorithm_implementation_traceability.md) | Checklist para añadir un algoritmo |
-| 3 | [`docs/external_adapters.md`](docs/external_adapters.md) | Motores externos (solo `py3dbp` ejecutable hoy) |
-| 3 | [`notebooks/README.md`](notebooks/README.md) | Historia visual (notebooks 00–09) |
-| 3 | [`web-demo/README.md`](web-demo/README.md) | UI de catálogo / execute / benchmark |
+> **Nota importante:** Este proyecto no busca desarrollar un algoritmo óptimo ni implementar un espacio de datos distribuido. Su propósito es exclusivamente la comparación objetiva de metodologías.
 
-Código de verdad: `src/packing_services/`. Si un `.md` y el código discrepan, gana el código.
+**Versión actual:** 0.1.0
 
 ---
 
-## Prioridades (de primero a último)
+## Estructura de la Documentación
 
-1. **Homogeneizar inputs** — un contrato (`PackAlgorithmInput` / BED-BPP → canónico) para todas las metodologías.
-2. **Benchmark de metodologías** — perfiles por tipo + experimento conjunto en un contenedor, mismo validador y métricas.
-3. **Empaquetado online** — modo `packing_mode=online` (puerta abierta: constructivos en orden de llegada). Heurístico dedicado y DRL: capas siguientes.
-4. Restricciones avanzadas, adaptadores externos reales, métodos exactos.
-5. **Espacio de datos** — despriorizado. Hay descriptores en `GET /api/v1/services`; no es el objetivo ni el siguiente paso.
+La documentación sigue una estructura jerárquica en cascada. Este README constituye el documento raíz; los documentos subsecuentes profundizan en aspectos específicos.
 
-Detalle: [`docs/roadmap.md`](docs/roadmap.md).
+| Nivel | Documento | Contenido |
+|:-----:|-----------|-----------|
+| 0 | **Este README** | Objetivo, prioridades, estado actual e instrucciones de ejecución |
+| 1 | [`docs/README.md`](docs/README.md) | Índice de la documentación técnica |
+| 1 | [`docs/roadmap.md`](docs/roadmap.md) | Hitos completados y trabajo pendiente |
+| 2 | [`docs/architecture.md`](docs/architecture.md) | Arquitectura del sistema, capas y flujos de datos |
+| 2 | [`docs/algorithm_catalog.md`](docs/algorithm_catalog.md) | Catálogo de 52 algoritmos disponibles |
+| 2 | [`docs/api_examples.md`](docs/api_examples.md) | Ejemplos de uso de la API REST |
+| 3 | [`docs/algorithm_implementation_traceability.md`](docs/algorithm_implementation_traceability.md) | Guía para implementar nuevos algoritmos |
+| 3 | [`docs/external_adapters.md`](docs/external_adapters.md) | Integración con motores externos |
+| 3 | [`notebooks/README.md`](notebooks/README.md) | Notebooks de demostración visual |
+| 3 | [`web-demo/README.md`](web-demo/README.md) | Interfaz web de demostración |
+| 3 | [`online_policy_ml/README.md`](online_policy_ml/README.md) | Entrenamiento de políticas de aprendizaje automático |
+
+> **Convención:** En caso de discrepancia entre la documentación y el código fuente, el código fuente (`src/packing_services/`) prevalece como fuente de verdad.
 
 ---
 
-## Estado actual
+## Prioridades del Proyecto
 
-| Pieza | Estado |
-|-------|--------|
-| Contrato canónico `Item` / `Container` / `PackingProblem` / `PackingSolution` | Listo |
-| Validador geométrico propio + métricas comunes | Listo |
-| 29 algoritmos ejecutables (`POST /api/v1/algorithms/{name}/execute`) | Listo |
-| Benchmark por `problem_type` (perfiles `constructive`, `hybrid`, `metaheuristic`, …) | Listo |
-| Entrada BED-BPP (secuencia real de pedidos) | Listo |
-| Modos `offline` / `online` (mismo input) | Offline cerrado; online como puerta (constructivos + `input_order`) |
-| Experimento conjunto un euro-pallet | Listo (`/benchmark/joint-single-container`, default offline) |
-| Heurístico online / DRL | Solo metadatos `future` |
-| Adaptadores externos | Registrados; ejecutable solo `py3dbp` si se instala |
-| Espacio de datos | Preparado, **fuera de la línea crítica** |
+El desarrollo del proyecto sigue un orden de prioridades establecido. Los primeros tres objetivos ya se encuentran operativos:
 
-**29 implemented + 6 adapter + 17 future = 52** en el catálogo.
-Tabla completa: [`docs/algorithm_catalog.md`](docs/algorithm_catalog.md).
+1. **Homogeneización de entradas** — *Completado.*
+   Contrato unificado `PackAlgorithmInput` y conversión desde formato BED-BPP hacia el formato canónico interno. Trabajo pendiente: normalización de unidades entre instancias showcase y datos BED-BPP (mm/kg).
 
-### Algoritmos ejecutables (29)
+2. **Benchmark de metodologías** — *Completado.*
+   Sistema de perfiles por tipo de problema y experimento conjunto con validador y métricas comunes. Trabajo pendiente: ampliar el conjunto de pedidos BED-BPP de prueba.
 
-| Grupo | Nombres |
-|-------|---------|
-| 3D-BPP constructivos | `heuristic_3d_bpp_v1`, `first_fit_decreasing_3d`, `best_fit_decreasing_3d`, `extreme_points_3d`, `maximal_spaces_3d` |
-| 3D-BPP mejora / híbrido | `solution_compaction`, `constructive_plus_local_search`, `relocation_improvement`, `swap_improvement`, `orientation_improvement`, `bin_reduction` |
-| 3D-BPP metaheurísticas | `simulated_annealing_3d_bpp`, `genetic_algorithm_3d_bpp`, `grasp_3d_bpp`, `tabu_search_3d_bpp`, `lns_3d_bpp`, `vns_3d_bpp`, `aco_3d_bpp` |
+3. **Empaquetado online** — *Completado.*
+   Implementación de heurístico dedicado y política aprendida de producción mediante aprendizaje por refuerzo. Trabajo opcional: evaluación extendida, orquestador de políticas, RL puro.
+
+4. **Mejoras de calidad** — *Siguiente paso.*
+   Restricciones avanzadas (centro de gravedad, fragilidad), activación de adaptadores externos, métodos exactos de referencia.
+
+5. **Espacio de datos** — *Despriorizado.*
+   Los descriptores de servicios están implementados (`GET /api/v1/services`), pero la integración completa no es prioritaria.
+
+Para más detalles, consultar [`docs/roadmap.md`](docs/roadmap.md).
+
+---
+
+## Estado Actual del Sistema
+
+| Componente | Estado |
+|------------|--------|
+| Contrato canónico (`Item`, `Container`, `PackingProblem`, `PackingSolution`) | Operativo |
+| Validador geométrico y métricas comunes | Operativo |
+| Algoritmos ejecutables (31 implementados) | Operativo |
+| Benchmark por tipo de problema | Operativo |
+| Entrada BED-BPP con holdout de producto | Operativo |
+| Modos offline y online | Operativos |
+| Experimento conjunto con euro-pallet | Operativo |
+| Heurístico online y política DRL | Operativos |
+| Adaptadores externos | Registrados (solo `py3dbp` ejecutable) |
+| Descriptores de espacio de datos | Preparados, no prioritarios |
+
+El catálogo contiene **52 algoritmos**: 31 implementados, 6 adaptadores y 15 futuros. La tabla completa está disponible en [`docs/algorithm_catalog.md`](docs/algorithm_catalog.md).
+
+### Algoritmos Implementados (31)
+
+| Categoría | Algoritmos |
+|-----------|------------|
+| 3D-BPP Constructivos | `heuristic_3d_bpp_v1`, `first_fit_decreasing_3d`, `best_fit_decreasing_3d`, `extreme_points_3d`, `maximal_spaces_3d` |
+| 3D-BPP Mejora/Híbridos | `solution_compaction`, `constructive_plus_local_search`, `relocation_improvement`, `swap_improvement`, `orientation_improvement`, `bin_reduction` |
+| 3D-BPP Metaheurísticas | `simulated_annealing_3d_bpp`, `genetic_algorithm_3d_bpp`, `grasp_3d_bpp`, `tabu_search_3d_bpp`, `lns_3d_bpp`, `vns_3d_bpp`, `aco_3d_bpp` |
 | Container Loading | `single_container_constructive`, `weight_aware_container_loading`, `wall_building_3d` |
 | Cartonization | `smallest_feasible_box`, `best_box_volume_utilization`, `first_fit_box`, `largest_feasible_box`, `multi_box_cartonization` |
 | Palletization | `layer_based_palletization`, `stack_based_palletization` |
 | Stacking-aware | `stacking_aware_constructive` |
+| Online | `online_3d_bpp_heuristic`, `drl_policy_3d_bpp` |
 
-Cartonization **elige** caja del catálogo. El resto **recibe** el contenedor. El experimento conjunto no incluye cartonization.
+> **Nota sobre Cartonization:** Este tipo de problema selecciona una caja de un catálogo, a diferencia del resto que reciben el contenedor como parámetro de entrada.
 
 ---
 
-## Contrato de ejecución
+## Contrato de Ejecución
+
+### Endpoint Principal
 
 ```
 POST /api/v1/algorithms/{algorithm_name}/execute
 ```
 
-- Pack (`3D_BPP`, `CONTAINER_LOADING`, `SINGLE_CONTAINER_LOADING`, `PALLETIZATION`, `STACKING_AWARE`): body `PackAlgorithmInput`.
-- Cartonization: body `CartonizationAlgorithmInput` (**solo offline**).
-- Campo `packing_mode`: `offline` (default) u `online`. Mismo JSON de ítems/contenedor.
-- Salida siempre `AlgorithmExecuteResponse` (solución + validador + métricas).
-- BED-BPP: el mismo execute acepta `{ "input_format": "bed_bpp", "order_id", "orders", "packing_mode" }` y normaliza al contrato interno. `sequence` → `arrival_index` siempre. Offline reordena (defaults del algoritmo); online fuerza `input_order`.
+### Tipos de Entrada por Problema
 
-Catálogo filtrable: `GET /api/v1/algorithms?packing_mode=offline`. Descripción de modos: `GET /api/v1/packing-modes`.
+| Tipo de Problema | Esquema de Entrada | Modo |
+|------------------|-------------------|------|
+| `3D_BPP`, `CONTAINER_LOADING`, `SINGLE_CONTAINER_LOADING`, `PALLETIZATION`, `STACKING_AWARE` | `PackAlgorithmInput` | Offline y Online |
+| `CARTONIZATION` | `CartonizationAlgorithmInput` | Solo Offline |
 
-Ejemplos: [`docs/api_examples.md`](docs/api_examples.md).
+### Características del Contrato
+
+- **Campo `packing_mode`:** acepta valores `offline` (predeterminado) u `online`. Ambos modos utilizan el mismo formato JSON de entrada.
+- **Salida uniforme:** todas las ejecuciones retornan `AlgorithmExecuteResponse`, que incluye la solución, el informe de validación y las métricas calculadas.
+- **Soporte BED-BPP:** el endpoint acepta el formato wrapper `{ "input_format": "bed_bpp", "order_id", "orders", "packing_mode" }` y realiza la conversión automática al contrato interno.
+
+### Filtrado del Catálogo
+
+```bash
+# Filtrar por modo de packing
+GET /api/v1/algorithms?packing_mode=offline
+
+# Obtener descripción de los modos disponibles
+GET /api/v1/packing-modes
+```
+
+Para ejemplos detallados, consultar [`docs/api_examples.md`](docs/api_examples.md).
 
 ---
 
-## Instalación y arranque
+## Instalación y Ejecución
+
+### Requisitos Previos
+
+- Python 3.10 o superior
+- pip (gestor de paquetes de Python)
+
+### Instalación Básica
 
 ```bash
+# Crear y activar entorno virtual
 python -m venv .venv
 source .venv/bin/activate
+
+# Instalar dependencias
 pip install -r requirements.txt
 pip install -e .
+
+# Ejecutar pruebas
 pytest
+
+# Iniciar servidor de desarrollo
 PYTHONPATH=src uvicorn packing_services.api.main:app --reload
 ```
 
-Docs interactivas: http://localhost:8000/docs
+### Dependencias Opcionales
 
 ```bash
-# Experimento conjunto (pedido BED-BPP más pequeño, euro-pallet, default offline)
-PYTHONPATH=src python scripts/run_joint_single_container.py
+# Para inferencia con modelos MLP (archivos .pt)
+pip install 'packing-services[torch]'
 
-# UI de catálogo / execute / benchmark
-./web-demo/start.sh   # API :8000 + UI :8080
+# Para el adaptador externo py3dbp
+pip install py3dbp
 ```
 
-Opcional: `pip install py3dbp` activa el baseline externo.
+### Documentación Interactiva
+
+Una vez iniciado el servidor, la documentación interactiva de la API está disponible en: http://localhost:8000/docs
+
+### Ejecución de Experimentos
+
+```bash
+# Experimento conjunto: pedido BED-BPP con euro-pallet (modo offline por defecto)
+PYTHONPATH=src python scripts/run_joint_single_container.py
+
+# Interfaz web de demostración
+./web-demo/start.sh   # API en puerto 8000, UI en puerto 8080
+```
 
 ---
 
-## Endpoints (resumen)
+## Referencia de Endpoints
 
-| Método | Ruta | Uso |
-|--------|------|-----|
-| GET | `/health` | Salud |
-| GET | `/api/v1/packing-modes` | `offline` / `online`, mismo contrato de entrada |
-| GET | `/api/v1/algorithms` | Catálogo (filtros `status`, `problem_type`, `family`, `packing_mode`) |
-| GET | `/api/v1/algorithms/{name}` | Metadatos + esquemas + ejemplo |
-| **POST** | **`/api/v1/algorithms/{name}/execute`** | Ejecución canónica |
-| POST | `/api/v1/validate` | Validador independiente |
-| POST | `/api/v1/benchmark` | Comparar ≥2 motores, **un** `problem_type` |
-| GET | `/api/v1/benchmark/profiles` | Perfiles de motores por tipo |
-| POST | `/api/v1/benchmark/joint-single-container` | Cuatro tipos, un euro-pallet; default `packing_mode=offline` |
-| GET/POST | `/api/v1/datasets/bed-bpp/*` | Muestra y conversión BED-BPP |
-| POST | `/api/v1/pack/*` | Legacy por tipo; preferir `/algorithms/{name}/execute` |
-| GET | `/api/v1/services` | Descriptores (espacio de datos, **no prioritario**) |
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| GET | `/health` | Verificación del estado del servicio |
+| GET | `/api/v1/packing-modes` | Descripción de modos offline y online |
+| GET | `/api/v1/algorithms` | Catálogo de algoritmos (filtrable) |
+| GET | `/api/v1/algorithms/{name}` | Metadatos y esquemas de un algoritmo |
+| **POST** | **`/api/v1/algorithms/{name}/execute`** | **Ejecución canónica de algoritmo** |
+| POST | `/api/v1/online/learned/execute` | Ejecución con política aprendida (fuerza modo online) |
+| POST | `/api/v1/validate` | Validación independiente de soluciones |
+| POST | `/api/v1/benchmark` | Comparación de múltiples motores |
+| GET | `/api/v1/benchmark/profiles` | Perfiles de benchmark disponibles |
+| POST | `/api/v1/benchmark/joint-single-container` | Experimento conjunto multi-tipo |
+| GET/POST | `/api/v1/datasets/bed-bpp/*` | Operaciones con dataset BED-BPP |
+| POST | `/api/v1/pack/*` | Endpoints legacy (preferir `/algorithms/{name}/execute`) |
+| GET | `/api/v1/services` | Descriptores de servicios (no prioritario) |
 | GET | `/api/v1/metadata` | Metadatos globales del servicio |
 
 ---
 
-## Árbol del repo
+## Estructura del Repositorio
 
 ```
 packing-services/
-├── README.md                 ← este documento
-├── docs/                     ← detalle técnico (índice: docs/README.md)
-├── src/packing_services/     ← implementación
-│   ├── domain/ schemas/ validation/ metrics/
-│   ├── algorithms/ adapters/ datasets/ benchmark/
-│   ├── services/ api/ utils/
-├── examples/                 ← JSON ejecutables + 5_bed-bpp.json
-├── tests/
-├── notebooks/                ← demos visuales
-├── web-demo/                 ← UI
-└── scripts/
+├── README.md                 # Este documento
+├── docs/                     # Documentación técnica detallada
+├── src/packing_services/     # Código fuente principal
+│   ├── domain/               # Modelos de dominio y geometría
+│   ├── schemas/              # Contratos de la API
+│   ├── validation/           # Validador geométrico
+│   ├── metrics/              # Cálculo de métricas
+│   ├── algorithms/           # Implementaciones de algoritmos
+│   ├── adapters/             # Adaptadores a motores externos
+│   ├── datasets/             # Conversión de formatos de entrada
+│   ├── benchmark/            # Sistema de benchmark
+│   ├── services/             # Capa de servicios
+│   ├── api/                  # Capa de API REST
+│   ├── online/               # Bucle de packing online y políticas
+│   └── utils/                # Utilidades comunes
+├── online_policy_ml/         # Entrenamiento de políticas (artefactos en artifacts/models/)
+├── examples/                 # Archivos JSON de ejemplo (incluye holdout 5_bed-bpp.json)
+├── tests/                    # Suite de pruebas
+├── notebooks/                # Notebooks de demostración
+├── web-demo/                 # Interfaz web
+└── scripts/                  # Scripts de utilidad
 ```
 
-Capas y flujos: [`docs/architecture.md`](docs/architecture.md).
+Para detalles sobre la arquitectura interna, consultar [`docs/architecture.md`](docs/architecture.md).
 
 ---
 
-## Convenciones y límites
+## Convenciones Técnicas
 
-- AABB; `length`→X, `width`→Y, `height`→Z; origen `(0,0,0)` min-corner.
-- `allowed_orientations`: `"all"` (6 rotaciones) o `"none"`.
-- Heurísticos, no óptimos. Estabilidad avanzada, fragilidad y CoG: pendientes.
-- Motores externos: no se modifican sus repos; ver [`docs/external_adapters.md`](docs/external_adapters.md).
+### Geometría
+
+- Sistema de coordenadas AABB (Axis-Aligned Bounding Box).
+- Mapeo de dimensiones: `length` → eje X, `width` → eje Y, `height` → eje Z.
+- Origen de coordenadas: esquina mínima del contenedor `(0, 0, 0)`.
+
+### Orientaciones
+
+- `"all"`: permite las 6 rotaciones ortogonales.
+- `"none"`: mantiene la orientación original del ítem.
+
+### Limitaciones Actuales
+
+- Los algoritmos son heurísticos; no se garantiza optimalidad.
+- Restricciones avanzadas (estabilidad, fragilidad, centro de gravedad) están pendientes de implementación.
+- Los motores externos no se modifican; su integración se realiza mediante adaptadores. Ver [`docs/external_adapters.md`](docs/external_adapters.md).
 
 ---
 
-## Scripts
+## Scripts de Utilidad
 
-| Script | Uso |
-|--------|-----|
-| `scripts/run_joint_single_container.py` | Benchmark conjunto BED-BPP |
-| `scripts/regenerate_algorithm_catalog.py` | Regenera `docs/algorithm_catalog.md` |
-| `scripts/sync_web_demo_showcase.py` | Copia `examples/showcase_*` a la UI |
+| Script | Función |
+|--------|---------|
+| `scripts/run_joint_single_container.py` | Ejecuta el benchmark conjunto con datos BED-BPP |
+| `scripts/regenerate_algorithm_catalog.py` | Regenera `docs/algorithm_catalog.md` desde el registro |
+| `scripts/sync_web_demo_showcase.py` | Sincroniza ejemplos showcase con la interfaz web |

@@ -8,7 +8,10 @@ from pydantic import ValidationError
 
 from ..algorithms.registry import AlgorithmRegistry, get_default_registry
 from ..domain.enums import ProblemType
-from ..domain.packing_modes import ensure_algorithm_allowed, parse_packing_mode
+from ..domain.packing_modes import (
+    ensure_algorithm_allowed,
+    resolve_execute_packing_mode,
+)
 from ..schemas.requests import CartonizationAlgorithmInput, PackAlgorithmInput
 from ..schemas.responses import AlgorithmExecuteResponse, CartonizationResponse
 from ..utils.errors import (
@@ -64,8 +67,9 @@ class AlgorithmExecutionService:
 
         from ..datasets.bed_bpp import normalize_execute_payload
 
-        packing_mode = parse_packing_mode(
-            payload.get("packing_mode") if isinstance(payload, dict) else None
+        packing_mode = resolve_execute_packing_mode(
+            algorithm_name,
+            payload.get("packing_mode") if isinstance(payload, dict) else None,
         )
         payload = normalize_execute_payload(payload)
         meta = self.registry.get_metadata(algorithm_name)

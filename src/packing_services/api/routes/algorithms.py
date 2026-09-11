@@ -26,7 +26,7 @@ _input_service = AlgorithmInputService()
 
 @router.get("/packing-modes")
 def list_packing_modes() -> dict:
-    """Dos modos, mismo input: offline (listo) y online (puerta abierta)."""
+    """Dos modos, mismo input: offline (listo) y online (heurístico + política aprendida)."""
     return packing_modes_catalog()
 
 

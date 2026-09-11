@@ -127,13 +127,15 @@ NOTEBOOKS = {
             "## La brecha que identifiqué",
             "",
             "Existen muchos algoritmos, pero cada implementación usa **formatos distintos**.",
-            "Sin un contrato común no se pueden **comparar metodologías** ni avanzar a empaque **online**.",
+            "Sin un contrato común no se pueden **comparar metodologías** de forma justa.",
             "",
             "## Mi propuesta",
             "",
-            "Plataforma donde cada algoritmo expone ``POST /api/v1/algorithms/{algorithm_name}/execute`` "
-            "con JSON homogéneo. El **benchmark** compara ≥2 motores sobre la misma instancia. "
-            "Prioridad: inputs homogéneos, comparación, empaque online. Espacio de datos: despriorizado.",
+            "Plataforma local donde cada algoritmo expone ``POST /api/v1/algorithms/{algorithm_name}/execute`` "
+            "con JSON homogéneo. El **benchmark** compara ≥2 motores sobre la misma instancia, "
+            "el mismo validador y las mismas métricas, en ``packing_mode=offline`` y ``packing_mode=online``. "
+            "El empaque online (heurístico + política aprendida de producción) ya está operativo. "
+            "Espacio de datos: despriorizado. No es un algoritmo óptimo.",
         ),
         code(SETUP_CELL.strip()),
         code(
@@ -177,7 +179,7 @@ NOTEBOOKS = {
             "| Mejora local reutilizable | `solution_compaction`, `constructive_plus_local_search` |",
             "| Validador geométrico propio | `PackingValidator` + tests |",
             "| Benchmark de metodologías | perfiles + `/benchmark/joint-single-container` |",
-            "| Empaque online | `sort_strategy=input_order` + BED-BPP; heurístico `future` |",
+            "| Empaque online | heurístico `online_3d_bpp_heuristic` + `drl_policy_3d_bpp` (`mlp_v1_p1s1.pt`) |",
             "",
             "**Siguiente:** `01_arquitectura_y_servicios.ipynb`",
         ),
@@ -217,6 +219,7 @@ NOTEBOOKS = {
             "    ('Cartonization (legacy)', 'POST /pack/cartonization', 'Elegir caja + layout'),",
             "    ('Validation', 'POST /validate', 'Juez independiente'),",
             "    ('Joint un contenedor', 'POST /benchmark/joint-single-container', 'BED-BPP + input_order'),",
+            "    ('Política aprendida', 'POST /online/learned/execute', 'DRL online; default mlp_v1_p1s1.pt'),",
             "]",
             "ipy_display(pd.DataFrame(endpoints, columns=['Servicio', 'Endpoint', 'Rol']).style.hide(axis='index'))",
             "profiles = list_profiles()",
@@ -236,6 +239,36 @@ NOTEBOOKS = {
             "print('Campos del body:', sorted(payload.keys()))",
             "result = runners.run_algorithm_execute(algo, payload)",
             "display.show_execute_result(result)",
+        ),
+        md(
+            "## Política aprendida (execute de producción)",
+            "",
+            "No reentrena. Carga el MLP `p=1,s=1` ya exportado y corre el bucle online "
+            "sobre el holdout de producto `00100408` (`examples/5_bed-bpp.json`). "
+            "Los `.pt` requieren `pip install 'packing-services[torch]'`.",
+        ),
+        code(
+            "import json",
+            "from packing_services.online.learned.production import default_learned_parameters",
+            "",
+            "orders = json.loads((ROOT / 'examples' / '5_bed-bpp.json').read_text(encoding='utf-8'))",
+            "params = default_learned_parameters()",
+            "print('model_path:', params['model_path'])",
+            "payload = {",
+            "    'input_format': 'bed_bpp',",
+            "    'order_id': '00100408',",
+            "    'orders': orders,",
+            "    'problem_type': 'PALLETIZATION',",
+            "    'packing_mode': 'online',",
+            "    'parameters': params,",
+            "}",
+            "print('POST /api/v1/algorithms/drl_policy_3d_bpp/execute')",
+            "try:",
+            "    result = runners.run_algorithm_execute('drl_policy_3d_bpp', payload)",
+            "    display.show_execute_result(result)",
+            "except Exception as exc:",
+            "    print('No se pudo ejecutar la política de producción:', type(exc).__name__, exc)",
+            "    print('Instale torch (pip install \\'packing-services[torch]\\') y compruebe artifacts/models/.')",
         ),
         md("**Siguiente:** demo visual 3D-BPP → `02_demo_3d_bin_packing.ipynb`"),
     ],
@@ -546,7 +579,7 @@ NOTEBOOKS = {
             "",
             *SHOWCASE_TABLE,
             "",
-            "Catálogo de **29 algoritmos implementados**, cada uno con endpoint propio "
+            "Catálogo de **31 algoritmos implementados**, cada uno con endpoint propio "
             "``POST /api/v1/algorithms/{name}/execute`` y **9 grupos de benchmark**. "
             "Adaptador ``py3dbp`` activo si la dependencia está instalada.",
         ),
@@ -596,7 +629,8 @@ NOTEBOOKS = {
             "",
             SHOWCASE_NOTE,
             "",
-            "Los algoritmos quedan descritos con endpoint y esquemas. Eso sirve al **benchmark**. "
+            "Los algoritmos quedan descritos con endpoint y esquemas. Eso sirve al **benchmark** "
+            "(misma entrada, validador y métricas, offline y online). "
             "Publicarlos en un espacio de datos está **fuera de la línea crítica** (ver README / roadmap).",
         ),
         code(SETUP_CELL.strip()),
@@ -632,10 +666,10 @@ NOTEBOOKS = {
             "## Cierre del recorrido didáctico",
             "",
             "1. **Seis tipos de problema** (3D-BPP, CL, SCL, Cartonization, Palletization, Stacking-aware) con instancia showcase dedicada (`examples/showcase_*_instance.json`)",
-            "2. **Veintinueve algoritmos** implementados + adaptador ``py3dbp`` (si está instalado)",
+            "2. **31 algoritmos** implementados (incluye online heurístico y ``drl_policy_3d_bpp``) + adaptador ``py3dbp`` (si está instalado)",
             "3. **Nueve benchmarks** comparativos: 3D-BPP, híbrido, mejora 3D, metaheurísticas 3D, CL, Cartonization, SCL, Palletization, Stacking-aware",
             "4. **Perfiles estándar** (`constructive`, `hybrid`, `box_selection`) para comparación reproducible",
-            "5. **Validación independiente**; espacio de datos **despriorizado** (`GET /api/v1/services` existe, no es el objetivo)",
+            "5. **Validación independiente**; modos offline y online; espacio de datos **despriorizado** (`GET /api/v1/services` existe, no es el objetivo)",
             "6. **Un endpoint por algoritmo** con salida `AlgorithmExecuteResponse` estandarizada",
             "",
             "Cada benchmark usa un caso diseñado para **diferenciar** estrategias del mismo grupo — evidencia cuantitativa del avance del proyecto.",

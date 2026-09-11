@@ -29,6 +29,7 @@ from .routes import (
     datasets,
     health,
     metadata,
+    online_learned,
     pack_3d_bpp,
     pack_cartonization,
     pack_container_loading,
@@ -44,9 +45,11 @@ app = FastAPI(
     title="packing-services",
     version=SERVICE_VERSION,
     description=(
-        "Comparar metodologías de empaquetado 3D sobre entradas homogéneas "
-        "(execute, BED-BPP, validador, benchmark). "
-        "Modos packing_mode=offline (listo) y packing_mode=online (misma entrada)."
+        "Comparar metodologías de Cutting and Packing sobre la misma entrada, "
+        "el mismo validador y las mismas métricas. packing_mode=offline "
+        "(pedido completo) y packing_mode=online (llegada en secuencia: "
+        "heurístico + política aprendida). No es un algoritmo óptimo ni un "
+        "espacio de datos."
     ),
 )
 
@@ -92,6 +95,7 @@ app.include_router(metadata.router, prefix="/api/v1")
 app.include_router(services.router, prefix="/api/v1")
 app.include_router(algorithms.router, prefix="/api/v1")
 app.include_router(algorithm_execute.router, prefix="/api/v1")
+app.include_router(online_learned.router, prefix="/api/v1")
 app.include_router(pack_3d_bpp.router, prefix="/api/v1")
 app.include_router(pack_container_loading.router, prefix="/api/v1")
 app.include_router(pack_cartonization.router, prefix="/api/v1")

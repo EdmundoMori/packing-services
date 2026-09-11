@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "packing-services"
 version = "0.1.0"
-description = "Comparar metodologías de empaquetado 3D sobre entradas homogéneas (BED-BPP, validador y benchmark comunes). Online packing en roadmap."
+description = "Comparar metodologías de Cutting and Packing sobre la misma entrada, el mismo validador y las mismas métricas (packing_mode=offline y packing_mode=online). No es un algoritmo óptimo ni un espacio de datos."
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -32,6 +32,8 @@ notebooks = [
     "plotly>=5.18",
     "numpy>=1.24",
 ]
+# Entrenamiento / inferencia de política online mlp_v1 (no es dependencia base).
+torch = ["torch>=2.0"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

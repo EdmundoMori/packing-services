@@ -1,107 +1,163 @@
-# Roadmap
+# Hoja de Ruta del Proyecto
 
-Documento hijo de [`../README.md`](../README.md). Índice: [`README.md`](README.md).
+Documento complementario de [`../README.md`](../README.md). Para el índice de documentación técnica, consultar [`README.md`](README.md).
 
-Prioridad actual, de primero a último:
+## Objetivo del Proyecto
 
-1. Homogeneizar inputs.
-2. Benchmark de metodologías.
-3. Empaquetado online.
-4. Calidad extra (restricciones, adaptadores reales, exactos).
-5. Espacio de datos (despriorizado).
+El objetivo de **packing-services** es comparar metodologías de *Cutting and Packing* bajo condiciones homogéneas:
 
----
+- **Misma entrada:** formato de datos unificado para todos los algoritmos.
+- **Mismo validador:** verificación geométrica independiente del algoritmo.
+- **Mismas métricas:** indicadores de rendimiento calculados uniformemente.
 
-## Hecho (base operativa)
-
-| Bloque | Contenido |
-|--------|-----------|
-| Core | Dominio, schemas, geometría AABB, métricas, logging, API FastAPI |
-| Catálogo | `AlgorithmRegistry` — 29 implemented, 6 adapter, 17 future |
-| Validador | Independiente del algoritmo (`POST /validate`) |
-| Execute | `POST /api/v1/algorithms/{name}/execute` |
-| Tipos | 3D-BPP, CL, SCL, Cartonization, Palletization, Stacking-aware |
-| Metaheurísticas 3D-BPP | SA, GA, GRASP, Tabu, LNS, VNS, ACO |
-| Inputs | Contrato canónico + conversión BED-BPP (`examples/5_bed-bpp.json`) |
-| Benchmark | Perfiles por tipo + `POST /benchmark/joint-single-container` |
-| UI | `web-demo/` (catálogo, execute, benchmark) |
-
-Los endpoints legacy `/pack/*` siguen; el patrón canónico es `/algorithms/{name}/execute`.
+El sistema soporta tanto el modo `packing_mode=offline` (pedido completo conocido de antemano) como `packing_mode=online` (ítems que llegan en secuencia).
 
 ---
 
-## 1. Homogeneizar inputs (en curso / reforzar)
+## Resumen de Prioridades
 
-Ya existe:
+El desarrollo del proyecto sigue un orden de prioridades establecido. **Los objetivos 1–3 ya están operativos.** El siguiente paso es el objetivo 4.
 
-- `PackAlgorithmInput` / `CartonizationAlgorithmInput` → `PackingProblem`.
-- BED-BPP (`item_sequence`) → `containers` + `items` (`datasets/bed_bpp.py`).
-- `sequence` → `Item.arrival_index`; BED-BPP siempre conserva la llegada en el ítem.
-- `packing_mode=offline` (default): el solver puede reordenar; defaults `volume_desc` / `weight_desc`.
-- `packing_mode=online`: solo constructivos (y futuros online/DRL); fuerza `input_order`.
-
-Pendiente (no bloquea el online, pero sí la comparabilidad estricta):
-
-- Unidades: showcase usa unidades abstractas; BED-BPP usa mm/kg.
-- `showcase_master_catalog` no es la geometría de pallet/stacking/cartonization.
-- BED-BPP no mapea `max_load_on_top` ni fragilidad; no convierte a CARTONIZATION.
+| # | Prioridad | Estado |
+|:-:|-----------|--------|
+| 1 | Homogeneizar entradas | **Completado** |
+| 2 | Benchmark de metodologías | **Completado** |
+| 3 | Empaquetado online | **Completado** |
+| 4 | Mejoras de calidad | **Siguiente** |
+| 5 | Espacio de datos | Despriorizado |
 
 ---
 
-## 2. Benchmark de metodologías (en curso / reforzar)
+## Base Operativa Actual
 
-Ya existe:
+La siguiente tabla resume los componentes que ya están implementados y funcionando:
 
-- `POST /api/v1/benchmark` + `GET /benchmark/profiles` (un `problem_type`).
-- Experimento conjunto: un euro-pallet, cuatro tipos
-  (`scripts/run_joint_single_container.py`). Default `packing_mode=offline`.
+| Componente | Descripción |
+|------------|-------------|
+| Core | Modelos de dominio, esquemas, geometría AABB, métricas, logging y API FastAPI |
+| Catálogo | `AlgorithmRegistry` con 31 algoritmos implementados, 6 adaptadores y 15 futuros |
+| Validador | Servicio de validación independiente del algoritmo (`POST /validate`) |
+| Ejecución | Endpoint canónico `POST /api/v1/algorithms/{name}/execute` |
+| Tipos de problema | 3D-BPP, Container Loading, Single Container Loading, Cartonization, Palletization, Stacking-aware |
+| Metaheurísticas | Simulated Annealing, Genetic Algorithm, GRASP, Tabu Search, LNS, VNS, ACO |
+| Entradas | Contrato canónico y conversión BED-BPP (`examples/5_bed-bpp.json` es holdout de producto) |
+| Benchmark | Perfiles por tipo de problema y endpoint `POST /benchmark/joint-single-container` |
+| Online | Bucle `run_online_loop`, heurístico y MLP de producción (`mlp_v1_p1s1.pt`, `mlp_v1_p3s2.pt`) |
+| Interfaz web | `web-demo/` con catálogo, ejecución y benchmark en modos offline y online |
 
-Pendiente:
-
-- Más pedidos BED-BPP (no solo el más pequeño).
-- Comparar explícitamente `packing_mode=offline` vs `online` en los 5 pedidos.
-- No mezclar cartonization en el conjunto de “un contenedor fijado”.
-
----
-
-## 3. Empaquetado online (siguiente línea de implementación)
-
-La **puerta** ya existe: `packing_mode=online` (mismo BED-BPP / `PackAlgorithmInput`).
-Hoy solo admite constructivos con `input_order`. Eso **no** es todavía
-`online_3d_bpp_heuristic`.
-
-Siguiente implementación (capas):
-
-1. Heurístico online ejecutable (`online_3d_bpp_heuristic`): un ítem a la vez,
-   sin reordenar el resto.
-2. Mismo validador y métricas que el experimento conjunto.
-3. DRL (`drl_policy_3d_bpp`) después: dataset + simulador + política entrenada.
-
-Las metaheurísticas son **offline** y el modo online las rechaza.
+> **Nota:** Los endpoints legacy `/pack/*` permanecen operativos, pero el patrón recomendado es `/algorithms/{name}/execute`.
 
 ---
 
-## 4. Calidad extra (después del online)
+## 1. Homogeneización de Entradas
 
-- Adaptadores reales cuando el motor esté en el entorno (`skjolber`, BoxPacker,
-  3DContainerPacking, PackingSolver). Hoy solo `py3dbp` puede activarse.
-- Restricciones: CoG, fragilidad, load-bearing poblado, secuencia de descarga.
-- Métodos exactos de referencia (MIP, CP-SAT) para instancias pequeñas.
-- `bottom_left_back_3d` como servicio propio es opcional (ya es estrategia interna).
+**Estado: Completado**
+
+### Funcionalidad Implementada
+
+- Conversión de `PackAlgorithmInput` y `CartonizationAlgorithmInput` hacia `PackingProblem`.
+- Transformación de formato BED-BPP (`item_sequence`) hacia `containers` + `items` mediante `datasets/bed_bpp.py`.
+- Preservación del campo `sequence` como `Item.arrival_index` para mantener el orden de llegada.
+- Modo offline (predeterminado): el solver puede reordenar ítems según estrategias como `volume_desc` o `weight_desc`.
+- Modo online: los algoritmos constructivos, el heurístico online y `drl_policy_3d_bpp` respetan el orden de llegada (`input_order`).
+
+### Trabajo Pendiente (No Bloqueante)
+
+- **Normalización de unidades:** las instancias showcase utilizan unidades abstractas, mientras que BED-BPP emplea mm/kg.
+- **Catálogo maestro:** `showcase_master_catalog` no incluye la geometría específica para palletization, stacking y cartonization.
+- **Restricciones adicionales:** BED-BPP no mapea actualmente `max_load_on_top` ni indicadores de fragilidad, y no convierte hacia CARTONIZATION.
 
 ---
 
-## 5. Espacio de datos (último)
+## 2. Benchmark de Metodologías
 
-`GET /api/v1/services` y `DataspaceService` generan descriptores. **No** hay
-integración real (publicar → descubrir → negociar → ejecutar).
+**Estado: Completado**
 
-No planificar trabajo de dataspace mientras 1–3 estén abiertos.
+### Funcionalidad Implementada
+
+- Endpoint `POST /api/v1/benchmark` con soporte para perfiles predefinidos.
+- Consulta de perfiles disponibles mediante `GET /benchmark/profiles` (un `problem_type` por perfil).
+- Experimento conjunto: un euro-pallet evaluado con cuatro tipos de problema mediante `scripts/run_joint_single_container.py` (modo offline por defecto).
+
+### Trabajo Pendiente (Opcional)
+
+- Ampliar el conjunto de pedidos BED-BPP utilizados en las pruebas (actualmente solo el pedido más pequeño).
+- Realizar comparaciones explícitas entre `packing_mode=offline` y `packing_mode=online` para los 5 pedidos de producto.
+- Excluir cartonization del experimento conjunto, ya que este tipo selecciona caja del catálogo en lugar de recibir un contenedor fijo.
 
 ---
 
-## Entorno
+## 3. Empaquetado Online
 
-- Docker de la UI: `web-demo/Dockerfile` + `web-demo/docker-compose.yml`.
-- Sin base de datos.
-- Un contenedor por motor externo: no está en esta versión.
+**Estado: Completado**
+
+### Funcionalidad Implementada
+
+El heurístico online y la política aprendida están operativos sobre el mismo bucle de decisión:
+
+- **Algoritmos:** `drl_policy_3d_bpp` y `online_3d_bpp_heuristic`
+- **Endpoints:** `POST /api/v1/algorithms/drl_policy_3d_bpp/execute` y `POST /api/v1/online/learned/execute`
+- **Modelo por defecto:** `online_policy_ml/artifacts/models/mlp_v1_p1s1.pt` (`lookahead_p=1`, `select_s=1`)
+- **Modelo de cinta:** `mlp_v1_p3s2.pt` (`lookahead_p=3`, `select_s=2`)
+- **Modelo lineal (sin PyTorch):** `linear_v1.json`
+- **Placeholder de prueba:** `examples/online_policy_linear_v1.json` (no es el modelo de producción)
+
+### Especificaciones Técnicas
+
+- **Contrato de checkpoint:** `packing-services-online-policy` v1
+- **Versión de características:** `feature_version=1`
+- **Arquitectura del MLP:** `Linear(35, 64) → ReLU → Linear(64, 1)`
+
+### Consideraciones Importantes
+
+- El entrenamiento (metodología P2O y splits) se realiza en `online_policy_ml/` y **no utiliza** los 5 pedidos de `examples/5_bed-bpp.json`.
+- Las metaheurísticas permanecen exclusivamente en modo **offline**; el modo online las rechaza.
+
+### Trabajo Pendiente (Opcional)
+
+- Evaluación extendida del rendimiento.
+- Implementación de un orquestador de políticas.
+- Exploración de RL puro (sin P2O).
+
+> **Nota:** No se debe reentrenar ni modificar el encoder v1 ni el bucle de ejecución para el producto.
+
+---
+
+## 4. Mejoras de Calidad
+
+**Estado: Siguiente Paso**
+
+Esta fase incluye las siguientes mejoras planificadas:
+
+- **Activación de adaptadores externos:** integración de `skjolber`, BoxPacker, 3DContainerPacking y PackingSolver cuando los motores estén disponibles en el entorno. Actualmente solo `py3dbp` puede activarse.
+
+- **Restricciones avanzadas:** implementación de centro de gravedad (CoG), fragilidad, restricción de carga soportada (`load_bearing`) y secuencia de descarga.
+
+- **Métodos exactos de referencia:** implementación de MIP y CP-SAT para instancias pequeñas que sirvan como referencia de optimalidad.
+
+- **Servicio `bottom_left_back_3d`:** consideración de exponerlo como servicio propio (actualmente es estrategia interna).
+
+---
+
+## 5. Espacio de Datos
+
+**Estado: Despriorizado**
+
+### Funcionalidad Actual
+
+- El endpoint `GET /api/v1/services` y el servicio `DataspaceService` generan descriptores de servicios.
+- **No hay** integración real con un espacio de datos distribuido (publicar → descubrir → negociar → ejecutar).
+
+### Decisión de Diseño
+
+Los objetivos 1–3 ya están cubiertos. El espacio de datos distribuido **no es el objetivo** del proyecto ni el siguiente paso en la hoja de ruta.
+
+---
+
+## Configuración del Entorno
+
+### Contenedorización
+
+- **Interfaz web:** `web-demo/Dockerfile` y `web-demo/docker-compose.yml`
+- **Base de datos:** no requerida
+- **Motores externos en contenedores:** no implementado en esta versión

@@ -72,7 +72,7 @@ def test_pack_endpoint():
 
 def test_pack_future_algorithm_returns_400():
     payload = _load("3d_bpp_basic_request.json")
-    payload["algorithm"]["name"] = "online_3d_bpp_heuristic"
+    payload["algorithm"]["name"] = "mip_3d_bpp_reference"
     response = client.post("/api/v1/pack/3d-bpp", json=payload)
     assert response.status_code == 400
 

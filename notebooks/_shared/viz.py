@@ -258,7 +258,7 @@ def plot_roadmap_phases() -> Figure:
         ("Pallet +\nStacking", 1),
         ("Metaheurísticas\n3D-BPP", 1),
         ("BED-BPP +\nexperimento conjunto", 1),
-        ("Online / DRL", 0),
+        ("Online / DRL", 1),
         ("Adaptadores\nreales", 0),
         ("Espacio de datos\n(despriorizado)", 0),
     ]

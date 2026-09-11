@@ -142,6 +142,7 @@ def _build_default_registry() -> AlgorithmRegistry:
         SmallestFeasibleBox,
     )
     from .constructive_plus_local_search import ConstructivePlusLocalSearch
+    from .drl_policy_3d_bpp import DRLPolicy3DBPP
     from .extreme_points_3d import ExtremePoints3D
     from .first_fit_decreasing_3d import FirstFitDecreasing3D
     from .heuristic_3d_bpp import Heuristic3DBPPv1
@@ -149,6 +150,7 @@ def _build_default_registry() -> AlgorithmRegistry:
     from .maximal_spaces_3d import MaximalSpaces3D
     from .metaheuristic_3d_bpp import METAHEURISTIC_ALGORITHMS
     from .multi_box_cartonization import MultiBoxCartonization
+    from .online_3d_bpp_heuristic import Online3DBPPHeuristic
     from .orientation_improvement import OrientationImprovement
     from .relocation_improvement import RelocationImprovement
     from .single_container import SingleContainerConstructive
@@ -191,6 +193,9 @@ def _build_default_registry() -> AlgorithmRegistry:
     registry.register_algorithm(StackBasedPalletization())
     # Stacking-aware.
     registry.register_algorithm(StackingAwareConstructive())
+    # Online packing (no reordena; presupuesto de información p/s).
+    registry.register_algorithm(Online3DBPPHeuristic())
+    registry.register_algorithm(DRLPolicy3DBPP())
 
     # Adaptadores a motores externos (registran su metadata; ejecutan solo si la
     # dependencia está disponible).

@@ -8,9 +8,11 @@ from ..domain.enums import AlgorithmStatus
 from ..schemas.responses import ServiceMetadataResponse
 
 SERVICE_DESCRIPTION = (
-    "Comparar metodologías de Cutting and Packing sobre entradas homogéneas. "
-    "Dos modos (mismo input): offline (listo) y online (puerta abierta). "
-    "Espacio de datos despriorizado."
+    "Comparar metodologías de Cutting and Packing sobre la misma entrada, "
+    "el mismo validador y las mismas métricas. packing_mode=offline "
+    "(pedido completo) y packing_mode=online (llegada en secuencia: "
+    "heurístico + política aprendida). No es un algoritmo óptimo ni un "
+    "espacio de datos."
 )
 
 SUPPORTED_PROBLEM_TYPES = [
@@ -33,6 +35,7 @@ ENDPOINTS = {
     "algorithm_detail": "GET /api/v1/algorithms/{algorithm_name}",
     "algorithm_input_example": "GET /api/v1/algorithms/{algorithm_name}/input-example",
     "algorithm_execute": "POST /api/v1/algorithms/{algorithm_name}/execute",
+    "online_learned_execute": "POST /api/v1/online/learned/execute",
     "pack_3d_bpp": "POST /api/v1/pack/3d-bpp",
     "pack_container_loading": "POST /api/v1/pack/container-loading",
     "pack_cartonization": "POST /api/v1/pack/cartonization",

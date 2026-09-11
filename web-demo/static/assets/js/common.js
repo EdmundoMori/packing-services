@@ -37,8 +37,9 @@ const API = {
     return this.request(`/api/v1/algorithms${query ? `?${query}` : ""}`);
   },
 
-  getAlgorithm(name) {
-    return this.request(`/api/v1/algorithms/${encodeURIComponent(name)}`);
+  getAlgorithm(name, packingMode) {
+    const query = packingMode ? `?packing_mode=${encodeURIComponent(packingMode)}` : "";
+    return this.request(`/api/v1/algorithms/${encodeURIComponent(name)}${query}`);
   },
 
   inputExample(name, problemType) {
@@ -103,6 +104,7 @@ async function loadServiceSummary(targetId) {
             ${health.api_reachable ? "API operativa" : "API no disponible"}
           </span>
           <p class="muted">Versión ${metadata.service_version || health.api?.service_version || "—"}</p>
+          <p class="muted">${metadata.description || ""}</p>
         </div>
         <div class="card">
           <h3>Algoritmos implementados</h3>
