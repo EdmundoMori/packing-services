@@ -42,7 +42,7 @@ La siguiente tabla resume los componentes que ya están implementados y funciona
 | Metaheurísticas | Simulated Annealing, Genetic Algorithm, GRASP, Tabu Search, LNS, VNS, ACO |
 | Entradas | Contrato canónico y conversión BED-BPP (`examples/5_bed-bpp.json` es holdout de producto) |
 | Benchmark | Perfiles por tipo de problema y endpoint `POST /benchmark/joint-single-container` |
-| Online | Bucle `run_online_loop`, heurístico y MLP de producción (`mlp_v1_p1s1.pt`, `mlp_v1_p3s2.pt`) |
+| Online | Bucle `run_online_loop`, heurístico y política RL de producción (`mlp_v1_p1s1_ppo.pt`, `mlp_v1_p3s2.pt`) |
 | Interfaz web | `web-demo/` con catálogo, ejecución y benchmark en modos offline y online |
 
 > **Nota:** Los endpoints legacy `/pack/*` permanecen operativos, pero el patrón recomendado es `/algorithms/{name}/execute`.
@@ -97,7 +97,7 @@ El heurístico online y la política aprendida están operativos sobre el mismo 
 
 - **Algoritmos:** `drl_policy_3d_bpp` y `online_3d_bpp_heuristic`
 - **Endpoints:** `POST /api/v1/algorithms/drl_policy_3d_bpp/execute` y `POST /api/v1/online/learned/execute`
-- **Modelo por defecto:** `online_policy_ml/artifacts/models/mlp_v1_p1s1.pt` (`lookahead_p=1`, `select_s=1`)
+- **Modelo por defecto:** `online_policy_ml/artifacts/models/mlp_v1_p1s1_ppo.pt` (`lookahead_p=1`, `select_s=1`, `policy=rl`)
 - **Modelo de cinta:** `mlp_v1_p3s2.pt` (`lookahead_p=3`, `select_s=2`)
 - **Modelo lineal (sin PyTorch):** `linear_v1.json`
 - **Placeholder de prueba:** `examples/online_policy_linear_v1.json` (no es el modelo de producción)
@@ -113,13 +113,16 @@ El heurístico online y la política aprendida están operativos sobre el mismo 
 - El entrenamiento (metodología P2O y splits) se realiza en `online_policy_ml/` y **no utiliza** los 5 pedidos de `examples/5_bed-bpp.json`.
 - Las metaheurísticas permanecen exclusivamente en modo **offline**; el modo online las rechaza.
 
+### Lectura de producto
+
+La política aprendida (`mlp_v1_p1s1_ppo.pt`) es un **empate estadístico** con `online_3d_bpp_heuristic`. El fine-tuning PPO sobre el encoder v1 está cerrado. STEP y shaping no se promocionan. En el pedido `00100408`, bin cerrado 2000 mm, **supera** a PCT (Zhao ICLR 2022) por factibilidad, no por Uti. de Table 1 ni ranking BED-BPP. Relato: [`../online_policy_ml/docs/informe_cierre_rl_online.md`](../online_policy_ml/docs/informe_cierre_rl_online.md).
+
 ### Trabajo Pendiente (Opcional)
 
-- Evaluación extendida del rendimiento.
-- Implementación de un orquestador de políticas.
-- Exploración de RL puro (sin P2O).
+- Pista multi-pallet cerrada (`07`/`08`): first-fit 30→24 palés; el execute consolida si hay 2+ contenedores.
+- No se plantea RL desde cero ni cambiar el encoder v1 (`FEATURE_VERSION=2` / heightmap queda fuera de este ciclo).
 
-> **Nota:** No se debe reentrenar ni modificar el encoder v1 ni el bucle de ejecución para el producto.
+> **Nota:** El execute de producción no reentrena. El encoder v1 y el bucle `run_online_loop` no se tocan.
 
 ---
 

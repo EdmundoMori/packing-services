@@ -20,11 +20,23 @@ ARTIFACTS_DIR = ML_ROOT / "artifacts"
 REPORTS_DIR = ARTIFACTS_DIR / "reports"
 MODELS_DIR = ARTIFACTS_DIR / "models"
 
+VERSIONS_DIR = ML_ROOT / "versions"
+VERSION_V1_DIR = VERSIONS_DIR / "v1"
+VERSION_V2_DIR = VERSIONS_DIR / "v2"
+V2_ARTIFACTS_DIR = VERSION_V2_DIR / "artifacts"
+V2_MODELS_DIR = V2_ARTIFACTS_DIR / "models"
+V2_REPORTS_DIR = V2_ARTIFACTS_DIR / "reports"
+V2_DATA_DIR = VERSION_V2_DIR / "data"
+
 NOTEBOOKS_DIR = ML_ROOT / "notebooks"
 DOCS_DIR = ML_ROOT / "docs"
 
 SOURCE_BED_BPP = Path(
     "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json"
+)
+PCT_PACKING_PLAN = Path(
+    "/home/edmundo/bed-bpp-env/assets/packing_plans/"
+    "2022-11-25_kagerer_o3dbpp-pct_O3dbp.json"
 )
 DEMO_BED_BPP = REPO_ROOT / "examples" / "5_bed-bpp.json"
 PLACEHOLDER_LINEAR = REPO_ROOT / "examples" / "online_policy_linear_v1.json"
@@ -63,6 +75,20 @@ def model_path_mlp(lookahead_p: int, select_s: int) -> Path:
     return MODELS_DIR / f"mlp_v1_p{lookahead_p}s{select_s}.pt"
 
 
+def model_path_mlp_ppo(lookahead_p: int = 1, select_s: int = 1) -> Path:
+    """Checkpoint PPO de la tanda viva (v2). El de producción v1 está en MODELS_DIR."""
+    return V2_MODELS_DIR / f"mlp_v1_p{lookahead_p}s{select_s}_ppo.pt"
+
+
+def model_path_mlp_ppo_production(lookahead_p: int = 1, select_s: int = 1) -> Path:
+    return MODELS_DIR / f"mlp_v1_p{lookahead_p}s{select_s}_ppo.pt"
+
+
+def model_path_mlp_step(lookahead_p: int = 3, select_s: int = 2) -> Path:
+    """Actor de selección STEP (tanda v2). La colocación congelada es mlp_v1_pXsY.pt."""
+    return V2_MODELS_DIR / f"mlp_v1_p{lookahead_p}s{select_s}_step.pt"
+
+
 def model_dir_fase(fase: str) -> Path:
     path = MODELS_DIR / fase
     path.mkdir(parents=True, exist_ok=True)
@@ -91,5 +117,8 @@ def ensure_dirs() -> None:
         MODELS_DIR,
         NOTEBOOKS_DIR,
         DOCS_DIR,
+        V2_MODELS_DIR,
+        V2_REPORTS_DIR,
+        V2_DATA_DIR,
     ):
         path.mkdir(parents=True, exist_ok=True)

@@ -36,6 +36,7 @@ ENDPOINTS = {
     "algorithm_input_example": "GET /api/v1/algorithms/{algorithm_name}/input-example",
     "algorithm_execute": "POST /api/v1/algorithms/{algorithm_name}/execute",
     "online_learned_execute": "POST /api/v1/online/learned/execute",
+    "online_rl_execute": "POST /api/v1/online/rl/execute",
     "pack_3d_bpp": "POST /api/v1/pack/3d-bpp",
     "pack_container_loading": "POST /api/v1/pack/container-loading",
     "pack_cartonization": "POST /api/v1/pack/cartonization",

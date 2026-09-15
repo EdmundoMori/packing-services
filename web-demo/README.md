@@ -56,9 +56,14 @@ En las secciones **Ejecutar** y **Benchmark**, la instancia de entrada es siempr
 En la sección **Ejecutar**, al seleccionar `packing_mode=online` y el algoritmo `drl_policy_3d_bpp`:
 
 - El formulario carga automáticamente los parámetros predeterminados:
-  - `model_path=mlp_v1_p1s1.pt`
+  - `model_path=mlp_v1_p1s1_ppo.pt` (RL / PPO)
   - `lookahead_p=1`
   - `select_s=1`
+  - `policy=rl`
+
+- Empate estadístico con el heurístico online: no es un packer mejor. Si basta el motor simple, usar `online_3d_bpp_heuristic`.
+- Con dos o más pallets el execute aplica first-fit (`consolidate`, default activo). `consolidate=false` restaura el reparto libre.
+- La imitación P2O ya no se ofrece. El corte está en `online_policy_ml/versions/v1`.
 
 - Para configuración de cinta: cambiar a `mlp_v1_p3s2.pt` con `p=3`, `s=2`
 
@@ -194,6 +199,6 @@ PACKING_API_URL=http://127.0.0.1:8000 python web-demo/server/gateway.py
 
 - **Ejecutar y Benchmark:** Utilizan pedidos BED-BPP (`examples/5_bed-bpp.json`, holdout de producto), no el `input-example` showcase. El endpoint `input-example` permanece disponible en la API para el contrato canónico.
 
-- **Modo Online:** El algoritmo `drl_policy_3d_bpp` rellena automáticamente `model_path=mlp_v1_p1s1.pt` (p=1 s=1).
+- **Modo Online:** El algoritmo `drl_policy_3d_bpp` rellena automáticamente `model_path=mlp_v1_p1s1_ppo.pt` (RL / PPO, p=1 s=1). Empate estadístico con el heurístico; no es un packer mejor.
 
 - **Benchmark:** Permite selección manual de motores (≥2) o uso de perfil estándar (`profile`).

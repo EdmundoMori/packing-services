@@ -94,7 +94,7 @@ Los tipos Palletization, Stacking-aware y Cartonization utilizan instancias prop
 
 ### Política Aprendida de Producción
 
-El algoritmo `drl_policy_3d_bpp` utiliza el modelo `online_policy_ml/artifacts/models/mlp_v1_p1s1.pt` en `packing_mode=online`.
+El algoritmo `drl_policy_3d_bpp` utiliza el modelo `online_policy_ml/artifacts/models/mlp_v1_p1s1_ppo.pt` (RL / PPO) en `packing_mode=online`.
 
 Demostración disponible en `01_arquitectura_y_servicios.ipynb`.
 

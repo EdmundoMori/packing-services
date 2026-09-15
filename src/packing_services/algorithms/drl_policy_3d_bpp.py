@@ -4,9 +4,9 @@ Misma geometría, máscara y presupuesto p/s que ``online_3d_bpp_heuristic``.
 La diferencia es la política: puntúa candidatas legales con un checkpoint
 ``packing-services-online-policy``.
 
-El execute API rellena ``parameters.model_path`` con el MLP de producción
-(p=1, s=1) si el cliente no envía ruta. ``run()`` directo sigue exigiendo
-``model_path``; sin ruta no hay fallback silencioso al greedy.
+El execute API y ``run()`` rellenan ``parameters.model_path`` con el PPO
+de producción (p=1, s=1) si el cliente no envía ruta. Sin checkpoint
+válido no hay fallback silencioso al greedy.
 No modifica algoritmos offline. No llama a un solver offline en inferencia.
 """
 
@@ -37,9 +37,10 @@ METADATA = AlgorithmMetadata(
     algorithm_family=AlgorithmFamily.MACHINE_LEARNING,
     status=AlgorithmStatus.IMPLEMENTED,
     description=(
-        "Default de producción: mlp_v1_p1s1.pt (p=1, s=1). Cinta: "
-        "mlp_v1_p3s2.pt (p=3, s=2). Linear: linear_v1.json. Política "
-        "aprendida sobre el bucle online (candidatas legales EP + validador). "
+        "Default de producción: mlp_v1_p1s1_ppo.pt (RL / PPO, p=1, s=1). "
+        "Empate estadístico con el heurístico online; no es un packer mejor. "
+        "Cinta: mlp_v1_p3s2.pt (p=3, s=2). Linear: linear_v1.json. "
+        "Política sobre el bucle online (candidatas legales EP + validador). "
         "El placeholder examples/online_policy_linear_v1.json es solo smoke."
     ),
     deterministic=True,
@@ -64,13 +65,21 @@ METADATA = AlgorithmMetadata(
     parameters={
         "model_path": (
             "Ruta al checkpoint (JSON linear o torch mlp_v1). "
-            "Default de API: mlp_v1_p1s1.pt. Vacío no ejecuta."
+            "Default de API: mlp_v1_p1s1_ppo.pt (RL / PPO). Vacío no ejecuta."
+        ),
+        "policy": (
+            "Única política aprendida expuesta: rl (PPO). "
+            "imitation ya no se ofrece (corte en online_policy_ml/versions/v1)."
         ),
         "sort_strategy": "Siempre input_order (orden de llegada).",
         "lookahead_p": "Ítems próximos visibles (entero ≥ 1, default 1)",
         "select_s": "Buffer de selección (entero ≥ 1, default 1)",
         "selection": "Generador de candidatas: best_fit | blb (default best_fit)",
         "min_support_ratio": "Soporte mínimo si basic_stability (float, default 0.6)",
+        "consolidate": (
+            "Disciplina first-fit multi-pallet. Default: true si hay más de un "
+            "contenedor. false restaura el reparto libre (defecto de Fase 1)."
+        ),
     },
     metrics=DEFAULT_METRICS,
     limitations=[
@@ -91,16 +100,26 @@ class DRLPolicy3DBPP(PackingAlgorithm):
         from ..online.budget import InformationBudget
         from ..online.learned.policy import LearnedPlacementPolicy
         from ..online.loop import run_online_loop
-        from ..online.params import resolve_selection, support_threshold
+        from ..online.params import (
+            maybe_wrap_consolidating,
+            resolve_selection,
+            support_threshold,
+        )
 
-        params = problem.algorithm.parameters
+        from ..online.learned.production import apply_policy_preset
+
+        params = apply_policy_preset(dict(problem.algorithm.parameters))
         model_path = params.get("model_path") or params.get("weights_path")
         if not model_path:
             raise InvalidInputError(
                 "drl_policy_3d_bpp requiere parameters.model_path "
                 "(checkpoint packing-services-online-policy)."
             )
-        policy = LearnedPlacementPolicy.from_path(model_path)
+        policy = maybe_wrap_consolidating(
+            LearnedPlacementPolicy.from_path(model_path),
+            problem,
+            params,
+        )
         budget = InformationBudget.from_parameters(params)
         selection = resolve_selection(params)
         min_support = support_threshold(params, problem.constraints.basic_stability)

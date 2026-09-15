@@ -111,6 +111,71 @@ class GreedyBestFitPolicy:
         return best_opt
 
 
+def restrict_to_open_bin(
+    options: Sequence[StepOption],
+    session: ExtremePointOnlineSession,
+) -> list[StepOption]:
+    """Disciplina first-fit: agotar los contenedores abiertos antes de abrir otro.
+
+    Devuelve solo las opciones del contenedor abierto de índice más bajo que
+    todavía admita algo. Si ninguno de los abiertos admite nada, deja las del
+    contenedor disponible más bajo, que es el que toca abrir.
+    """
+
+    by_bin: dict[int, list[StepOption]] = {}
+    for option in options:
+        by_bin.setdefault(option.candidate.bin_index, []).append(option)
+    if not by_bin:
+        return []
+
+    opened = {index for index, state in enumerate(session.states) if state.placed}
+    for index in sorted(by_bin):
+        if index in opened:
+            return by_bin[index]
+    return by_bin[min(by_bin)]
+
+
+class ConsolidatingPolicy:
+    """Impone disciplina de contenedor sobre otra política, sin modificarla.
+
+    El encoder v1 ya expone lo necesario para decidir esto: la ocupación del
+    contenedor de cada candidata (``used_height_n``, ``loaded_weight_n``) y el
+    total colocado en la sesión (``n_packed_n``). Lo que nunca ocurrió en
+    entrenamiento es el caso. Todas las instancias P2O tenían un solo
+    contenedor, así que un bin vacío coincidía siempre con el inicio del
+    episodio; el modelo aprendió a leer "pallet vacío" como "coloca libremente"
+    y con dos pallets disponibles reparte la carga en lugar de consolidar.
+
+    Esta envolvente no toca el modelo, el encoder ni el checkpoint: retira de
+    la mesa las candidatas del siguiente contenedor mientras el actual admita
+    algo. La política interna sigue eligiendo la pose.
+    """
+
+    def __init__(self, inner: PlacementPolicy) -> None:
+        self.inner = inner
+
+    def decide(
+        self,
+        options: Sequence[StepOption],
+        *,
+        preview: Sequence[Item],
+        remaining_count: int,
+        session: ExtremePointOnlineSession,
+        constraints: ConstraintFlags,
+        mask,
+    ) -> StepOption | None:
+        if not options:
+            return None
+        return self.inner.decide(
+            restrict_to_open_bin(options, session),
+            preview=preview,
+            remaining_count=remaining_count,
+            session=session,
+            constraints=constraints,
+            mask=mask,
+        )
+
+
 def _preview_fit_count(
     session: ExtremePointOnlineSession,
     candidate: PlacementCandidate,

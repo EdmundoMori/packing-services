@@ -34,7 +34,6 @@ VAL_ORDERS = REPO / "online_policy_ml" / "data" / "val" / "bed_bpp_orders.json"
 PROD_MLP = REPO / DEFAULT_MODEL_PATH
 PROD_CINTA = REPO / CINTA_MODEL_PATH
 PROD_LINEAR = REPO / LINEAR_MODEL_PATH
-NON_HOLDOUT_ORDER_ID = "00101137"
 
 
 def _tiny_problem(parameters: dict) -> PackingProblem:
@@ -57,12 +56,12 @@ def test_shipped_linear_checkpoint_matches_encoder():
     assert doc["feature_dim"] == FEATURE_DIM
 
 
-def test_missing_model_path_raises():
-    try:
-        DRLPolicy3DBPP().run(_tiny_problem({}))
-        raise AssertionError("debía exigir model_path")
-    except InvalidInputError as exc:
-        assert "model_path" in str(exc)
+def test_empty_params_use_production_ppo():
+    if not PROD_MLP.is_file():
+        pytest.skip("falta el checkpoint PPO de producción")
+    solution = DRLPolicy3DBPP().run(_tiny_problem({}))
+    assert solution.validation_report.is_valid
+    assert solution.metrics.items_packed >= 1
 
 
 def test_unknown_path_raises():
@@ -172,6 +171,7 @@ def test_catalog_marks_drl_implemented():
     assert detail["is_executable"] is True
     assert "model_path" in detail["parameters"]
     assert detail["default_parameters"]["model_path"] == DEFAULT_MODEL_PATH
+    assert detail["default_parameters"]["policy"] == "rl"
     example = client.get(
         "/api/v1/algorithms/drl_policy_3d_bpp/input-example",
         params={"problem_type": "PALLETIZATION"},
@@ -267,12 +267,16 @@ def test_production_mlp_non_holdout_val_order():
     if not VAL_ORDERS.is_file():
         pytest.skip(f"falta split val {VAL_ORDERS}")
     orders = json.loads(VAL_ORDERS.read_text(encoding="utf-8"))
-    assert NON_HOLDOUT_ORDER_ID in orders
-    assert NON_HOLDOUT_ORDER_ID not in PRODUCT_HOLDOUT_ORDER_IDS
+    order_id = next(
+        (oid for oid in orders if oid not in PRODUCT_HOLDOUT_ORDER_IDS),
+        None,
+    )
+    if order_id is None:
+        pytest.skip("el split val no tiene pedidos fuera del holdout")
     payload = {
         "input_format": "bed_bpp",
-        "order_id": NON_HOLDOUT_ORDER_ID,
-        "orders": {NON_HOLDOUT_ORDER_ID: orders[NON_HOLDOUT_ORDER_ID]},
+        "order_id": order_id,
+        "orders": {order_id: orders[order_id]},
         "problem_type": "PALLETIZATION",
         "packing_mode": "online",
         "parameters": default_learned_parameters(),
@@ -284,7 +288,7 @@ def test_production_mlp_non_holdout_val_order():
     assert data["solution"]["metrics"]["items_packed"] >= 1
     converted = convert_order_to_pack_input(
         payload["orders"],
-        NON_HOLDOUT_ORDER_ID,
+        order_id,
         problem_type=ProblemType.PALLETIZATION,
         packing_mode="online",
     )

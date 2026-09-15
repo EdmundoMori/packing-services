@@ -1,0 +1,80 @@
+{
+  "marco": "Zhao ICLR 2022, bin cerrado 1200×800×2000 mm",
+  "shared": [
+    "00100408"
+  ],
+  "comparabilidad": {
+    "00100408": {
+      "filas": [
+        {
+          "columna": "tarea / pedido / bin",
+          "nuestro": "O3DBP-1-1, 00100408, 1200×800×2000 mm",
+          "pct": "O3DBP, 00100408, europalé (Kagerer corrió PCT aquí)",
+          "comparable": true,
+          "decide": false
+        },
+        {
+          "columna": "feasible (contención Zhao)",
+          "nuestro": true,
+          "pct": false,
+          "comparable": true,
+          "decide": true,
+          "nota": "en Zhao una caja fuera del bin no es solución Table 1"
+        },
+        {
+          "columna": "Uti. Zhao (V_dentro / V_bin)",
+          "nuestro": 0.646376,
+          "pct": null,
+          "comparable": false,
+          "decide": false,
+          "nota": "PCT sin Uti. en bin cerrado (plan LFS o hn>2 m)"
+        },
+        {
+          "columna": "Num. Zhao (ítems dentro)",
+          "nuestro": 26,
+          "pct": null,
+          "comparable": false,
+          "decide": false
+        },
+        {
+          "columna": "Uti. si se ignora contención",
+          "nuestro": 0.646376,
+          "pct": 0.646235,
+          "comparable": true,
+          "decide": false,
+          "nota": "mismo volumen de 26 ítems ≈ empate; no es Zhao"
+        },
+        {
+          "columna": "ηutil Kagerer",
+          "nuestro": 0.656219,
+          "pct": 0.614,
+          "comparable": true,
+          "decide": false,
+          "nota": "ortoedro A×hn; no es Uti. del paper"
+        },
+        {
+          "columna": "hn (m)",
+          "nuestro": 1.97,
+          "pct": 2.105,
+          "comparable": true,
+          "decide": false
+        }
+      ],
+      "columna_decisoria": "feasible",
+      "uti_head_to_head": false,
+      "alcance": "un pedido; no ranking BED-BPP; no tablas ICLR 10×10×10"
+    }
+  },
+  "veredictos": {
+    "00100408": {
+      "lado": "supera",
+      "detalle": "nuestra solución es factible en el bin 1200×800×2000 mm; la de PCT publicada no (hn > 2 m). En el protocolo Zhao una colocación fuera del bin no es solución.",
+      "frase": "En el pedido homologado, O3DBP p=1 s=1, bin 1200×800×2000 mm (Zhao ICLR 2022: Uti./Num., contención), `mlp_v1_p1s1_ppo.pt` supera PCT. nuestra solución es factible en el bin 1200×800×2000 mm; la de PCT publicada no (hn > 2 m). En el protocolo Zhao una colocación fuera del bin no es solución. No es ranking sobre BED-BPP ni Σalgo."
+    }
+  },
+  "lado": "supera",
+  "columna_decisoria": "feasible",
+  "uti_head_to_head": false,
+  "veredicto": "En el pedido homologado, O3DBP p=1 s=1, bin 1200×800×2000 mm (Zhao ICLR 2022: Uti./Num., contención), `mlp_v1_p1s1_ppo.pt` supera PCT. nuestra solución es factible en el bin 1200×800×2000 mm; la de PCT publicada no (hn > 2 m). En el protocolo Zhao una colocación fuera del bin no es solución. No es ranking sobre BED-BPP ni Σalgo.",
+  "alcance": "un pedido; no ranking BED-BPP; no Σalgo; no Table 1 10×10×10"
+}

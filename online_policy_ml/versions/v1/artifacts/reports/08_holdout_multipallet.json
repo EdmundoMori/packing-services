@@ -1,0 +1,1219 @@
+{
+  "summary": {
+    "benchmark_group": "HOLDOUT_OFFLINE_VS_ONLINE_MULTI",
+    "orders": [
+      "00100001",
+      "00100002",
+      "00100003",
+      "00100004",
+      "00100408"
+    ],
+    "orders_total": 5,
+    "containers_available": 2,
+    "ranking_explanation": "Ranking por pedido con varios contenedores idénticos disponibles: (1) soluciones válidas; (2) menor items_unpacked; (3) menor containers_used; (4) mayor volume_utilization; (5) menor tiempo. Los ítems fuera van antes que el número de pallets porque un pedido que no sale completo no se despacha; si fuera al revés, dejar carga en el muelle parecería mejor que abrir el segundo pallet. El cubo va después porque se divide entre los contenedores efectivamente usados y ya penaliza por sí solo abrir uno de más.",
+    "engines": [
+      {
+        "engine": "offline:PALLETIZATION/layer_based_palletization",
+        "packing_mode": "offline",
+        "orders": 5,
+        "orders_valid": 5,
+        "orders_error": 0,
+        "wins": 1,
+        "items_packed": 200,
+        "items_unpacked": 0,
+        "containers_used": 9,
+        "mean_volume_utilization": 0.4371854,
+        "mean_execution_time_seconds": 0.0440982,
+        "mean_load_height_mm": 1966.0,
+        "mean_envelope_utilization": 0.5257888000000001
+      },
+      {
+        "engine": "offline:3D_BPP/extreme_points_3d",
+        "packing_mode": "offline",
+        "orders": 5,
+        "orders_valid": 5,
+        "orders_error": 0,
+        "wins": 4,
+        "items_packed": 200,
+        "items_unpacked": 0,
+        "containers_used": 10,
+        "mean_volume_utilization": 0.3725478,
+        "mean_execution_time_seconds": 0.12333839999999999,
+        "mean_load_height_mm": 1170.0,
+        "mean_envelope_utilization": 0.6700684000000001
+      },
+      {
+        "engine": "offline:3D_BPP/best_fit_decreasing_3d",
+        "packing_mode": "offline",
+        "orders": 5,
+        "orders_valid": 5,
+        "orders_error": 0,
+        "wins": 0,
+        "items_packed": 200,
+        "items_unpacked": 0,
+        "containers_used": 10,
+        "mean_volume_utilization": 0.3725478,
+        "mean_execution_time_seconds": 0.3563362,
+        "mean_load_height_mm": 1934.0,
+        "mean_envelope_utilization": 0.39219539999999997
+      },
+      {
+        "engine": "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p1s1",
+        "packing_mode": "online",
+        "orders": 5,
+        "orders_valid": 5,
+        "orders_error": 0,
+        "wins": 0,
+        "items_packed": 200,
+        "items_unpacked": 0,
+        "containers_used": 10,
+        "mean_volume_utilization": 0.3725478,
+        "mean_execution_time_seconds": 2.8935003999999998,
+        "mean_load_height_mm": 1978.0,
+        "mean_envelope_utilization": 0.3781762
+      },
+      {
+        "engine": "online:PALLETIZATION/online_3d_bpp_heuristic#p1s1",
+        "packing_mode": "online",
+        "orders": 5,
+        "orders_valid": 5,
+        "orders_error": 0,
+        "wins": 0,
+        "items_packed": 200,
+        "items_unpacked": 0,
+        "containers_used": 10,
+        "mean_volume_utilization": 0.3725478,
+        "mean_execution_time_seconds": 3.0081763999999995,
+        "mean_load_height_mm": 1988.0,
+        "mean_envelope_utilization": 0.376133
+      },
+      {
+        "engine": "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p3s2",
+        "packing_mode": "online",
+        "orders": 5,
+        "orders_valid": 5,
+        "orders_error": 0,
+        "wins": 0,
+        "items_packed": 200,
+        "items_unpacked": 0,
+        "containers_used": 10,
+        "mean_volume_utilization": 0.3725478,
+        "mean_execution_time_seconds": 5.8097384,
+        "mean_load_height_mm": 1981.0,
+        "mean_envelope_utilization": 0.3791198
+      }
+    ]
+  },
+  "orders": [
+    {
+      "details": {
+        "benchmark_group": "HOLDOUT_OFFLINE_VS_ONLINE_MULTI",
+        "order_id": "00100001",
+        "is_product_holdout": true,
+        "n_items": 44,
+        "target": "rollcontainer",
+        "units": "mm_kg",
+        "containers_available": 2,
+        "container_id": "ROLLCONTAINER-1",
+        "container_size": [
+          800.0,
+          700.0,
+          2000.0
+        ],
+        "expected_target_size": [
+          800.0,
+          700.0,
+          2000.0
+        ],
+        "engines_total": 6,
+        "engines_valid": 6,
+        "engines_error": 0,
+        "best_engine": "offline:3D_BPP/extreme_points_3d"
+      },
+      "ranking": [
+        "offline:3D_BPP/extreme_points_3d",
+        "offline:PALLETIZATION/layer_based_palletization",
+        "offline:3D_BPP/best_fit_decreasing_3d",
+        "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p1s1",
+        "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p3s2",
+        "online:PALLETIZATION/online_3d_bpp_heuristic#p1s1"
+      ],
+      "results": [
+        {
+          "engine": "offline:3D_BPP/extreme_points_3d",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "offline",
+            "problem_type": "3D_BPP",
+            "algorithm": "extreme_points_3d",
+            "variant": null,
+            "lookahead_p": null,
+            "select_s": null,
+            "model_path": null,
+            "sort_strategy": "volume_desc",
+            "load_height_mm": 1350.0,
+            "envelope_utilization": 0.606253
+          },
+          "metrics": {
+            "volume_utilization": 0.392549,
+            "waste_volume": 0.607451,
+            "containers_used": 2,
+            "items_packed": 44,
+            "items_unpacked": 0,
+            "packed_volume": 879309000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 879309000.0,
+            "loaded_weight": 332.47,
+            "execution_time_seconds": 0.134676,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "offline:3D_BPP/best_fit_decreasing_3d",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "offline",
+            "problem_type": "3D_BPP",
+            "algorithm": "best_fit_decreasing_3d",
+            "variant": null,
+            "lookahead_p": null,
+            "select_s": null,
+            "model_path": null,
+            "sort_strategy": "volume_desc",
+            "load_height_mm": 1950.0,
+            "envelope_utilization": 0.402614
+          },
+          "metrics": {
+            "volume_utilization": 0.392549,
+            "waste_volume": 0.607451,
+            "containers_used": 2,
+            "items_packed": 44,
+            "items_unpacked": 0,
+            "packed_volume": 879309000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 879309000.0,
+            "loaded_weight": 332.47,
+            "execution_time_seconds": 0.322912,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "offline:PALLETIZATION/layer_based_palletization",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "offline",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "layer_based_palletization",
+            "variant": null,
+            "lookahead_p": null,
+            "select_s": null,
+            "model_path": null,
+            "sort_strategy": "volume_desc",
+            "load_height_mm": 2000.0,
+            "envelope_utilization": 0.506514
+          },
+          "metrics": {
+            "volume_utilization": 0.392549,
+            "waste_volume": 0.607451,
+            "containers_used": 2,
+            "items_packed": 44,
+            "items_unpacked": 0,
+            "packed_volume": 879309000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 879309000.0,
+            "loaded_weight": 332.47,
+            "execution_time_seconds": 0.036308,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "online:PALLETIZATION/online_3d_bpp_heuristic#p1s1",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "online",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "online_3d_bpp_heuristic",
+            "variant": "p1s1",
+            "lookahead_p": 1,
+            "select_s": 1,
+            "model_path": null,
+            "sort_strategy": "input_order",
+            "load_height_mm": 2000.0,
+            "envelope_utilization": 0.392549
+          },
+          "metrics": {
+            "volume_utilization": 0.392549,
+            "waste_volume": 0.607451,
+            "containers_used": 2,
+            "items_packed": 44,
+            "items_unpacked": 0,
+            "packed_volume": 879309000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 879309000.0,
+            "loaded_weight": 332.47,
+            "execution_time_seconds": 2.427152,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p1s1",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "online",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "drl_policy_3d_bpp",
+            "variant": "mlp_p1s1",
+            "lookahead_p": 1,
+            "select_s": 1,
+            "model_path": "online_policy_ml/artifacts/models/mlp_v1_p1s1.pt",
+            "sort_strategy": "input_order",
+            "load_height_mm": 1960.0,
+            "envelope_utilization": 0.401584
+          },
+          "metrics": {
+            "volume_utilization": 0.392549,
+            "waste_volume": 0.607451,
+            "containers_used": 2,
+            "items_packed": 44,
+            "items_unpacked": 0,
+            "packed_volume": 879309000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 879309000.0,
+            "loaded_weight": 332.47,
+            "execution_time_seconds": 2.54516,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p3s2",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "online",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "drl_policy_3d_bpp",
+            "variant": "mlp_p3s2",
+            "lookahead_p": 3,
+            "select_s": 2,
+            "model_path": "online_policy_ml/artifacts/models/mlp_v1_p3s2.pt",
+            "sort_strategy": "input_order",
+            "load_height_mm": 2000.0,
+            "envelope_utilization": 0.393532
+          },
+          "metrics": {
+            "volume_utilization": 0.392549,
+            "waste_volume": 0.607451,
+            "containers_used": 2,
+            "items_packed": 44,
+            "items_unpacked": 0,
+            "packed_volume": 879309000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 879309000.0,
+            "loaded_weight": 332.47,
+            "execution_time_seconds": 5.276691,
+            "constraint_violations": 0
+          }
+        }
+      ]
+    },
+    {
+      "details": {
+        "benchmark_group": "HOLDOUT_OFFLINE_VS_ONLINE_MULTI",
+        "order_id": "00100002",
+        "is_product_holdout": true,
+        "n_items": 38,
+        "target": "rollcontainer",
+        "units": "mm_kg",
+        "containers_available": 2,
+        "container_id": "ROLLCONTAINER-1",
+        "container_size": [
+          800.0,
+          700.0,
+          2000.0
+        ],
+        "expected_target_size": [
+          800.0,
+          700.0,
+          2000.0
+        ],
+        "engines_total": 6,
+        "engines_valid": 6,
+        "engines_error": 0,
+        "best_engine": "offline:3D_BPP/extreme_points_3d"
+      },
+      "ranking": [
+        "offline:3D_BPP/extreme_points_3d",
+        "offline:PALLETIZATION/layer_based_palletization",
+        "offline:3D_BPP/best_fit_decreasing_3d",
+        "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p1s1",
+        "online:PALLETIZATION/online_3d_bpp_heuristic#p1s1",
+        "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p3s2"
+      ],
+      "results": [
+        {
+          "engine": "offline:3D_BPP/extreme_points_3d",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "offline",
+            "problem_type": "3D_BPP",
+            "algorithm": "extreme_points_3d",
+            "variant": null,
+            "lookahead_p": null,
+            "select_s": null,
+            "model_path": null,
+            "sort_strategy": "volume_desc",
+            "load_height_mm": 1140.0,
+            "envelope_utilization": 0.753487
+          },
+          "metrics": {
+            "volume_utilization": 0.401232,
+            "waste_volume": 0.598768,
+            "containers_used": 2,
+            "items_packed": 38,
+            "items_unpacked": 0,
+            "packed_volume": 898759000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 898759000.0,
+            "loaded_weight": 307.65,
+            "execution_time_seconds": 0.082193,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "offline:3D_BPP/best_fit_decreasing_3d",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "offline",
+            "problem_type": "3D_BPP",
+            "algorithm": "best_fit_decreasing_3d",
+            "variant": null,
+            "lookahead_p": null,
+            "select_s": null,
+            "model_path": null,
+            "sort_strategy": "volume_desc",
+            "load_height_mm": 2000.0,
+            "envelope_utilization": 0.407342
+          },
+          "metrics": {
+            "volume_utilization": 0.401232,
+            "waste_volume": 0.598768,
+            "containers_used": 2,
+            "items_packed": 38,
+            "items_unpacked": 0,
+            "packed_volume": 898759000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 898759000.0,
+            "loaded_weight": 307.65,
+            "execution_time_seconds": 0.219681,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "offline:PALLETIZATION/layer_based_palletization",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "offline",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "layer_based_palletization",
+            "variant": null,
+            "lookahead_p": null,
+            "select_s": null,
+            "model_path": null,
+            "sort_strategy": "volume_desc",
+            "load_height_mm": 1910.0,
+            "envelope_utilization": 0.431432
+          },
+          "metrics": {
+            "volume_utilization": 0.401232,
+            "waste_volume": 0.598768,
+            "containers_used": 2,
+            "items_packed": 38,
+            "items_unpacked": 0,
+            "packed_volume": 898759000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 898759000.0,
+            "loaded_weight": 307.65,
+            "execution_time_seconds": 0.032362,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "online:PALLETIZATION/online_3d_bpp_heuristic#p1s1",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "online",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "online_3d_bpp_heuristic",
+            "variant": "p1s1",
+            "lookahead_p": 1,
+            "select_s": 1,
+            "model_path": null,
+            "sort_strategy": "input_order",
+            "load_height_mm": 2000.0,
+            "envelope_utilization": 0.403248
+          },
+          "metrics": {
+            "volume_utilization": 0.401232,
+            "waste_volume": 0.598768,
+            "containers_used": 2,
+            "items_packed": 38,
+            "items_unpacked": 0,
+            "packed_volume": 898759000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 898759000.0,
+            "loaded_weight": 307.65,
+            "execution_time_seconds": 1.544669,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p1s1",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "online",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "drl_policy_3d_bpp",
+            "variant": "mlp_p1s1",
+            "lookahead_p": 1,
+            "select_s": 1,
+            "model_path": "online_policy_ml/artifacts/models/mlp_v1_p1s1.pt",
+            "sort_strategy": "input_order",
+            "load_height_mm": 2000.0,
+            "envelope_utilization": 0.403248
+          },
+          "metrics": {
+            "volume_utilization": 0.401232,
+            "waste_volume": 0.598768,
+            "containers_used": 2,
+            "items_packed": 38,
+            "items_unpacked": 0,
+            "packed_volume": 898759000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 898759000.0,
+            "loaded_weight": 307.65,
+            "execution_time_seconds": 1.511826,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p3s2",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "online",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "drl_policy_3d_bpp",
+            "variant": "mlp_p3s2",
+            "lookahead_p": 3,
+            "select_s": 2,
+            "model_path": "online_policy_ml/artifacts/models/mlp_v1_p3s2.pt",
+            "sort_strategy": "input_order",
+            "load_height_mm": 2000.0,
+            "envelope_utilization": 0.401232
+          },
+          "metrics": {
+            "volume_utilization": 0.401232,
+            "waste_volume": 0.598768,
+            "containers_used": 2,
+            "items_packed": 38,
+            "items_unpacked": 0,
+            "packed_volume": 898759000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 898759000.0,
+            "loaded_weight": 307.65,
+            "execution_time_seconds": 3.787911,
+            "constraint_violations": 0
+          }
+        }
+      ]
+    },
+    {
+      "details": {
+        "benchmark_group": "HOLDOUT_OFFLINE_VS_ONLINE_MULTI",
+        "order_id": "00100003",
+        "is_product_holdout": true,
+        "n_items": 34,
+        "target": "rollcontainer",
+        "units": "mm_kg",
+        "containers_available": 2,
+        "container_id": "ROLLCONTAINER-1",
+        "container_size": [
+          800.0,
+          700.0,
+          2000.0
+        ],
+        "expected_target_size": [
+          800.0,
+          700.0,
+          2000.0
+        ],
+        "engines_total": 6,
+        "engines_valid": 6,
+        "engines_error": 0,
+        "best_engine": "offline:3D_BPP/extreme_points_3d"
+      },
+      "ranking": [
+        "offline:3D_BPP/extreme_points_3d",
+        "offline:PALLETIZATION/layer_based_palletization",
+        "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p1s1",
+        "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p3s2",
+        "online:PALLETIZATION/online_3d_bpp_heuristic#p1s1",
+        "offline:3D_BPP/best_fit_decreasing_3d"
+      ],
+      "results": [
+        {
+          "engine": "offline:3D_BPP/extreme_points_3d",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "offline",
+            "problem_type": "3D_BPP",
+            "algorithm": "extreme_points_3d",
+            "variant": null,
+            "lookahead_p": null,
+            "select_s": null,
+            "model_path": null,
+            "sort_strategy": "volume_desc",
+            "load_height_mm": 1340.0,
+            "envelope_utilization": 0.669734
+          },
+          "metrics": {
+            "volume_utilization": 0.438676,
+            "waste_volume": 0.561324,
+            "containers_used": 2,
+            "items_packed": 34,
+            "items_unpacked": 0,
+            "packed_volume": 982634000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 982634000.0,
+            "loaded_weight": 291.25,
+            "execution_time_seconds": 0.057173,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "offline:3D_BPP/best_fit_decreasing_3d",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "offline",
+            "problem_type": "3D_BPP",
+            "algorithm": "best_fit_decreasing_3d",
+            "variant": null,
+            "lookahead_p": null,
+            "select_s": null,
+            "model_path": null,
+            "sort_strategy": "volume_desc",
+            "load_height_mm": 2000.0,
+            "envelope_utilization": 0.438676
+          },
+          "metrics": {
+            "volume_utilization": 0.438676,
+            "waste_volume": 0.561324,
+            "containers_used": 2,
+            "items_packed": 34,
+            "items_unpacked": 0,
+            "packed_volume": 982634000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 982634000.0,
+            "loaded_weight": 291.25,
+            "execution_time_seconds": 0.149092,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "offline:PALLETIZATION/layer_based_palletization",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "offline",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "layer_based_palletization",
+            "variant": null,
+            "lookahead_p": null,
+            "select_s": null,
+            "model_path": null,
+            "sort_strategy": "volume_desc",
+            "load_height_mm": 1950.0,
+            "envelope_utilization": 0.62668
+          },
+          "metrics": {
+            "volume_utilization": 0.438676,
+            "waste_volume": 0.561324,
+            "containers_used": 2,
+            "items_packed": 34,
+            "items_unpacked": 0,
+            "packed_volume": 982634000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 982634000.0,
+            "loaded_weight": 291.25,
+            "execution_time_seconds": 0.021411,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "online:PALLETIZATION/online_3d_bpp_heuristic#p1s1",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "online",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "online_3d_bpp_heuristic",
+            "variant": "p1s1",
+            "lookahead_p": 1,
+            "select_s": 1,
+            "model_path": null,
+            "sort_strategy": "input_order",
+            "load_height_mm": 1940.0,
+            "envelope_utilization": 0.454586
+          },
+          "metrics": {
+            "volume_utilization": 0.438676,
+            "waste_volume": 0.561324,
+            "containers_used": 2,
+            "items_packed": 34,
+            "items_unpacked": 0,
+            "packed_volume": 982634000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 982634000.0,
+            "loaded_weight": 291.25,
+            "execution_time_seconds": 1.028676,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p1s1",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "online",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "drl_policy_3d_bpp",
+            "variant": "mlp_p1s1",
+            "lookahead_p": 1,
+            "select_s": 1,
+            "model_path": "online_policy_ml/artifacts/models/mlp_v1_p1s1.pt",
+            "sort_strategy": "input_order",
+            "load_height_mm": 1930.0,
+            "envelope_utilization": 0.455767
+          },
+          "metrics": {
+            "volume_utilization": 0.438676,
+            "waste_volume": 0.561324,
+            "containers_used": 2,
+            "items_packed": 34,
+            "items_unpacked": 0,
+            "packed_volume": 982634000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 982634000.0,
+            "loaded_weight": 291.25,
+            "execution_time_seconds": 1.109203,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p3s2",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "online",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "drl_policy_3d_bpp",
+            "variant": "mlp_p3s2",
+            "lookahead_p": 3,
+            "select_s": 2,
+            "model_path": "online_policy_ml/artifacts/models/mlp_v1_p3s2.pt",
+            "sort_strategy": "input_order",
+            "load_height_mm": 1950.0,
+            "envelope_utilization": 0.455767
+          },
+          "metrics": {
+            "volume_utilization": 0.438676,
+            "waste_volume": 0.561324,
+            "containers_used": 2,
+            "items_packed": 34,
+            "items_unpacked": 0,
+            "packed_volume": 982634000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 982634000.0,
+            "loaded_weight": 291.25,
+            "execution_time_seconds": 1.786432,
+            "constraint_violations": 0
+          }
+        }
+      ]
+    },
+    {
+      "details": {
+        "benchmark_group": "HOLDOUT_OFFLINE_VS_ONLINE_MULTI",
+        "order_id": "00100004",
+        "is_product_holdout": true,
+        "n_items": 58,
+        "target": "euro-pallet",
+        "units": "mm_kg",
+        "containers_available": 2,
+        "container_id": "EURO_PALLET-1",
+        "container_size": [
+          1200.0,
+          800.0,
+          2000.0
+        ],
+        "expected_target_size": [
+          1200.0,
+          800.0,
+          2000.0
+        ],
+        "engines_total": 6,
+        "engines_valid": 6,
+        "engines_error": 0,
+        "best_engine": "offline:3D_BPP/extreme_points_3d"
+      },
+      "ranking": [
+        "offline:3D_BPP/extreme_points_3d",
+        "offline:PALLETIZATION/layer_based_palletization",
+        "offline:3D_BPP/best_fit_decreasing_3d",
+        "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p1s1",
+        "online:PALLETIZATION/online_3d_bpp_heuristic#p1s1",
+        "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p3s2"
+      ],
+      "results": [
+        {
+          "engine": "offline:3D_BPP/extreme_points_3d",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "offline",
+            "problem_type": "3D_BPP",
+            "algorithm": "extreme_points_3d",
+            "variant": null,
+            "lookahead_p": null,
+            "select_s": null,
+            "model_path": null,
+            "sort_strategy": "volume_desc",
+            "load_height_mm": 930.0,
+            "envelope_utilization": 0.671244
+          },
+          "metrics": {
+            "volume_utilization": 0.307094,
+            "waste_volume": 0.692906,
+            "containers_used": 2,
+            "items_packed": 58,
+            "items_unpacked": 0,
+            "packed_volume": 1179242000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 1179242000.0,
+            "loaded_weight": 359.53,
+            "execution_time_seconds": 0.302602,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "offline:3D_BPP/best_fit_decreasing_3d",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "offline",
+            "problem_type": "3D_BPP",
+            "algorithm": "best_fit_decreasing_3d",
+            "variant": null,
+            "lookahead_p": null,
+            "select_s": null,
+            "model_path": null,
+            "sort_strategy": "volume_desc",
+            "load_height_mm": 2000.0,
+            "envelope_utilization": 0.307094
+          },
+          "metrics": {
+            "volume_utilization": 0.307094,
+            "waste_volume": 0.692906,
+            "containers_used": 2,
+            "items_packed": 58,
+            "items_unpacked": 0,
+            "packed_volume": 1179242000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 1179242000.0,
+            "loaded_weight": 359.53,
+            "execution_time_seconds": 0.972757,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "offline:PALLETIZATION/layer_based_palletization",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "offline",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "layer_based_palletization",
+            "variant": null,
+            "lookahead_p": null,
+            "select_s": null,
+            "model_path": null,
+            "sort_strategy": "volume_desc",
+            "load_height_mm": 2000.0,
+            "envelope_utilization": 0.408099
+          },
+          "metrics": {
+            "volume_utilization": 0.307094,
+            "waste_volume": 0.692906,
+            "containers_used": 2,
+            "items_packed": 58,
+            "items_unpacked": 0,
+            "packed_volume": 1179242000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 1179242000.0,
+            "loaded_weight": 359.53,
+            "execution_time_seconds": 0.115905,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "online:PALLETIZATION/online_3d_bpp_heuristic#p1s1",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "online",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "online_3d_bpp_heuristic",
+            "variant": "p1s1",
+            "lookahead_p": 1,
+            "select_s": 1,
+            "model_path": null,
+            "sort_strategy": "input_order",
+            "load_height_mm": 2000.0,
+            "envelope_utilization": 0.307094
+          },
+          "metrics": {
+            "volume_utilization": 0.307094,
+            "waste_volume": 0.692906,
+            "containers_used": 2,
+            "items_packed": 58,
+            "items_unpacked": 0,
+            "packed_volume": 1179242000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 1179242000.0,
+            "loaded_weight": 359.53,
+            "execution_time_seconds": 9.325833,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p1s1",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "online",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "drl_policy_3d_bpp",
+            "variant": "mlp_p1s1",
+            "lookahead_p": 1,
+            "select_s": 1,
+            "model_path": "online_policy_ml/artifacts/models/mlp_v1_p1s1.pt",
+            "sort_strategy": "input_order",
+            "load_height_mm": 2000.0,
+            "envelope_utilization": 0.307094
+          },
+          "metrics": {
+            "volume_utilization": 0.307094,
+            "waste_volume": 0.692906,
+            "containers_used": 2,
+            "items_packed": 58,
+            "items_unpacked": 0,
+            "packed_volume": 1179242000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 1179242000.0,
+            "loaded_weight": 359.53,
+            "execution_time_seconds": 8.503577,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p3s2",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "online",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "drl_policy_3d_bpp",
+            "variant": "mlp_p3s2",
+            "lookahead_p": 3,
+            "select_s": 2,
+            "model_path": "online_policy_ml/artifacts/models/mlp_v1_p3s2.pt",
+            "sort_strategy": "input_order",
+            "load_height_mm": 2000.0,
+            "envelope_utilization": 0.307094
+          },
+          "metrics": {
+            "volume_utilization": 0.307094,
+            "waste_volume": 0.692906,
+            "containers_used": 2,
+            "items_packed": 58,
+            "items_unpacked": 0,
+            "packed_volume": 1179242000.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 1179242000.0,
+            "loaded_weight": 359.53,
+            "execution_time_seconds": 16.590505,
+            "constraint_violations": 0
+          }
+        }
+      ]
+    },
+    {
+      "details": {
+        "benchmark_group": "HOLDOUT_OFFLINE_VS_ONLINE_MULTI",
+        "order_id": "00100408",
+        "is_product_holdout": true,
+        "n_items": 26,
+        "target": "euro-pallet",
+        "units": "mm_kg",
+        "containers_available": 2,
+        "container_id": "EURO_PALLET-1",
+        "container_size": [
+          1200.0,
+          800.0,
+          2000.0
+        ],
+        "expected_target_size": [
+          1200.0,
+          800.0,
+          2000.0
+        ],
+        "engines_total": 6,
+        "engines_valid": 6,
+        "engines_error": 0,
+        "best_engine": "offline:PALLETIZATION/layer_based_palletization"
+      },
+      "ranking": [
+        "offline:PALLETIZATION/layer_based_palletization",
+        "offline:3D_BPP/extreme_points_3d",
+        "offline:3D_BPP/best_fit_decreasing_3d",
+        "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p3s2",
+        "online:PALLETIZATION/online_3d_bpp_heuristic#p1s1",
+        "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p1s1"
+      ],
+      "results": [
+        {
+          "engine": "offline:3D_BPP/extreme_points_3d",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "offline",
+            "problem_type": "3D_BPP",
+            "algorithm": "extreme_points_3d",
+            "variant": null,
+            "lookahead_p": null,
+            "select_s": null,
+            "model_path": null,
+            "sort_strategy": "volume_desc",
+            "load_height_mm": 1090.0,
+            "envelope_utilization": 0.649624
+          },
+          "metrics": {
+            "volume_utilization": 0.323188,
+            "waste_volume": 0.676812,
+            "containers_used": 2,
+            "items_packed": 26,
+            "items_unpacked": 0,
+            "packed_volume": 1241041750.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 1241041750.0,
+            "loaded_weight": 183.175,
+            "execution_time_seconds": 0.040048,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "offline:3D_BPP/best_fit_decreasing_3d",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "offline",
+            "problem_type": "3D_BPP",
+            "algorithm": "best_fit_decreasing_3d",
+            "variant": null,
+            "lookahead_p": null,
+            "select_s": null,
+            "model_path": null,
+            "sort_strategy": "volume_desc",
+            "load_height_mm": 1720.0,
+            "envelope_utilization": 0.405251
+          },
+          "metrics": {
+            "volume_utilization": 0.323188,
+            "waste_volume": 0.676812,
+            "containers_used": 2,
+            "items_packed": 26,
+            "items_unpacked": 0,
+            "packed_volume": 1241041750.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 1241041750.0,
+            "loaded_weight": 183.175,
+            "execution_time_seconds": 0.117239,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "offline:PALLETIZATION/layer_based_palletization",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "offline",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "layer_based_palletization",
+            "variant": null,
+            "lookahead_p": null,
+            "select_s": null,
+            "model_path": null,
+            "sort_strategy": "volume_desc",
+            "load_height_mm": 1970.0,
+            "envelope_utilization": 0.656219
+          },
+          "metrics": {
+            "volume_utilization": 0.646376,
+            "waste_volume": 0.353624,
+            "containers_used": 1,
+            "items_packed": 26,
+            "items_unpacked": 0,
+            "packed_volume": 1241041750.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 1241041750.0,
+            "loaded_weight": 183.175,
+            "execution_time_seconds": 0.014505,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "online:PALLETIZATION/online_3d_bpp_heuristic#p1s1",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "online",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "online_3d_bpp_heuristic",
+            "variant": "p1s1",
+            "lookahead_p": 1,
+            "select_s": 1,
+            "model_path": null,
+            "sort_strategy": "input_order",
+            "load_height_mm": 2000.0,
+            "envelope_utilization": 0.323188
+          },
+          "metrics": {
+            "volume_utilization": 0.323188,
+            "waste_volume": 0.676812,
+            "containers_used": 2,
+            "items_packed": 26,
+            "items_unpacked": 0,
+            "packed_volume": 1241041750.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 1241041750.0,
+            "loaded_weight": 183.175,
+            "execution_time_seconds": 0.714552,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p1s1",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "online",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "drl_policy_3d_bpp",
+            "variant": "mlp_p1s1",
+            "lookahead_p": 1,
+            "select_s": 1,
+            "model_path": "online_policy_ml/artifacts/models/mlp_v1_p1s1.pt",
+            "sort_strategy": "input_order",
+            "load_height_mm": 2000.0,
+            "envelope_utilization": 0.323188
+          },
+          "metrics": {
+            "volume_utilization": 0.323188,
+            "waste_volume": 0.676812,
+            "containers_used": 2,
+            "items_packed": 26,
+            "items_unpacked": 0,
+            "packed_volume": 1241041750.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 1241041750.0,
+            "loaded_weight": 183.175,
+            "execution_time_seconds": 0.797736,
+            "constraint_violations": 0
+          }
+        },
+        {
+          "engine": "online:PALLETIZATION/drl_policy_3d_bpp#mlp_p3s2",
+          "status": "success",
+          "is_valid": true,
+          "error": null,
+          "details": {
+            "packing_mode": "online",
+            "problem_type": "PALLETIZATION",
+            "algorithm": "drl_policy_3d_bpp",
+            "variant": "mlp_p3s2",
+            "lookahead_p": 3,
+            "select_s": 2,
+            "model_path": "online_policy_ml/artifacts/models/mlp_v1_p3s2.pt",
+            "sort_strategy": "input_order",
+            "load_height_mm": 1955.0,
+            "envelope_utilization": 0.337974
+          },
+          "metrics": {
+            "volume_utilization": 0.323188,
+            "waste_volume": 0.676812,
+            "containers_used": 2,
+            "items_packed": 26,
+            "items_unpacked": 0,
+            "packed_volume": 1241041750.0,
+            "unpacked_volume": 0.0,
+            "total_item_volume": 1241041750.0,
+            "loaded_weight": 183.175,
+            "execution_time_seconds": 1.607153,
+            "constraint_violations": 0
+          }
+        }
+      ]
+    }
+  ]
+}

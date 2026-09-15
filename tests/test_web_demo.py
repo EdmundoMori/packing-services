@@ -70,7 +70,7 @@ def test_gateway_serves_static_pages():
     assert 'id="bedbpp-order-select"' in execute.text
     assert 'id="params-form"' in execute.text
     assert 'id="algorithm-input-json"' in execute.text
-    assert "mlp_v1_p1s1.pt" in execute.text
+    assert "mlp_v1_p1s1_ppo.pt" in execute.text
     assert "Entrada del algoritmo" in execute.text
     assert 'id="input-json"' not in execute.text
     bench = client.get("/benchmark.html")
@@ -104,4 +104,5 @@ def test_gateway_proxies_algorithms(api_server, monkeypatch):
     detail = client.get("/api/v1/algorithms/drl_policy_3d_bpp")
     assert detail.status_code == 200
     body = detail.json()
-    assert body["default_parameters"]["model_path"].endswith("mlp_v1_p1s1.pt")
+    assert body["default_parameters"]["model_path"].endswith("mlp_v1_p1s1_ppo.pt")
+    assert body["default_parameters"]["policy"] == "rl"

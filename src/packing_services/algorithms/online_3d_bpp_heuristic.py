@@ -68,6 +68,10 @@ METADATA = AlgorithmMetadata(
         "select_s": "Ítems al frente de la cola entre los que se puede elegir (entero ≥ 1, default 1)",
         "selection": "Criterio de encaje: best_fit | blb (default best_fit)",
         "min_support_ratio": "Soporte mínimo si basic_stability (float, default 0.6)",
+        "consolidate": (
+            "Disciplina first-fit multi-pallet. Default: true si hay más de un "
+            "contenedor. false restaura el reparto libre (defecto de Fase 1)."
+        ),
     },
     metrics=DEFAULT_METRICS,
     limitations=[
@@ -87,12 +91,18 @@ class Online3DBPPHeuristic(PackingAlgorithm):
     def run(self, problem: PackingProblem) -> PackingSolution:
         from ..online.budget import InformationBudget
         from ..online.loop import run_online_loop
-        from ..online.params import resolve_selection, support_threshold
+        from ..online.params import (
+            maybe_wrap_consolidating,
+            resolve_selection,
+            support_threshold,
+        )
+        from ..online.policies import GreedyBestFitPolicy
 
         params = problem.algorithm.parameters
         budget = InformationBudget.from_parameters(params)
         selection = resolve_selection(params)
         min_support = support_threshold(params, problem.constraints.basic_stability)
+        policy = maybe_wrap_consolidating(GreedyBestFitPolicy(), problem, params)
 
         with measure_time() as elapsed:
             packed, unpacked = run_online_loop(
@@ -100,6 +110,7 @@ class Online3DBPPHeuristic(PackingAlgorithm):
                 budget=budget,
                 selection=selection,
                 min_support_ratio=min_support,
+                policy=policy,
             )
 
         return build_solution(

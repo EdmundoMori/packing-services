@@ -1,0 +1,311 @@
+{
+  "schema": 1,
+  "flows": {
+    "ml_fase1_datos_splits": {
+      "title": "Fase 1: datos BED-BPP y splits",
+      "runs": [
+        {
+          "version": 1,
+          "status": "validado",
+          "sealed_at": "2026-09-11T12:52:04+00:00",
+          "source": "online_policy_ml/notebooks/01_datos_y_splits.ipynb",
+          "source_fingerprint": "b5b1c2249d656f1e",
+          "git_commit": "8f433106dc7344c71b89869aedf2b58c24521967",
+          "git_dirty": true,
+          "headline": {
+            "pista": "entrenamiento"
+          },
+          "notes": "Holdout de producto apartado y nunca usado para entrenar.",
+          "path": "artifacts/runs/ml_fase1_datos_splits/v1"
+        }
+      ]
+    },
+    "ml_fase2_etiquetas_p2o": {
+      "title": "Fase 2: transiciones P2O etiquetadas por el maestro",
+      "runs": [
+        {
+          "version": 1,
+          "status": "validado",
+          "sealed_at": "2026-09-11T12:52:07+00:00",
+          "source": "online_policy_ml/notebooks/02_etiquetas_p2o.ipynb",
+          "source_fingerprint": "81147706a0630964",
+          "git_commit": "8f433106dc7344c71b89869aedf2b58c24521967",
+          "git_dirty": true,
+          "headline": {
+            "pista": "entrenamiento",
+            "teacher": "privileged_volume_ep"
+          },
+          "notes": "Los .pkl de transiciones no se versionan en git (~280 MB).",
+          "path": "artifacts/runs/ml_fase2_etiquetas_p2o/v1"
+        }
+      ]
+    },
+    "ml_fase3_entrenar_exportar": {
+      "title": "Fase 3: entrenar, validar y exportar checkpoints",
+      "runs": [
+        {
+          "version": 1,
+          "status": "validado",
+          "sealed_at": "2026-09-11T12:52:07+00:00",
+          "source": "online_policy_ml/notebooks/03_entrenar_validar_exportar.ipynb",
+          "source_fingerprint": "2f474ca518e5b3a6",
+          "git_commit": "8f433106dc7344c71b89869aedf2b58c24521967",
+          "git_dirty": true,
+          "headline": {
+            "pista": "entrenamiento",
+            "val_util_mlp_p1s1": 0.6838,
+            "val_util_heuristico": 0.677,
+            "test_util_mlp_p1s1": 0.6793,
+            "test_util_heuristico": 0.6716
+          },
+          "notes": "Origen de los mlp_v1 de produccion. En val corta el MLP superaba al greedy.",
+          "path": "artifacts/runs/ml_fase3_entrenar_exportar/v1"
+        }
+      ]
+    },
+    "ml_fase4_escalar": {
+      "title": "Fase 4: escalar a pedidos medianos y revalidar",
+      "runs": [
+        {
+          "version": 1,
+          "status": "validado",
+          "sealed_at": "2026-09-11T12:52:07+00:00",
+          "source": "online_policy_ml/notebooks/04_escalar_revalidar.ipynb",
+          "source_fingerprint": "293f4d60d8a724c0",
+          "git_commit": "8f433106dc7344c71b89869aedf2b58c24521967",
+          "git_dirty": true,
+          "headline": {
+            "pista": "entrenamiento",
+            "promoted": false,
+            "util_fase4": 0.6726,
+            "util_fase3": 0.6753
+          },
+          "notes": "No se promociono: el candidato de fase 4 no supero al de fase 3.",
+          "path": "artifacts/runs/ml_fase4_escalar/v1"
+        }
+      ]
+    },
+    "ml_fase5_receding_p3s2": {
+      "title": "Fase 5: maestro receding-horizon para el regimen de cinta",
+      "runs": [
+        {
+          "version": 1,
+          "status": "validado",
+          "sealed_at": "2026-09-11T12:52:07+00:00",
+          "source": "online_policy_ml/notebooks/05_receding_horizon_p3s2.ipynb",
+          "source_fingerprint": "d3a9ae14edbe9491",
+          "git_commit": "8f433106dc7344c71b89869aedf2b58c24521967",
+          "git_dirty": true,
+          "headline": {
+            "pista": "entrenamiento",
+            "promoted": true,
+            "regime": "p3s2"
+          },
+          "notes": "Unico cambio: mlp_v1_p3s2.pt. El p1s1 no se movio.",
+          "path": "artifacts/runs/ml_fase5_receding_p3s2/v1"
+        }
+      ]
+    },
+    "eval_fase0_holdout": {
+      "title": "Fase 0: comparacion de producto offline vs online en el holdout",
+      "runs": [
+        {
+          "version": 1,
+          "status": "validado",
+          "sealed_at": "2026-09-11T12:52:07+00:00",
+          "source": "scripts/run_holdout_offline_vs_online.py",
+          "source_fingerprint": "8d0afde7817ead4f",
+          "git_commit": "8f433106dc7344c71b89869aedf2b58c24521967",
+          "git_dirty": true,
+          "headline": {
+            "pista": "evaluacion",
+            "pedidos": 5,
+            "corridas": 30,
+            "mejor_offline": "best_fit_decreasing_3d",
+            "util_offline_bfd": 0.709,
+            "util_online_heuristico_p1s1": 0.668,
+            "util_online_mlp_p1s1": 0.662,
+            "violaciones": 0
+          },
+          "notes": "Primera evidencia a nivel de producto. La ventaja del MLP en val/test no se transfiere: el greedy queda por encima en el holdout.",
+          "path": "artifacts/runs/eval_fase0_holdout/v1"
+        }
+      ]
+    },
+    "eval_fase0_baseline_p3s2": {
+      "title": "Fase 0 complemento: baseline greedy al mismo presupuesto p=3 s=2",
+      "runs": [
+        {
+          "version": 1,
+          "status": "validado",
+          "sealed_at": "2026-09-11T12:52:07+00:00",
+          "source": "scripts/run_holdout_offline_vs_online.py",
+          "source_fingerprint": "8d0afde7817ead4f",
+          "git_commit": "8f433106dc7344c71b89869aedf2b58c24521967",
+          "git_dirty": true,
+          "headline": {
+            "pista": "evaluacion",
+            "pedidos": 2,
+            "greedy_p3s2_util_00100003": 0.715,
+            "mlp_p3s2_util_00100003": 0.687,
+            "greedy_p3s2_seg_00100003": 31.2,
+            "mlp_p3s2_seg_00100003": 0.68
+          },
+          "notes": "Solo dos pedidos: el lookahead del greedy p3s2 tarda mas de 22 min en uno de 44 items. A igual presupuesto el greedy gana en cubo y pierde en tiempo por un factor de ~45.",
+          "path": "artifacts/runs/eval_fase0_baseline_p3s2/v1"
+        }
+      ]
+    },
+    "eval_fase1_multipallet": {
+      "title": "Fase 1: multi-pallet con dos contenedores identicos",
+      "runs": [
+        {
+          "version": 1,
+          "status": "validado",
+          "sealed_at": "2026-09-11T12:52:07+00:00",
+          "source": "scripts/run_holdout_offline_vs_online.py",
+          "source_fingerprint": "8d0afde7817ead4f",
+          "git_commit": "8f433106dc7344c71b89869aedf2b58c24521967",
+          "git_dirty": true,
+          "headline": {
+            "pista": "evaluacion",
+            "pedidos": 5,
+            "items_empacados": 200,
+            "items_fuera": 0,
+            "pallets_layer_based": 9,
+            "pallets_resto": 10,
+            "util_media_mejor": 0.437,
+            "violaciones": 0
+          },
+          "notes": "Defecto encontrado: con dos pallets los motores basados en puntos extremos reparten la carga casi por mitad en lugar de consolidar. 00100408 cabe en un pallet y lo parten 14/12.",
+          "path": "artifacts/runs/eval_fase1_multipallet/v1"
+        }
+      ]
+    },
+    "eval_pasoA_consolidacion": {
+      "title": "Paso A: disciplina de consolidacion en multi-pallet (sin reentrenar)",
+      "runs": [
+        {
+          "version": 1,
+          "status": "validado",
+          "sealed_at": "2026-09-13T20:35:50+00:00",
+          "source": "online_policy_ml/notebooks/10_consolidacion_multipallet.ipynb",
+          "source_fingerprint": "9cd92ce811527a4c",
+          "git_commit": "8f433106dc7344c71b89869aedf2b58c24521967",
+          "git_dirty": true,
+          "headline": {
+            "pallets_libre": 30,
+            "pallets_consolida": 24,
+            "pallets_ahorrados": 6,
+            "util_libre": 0.372548,
+            "util_consolida": 0.498604,
+            "items_fuera_consolida": 0,
+            "paso_a_exitoso": true
+          },
+          "notes": "Envolvente ConsolidatingPolicy sobre greedy y RL de produccion. Diseno emparejado libre vs consolida. Sin reentrenamiento. PPO cerrado.",
+          "path": "artifacts/runs/eval_pasoA_consolidacion/v1"
+        },
+        {
+          "version": 2,
+          "status": "validado",
+          "sealed_at": "2026-09-13T21:05:27+00:00",
+          "source": "online_policy_ml/notebooks/10_consolidacion_multipallet.ipynb",
+          "source_fingerprint": "4c2040fc340a5338",
+          "git_commit": "8f433106dc7344c71b89869aedf2b58c24521967",
+          "git_dirty": true,
+          "headline": {
+            "pallets_libre": 30,
+            "pallets_consolida": 24,
+            "pallets_ahorrados": 6,
+            "util_libre": 0.372548,
+            "util_consolida": 0.498604,
+            "items_fuera_consolida": 0,
+            "paso_a_exitoso": true
+          },
+          "notes": "Envolvente ConsolidatingPolicy sobre greedy y RL de produccion. Diseno emparejado libre vs consolida. Sin reentrenamiento. PPO cerrado.",
+          "path": "artifacts/runs/eval_pasoA_consolidacion/v2"
+        },
+        {
+          "version": 3,
+          "status": "validado",
+          "sealed_at": "2026-09-15T10:46:08+00:00",
+          "source": "online_policy_ml/notebooks/07_multipallet_firstfit.ipynb",
+          "source_fingerprint": "07869c24e784b11f",
+          "git_commit": "8f433106dc7344c71b89869aedf2b58c24521967",
+          "git_dirty": true,
+          "headline": {
+            "pallets_libre": 30,
+            "pallets_consolida": 24,
+            "pallets_ahorrados": 6,
+            "util_libre": 0.372548,
+            "util_consolida": 0.498604,
+            "items_fuera_consolida": 0,
+            "paso_a_exitoso": true
+          },
+          "notes": "Envolvente ConsolidatingPolicy sobre greedy y RL de produccion. Diseno emparejado libre vs consolida. Sin reentrenamiento. PPO cerrado.",
+          "path": "artifacts/runs/eval_pasoA_consolidacion/v3"
+        }
+      ]
+    },
+    "eval_pasoC_producto": {
+      "title": "Paso C: execute de producto vs Paso A consolidado",
+      "runs": [
+        {
+          "version": 1,
+          "status": "validado",
+          "sealed_at": "2026-09-13T20:53:24+00:00",
+          "source": "online_policy_ml/notebooks/11_producto_multipallet.ipynb",
+          "source_fingerprint": "7a59c3448e2d5527",
+          "git_commit": "8f433106dc7344c71b89869aedf2b58c24521967",
+          "git_dirty": true,
+          "headline": {
+            "pallets": 24,
+            "util": 0.498604,
+            "items_fuera": 0,
+            "reproduce_paso_A": true,
+            "paso_c_exitoso": true
+          },
+          "notes": "Registry.execute con consolidate default. Sin reentrenamiento.",
+          "path": "artifacts/runs/eval_pasoC_producto/v1"
+        },
+        {
+          "version": 2,
+          "status": "validado",
+          "sealed_at": "2026-09-13T21:09:17+00:00",
+          "source": "online_policy_ml/notebooks/11_producto_multipallet.ipynb",
+          "source_fingerprint": "03ab0aa900dc5365",
+          "git_commit": "8f433106dc7344c71b89869aedf2b58c24521967",
+          "git_dirty": true,
+          "headline": {
+            "pallets": 24,
+            "util": 0.498604,
+            "items_fuera": 0,
+            "reproduce_paso_A": true,
+            "paso_c_exitoso": true
+          },
+          "notes": "Registry.execute con consolidate default. Sin reentrenamiento.",
+          "path": "artifacts/runs/eval_pasoC_producto/v2"
+        },
+        {
+          "version": 3,
+          "status": "validado",
+          "sealed_at": "2026-09-15T10:54:27+00:00",
+          "source": "online_policy_ml/notebooks/08_producto_execute.ipynb",
+          "source_fingerprint": "0bf958aa6220a7c8",
+          "git_commit": "8f433106dc7344c71b89869aedf2b58c24521967",
+          "git_dirty": true,
+          "headline": {
+            "pallets": 24,
+            "util": 0.498604,
+            "items_fuera": 0,
+            "reproduce_paso_A": true,
+            "paso_c_exitoso": true
+          },
+          "notes": "Registry.execute con consolidate default. Sin reentrenamiento.",
+          "path": "artifacts/runs/eval_pasoC_producto/v3"
+        }
+      ]
+    }
+  },
+  "updated_at": "2026-09-15T10:54:27+00:00"
+}

@@ -164,6 +164,7 @@ def test_metadata_lists_algorithm_execute_endpoint():
     endpoints = response.json()["endpoints"]
     assert endpoints["algorithm_execute"] == "POST /api/v1/algorithms/{algorithm_name}/execute"
     assert endpoints["online_learned_execute"] == "POST /api/v1/online/learned/execute"
+    assert endpoints["online_rl_execute"] == "POST /api/v1/online/rl/execute"
     assert endpoints["algorithm_input_example"] == (
         "GET /api/v1/algorithms/{algorithm_name}/input-example"
     )

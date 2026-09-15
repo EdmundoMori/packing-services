@@ -1,0 +1,82 @@
+{
+  "fase": 2,
+  "teacher": "receding_horizon_ep",
+  "seed": 42,
+  "feature_version": 1,
+  "feature_dim": 35,
+  "table": [
+    {
+      "split": "train",
+      "p": 1,
+      "s": 1,
+      "n_orders": 24,
+      "n_transitions": 1006,
+      "label_rate": 1.0,
+      "n_options_mean": 39.99,
+      "packed_mean": 41.92,
+      "seconds": 656.03
+    },
+    {
+      "split": "val",
+      "p": 1,
+      "s": 1,
+      "n_orders": 8,
+      "n_transitions": 356,
+      "label_rate": 1.0,
+      "n_options_mean": 29.14,
+      "packed_mean": 44.5,
+      "seconds": 186.41
+    },
+    {
+      "split": "test",
+      "p": 1,
+      "s": 1,
+      "n_orders": 8,
+      "n_transitions": 429,
+      "label_rate": 1.0,
+      "n_options_mean": 48.29,
+      "packed_mean": 53.62,
+      "seconds": 890.3
+    },
+    {
+      "split": "train",
+      "p": 3,
+      "s": 2,
+      "n_orders": 24,
+      "n_transitions": 1011,
+      "label_rate": 1.0,
+      "n_options_mean": 81.36,
+      "packed_mean": 42.12,
+      "seconds": 1196.63
+    },
+    {
+      "split": "val",
+      "p": 3,
+      "s": 2,
+      "n_orders": 8,
+      "n_transitions": 360,
+      "label_rate": 1.0,
+      "n_options_mean": 72.09,
+      "packed_mean": 45.0,
+      "seconds": 377.05
+    },
+    {
+      "split": "test",
+      "p": 3,
+      "s": 2,
+      "n_orders": 8,
+      "n_transitions": 422,
+      "label_rate": 1.0,
+      "n_options_mean": 133.38,
+      "packed_mean": 52.75,
+      "seconds": 2008.81
+    }
+  ],
+  "holdout_producto_excluded": [
+    "00100001",
+    "00100002",
+    "00100003",
+    "00100004",
+    "00100408"
+  ]
+}

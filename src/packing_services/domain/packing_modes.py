@@ -11,7 +11,8 @@ from .enums import AlgorithmFamily, PackingMode, ProblemType, SortStrategy
 
 DEFAULT_PACKING_MODE = PackingMode.OFFLINE
 
-# Solo modo online: heurístico y política aprendida (model_path de producción por default).
+# Solo modo online: heurístico y política aprendida (PPO de producción;
+# empate estadístico con el heurístico, no un packer mejor).
 ONLINE_ONLY_NAMES = frozenset(
     {
         "online_3d_bpp_heuristic",
@@ -155,9 +156,9 @@ def packing_modes_catalog() -> dict:
                     "Se respeta sequence/arrival_index; no se reordena. "
                     "Heurístico dedicado online_3d_bpp_heuristic (presupuesto "
                     "lookahead_p / select_s). Política aprendida de producción: "
-                    "drl_policy_3d_bpp o POST /online/learned/execute "
-                    "(default model_path=mlp_v1_p1s1.pt, p=1 s=1; cinta "
-                    "mlp_v1_p3s2.pt p=3 s=2). Constructivos también admiten "
+                    "drl_policy_3d_bpp, POST /online/learned/execute o "
+                    "POST /online/rl/execute (RL / PPO, mlp_v1_p1s1_ppo.pt). "
+                    "Cinta: mlp_v1_p3s2.pt p=3 s=2. Constructivos también admiten "
                     "este modo con input_order."
                 ),
                 "status": "ready",

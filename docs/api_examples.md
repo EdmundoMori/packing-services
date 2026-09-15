@@ -194,18 +194,19 @@ Identificadores disponibles: `00100001`, `00100002`, `00100003`, `00100004`, `00
 
 | Endpoint | Comportamiento |
 |----------|----------------|
-| `POST /api/v1/algorithms/drl_policy_3d_bpp/execute` | Ejecución canónica |
-| `POST /api/v1/online/learned/execute` | Fuerza `packing_mode=online` |
+| `POST /api/v1/algorithms/drl_policy_3d_bpp/execute` | Ejecución canónica (`policy=rl`, PPO) |
+| `POST /api/v1/online/learned/execute` | Fuerza `packing_mode=online` (RL / PPO) |
+| `POST /api/v1/online/rl/execute` | Alias de la misma política RL |
 
 ### Configuración de Modelos
 
-Si no se especifica `model_path`, se utiliza el MLP de producción con configuración **p=1 s=1**.
+Si no se especifica `model_path`, se utiliza el PPO de producción (`mlp_v1_p1s1_ppo.pt`, **p=1 s=1**). Es un empate estadístico con el heurístico online; no es un packer mejor. Cierre: [`online_policy_ml/docs/informe_cierre_rl_online.md`](../online_policy_ml/docs/informe_cierre_rl_online.md). p=3,s=2 es el régimen de cinta, no un algoritmo distinto.
 
-> **Importante:** Un `model_path` vacío (`""`) no realiza fallback al greedy. Los archivos `.pt` requieren `pip install 'packing-services[torch]'`.
+> **Importante:** Un `model_path` vacío (`""`) no realiza fallback al greedy. Los archivos `.pt` requieren `pip install 'packing-services[torch]'`. Con dos o más contenedores el execute aplica disciplina first-fit (`consolidate`, default activo). `consolidate=false` restaura el reparto libre.
 
 | Régimen | `model_path` | `lookahead_p` | `select_s` |
 |---------|--------------|---------------|------------|
-| O3DBP (default) | `online_policy_ml/artifacts/models/mlp_v1_p1s1.pt` | 1 | 1 |
+| RL / PPO (default) | `online_policy_ml/artifacts/models/mlp_v1_p1s1_ppo.pt` | 1 | 1 |
 | Cinta (receding-horizon) | `online_policy_ml/artifacts/models/mlp_v1_p3s2.pt` | 3 | 2 |
 | Linear (sin PyTorch) | `online_policy_ml/artifacts/models/linear_v1.json` | 1 | 1 |
 | Placeholder de prueba | `examples/online_policy_linear_v1.json` | 1 | 1 |
@@ -228,7 +229,8 @@ curl -X POST http://localhost:8000/api/v1/algorithms/drl_policy_3d_bpp/execute \
   "problem_type": "PALLETIZATION",
   "packing_mode": "online",
   "parameters": {
-    "model_path": "online_policy_ml/artifacts/models/mlp_v1_p1s1.pt",
+    "policy": "rl",
+    "model_path": "online_policy_ml/artifacts/models/mlp_v1_p1s1_ppo.pt",
     "lookahead_p": 1,
     "select_s": 1
   }

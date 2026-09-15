@@ -2,132 +2,132 @@
   "fase": 3,
   "seed": 42,
   "hidden_size": 64,
-  "teacher": "privileged_volume_ep",
+  "teacher": "receding_horizon_ep",
   "linear": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/linear_v1.json",
   "mlp": {
     "p1s1": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/mlp_v1_p1s1.pt",
     "p3s2": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/mlp_v1_p3s2.pt"
   },
   "bc_linear_acc": {
-    "train": 0.9968152866242038,
-    "val": 0.9908256880733946
+    "train": 0.3489065606361829,
+    "val": 0.36235955056179775
   },
   "mlp_train": {
     "p1s1": {
       "lr": 0.001,
-      "best_epoch": 5,
-      "best_val_acc": 0.9908256880733946,
-      "best_val_loss": 0.4240339524326248,
-      "select_best": "val_acc"
+      "best_epoch": 3,
+      "best_val_acc": 0.3342696629213483,
+      "best_val_loss": 2.6315798889897932,
+      "select_best": "val_loss"
     },
     "p3s2": {
       "lr": 0.0003,
       "best_epoch": 4,
-      "best_val_acc": 0.9285714285714286,
-      "best_val_loss": 9.779347055260681,
-      "select_best": "val_acc"
+      "best_val_acc": 0.32222222222222224,
+      "best_val_loss": 3.0343505737805065,
+      "select_best": "val_loss"
     }
   },
   "val_p1s1": [
     {
       "model": "heuristic",
       "n": 8,
-      "util": 0.677,
-      "packed": 13.625,
+      "util": 0.6826,
+      "packed": 44.75,
       "valid": 1.0,
-      "sec": 0.0461
+      "sec": 2.0673
     },
     {
       "model": "linear_v1.json",
       "n": 8,
-      "util": 0.6838,
-      "packed": 13.75,
+      "util": 0.6671,
+      "packed": 44.125,
       "valid": 1.0,
-      "sec": 0.0559
+      "sec": 2.0839
     },
     {
       "model": "mlp_v1_p1s1.pt",
       "n": 8,
-      "util": 0.6838,
-      "packed": 13.75,
+      "util": 0.6865,
+      "packed": 44.625,
       "valid": 1.0,
-      "sec": 0.0672
+      "sec": 2.0879
     },
     {
       "model": "online_policy_linear_v1.json",
       "n": 8,
-      "util": 0.677,
-      "packed": 13.625,
+      "util": 0.6873,
+      "packed": 45.0,
       "valid": 1.0,
-      "sec": 0.0542
+      "sec": 2.0645
     }
   ],
   "test_p1s1": [
     {
       "model": "heuristic",
       "n": 8,
-      "util": 0.6716,
-      "packed": 13.0,
+      "util": 0.6714,
+      "packed": 54.125,
       "valid": 1.0,
-      "sec": 0.0474
+      "sec": 5.6574
     },
     {
       "model": "linear_v1.json",
       "n": 8,
-      "util": 0.6793,
-      "packed": 13.125,
+      "util": 0.6663,
+      "packed": 53.875,
       "valid": 1.0,
-      "sec": 0.0471
+      "sec": 6.2608
     },
     {
       "model": "mlp_v1_p1s1.pt",
       "n": 8,
-      "util": 0.6793,
-      "packed": 13.125,
+      "util": 0.6679,
+      "packed": 54.125,
       "valid": 1.0,
-      "sec": 0.0583
+      "sec": 4.4683
     },
     {
       "model": "online_policy_linear_v1.json",
       "n": 8,
-      "util": 0.6716,
-      "packed": 13.0,
+      "util": 0.666,
+      "packed": 53.5,
       "valid": 1.0,
-      "sec": 0.049
+      "sec": 5.6682
     }
   ],
   "val_p3s2_subset": [
     {
       "model": "heuristic",
       "n": 3,
-      "util": 0.6924,
-      "packed": 13.6667,
+      "util": 0.6951,
+      "packed": 39.6667,
       "valid": 1.0,
-      "sec": 3.186
+      "sec": 222.1779
     },
     {
       "model": "linear_v1.json",
       "n": 3,
-      "util": 0.6738,
-      "packed": 13.3333,
+      "util": 0.7057,
+      "packed": 40.3333,
       "valid": 1.0,
-      "sec": 0.1276
+      "sec": 2.8783
     },
     {
       "model": "mlp_v1_p3s2.pt",
       "n": 3,
-      "util": 0.6738,
-      "packed": 13.3333,
+      "util": 0.701,
+      "packed": 39.3333,
       "valid": 1.0,
-      "sec": 0.1369
+      "sec": 2.2299
     },
     {
       "model": "online_policy_linear_v1.json",
       "n": 3,
-      "util": 0.6738,
-      "packed": 13.3333,
+      "util": 0.6917,
+      "packed": 39.6667,
       "valid": 1.0,
-      "sec": 0.1231
+      "sec": 2.7573
     }
   ],
   "smoke_holdout": [
@@ -135,13 +135,14 @@
       "order_id": "00100408",
       "engine": "learned",
       "model_path": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/linear_v1.json",
+      "teacher": null,
       "lookahead_p": 1,
       "select_s": 1,
       "volume_utilization": 0.646376,
       "items_packed": 26,
       "items_unpacked": 0,
       "is_valid": true,
-      "seconds": 0.671899796998332,
+      "seconds": 0.55069143000037,
       "n_items": 26,
       "checkpoint": "linear"
     },
@@ -149,13 +150,14 @@
       "order_id": "00100408",
       "engine": "learned",
       "model_path": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/mlp_v1_p1s1.pt",
+      "teacher": null,
       "lookahead_p": 1,
       "select_s": 1,
       "volume_utilization": 0.646376,
       "items_packed": 26,
       "items_unpacked": 0,
       "is_valid": true,
-      "seconds": 0.6873030669994478,
+      "seconds": 0.4710735669996211,
       "n_items": 26,
       "checkpoint": "mlp_p1s1"
     },
@@ -163,13 +165,14 @@
       "order_id": "00100408",
       "engine": "learned",
       "model_path": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/mlp_v1_p3s2.pt",
-      "lookahead_p": 1,
-      "select_s": 1,
+      "teacher": null,
+      "lookahead_p": 3,
+      "select_s": 2,
       "volume_utilization": 0.646376,
       "items_packed": 26,
       "items_unpacked": 0,
       "is_valid": true,
-      "seconds": 0.5078933999975561,
+      "seconds": 1.0098908439995284,
       "n_items": 26,
       "checkpoint": "mlp_p3s2"
     }

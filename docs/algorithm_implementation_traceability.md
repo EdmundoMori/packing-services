@@ -162,7 +162,7 @@ Al añadir un algoritmo con nombre `{name}`, verificar cada uno de los siguiente
 - Campo `packing_modes` en metadata
 - Bucle de ejecución en `src/packing_services/online/`
 - Parámetro `parameters.model_path` para política aprendida
-- Defaults de producción: `mlp_v1_p1s1.pt` con p=1 s=1
+- Defaults de producción: `mlp_v1_p1s1_ppo.pt` (RL / PPO) con p=1 s=1
 
 > **Importante:** No modificar el encoder v1 ni el bucle para el execute de producto.
 

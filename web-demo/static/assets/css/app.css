@@ -153,6 +153,17 @@ button.secondary, .btn.secondary {
 }
 button:disabled { opacity: 0.55; cursor: not-allowed; }
 
+.learned-policy-panel { margin-top: 0.75rem; }
+.policy-toggle { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.policy-toggle button {
+  background: #e2e8f0;
+  color: var(--text);
+}
+.policy-toggle button.active {
+  background: var(--accent);
+  color: #fff;
+}
+
 .table-wrap { overflow-x: auto; }
 table {
   width: 100%;

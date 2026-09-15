@@ -57,7 +57,8 @@ def test_catalog_filter_packing_mode():
     assert drl["packing_modes"] == ["online"]
     assert drl["is_executable"] is True
     assert drl["status"] == "implemented"
-    assert drl["default_parameters"]["model_path"].endswith("mlp_v1_p1s1.pt")
+    assert drl["default_parameters"]["model_path"].endswith("mlp_v1_p1s1_ppo.pt")
+    assert drl["default_parameters"]["policy"] == "rl"
     assert drl["default_parameters"]["lookahead_p"] == 1
     assert drl["default_parameters"]["select_s"] == 1
 

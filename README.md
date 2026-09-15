@@ -55,7 +55,7 @@ El desarrollo del proyecto sigue un orden de prioridades establecido. Los primer
    Sistema de perfiles por tipo de problema y experimento conjunto con validador y métricas comunes. Trabajo pendiente: ampliar el conjunto de pedidos BED-BPP de prueba.
 
 3. **Empaquetado online** — *Completado.*
-   Implementación de heurístico dedicado y política aprendida de producción mediante aprendizaje por refuerzo. Trabajo opcional: evaluación extendida, orquestador de políticas, RL puro.
+   Implementación de heurístico dedicado y política aprendida de producción (RL / PPO). La imitación P2O quedó en `online_policy_ml/versions/v1`. Cierre: [`online_policy_ml/docs/informe_cierre_rl_online.md`](online_policy_ml/docs/informe_cierre_rl_online.md).
 
 4. **Mejoras de calidad** — *Siguiente paso.*
    Restricciones avanzadas (centro de gravedad, fragilidad), activación de adaptadores externos, métodos exactos de referencia.
@@ -196,7 +196,8 @@ PYTHONPATH=src python scripts/run_joint_single_container.py
 | GET | `/api/v1/algorithms` | Catálogo de algoritmos (filtrable) |
 | GET | `/api/v1/algorithms/{name}` | Metadatos y esquemas de un algoritmo |
 | **POST** | **`/api/v1/algorithms/{name}/execute`** | **Ejecución canónica de algoritmo** |
-| POST | `/api/v1/online/learned/execute` | Ejecución con política aprendida (fuerza modo online) |
+| POST | `/api/v1/online/learned/execute` | Política aprendida RL (PPO); fuerza modo online |
+| POST | `/api/v1/online/rl/execute` | Alias explícito de la misma política RL |
 | POST | `/api/v1/validate` | Validación independiente de soluciones |
 | POST | `/api/v1/benchmark` | Comparación de múltiples motores |
 | GET | `/api/v1/benchmark/profiles` | Perfiles de benchmark disponibles |

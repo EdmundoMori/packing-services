@@ -1,83 +1,44 @@
-# Subproyecto: Entrenamiento de Política Online
+# Política online aprendida
 
-Documento complementario de [`../README.md`](../README.md).
+Subproyecto de entrenamiento e inferencia para `packing_mode=online`.
+El execute de packing-services **solo carga** checkpoints.
 
-## Relación con el Proyecto Principal
+**Fuente de verdad del cierre:** [`docs/informe_cierre_rl_online.md`](docs/informe_cierre_rl_online.md).
 
-El objetivo del proyecto **packing-services** es comparar metodologías de *Cutting and Packing* bajo condiciones homogéneas (misma entrada, mismo validador, mismas métricas), tanto en modo offline como online.
-
-Este directorio contiene el código de **entrenamiento y exportación** de la política aprendida que utiliza el sistema de producción. **No redefine el objetivo** del repositorio principal; simplemente proporciona los artefactos necesarios para el modo online.
-
-## Datos de Entrenamiento
-
-> **Importante:** Los 5 pedidos de `examples/5_bed-bpp.json` constituyen el **holdout de producto** y no se utilizan para entrenamiento.
+`versions/` es archivo de campañas (v1 imitación; v2 recetas PPO no promocionadas). No se ejecuta desde ahí.
 
 ---
 
-## Ejecución de los Notebooks
+## Estado (2026-09-15)
 
-```bash
-cd packing-services
-source .venv/bin/activate
-cd online_policy_ml/notebooks
-jupyter notebook
+- Default de API: `artifacts/models/mlp_v1_p1s1_ppo.pt` (`policy=rl`, p=1 s=1). Pesos = actor BC (`best_epoch=0`).
+- Holdout n=5: **empate** con `online_3d_bpp_heuristic` (Δ −0.0014, IC95 cruza 0).
+- Multi-palé: first-fit `07` 30→24 palés; execute `08` iguala. `consolidate` si hay 2+ contenedores.
+- Vs PCT (Zhao ICLR 2022) en `00100408`, bin cerrado 2000 mm: **supera** por factibilidad (hn 1.97 m vs 2.105 m publicado). No es ranking BED-BPP ni Uti. Table 1.
+
+---
+
+## Invariantes
+
+Encoder v1 (`FEATURE_VERSION=1`, `FEATURE_DIM=35`), loader `mlp_v1`, bucle `run_online_loop`, holdout `00100001`–`00100004` y `00100408` nunca en train, europalé 1200×800×2000 mm, offline y catálogo intocados.
+
+---
+
+## Checkpoints y API
+
+| Uso | Ruta | Régimen |
+|-----|------|---------|
+| Default (RL / PPO) | `online_policy_ml/artifacts/models/mlp_v1_p1s1_ppo.pt` | p=1, s=1 |
+| Cinta | `online_policy_ml/artifacts/models/mlp_v1_p3s2.pt` | p=3, s=2 |
+| Sin PyTorch | `online_policy_ml/artifacts/models/linear_v1.json` | p=1, s=1 |
+| Humo (no producción) | `examples/online_policy_linear_v1.json` | — |
+
+```text
+POST /api/v1/algorithms/drl_policy_3d_bpp/execute
+POST /api/v1/online/learned/execute
+POST /api/v1/online/rl/execute
 ```
 
----
+MLP: `pip install 'packing-services[torch]'`.
 
-## Pipeline de Entrenamiento
-
-El entrenamiento sigue un pipeline de 5 fases, cada una documentada en un notebook:
-
-| Notebook | Fase | Artefactos Generados |
-|----------|------|---------------------|
-| `01_datos_y_splits.ipynb` | Preparación de datos | `data/train\|val\|test/bed_bpp_orders.json` |
-| `02_etiquetas_p2o.ipynb` | Generación de transiciones P2O | `data/*/transitions_pXsY.pkl` |
-| `03_entrenar_validar_exportar.ipynb` | Entrenamiento con pedidos cortos | `artifacts/models/` |
-| `04_escalar_revalidar.ipynb` | Escalado con split completo | `data/scale/` + actualización de `artifacts/models/` si mejora |
-| `05_receding_horizon_p3s2.ipynb` | Entrenamiento receding-horizon | `*_rh.pkl` + `mlp_v1_p3s2.pt` si supera validación |
-
----
-
-## Requisitos de Dependencias
-
-### Para Modelos MLP
-
-```bash
-pip install 'packing-services[torch]'
-# Alternativa:
-pip install torch
-```
-
-### Para Modelos Lineales
-
-Los modelos lineales (`linear_v1.json`) no requieren PyTorch.
-
----
-
-## Modelos de Producción
-
-Los siguientes modelos están disponibles para uso en producción. **No es necesario reentrenar.**
-
-Las rutas son relativas a la raíz del repositorio y pueden utilizarse directamente en el parámetro `parameters.model_path`:
-
-| Uso | Ruta del Modelo | Parámetros |
-|-----|-----------------|------------|
-| O3DBP (predeterminado) | `online_policy_ml/artifacts/models/mlp_v1_p1s1.pt` | p=1, s=1 |
-| Cinta (receding-horizon) | `online_policy_ml/artifacts/models/mlp_v1_p3s2.pt` | p=3, s=2 |
-| Linear (sin PyTorch) | `online_policy_ml/artifacts/models/linear_v1.json` | p=1, s=1 |
-
----
-
-## Endpoints de Producción
-
-Los modelos se invocan mediante los siguientes endpoints:
-
-| Endpoint | Descripción |
-|----------|-------------|
-| `POST /api/v1/algorithms/drl_policy_3d_bpp/execute` | Ejecución canónica |
-| `POST /api/v1/online/learned/execute` | Endpoint dedicado (fuerza `packing_mode=online`) |
-
-### Modelo de Prueba
-
-El archivo `examples/online_policy_linear_v1.json` es un **placeholder para pruebas** (smoke test). No debe utilizarse como modelo de producción.
+Notebooks de la corrida: [`notebooks/README.md`](notebooks/README.md). Índice de docs: [`docs/README.md`](docs/README.md).

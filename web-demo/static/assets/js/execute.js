@@ -4,6 +4,34 @@ let configPayload = {};
 let lastConvertedInput = null;
 let previewSeq = 0;
 
+const LEARNED_PRESETS = {
+  rl: {
+    policy: "rl",
+    model_path: "online_policy_ml/artifacts/models/mlp_v1_p1s1_ppo.pt",
+    lookahead_p: 1,
+    select_s: 1,
+  },
+};
+
+function syncLearnedPolicyPanel() {
+  const panel = $("learned-policy-panel");
+  if (!panel) return;
+  const show =
+    currentPackingMode() === "online" && $("algorithm-select").value === "drl_policy_3d_bpp";
+  panel.hidden = !show;
+}
+
+function applyLearnedPreset(kind) {
+  const preset = LEARNED_PRESETS[kind];
+  if (!preset) return;
+  configPayload.parameters = { ...(configPayload.parameters || {}), ...preset };
+  document.querySelectorAll("[data-learned-preset]").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.learnedPreset === kind);
+  });
+  if (currentDetail) mountConfigForm();
+  refreshAlgorithmInputPreview({ silent: true });
+}
+
 function initResultTabs() {
   document.querySelectorAll(".result-tabs .tab-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -145,6 +173,7 @@ async function onAlgorithmChange() {
     configPayload = {};
     $("algo-meta").innerHTML = "";
     $("params-form").innerHTML = '<p class="muted">Selecciona un algoritmo para cargar su configuración.</p>';
+    syncLearnedPolicyPanel();
     await refreshAlgorithmInputPreview({ silent: true });
     return;
   }
@@ -168,6 +197,10 @@ async function onAlgorithmChange() {
       time_limit_seconds: currentDetail.default_parameters?.time_limit_seconds ?? null,
     };
     mountConfigForm();
+    syncLearnedPolicyPanel();
+    if (name === "drl_policy_3d_bpp" && currentPackingMode() === "online") {
+      applyLearnedPreset("rl");
+    }
     await refreshAlgorithmInputPreview({ silent: true });
   } catch (err) {
     showAlert(alertBox, err.message);
@@ -300,6 +333,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   $("params-form").innerHTML = '<p class="muted">Selecciona un algoritmo para cargar su configuración.</p>';
   $("run-btn").addEventListener("click", runExecute);
   $("algorithm-select").addEventListener("change", onAlgorithmChange);
+  document.querySelectorAll("[data-learned-preset]").forEach((btn) => {
+    btn.addEventListener("click", () => applyLearnedPreset(btn.dataset.learnedPreset));
+  });
   $("bedbpp-order-select").addEventListener("change", () => refreshAlgorithmInputPreview());
   $("refresh-input-btn").addEventListener("click", () => refreshAlgorithmInputPreview());
   $("bedbpp-load-btn").addEventListener("click", async () => {

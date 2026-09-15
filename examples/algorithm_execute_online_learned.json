@@ -21,6 +21,7 @@
     "lookahead_p": 1,
     "select_s": 1,
     "selection": "best_fit",
-    "model_path": "online_policy_ml/artifacts/models/mlp_v1_p1s1.pt"
+    "policy": "rl",
+    "model_path": "online_policy_ml/artifacts/models/mlp_v1_p1s1_ppo.pt"
   }
 }
