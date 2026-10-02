@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "run_id": "3d4c452016015dcf",
+  "status": "complete",
+  "complete": true,
+  "pilot_executed_on_protocol": false,
+  "timeout_seconds": 300,
+  "attempts_per_case": 1,
+  "device": "cpu",
+  "method_order": [
+    "actor",
+    "heuristic"
+  ],
+  "arguments": {
+    "protocol": "/home/edmundo/packing-services/paper/protocols/03_internal_pilot.json",
+    "dataset": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+    "checkpoint": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/mlp_v1_p1s1_ppo.pt",
+    "output_dir": "/home/edmundo/packing-services/paper/results/04_internal_pilot"
+  },
+  "preflight": {
+    "ok": true,
+    "checkpoint_loaded": false,
+    "workers_started": false,
+    "equivalent_configs": true,
+    "amendment": "03A",
+    "n_orders": 20,
+    "files": {
+      "source_dataset": {
+        "path": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+        "role": "dataset fuente",
+        "sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc"
+      },
+      "scale_val_orders": {
+        "path": "/home/edmundo/packing-services/online_policy_ml/data/scale/val/bed_bpp_orders.json",
+        "role": "subconjunto de validación",
+        "sha256": "ab7ca7ee452631a62ec25fcf39bbad1d938aa85176765a22e20fcff94a2e4051"
+      },
+      "scale_val_manifest": {
+        "path": "/home/edmundo/packing-services/online_policy_ml/data/scale/val/order_ids.json",
+        "role": "manifiesto scale.val",
+        "sha256": "42015db73fb3ec9addf006190efd223d5972522ad69480810fc70fd317f72e79"
+      },
+      "checkpoint": {
+        "path": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/mlp_v1_p1s1_ppo.pt",
+        "role": "checkpoint, solo hash de bytes",
+        "sha256": "6139beb5c13c6a3f9c701626a1765cf690234f253c2a9b9e4c03185b0228ec24"
+      }
+    },
+    "provenance": {
+      "git": {
+        "head": "4ed37334c4ca7bd45aa0138bc09c80c3d5989ee2",
+        "branch": "research/paper-online-packing",
+        "dirty": true,
+        "status_short_count": 18,
+        "status_short_sha256": "1e8e34fc2eb13318dc8175b6adc0170c95dea9ac1764d142b313c7f24d675216"
+      },
+      "evaluator_sha256": {
+        "paper/protocols/03_internal_pilot.json": "088a9601c4a9672e77fd776ae889ac35675322e8a3955c7ae3f025cfaf837a65",
+        "paper/protocols/04_evaluator_operational.md": "6c1c2ecf683de2a40abcd3337b02bc44c396c53b3f147dcf811cceb84de03dfa",
+        "paper/tools/run_internal_pilot.py": "3e527fcc951f92f5bc6624ad3f8e18f82bfee53cb8e7840047239116cb153824",
+        "paper/tools/pilot_common.py": "6beda78378a581db81aabce87dd7e8296d0fabc40e424c8ba40329e8b31210a7",
+        "paper/tools/pilot_problems.py": "c347f00ab5b10bcf817954aee4ed9e12bacdaf55e128dba3c5d26f4701494b5e",
+        "paper/tools/pilot_metrics.py": "26275cea5fdcfb2ac09cd9da61bba389b2daf95a50070ef92c1f2529b25a7fad",
+        "paper/tools/pilot_preflight.py": "5ede2f13d487a60ff2669d07d88f3f9e44e7803d594f14237266c4df2c53023d",
+        "paper/tools/pilot_execute.py": "a9784c7d688ae7e853879391467c39414435f1fcb69c05e4fadd655991dcfb2f",
+        "paper/tools/pilot_worker.py": "11d22cf12997b3448e7714e1b788f6452fc3f9c6542ecaa4b7771070fdccdb41"
+      }
+    },
+    "orders": [
+      {
+        "order_id": "00107792",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 41,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105320",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 50,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105445",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 37,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101348",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 40,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105737",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 40,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104464",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 42,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109069",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 40,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107675",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 38,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100130",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 49,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106558",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 40,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102736",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 30,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101358",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 42,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101236",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 46,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101411",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 49,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106265",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 50,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104873",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 43,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101899",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 94,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106028",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 33,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100415",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 40,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105295",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 59,
+        "equivalent": true
+      }
+    ]
+  },
+  "provenance": {
+    "git": {
+      "head": "4ed37334c4ca7bd45aa0138bc09c80c3d5989ee2",
+      "branch": "research/paper-online-packing",
+      "dirty": true,
+      "status_short_count": 18,
+      "status_short_sha256": "1e8e34fc2eb13318dc8175b6adc0170c95dea9ac1764d142b313c7f24d675216"
+    },
+    "evaluator_sha256": {
+      "paper/protocols/03_internal_pilot.json": "088a9601c4a9672e77fd776ae889ac35675322e8a3955c7ae3f025cfaf837a65",
+      "paper/protocols/04_evaluator_operational.md": "6c1c2ecf683de2a40abcd3337b02bc44c396c53b3f147dcf811cceb84de03dfa",
+      "paper/tools/run_internal_pilot.py": "3e527fcc951f92f5bc6624ad3f8e18f82bfee53cb8e7840047239116cb153824",
+      "paper/tools/pilot_common.py": "6beda78378a581db81aabce87dd7e8296d0fabc40e424c8ba40329e8b31210a7",
+      "paper/tools/pilot_problems.py": "c347f00ab5b10bcf817954aee4ed9e12bacdaf55e128dba3c5d26f4701494b5e",
+      "paper/tools/pilot_metrics.py": "26275cea5fdcfb2ac09cd9da61bba389b2daf95a50070ef92c1f2529b25a7fad",
+      "paper/tools/pilot_preflight.py": "5ede2f13d487a60ff2669d07d88f3f9e44e7803d594f14237266c4df2c53023d",
+      "paper/tools/pilot_execute.py": "a9784c7d688ae7e853879391467c39414435f1fcb69c05e4fadd655991dcfb2f",
+      "paper/tools/pilot_worker.py": "11d22cf12997b3448e7714e1b788f6452fc3f9c6542ecaa4b7771070fdccdb41"
+    }
+  },
+  "n_rows": 40,
+  "n_pairs": 20
+}
