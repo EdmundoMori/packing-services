@@ -1,0 +1,628 @@
+{
+  "schema_version": 1,
+  "protocol_id": "10_normalization_ablation",
+  "status": "congelado",
+  "training_executed": false,
+  "packing_executed": false,
+  "confirmatory": false,
+  "step_08_interpretation": "no_concluyente",
+  "reference_commit": "557e2ef477e6173cee20fae5f83c435d59652d76",
+  "intervention": "transformación de las 35 características",
+  "arms": {
+    "raw": "BC nuevo con transformación identidad",
+    "normalized": "BC nuevo con estandarización por columna ajustada solo en train BC"
+  },
+  "transitions": {
+    "sha256_before": {
+      "train": "e2080aeac0ff787489c7d4ba3302e04135a39711dab4ec210b40d397a115e6e4",
+      "val": "21c6837d96c1c6bf2b6a57d85f7b6aca23d09990fb4a69ab127c7663ebee671c"
+    },
+    "sha256_after": {
+      "train": "e2080aeac0ff787489c7d4ba3302e04135a39711dab4ec210b40d397a115e6e4",
+      "val": "21c6837d96c1c6bf2b6a57d85f7b6aca23d09990fb4a69ab127c7663ebee671c"
+    },
+    "sha256_matches_06a": true,
+    "teacher": "receding_horizon_ep",
+    "regime": {
+      "lookahead_p": 1,
+      "select_s": 1
+    },
+    "order_ids": {
+      "train": [
+        "00100463",
+        "00101060",
+        "00101462",
+        "00101694",
+        "00101750",
+        "00101904",
+        "00101960",
+        "00102415",
+        "00102791",
+        "00102884",
+        "00104471",
+        "00104763",
+        "00105094",
+        "00105561",
+        "00106336",
+        "00106775",
+        "00106895",
+        "00106942",
+        "00107147",
+        "00107701",
+        "00108482",
+        "00108624",
+        "00108712",
+        "00109288"
+      ],
+      "val": [
+        "00101450",
+        "00101506",
+        "00104020",
+        "00104335",
+        "00105244",
+        "00106072",
+        "00106539",
+        "00109074"
+      ]
+    },
+    "labels_preserved": true,
+    "single_candidate_rows_removed": false
+  },
+  "hyperparameters": {
+    "explicit_notebook_03": {
+      "call": "fit_mlp(tr['transitions'], va['transitions'], hidden_size=HIDDEN_SIZE, epochs=MLP_EPOCHS, lr=mlp_lr(p, s), seed=SEED)",
+      "regime": {
+        "lookahead_p": 1,
+        "select_s": 1
+      },
+      "hidden_size": 64,
+      "epochs": 10,
+      "lr": 0.001,
+      "historical_seed": 42,
+      "references": [
+        "online_policy_ml/notebooks/03_imitacion.ipynb",
+        "online_policy_ml/src_ml/config.py HIDDEN_SIZE, MLP_EPOCHS, MLP_LR, mlp_lr, SEED"
+      ]
+    },
+    "fit_mlp_defaults_not_passed": {
+      "clip_grad": 1.0,
+      "weight_decay": 0.0001,
+      "select_best": "val_loss",
+      "keep_epochs": false,
+      "require_informative": true,
+      "require_val": true,
+      "reference": "online_policy_ml/src_ml/train_mlp.py fit_mlp"
+    },
+    "recorded_report": {
+      "path": "online_policy_ml/artifacts/reports/03_validacion.json",
+      "select_best": "val_loss",
+      "lr": 0.001,
+      "hidden_size": 64,
+      "seed": 42,
+      "best_epoch_is_historical_outcome": 3
+    },
+    "architecture": "Linear(35, 64), ReLU, Linear(64, 1); última capa a cero",
+    "optimizer": {
+      "name": "Adam",
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "amsgrad": false,
+      "torch": "2.14.0+cpu"
+    },
+    "loss": "cross_entropy por transición, características float32",
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "checkpoint_rule": "menor val_loss estricta sobre el val BC del mismo brazo; cada semilla se informa",
+    "device": "cpu",
+    "threads": {
+      "historical_fit_mlp": "no llama a set_num_threads ni set_num_interop_threads",
+      "shared_control": {
+        "torch.set_num_threads": 1,
+        "torch.set_num_interop_threads": 1,
+        "when": "una vez, antes de cualquier brazo, en el mismo proceso"
+      }
+    }
+  },
+  "transform": {
+    "module": "paper/tools/normalization_features.py",
+    "raw": "identidad",
+    "normalized": "(x-media)/desviacion poblacional, ddof=0, solo filas candidatas de train",
+    "std_eps": 1e-12,
+    "denominator_when_std_at_or_below_eps": 1,
+    "weighting": "cada fila candidata pesa igual; no se promedia primero dentro de la transición",
+    "drop_columns": false,
+    "clip_values": false,
+    "same_transform_at_training_and_scoring": true,
+    "production_loader_expects_raw_features": true,
+    "standardizer_sha256": "9a8604afe01455e5cd1e075ec32f408d42c464e1256173b0c970a7b15c69e266",
+    "statistics_path": "paper/results/10_normalization_freeze.json"
+  },
+  "constant_columns": {
+    "rule": "desviación poblacional <= 1e-12",
+    "train": [
+      "item_can_rotate",
+      "bin_index_n",
+      "buffer_index_n",
+      "preview_0_l_n",
+      "preview_0_w_n",
+      "preview_0_h_n",
+      "preview_0_vol_n",
+      "preview_1_l_n",
+      "preview_1_w_n",
+      "preview_1_h_n",
+      "preview_1_vol_n",
+      "preview_2_l_n",
+      "preview_2_w_n",
+      "preview_2_h_n",
+      "preview_2_vol_n"
+    ],
+    "train_plus_val": [
+      "item_can_rotate",
+      "bin_index_n",
+      "buffer_index_n",
+      "preview_0_l_n",
+      "preview_0_w_n",
+      "preview_0_h_n",
+      "preview_0_vol_n",
+      "preview_1_l_n",
+      "preview_1_w_n",
+      "preview_1_h_n",
+      "preview_1_vol_n",
+      "preview_2_l_n",
+      "preview_2_w_n",
+      "preview_2_h_n",
+      "preview_2_vol_n"
+    ],
+    "only_in_train": [],
+    "only_in_train_plus_val": []
+  },
+  "constant_column_clarification": "La hipótesis 2 del diagnóstico 09 dice 13. La enumeración de ese mismo diagnóstico nombra item_can_rotate, bin_index_n, buffer_index_n y las doce preview_*. El recálculo obtiene esas 15 en train y las mismas 15 en train+val, con desviación 0. No se reescribe el diagnóstico 09.",
+  "development_sample": {
+    "role": "desarrollo",
+    "confirmatory": false,
+    "source": "full.val",
+    "full_test_used": false,
+    "evaluated_now": false,
+    "selection_label": "packing-study-normalization-dev-v1|20261002",
+    "quota": {
+      "euro-pallet": 25,
+      "rollcontainer": 25
+    },
+    "full_val_pool_n": {
+      "rollcontainer": 820,
+      "euro-pallet": 680
+    },
+    "eligible_after_exclusion_n": {
+      "rollcontainer": 789,
+      "euro-pallet": 662
+    },
+    "removed_from_full_val_n": {
+      "rollcontainer": 31,
+      "euro-pallet": 18
+    },
+    "removed_from_full_val_by_source_n": {
+      "live_working_train": 0,
+      "live_working_val": 8,
+      "live_working_test": 0,
+      "live_scale_train": 0,
+      "live_scale_val": 20,
+      "v1_working_train": 0,
+      "v1_working_val": 8,
+      "v1_working_test": 0,
+      "v1_scale_train": 15,
+      "v1_scale_val": 6,
+      "holdout_producto": 0,
+      "06a_euro-pallet_positive_exclusion": 0,
+      "06a_euro-pallet_archived_uncertain_cross": 0,
+      "06a_rollcontainer_positive_exclusion": 0,
+      "06a_rollcontainer_archived_uncertain_cross": 0,
+      "observed_evaluacion_independiente": 0,
+      "observed_piloto_interno": 20
+    },
+    "exclusion_ids_n": 440,
+    "scale_test_not_excluded": {
+      "n": 20,
+      "in_full_val_n": 0,
+      "in_development_sample": [],
+      "reason": "no hay una lista de evaluación histórica que identifique estos ids; no se sustituye el pool excluyéndolos"
+    },
+    "frozen_list_sha256": "f2b969649484166fe02052fbd26c09ba25337f898b74e17ff4ba86db2fd4ae69",
+    "execution_items": [
+      {
+        "order_id": "00100084",
+        "target": "euro-pallet",
+        "selection_hash": "047732a95e27325bc6af8c998551f7e8d6ef3aa82950c30b1fd672b3c16d4f1a",
+        "selection_rank": 12,
+        "position": 0
+      },
+      {
+        "order_id": "00100101",
+        "target": "rollcontainer",
+        "selection_hash": "0691438df5051caf3c02dec4c6954b131a544bab6bf893d46261c1174d0ef9fe",
+        "selection_rank": 14,
+        "position": 1
+      },
+      {
+        "order_id": "00100802",
+        "target": "rollcontainer",
+        "selection_hash": "0bf7924b7ac0936073be21da4ea290640863a6cddda5b2a97ecf1c6401a4d10a",
+        "selection_rank": 24,
+        "position": 2
+      },
+      {
+        "order_id": "00100909",
+        "target": "euro-pallet",
+        "selection_hash": "052c7de2dc10a45647cf95cedcbbacf218db017cdf85de9ce0f9c06cb5a50886",
+        "selection_rank": 15,
+        "position": 3
+      },
+      {
+        "order_id": "00101315",
+        "target": "euro-pallet",
+        "selection_hash": "07d3355ca283819b42a8e21b07a60e877306f3988dba215d8788f7a530623fa0",
+        "selection_rank": 22,
+        "position": 4
+      },
+      {
+        "order_id": "00101485",
+        "target": "euro-pallet",
+        "selection_hash": "07b707dc42f806c678a4d94e4c2f8522d78bfc4c7f39f7c328f8f58cdb2e9488",
+        "selection_rank": 21,
+        "position": 5
+      },
+      {
+        "order_id": "00101494",
+        "target": "rollcontainer",
+        "selection_hash": "02c43e41f90e2270e6dd92b59c6ca1ed65c1ce9c0ae07072e6ec523b415be9be",
+        "selection_rank": 5,
+        "position": 6
+      },
+      {
+        "order_id": "00101615",
+        "target": "rollcontainer",
+        "selection_hash": "025b21c9150b3efabca851e9040a04b214fa7e55df2dfc0e54be4f2951e6db2d",
+        "selection_rank": 3,
+        "position": 7
+      },
+      {
+        "order_id": "00102089",
+        "target": "rollcontainer",
+        "selection_hash": "0b535bb990e6126f22d9ef988422689a03f574676cf0fbe0b6524e09bdd714e7",
+        "selection_rank": 21,
+        "position": 8
+      },
+      {
+        "order_id": "00102161",
+        "target": "euro-pallet",
+        "selection_hash": "04ef9b6a36f80375c9a38b7e5aa3b1e166d665895eec6e70db8c08a70cf104cc",
+        "selection_rank": 14,
+        "position": 9
+      },
+      {
+        "order_id": "00102173",
+        "target": "rollcontainer",
+        "selection_hash": "03ebfe8ab57b9628166ebd7953b4b3b755afc1504379f9bee439543f32032f20",
+        "selection_rank": 9,
+        "position": 10
+      },
+      {
+        "order_id": "00102208",
+        "target": "euro-pallet",
+        "selection_hash": "06f83d5cd3ecbe30684ca3ea71f1ef02326cf3a4326535d3e0af398e105e7f77",
+        "selection_rank": 17,
+        "position": 11
+      },
+      {
+        "order_id": "00102221",
+        "target": "rollcontainer",
+        "selection_hash": "045048e0be82ad89339e1aab71a79c2cac14a32e00475f2c6e77aa9856adbfc1",
+        "selection_rank": 10,
+        "position": 12
+      },
+      {
+        "order_id": "00102287",
+        "target": "rollcontainer",
+        "selection_hash": "0bb37716e1cd54ba25fd8c719e56f91e66dab769c051e6b0fb7863eca36b9ac2",
+        "selection_rank": 22,
+        "position": 13
+      },
+      {
+        "order_id": "00102949",
+        "target": "euro-pallet",
+        "selection_hash": "0465bd7db6945618f6bff9bdb293c15d3fff1055c2289f88492bb74b3db5a081",
+        "selection_rank": 11,
+        "position": 14
+      },
+      {
+        "order_id": "00103007",
+        "target": "rollcontainer",
+        "selection_hash": "05ec4c1173565750adb6d0b93b33f1609f1f01f1d492f68384c44519fc29feaf",
+        "selection_rank": 13,
+        "position": 15
+      },
+      {
+        "order_id": "00103201",
+        "target": "rollcontainer",
+        "selection_hash": "0be7d9f4c6a97dab1a91ac8bc4c896882a68d3a155a7508f0a698df7f5e8c0de",
+        "selection_rank": 23,
+        "position": 16
+      },
+      {
+        "order_id": "00103487",
+        "target": "euro-pallet",
+        "selection_hash": "03f30ac42e4ea36f2509fd647a44a777c5584e8c51a845259164fefaa91a463e",
+        "selection_rank": 10,
+        "position": 17
+      },
+      {
+        "order_id": "00104323",
+        "target": "euro-pallet",
+        "selection_hash": "03dff8b749f65180dd8a0165fa29653e525bb1e7bbf317fb86b95c99967c1198",
+        "selection_rank": 9,
+        "position": 18
+      },
+      {
+        "order_id": "00104576",
+        "target": "rollcontainer",
+        "selection_hash": "02ce33b97df72796f72c740ec5e58cc4d40f46d600c19cb67c87fcb103ccc902",
+        "selection_rank": 6,
+        "position": 19
+      },
+      {
+        "order_id": "00105062",
+        "target": "rollcontainer",
+        "selection_hash": "01cf88f0d2dc4659e8c12903a9817cfb8c9cf9e2d0e5e494a73c60d51592e574",
+        "selection_rank": 1,
+        "position": 20
+      },
+      {
+        "order_id": "00105124",
+        "target": "rollcontainer",
+        "selection_hash": "0762da9d7b2ee48959771549604e9a7bd1f2f26dc37dafaf87163fa3d46a1bed",
+        "selection_rank": 16,
+        "position": 21
+      },
+      {
+        "order_id": "00105149",
+        "target": "euro-pallet",
+        "selection_hash": "0904f61284e97533ce5a72a2a1942ebb768d830a8f3f02b9b2ab878a17766ef0",
+        "selection_rank": 24,
+        "position": 22
+      },
+      {
+        "order_id": "00105360",
+        "target": "euro-pallet",
+        "selection_hash": "084a5d2372145a0e7ec47445f6c0424c590cabdfe391efb17fb04a14c01d0496",
+        "selection_rank": 23,
+        "position": 23
+      },
+      {
+        "order_id": "00105402",
+        "target": "euro-pallet",
+        "selection_hash": "039939e25014be2de641eea493937e184035796589dff8d43e108b7cc8c18706",
+        "selection_rank": 7,
+        "position": 24
+      },
+      {
+        "order_id": "00105920",
+        "target": "euro-pallet",
+        "selection_hash": "07265a5c488bd20d14eb7f37bb996c7f009858f0d428ce10a208e8534785926b",
+        "selection_rank": 20,
+        "position": 25
+      },
+      {
+        "order_id": "00106105",
+        "target": "euro-pallet",
+        "selection_hash": "016012ab0445013a21ddaaa60aabbdd543441fb1b98432ad41b8a9d74bd10abe",
+        "selection_rank": 2,
+        "position": 26
+      },
+      {
+        "order_id": "00106270",
+        "target": "rollcontainer",
+        "selection_hash": "06c9fa7909938351a882cdaaef6d979175ead4bb643005287554647d1ae6c1fc",
+        "selection_rank": 15,
+        "position": 27
+      },
+      {
+        "order_id": "00106277",
+        "target": "euro-pallet",
+        "selection_hash": "0108a7b17849400e8acad477dd326e905e7ea35f1faf0195fa44d09f673c15a3",
+        "selection_rank": 1,
+        "position": 28
+      },
+      {
+        "order_id": "00106333",
+        "target": "euro-pallet",
+        "selection_hash": "0718f397af1e858bd09e564e5d40aedc06787923e3c57a7035e0b8e4f5f9158a",
+        "selection_rank": 19,
+        "position": 29
+      },
+      {
+        "order_id": "00106382",
+        "target": "euro-pallet",
+        "selection_hash": "03dad671d02345a19352cf6b1155be6b101627c3533e19a511cd31605cb5eed6",
+        "selection_rank": 8,
+        "position": 30
+      },
+      {
+        "order_id": "00106610",
+        "target": "rollcontainer",
+        "selection_hash": "05d14545519a50b2f185ddfa84e8de7a8ab843a609219f2ed01aafba84773480",
+        "selection_rank": 12,
+        "position": 31
+      },
+      {
+        "order_id": "00106736",
+        "target": "rollcontainer",
+        "selection_hash": "02540af4b67283c9bc05e65529df038ab2770e69d3db38d585cad6ea0631dcf0",
+        "selection_rank": 2,
+        "position": 32
+      },
+      {
+        "order_id": "00106799",
+        "target": "rollcontainer",
+        "selection_hash": "03ba3e047e8a528ae776568255447c038531857b6b85e5428b6714bac2b11883",
+        "selection_rank": 7,
+        "position": 33
+      },
+      {
+        "order_id": "00107193",
+        "target": "rollcontainer",
+        "selection_hash": "07d57281db37cc3f22d471f3413c01ae13b99232df4b42a4a406cc25215341f2",
+        "selection_rank": 17,
+        "position": 34
+      },
+      {
+        "order_id": "00107203",
+        "target": "rollcontainer",
+        "selection_hash": "0478c8a4b71a4e921227a0047b7761a6ddb2b73004c4009168302883d052908f",
+        "selection_rank": 11,
+        "position": 35
+      },
+      {
+        "order_id": "00107389",
+        "target": "euro-pallet",
+        "selection_hash": "0177eadaea549c4ac9f91f19e075d75697665fc155ca12bb499dea520a228c9b",
+        "selection_rank": 4,
+        "position": 36
+      },
+      {
+        "order_id": "00107473",
+        "target": "euro-pallet",
+        "selection_hash": "05ddbecfa7560ab791b991c90b934569f65247a4725704894e263aa5dea112c4",
+        "selection_rank": 16,
+        "position": 37
+      },
+      {
+        "order_id": "00107660",
+        "target": "euro-pallet",
+        "selection_hash": "00fe0380cdcc3b1746494277b1b5260cbaee79eab8d78d2960c00bb1fdf3e488",
+        "selection_rank": 0,
+        "position": 38
+      },
+      {
+        "order_id": "00107733",
+        "target": "rollcontainer",
+        "selection_hash": "0b0957c81ace12beacd23d67dc9464f3a090fc6ac77e622cc4b06d4ede88938b",
+        "selection_rank": 19,
+        "position": 39
+      },
+      {
+        "order_id": "00107877",
+        "target": "rollcontainer",
+        "selection_hash": "03c18ab2c3b3c4232d77b7920d1df6beb7819ca1092ee63561833b7a54b996f6",
+        "selection_rank": 8,
+        "position": 40
+      },
+      {
+        "order_id": "00107947",
+        "target": "euro-pallet",
+        "selection_hash": "0709ab257dd000627951a55c37e74dd5a5de419f0773e4392dc54a4914178c0e",
+        "selection_rank": 18,
+        "position": 41
+      },
+      {
+        "order_id": "00107992",
+        "target": "euro-pallet",
+        "selection_hash": "04beac3f461de2968ba9a03cc42a57d9b398543d929ed32a21ee7e0360367c7c",
+        "selection_rank": 13,
+        "position": 42
+      },
+      {
+        "order_id": "00108419",
+        "target": "rollcontainer",
+        "selection_hash": "0a974437326d1433eda4b8ee876335a59c54e676fa0936a9f18f499015e430fc",
+        "selection_rank": 18,
+        "position": 43
+      },
+      {
+        "order_id": "00108849",
+        "target": "euro-pallet",
+        "selection_hash": "01645c4d5095b99d1424f5dfffd56a0dead0f3210b1718a62b409e28be392096",
+        "selection_rank": 3,
+        "position": 44
+      },
+      {
+        "order_id": "00108863",
+        "target": "euro-pallet",
+        "selection_hash": "0366b8827958560904abc2d030031339aac9c72792f1943a683658e1d6262e9e",
+        "selection_rank": 5,
+        "position": 45
+      },
+      {
+        "order_id": "00108881",
+        "target": "euro-pallet",
+        "selection_hash": "036d53a476bcc193b75c39b3782614a0c8791419fab9109d31101dbaf558ba13",
+        "selection_rank": 6,
+        "position": 46
+      },
+      {
+        "order_id": "00109195",
+        "target": "rollcontainer",
+        "selection_hash": "011e51a55ea8e514e69ca606cc3c82fa73bdf489aebad5f20158007c1d4d7533",
+        "selection_rank": 0,
+        "position": 47
+      },
+      {
+        "order_id": "00109411",
+        "target": "rollcontainer",
+        "selection_hash": "02b2e9034a799ce65eb7dbd11fcbf4af738636baeb5c74e472e1cf71c6e38c99",
+        "selection_rank": 4,
+        "position": 48
+      },
+      {
+        "order_id": "00109844",
+        "target": "rollcontainer",
+        "selection_hash": "0b516d1965e9bda1e5cccb1bc2ccaaceead041fb81ae9117efbd5fdfa50c85d8",
+        "selection_rank": 20,
+        "position": 49
+      }
+    ]
+  },
+  "geometry": {
+    "preserved_from": "paper/protocols/07_independent_evaluation.json",
+    "lookahead_p": 1,
+    "select_s": 1,
+    "arrival_order": "input_order",
+    "container": "target propio",
+    "max_weight_kg": 1500.0,
+    "discard": "descartar el ítem sin candidata legal y continuar",
+    "independent_auditor": true,
+    "device": "cpu",
+    "timeout_seconds": 300,
+    "attempts": 1,
+    "failure_u_geom": 0,
+    "failures_stay_in_denominator": true,
+    "physical_stability_verified": null
+  },
+  "primary_development_comparison": {
+    "per_seed": "media pareada de U_geom(normalized)-U_geom(raw) sobre los mismos 50 pedidos",
+    "report": "las cinco diferencias y su promedio",
+    "also": "cada brazo contra GreedyBestFit",
+    "heuristic_runs": "una ejecución por pedido si el contrato geométrico es el mismo",
+    "dependent_observations": "250 observaciones pedido/semilla son cinco mediciones de los mismos 50 pedidos"
+  },
+  "advance_rule": {
+    "kind": "regla de avance de ingeniería",
+    "statistical_test": false,
+    "practical_relevance_guaranteed": false,
+    "conditions": [
+      "promedio de normalizado menos raw positivo",
+      "diferencia positiva en al menos cuatro de cinco semillas",
+      "promedio del brazo normalizado frente a GreedyBestFit positivo"
+    ],
+    "if_unmet": "se abandona esta configuración de normalización",
+    "retrospective_variants_inside_this_experiment": false
+  }
+}

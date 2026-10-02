@@ -1,45 +1,53 @@
 {
   "schema_version": 1,
-  "execution_id": "09-20261002T204701Z",
-  "executed_at_utc": "2026-10-02T20:47:01Z",
-  "reference_commit": "881213f85687debe53a30dc82e9d09e2a4ca2752",
-  "head": "881213f85687debe53a30dc82e9d09e2a4ca2752",
+  "execution_id": "10-20261002T210200Z",
+  "executed_at_utc": "2026-10-02T21:02:00Z",
+  "reference_commit": "557e2ef477e6173cee20fae5f83c435d59652d76",
+  "head": "557e2ef477e6173cee20fae5f83c435d59652d76",
   "head_matches_reference": true,
   "branch": "research/paper-online-packing",
   "repo_root": "/home/edmundo/packing-services",
   "working_tree_dirty_before": false,
-  "dirty_before_note": "Antes del paso 09 solo había 17 .pkl sin seguimiento. No había modificaciones rastreadas. Este paso no crea un commit.",
-  "phase": "09_exploratory_diagnosis",
-  "status": "diagnóstico exploratorio registrado; la evaluación independiente sigue no concluyente",
+  "dirty_before_note": "Antes del paso 10 solo había 17 .pkl sin seguimiento. No había modificaciones rastreadas. Este paso no crea un commit.",
+  "phase": "10_normalization_ablation_freeze",
+  "status": "ablación de normalización congelada; entrenamiento y packing no ejecutados",
   "result_summary": {
-    "origin_commit": "881213f85687debe53a30dc82e9d09e2a4ca2752",
-    "review": "paper/reviews/09_exploratory_diagnosis.md",
-    "diagnostics": "paper/results/09_policy_diagnostics.json",
-    "exposed_ids": "paper/results/09_exposed_evaluation_ids.json",
-    "run_id": "09d052b75a534728",
+    "origin_commit": "557e2ef477e6173cee20fae5f83c435d59652d76",
+    "review": "paper/reviews/10_normalization_design.md",
+    "protocol": "paper/protocols/10_normalization_ablation.json",
+    "freeze": "paper/results/10_normalization_freeze.json",
     "step_08_interpretation_unchanged": "no_concluyente",
-    "exploratory": true,
     "confirmatory": false,
     "training": false,
+    "packing": false,
     "inference": false,
-    "n_orders": 200,
-    "categories": {
-      "conjunto_distinto": 147,
-      "mismo_conjunto_geometria_distinta": 53,
-      "planes_iguales": 0
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "standardizer_sha256": "9a8604afe01455e5cd1e075ec32f408d42c464e1256173b0c970a7b15c69e266",
+    "development_list_sha256": "f2b969649484166fe02052fbd26c09ba25337f898b74e17ff4ba86db2fd4ae69",
+    "development_n": {
+      "euro-pallet": 25,
+      "rollcontainer": 25
     },
-    "teacher_greedy_agree_multi": {
-      "hits": 480,
-      "denominator": 1339
+    "eligible_after_exclusion_n": {
+      "euro-pallet": 662,
+      "rollcontainer": 789
     },
+    "constant_columns_train_and_train_val": 15,
     "historical_file_identity": "no_comprobada",
     "physical_stability_verified": null,
+    "scale_test_evaluation_list": "no identificada; 0 ids en full.val y 0 en la muestra",
     "protocol_historical_fields_unchanged": true
   },
   "next_steps": [
-    "No usar los 200 ni los 20 ya observados como confirmación de una versión ajustada con este diagnóstico.",
-    "No ampliar la muestra evaluada para buscar significación.",
-    "Un experimento de desarrollo, si se autoriza, queda fuera de estos pedidos."
+    "No entrenar ni empaquetar hasta un paso que lo autorice.",
+    "Si se ejecuta, informar las cinco diferencias y aplicar la regla de avance.",
+    "Si la regla no se cumple, abandonar esta configuración de normalización."
   ],
   "blockers": [],
   "previous_executions": [
@@ -176,6 +184,15 @@
       "status": "evaluación independiente ejecutada; intervalo no concluyente",
       "review": "paper/reviews/08_independent_evaluation_run.md",
       "head": "41c6e6b996831d12908969084010350541c8e358",
+      "branch": "research/paper-online-packing"
+    },
+    {
+      "execution_id": "09-20261002T204701Z",
+      "executed_at_utc": "2026-10-02T20:47:01Z",
+      "phase": "09_exploratory_diagnosis",
+      "status": "diagnóstico exploratorio registrado; la evaluación independiente sigue no concluyente",
+      "review": "paper/reviews/09_exploratory_diagnosis.md",
+      "head": "881213f85687debe53a30dc82e9d09e2a4ca2752",
       "branch": "research/paper-online-packing"
     }
   ]
