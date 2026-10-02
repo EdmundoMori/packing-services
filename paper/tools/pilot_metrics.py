@@ -12,6 +12,18 @@ from typing import Any
 
 from pilot_common import NO_CANDIDATE_REASON, TIE_EPS, format_delta
 
+NUMERIC_TOLERANCE = 1e-6
+RECIPE_EXACT = (
+    "lookahead_p",
+    "select_s",
+    "selection",
+    "sort_strategy",
+    "problem_type",
+    "algorithm",
+    "n_containers",
+    "consolidate_effective",
+)
+
 _AUDIT = None
 
 
@@ -113,6 +125,144 @@ def audit_weight(document: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _close(observed: Any, expected: Any, tolerance: float = NUMERIC_TOLERANCE) -> bool:
+    left = _finite_number(observed)
+    right = _finite_number(expected)
+    if left is None or right is None:
+        return False
+    return abs(left - right) <= tolerance
+
+
+def _index_rows(rows: Any, label: str) -> tuple[dict[str, dict[str, Any]], list[str]]:
+    errors: list[str] = []
+    if not isinstance(rows, list):
+        return {}, [f"{label} no es una lista"]
+    found: dict[str, dict[str, Any]] = {}
+    seen: list[str] = []
+    for row in rows:
+        if not isinstance(row, dict):
+            errors.append(f"{label} contiene una entrada mal formada")
+            continue
+        identity = row.get("item_id") if "item_id" in row else row.get("id")
+        if not isinstance(identity, str) or not identity:
+            errors.append(f"{label} contiene una identidad ausente")
+            continue
+        seen.append(identity)
+        if identity in found:
+            errors.append(f"{label} repite la identidad {identity}")
+            continue
+        found[identity] = row
+    if len(seen) != len(set(seen)):
+        return found, errors
+    return found, errors
+
+
+def contrast_capture(
+    capture: dict[str, Any],
+    snapshot: dict[str, Any],
+    *,
+    order_id: str,
+    method: str,
+) -> dict[str, Any]:
+    """Compara la captura con el snapshot del preflight, no con otra parte de la captura."""
+
+    errors: list[str] = []
+    if capture.get("order_id") != order_id:
+        errors.append(f"order_id de la captura distinto del caso: {capture.get('order_id')}")
+    if capture.get("method") != method:
+        errors.append(f"método de la captura distinto del caso: {capture.get('method')}")
+    recipe = capture.get("recipe") if isinstance(capture.get("recipe"), dict) else {}
+    if not recipe:
+        errors.append("la captura no trae la configuración efectiva")
+    elif recipe.get("method") not in (None, method):
+        errors.append(f"método de la receta distinto del caso: {recipe.get('method')}")
+    for key in RECIPE_EXACT:
+        if recipe.get(key) != snapshot.get(key):
+            errors.append(f"parámetro {key} distinto del snapshot")
+    if not _close(recipe.get("min_support_ratio_effective"), snapshot.get("min_support_ratio_effective")):
+        errors.append("soporte efectivo distinto del snapshot")
+    expected_checkpoint = snapshot.get("model_path")
+    observed_checkpoint = recipe.get("checkpoint_path")
+    if expected_checkpoint is None:
+        if observed_checkpoint not in (None,):
+            errors.append("la heurística trae una ruta de modelo")
+    elif observed_checkpoint != expected_checkpoint:
+        errors.append("la ruta de modelo distinta del snapshot")
+    expected_flags = snapshot.get("constraints") if isinstance(snapshot.get("constraints"), dict) else {}
+    observed_flags = recipe.get("constraints") if isinstance(recipe.get("constraints"), dict) else None
+    if not isinstance(observed_flags, dict):
+        errors.append("las restricciones efectivas no son un objeto")
+    else:
+        if set(observed_flags) != set(expected_flags):
+            errors.append("las restricciones efectivas no tienen las mismas claves que el snapshot")
+        for key, expected in expected_flags.items():
+            observed = observed_flags.get(key)
+            if isinstance(expected, bool) or isinstance(observed, bool):
+                if observed is not expected:
+                    errors.append(f"restricción {key} distinta del snapshot")
+            elif isinstance(expected, (int, float)):
+                if not _close(observed, expected):
+                    errors.append(f"restricción {key} distinta del snapshot")
+            elif observed != expected:
+                errors.append(f"restricción {key} distinta del snapshot")
+    expected_items, item_errors = _index_rows(snapshot.get("items"), "snapshot de ítems")
+    observed_items, observed_item_errors = _index_rows(capture.get("input_items"), "entrada de la captura")
+    errors.extend(item_errors)
+    errors.extend(observed_item_errors)
+    if set(observed_items) != set(expected_items):
+        errors.append("las identidades de la entrada no coinciden con el snapshot")
+    for item_id, expected in expected_items.items():
+        observed = observed_items.get(item_id)
+        if observed is None:
+            continue
+        for axis, key in (("longitud", "length_mm"), ("anchura", "width_mm"), ("altura", "height_mm")):
+            if not _close(observed.get(key), expected.get(key)):
+                errors.append(f"dimensión original {axis} distinta del snapshot: {item_id}")
+        if not _close(observed.get("weight_kg"), expected.get("weight_kg")):
+            errors.append(f"peso de entrada distinto del snapshot: {item_id}")
+        if observed.get("allowed_orientations") != expected.get("allowed_orientations"):
+            errors.append(f"autorización de orientaciones distinta del snapshot: {item_id}")
+    expected_bins, bin_errors = _index_rows(snapshot.get("containers"), "snapshot de contenedores")
+    observed_bins, observed_bin_errors = _index_rows(capture.get("containers"), "contenedores de la captura")
+    errors.extend(bin_errors)
+    errors.extend(observed_bin_errors)
+    if set(observed_bins) != set(expected_bins):
+        errors.append("las identidades de contenedor no coinciden con el snapshot")
+    for container_id, expected in expected_bins.items():
+        observed = observed_bins.get(container_id)
+        if observed is None:
+            continue
+        for axis, key in (("longitud", "length_mm"), ("anchura", "width_mm"), ("altura", "height_mm")):
+            if not _close(observed.get(key), expected.get(key)):
+                errors.append(f"dimensión de contenedor {axis} distinta del snapshot: {container_id}")
+        if not _close(observed.get("max_weight_kg"), expected.get("max_weight_kg")):
+            errors.append(f"peso máximo distinto del snapshot: {container_id}")
+    placements = capture.get("placements") if isinstance(capture.get("placements"), list) else []
+    for placement in placements:
+        if not isinstance(placement, dict):
+            errors.append("colocación mal formada frente al snapshot")
+            continue
+        item_id = placement.get("item_id")
+        expected = expected_items.get(item_id) if isinstance(item_id, str) else None
+        if expected is None:
+            errors.append(f"colocación de un ítem ausente en el snapshot: {item_id}")
+            continue
+        original = placement.get("original_lwh_mm")
+        expected_axes = [expected.get("length_mm"), expected.get("width_mm"), expected.get("height_mm")]
+        if not isinstance(original, list) or len(original) != 3 or any(
+            not _close(original[index], expected_axes[index]) for index in range(3)
+        ):
+            errors.append(f"dimensiones originales colocadas distintas del snapshot: {item_id}")
+        if not _close(placement.get("weight_kg"), expected.get("weight_kg")):
+            errors.append(f"peso colocado distinto del snapshot: {item_id}")
+    return {
+        "matches": not errors,
+        "errors": errors,
+        "reference": "preflight_snapshot",
+        "tolerance": NUMERIC_TOLERANCE,
+    }
+
+
 def _requested_volume(document: dict[str, Any]) -> float | None:
     total = 0.0
     for row in document.get("input_items") or []:
@@ -133,6 +283,7 @@ def evaluate_outcome(
     target: str,
     container_volume_mm3: float,
     run_id: str,
+    snapshot: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     status = str(outcome.get("status") or "crash")
     duration = outcome.get("duration_seconds")
@@ -158,6 +309,9 @@ def evaluate_outcome(
         "method_failure": True,
         "geometry_invalid": False,
         "weight_violation": False,
+        "input_mismatch": False,
+        "worker_failure": outcome.get("worker_failure"),
+        "returncode": outcome.get("returncode"),
         "failure_types": ["method_failure"],
         "physical_stability_verified": None,
         "time_is_diagnostic_only": True,
@@ -232,8 +386,15 @@ def evaluate_outcome(
         base["failure_types"].append("geometry_invalid")
     if not weight_valid:
         base["failure_types"].append("weight_violation")
+    contrast = None
+    if snapshot is not None:
+        contrast = contrast_capture(document, snapshot, order_id=order_id, method=method)
+        base["input_mismatch"] = not contrast["matches"]
+        if not contrast["matches"]:
+            base["failure_types"].append("input_mismatch")
+            base["error"] = "; ".join(contrast["errors"])
     base["effective_u_geom"] = 0.0 if base["failure_types"] else float(raw_u or 0.0)
-    base["audits"] = {"geometry": geometry, "weight": weight}
+    base["audits"] = {"geometry": geometry, "weight": weight, "input_contrast": contrast}
     return base
 
 

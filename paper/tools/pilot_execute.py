@@ -38,6 +38,68 @@ def _clip(text: Any) -> str | None:
     return value[:2000]
 
 
+def _structure_error(payload: dict[str, Any]) -> str | None:
+    status = payload.get("status")
+    if status not in {"ok", "crash", "timeout"}:
+        return "estructura de resultado inválida: status ausente o desconocido"
+    if "attempts" in payload and payload.get("attempts") != 1:
+        return "estructura de resultado inválida: attempts distinto de 1"
+    if status == "ok" and not isinstance(payload.get("capture"), dict):
+        return "estructura de resultado inválida: status ok sin captura"
+    return None
+
+
+def _read_result(path: Path) -> dict[str, Any]:
+    if not path.is_file():
+        return {"payload": None, "raw": None, "error": "resultado ausente", "kind": "invalid_result"}
+    try:
+        raw = path.read_text(encoding="utf-8")
+    except OSError as exc:
+        return {"payload": None, "raw": None, "error": f"no se pudo leer el resultado: {exc}", "kind": "invalid_result"}
+    clipped = raw[:2000]
+    try:
+        payload = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        return {"payload": None, "raw": clipped, "error": f"JSON ilegible: {exc}", "kind": "unreadable_json"}
+    if not isinstance(payload, dict):
+        return {
+            "payload": None,
+            "raw": clipped,
+            "error": f"el resultado no es un objeto: {type(payload).__name__}",
+            "kind": "invalid_result",
+        }
+    structure = _structure_error(payload)
+    if structure:
+        return {"payload": payload, "raw": clipped, "error": structure, "kind": "invalid_result"}
+    return {"payload": payload, "raw": None, "error": None, "kind": None}
+
+
+def _worker_failure(
+    *,
+    reason: str,
+    kind: str,
+    wall: float,
+    returncode: int | None,
+    stderr: str | None,
+    stdout: str | None,
+    evidence: dict[str, Any],
+) -> dict[str, Any]:
+    return {
+        "status": "crash",
+        "error": reason,
+        "worker_failure": kind,
+        "attempts": 1,
+        "duration_seconds": wall,
+        "returncode": returncode,
+        "stderr": stderr,
+        "stdout": stdout,
+        "capture": None,
+        "rejected_payload": evidence.get("payload"),
+        "rejected_raw": evidence.get("raw"),
+        "result_error": evidence.get("error"),
+    }
+
+
 def invoke_worker(
     job: dict[str, Any],
     *,
@@ -69,27 +131,47 @@ def invoke_worker(
         return {
             "status": "timeout",
             "error": f"timeout de {timeout_s} segundos",
+            "worker_failure": "timeout",
             "attempts": 1,
             "duration_seconds": time.perf_counter() - started,
             "stderr": _clip(exc.stderr),
             "capture": None,
         }
     wall = time.perf_counter() - started
-    if result_path.is_file():
-        payload = json.loads(result_path.read_text(encoding="utf-8"))
+    evidence = _read_result(result_path)
+    if result_path.exists():
         result_path.unlink()
-        if isinstance(payload, dict):
-            payload["wall_seconds"] = wall
-            payload["duration_seconds"] = wall
-            return payload
-    return {
-        "status": "crash",
-        "error": f"el worker terminó con código {completed.returncode}",
-        "attempts": 1,
-        "duration_seconds": wall,
-        "stderr": _clip(completed.stderr) or _clip(completed.stdout),
-        "capture": None,
-    }
+    stderr = _clip(completed.stderr)
+    stdout = _clip(completed.stdout)
+    if completed.returncode != 0:
+        detail = evidence.get("error")
+        reason = f"el worker terminó con código {completed.returncode}"
+        if detail:
+            reason = f"{reason}; {detail}"
+        return _worker_failure(
+            reason=reason,
+            kind="nonzero_exit",
+            wall=wall,
+            returncode=completed.returncode,
+            stderr=stderr,
+            stdout=stdout,
+            evidence=evidence,
+        )
+    if evidence.get("error"):
+        return _worker_failure(
+            reason=str(evidence["error"]),
+            kind=str(evidence["kind"]),
+            wall=wall,
+            returncode=completed.returncode,
+            stderr=stderr,
+            stdout=stdout,
+            evidence=evidence,
+        )
+    payload = evidence["payload"]
+    payload["wall_seconds"] = wall
+    payload["duration_seconds"] = wall
+    payload["returncode"] = 0
+    return payload
 
 
 def _public_preflight(report: dict[str, Any]) -> dict[str, Any]:
@@ -268,6 +350,7 @@ def _run_cases(
                 target=item["target"],
                 container_volume_mm3=float(item["container_volume_mm3"]),
                 run_id=run_id,
+                snapshot=snapshot,
             )
             audits[(item["order_id"], method)] = row.pop("audits", {"status": outcome.get("status"), "error": outcome.get("error")})
             atomic_write_json(case_dir / "worker.json", {key: value for key, value in outcome.items() if key != "capture"})

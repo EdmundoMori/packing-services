@@ -18,6 +18,7 @@ if str(TOOLS) not in sys.path:
 from pilot_common import NO_CANDIDATE_REASON, TIMEOUT_SECONDS, sha256_file
 from pilot_execute import execute_pilot, invoke_worker
 from pilot_metrics import aggregate, audit_weight, evaluate_outcome
+from pilot_problems import problem_snapshot
 from pilot_preflight import preflight
 from pilot_problems import build_problem, capture_document, shared_config
 from pilot_common import PilotError
@@ -130,9 +131,24 @@ def _write_world(root: Path) -> dict[str, Path]:
     }
 
 
-def _empty_capture(snapshot: dict) -> dict:
+def _empty_capture(snapshot: dict, *, order_id: str, method: str) -> dict:
     return {
-        "recipe": {"constraints": snapshot["constraints"], "method": snapshot["algorithm"]},
+        "order_id": order_id,
+        "method": method,
+        "recipe": {
+            "method": method,
+            "constraints": snapshot["constraints"],
+            "lookahead_p": snapshot["lookahead_p"],
+            "select_s": snapshot["select_s"],
+            "selection": snapshot["selection"],
+            "sort_strategy": snapshot["sort_strategy"],
+            "problem_type": snapshot["problem_type"],
+            "algorithm": snapshot["algorithm"],
+            "min_support_ratio_effective": snapshot["min_support_ratio_effective"],
+            "consolidate_effective": snapshot["consolidate_effective"],
+            "n_containers": snapshot["n_containers"],
+            "checkpoint_path": snapshot.get("model_path"),
+        },
         "containers": snapshot["containers"],
         "input_items": snapshot["items"],
         "placements": [],
@@ -144,9 +160,9 @@ def _empty_capture(snapshot: dict) -> dict:
     }
 
 
-def _placed_capture(snapshot: dict) -> dict:
+def _placed_capture(snapshot: dict, *, order_id: str, method: str) -> dict:
     item = snapshot["items"][0]
-    document = _empty_capture(snapshot)
+    document = _empty_capture(snapshot, order_id=order_id, method=method)
     document["placements"] = [
         {
             "item_id": item["item_id"],
@@ -493,8 +509,18 @@ class InternalPilotTests(unittest.TestCase):
                     raise subprocess.TimeoutExpired(cmd="worker", timeout=300)
                 snapshot = json.loads((output / "cases" / job["order_id"] / job["method"] / "input.json").read_text(encoding="utf-8"))
                 if job["order_id"] == world["fail_id"] and job["method"] == "heuristic":
-                    return {"status": "ok", "duration_seconds": 0.01, "attempts": 1, "capture": _placed_capture(snapshot)}
-                return {"status": "ok", "duration_seconds": 0.01, "attempts": 1, "capture": _empty_capture(snapshot)}
+                    return {
+                        "status": "ok",
+                        "duration_seconds": 0.01,
+                        "attempts": 1,
+                        "capture": _placed_capture(snapshot, order_id=job["order_id"], method=job["method"]),
+                    }
+                return {
+                    "status": "ok",
+                    "duration_seconds": 0.01,
+                    "attempts": 1,
+                    "capture": _empty_capture(snapshot, order_id=job["order_id"], method=job["method"]),
+                }
 
             sibling = root / "previous"
             sibling.mkdir()
@@ -602,6 +628,201 @@ class InternalPilotTests(unittest.TestCase):
             self.assertEqual(crashed["status"], "crash")
             self.assertIsNone(crashed["capture"])
             self.assertEqual(TIMEOUT_SECONDS, 300)
+
+    def _synthetic_snapshot(self, root: Path) -> tuple[dict, str]:
+        order_id = "90000000"
+        orders = {order_id: _order(order_id, "euro-pallet", [(100.0, 100.0, 100.0, 1.0)])}
+        problem = build_problem(
+            orders,
+            order_id,
+            "heuristic",
+            root / "absent.pt",
+            lookahead_p=1,
+            select_s=1,
+        )
+        return problem_snapshot(problem), order_id
+
+    def test_worker_result_failures_and_snapshot_contrast(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            snapshot, order_id = self._synthetic_snapshot(root)
+            valid = _placed_capture(snapshot, order_id=order_id, method="heuristic")
+
+            def run_script(name: str, code: str, timeout: float = 5) -> dict:
+                return invoke_worker(
+                    {},
+                    case_dir=root / name,
+                    timeout_s=timeout,
+                    command=[sys.executable, "-c", code],
+                )
+
+            result_name = "worker_result.partial"
+            valid_payload = json.dumps({"status": "ok", "attempts": 1, "capture": valid})
+            nonzero = run_script(
+                "nonzero",
+                (
+                    "import pathlib, sys\n"
+                    f"path = pathlib.Path({str(root / 'nonzero' / result_name)!r})\n"
+                    f"path.write_text({valid_payload!r}, encoding='utf-8')\n"
+                    "sys.exit(1)\n"
+                ),
+            )
+            self.assertEqual(nonzero["worker_failure"], "nonzero_exit")
+            self.assertEqual(nonzero["returncode"], 1)
+            self.assertIsNone(nonzero["capture"])
+            self.assertEqual(nonzero["rejected_payload"]["status"], "ok")
+            nonzero_row = evaluate_outcome(
+                nonzero,
+                order_id=order_id,
+                method="heuristic",
+                target="euro-pallet",
+                container_volume_mm3=1920000000.0,
+                run_id="r",
+                snapshot=snapshot,
+            )
+            self.assertTrue(nonzero_row["method_failure"])
+            self.assertEqual(nonzero_row["effective_u_geom"], 0)
+            self.assertIsNone(nonzero_row["raw_u_geom"])
+
+            unreadable = run_script(
+                "json",
+                (
+                    "import pathlib\n"
+                    f"pathlib.Path({str(root / 'json' / result_name)!r}).write_text('{{', encoding='utf-8')\n"
+                ),
+            )
+            self.assertEqual(unreadable["worker_failure"], "unreadable_json")
+            self.assertIn("JSON ilegible", unreadable["error"])
+            self.assertTrue(unreadable["rejected_raw"])
+            self.assertIsNone(unreadable["capture"])
+
+            invalid = run_script(
+                "shape",
+                (
+                    "import pathlib\n"
+                    f"pathlib.Path({str(root / 'shape' / result_name)!r}).write_text('[1, 2]', encoding='utf-8')\n"
+                ),
+            )
+            self.assertEqual(invalid["worker_failure"], "invalid_result")
+            self.assertIn("no es un objeto", invalid["error"])
+            self.assertIsNone(invalid["capture"])
+
+            missing_capture = run_script(
+                "status",
+                (
+                    "import pathlib\n"
+                    f"pathlib.Path({str(root / 'status' / result_name)!r}).write_text("
+                    "'{\"status\": \"ok\", \"attempts\": 1}', encoding='utf-8')\n"
+                ),
+            )
+            self.assertEqual(missing_capture["worker_failure"], "invalid_result")
+            self.assertIn("estructura de resultado inválida", missing_capture["error"])
+
+            shifted = json.loads(json.dumps(valid))
+            shifted["input_items"][0]["height_mm"] = 250
+            shifted["placements"][0]["original_lwh_mm"] = [100, 100, 250]
+            shifted["placements"][0]["oriented_lwh_mm"] = [100, 100, 250]
+            shifted_row = evaluate_outcome(
+                {"status": "ok", "attempts": 1, "capture": shifted, "duration_seconds": 0.1},
+                order_id=order_id,
+                method="heuristic",
+                target="euro-pallet",
+                container_volume_mm3=1920000000.0,
+                run_id="r",
+                snapshot=snapshot,
+            )
+            self.assertTrue(shifted_row["input_mismatch"])
+            self.assertFalse(shifted_row["method_failure"])
+            self.assertFalse(shifted_row["geometry_invalid"])
+            self.assertEqual(shifted_row["effective_u_geom"], 0)
+            self.assertGreater(shifted_row["raw_u_geom"], 0)
+
+            swapped = json.loads(json.dumps(valid))
+            swapped["containers"][0]["length_mm"] = 2000
+            swapped["containers"][0]["height_mm"] = 1200
+            swapped["placements"][0]["flb_mm"] = [0, 0, 0]
+            swapped_row = evaluate_outcome(
+                {"status": "ok", "attempts": 1, "capture": swapped, "duration_seconds": 0.1},
+                order_id=order_id,
+                method="heuristic",
+                target="euro-pallet",
+                container_volume_mm3=1920000000.0,
+                run_id="r",
+                snapshot=snapshot,
+            )
+            self.assertEqual(
+                swapped["containers"][0]["length_mm"] * swapped["containers"][0]["width_mm"] * swapped["containers"][0]["height_mm"],
+                1920000000.0,
+            )
+            self.assertTrue(swapped_row["input_mismatch"])
+            self.assertFalse(swapped_row["geometry_invalid"])
+            self.assertEqual(swapped_row["effective_u_geom"], 0)
+            self.assertIn("altura", swapped_row["error"])
+
+            constrained = json.loads(json.dumps(valid))
+            constrained["recipe"]["constraints"]["basic_stability"] = True
+            constrained_row = evaluate_outcome(
+                {"status": "ok", "attempts": 1, "capture": constrained, "duration_seconds": 0.1},
+                order_id=order_id,
+                method="heuristic",
+                target="euro-pallet",
+                container_volume_mm3=1920000000.0,
+                run_id="r",
+                snapshot=snapshot,
+            )
+            self.assertTrue(constrained_row["input_mismatch"])
+            self.assertIn("basic_stability", constrained_row["error"])
+            self.assertEqual(constrained_row["effective_u_geom"], 0)
+
+            run_world = root / "run-world"
+            run_world.mkdir()
+            world = _write_world(run_world)
+            output = root / "continued"
+            calls: list[tuple[str, str]] = []
+
+            def worker(job: dict) -> dict:
+                calls.append((job["order_id"], job["method"]))
+                case_snapshot = json.loads(
+                    (output / "cases" / job["order_id"] / job["method"] / "input.json").read_text(encoding="utf-8")
+                )
+                if job["order_id"] == world["fail_id"] and job["method"] == "heuristic":
+                    capture = _placed_capture(case_snapshot, order_id=job["order_id"], method=job["method"])
+                elif job["order_id"] == world["fail_id"] and job["method"] == "actor":
+                    capture = json.loads(
+                        json.dumps(_placed_capture(case_snapshot, order_id=job["order_id"], method=job["method"]))
+                    )
+                    capture["input_items"][0]["height_mm"] = 250
+                    capture["placements"][0]["original_lwh_mm"][2] = 250
+                    capture["placements"][0]["oriented_lwh_mm"][2] = 250
+                else:
+                    capture = _empty_capture(case_snapshot, order_id=job["order_id"], method=job["method"])
+                return {"status": "ok", "attempts": 1, "duration_seconds": 0.01, "capture": capture}
+
+            result = execute_pilot(
+                protocol_path=world["protocol"],
+                dataset_path=world["dataset"],
+                checkpoint_path=world["checkpoint"],
+                output_dir=output,
+                manifest_path=world["manifest"],
+                subset_path=world["subset"],
+                worker=worker,
+            )
+            self.assertEqual(result["public"]["n_rows"], 40)
+            self.assertEqual(len(calls), 40)
+            summary = json.loads((output / "summary.json").read_text(encoding="utf-8"))
+            results = json.loads((output / "results.json").read_text(encoding="utf-8"))
+            failed = [
+                row
+                for row in results["rows"]
+                if row["order_id"] == world["fail_id"] and row["method"] == "actor"
+            ]
+            self.assertEqual(len(failed), 1)
+            self.assertTrue(failed[0]["input_mismatch"])
+            self.assertEqual(failed[0]["effective_u_geom"], 0)
+            self.assertEqual(summary["n"], 20)
+            self.assertEqual(summary["actor_failures"], 1)
+            self.assertEqual(summary["losses"], 1)
+            self.assertAlmostEqual(summary["mean_delta"], -(1_000_000 / 1_120_000_000) / 20)
 
     def test_sources_do_not_load_the_checkpoint_or_old_block(self) -> None:
         for name in (
