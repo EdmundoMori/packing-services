@@ -1,0 +1,278 @@
+{
+  "partitions_requested": [
+    "manifest_working.train",
+    "manifest_working.val",
+    "manifest_working.test",
+    "manifest_scale.train",
+    "manifest_scale.val",
+    "manifest_scale.test",
+    "manifest_full.train",
+    "manifest_full.val",
+    "manifest_full.test"
+  ],
+  "missing_partitions": [],
+  "n_pairs": 36,
+  "pairs": {
+    "manifest_working.train ∩ manifest_working.val": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_working.train ∩ manifest_working.test": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_working.train ∩ manifest_scale.train": {
+      "kind": "subconjuntos_mismo_corte",
+      "evidence": "presente",
+      "n": 0,
+      "status": "mismo_corte_entre_subconjuntos",
+      "ids": []
+    },
+    "manifest_working.train ∩ manifest_scale.val": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_working.train ∩ manifest_scale.test": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_working.train ∩ manifest_full.train": {
+      "kind": "subconjunto_y_full_mismo_corte",
+      "evidence": "presente",
+      "n": 24,
+      "status": "solapamiento_esperado",
+      "subset_contained_in_full": true,
+      "ids_outside_full": []
+    },
+    "manifest_working.train ∩ manifest_full.val": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_working.train ∩ manifest_full.test": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_working.val ∩ manifest_working.test": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_working.val ∩ manifest_scale.train": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_working.val ∩ manifest_scale.val": {
+      "kind": "subconjuntos_mismo_corte",
+      "evidence": "presente",
+      "n": 0,
+      "status": "mismo_corte_entre_subconjuntos",
+      "ids": []
+    },
+    "manifest_working.val ∩ manifest_scale.test": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_working.val ∩ manifest_full.train": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_working.val ∩ manifest_full.val": {
+      "kind": "subconjunto_y_full_mismo_corte",
+      "evidence": "presente",
+      "n": 8,
+      "status": "solapamiento_esperado",
+      "subset_contained_in_full": true,
+      "ids_outside_full": []
+    },
+    "manifest_working.val ∩ manifest_full.test": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_working.test ∩ manifest_scale.train": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_working.test ∩ manifest_scale.val": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_working.test ∩ manifest_scale.test": {
+      "kind": "subconjuntos_mismo_corte",
+      "evidence": "presente",
+      "n": 0,
+      "status": "mismo_corte_entre_subconjuntos",
+      "ids": []
+    },
+    "manifest_working.test ∩ manifest_full.train": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_working.test ∩ manifest_full.val": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_working.test ∩ manifest_full.test": {
+      "kind": "subconjunto_y_full_mismo_corte",
+      "evidence": "presente",
+      "n": 8,
+      "status": "solapamiento_esperado",
+      "subset_contained_in_full": true,
+      "ids_outside_full": []
+    },
+    "manifest_scale.train ∩ manifest_scale.val": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_scale.train ∩ manifest_scale.test": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_scale.train ∩ manifest_full.train": {
+      "kind": "subconjunto_y_full_mismo_corte",
+      "evidence": "presente",
+      "n": 80,
+      "status": "solapamiento_esperado",
+      "subset_contained_in_full": true,
+      "ids_outside_full": []
+    },
+    "manifest_scale.train ∩ manifest_full.val": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_scale.train ∩ manifest_full.test": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_scale.val ∩ manifest_scale.test": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_scale.val ∩ manifest_full.train": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_scale.val ∩ manifest_full.val": {
+      "kind": "subconjunto_y_full_mismo_corte",
+      "evidence": "presente",
+      "n": 20,
+      "status": "solapamiento_esperado",
+      "subset_contained_in_full": true,
+      "ids_outside_full": []
+    },
+    "manifest_scale.val ∩ manifest_full.test": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_scale.test ∩ manifest_full.train": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_scale.test ∩ manifest_full.val": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_scale.test ∩ manifest_full.test": {
+      "kind": "subconjunto_y_full_mismo_corte",
+      "evidence": "presente",
+      "n": 20,
+      "status": "solapamiento_esperado",
+      "subset_contained_in_full": true,
+      "ids_outside_full": []
+    },
+    "manifest_full.train ∩ manifest_full.val": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_full.train ∩ manifest_full.test": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    },
+    "manifest_full.val ∩ manifest_full.test": {
+      "kind": "cortes_distintos",
+      "evidence": "presente",
+      "n": 0,
+      "ids": [],
+      "status": "sin_cruce_observado"
+    }
+  },
+  "problematic_crosses": [],
+  "ids_outside_full": [],
+  "note": "Un archivo ausente queda como evidencia faltante y no como intersección vacía. Sin cruce observado no demuestra que un pedido no se haya usado fuera de estos manifiestos."
+}

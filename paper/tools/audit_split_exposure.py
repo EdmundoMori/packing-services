@@ -86,6 +86,108 @@ def intersection(left: list[str], right: list[str]) -> list[str]:
     return sorted({item for item in left if item in right_set})
 
 
+PARTITION_FAMILIES = ("manifest_working", "manifest_scale", "manifest_full")
+PARTITION_CUTS = ("train", "val", "test")
+
+
+def partition_names() -> list[str]:
+    return [f"{family}.{cut}" for family in PARTITION_FAMILIES for cut in PARTITION_CUTS]
+
+
+def _partition_parts(name: str) -> tuple[str, str]:
+    family, cut = name.split(".", 1)
+    return family, cut
+
+
+def pair_kind(left: str, right: str) -> str:
+    family_left, cut_left = _partition_parts(left)
+    family_right, cut_right = _partition_parts(right)
+    if cut_left != cut_right:
+        return "cortes_distintos"
+    if "manifest_full" in (family_left, family_right) and family_left != family_right:
+        return "subconjunto_y_full_mismo_corte"
+    return "subconjuntos_mismo_corte"
+
+
+def partition_cross_audit(lists: dict[str, list[str] | None]) -> dict[str, Any]:
+    """Cruza las nueve particiones. Una lista ausente no es un conjunto vacío."""
+
+    names = partition_names()
+    pairs: dict[str, Any] = {}
+    problematic: list[dict[str, Any]] = []
+    outside_full: list[dict[str, Any]] = []
+    for index, left in enumerate(names):
+        for right in names[index + 1 :]:
+            key = f"{left} ∩ {right}"
+            kind = pair_kind(left, right)
+            if lists.get(left) is None or lists.get(right) is None:
+                pairs[key] = {
+                    "kind": kind,
+                    "evidence": "faltante",
+                    "status": "evidencia_faltante",
+                    "n": None,
+                    "ids": None,
+                }
+                continue
+            shared = intersection(lists[left] or [], lists[right] or [])
+            record: dict[str, Any] = {
+                "kind": kind,
+                "evidence": "presente",
+                "n": len(shared),
+            }
+            if kind == "cortes_distintos":
+                record["ids"] = shared
+                record["status"] = "requiere_investigar" if shared else "sin_cruce_observado"
+                if shared:
+                    problematic.append({"pair": key, "n": len(shared), "ids": shared})
+            elif kind == "subconjunto_y_full_mismo_corte":
+                subset_name = left if "manifest_full" not in left else right
+                full_name = right if subset_name == left else left
+                outside = sorted(set(lists[subset_name] or []) - set(lists[full_name] or []))
+                record["status"] = "solapamiento_esperado"
+                record["subset_contained_in_full"] = not outside
+                record["ids_outside_full"] = outside
+                if outside:
+                    outside_full.append({"pair": key, "ids": outside})
+            else:
+                record["status"] = "mismo_corte_entre_subconjuntos"
+                record["ids"] = shared
+            pairs[key] = record
+    return {
+        "partitions_requested": names,
+        "missing_partitions": [name for name in names if lists.get(name) is None],
+        "n_pairs": len(pairs),
+        "pairs": pairs,
+        "problematic_crosses": problematic,
+        "ids_outside_full": outside_full,
+        "note": (
+            "Un archivo ausente queda como evidencia faltante y no como intersección vacía. "
+            "Sin cruce observado no demuestra que un pedido no se haya usado fuera de estos manifiestos."
+        ),
+    }
+
+
+def load_partition_lists(ml_root: Path) -> dict[str, list[str] | None]:
+    files = {
+        "manifest_working": ml_root / "data/splits/working_split.json",
+        "manifest_scale": ml_root / "data/splits/scale_split.json",
+        "manifest_full": ml_root / "data/splits/full_split.json",
+    }
+    loaded: dict[str, list[str] | None] = {}
+    for family, path in files.items():
+        payload = None
+        if path.is_file():
+            raw = load_json(path)
+            payload = raw if isinstance(raw, dict) else None
+        for cut in PARTITION_CUTS:
+            name = f"{family}.{cut}"
+            if payload is None or cut not in payload:
+                loaded[name] = None
+            else:
+                loaded[name] = _id_list(payload[cut])
+    return loaded
+
+
 def row_order_ids(rows: object) -> list[str]:
     if not isinstance(rows, list):
         return []
@@ -318,11 +420,20 @@ def classify_focus(lists: dict[str, list[str]]) -> dict[str, Any]:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Audita exposición de splits en JSON existentes.")
     parser.add_argument("--ml-root", type=Path, required=True)
-    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--output", type=Path, default=None)
+    parser.add_argument("--cross-output", type=Path, default=None)
     args = parser.parse_args(argv)
-    payload = audit(args.ml_root.expanduser().resolve())
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    if args.output is None and args.cross_output is None:
+        parser.error("indica --output, --cross-output o ambos")
+    root = args.ml_root.expanduser().resolve()
+    if args.output is not None:
+        payload = audit(root)
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    if args.cross_output is not None:
+        cross = partition_cross_audit(load_partition_lists(root))
+        args.cross_output.parent.mkdir(parents=True, exist_ok=True)
+        args.cross_output.write_text(json.dumps(cross, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return 0
 
 

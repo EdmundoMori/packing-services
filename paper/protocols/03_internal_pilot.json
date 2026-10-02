@@ -1,0 +1,464 @@
+{
+  "schema_version": 1,
+  "status": "listo para implementar el evaluador piloto",
+  "question": "¿La política aprendida mejora la utilización geométrica frente a GreedyBestFit cuando ambas reciben las mismas candidatas y restricciones?",
+  "not_an_external_method": "Este protocolo compara dos políticas del repositorio sobre el mismo generador. No es una comparación externa.",
+  "methods": {
+    "A": {
+      "name": "actor seleccionado con best_epoch=0",
+      "checkpoint": "online_policy_ml/artifacts/models/mlp_v1_p1s1_ppo.pt",
+      "sha256": "6139beb5c13c6a3f9c701626a1765cf690234f253c2a9b9e4c03185b0228ec24",
+      "deserialized": false,
+      "role": "Puntúa candidatas ya legales. best_epoch=0 significa el actor inicial conservado por la selección, no una mejora obtenida mediante PPO."
+    },
+    "B": {
+      "name": "GreedyBestFitPolicy",
+      "code": "src/packing_services/online/policies.py",
+      "role": "Elige entre las mismas candidatas legales por rank_key. Con p=1 no hay otros ítems en la ventana."
+    }
+  },
+  "common_conditions": [
+    {
+      "id": "p_s",
+      "value": {
+        "lookahead_p": 1,
+        "select_s": 1
+      },
+      "applies_to_both_without_production_change": true,
+      "code": "InformationBudget.from_parameters y run_online_loop en ambos algoritmos"
+    },
+    {
+      "id": "arrival_order",
+      "value": "input_order",
+      "applies_to_both_without_production_change": true,
+      "code": "bed_bpp._merge_parameters y loop.order_items INPUT_ORDER"
+    },
+    {
+      "id": "container",
+      "value": {
+        "rule": "cada pedido conserva su target registrado",
+        "euro-pallet_mm": [
+          1200.0,
+          800.0,
+          2000.0
+        ],
+        "rollcontainer_mm": [
+          800.0,
+          700.0,
+          2000.0
+        ],
+        "same_converted_problem_for_both_methods": true
+      },
+      "applies_to_both_without_production_change": true,
+      "code": "bed_bpp._resolve_target_container, líneas 72-95; TARGET_SIZES_MM líneas 21-24"
+    },
+    {
+      "id": "orientations",
+      "value": "hasta seis permutaciones si la receta y el ítem permiten rotación",
+      "applies_to_both_without_production_change": true,
+      "code": "session.orientations_for y geometry.unique_orientations"
+    },
+    {
+      "id": "constraints",
+      "value": {
+        "non_overlap": true,
+        "containment": true,
+        "allow_rotation": true,
+        "max_weight": true,
+        "max_weight_kg": 1500.0,
+        "basic_stability": false,
+        "load_bearing": false,
+        "fragility": false,
+        "unloading_sequence": false,
+        "same_for_both_targets": true
+      },
+      "applies_to_both_without_production_change": true,
+      "code": "order_to_problem no pasa constraints; _default_constraints para un tipo distinto de STACKING_AWARE, bed_bpp.py líneas 144-149; defaults false en ConstraintFlags, models.py líneas 94-97; max_weight del contenedor es DEFAULT_PALLET_MAX_WEIGHT_KG para euro-pallet y rollcontainer, bed_bpp.py líneas 26 y 89-94"
+    },
+    {
+      "id": "discard",
+      "value": "descartar el ítem sin candidata legal y continuar",
+      "applies_to_both_without_production_change": true,
+      "code": "run_online_loop"
+    },
+    {
+      "id": "candidates_and_mask",
+      "value": "ExtremePointOnlineSession y ValidatorMask",
+      "applies_to_both_without_production_change": true,
+      "code": "Online3DBPPHeuristic.run y DRLPolicy3DBPP.run"
+    },
+    {
+      "id": "remaining_count",
+      "value": "el bucle lo pasa a ambas políticas; GreedyBestFitPolicy no lo usa",
+      "applies_to_both_without_production_change": true,
+      "code": "loop.py decide(..., remaining_count=len(remaining)); policies.py borra el argumento"
+    }
+  ],
+  "orders": {
+    "source": "online_policy_ml/data/scale/val/order_ids.json",
+    "role": "conjunto de desarrollo y selección, no prueba confirmatoria",
+    "n": 20,
+    "excluded_silently": false,
+    "items": [
+      {
+        "position": 0,
+        "order_id": "00107792",
+        "target": "rollcontainer",
+        "target_subset": "rollcontainer",
+        "target_source": "rollcontainer",
+        "targets_match": true,
+        "container_id": "ROLLCONTAINER",
+        "container_length_mm": 800.0,
+        "container_width_mm": 700.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1120000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 1,
+        "order_id": "00105320",
+        "target": "rollcontainer",
+        "target_subset": "rollcontainer",
+        "target_source": "rollcontainer",
+        "targets_match": true,
+        "container_id": "ROLLCONTAINER",
+        "container_length_mm": 800.0,
+        "container_width_mm": 700.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1120000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 2,
+        "order_id": "00105445",
+        "target": "rollcontainer",
+        "target_subset": "rollcontainer",
+        "target_source": "rollcontainer",
+        "targets_match": true,
+        "container_id": "ROLLCONTAINER",
+        "container_length_mm": 800.0,
+        "container_width_mm": 700.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1120000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 3,
+        "order_id": "00101348",
+        "target": "euro-pallet",
+        "target_subset": "euro-pallet",
+        "target_source": "euro-pallet",
+        "targets_match": true,
+        "container_id": "EURO_PALLET",
+        "container_length_mm": 1200.0,
+        "container_width_mm": 800.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1920000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 4,
+        "order_id": "00105737",
+        "target": "rollcontainer",
+        "target_subset": "rollcontainer",
+        "target_source": "rollcontainer",
+        "targets_match": true,
+        "container_id": "ROLLCONTAINER",
+        "container_length_mm": 800.0,
+        "container_width_mm": 700.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1120000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 5,
+        "order_id": "00104464",
+        "target": "rollcontainer",
+        "target_subset": "rollcontainer",
+        "target_source": "rollcontainer",
+        "targets_match": true,
+        "container_id": "ROLLCONTAINER",
+        "container_length_mm": 800.0,
+        "container_width_mm": 700.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1120000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 6,
+        "order_id": "00109069",
+        "target": "rollcontainer",
+        "target_subset": "rollcontainer",
+        "target_source": "rollcontainer",
+        "targets_match": true,
+        "container_id": "ROLLCONTAINER",
+        "container_length_mm": 800.0,
+        "container_width_mm": 700.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1120000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 7,
+        "order_id": "00107675",
+        "target": "rollcontainer",
+        "target_subset": "rollcontainer",
+        "target_source": "rollcontainer",
+        "targets_match": true,
+        "container_id": "ROLLCONTAINER",
+        "container_length_mm": 800.0,
+        "container_width_mm": 700.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1120000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 8,
+        "order_id": "00100130",
+        "target": "euro-pallet",
+        "target_subset": "euro-pallet",
+        "target_source": "euro-pallet",
+        "targets_match": true,
+        "container_id": "EURO_PALLET",
+        "container_length_mm": 1200.0,
+        "container_width_mm": 800.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1920000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 9,
+        "order_id": "00106558",
+        "target": "rollcontainer",
+        "target_subset": "rollcontainer",
+        "target_source": "rollcontainer",
+        "targets_match": true,
+        "container_id": "ROLLCONTAINER",
+        "container_length_mm": 800.0,
+        "container_width_mm": 700.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1120000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 10,
+        "order_id": "00102736",
+        "target": "rollcontainer",
+        "target_subset": "rollcontainer",
+        "target_source": "rollcontainer",
+        "targets_match": true,
+        "container_id": "ROLLCONTAINER",
+        "container_length_mm": 800.0,
+        "container_width_mm": 700.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1120000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 11,
+        "order_id": "00101358",
+        "target": "rollcontainer",
+        "target_subset": "rollcontainer",
+        "target_source": "rollcontainer",
+        "targets_match": true,
+        "container_id": "ROLLCONTAINER",
+        "container_length_mm": 800.0,
+        "container_width_mm": 700.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1120000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 12,
+        "order_id": "00101236",
+        "target": "rollcontainer",
+        "target_subset": "rollcontainer",
+        "target_source": "rollcontainer",
+        "targets_match": true,
+        "container_id": "ROLLCONTAINER",
+        "container_length_mm": 800.0,
+        "container_width_mm": 700.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1120000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 13,
+        "order_id": "00101411",
+        "target": "rollcontainer",
+        "target_subset": "rollcontainer",
+        "target_source": "rollcontainer",
+        "targets_match": true,
+        "container_id": "ROLLCONTAINER",
+        "container_length_mm": 800.0,
+        "container_width_mm": 700.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1120000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 14,
+        "order_id": "00106265",
+        "target": "euro-pallet",
+        "target_subset": "euro-pallet",
+        "target_source": "euro-pallet",
+        "targets_match": true,
+        "container_id": "EURO_PALLET",
+        "container_length_mm": 1200.0,
+        "container_width_mm": 800.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1920000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 15,
+        "order_id": "00104873",
+        "target": "euro-pallet",
+        "target_subset": "euro-pallet",
+        "target_source": "euro-pallet",
+        "targets_match": true,
+        "container_id": "EURO_PALLET",
+        "container_length_mm": 1200.0,
+        "container_width_mm": 800.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1920000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 16,
+        "order_id": "00101899",
+        "target": "euro-pallet",
+        "target_subset": "euro-pallet",
+        "target_source": "euro-pallet",
+        "targets_match": true,
+        "container_id": "EURO_PALLET",
+        "container_length_mm": 1200.0,
+        "container_width_mm": 800.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1920000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 17,
+        "order_id": "00106028",
+        "target": "euro-pallet",
+        "target_subset": "euro-pallet",
+        "target_source": "euro-pallet",
+        "targets_match": true,
+        "container_id": "EURO_PALLET",
+        "container_length_mm": 1200.0,
+        "container_width_mm": 800.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1920000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 18,
+        "order_id": "00100415",
+        "target": "rollcontainer",
+        "target_subset": "rollcontainer",
+        "target_source": "rollcontainer",
+        "targets_match": true,
+        "container_id": "ROLLCONTAINER",
+        "container_length_mm": 800.0,
+        "container_width_mm": 700.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1120000000.0,
+        "max_weight_kg": 1500.0
+      },
+      {
+        "position": 19,
+        "order_id": "00105295",
+        "target": "euro-pallet",
+        "target_subset": "euro-pallet",
+        "target_source": "euro-pallet",
+        "targets_match": true,
+        "container_id": "EURO_PALLET",
+        "container_length_mm": 1200.0,
+        "container_width_mm": 800.0,
+        "container_height_mm": 2000.0,
+        "container_volume_mm3": 1920000000.0,
+        "max_weight_kg": 1500.0
+      }
+    ],
+    "hashes": {
+      "scale_val_manifest": "42015db73fb3ec9addf006190efd223d5972522ad69480810fc70fd317f72e79",
+      "scale_val_orders": "ab7ca7ee452631a62ec25fcf39bbad1d938aa85176765a22e20fcff94a2e4051",
+      "source_dataset": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc"
+    },
+    "n_euro_pallet": 7,
+    "n_rollcontainer": 13,
+    "targets_rechecked_match": true
+  },
+  "primary_metric": {
+    "name": "U_geom",
+    "definition": "U_geom del pedido es el volumen de los ítems colocados, con dimensiones verificadas contra la entrada, dividido por el volumen del contenedor de ese pedido",
+    "paired_difference": "delta_i = U_geom(actor,i) - U_geom(heuristica,i)",
+    "not_an_external_score": true,
+    "container_volume_by_target_mm3": {
+      "euro-pallet": 1920000000.0,
+      "rollcontainer": 1120000000.0
+    }
+  },
+  "validation": {
+    "auditor": "independiente: dimensiones, identidades, contención y solapes",
+    "invalid_output": "fallo; U_geom=0 en el agregado predefinido; se conservan las métricas brutas",
+    "crash_or_timeout": "fallo; U_geom=0",
+    "denominator": "los fallos permanecen en el denominador"
+  },
+  "secondary": [
+    "fracción de ítems colocados",
+    "fracción del volumen solicitado que se coloca",
+    "altura máxima",
+    "número y tipo de fallos",
+    "tiempo como diagnóstico, sin afirmar eficiencia"
+  ],
+  "required_capture": "dimensiones originales, dimensiones orientadas en tres ejes, posiciones, ids colocados y no colocados, restricciones efectivas. No almacenar seis permutaciones como yaw 0/1.",
+  "summary": {
+    "statistics": [
+      "media de delta",
+      "mediana de delta",
+      "victorias",
+      "empates",
+      "derrotas"
+    ],
+    "tie": "abs(delta) <= 1e-9",
+    "executed": false,
+    "values": null
+  },
+  "allowed_after_pilot": "En este conjunto de desarrollo, bajo el protocolo geométrico especificado, el actor obtuvo una diferencia de X frente a GreedyBestFit.",
+  "not_allowed": [
+    "Superamos a PCT.",
+    "Mejoramos el estado del arte.",
+    "Demostramos estabilidad física.",
+    "Confirmamos generalización usando este piloto."
+  ],
+  "blockers": [],
+  "pilot_executed": false,
+  "confirmatory_evaluation": false,
+  "amendment": "03A",
+  "aggregate": {
+    "primary": "media aritmética de los 20 delta_i, con el mismo peso por pedido",
+    "n": 20,
+    "failures_stay_in_denominator": true,
+    "invalid_u_geom": 0,
+    "tie": "abs(delta) <= 1e-9",
+    "by_target_required": [
+      "media de delta",
+      "mediana de delta",
+      "victorias",
+      "empates",
+      "derrotas",
+      "fallos de cada método",
+      "tamaño del grupo"
+    ],
+    "scope_note": "El agregado depende de la composición de estos 20 pedidos. No equivale a una ventaja demostrada para cada target ni para toda la colección de pedidos.",
+    "frozen_before_execution": true,
+    "executed": false,
+    "values": null
+  },
+  "open_outside_this_pilot": [
+    "La reserva confirmatoria no se modifica: cuatro IDs siguen excluidos por precaución y 675 permanecen con exposición incierta.",
+    "Este estado no es un piloto ejecutado ni una evaluación confirmatoria."
+  ]
+}

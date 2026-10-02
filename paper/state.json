@@ -1,39 +1,45 @@
 {
   "schema_version": 1,
-  "execution_id": "02-20261002T130723Z",
-  "executed_at_utc": "2026-10-02T13:07:23Z",
-  "reference_commit": "f4525b8cd05ab52570cc58abfb54cac9c41dcae2",
-  "head": "f4525b8cd05ab52570cc58abfb54cac9c41dcae2",
+  "execution_id": "03a-20261002T155833Z",
+  "executed_at_utc": "2026-10-02T15:58:33Z",
+  "reference_commit": "3ec56590d9ef59446f9b2bb46c66a1c459bbc378",
+  "head": "3ec56590d9ef59446f9b2bb46c66a1c459bbc378",
   "head_matches_reference": true,
   "branch": "research/paper-online-packing",
   "repo_root": "/home/edmundo/packing-services",
   "working_tree_dirty_before": true,
-  "dirty_before_note": "17 .pkl sin seguimiento. No se tocaron ni se añadieron al índice. Este paso no crea un commit.",
-  "phase": "02_effective_protocol",
-  "status": "completed",
+  "dirty_before_note": "El paso 03 sigue sin commit. Los .pkl sin seguimiento no se tocaron. 03A no crea un commit.",
+  "phase": "03a_pilot_target_amendment",
+  "status": "listo para implementar el evaluador piloto",
   "result_summary": {
-    "origin_commit": "f4525b8cd05ab52570cc58abfb54cac9c41dcae2",
-    "protocol_review": "paper/reviews/02_effective_protocol.md",
-    "split_exposure": "paper/results/02_split_exposure.json",
-    "order_00100408": {
-      "A_train_manifests": "ausente de los manifiestos train leídos",
-      "B_selection": "ausente de scale val, working val y filas de 05",
-      "C_later_evaluation": ["holdout_producto", "06_holdout", "09_orders", "10_shared"],
-      "D_unknown_exposure": "pkl y checkpoints no leídos",
-      "confirmatory_unseen_test": false
-    },
-    "best_epoch_0_meaning": "en fit_ppo el epoch 0 es el actor inicial, antes del bucle; ningún epoch posterior superó su val_util",
-    "weight_equality_with_bc_init": "no comprobado",
-    "physical_stability_verified": null,
-    "tests": "29 OK"
+    "origin_commit": "3ec56590d9ef59446f9b2bb46c66a1c459bbc378",
+    "protocol": "paper/protocols/03_internal_pilot.md",
+    "amendment_review": "paper/reviews/03a_pilot_target_amendment.md",
+    "protocol_status": "listo para implementar el evaluador piloto",
+    "pilot_executed": false,
+    "confirmatory_evaluation": false,
+    "pilot_orders_n": 20,
+    "pilot_euro_pallet": 7,
+    "pilot_rollcontainer": 13,
+    "targets_match_source_and_subset": true,
+    "primary_aggregate": "media aritmética de los 20 delta_i, igual peso por pedido",
+    "target_mix_blocker_removed": true,
+    "protocol_blockers": [],
+    "excluded_by_precaution": [
+      "00101249",
+      "00102764",
+      "00108147",
+      "00109619"
+    ],
+    "uncertain_exposure_n": 675,
+    "called_clean": false,
+    "confirmatory_n_not_chosen": true
   },
   "next_steps": [
-    "No elegir métrica ni restricciones a partir de resultados nuevos.",
-    "No tratar 00100408 como test confirmatorio no inspeccionado."
+    "Implementar el evaluador piloto sin cambiar el agregado fijado.",
+    "No evaluar la reserva ni declarar limpios los 675 candidatos inciertos."
   ],
-  "blockers": [
-    "git-lfs no está en PATH. No bloquea 01E."
-  ],
+  "blockers": [],
   "previous_executions": [
     {
       "execution_id": "inv-00-20261002T122453Z",
@@ -78,6 +84,24 @@
       "status": "completed",
       "review": "paper/reviews/01e_orientation_contract.md",
       "head": "75de9ac1546f32f8eeeec0734e66338f3b403ce9",
+      "branch": "research/paper-online-packing"
+    },
+    {
+      "execution_id": "02-20261002T130723Z",
+      "executed_at_utc": "2026-10-02T13:07:23Z",
+      "phase": "02_effective_protocol",
+      "status": "completed",
+      "review": "paper/reviews/02_effective_protocol.md",
+      "head": "f4525b8cd05ab52570cc58abfb54cac9c41dcae2",
+      "branch": "research/paper-online-packing"
+    },
+    {
+      "execution_id": "03-20261002T154729Z",
+      "executed_at_utc": "2026-10-02T15:47:29Z",
+      "phase": "03_internal_pilot_protocol",
+      "status": "blocked",
+      "review": "paper/protocols/03_internal_pilot.md",
+      "head": "3ec56590d9ef59446f9b2bb46c66a1c459bbc378",
       "branch": "research/paper-online-packing"
     }
   ]

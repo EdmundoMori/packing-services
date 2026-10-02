@@ -82,6 +82,35 @@ class SplitExposureTests(unittest.TestCase):
             self.assertIn("no demuestra", result["exposure"]["A_pertenencia_entrenamiento"]["conclusion"])
             self.assertNotIn("independiente", json.dumps(result["exposure"]))
 
+    def test_different_cuts_keep_full_ids_and_missing_is_not_empty(self):
+        lists = {name: [] for name in audit_mod.partition_names()}
+        lists["manifest_working.train"] = ["00100", "00012"]
+        lists["manifest_working.val"] = ["00007"]
+        lists["manifest_working.test"] = ["00008"]
+        lists["manifest_scale.train"] = ["00012"]
+        lists["manifest_scale.val"] = ["00100"]
+        lists["manifest_scale.test"] = ["00009"]
+        lists["manifest_full.train"] = ["00100", "00012", "00020"]
+        lists["manifest_full.val"] = ["00007", "00021"]
+        lists["manifest_full.test"] = ["00008", "00009"]
+        lists["manifest_scale.test"] = None
+        result = audit_mod.partition_cross_audit(lists)
+        self.assertEqual(result["n_pairs"], 36)
+        leak = result["pairs"]["manifest_working.train ∩ manifest_scale.val"]
+        self.assertEqual(leak["status"], "requiere_investigar")
+        self.assertEqual(leak["ids"], ["00100"])
+        self.assertIsInstance(leak["ids"][0], str)
+        self.assertTrue(leak["ids"][0].startswith("00"))
+        missing = result["pairs"]["manifest_working.test ∩ manifest_scale.test"]
+        self.assertEqual(missing["evidence"], "faltante")
+        self.assertIsNone(missing["n"])
+        self.assertNotEqual(missing.get("status"), "sin_cruce_observado")
+        expected = result["pairs"]["manifest_working.train ∩ manifest_full.train"]
+        self.assertEqual(expected["status"], "solapamiento_esperado")
+        self.assertTrue(expected["subset_contained_in_full"])
+        same = result["pairs"]["manifest_working.train ∩ manifest_scale.train"]
+        self.assertEqual(same["ids"], ["00012"])
+
 
 if __name__ == "__main__":
     unittest.main()
