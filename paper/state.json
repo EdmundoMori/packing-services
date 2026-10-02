@@ -1,47 +1,37 @@
 {
   "schema_version": 1,
-  "execution_id": "01c-20261002T124527Z",
-  "executed_at_utc": "2026-10-02T12:45:27Z",
-  "reference_commit": "d84ad596d6d8a7857dfcecb4470375905da21f4a",
-  "head": "d84ad596d6d8a7857dfcecb4470375905da21f4a",
+  "execution_id": "01e-20261002T125842Z",
+  "executed_at_utc": "2026-10-02T12:58:42Z",
+  "reference_commit": "75de9ac1546f32f8eeeec0734e66338f3b403ce9",
+  "head": "75de9ac1546f32f8eeeec0734e66338f3b403ce9",
   "head_matches_reference": true,
   "branch": "research/paper-online-packing",
   "repo_root": "/home/edmundo/packing-services",
   "working_tree_dirty_before": true,
-  "dirty_before_note": "17 .pkl sin seguimiento. No se tocaron.",
-  "phase": "01c_internal_geometry",
+  "dirty_before_note": "17 .pkl sin seguimiento. No se tocaron ni se añadieron al índice.",
+  "phase": "01e_orientation_contract",
   "status": "completed",
   "result_summary": {
     "order_id": "00100408",
-    "n_input": 26,
-    "n_packed": 26,
-    "n_unpacked": 0,
-    "internal_max_height_mm": 1970.0,
-    "internal_packed_volume_mm3": 1241041750.0,
-    "internal_boxes_outside": 0,
-    "internal_overlap_pairs": 0,
+    "hardened_audit_matches_01c_geometry": true,
     "internal_geometry_valid": true,
     "all_items_packed": true,
+    "internal_max_height_mm": 1970.0,
+    "internal_packed_volume_mm3": 1241041750.0,
+    "n_boxes_outside_bin": 0,
+    "n_overlap_pairs": 0,
     "physical_stability_verified": null,
-    "n_not_representable_as_yaw_0_1": 24,
-    "exported_plan_geometry_valid": false,
-    "exported_max_height_mm": 1865.0,
-    "exported_boxes_outside": 10,
-    "exported_overlap_pairs": 19,
-    "reproduces_historical_placements": true,
-    "tests": "16 OK"
-  },
-  "environment": {
-    "python_executable": "/home/edmundo/packing-services/.venv/bin/python",
-    "torch_map_location": "cpu",
-    "checkpoints_loaded": true,
-    "cuda_requested": false
+    "yaw_representable": false,
+    "yaw_exportable": false,
+    "n_incompatible_orientations": 24,
+    "yaw_plan_written": false,
+    "tests": "26 OK"
   },
   "next_steps": [
-    "No reparar el exportador hasta un paso explícito."
+    "No reparar el exportador de producción hasta un paso explícito."
   ],
   "blockers": [
-    "git-lfs no está en PATH. No bloquea 01C."
+    "git-lfs no está en PATH. No bloquea 01E."
   ],
   "previous_executions": [
     {
@@ -69,6 +59,15 @@
       "status": "completed",
       "review": "paper/reviews/01a_export_audit.md",
       "head": "7de7c1037248fa0c207fa7de7908149d72c3a34c",
+      "branch": "research/paper-online-packing"
+    },
+    {
+      "execution_id": "01c-20261002T124527Z",
+      "executed_at_utc": "2026-10-02T12:45:27Z",
+      "phase": "01c_internal_geometry",
+      "status": "completed",
+      "review": "paper/reviews/01c_internal_geometry.md",
+      "head": "d84ad596d6d8a7857dfcecb4470375905da21f4a",
       "branch": "research/paper-online-packing"
     }
   ]

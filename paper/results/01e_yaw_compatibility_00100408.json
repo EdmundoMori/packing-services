@@ -1,0 +1,39 @@
+{
+  "internal_geometry_valid": true,
+  "yaw_representable": false,
+  "yaw_exportable": false,
+  "n_incompatible_orientations": 24,
+  "incompatible_item_ids": [
+    "00101843#1",
+    "00107754#2",
+    "00107754#3",
+    "00102400#4",
+    "00101323#5",
+    "00101323#6",
+    "00101323#7",
+    "00110459#8",
+    "00105433#9",
+    "00101846#10",
+    "00112653#11",
+    "00104520#12",
+    "00109731#14",
+    "00109731#15",
+    "00104259#16",
+    "00106670#17",
+    "00105511#19",
+    "00111825#20",
+    "00101398#21",
+    "00101162#22",
+    "00110336#23",
+    "00102102#24",
+    "00108722#25",
+    "00103678#26"
+  ],
+  "multi_container_rejected": false,
+  "multi_container_limit": "Esta versión no exporta capturas con más de un contenedor.",
+  "physical_stability_verified": null,
+  "rejection_reasons": [
+    "hay orientaciones no representables como yaw 0/1"
+  ],
+  "note": "Geometría válida y representabilidad yaw son distintas. El adaptador no fabrica un plan intercambiando dimensiones, no verifica estabilidad física y no afirma superioridad frente a PCT."
+}

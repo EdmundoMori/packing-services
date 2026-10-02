@@ -151,7 +151,7 @@ class AuditInternalSolutionTests(unittest.TestCase):
         placement = _place("a", (10, 10, 10), (10, 10, 10), (0, 0, 0))
         placement["flb_mm"][2] = float("nan")
         result = audit.audit_document(_doc([placement]))
-        self.assertTrue(any("no finitos" in error for error in result["errors"]))
+        self.assertTrue(any("finitos" in error for error in result["errors"]))
         self.assertFalse(result["internal_geometry_valid"])
 
     def test_partial_solution_can_be_geometrically_valid(self):
@@ -164,6 +164,74 @@ class AuditInternalSolutionTests(unittest.TestCase):
         self.assertTrue(result["internal_geometry_valid"])
         self.assertFalse(result["all_items_packed"])
         self.assertIsNone(result["physical_stability_verified"])
+
+    def test_original_dimensions_permuted_against_input_are_rejected(self):
+        result = audit.audit_document(
+            _doc(
+                [_place("a", (5, 10, 30), (5, 10, 30), (0, 0, 0))],
+                inputs=[
+                    {
+                        "item_id": "a",
+                        "length_mm": 30,
+                        "width_mm": 10,
+                        "height_mm": 5,
+                        "allowed_orientations": "all",
+                    }
+                ],
+            )
+        )
+        self.assertTrue(any("eje a eje" in error for error in result["errors"]))
+        self.assertFalse(result["internal_geometry_valid"])
+        self.assertEqual(result["boxes"], [])
+        self.assertEqual(result["per_container"][0]["n_boxes"], 0)
+        self.assertEqual(result["per_container"][0]["packed_volume_mm3"], 0)
+
+    def test_vectors_whose_lengths_sum_to_nine_do_not_crash(self):
+        placement = _place("a", (10, 10, 10), (10, 10), (0, 0, 0, 0))
+        result = audit.audit_document(_doc([placement]))
+        self.assertFalse(result["internal_geometry_valid"])
+        self.assertEqual(result["boxes"], [])
+
+    def test_non_finite_or_non_positive_input_dimensions_are_rejected(self):
+        placement = _place("a", (10, 10, 10), (10, 10, 10), (0, 0, 0))
+        nan_doc = _doc(
+            [placement],
+            inputs=[{"item_id": "a", "length_mm": float("nan"), "width_mm": 10, "height_mm": 10, "allowed_orientations": "all"}],
+        )
+        negative = _doc(
+            [placement],
+            inputs=[{"item_id": "a", "length_mm": -10, "width_mm": 10, "height_mm": 10, "allowed_orientations": "all"}],
+        )
+        self.assertFalse(audit.audit_document(nan_doc)["internal_geometry_valid"])
+        self.assertFalse(audit.audit_document(negative)["internal_geometry_valid"])
+        self.assertFalse(audit.audit_document(["no-es-objeto"])["internal_geometry_valid"])
+
+    def test_duplicate_container_ids_are_rejected(self):
+        result = audit.audit_document(
+            _doc(
+                [_place("a", (10, 10, 10), (10, 10, 10), (0, 0, 0), "A")],
+                containers=[
+                    {"id": "A", "length_mm": 100, "width_mm": 100, "height_mm": 100},
+                    {"id": "A", "length_mm": 50, "width_mm": 50, "height_mm": 50},
+                ],
+            )
+        )
+        self.assertTrue(any("contenedor duplicados" in error for error in result["errors"]))
+        self.assertFalse(result["internal_geometry_valid"])
+        self.assertEqual(result["per_container"], [])
+
+    def test_historical_contrast_is_ids_and_flb_only(self):
+        document = _doc([_place("a", (10, 10, 10), (10, 10, 10), (1, 2, 3))])
+        historical = [{"item": {"id": "a", "length": 99, "width": 1, "height": 1}, "orientation": 1, "flb_coordinates": [1, 2, 3]}]
+        contrast = audit.contrast_historical(document, historical)
+        self.assertTrue(contrast["same_ordered_ids_and_flb"])
+        self.assertIn("No incluye dimensiones", contrast["comparison_scope"])
+        self.assertFalse(
+            audit.legacy_actions_equal(
+                historical,
+                [{"item": {"id": "a", "length": 10, "width": 10, "height": 10}, "orientation": 0, "flb_coordinates": [1, 2, 3]}],
+            )
+        )
 
 
 if __name__ == "__main__":
