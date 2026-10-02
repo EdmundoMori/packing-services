@@ -1,0 +1,10 @@
+{
+  "run_id": "09d052b75a534728",
+  "method": "heuristic",
+  "order_id": "00106828",
+  "dataset": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+  "checkpoint": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/mlp_v1_p1s1_ppo.pt",
+  "lookahead_p": 1,
+  "select_s": 1,
+  "attempts": 1
+}

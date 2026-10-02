@@ -1,0 +1,1703 @@
+{
+  "schema_version": 1,
+  "run_id": "09d052b75a534728",
+  "status": "complete",
+  "complete": true,
+  "pilot_executed_on_protocol": false,
+  "timeout_seconds": 300,
+  "attempts_per_case": 1,
+  "device": "cpu",
+  "method_order": [
+    "actor",
+    "heuristic"
+  ],
+  "arguments": {
+    "protocol": "/home/edmundo/packing-services/paper/protocols/07_independent_evaluation.json",
+    "dataset": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+    "checkpoint": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/mlp_v1_p1s1_ppo.pt",
+    "output_dir": "/home/edmundo/packing-services/paper/results/07_independent_evaluation"
+  },
+  "preflight": {
+    "ok": true,
+    "checkpoint_loaded": false,
+    "workers_started": false,
+    "equivalent_configs": true,
+    "amendment": "07",
+    "n_orders": 200,
+    "files": {
+      "source_dataset": {
+        "path": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+        "role": "dataset fuente",
+        "sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc"
+      },
+      "full_test_manifest": {
+        "path": "/home/edmundo/packing-services/online_policy_ml/data/splits/full_split.json",
+        "role": "manifiesto full.test",
+        "sha256": "099ffade390c55c3fc723e582b5c8c84f15abe0e1c8feed816442338f7f90a0e"
+      },
+      "exposure": {
+        "path": "/home/edmundo/packing-services/paper/results/06a_candidate_exposure_by_target.json",
+        "role": "clasificación 06A",
+        "sha256": "1e5d1b2a0089592d27b99e0cfb1ef32eb9c339abef7abd73885b44ac961ef4c9"
+      },
+      "freeze": {
+        "path": "/home/edmundo/packing-services/paper/results/07_sample_freeze.json",
+        "role": "muestra congelada",
+        "sha256": "4d295cfcb899eb6e366ca0f96e4e673628694babc4c67932fd1228f6b4920271"
+      },
+      "checkpoint": {
+        "path": "/home/edmundo/packing-services/online_policy_ml/artifacts/models/mlp_v1_p1s1_ppo.pt",
+        "role": "checkpoint, solo hash de bytes",
+        "sha256": "6139beb5c13c6a3f9c701626a1765cf690234f253c2a9b9e4c03185b0228ec24"
+      }
+    },
+    "provenance": {
+      "git": {
+        "head": "41c6e6b996831d12908969084010350541c8e358",
+        "branch": "research/paper-online-packing",
+        "dirty": true,
+        "status_short_count": 18,
+        "status_short_sha256": "ea1fa5c2e28948ada9e84ee816645e2b144d6df83edc9ba0b273eb6e89ea0d43"
+      },
+      "evaluator_sha256": {
+        "paper/protocols/03_internal_pilot.json": "088a9601c4a9672e77fd776ae889ac35675322e8a3955c7ae3f025cfaf837a65",
+        "paper/protocols/04_evaluator_operational.md": "6c1c2ecf683de2a40abcd3337b02bc44c396c53b3f147dcf811cceb84de03dfa",
+        "paper/tools/run_internal_pilot.py": "3e527fcc951f92f5bc6624ad3f8e18f82bfee53cb8e7840047239116cb153824",
+        "paper/tools/pilot_common.py": "6beda78378a581db81aabce87dd7e8296d0fabc40e424c8ba40329e8b31210a7",
+        "paper/tools/pilot_problems.py": "c347f00ab5b10bcf817954aee4ed9e12bacdaf55e128dba3c5d26f4701494b5e",
+        "paper/tools/pilot_metrics.py": "26275cea5fdcfb2ac09cd9da61bba389b2daf95a50070ef92c1f2529b25a7fad",
+        "paper/tools/pilot_preflight.py": "9d355b1f5faab2b373d3c5506dd7979936a0a6417f0c5135df78f4237146c103",
+        "paper/tools/pilot_execute.py": "79a565664c996a78547d7568dadf8348c3f1d94166b0188d7c6d3213d83845a6",
+        "paper/tools/pilot_worker.py": "11d22cf12997b3448e7714e1b788f6452fc3f9c6542ecaa4b7771070fdccdb41"
+      }
+    },
+    "orders": [
+      {
+        "order_id": "00100070",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 47,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100226",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 56,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100372",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 52,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100414",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 68,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100484",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 31,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100511",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 69,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100546",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 56,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100586",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 35,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100623",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 46,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100734",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 38,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100743",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 58,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100763",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 18,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100908",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 40,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100955",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00100967",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 53,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101062",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 29,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101282",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 56,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101333",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 78,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101366",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 51,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101377",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 32,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101387",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 55,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101393",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101424",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 38,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101467",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 40,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101480",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 42,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101482",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 22,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101496",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101519",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101590",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 39,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101642",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 61,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101652",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 30,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101665",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 40,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101739",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 48,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101805",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 31,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101810",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 62,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101822",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 33,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101880",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101906",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 59,
+        "equivalent": true
+      },
+      {
+        "order_id": "00101912",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 62,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102023",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 32,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102034",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 54,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102078",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102084",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 43,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102101",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 37,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102143",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102219",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 49,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102329",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102355",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 39,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102444",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 38,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102452",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 24,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102474",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 48,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102652",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 43,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102909",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 22,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102911",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 53,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102940",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102962",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 33,
+        "equivalent": true
+      },
+      {
+        "order_id": "00102982",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 52,
+        "equivalent": true
+      },
+      {
+        "order_id": "00103017",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 43,
+        "equivalent": true
+      },
+      {
+        "order_id": "00103077",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 53,
+        "equivalent": true
+      },
+      {
+        "order_id": "00103221",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00103240",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 55,
+        "equivalent": true
+      },
+      {
+        "order_id": "00103255",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 39,
+        "equivalent": true
+      },
+      {
+        "order_id": "00103281",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 39,
+        "equivalent": true
+      },
+      {
+        "order_id": "00103332",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 40,
+        "equivalent": true
+      },
+      {
+        "order_id": "00103370",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 39,
+        "equivalent": true
+      },
+      {
+        "order_id": "00103390",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 50,
+        "equivalent": true
+      },
+      {
+        "order_id": "00103497",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 30,
+        "equivalent": true
+      },
+      {
+        "order_id": "00103508",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 45,
+        "equivalent": true
+      },
+      {
+        "order_id": "00103765",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 36,
+        "equivalent": true
+      },
+      {
+        "order_id": "00103969",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 36,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104076",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 39,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104110",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 33,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104142",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 43,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104157",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 65,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104179",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104208",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 65,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104215",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 40,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104218",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 36,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104234",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 46,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104322",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 49,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104404",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 30,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104449",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 33,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104494",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 37,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104504",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 46,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104553",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 42,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104564",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 37,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104592",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 49,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104678",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 46,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104730",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 60,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104767",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 32,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104802",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 42,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104913",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 52,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104945",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 46,
+        "equivalent": true
+      },
+      {
+        "order_id": "00104974",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 54,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105057",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 37,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105137",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 21,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105316",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 94,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105317",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 40,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105338",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 51,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105347",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 49,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105358",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 49,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105421",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 20,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105436",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 34,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105482",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 66,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105515",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 35,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105562",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 26,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105591",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105615",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 40,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105675",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 50,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105686",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 37,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105718",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 43,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105732",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 37,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105749",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 33,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105772",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 21,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105871",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 60,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105895",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 34,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105928",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 38,
+        "equivalent": true
+      },
+      {
+        "order_id": "00105981",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 35,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106009",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 66,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106029",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 34,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106088",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 56,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106114",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 30,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106124",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 43,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106165",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 47,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106410",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 43,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106505",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 42,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106517",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 31,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106527",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 50,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106585",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 43,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106627",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 31,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106780",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 41,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106796",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 46,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106798",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 41,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106801",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 57,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106826",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 43,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106828",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 24,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106890",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 40,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106914",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 33,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106919",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 64,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106938",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 35,
+        "equivalent": true
+      },
+      {
+        "order_id": "00106960",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 33,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107192",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 46,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107252",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 52,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107273",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 61,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107288",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 24,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107322",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 37,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107440",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 34,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107482",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 22,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107557",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 32,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107571",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 38,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107615",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 56,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107622",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 50,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107693",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 40,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107695",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 30,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107731",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 47,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107781",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 15,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107835",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 60,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107915",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 32,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107936",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 61,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107939",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 105,
+        "equivalent": true
+      },
+      {
+        "order_id": "00107984",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 49,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108014",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 47,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108015",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 46,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108025",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 20,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108093",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 36,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108151",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108320",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 58,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108353",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 69,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108391",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 36,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108408",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 39,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108425",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 42,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108566",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108616",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 41,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108627",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 48,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108661",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108713",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 43,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108776",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 26,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108828",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 45,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108926",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 61,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108937",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 39,
+        "equivalent": true
+      },
+      {
+        "order_id": "00108998",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 33,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109017",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 36,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109068",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 39,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109123",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 30,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109182",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 45,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109256",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 22,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109268",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 54,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109321",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 39,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109398",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 44,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109440",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 68,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109590",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 36,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109650",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 68,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109727",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 47,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109738",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 51,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109796",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 67,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109801",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 63,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109886",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 17,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109937",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 56,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109975",
+        "target": "rollcontainer",
+        "container_id": "ROLLCONTAINER",
+        "container_volume_mm3": 1120000000.0,
+        "n_items": 45,
+        "equivalent": true
+      },
+      {
+        "order_id": "00109983",
+        "target": "euro-pallet",
+        "container_id": "EURO_PALLET",
+        "container_volume_mm3": 1920000000.0,
+        "n_items": 35,
+        "equivalent": true
+      }
+    ],
+    "protocol_id": "07_independent_evaluation",
+    "n_euro_pallet": 91,
+    "n_rollcontainer": 109,
+    "frozen_list_sha256": "dcb312188127239b70a0b4422fef8b03fc489817b9e504f180278d812a2d2227"
+  },
+  "provenance": {
+    "git": {
+      "head": "41c6e6b996831d12908969084010350541c8e358",
+      "branch": "research/paper-online-packing",
+      "dirty": true,
+      "status_short_count": 18,
+      "status_short_sha256": "ea1fa5c2e28948ada9e84ee816645e2b144d6df83edc9ba0b273eb6e89ea0d43"
+    },
+    "evaluator_sha256": {
+      "paper/protocols/03_internal_pilot.json": "088a9601c4a9672e77fd776ae889ac35675322e8a3955c7ae3f025cfaf837a65",
+      "paper/protocols/04_evaluator_operational.md": "6c1c2ecf683de2a40abcd3337b02bc44c396c53b3f147dcf811cceb84de03dfa",
+      "paper/tools/run_internal_pilot.py": "3e527fcc951f92f5bc6624ad3f8e18f82bfee53cb8e7840047239116cb153824",
+      "paper/tools/pilot_common.py": "6beda78378a581db81aabce87dd7e8296d0fabc40e424c8ba40329e8b31210a7",
+      "paper/tools/pilot_problems.py": "c347f00ab5b10bcf817954aee4ed9e12bacdaf55e128dba3c5d26f4701494b5e",
+      "paper/tools/pilot_metrics.py": "26275cea5fdcfb2ac09cd9da61bba389b2daf95a50070ef92c1f2529b25a7fad",
+      "paper/tools/pilot_preflight.py": "9d355b1f5faab2b373d3c5506dd7979936a0a6417f0c5135df78f4237146c103",
+      "paper/tools/pilot_execute.py": "79a565664c996a78547d7568dadf8348c3f1d94166b0188d7c6d3213d83845a6",
+      "paper/tools/pilot_worker.py": "11d22cf12997b3448e7714e1b788f6452fc3f9c6542ecaa4b7771070fdccdb41"
+    }
+  },
+  "n_rows": 400,
+  "n_pairs": 200
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "run_id": "09d052b75a534728",
+  "protocol_sha256": "260e738d2cc28318891f8db8e7c21098eed6a9e7bf5ab714c378996c8ccb88f8",
+  "paired_results_sha256": "3841c41eefdb250e5285ce34ee82724f4072cdd3e4be5922ac1636fb04b7c2f3",
+  "within_target_order": "protocol_position",
+  "mean_delta": -0.0005938201577380936,
+  "ci_low": -0.006293330782645088,
+  "ci_high": 0.005043209075334814,
+  "interpretation": "no_concluyente",
+  "replicates": 20000,
+  "seed": 20261002,
+  "percentile_method": "linear",
+  "n": 200,
+  "n_euro_pallet": 91,
+  "n_rollcontainer": 109,
+  "equality_demonstrated": false,
+  "by_target_role": "secundario y descriptivo",
+  "interval_is_approximate": true
+}

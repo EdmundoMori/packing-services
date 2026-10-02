@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "status": "complete",
+  "complete": true,
+  "run_id": "09d052b75a534728",
+  "protocol_pilot_executed": false,
+  "time_is_diagnostic_only": true,
+  "physical_stability_verified": null,
+  "secondary": {
+    "actor": {
+      "n": 200,
+      "item_fraction_mean": 0.9202659511932879,
+      "requested_volume_fraction_mean": 0.9002158539626112,
+      "max_height_mm_mean": 1987.97,
+      "duration_seconds_mean": 5.493873939624918,
+      "null_item_fraction": 0,
+      "failure_types": {},
+      "rows_with_unpacked_no_candidate": 147
+    },
+    "heuristic": {
+      "n": 200,
+      "item_fraction_mean": 0.919373365226429,
+      "requested_volume_fraction_mean": 0.9014294056136538,
+      "max_height_mm_mean": 1983.42,
+      "duration_seconds_mean": 3.5310204895799506,
+      "null_item_fraction": 0,
+      "failure_types": {},
+      "rows_with_unpacked_no_candidate": 143
+    },
+    "time_is_diagnostic_only": true
+  },
+  "n": 200,
+  "mean_delta": -0.0005938201577380936,
+  "median_delta": 0.0,
+  "wins": 78,
+  "ties": 53,
+  "losses": 69,
+  "actor_failures": 0,
+  "heuristic_failures": 0,
+  "by_target": {
+    "rollcontainer": {
+      "n": 109,
+      "mean_delta": 0.0007394044315203155,
+      "median_delta": 0.0034410714285715294,
+      "wins": 57,
+      "ties": 9,
+      "losses": 43,
+      "actor_failures": 0,
+      "heuristic_failures": 0
+    },
+    "euro-pallet": {
+      "n": 91,
+      "mean_delta": -0.0021907595009157486,
+      "median_delta": 0.0,
+      "wins": 21,
+      "ties": 44,
+      "losses": 26,
+      "actor_failures": 0,
+      "heuristic_failures": 0
+    }
+  },
+  "tie_rule": "abs(delta) <= 1e-9",
+  "primary": "media aritmética de delta, mismo peso por pedido"
+}
