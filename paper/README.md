@@ -29,4 +29,5 @@ Los informes y JSON ya existentes en `online_policy_ml/` son corridas previas. N
 - Paso 01E: [`reviews/01e_orientation_contract.md`](reviews/01e_orientation_contract.md). Informe yaw: [`results/01e_yaw_compatibility_00100408.json`](results/01e_yaw_compatibility_00100408.json).
 - Paso 02: [`reviews/02_effective_protocol.md`](reviews/02_effective_protocol.md). Exposición de splits: [`results/02_split_exposure.json`](results/02_split_exposure.json).
 - Paso 03: protocolo del piloto [`protocols/03_internal_pilot.md`](protocols/03_internal_pilot.md). Cruces: [`results/03_split_cross_audit.json`](results/03_split_cross_audit.json). Reserva: [`results/03_confirmatory_candidates.json`](results/03_confirmatory_candidates.json).
-- Ajuste 03A: cada pedido conserva su target, [`reviews/03a_pilot_target_amendment.md`](reviews/03a_pilot_target_amendment.md). El evaluador piloto no está ejecutado.
+- Ajuste 03A: cada pedido conserva su target, [`reviews/03a_pilot_target_amendment.md`](reviews/03a_pilot_target_amendment.md). El piloto no está ejecutado.
+- Paso 04: evaluador implementado, [`reviews/04_evaluator_implementation.md`](reviews/04_evaluator_implementation.md). Anexo: [`protocols/04_evaluator_operational.md`](protocols/04_evaluator_operational.md). El preflight de los 20 pedidos pasó. No hubo inferencia.
