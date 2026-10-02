@@ -97,6 +97,13 @@ class AuditExportedPlanTests(unittest.TestCase):
         self.assertFalse(result["exported_plan_geometry_valid"])
         self.assertIsNone(result["internal_solution_valid"])
 
+    def test_non_finite_bin_is_rejected(self):
+        action = [_action("a", 10, 10, 10, 0, (0, 0, 0))]
+        with self.assertRaises(ValueError):
+            audit.audit_actions(action, (float("nan"), 100.0, 100.0))
+        with self.assertRaises(ValueError):
+            audit.audit_actions(action, (float("inf"), 100.0, 100.0))
+
 
 if __name__ == "__main__":
     unittest.main()

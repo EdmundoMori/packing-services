@@ -1,45 +1,47 @@
 {
   "schema_version": 1,
-  "execution_id": "01a-20261002T123642Z",
-  "executed_at_utc": "2026-10-02T12:36:42Z",
-  "reference_commit": "7de7c1037248fa0c207fa7de7908149d72c3a34c",
-  "head": "7de7c1037248fa0c207fa7de7908149d72c3a34c",
+  "execution_id": "01c-20261002T124527Z",
+  "executed_at_utc": "2026-10-02T12:45:27Z",
+  "reference_commit": "d84ad596d6d8a7857dfcecb4470375905da21f4a",
+  "head": "d84ad596d6d8a7857dfcecb4470375905da21f4a",
   "head_matches_reference": true,
   "branch": "research/paper-online-packing",
-  "commit_date": "2026-09-15",
-  "commit_subject": "feat: cierra el ciclo RL online, el .pt de API y la comparación con PCT",
   "repo_root": "/home/edmundo/packing-services",
-  "origin_fetch": "git@github.com:EdmundoMori/packing-services.git",
-  "origin_push": "git@github.com:EdmundoMori/packing-services.git",
   "working_tree_dirty_before": true,
-  "dirty_before_note": "Al empezar 01A, en main: 17 .pkl sin seguimiento y paper/ sin seguimiento. La rama research/paper-online-packing se creó en el HEAD de referencia sin descartar esos archivos.",
-  "phase": "01a_export_audit",
+  "dirty_before_note": "17 .pkl sin seguimiento. No se tocaron.",
+  "phase": "01c_internal_geometry",
   "status": "completed",
   "result_summary": {
     "order_id": "00100408",
-    "n_boxes_parsed": 26,
-    "max_height_mm": 1865.0,
-    "n_boxes_outside_bin": 10,
-    "n_overlap_pairs": 19,
+    "n_input": 26,
+    "n_packed": 26,
+    "n_unpacked": 0,
+    "internal_max_height_mm": 1970.0,
+    "internal_packed_volume_mm3": 1241041750.0,
+    "internal_boxes_outside": 0,
+    "internal_overlap_pairs": 0,
+    "internal_geometry_valid": true,
+    "all_items_packed": true,
+    "physical_stability_verified": null,
+    "n_not_representable_as_yaw_0_1": 24,
     "exported_plan_geometry_valid": false,
-    "internal_solution_valid": null,
-    "tests": "6 OK"
+    "exported_max_height_mm": 1865.0,
+    "exported_boxes_outside": 10,
+    "exported_overlap_pairs": 19,
+    "reproduces_historical_placements": true,
+    "tests": "16 OK"
   },
   "environment": {
-    "os": "Linux WSL2",
-    "kernel": "6.6.87.2-microsoft-standard-WSL2",
-    "arch": "x86_64",
-    "shell": "bash",
     "python_executable": "/home/edmundo/packing-services/.venv/bin/python",
-    "python_version": "3.10.12",
-    "torch_imported": false,
-    "checkpoints_loaded": false
+    "torch_map_location": "cpu",
+    "checkpoints_loaded": true,
+    "cuda_requested": false
   },
   "next_steps": [
-    "No corregir el exportador hasta un paso explícito. La revisión externa asigna la siguiente tarea."
+    "No reparar el exportador hasta un paso explícito."
   ],
   "blockers": [
-    "git-lfs no está en PATH. No bloquea 01A. Bloquea materializar punteros LFS más adelante."
+    "git-lfs no está en PATH. No bloquea 01C."
   ],
   "previous_executions": [
     {
@@ -49,8 +51,7 @@
       "status": "completed",
       "review": "paper/reviews/00_inventory.md",
       "head": "7de7c1037248fa0c207fa7de7908149d72c3a34c",
-      "branch": "main",
-      "working_tree_dirty_before": true
+      "branch": "main"
     },
     {
       "execution_id": "inv-00-20261002T123046Z",
@@ -59,8 +60,16 @@
       "status": "completed",
       "review": "paper/reviews/00_inventory_inv-00-20261002T123046Z.md",
       "head": "7de7c1037248fa0c207fa7de7908149d72c3a34c",
-      "branch": "main",
-      "working_tree_dirty_before": true
+      "branch": "main"
+    },
+    {
+      "execution_id": "01a-20261002T123642Z",
+      "executed_at_utc": "2026-10-02T12:36:42Z",
+      "phase": "01a_export_audit",
+      "status": "completed",
+      "review": "paper/reviews/01a_export_audit.md",
+      "head": "7de7c1037248fa0c207fa7de7908149d72c3a34c",
+      "branch": "research/paper-online-packing"
     }
   ]
 }

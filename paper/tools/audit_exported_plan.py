@@ -162,8 +162,11 @@ def audit_actions(
 ) -> dict[str, Any]:
     """Reconstruye AABB bajo el esquema 0/1 y no modifica las acciones."""
 
-    if len(bin_mm) != 3 or any(axis <= 0 for axis in bin_mm):
-        raise ValueError("bin-mm debe ser L W H positivos")
+    if len(bin_mm) != 3 or any(
+        isinstance(axis, bool) or not isinstance(axis, (int, float)) or not math.isfinite(float(axis)) or float(axis) <= 0
+        for axis in bin_mm
+    ):
+        raise ValueError("bin-mm debe ser L W H finitos y positivos")
     parse_errors: list[dict[str, Any]] = []
     boxes: list[dict[str, Any]] = []
     for index, action in enumerate(actions):
@@ -246,10 +249,17 @@ def load_report_plan(report_path: Path, order_id: str) -> tuple[list[Any], dict[
         "nuestro_type": type(report.get("nuestro")).__name__,
     }
     if not isinstance(plan, dict) or order_id not in plan:
-        raise ValueError(
-            f"no está packing_plan_nuestro[{order_id!r}]; "
-            f"tipo observado={observed['packing_plan_nuestro_type']}"
-        )
+        direct = report.get(order_id)
+        if isinstance(direct, list):
+            observed["plan_location"] = "clave de pedido en la raíz"
+            plan = {order_id: direct}
+        else:
+            raise ValueError(
+                f"no está packing_plan_nuestro[{order_id!r}]; "
+                f"tipo observado={observed['packing_plan_nuestro_type']}"
+            )
+    else:
+        observed["plan_location"] = "packing_plan_nuestro"
     actions = plan[order_id]
     if not isinstance(actions, list):
         raise ValueError("packing_plan_nuestro[order] no es una lista de acciones")

@@ -25,3 +25,4 @@ Los informes y JSON ya existentes en `online_policy_ml/` son corridas previas. N
 - Paso 00, primera ejecución: [`reviews/00_inventory.md`](reviews/00_inventory.md) (`inv-00-20261002T122453Z`).
 - Paso 00, segunda ejecución: [`reviews/00_inventory_inv-00-20261002T123046Z.md`](reviews/00_inventory_inv-00-20261002T123046Z.md). El registro anterior no se sustituye.
 - Paso 01A: [`reviews/01a_export_audit.md`](reviews/01a_export_audit.md). Resultado geométrico: [`results/01a_export_audit_00100408.json`](results/01a_export_audit_00100408.json).
+- Paso 01C: [`reviews/01c_internal_geometry.md`](reviews/01c_internal_geometry.md).
