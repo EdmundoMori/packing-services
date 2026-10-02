@@ -175,7 +175,7 @@ def invoke_worker(
 
 
 def _public_preflight(report: dict[str, Any]) -> dict[str, Any]:
-    return {
+    public = {
         "ok": True,
         "checkpoint_loaded": False,
         "workers_started": False,
@@ -186,6 +186,10 @@ def _public_preflight(report: dict[str, Any]) -> dict[str, Any]:
         "provenance": report["provenance"],
         "orders": report["orders"],
     }
+    for key in ("protocol_id", "n_euro_pallet", "n_rollcontainer", "frozen_list_sha256"):
+        if report.get(key) is not None:
+            public[key] = report[key]
+    return public
 
 
 def _write_incomplete(output_dir: Path, manifest: dict[str, Any], status: str, errors: list[str]) -> None:
