@@ -114,8 +114,17 @@ def assess_yaw_export(document: dict[str, Any]) -> dict[str, Any]:
 
 
 def emit(document: dict[str, Any], *, report_path: Path | None = None, plan_path: Path | None = None) -> int:
-    """Escribe el informe. El plan solo se crea si la conversión es aceptada."""
+    """Escribe el informe. El plan solo se crea si la conversión es aceptada.
 
+    Si informe y plan resuelven al mismo archivo, no escribe nada y devuelve 2.
+    """
+
+    if (
+        report_path is not None
+        and plan_path is not None
+        and report_path.expanduser().resolve() == plan_path.expanduser().resolve()
+    ):
+        return 2
     report = assess_yaw_export(document)
     public = {key: value for key, value in report.items() if key != "plan"}
     if report_path is not None:
@@ -149,6 +158,9 @@ def main(argv: list[str] | None = None) -> int:
         report_path=None if args.report is None else args.report.expanduser().resolve(),
         plan_path=None if args.plan is None else args.plan.expanduser().resolve(),
     )
+    if code == 2:
+        print("report y plan resuelven al mismo archivo; no se escribió nada", file=sys.stderr)
+        return 2
     if args.report is not None and args.report.expanduser().exists():
         summary = json.loads(args.report.expanduser().resolve().read_text(encoding="utf-8"))
         print(

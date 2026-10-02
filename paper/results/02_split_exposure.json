@@ -1,0 +1,546 @@
+{
+  "ml_root": "/home/edmundo/packing-services/online_policy_ml",
+  "loaded_lists": {
+    "05_rows": {
+      "n": 40,
+      "n_unique": 20
+    },
+    "06_holdout": {
+      "n": 5,
+      "n_unique": 5
+    },
+    "06_scale_val": {
+      "n": 20,
+      "n_unique": 20
+    },
+    "09_orders": {
+      "n": 1,
+      "n_unique": 1
+    },
+    "10_shared": {
+      "n": 1,
+      "n_unique": 1
+    },
+    "blocked_demo": {
+      "n": 5,
+      "n_unique": 5
+    },
+    "dir_scale_test": {
+      "n": 20,
+      "n_unique": 20
+    },
+    "dir_scale_train": {
+      "n": 80,
+      "n_unique": 80
+    },
+    "dir_scale_val": {
+      "n": 20,
+      "n_unique": 20
+    },
+    "dir_working_test": {
+      "n": 8,
+      "n_unique": 8
+    },
+    "dir_working_train": {
+      "n": 24,
+      "n_unique": 24
+    },
+    "dir_working_val": {
+      "n": 8,
+      "n_unique": 8
+    },
+    "holdout_producto": {
+      "n": 5,
+      "n_unique": 5
+    },
+    "manifest_full.test": {
+      "n": 1499,
+      "n_unique": 1499
+    },
+    "manifest_full.train": {
+      "n": 6999,
+      "n_unique": 6999
+    },
+    "manifest_full.val": {
+      "n": 1500,
+      "n_unique": 1500
+    },
+    "manifest_scale.test": {
+      "n": 20,
+      "n_unique": 20
+    },
+    "manifest_scale.train": {
+      "n": 80,
+      "n_unique": 80
+    },
+    "manifest_scale.val": {
+      "n": 20,
+      "n_unique": 20
+    },
+    "manifest_working.test": {
+      "n": 8,
+      "n_unique": 8
+    },
+    "manifest_working.train": {
+      "n": 24,
+      "n_unique": 24
+    },
+    "manifest_working.val": {
+      "n": 8,
+      "n_unique": 8
+    },
+    "report_01_blocked": {
+      "n": 5,
+      "n_unique": 5
+    },
+    "report_01_scale.test": {
+      "n": 20,
+      "n_unique": 20
+    },
+    "report_01_scale.train": {
+      "n": 80,
+      "n_unique": 80
+    },
+    "report_01_scale.val": {
+      "n": 20,
+      "n_unique": 20
+    },
+    "report_01_working.test": {
+      "n": 8,
+      "n_unique": 8
+    },
+    "report_01_working.train": {
+      "n": 24,
+      "n_unique": 24
+    },
+    "report_01_working.val": {
+      "n": 8,
+      "n_unique": 8
+    }
+  },
+  "missing_files": [],
+  "read_errors": [],
+  "duplicates_within_splits": {},
+  "comparison_row_repeats": {
+    "05_rows": "cada pedido aparece una vez por motor en rows; no es un duplicado de split"
+  },
+  "intersections": {
+    "manifest_working.train ∩ manifest_scale.train": {
+      "n": 0,
+      "ids": [],
+      "truncated": false,
+      "equal_as_sets": false
+    },
+    "manifest_working.val ∩ manifest_scale.val": {
+      "n": 0,
+      "ids": [],
+      "truncated": false,
+      "equal_as_sets": false
+    },
+    "manifest_working.test ∩ manifest_scale.test": {
+      "n": 0,
+      "ids": [],
+      "truncated": false,
+      "equal_as_sets": false
+    },
+    "manifest_working.train ∩ manifest_full.train": {
+      "n": 24,
+      "ids": [
+        "00100463",
+        "00101060",
+        "00101462",
+        "00101694",
+        "00101750",
+        "00101904",
+        "00101960",
+        "00102415",
+        "00102791",
+        "00102884",
+        "00104471",
+        "00104763",
+        "00105094",
+        "00105561",
+        "00106336",
+        "00106775",
+        "00106895",
+        "00106942",
+        "00107147",
+        "00107701",
+        "00108482",
+        "00108624",
+        "00108712",
+        "00109288"
+      ],
+      "truncated": false,
+      "equal_as_sets": false
+    },
+    "manifest_scale.train ∩ manifest_full.train": {
+      "n": 80,
+      "ids": [
+        "00100089",
+        "00100150",
+        "00100155",
+        "00100344",
+        "00100611",
+        "00100648",
+        "00100929",
+        "00101107",
+        "00101130",
+        "00101196",
+        "00101238",
+        "00101256",
+        "00101309",
+        "00101517",
+        "00101918",
+        "00102280",
+        "00102470",
+        "00102517",
+        "00102526",
+        "00102724",
+        "00102745",
+        "00102759",
+        "00102979",
+        "00103000",
+        "00103120",
+        "00103483",
+        "00103627",
+        "00103633",
+        "00103861",
+        "00103939"
+      ],
+      "truncated": true,
+      "equal_as_sets": false
+    },
+    "manifest_scale.val ∩ manifest_full.val": {
+      "n": 20,
+      "ids": [
+        "00100130",
+        "00100415",
+        "00101236",
+        "00101348",
+        "00101358",
+        "00101411",
+        "00101899",
+        "00102736",
+        "00104464",
+        "00104873",
+        "00105295",
+        "00105320",
+        "00105445",
+        "00105737",
+        "00106028",
+        "00106265",
+        "00106558",
+        "00107675",
+        "00107792",
+        "00109069"
+      ],
+      "truncated": false,
+      "equal_as_sets": false
+    },
+    "manifest_scale.test ∩ manifest_full.test": {
+      "n": 20,
+      "ids": [
+        "00100011",
+        "00100567",
+        "00100884",
+        "00100908",
+        "00100982",
+        "00101520",
+        "00102079",
+        "00103490",
+        "00103497",
+        "00105057",
+        "00105463",
+        "00105978",
+        "00106165",
+        "00106402",
+        "00107015",
+        "00108222",
+        "00108422",
+        "00108434",
+        "00108828",
+        "00109392"
+      ],
+      "truncated": false,
+      "equal_as_sets": false
+    },
+    "report_01_working.train ∩ manifest_working.train": {
+      "n": 24,
+      "ids": [
+        "00100463",
+        "00101060",
+        "00101462",
+        "00101694",
+        "00101750",
+        "00101904",
+        "00101960",
+        "00102415",
+        "00102791",
+        "00102884",
+        "00104471",
+        "00104763",
+        "00105094",
+        "00105561",
+        "00106336",
+        "00106775",
+        "00106895",
+        "00106942",
+        "00107147",
+        "00107701",
+        "00108482",
+        "00108624",
+        "00108712",
+        "00109288"
+      ],
+      "truncated": false,
+      "equal_as_sets": true
+    },
+    "report_01_scale.val ∩ manifest_scale.val": {
+      "n": 20,
+      "ids": [
+        "00100130",
+        "00100415",
+        "00101236",
+        "00101348",
+        "00101358",
+        "00101411",
+        "00101899",
+        "00102736",
+        "00104464",
+        "00104873",
+        "00105295",
+        "00105320",
+        "00105445",
+        "00105737",
+        "00106028",
+        "00106265",
+        "00106558",
+        "00107675",
+        "00107792",
+        "00109069"
+      ],
+      "truncated": false,
+      "equal_as_sets": true
+    },
+    "dir_scale_val ∩ manifest_scale.val": {
+      "n": 20,
+      "ids": [
+        "00100130",
+        "00100415",
+        "00101236",
+        "00101348",
+        "00101358",
+        "00101411",
+        "00101899",
+        "00102736",
+        "00104464",
+        "00104873",
+        "00105295",
+        "00105320",
+        "00105445",
+        "00105737",
+        "00106028",
+        "00106265",
+        "00106558",
+        "00107675",
+        "00107792",
+        "00109069"
+      ],
+      "truncated": false,
+      "equal_as_sets": true
+    },
+    "05_rows ∩ manifest_scale.val": {
+      "n": 20,
+      "ids": [
+        "00100130",
+        "00100415",
+        "00101236",
+        "00101348",
+        "00101358",
+        "00101411",
+        "00101899",
+        "00102736",
+        "00104464",
+        "00104873",
+        "00105295",
+        "00105320",
+        "00105445",
+        "00105737",
+        "00106028",
+        "00106265",
+        "00106558",
+        "00107675",
+        "00107792",
+        "00109069"
+      ],
+      "truncated": false,
+      "equal_as_sets": true
+    },
+    "05_rows ∩ manifest_working.val": {
+      "n": 0,
+      "ids": [],
+      "truncated": false,
+      "equal_as_sets": false
+    },
+    "06_scale_val ∩ manifest_scale.val": {
+      "n": 20,
+      "ids": [
+        "00100130",
+        "00100415",
+        "00101236",
+        "00101348",
+        "00101358",
+        "00101411",
+        "00101899",
+        "00102736",
+        "00104464",
+        "00104873",
+        "00105295",
+        "00105320",
+        "00105445",
+        "00105737",
+        "00106028",
+        "00106265",
+        "00106558",
+        "00107675",
+        "00107792",
+        "00109069"
+      ],
+      "truncated": false,
+      "equal_as_sets": true
+    },
+    "blocked_demo ∩ manifest_full.train": {
+      "n": 0,
+      "ids": [],
+      "truncated": false,
+      "equal_as_sets": false
+    },
+    "blocked_demo ∩ manifest_scale.train": {
+      "n": 0,
+      "ids": [],
+      "truncated": false,
+      "equal_as_sets": false
+    },
+    "blocked_demo ∩ manifest_working.train": {
+      "n": 0,
+      "ids": [],
+      "truncated": false,
+      "equal_as_sets": false
+    },
+    "holdout_producto ∩ 06_holdout": {
+      "n": 5,
+      "ids": [
+        "00100001",
+        "00100002",
+        "00100003",
+        "00100004",
+        "00100408"
+      ],
+      "truncated": false,
+      "equal_as_sets": true
+    },
+    "09_orders ∩ 10_shared": {
+      "n": 1,
+      "ids": [
+        "00100408"
+      ],
+      "truncated": false,
+      "equal_as_sets": true
+    }
+  },
+  "working_subset_of_full": {
+    "train": true,
+    "val": true,
+    "test": true
+  },
+  "scale_subset_of_full": {
+    "train": true,
+    "val": true,
+    "test": true
+  },
+  "scale_is_prefix_of_full": {
+    "train": true,
+    "val": true,
+    "test": true
+  },
+  "comparisons": {
+    "05_rows": {
+      "evidence": "presente",
+      "n": 40,
+      "n_unique": 20
+    },
+    "06_holdout": {
+      "evidence": "presente",
+      "n": 5,
+      "n_unique": 5
+    },
+    "06_scale_val": {
+      "evidence": "presente",
+      "n": 20,
+      "n_unique": 20
+    },
+    "09_orders": {
+      "evidence": "presente",
+      "n": 1,
+      "n_unique": 1
+    },
+    "10_shared": {
+      "evidence": "presente",
+      "n": 1,
+      "n_unique": 1
+    }
+  },
+  "vs_heuristic_matches_scale_val": true,
+  "vs_heuristic_matches_working_val": false,
+  "focus_order_id": "00100408",
+  "focus_locations": [
+    "06_holdout",
+    "09_orders",
+    "10_shared",
+    "blocked_demo",
+    "holdout_producto",
+    "report_01_blocked"
+  ],
+  "exposure": {
+    "A_pertenencia_entrenamiento": {
+      "observado_en": [],
+      "ausente_de_manifiestos_train_leidos": [
+        "report_01_working.train",
+        "report_01_scale.train",
+        "manifest_working.train",
+        "manifest_scale.train",
+        "manifest_full.train",
+        "dir_working_train",
+        "dir_scale_train"
+      ],
+      "conclusion": "no aparece en los manifiestos de entrenamiento leídos; eso no demuestra que nunca se usara"
+    },
+    "B_validacion_o_seleccion": {
+      "observado_en": [],
+      "conclusion": "no aparece en los manifiestos de validación ni en las filas de 05 leídas"
+    },
+    "C_evaluacion_posterior_registrada": {
+      "observado_en": [
+        "holdout_producto",
+        "blocked_demo",
+        "report_01_blocked",
+        "06_holdout",
+        "09_orders",
+        "10_shared"
+      ],
+      "inspeccionado_en_evaluaciones_guardadas": [
+        "06_holdout",
+        "09_orders",
+        "10_shared"
+      ],
+      "conclusion": "hay evaluación o bloqueo de producto registrado; no es un test confirmatorio sin inspeccionar"
+    },
+    "D_exposicion_desconocida": {
+      "pkl_no_leidos": true,
+      "checkpoints_no_deserializados": true,
+      "conclusion": "queda exposición no registrada fuera de estos JSON"
+    }
+  },
+  "note": "La ausencia en un manifiesto no demuestra que un pedido no se haya usado. No se leyeron transiciones .pkl ni checkpoints."
+}

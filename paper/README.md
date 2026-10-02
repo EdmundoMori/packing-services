@@ -27,3 +27,4 @@ Los informes y JSON ya existentes en `online_policy_ml/` son corridas previas. N
 - Paso 01A: [`reviews/01a_export_audit.md`](reviews/01a_export_audit.md). Resultado geométrico: [`results/01a_export_audit_00100408.json`](results/01a_export_audit_00100408.json).
 - Paso 01C: [`reviews/01c_internal_geometry.md`](reviews/01c_internal_geometry.md).
 - Paso 01E: [`reviews/01e_orientation_contract.md`](reviews/01e_orientation_contract.md). Informe yaw: [`results/01e_yaw_compatibility_00100408.json`](results/01e_yaw_compatibility_00100408.json).
+- Paso 02: [`reviews/02_effective_protocol.md`](reviews/02_effective_protocol.md). Exposición de splits: [`results/02_split_exposure.json`](results/02_split_exposure.json).

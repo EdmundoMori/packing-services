@@ -130,6 +130,18 @@ class ExportYawStrictTests(unittest.TestCase):
             self.assertNotIn("plan", written)
             self.assertGreater(written["n_incompatible_orientations"], 0)
 
+    def test_same_resolved_path_does_not_change_an_existing_file(self):
+        document = _doc((30, 20, 10), (30, 20, 10))
+        with tempfile.TemporaryDirectory() as folder:
+            shared = Path(folder) / "shared.json"
+            original = '{"keep": "intact", "n": 7}\n'
+            shared.write_text(original, encoding="utf-8")
+            alias = Path(folder) / "alias.json"
+            alias.symlink_to(shared)
+            code = yaw.emit(document, report_path=shared, plan_path=alias)
+            self.assertEqual(code, 2)
+            self.assertEqual(shared.read_text(encoding="utf-8"), original)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,34 +1,35 @@
 {
   "schema_version": 1,
-  "execution_id": "01e-20261002T125842Z",
-  "executed_at_utc": "2026-10-02T12:58:42Z",
-  "reference_commit": "75de9ac1546f32f8eeeec0734e66338f3b403ce9",
-  "head": "75de9ac1546f32f8eeeec0734e66338f3b403ce9",
+  "execution_id": "02-20261002T130723Z",
+  "executed_at_utc": "2026-10-02T13:07:23Z",
+  "reference_commit": "f4525b8cd05ab52570cc58abfb54cac9c41dcae2",
+  "head": "f4525b8cd05ab52570cc58abfb54cac9c41dcae2",
   "head_matches_reference": true,
   "branch": "research/paper-online-packing",
   "repo_root": "/home/edmundo/packing-services",
   "working_tree_dirty_before": true,
-  "dirty_before_note": "17 .pkl sin seguimiento. No se tocaron ni se añadieron al índice.",
-  "phase": "01e_orientation_contract",
+  "dirty_before_note": "17 .pkl sin seguimiento. No se tocaron ni se añadieron al índice. Este paso no crea un commit.",
+  "phase": "02_effective_protocol",
   "status": "completed",
   "result_summary": {
-    "order_id": "00100408",
-    "hardened_audit_matches_01c_geometry": true,
-    "internal_geometry_valid": true,
-    "all_items_packed": true,
-    "internal_max_height_mm": 1970.0,
-    "internal_packed_volume_mm3": 1241041750.0,
-    "n_boxes_outside_bin": 0,
-    "n_overlap_pairs": 0,
+    "origin_commit": "f4525b8cd05ab52570cc58abfb54cac9c41dcae2",
+    "protocol_review": "paper/reviews/02_effective_protocol.md",
+    "split_exposure": "paper/results/02_split_exposure.json",
+    "order_00100408": {
+      "A_train_manifests": "ausente de los manifiestos train leídos",
+      "B_selection": "ausente de scale val, working val y filas de 05",
+      "C_later_evaluation": ["holdout_producto", "06_holdout", "09_orders", "10_shared"],
+      "D_unknown_exposure": "pkl y checkpoints no leídos",
+      "confirmatory_unseen_test": false
+    },
+    "best_epoch_0_meaning": "en fit_ppo el epoch 0 es el actor inicial, antes del bucle; ningún epoch posterior superó su val_util",
+    "weight_equality_with_bc_init": "no comprobado",
     "physical_stability_verified": null,
-    "yaw_representable": false,
-    "yaw_exportable": false,
-    "n_incompatible_orientations": 24,
-    "yaw_plan_written": false,
-    "tests": "26 OK"
+    "tests": "29 OK"
   },
   "next_steps": [
-    "No reparar el exportador de producción hasta un paso explícito."
+    "No elegir métrica ni restricciones a partir de resultados nuevos.",
+    "No tratar 00100408 como test confirmatorio no inspeccionado."
   ],
   "blockers": [
     "git-lfs no está en PATH. No bloquea 01E."
@@ -68,6 +69,15 @@
       "status": "completed",
       "review": "paper/reviews/01c_internal_geometry.md",
       "head": "d84ad596d6d8a7857dfcecb4470375905da21f4a",
+      "branch": "research/paper-online-packing"
+    },
+    {
+      "execution_id": "01e-20261002T125842Z",
+      "executed_at_utc": "2026-10-02T12:58:42Z",
+      "phase": "01e_orientation_contract",
+      "status": "completed",
+      "review": "paper/reviews/01e_orientation_contract.md",
+      "head": "75de9ac1546f32f8eeeec0734e66338f3b403ce9",
       "branch": "research/paper-online-packing"
     }
   ]
