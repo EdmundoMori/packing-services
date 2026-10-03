@@ -1,0 +1,433 @@
+{
+  "status": "lista_preparada",
+  "packing_executed": false,
+  "dataset": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "pool": "online_policy_ml/data/splits/val_order_ids_full.json",
+  "pool_sha256": "530b1f623f19867f5a178564180d77667597c43d491a0eff1596f1615f8df2b5",
+  "pool_n": 1500,
+  "eligible_n": {
+    "euro-pallet": 637,
+    "rollcontainer": 763
+  },
+  "missing_from_dataset": [],
+  "unknown_target": [],
+  "unsigned_excluded_not_in_dataset_n": 0,
+  "unsigned_excluded_errors": [],
+  "exclusion": {
+    "n_excluded": 8603,
+    "sources": [
+      {
+        "path": "online_policy_ml/data/splits/train_order_ids_full.json",
+        "n": 6999,
+        "bytes": 97988,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/data/splits/test_order_ids_full.json",
+        "n": 1499,
+        "bytes": 20988,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/data/train/order_ids.json",
+        "n": 24,
+        "bytes": 338,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/data/val/order_ids.json",
+        "n": 8,
+        "bytes": 114,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/data/test/order_ids.json",
+        "n": 8,
+        "bytes": 114,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/data/scale/train/order_ids.json",
+        "n": 80,
+        "bytes": 1122,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/data/scale/val/order_ids.json",
+        "n": 20,
+        "bytes": 282,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/data/scale/test/order_ids.json",
+        "n": 20,
+        "bytes": 282,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/data/holdout_producto/order_ids.json",
+        "n": 5,
+        "bytes": 72,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/versions/v1/data/train/order_ids.json",
+        "n": 24,
+        "bytes": 338,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/versions/v1/data/val/order_ids.json",
+        "n": 8,
+        "bytes": 114,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/versions/v1/data/test/order_ids.json",
+        "n": 8,
+        "bytes": 114,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/versions/v1/data/scale/train/order_ids.json",
+        "n": 80,
+        "bytes": 1122,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/versions/v1/data/scale/val/order_ids.json",
+        "n": 20,
+        "bytes": 282,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/versions/v1/data/scale/test/order_ids.json",
+        "n": 20,
+        "bytes": 282,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/versions/v1/data/splits/train_order_ids_full.json",
+        "n": 6999,
+        "bytes": 97988,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/versions/v1/data/splits/test_order_ids_full.json",
+        "n": 1499,
+        "bytes": 20988,
+        "kind": "json"
+      },
+      {
+        "path": "online_policy_ml/versions/v1/data/holdout_producto/order_ids.json",
+        "n": 5,
+        "bytes": 72,
+        "kind": "json"
+      },
+      {
+        "path": "paper/protocols/07_independent_evaluation.json",
+        "n": 209,
+        "bytes": 115314,
+        "kind": "json"
+      },
+      {
+        "path": "paper/protocols/10_normalization_ablation.json",
+        "n": 82,
+        "bytes": 20221,
+        "kind": "json"
+      },
+      {
+        "path": "paper/protocols/14_teacher_probe.json",
+        "n": 0,
+        "bytes": 3475,
+        "kind": "json"
+      },
+      {
+        "path": "paper/protocols/16_compact_selector_study.json",
+        "n": 45,
+        "bytes": 6732,
+        "kind": "json"
+      },
+      {
+        "path": "paper/protocols/17_compact_calibration.json",
+        "n": 90,
+        "bytes": 15238,
+        "kind": "json"
+      },
+      {
+        "path": "paper/results/09_exposed_evaluation_ids.json",
+        "n": 220,
+        "bytes": 5524,
+        "kind": "json"
+      },
+      {
+        "path": "paper/results/03_confirmatory_candidates.json",
+        "n": 1499,
+        "bytes": 28917,
+        "kind": "json"
+      },
+      {
+        "path": "paper/results/03_split_cross_audit.json",
+        "n": 0,
+        "bytes": 8031,
+        "kind": "json"
+      },
+      {
+        "path": "paper/results/06a_bc_transition_ids.json",
+        "n": 32,
+        "bytes": 40509,
+        "kind": "json"
+      },
+      {
+        "path": "paper/results/06a_candidate_exposure_by_target.json",
+        "n": 1499,
+        "bytes": 70644,
+        "kind": "json"
+      },
+      {
+        "path": "paper/results/06_candidate_exposure_by_target.json",
+        "n": 1499,
+        "bytes": 78002,
+        "kind": "json"
+      },
+      {
+        "path": "paper/results/07_sample_freeze.json",
+        "n": 1499,
+        "bytes": 65914,
+        "kind": "json"
+      },
+      {
+        "path": "paper/results/10_normalization_freeze.json",
+        "n": 82,
+        "bytes": 31713,
+        "kind": "json"
+      },
+      {
+        "path": "paper/results/11_normalization_ablation/packing/verification.json",
+        "n": 50,
+        "bytes": 3618,
+        "kind": "json"
+      },
+      {
+        "path": "paper/results/11_normalization_ablation/packing/manifest.json",
+        "n": 0,
+        "bytes": 3219,
+        "kind": "json"
+      },
+      {
+        "path": "paper/results/04_internal_pilot/cases",
+        "n": 20,
+        "kind": "case_directory"
+      },
+      {
+        "path": "paper/results/07_independent_evaluation/cases",
+        "n": 200,
+        "kind": "case_directory"
+      },
+      {
+        "path": "paper/results/14_teacher_probe/cases",
+        "n": 50,
+        "kind": "case_directory"
+      },
+      {
+        "path": "paper/results/16_baseline_smoke/cases",
+        "n": 5,
+        "kind": "case_directory"
+      },
+      {
+        "path": "paper/results/16a_onlinebph_capture_smoke/cases",
+        "n": 5,
+        "kind": "case_directory"
+      },
+      {
+        "path": "paper/results/17_compact_calibration/cases/train",
+        "n": 40,
+        "kind": "case_directory"
+      },
+      {
+        "path": "paper/results/17_compact_calibration/cases/development",
+        "n": 50,
+        "kind": "case_directory"
+      },
+      {
+        "path": "paper/results/11_normalization_ablation/packing",
+        "n": 0,
+        "kind": "case_directory"
+      }
+    ],
+    "missing": [],
+    "skipped_large": [],
+    "pool_not_used_as_exclusion": [
+      "online_policy_ml/data/splits/val_order_ids_full.json",
+      "online_policy_ml/versions/v1/data/splits/val_order_ids_full.json"
+    ],
+    "not_inspected": [
+      "Los 17 pickle históricos no se abrieron.",
+      "No se abrieron checkpoints ni pesos.",
+      "No se recorrieron auditorías JSON grandes; solo listas de ids, protocolos, manifiestos pequeños y nombres de carpeta.",
+      "El protocolo 10 dejó fuera de su exclusión el scale test por falta de una lista histórica. Esta selección sí lee esos order_ids.json si existen."
+    ],
+    "absolute_independence": false,
+    "excluded_ids_sha256": "fa27ae825c1e2b5a637c6e4ed0b8e5febbc88edbd9fbcc78826f87001b741a9b"
+  },
+  "clone_rule": "Tras ordenar los elegibles de cada target por SHA256 de 'counterfactual-v1|20261003|' + order_id, se omite un id cuya firma compacta coincide con un pedido ya aceptado o con un pedido excluido firmado. La firma es el SHA256 del JSON canónico {target, items:[[l,w,h,peso,orientaciones],...]} del snapshot compacto, antes de colocar.",
+  "selected": {
+    "euro-pallet": [
+      {
+        "order_id": "00109938",
+        "target": "euro-pallet",
+        "selection_hash": "0011fa0e279d58de43e1a9c6e517a4467940144c1ac9c09003bfecf9ca84cca2",
+        "signature": "47cb82d0403f6555563e69c9fd61adc533eee9e6d6d9cbfe85a6b89754e4a9e7"
+      },
+      {
+        "order_id": "00109266",
+        "target": "euro-pallet",
+        "selection_hash": "002f46c78536ff05a43027e064f68fa06a0e392e69b3b40fe06330fd34a31f6c",
+        "signature": "13264b0503d8366b373c860d2e4b49f9a20335c546b532f5635ab97455dc5e0d"
+      },
+      {
+        "order_id": "00102701",
+        "target": "euro-pallet",
+        "selection_hash": "003b2d4e6b58666d406d8d10a3ffdb4613e759591319cf4042459650921ad544",
+        "signature": "23d44105033d57e7f4aa5f8ab6b0ad04f095dc563113e9836885f21922ce1d69"
+      },
+      {
+        "order_id": "00108060",
+        "target": "euro-pallet",
+        "selection_hash": "012926ff6eb4125c7f2dcdc445ac322b1014801b94a6302e4847328b2d8e7090",
+        "signature": "ce267c92fe612b321cf5136e8aab50ed749cd96eb19aa6ffd373dc583c7ae188"
+      },
+      {
+        "order_id": "00104500",
+        "target": "euro-pallet",
+        "selection_hash": "012be3ef1052b1cb6fbb4a48ff6a7239e4ebd9e5fcdb85264f170dbb36b017de",
+        "signature": "f6b09e6e010bc5d2003f6827341a97cd5d9a28117c6c0cb393c290fdde69c669"
+      },
+      {
+        "order_id": "00103525",
+        "target": "euro-pallet",
+        "selection_hash": "01903a7f614e43579441c930dac1980327274b3fe99cce17dda70dd7cb029395",
+        "signature": "416d1db779be0bae7f1fc7811b55076434a21b39bdef73c12988833b907c8f4f"
+      },
+      {
+        "order_id": "00100812",
+        "target": "euro-pallet",
+        "selection_hash": "01d9ae43a86cf9828645c339cf1b09e3309c320e6a58d1e506c1f7741322f304",
+        "signature": "a0c57a378d89e19e4b9cf615dc32daaef1d97a929a9c8df77272e62ef3adbac5"
+      },
+      {
+        "order_id": "00109602",
+        "target": "euro-pallet",
+        "selection_hash": "02b4a78dd392a533b699120a4ade624e392eb559879d29cc918f1a0c388af140",
+        "signature": "33d702ec33174113d4909cfe3df4a453c5876e9fc50db11b4465aebe1b948e8a"
+      },
+      {
+        "order_id": "00109122",
+        "target": "euro-pallet",
+        "selection_hash": "02b4dbe14d0cc215b58bbd89e14d434e97507519402db88a6b64004c2d0a0eba",
+        "signature": "a429a0b9c928b32e85cf003a5998a151b22373e509340e1c8b174eca05c58500"
+      },
+      {
+        "order_id": "00104671",
+        "target": "euro-pallet",
+        "selection_hash": "02f2ca85b7f54fcb535412e10a93beaac185d35ea04a77c8a9e888f0d2a0ad74",
+        "signature": "99130b7226d0e09b5a360ca62e12df3ead3a2729d2b6fa237f1b294fa8dd0b84"
+      }
+    ],
+    "rollcontainer": [
+      {
+        "order_id": "00105640",
+        "target": "rollcontainer",
+        "selection_hash": "003bbff90ada8b8c095624a18de22cbc1f6f1bcee34a8c5f91ec70e470ee3a3f",
+        "signature": "ac963aff43744b9258a7053a24459dc642f1ef8132a7f291a7e5b6b5ba333596"
+      },
+      {
+        "order_id": "00109225",
+        "target": "rollcontainer",
+        "selection_hash": "00ee51f13a07431b124a5bbfcb42f0b01743316c751df87e9e1d483672fdd03f",
+        "signature": "96bdf9ae5b27eefed36314ca8ecf61556d4287c1b739207df99fe4562ac4d6d3"
+      },
+      {
+        "order_id": "00100129",
+        "target": "rollcontainer",
+        "selection_hash": "0132242e72a4660cca41ae9349f01e7ee073c7e63773217c35a1da36f936f1df",
+        "signature": "e9804492dd02b7a316b0fa45661b29b9eec7a14a21c4bee68be8a2030d05ac90"
+      },
+      {
+        "order_id": "00103399",
+        "target": "rollcontainer",
+        "selection_hash": "01559377cfc57c8567a0c2712224794baf9a681b055f8b8e5afff190fcec74e5",
+        "signature": "c7d1a9467b466fd43706d9e3352c8486f6578a7d69230521288954935273b7a5"
+      },
+      {
+        "order_id": "00105687",
+        "target": "rollcontainer",
+        "selection_hash": "01afbc29aa559d30fd03067e3c423883543f877fc16605189ac0e46023e5beac",
+        "signature": "b2c34647ab16ec74694024141793bc348adbd32f8b2d978f8f724182e942c239"
+      },
+      {
+        "order_id": "00107454",
+        "target": "rollcontainer",
+        "selection_hash": "0206548cf617b14c9787352de701c49051c73be6bea46993fcadc29597a8c7f4",
+        "signature": "aa770e6244c54bf73941c7329f815c64861fa724656e50d43d022dbbde47936a"
+      },
+      {
+        "order_id": "00109271",
+        "target": "rollcontainer",
+        "selection_hash": "0223eaebf49cbd6cd390399168bcef9f81edcc02fd302239f3f766224c307e46",
+        "signature": "8a0e9456d855031a58c9a95075f539d6f7992ba1c6a7e731a2e996a2268a5f2f"
+      },
+      {
+        "order_id": "00105150",
+        "target": "rollcontainer",
+        "selection_hash": "022bdf5be08d8c5b4b4b948a1093935c19af4d57bc72356c13ca3e8d3a7793e4",
+        "signature": "35e8c324a77a20faeb4a33b9ed50ffd5483e15414bfba277b02d409cdb22634b"
+      },
+      {
+        "order_id": "00109874",
+        "target": "rollcontainer",
+        "selection_hash": "0419e71f4e3b84bba37c285d6db05d980d4a9292c0ea5d440dc9d1e1356b0b5e",
+        "signature": "90bd292ba4ba7b7f45b245ff8540ee88d8f5ec7d2eb8b366b8cd0c031fe9f2b7"
+      },
+      {
+        "order_id": "00101397",
+        "target": "rollcontainer",
+        "selection_hash": "04281d37fe60446ec2ce37b050b906932a8c7d9443fb3e02d505cc9ccc66b01f",
+        "signature": "4010a556b9b7883eda91a3abb910c15d97370976e587d59a8ced5a280c8abc80"
+      }
+    ]
+  },
+  "dropped_clones": [],
+  "execution_order": [
+    "00109938",
+    "00109266",
+    "00102701",
+    "00108060",
+    "00104500",
+    "00103525",
+    "00100812",
+    "00109602",
+    "00109122",
+    "00104671",
+    "00105640",
+    "00109225",
+    "00100129",
+    "00103399",
+    "00105687",
+    "00107454",
+    "00109271",
+    "00105150",
+    "00109874",
+    "00101397"
+  ],
+  "preflight_orders": {
+    "euro-pallet": "00109938",
+    "rollcontainer": "00105640",
+    "max_states_per_order": 1,
+    "max_alternatives": 2,
+    "counts_toward_sample": true,
+    "counts_toward_budget": true,
+    "may_reselect_sample": false
+  }
+}

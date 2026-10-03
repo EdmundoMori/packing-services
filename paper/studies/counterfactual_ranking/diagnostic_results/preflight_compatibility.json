@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "errors": [],
+  "continuations_started": false,
+  "reused_orders": [
+    "00109938",
+    "00105640"
+  ],
+  "preflight_sha256": "b0fb7cd9958202c8cec7e90170bbc9c6b177ed49b5ec03ed75abefd8c47e3dfd",
+  "semantic_equivalence": {
+    "equivalent": true,
+    "mismatches": [],
+    "operational_differences": [
+      "el documento congelado no es el borrador",
+      "el presupuesto truncado se acepta solo en el congelado",
+      "la puerta propuesta antes del preflight se adopta en el congelado",
+      "el borrador sigue en borrador y el operativo queda congelado"
+    ],
+    "literal_protocol_hash_equal": false
+  }
+}

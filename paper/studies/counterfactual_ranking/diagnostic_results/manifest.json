@@ -1,0 +1,102 @@
+{
+  "role": "manifiesto_previo",
+  "continuations_started": true,
+  "protocol_frozen_sha256": "e8fafb399a59863fc7a03f011b91f93e22af78f3a0d7aa78520c4a9e035717c1",
+  "protocol_draft_sha256": "cda879555db890f9108e4fb495cfaa7d1881bd61fa4f3e18ce950f3ca5ca84a6",
+  "semantic_equivalence": {
+    "equivalent": true,
+    "mismatches": [],
+    "operational_differences": [
+      "el documento congelado no es el borrador",
+      "el presupuesto truncado se acepta solo en el congelado",
+      "la puerta propuesta antes del preflight se adopta en el congelado",
+      "el borrador sigue en borrador y el operativo queda congelado"
+    ],
+    "literal_protocol_hash_equal": false
+  },
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "sample_manifest_sha256": "149d5f09b53652374d9af0d4a67ad9601d78c51aa11bc6c53fb5b630eee78120",
+  "preflight_sha256": "b0fb7cd9958202c8cec7e90170bbc9c6b177ed49b5ec03ed75abefd8c47e3dfd",
+  "preflight_accounted_seconds": {
+    "seconds": 10.726841075997072,
+    "source": "startup_seconds+work_wall_seconds",
+    "uncertain": false
+  },
+  "code_sha256": {
+    "paper/studies/counterfactual_ranking/tools/diagnostic.py": "8d95f84c50b15a46dcf361a303889be18ba6b8487f605f28c850fa0012f9d4aa",
+    "paper/studies/counterfactual_ranking/tools/select_sample.py": "f3e83aa7fc3f5958587ae5eb29f91da2344e0f2442b3d03d89efff93d0220280",
+    "paper/tools/compact_study.py": "93409b31b093702e80c43da4fe6030cb3913707493756f1df9296c37326af476",
+    "paper/tools/pilot_metrics.py": "26275cea5fdcfb2ac09cd9da61bba389b2daf95a50070ef92c1f2529b25a7fad",
+    "paper/tools/pilot_problems.py": "c347f00ab5b10bcf817954aee4ed9e12bacdaf55e128dba3c5d26f4701494b5e",
+    "paper/tools/audit_internal_solution.py": "e3d874726260b4c84fabd963cb591075c1eefcdddc0e27057de83a8a499028ac"
+  },
+  "budget": {
+    "accepted": true,
+    "truncated": true,
+    "worst_case_fits_in_wall": false,
+    "max_states": 100,
+    "max_continuations": 400,
+    "counts_preflight": true,
+    "continuation_timeout_seconds": 60,
+    "capture_and_audit_timeout_seconds": 60,
+    "timeouts_subordinate_to_remaining_wall": true,
+    "full_wall_clock_seconds": 14400,
+    "wall_includes_preflight": true,
+    "wall_includes": [
+      "carga",
+      "generacion_de_estados",
+      "restauracion",
+      "continuacion",
+      "captura",
+      "auditoria",
+      "escritura",
+      "preflight"
+    ],
+    "on_exhaustion": "detener nuevos trabajos y registrar lo pendiente",
+    "no_sample_reduction": true,
+    "no_order_substitution": true,
+    "no_budget_increase": true,
+    "no_selective_retry": true
+  },
+  "gate": {
+    "adopted": true,
+    "proposed_before_preflight": true,
+    "automatic_training": false,
+    "positive_eps": 1e-09,
+    "min_orders_with_complete_state": 15,
+    "min_complete_states": 40,
+    "min_mean_f": 0.25,
+    "min_mean_m": 0.01,
+    "max_unknown_rate": 0.05,
+    "max_wall_seconds": 14400,
+    "complete_state": "todas las alternativas previstas tienen captura auditada y Q_hat conocido, incluida Greedy",
+    "positive_advantage": "A_hat > 1e-9",
+    "f_i": "fracción de estados completos del pedido en los que alguna alternativa supera a Greedy",
+    "m_i": "mediana de las A_hat positivas de las alternativas evaluadas en los estados completos; 0 si no hay ninguna",
+    "mean_weight": "igual por pedido evaluable, esto es, con al menos un estado completo",
+    "unknown_denominator": "continuaciones programadas de los estados capturados, incluidas las pendientes por presupuesto",
+    "uncaptured_states_excluded_from_margin": true
+  },
+  "execution_order": [
+    "00109938",
+    "00109266",
+    "00102701",
+    "00108060",
+    "00104500",
+    "00103525",
+    "00100812",
+    "00109602",
+    "00109122",
+    "00104671",
+    "00105640",
+    "00109225",
+    "00100129",
+    "00103399",
+    "00105687",
+    "00107454",
+    "00109271",
+    "00105150",
+    "00109874",
+    "00101397"
+  ]
+}

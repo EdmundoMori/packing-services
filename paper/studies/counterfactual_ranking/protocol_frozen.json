@@ -1,0 +1,179 @@
+{
+  "document": "protocol_frozen",
+  "status": "congelado_para_una_corrida",
+  "called_freeze": true,
+  "called_preregistered": false,
+  "confirmatory": false,
+  "exploratory_development": true,
+  "automatic_training": false,
+  "training": false,
+  "learns_margin_guaranteed": false,
+  "online_policy_improvement_claimed": false,
+  "question": "¿Existe un margen aprovechable para aprender a ordenar candidatas legales mediante las consecuencias de acciones alternativas, en lugar de copiar una elección del teacher?",
+  "not_a_reproduction_of": [
+    "LOLS",
+    "AggreVaTe",
+    "PCT",
+    "GOPT",
+    "OPAL"
+  ],
+  "theoretical_guarantees_claimed": false,
+  "contract": {
+    "source": "contrato geométrico del paso 16",
+    "sequence": "original",
+    "containers": 1,
+    "container": "el del target propio del pedido",
+    "lookahead_p": 1,
+    "select_s": 1,
+    "orientations": "hasta seis permutaciones permitidas",
+    "containment": true,
+    "non_overlap": true,
+    "max_weight": false,
+    "basic_stability": false,
+    "load_bearing": false,
+    "stop": "el ítem actual no tiene candidata legal; el episodio termina y el sufijo no se coloca",
+    "discard_and_continue": false,
+    "u_geom": "volumen colocado / volumen fijo del contenedor",
+    "physical_stability_verified": null,
+    "do_not_pool_with": "protocolos anteriores que descartaban un ítem y seguían"
+  },
+  "observability": {
+    "sees_real_suffix": true,
+    "role": "diagnóstico privilegiado de entrenamiento y desarrollo",
+    "online_homologated_baseline": false,
+    "optimal": false,
+    "evidence_of_online_superiority": false,
+    "teacher_receding_horizon_ep_used": false
+  },
+  "dataset": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "sample_manifest": "paper/studies/counterfactual_ranking/sample_manifest.json",
+  "sample_manifest_sha256": "149d5f09b53652374d9af0d4a67ad9601d78c51aa11bc6c53fb5b630eee78120",
+  "pool": "online_policy_ml/data/splits/val_order_ids_full.json",
+  "pool_sha256": "530b1f623f19867f5a178564180d77667597c43d491a0eff1596f1615f8df2b5",
+  "selection": {
+    "prefix": "counterfactual-v1|20261003|",
+    "hash": "SHA256 UTF-8 del prefijo concatenado con order_id",
+    "per_target": 10,
+    "order": "hash ascendente dentro de cada target; la ejecución recorre primero euro-pallet y después rollcontainer",
+    "clone_rule": "Se omite un id cuya firma compacta coincide con un pedido ya aceptado o con un pedido excluido firmado. La firma es el SHA256 del JSON canónico {target, items:[[largo, ancho, alto, peso, orientaciones], ...]} del snapshot compacto anterior a cualquier colocación.",
+    "dropped_clones_n": 0
+  },
+  "diagnostic": {
+    "walker": "GreedyBestFit bajo el contrato",
+    "max_states_per_order": 5,
+    "state_requirement": "al menos dos candidatas legales",
+    "states_come_from": "trayectorias Greedy",
+    "max_alternatives": 4,
+    "always_include_greedy": true,
+    "alternative_rule": "Entre las restantes, se prefiere una orientación (l, w, h) aún no elegida y, dentro de ese grupo, la posición más lejana en distancia de Chebyshev a las ya elegidas. El empate queda para el índice menor de la lista legal. No se usan retornos.",
+    "q_hat": "U_geom final de esa continuación concreta con GreedyBestFit. No es Q óptimo.",
+    "a_hat": "Q_hat(s,a) - Q_hat(s, a_Greedy), solo si las dos son conocidas",
+    "labels": "solo si todas las continuaciones previstas del estado son válidas",
+    "best_of_four_is_global_upper_bound": false,
+    "reselect_after_observing_returns": false,
+    "unknown_return": "Q_hat null y motivo; no se convierte en 0",
+    "selective_retries": false
+  },
+  "checkpoint": {
+    "session_snapshot_includes": [
+      "cajas colocadas",
+      "puntos extremos",
+      "peso cargado",
+      "empaquetados"
+    ],
+    "session_snapshot_omits": [
+      "sufijo de ítems",
+      "problema",
+      "restricciones",
+      "selector"
+    ],
+    "session_snapshot_is_shallow": true,
+    "diagnostic_copy": "copia profunda del snapshot más la tupla de ids restantes",
+    "reresolve_candidate_by": [
+      "bin_index",
+      "posición",
+      "dimensiones orientadas"
+    ]
+  },
+  "analysis_limits": {
+    "states_of_the_same_order_are_independent": false,
+    "per_state_maximum_is_a_deployable_method": false,
+    "features_predict_returns": false
+  },
+  "analysis_plan_fixed_before_execution": [
+    "número de estados y alternativas válidas",
+    "fracción de estados completos en los que alguna alternativa supera a Greedy",
+    "magnitud del margen positivo",
+    "resultados por pedido y target, con el mismo peso para cada pedido",
+    "diversidad de orientaciones y posiciones examinadas",
+    "coste de generar la etiqueta, separado de captura y auditoría",
+    "cobertura y fallos",
+    "distribución de las diferencias, ceros incluidos"
+  ],
+  "budget": {
+    "accepted": true,
+    "truncated": true,
+    "worst_case_fits_in_wall": false,
+    "max_states": 100,
+    "max_continuations": 400,
+    "counts_preflight": true,
+    "continuation_timeout_seconds": 60,
+    "capture_and_audit_timeout_seconds": 60,
+    "timeouts_subordinate_to_remaining_wall": true,
+    "full_wall_clock_seconds": 14400,
+    "wall_includes_preflight": true,
+    "wall_includes": [
+      "carga",
+      "generacion_de_estados",
+      "restauracion",
+      "continuacion",
+      "captura",
+      "auditoria",
+      "escritura",
+      "preflight"
+    ],
+    "on_exhaustion": "detener nuevos trabajos y registrar lo pendiente",
+    "no_sample_reduction": true,
+    "no_order_substitution": true,
+    "no_budget_increase": true,
+    "no_selective_retry": true
+  },
+  "preflight_observed": {
+    "results": "paper/studies/counterfactual_ranking/preflight_results/preflight.json",
+    "order_ids": [
+      "00109938",
+      "00105640"
+    ],
+    "states": 2,
+    "continuations": 4,
+    "draft_left_intact": true,
+    "draft_still_says_preflight_executed_false": true
+  },
+  "gate": {
+    "adopted": true,
+    "proposed_before_preflight": true,
+    "automatic_training": false,
+    "positive_eps": 1e-09,
+    "min_orders_with_complete_state": 15,
+    "min_complete_states": 40,
+    "min_mean_f": 0.25,
+    "min_mean_m": 0.01,
+    "max_unknown_rate": 0.05,
+    "max_wall_seconds": 14400,
+    "complete_state": "todas las alternativas previstas tienen captura auditada y Q_hat conocido, incluida Greedy",
+    "positive_advantage": "A_hat > 1e-9",
+    "f_i": "fracción de estados completos del pedido en los que alguna alternativa supera a Greedy",
+    "m_i": "mediana de las A_hat positivas de las alternativas evaluadas en los estados completos; 0 si no hay ninguna",
+    "mean_weight": "igual por pedido evaluable, esto es, con al menos un estado completo",
+    "unknown_denominator": "continuaciones programadas de los estados capturados, incluidas las pendientes por presupuesto",
+    "uncaptured_states_excluded_from_margin": true
+  },
+  "classification": {
+    "insufficient_coverage_or_integrity": "inconcluso",
+    "coverage_ok_margin_failed": "no_avanzar",
+    "all_conditions": "margen_suficiente_para_disenar_el_experimento_de_aprendizaje",
+    "all_conditions_authorizes_training": false,
+    "all_conditions_shows_online_improvement": false
+  }
+}
