@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 from typing import Any
 
 from ablation_contract import ARMS, EXPECTED_SEEDS, AblationError
@@ -38,22 +39,48 @@ def advance_decision(
     }
 
 
-def _index_rows(rows: list[dict[str, Any]]) -> dict[tuple[str, str, int | None], dict[str, Any]]:
+def expected_case_keys(
+    orders: list[dict[str, Any]],
+    seeds: list[int],
+) -> set[tuple[str, str, int | None]]:
+    keys: set[tuple[str, str, int | None]] = set()
+    for order in orders:
+        keys.add((order["order_id"], "heuristic", None))
+        for seed in seeds:
+            for arm in ARMS:
+                keys.add((order["order_id"], arm, seed))
+    return keys
+
+
+def _index_rows(
+    rows: list[dict[str, Any]],
+    orders: list[dict[str, Any]],
+    seeds: list[int],
+) -> dict[tuple[str, str, int | None], dict[str, Any]]:
+    allowed_orders = {order["order_id"] for order in orders}
+    allowed_seeds = set(seeds)
     found: dict[tuple[str, str, int | None], dict[str, Any]] = {}
     for row in rows:
         role = row["role"]
-        if role not in ROLES:
-            raise AblationError("rol desconocido")
+        if role not in ROLES or row["order_id"] not in allowed_orders:
+            raise AblationError("clave ajena")
         seed = None if role == "heuristic" else int(row["seed"])
         if role == "heuristic" and row.get("seed") not in (None,):
             raise AblationError("la heurística no se repite por semilla")
+        if seed is not None and seed not in allowed_seeds:
+            raise AblationError("clave ajena")
+        utility = row.get("effective_u_geom")
+        if isinstance(utility, bool) or not isinstance(utility, (int, float)) or not math.isfinite(float(utility)):
+            raise AblationError("U_geom no finito")
+        if row.get("failure") and float(utility) != 0:
+            raise AblationError("un fallo debe entrar con U_geom 0")
         key = (row["order_id"], role, seed)
         if key in found:
             raise AblationError(f"observación duplicada: {key}")
-        utility = float(row["effective_u_geom"])
-        if row.get("failure") and utility != 0:
-            raise AblationError("un fallo debe entrar con U_geom 0")
         found[key] = row
+    expected = expected_case_keys(orders, seeds)
+    if set(found) != expected:
+        raise AblationError("las claves no son exactamente las de la muestra")
     return found
 
 
@@ -66,7 +93,7 @@ def aggregate_development(
     """Cinco medias de 50 pedidos. Los fallos permanecen en el denominador."""
 
     seed_list = list(EXPECTED_SEEDS if seeds is None else seeds)
-    indexed = _index_rows(rows)
+    indexed = _index_rows(rows, orders, seed_list)
     per_seed_raw: list[float] = []
     per_seed_vs_greedy: dict[str, list[float]] = {arm: [] for arm in ARMS}
     target_seed_means: dict[str, list[float]] = {}

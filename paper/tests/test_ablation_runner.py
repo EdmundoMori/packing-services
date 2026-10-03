@@ -111,7 +111,8 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(contract["hyperparameters"]["epochs"], 10)
         self.assertEqual(contract["hyperparameters"]["select_best"], "val_loss")
         self.assertEqual(len(contract["orders"]), 50)
-        self.assertFalse(REAL_RUN.exists())
+        self.assertTrue(REAL_RUN.is_dir())
+        self.assertFalse((REAL_RUN / "packing").exists())
 
 
 class PairingTests(unittest.TestCase):
@@ -462,7 +463,8 @@ class PackingAndAggregateTests(unittest.TestCase):
                     )
         finally:
             ablation_train.fit_paired_seed = original
-        self.assertFalse(REAL_RUN.exists())
+        self.assertTrue(REAL_RUN.is_dir())
+        self.assertFalse((REAL_RUN / "packing").exists())
 
     def test_complete_training_exposes_ten_artifacts(self):
         def fake_fit(*args, **kwargs):
@@ -536,7 +538,8 @@ class PackingAndAggregateTests(unittest.TestCase):
                     assert_training_ready(output, load_contract(PROTOCOL, FREEZE))
         finally:
             ablation_train.fit_paired_seed = original
-        self.assertFalse(REAL_RUN.exists())
+        self.assertTrue(REAL_RUN.is_dir())
+        self.assertFalse((REAL_RUN / "packing").exists())
 
 
 if __name__ == "__main__":
