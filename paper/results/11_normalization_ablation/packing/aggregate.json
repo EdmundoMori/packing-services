@@ -1,0 +1,66 @@
+{
+  "confirmatory": false,
+  "n_orders": 50,
+  "n_seeds": 5,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "normalized_minus_raw_by_seed": [
+    -0.002823156994047631,
+    0.002817314732142848,
+    0.008967771577380945,
+    0.0036462961309523755,
+    -0.005618776785714292
+  ],
+  "mean_of_seed_means": 0.001397889732142849,
+  "versus_greedy_by_seed": {
+    "raw": [
+      -0.010310473214285713,
+      -0.011881663690476192,
+      -0.012416883928571433,
+      -0.010260741071428573,
+      -0.010198688988095245
+    ],
+    "normalized": [
+      -0.013133630208333344,
+      -0.009064348958333343,
+      -0.003449112351190489,
+      -0.006614444940476198,
+      -0.015817465773809537
+    ]
+  },
+  "mean_versus_greedy": {
+    "raw": -0.011013690178571432,
+    "normalized": -0.009615800446428582
+  },
+  "by_target": {
+    "euro-pallet": {
+      "mean_of_seed_means": -0.0019433687500000029
+    },
+    "rollcontainer": {
+      "mean_of_seed_means": 0.004739148214285701
+    }
+  },
+  "failures_in_denominator": {
+    "raw_order_seed": 0,
+    "normalized_order_seed": 0,
+    "heuristic_orders": 0
+  },
+  "advance": {
+    "kind": "regla de avance de ingeniería",
+    "statistical_test": false,
+    "practical_relevance_guaranteed": false,
+    "conditions": {
+      "mean_normalized_minus_raw_positive": true,
+      "at_least_four_seeds_positive": false,
+      "mean_normalized_minus_greedy_positive": false
+    },
+    "positive_seeds": 3,
+    "continue_with_this_configuration": false,
+    "confirmatory": false
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "role": "raw",
+  "arm": "raw",
+  "seed": 44,
+  "order_id": "00106799",
+  "target": "rollcontainer",
+  "dataset": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+  "checkpoint": "/home/edmundo/packing-services/paper/results/11_normalization_ablation/models/raw_seed44.pt",
+  "lookahead_p": 1,
+  "select_s": 1,
+  "standardizer_sha256": "9a8604afe01455e5cd1e075ec32f408d42c464e1256173b0c970a7b15c69e266",
+  "attempts": 1
+}

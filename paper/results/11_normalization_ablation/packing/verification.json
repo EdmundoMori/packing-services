@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "role": "recalculo independiente del packing de desarrollo",
+  "commit": "6ae66fb6d38dcbb278e0d29f872e3c076d5b32cc",
+  "branch": "research/paper-online-packing",
+  "status": "complete",
+  "confirmatory": false,
+  "best_seed_selected": false,
+  "physical_stability_verified": null,
+  "timeout_seconds": 300,
+  "attempts": 1,
+  "device": "cpu",
+  "n_result_json": 550,
+  "n_unique_keys": 550,
+  "duplicate_keys": 0,
+  "counts_by_role": {
+    "heuristic": 50,
+    "raw": 250,
+    "normalized": 250
+  },
+  "same_50_orders": true,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "orders_per_target": {
+    "euro-pallet": 25,
+    "rollcontainer": 25
+  },
+  "file_issues": [],
+  "capture_issues": [],
+  "stability_issues": [],
+  "non_finite": [],
+  "failure_with_nonzero_u_geom": [],
+  "failure_type_counts": {},
+  "worker_failure_counts": {},
+  "flag_counts": {},
+  "valid_partial_packings": 308,
+  "normalized_minus_raw_by_seed": [
+    -0.002823156994047631,
+    0.002817314732142848,
+    0.008967771577380945,
+    0.0036462961309523755,
+    -0.005618776785714292
+  ],
+  "mean_of_seed_means": 0.001397889732142849,
+  "versus_heuristic_by_seed": {
+    "raw": [
+      -0.010310473214285713,
+      -0.011881663690476192,
+      -0.012416883928571433,
+      -0.010260741071428573,
+      -0.010198688988095245
+    ],
+    "normalized": [
+      -0.013133630208333344,
+      -0.009064348958333343,
+      -0.003449112351190489,
+      -0.006614444940476198,
+      -0.015817465773809537
+    ]
+  },
+  "mean_versus_heuristic": {
+    "raw": -0.011013690178571432,
+    "normalized": -0.009615800446428582
+  },
+  "by_target": {
+    "euro-pallet": {
+      "n_orders": 25,
+      "normalized_minus_raw_mean_of_seed_means": -0.0019433687500000029,
+      "raw_minus_heuristic_mean_of_seed_means": 0.00047931249999999623,
+      "normalized_minus_heuristic_mean_of_seed_means": -0.0014640562500000068
+    },
+    "rollcontainer": {
+      "n_orders": 25,
+      "normalized_minus_raw_mean_of_seed_means": 0.004739148214285701,
+      "raw_minus_heuristic_mean_of_seed_means": -0.02250669285714286,
+      "normalized_minus_heuristic_mean_of_seed_means": -0.01776754464285716
+    }
+  },
+  "conditions": {
+    "A_mean_normalized_minus_raw_positive": true,
+    "B_at_least_four_seeds_positive": false,
+    "C_mean_normalized_minus_greedy_positive": false
+  },
+  "positive_seeds": 3,
+  "decision": "abandonar esta configuración",
+  "aggregate_discrepancies": [],
+  "models_match_training_verification": true,
+  "model_issues": [],
+  "observed_orders": {
+    "n": 50,
+    "future_version_may_present_them_as_uninspected_confirmation": false,
+    "historical_registries_rewritten": false,
+    "order_ids": [
+      "00100084",
+      "00100101",
+      "00100802",
+      "00100909",
+      "00101315",
+      "00101485",
+      "00101494",
+      "00101615",
+      "00102089",
+      "00102161",
+      "00102173",
+      "00102208",
+      "00102221",
+      "00102287",
+      "00102949",
+      "00103007",
+      "00103201",
+      "00103487",
+      "00104323",
+      "00104576",
+      "00105062",
+      "00105124",
+      "00105149",
+      "00105360",
+      "00105402",
+      "00105920",
+      "00106105",
+      "00106270",
+      "00106277",
+      "00106333",
+      "00106382",
+      "00106610",
+      "00106736",
+      "00106799",
+      "00107193",
+      "00107203",
+      "00107389",
+      "00107473",
+      "00107660",
+      "00107733",
+      "00107877",
+      "00107947",
+      "00107992",
+      "00108419",
+      "00108849",
+      "00108863",
+      "00108881",
+      "00109195",
+      "00109411",
+      "00109844"
+    ]
+  }
+}

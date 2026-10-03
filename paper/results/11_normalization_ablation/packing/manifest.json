@@ -1,0 +1,57 @@
+{
+  "stage": "packing",
+  "status": "complete",
+  "confirmatory": false,
+  "command": [
+    "/home/edmundo/packing-services/.venv/bin/python",
+    "/home/edmundo/packing-services/paper/tools/run_normalization_ablation.py",
+    "pack",
+    "--protocol",
+    "/home/edmundo/packing-services/paper/protocols/10_normalization_ablation.json",
+    "--freeze",
+    "/home/edmundo/packing-services/paper/results/10_normalization_freeze.json",
+    "--run-dir",
+    "/home/edmundo/packing-services/paper/results/11_normalization_ablation",
+    "--dataset",
+    "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json"
+  ],
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "timeout_seconds": 300,
+  "attempts": 1,
+  "device": "cpu",
+  "cuda_visible_devices": "",
+  "threads": {
+    "torch.set_num_threads": 1,
+    "torch.set_num_interop_threads": 1
+  },
+  "training_code_sha256": {
+    "paper/tools/ablation_contract.py": "89e6158060f61bf200de45b0fbf2c824f504a6923546228ae58cb6710cd36a6e",
+    "paper/tools/ablation_train.py": "dbfcfbfa20a6555aa3d13dc57523eb99dbcd781024a0869d389edbd965725883",
+    "paper/tools/ablation_pack.py": "9d18a8eac4b11d20f0c6e20582c3d3186964fd35772dce6741ebb9727628eac6",
+    "paper/tools/ablation_aggregate.py": "9d02f27eb84a80f88b3357a0dc3489a9b2cc568d2c68c55187bf996bd80efb87",
+    "paper/tools/run_normalization_ablation.py": "916443adf2d8045c430f76fd16eaf042d954835f274f3f7faf5bb3d50145afe3",
+    "paper/tools/normalization_features.py": "5a364a8d2ddbe477e320579d6ffb2c919a743fa638604067fa4cad5c2063dcbe"
+  },
+  "training_commit": "836a4a55ae729b62077db0adf670e8dc8a49b25a",
+  "packing_code_sha256": {
+    "paper/tools/ablation_pack.py": "ea5f5ec3457f4db639461162facf8fbc087e00a196c92a3f0df5a276d4c3b405",
+    "paper/tools/ablation_worker.py": "01f143f89797ec327088131de79df5d4cb9bd433e5b9c92703e792ebff954f1c",
+    "paper/tools/ablation_aggregate.py": "35a6cd5fb5b01cd359e4db6ae5e34502fc1f434cf1d61a10f6818accdb2b5443",
+    "paper/tools/run_normalization_ablation.py": "916443adf2d8045c430f76fd16eaf042d954835f274f3f7faf5bb3d50145afe3"
+  },
+  "model_sha256": {
+    "models/normalized_seed42.pt": "79f152725c086aac807bca8108e2e419965320ae65bab1ef5d92b3623be7fbe6",
+    "models/raw_seed42.pt": "8349b71feb13f6307403e7224d07ce01a3b3c8beb9ef7760447c1fe1f764cc06",
+    "models/normalized_seed43.pt": "d165c56313ace8cce302e6ae8f4f03fed1aa76afc7bcfb5018895bba336f17e4",
+    "models/raw_seed43.pt": "cffda25f2978571664c73a1df11609e05e0650ea7a4a686d24e39dce95626aa6",
+    "models/normalized_seed44.pt": "f56b8e73250294d7c0ae76660feb2ab23c8e60c8ebbddae71a48b5d0823bcbdc",
+    "models/raw_seed44.pt": "d6deff7b02bbb51a63f0e7da54a2d43f045eaf8b507de9110afaf72414c9a916",
+    "models/normalized_seed45.pt": "5296c621856724a92a9ff5c04b3a1e47113ecb6b73ff44c1deeca15efcbc84b0",
+    "models/raw_seed45.pt": "3e8c9e7250965483bf593be84afe0de32812bb848b542f60e55371b960144ef2",
+    "models/normalized_seed46.pt": "37f2303b35edfe798bbc5bcc7af6e066616d4a3ad5a41ccede6a85f86cdef688",
+    "models/raw_seed46.pt": "9f2d927a61027765a66c17256252262fe1a7d87889a6303939e44836d9e542e4"
+  },
+  "n_cases_expected": 550,
+  "cases_written": 550,
+  "advance_continue": false
+}

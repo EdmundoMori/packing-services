@@ -1,0 +1,915 @@
+{
+  "containers": [
+    {
+      "id": "EURO_PALLET",
+      "length_mm": 1200.0,
+      "width_mm": 800.0,
+      "height_mm": 2000.0,
+      "max_weight_kg": 1500.0,
+      "volume_mm3": 1920000000.0
+    }
+  ],
+  "items": [
+    {
+      "arrival_index": 1,
+      "list_index": 0,
+      "item_id": "00108171#1",
+      "length_mm": 280.0,
+      "width_mm": 240.0,
+      "height_mm": 150.0,
+      "weight_kg": 4.26,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 2,
+      "list_index": 1,
+      "item_id": "00108171#2",
+      "length_mm": 280.0,
+      "width_mm": 240.0,
+      "height_mm": 150.0,
+      "weight_kg": 4.26,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 3,
+      "list_index": 2,
+      "item_id": "00111232#3",
+      "length_mm": 400.0,
+      "width_mm": 260.0,
+      "height_mm": 250.0,
+      "weight_kg": 10.05,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 4,
+      "list_index": 3,
+      "item_id": "00104591#4",
+      "length_mm": 260.0,
+      "width_mm": 200.0,
+      "height_mm": 240.0,
+      "weight_kg": 5.36,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 5,
+      "list_index": 4,
+      "item_id": "00100690#5",
+      "length_mm": 530.0,
+      "width_mm": 270.0,
+      "height_mm": 140.0,
+      "weight_kg": 4.25,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 6,
+      "list_index": 5,
+      "item_id": "00100690#6",
+      "length_mm": 530.0,
+      "width_mm": 270.0,
+      "height_mm": 140.0,
+      "weight_kg": 4.25,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 7,
+      "list_index": 6,
+      "item_id": "00100690#7",
+      "length_mm": 530.0,
+      "width_mm": 270.0,
+      "height_mm": 140.0,
+      "weight_kg": 4.25,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 8,
+      "list_index": 7,
+      "item_id": "00100690#8",
+      "length_mm": 530.0,
+      "width_mm": 270.0,
+      "height_mm": 140.0,
+      "weight_kg": 4.25,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 9,
+      "list_index": 8,
+      "item_id": "00100690#9",
+      "length_mm": 530.0,
+      "width_mm": 270.0,
+      "height_mm": 140.0,
+      "weight_kg": 4.25,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 10,
+      "list_index": 9,
+      "item_id": "00109466#10",
+      "length_mm": 260.0,
+      "width_mm": 190.0,
+      "height_mm": 260.0,
+      "weight_kg": 2.22,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 11,
+      "list_index": 10,
+      "item_id": "00111657#11",
+      "length_mm": 290.0,
+      "width_mm": 190.0,
+      "height_mm": 110.0,
+      "weight_kg": 2.96,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 12,
+      "list_index": 11,
+      "item_id": "00109131#12",
+      "length_mm": 260.0,
+      "width_mm": 180.0,
+      "height_mm": 260.0,
+      "weight_kg": 2.67,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 13,
+      "list_index": 12,
+      "item_id": "00104126#13",
+      "length_mm": 340.0,
+      "width_mm": 230.0,
+      "height_mm": 170.0,
+      "weight_kg": 4.84,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 14,
+      "list_index": 13,
+      "item_id": "00106131#14",
+      "length_mm": 290.0,
+      "width_mm": 190.0,
+      "height_mm": 120.0,
+      "weight_kg": 1.82,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 15,
+      "list_index": 14,
+      "item_id": "00106131#15",
+      "length_mm": 290.0,
+      "width_mm": 190.0,
+      "height_mm": 120.0,
+      "weight_kg": 1.82,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 16,
+      "list_index": 15,
+      "item_id": "00112654#16",
+      "length_mm": 590.0,
+      "width_mm": 370.0,
+      "height_mm": 120.0,
+      "weight_kg": 9.89,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 17,
+      "list_index": 16,
+      "item_id": "00108946#17",
+      "length_mm": 260.0,
+      "width_mm": 220.0,
+      "height_mm": 260.0,
+      "weight_kg": 2.36,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 18,
+      "list_index": 17,
+      "item_id": "00105798#18",
+      "length_mm": 290.0,
+      "width_mm": 210.0,
+      "height_mm": 140.0,
+      "weight_kg": 1.9,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 19,
+      "list_index": 18,
+      "item_id": "00110377#19",
+      "length_mm": 170.0,
+      "width_mm": 130.0,
+      "height_mm": 180.0,
+      "weight_kg": 2.5,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 20,
+      "list_index": 19,
+      "item_id": "00110377#20",
+      "length_mm": 170.0,
+      "width_mm": 130.0,
+      "height_mm": 180.0,
+      "weight_kg": 2.5,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 21,
+      "list_index": 20,
+      "item_id": "00110377#21",
+      "length_mm": 170.0,
+      "width_mm": 130.0,
+      "height_mm": 180.0,
+      "weight_kg": 2.5,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 22,
+      "list_index": 21,
+      "item_id": "00105673#22",
+      "length_mm": 500.0,
+      "width_mm": 140.0,
+      "height_mm": 100.0,
+      "weight_kg": 3.15,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 23,
+      "list_index": 22,
+      "item_id": "00101006#23",
+      "length_mm": 260.0,
+      "width_mm": 200.0,
+      "height_mm": 140.0,
+      "weight_kg": 2.21,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 24,
+      "list_index": 23,
+      "item_id": "00111999#24",
+      "length_mm": 290.0,
+      "width_mm": 290.0,
+      "height_mm": 100.0,
+      "weight_kg": 4.73,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 25,
+      "list_index": 24,
+      "item_id": "00111999#25",
+      "length_mm": 290.0,
+      "width_mm": 290.0,
+      "height_mm": 100.0,
+      "weight_kg": 4.73,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 26,
+      "list_index": 25,
+      "item_id": "00101910#26",
+      "length_mm": 340.0,
+      "width_mm": 200.0,
+      "height_mm": 240.0,
+      "weight_kg": 5.87,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 27,
+      "list_index": 26,
+      "item_id": "00110900#27",
+      "length_mm": 370.0,
+      "width_mm": 280.0,
+      "height_mm": 250.0,
+      "weight_kg": 10.43,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 28,
+      "list_index": 27,
+      "item_id": "00105812#28",
+      "length_mm": 360.0,
+      "width_mm": 190.0,
+      "height_mm": 100.0,
+      "weight_kg": 2.85,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 29,
+      "list_index": 28,
+      "item_id": "00111901#29",
+      "length_mm": 530.0,
+      "width_mm": 270.0,
+      "height_mm": 150.0,
+      "weight_kg": 4.85,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 30,
+      "list_index": 29,
+      "item_id": "00111901#30",
+      "length_mm": 530.0,
+      "width_mm": 270.0,
+      "height_mm": 150.0,
+      "weight_kg": 4.85,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 31,
+      "list_index": 30,
+      "item_id": "00111901#31",
+      "length_mm": 530.0,
+      "width_mm": 270.0,
+      "height_mm": 150.0,
+      "weight_kg": 4.85,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 32,
+      "list_index": 31,
+      "item_id": "00111901#32",
+      "length_mm": 530.0,
+      "width_mm": 270.0,
+      "height_mm": 150.0,
+      "weight_kg": 4.85,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 33,
+      "list_index": 32,
+      "item_id": "00111901#33",
+      "length_mm": 530.0,
+      "width_mm": 270.0,
+      "height_mm": 150.0,
+      "weight_kg": 4.85,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 34,
+      "list_index": 33,
+      "item_id": "00109825#34",
+      "length_mm": 280.0,
+      "width_mm": 270.0,
+      "height_mm": 270.0,
+      "weight_kg": 3.5,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 35,
+      "list_index": 34,
+      "item_id": "00107017#35",
+      "length_mm": 260.0,
+      "width_mm": 180.0,
+      "height_mm": 260.0,
+      "weight_kg": 2.52,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 36,
+      "list_index": 35,
+      "item_id": "00104580#36",
+      "length_mm": 360.0,
+      "width_mm": 190.0,
+      "height_mm": 110.0,
+      "weight_kg": 2.87,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 37,
+      "list_index": 36,
+      "item_id": "00100958#37",
+      "length_mm": 280.0,
+      "width_mm": 270.0,
+      "height_mm": 270.0,
+      "weight_kg": 3.51,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 38,
+      "list_index": 37,
+      "item_id": "00112484#38",
+      "length_mm": 530.0,
+      "width_mm": 260.0,
+      "height_mm": 150.0,
+      "weight_kg": 4.91,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 39,
+      "list_index": 38,
+      "item_id": "00108621#39",
+      "length_mm": 400.0,
+      "width_mm": 280.0,
+      "height_mm": 290.0,
+      "weight_kg": 8.52,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 40,
+      "list_index": 39,
+      "item_id": "00106823#40",
+      "length_mm": 260.0,
+      "width_mm": 180.0,
+      "height_mm": 260.0,
+      "weight_kg": 2.54,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 41,
+      "list_index": 40,
+      "item_id": "00106823#41",
+      "length_mm": 260.0,
+      "width_mm": 180.0,
+      "height_mm": 260.0,
+      "weight_kg": 2.54,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 42,
+      "list_index": 41,
+      "item_id": "00100815#42",
+      "length_mm": 400.0,
+      "width_mm": 130.0,
+      "height_mm": 210.0,
+      "weight_kg": 3.05,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 43,
+      "list_index": 42,
+      "item_id": "00104438#43",
+      "length_mm": 260.0,
+      "width_mm": 180.0,
+      "height_mm": 260.0,
+      "weight_kg": 2.5,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 44,
+      "list_index": 43,
+      "item_id": "00102001#44",
+      "length_mm": 200.0,
+      "width_mm": 150.0,
+      "height_mm": 210.0,
+      "weight_kg": 2.22,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 45,
+      "list_index": 44,
+      "item_id": "00102001#45",
+      "length_mm": 200.0,
+      "width_mm": 150.0,
+      "height_mm": 210.0,
+      "weight_kg": 2.22,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 46,
+      "list_index": 45,
+      "item_id": "00102001#46",
+      "length_mm": 200.0,
+      "width_mm": 150.0,
+      "height_mm": 210.0,
+      "weight_kg": 2.22,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 47,
+      "list_index": 46,
+      "item_id": "00102565#47",
+      "length_mm": 290.0,
+      "width_mm": 230.0,
+      "height_mm": 240.0,
+      "weight_kg": 5.64,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 48,
+      "list_index": 47,
+      "item_id": "00108138#48",
+      "length_mm": 260.0,
+      "width_mm": 180.0,
+      "height_mm": 260.0,
+      "weight_kg": 2.77,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 49,
+      "list_index": 48,
+      "item_id": "00108138#49",
+      "length_mm": 260.0,
+      "width_mm": 180.0,
+      "height_mm": 260.0,
+      "weight_kg": 2.77,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 50,
+      "list_index": 49,
+      "item_id": "00108138#50",
+      "length_mm": 260.0,
+      "width_mm": 180.0,
+      "height_mm": 260.0,
+      "weight_kg": 2.77,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 51,
+      "list_index": 50,
+      "item_id": "00104419#51",
+      "length_mm": 390.0,
+      "width_mm": 230.0,
+      "height_mm": 190.0,
+      "weight_kg": 4.08,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 52,
+      "list_index": 51,
+      "item_id": "00112121#52",
+      "length_mm": 330.0,
+      "width_mm": 210.0,
+      "height_mm": 290.0,
+      "weight_kg": 5.5,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 53,
+      "list_index": 52,
+      "item_id": "00105874#53",
+      "length_mm": 220.0,
+      "width_mm": 170.0,
+      "height_mm": 210.0,
+      "weight_kg": 2.5,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 54,
+      "list_index": 53,
+      "item_id": "00108179#54",
+      "length_mm": 330.0,
+      "width_mm": 210.0,
+      "height_mm": 290.0,
+      "weight_kg": 5.5,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 55,
+      "list_index": 54,
+      "item_id": "00108179#55",
+      "length_mm": 330.0,
+      "width_mm": 210.0,
+      "height_mm": 290.0,
+      "weight_kg": 5.5,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 56,
+      "list_index": 55,
+      "item_id": "00108102#56",
+      "length_mm": 390.0,
+      "width_mm": 260.0,
+      "height_mm": 200.0,
+      "weight_kg": 5.8,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 57,
+      "list_index": 56,
+      "item_id": "00104550#57",
+      "length_mm": 440.0,
+      "width_mm": 150.0,
+      "height_mm": 120.0,
+      "weight_kg": 6.24,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 58,
+      "list_index": 57,
+      "item_id": "00111176#58",
+      "length_mm": 280.0,
+      "width_mm": 270.0,
+      "height_mm": 270.0,
+      "weight_kg": 2.9,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 59,
+      "list_index": 58,
+      "item_id": "00105932#59",
+      "length_mm": 370.0,
+      "width_mm": 130.0,
+      "height_mm": 180.0,
+      "weight_kg": 4.6,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 60,
+      "list_index": 59,
+      "item_id": "00112423#60",
+      "length_mm": 400.0,
+      "width_mm": 200.0,
+      "height_mm": 130.0,
+      "weight_kg": 4.19,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 61,
+      "list_index": 60,
+      "item_id": "00109748#61",
+      "length_mm": 400.0,
+      "width_mm": 340.0,
+      "height_mm": 110.0,
+      "weight_kg": 5.56,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 62,
+      "list_index": 61,
+      "item_id": "00101335#62",
+      "length_mm": 500.0,
+      "width_mm": 140.0,
+      "height_mm": 100.0,
+      "weight_kg": 3.2,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 63,
+      "list_index": 62,
+      "item_id": "00109344#63",
+      "length_mm": 530.0,
+      "width_mm": 270.0,
+      "height_mm": 150.0,
+      "weight_kg": 4.91,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 64,
+      "list_index": 63,
+      "item_id": "00109344#64",
+      "length_mm": 530.0,
+      "width_mm": 270.0,
+      "height_mm": 150.0,
+      "weight_kg": 4.91,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 65,
+      "list_index": 64,
+      "item_id": "00105489#65",
+      "length_mm": 280.0,
+      "width_mm": 270.0,
+      "height_mm": 270.0,
+      "weight_kg": 2.62,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 66,
+      "list_index": 65,
+      "item_id": "00100790#66",
+      "length_mm": 390.0,
+      "width_mm": 230.0,
+      "height_mm": 140.0,
+      "weight_kg": 3.97,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 67,
+      "list_index": 66,
+      "item_id": "00111093#67",
+      "length_mm": 520.0,
+      "width_mm": 200.0,
+      "height_mm": 110.0,
+      "weight_kg": 3.3,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 68,
+      "list_index": 67,
+      "item_id": "00111093#68",
+      "length_mm": 520.0,
+      "width_mm": 200.0,
+      "height_mm": 110.0,
+      "weight_kg": 3.3,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 69,
+      "list_index": 68,
+      "item_id": "00105981#69",
+      "length_mm": 260.0,
+      "width_mm": 190.0,
+      "height_mm": 260.0,
+      "weight_kg": 3.13,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 70,
+      "list_index": 69,
+      "item_id": "00105981#70",
+      "length_mm": 260.0,
+      "width_mm": 190.0,
+      "height_mm": 260.0,
+      "weight_kg": 3.13,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 71,
+      "list_index": 70,
+      "item_id": "00105584#71",
+      "length_mm": 350.0,
+      "width_mm": 190.0,
+      "height_mm": 130.0,
+      "weight_kg": 4.32,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 72,
+      "list_index": 71,
+      "item_id": "00105584#72",
+      "length_mm": 350.0,
+      "width_mm": 190.0,
+      "height_mm": 130.0,
+      "weight_kg": 4.32,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 73,
+      "list_index": 72,
+      "item_id": "00107011#73",
+      "length_mm": 360.0,
+      "width_mm": 190.0,
+      "height_mm": 170.0,
+      "weight_kg": 2.4,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 74,
+      "list_index": 73,
+      "item_id": "00105525#74",
+      "length_mm": 400.0,
+      "width_mm": 150.0,
+      "height_mm": 90.0,
+      "weight_kg": 4.21,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 75,
+      "list_index": 74,
+      "item_id": "00105525#75",
+      "length_mm": 400.0,
+      "width_mm": 150.0,
+      "height_mm": 90.0,
+      "weight_kg": 4.21,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 76,
+      "list_index": 75,
+      "item_id": "00102035#76",
+      "length_mm": 400.0,
+      "width_mm": 260.0,
+      "height_mm": 170.0,
+      "weight_kg": 4.2,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 77,
+      "list_index": 76,
+      "item_id": "00100668#77",
+      "length_mm": 400.0,
+      "width_mm": 270.0,
+      "height_mm": 250.0,
+      "weight_kg": 8.92,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 78,
+      "list_index": 77,
+      "item_id": "00109410#78",
+      "length_mm": 540.0,
+      "width_mm": 200.0,
+      "height_mm": 110.0,
+      "weight_kg": 2.84,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 79,
+      "list_index": 78,
+      "item_id": "00107311#79",
+      "length_mm": 340.0,
+      "width_mm": 200.0,
+      "height_mm": 240.0,
+      "weight_kg": 5.87,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 80,
+      "list_index": 79,
+      "item_id": "00111658#80",
+      "length_mm": 260.0,
+      "width_mm": 200.0,
+      "height_mm": 140.0,
+      "weight_kg": 2.3,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 81,
+      "list_index": 80,
+      "item_id": "00103570#81",
+      "length_mm": 380.0,
+      "width_mm": 250.0,
+      "height_mm": 280.0,
+      "weight_kg": 10.46,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 82,
+      "list_index": 81,
+      "item_id": "00104243#82",
+      "length_mm": 320.0,
+      "width_mm": 210.0,
+      "height_mm": 250.0,
+      "weight_kg": 5.53,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 83,
+      "list_index": 82,
+      "item_id": "00104000#83",
+      "length_mm": 600.0,
+      "width_mm": 190.0,
+      "height_mm": 140.0,
+      "weight_kg": 4.3,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 84,
+      "list_index": 83,
+      "item_id": "00111205#84",
+      "length_mm": 400.0,
+      "width_mm": 270.0,
+      "height_mm": 270.0,
+      "weight_kg": 10.48,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 85,
+      "list_index": 84,
+      "item_id": "00111205#85",
+      "length_mm": 400.0,
+      "width_mm": 270.0,
+      "height_mm": 270.0,
+      "weight_kg": 10.48,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 86,
+      "list_index": 85,
+      "item_id": "00103194#86",
+      "length_mm": 400.0,
+      "width_mm": 280.0,
+      "height_mm": 100.0,
+      "weight_kg": 5.67,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 87,
+      "list_index": 86,
+      "item_id": "00105667#87",
+      "length_mm": 500.0,
+      "width_mm": 140.0,
+      "height_mm": 100.0,
+      "weight_kg": 3.15,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 88,
+      "list_index": 87,
+      "item_id": "00109060#88",
+      "length_mm": 400.0,
+      "width_mm": 260.0,
+      "height_mm": 250.0,
+      "weight_kg": 10.1,
+      "allowed_orientations": "all"
+    }
+  ],
+  "constraints": {
+    "non_overlap": true,
+    "containment": true,
+    "allow_rotation": true,
+    "max_weight": true,
+    "basic_stability": false,
+    "load_bearing": false,
+    "fragility": false,
+    "unloading_sequence": false
+  },
+  "lookahead_p": 1,
+  "select_s": 1,
+  "selection": "best_fit",
+  "sort_strategy": "input_order",
+  "problem_type": "3D_BPP",
+  "n_containers": 1,
+  "min_support_ratio_effective": 0.0,
+  "consolidate_effective": false,
+  "algorithm": "drl_policy_3d_bpp",
+  "model_path": "/home/edmundo/packing-services/paper/results/11_normalization_ablation/models/raw_seed44.pt",
+  "request_id": "bed-bpp-00107947"
+}

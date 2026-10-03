@@ -1,0 +1,782 @@
+{
+  "units": {
+    "length": "mm",
+    "volume": "mm3",
+    "weight": "kg",
+    "time": "s"
+  },
+  "order_id": "00101485",
+  "method": "actor",
+  "recipe": {
+    "method": "actor",
+    "orders_path": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+    "orders_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+    "checkpoint_path": "/home/edmundo/packing-services/paper/results/11_normalization_ablation/models/normalized_seed43.pt",
+    "lookahead_p": 1,
+    "select_s": 1,
+    "selection": "best_fit",
+    "sort_strategy": "input_order",
+    "packing_mode": "online",
+    "problem_type": "3D_BPP",
+    "algorithm": "drl_policy_3d_bpp",
+    "constraints": {
+      "non_overlap": true,
+      "containment": true,
+      "allow_rotation": true,
+      "max_weight": true,
+      "basic_stability": false,
+      "load_bearing": false,
+      "fragility": false,
+      "unloading_sequence": false
+    },
+    "min_support_ratio_effective": 0.0,
+    "consolidate_effective": false,
+    "n_containers": 1,
+    "device": "cpu",
+    "attempts": 1,
+    "sampling": false,
+    "actor_eval_mode": true,
+    "decision": "argmax de LearnedPlacementPolicy.decide; el loader existente llama model.eval()"
+  },
+  "containers": [
+    {
+      "id": "EURO_PALLET",
+      "length_mm": 1200.0,
+      "width_mm": 800.0,
+      "height_mm": 2000.0,
+      "max_weight_kg": 1500.0,
+      "volume_mm3": 1920000000.0
+    }
+  ],
+  "input_items": [
+    {
+      "arrival_index": 1,
+      "list_index": 0,
+      "item_id": "00102400#1",
+      "length_mm": 370.0,
+      "width_mm": 325.0,
+      "height_mm": 195.0,
+      "weight_kg": 10.494,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 2,
+      "list_index": 1,
+      "item_id": "00103747#2",
+      "length_mm": 590.0,
+      "width_mm": 385.0,
+      "height_mm": 285.0,
+      "weight_kg": 6.678,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 3,
+      "list_index": 2,
+      "item_id": "00110336#3",
+      "length_mm": 395.0,
+      "width_mm": 380.0,
+      "height_mm": 205.0,
+      "weight_kg": 7.64,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 4,
+      "list_index": 3,
+      "item_id": "00109731#4",
+      "length_mm": 600.0,
+      "width_mm": 400.0,
+      "height_mm": 290.0,
+      "weight_kg": 7.21,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 5,
+      "list_index": 4,
+      "item_id": "00109731#5",
+      "length_mm": 600.0,
+      "width_mm": 400.0,
+      "height_mm": 290.0,
+      "weight_kg": 7.21,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 6,
+      "list_index": 5,
+      "item_id": "00109731#6",
+      "length_mm": 600.0,
+      "width_mm": 400.0,
+      "height_mm": 290.0,
+      "weight_kg": 7.21,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 7,
+      "list_index": 6,
+      "item_id": "00101154#7",
+      "length_mm": 590.0,
+      "width_mm": 390.0,
+      "height_mm": 280.0,
+      "weight_kg": 6.529,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 8,
+      "list_index": 7,
+      "item_id": "00101154#8",
+      "length_mm": 590.0,
+      "width_mm": 390.0,
+      "height_mm": 280.0,
+      "weight_kg": 6.529,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 9,
+      "list_index": 8,
+      "item_id": "00101154#9",
+      "length_mm": 590.0,
+      "width_mm": 390.0,
+      "height_mm": 280.0,
+      "weight_kg": 6.529,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 10,
+      "list_index": 9,
+      "item_id": "00105511#10",
+      "length_mm": 580.0,
+      "width_mm": 390.0,
+      "height_mm": 120.0,
+      "weight_kg": 6.38,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 11,
+      "list_index": 10,
+      "item_id": "00111825#11",
+      "length_mm": 400.0,
+      "width_mm": 295.0,
+      "height_mm": 260.0,
+      "weight_kg": 4.664,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 12,
+      "list_index": 11,
+      "item_id": "00111311#12",
+      "length_mm": 590.0,
+      "width_mm": 390.0,
+      "height_mm": 290.0,
+      "weight_kg": 9.01,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 13,
+      "list_index": 12,
+      "item_id": "00111311#13",
+      "length_mm": 590.0,
+      "width_mm": 390.0,
+      "height_mm": 290.0,
+      "weight_kg": 9.01,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 14,
+      "list_index": 13,
+      "item_id": "00101323#14",
+      "length_mm": 585.0,
+      "width_mm": 390.0,
+      "height_mm": 220.0,
+      "weight_kg": 5.936,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 15,
+      "list_index": 14,
+      "item_id": "00101323#15",
+      "length_mm": 585.0,
+      "width_mm": 390.0,
+      "height_mm": 220.0,
+      "weight_kg": 5.936,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 16,
+      "list_index": 15,
+      "item_id": "00101323#16",
+      "length_mm": 585.0,
+      "width_mm": 390.0,
+      "height_mm": 220.0,
+      "weight_kg": 5.936,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 17,
+      "list_index": 16,
+      "item_id": "00104731#17",
+      "length_mm": 590.0,
+      "width_mm": 400.0,
+      "height_mm": 290.0,
+      "weight_kg": 10.0,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 18,
+      "list_index": 17,
+      "item_id": "00101846#18",
+      "length_mm": 580.0,
+      "width_mm": 380.0,
+      "height_mm": 160.0,
+      "weight_kg": 7.42,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 19,
+      "list_index": 18,
+      "item_id": "00104520#19",
+      "length_mm": 390.0,
+      "width_mm": 390.0,
+      "height_mm": 160.0,
+      "weight_kg": 4.85,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 20,
+      "list_index": 19,
+      "item_id": "00107296#20",
+      "length_mm": 595.0,
+      "width_mm": 400.0,
+      "height_mm": 300.0,
+      "weight_kg": 8.586,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 21,
+      "list_index": 20,
+      "item_id": "00107684#21",
+      "length_mm": 390.0,
+      "width_mm": 285.0,
+      "height_mm": 330.0,
+      "weight_kg": 8.11,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 22,
+      "list_index": 21,
+      "item_id": "00107657#22",
+      "length_mm": 400.0,
+      "width_mm": 290.0,
+      "height_mm": 260.0,
+      "weight_kg": 5.51,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 23,
+      "list_index": 22,
+      "item_id": "00101162#23",
+      "length_mm": 590.0,
+      "width_mm": 390.0,
+      "height_mm": 275.0,
+      "weight_kg": 7.21,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 24,
+      "list_index": 23,
+      "item_id": "00101162#24",
+      "length_mm": 590.0,
+      "width_mm": 390.0,
+      "height_mm": 275.0,
+      "weight_kg": 7.21,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 25,
+      "list_index": 24,
+      "item_id": "00101162#25",
+      "length_mm": 590.0,
+      "width_mm": 390.0,
+      "height_mm": 275.0,
+      "weight_kg": 7.21,
+      "allowed_orientations": "all"
+    }
+  ],
+  "placements": [
+    {
+      "packed_list_index": 0,
+      "item_id": "00102400#1",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "original_lwh_mm": [
+        370.0,
+        325.0,
+        195.0
+      ],
+      "oriented_lwh_mm": [
+        370.0,
+        195.0,
+        325.0
+      ],
+      "weight_kg": 10.494
+    },
+    {
+      "packed_list_index": 1,
+      "item_id": "00103747#2",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        370.0,
+        0.0,
+        0.0
+      ],
+      "original_lwh_mm": [
+        590.0,
+        385.0,
+        285.0
+      ],
+      "oriented_lwh_mm": [
+        590.0,
+        285.0,
+        385.0
+      ],
+      "weight_kg": 6.678
+    },
+    {
+      "packed_list_index": 2,
+      "item_id": "00110336#3",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        370.0,
+        0.0,
+        385.0
+      ],
+      "original_lwh_mm": [
+        395.0,
+        380.0,
+        205.0
+      ],
+      "oriented_lwh_mm": [
+        395.0,
+        205.0,
+        380.0
+      ],
+      "weight_kg": 7.64
+    },
+    {
+      "packed_list_index": 3,
+      "item_id": "00109731#4",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        370.0,
+        285.0,
+        0.0
+      ],
+      "original_lwh_mm": [
+        600.0,
+        400.0,
+        290.0
+      ],
+      "oriented_lwh_mm": [
+        600.0,
+        400.0,
+        290.0
+      ],
+      "weight_kg": 7.21
+    },
+    {
+      "packed_list_index": 4,
+      "item_id": "00109731#5",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        195.0,
+        0.0
+      ],
+      "original_lwh_mm": [
+        600.0,
+        400.0,
+        290.0
+      ],
+      "oriented_lwh_mm": [
+        290.0,
+        600.0,
+        400.0
+      ],
+      "weight_kg": 7.21
+    },
+    {
+      "packed_list_index": 5,
+      "item_id": "00109731#6",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        765.0,
+        0.0,
+        385.0
+      ],
+      "original_lwh_mm": [
+        600.0,
+        400.0,
+        290.0
+      ],
+      "oriented_lwh_mm": [
+        400.0,
+        290.0,
+        600.0
+      ],
+      "weight_kg": 7.21
+    },
+    {
+      "packed_list_index": 6,
+      "item_id": "00101154#7",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        765.0,
+        0.0,
+        985.0
+      ],
+      "original_lwh_mm": [
+        590.0,
+        390.0,
+        280.0
+      ],
+      "oriented_lwh_mm": [
+        390.0,
+        280.0,
+        590.0
+      ],
+      "weight_kg": 6.529
+    },
+    {
+      "packed_list_index": 7,
+      "item_id": "00101154#8",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        195.0,
+        400.0
+      ],
+      "original_lwh_mm": [
+        590.0,
+        390.0,
+        280.0
+      ],
+      "oriented_lwh_mm": [
+        280.0,
+        590.0,
+        390.0
+      ],
+      "weight_kg": 6.529
+    },
+    {
+      "packed_list_index": 8,
+      "item_id": "00101154#9",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        195.0,
+        790.0
+      ],
+      "original_lwh_mm": [
+        590.0,
+        390.0,
+        280.0
+      ],
+      "oriented_lwh_mm": [
+        280.0,
+        590.0,
+        390.0
+      ],
+      "weight_kg": 6.529
+    },
+    {
+      "packed_list_index": 9,
+      "item_id": "00105511#10",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        195.0,
+        1180.0
+      ],
+      "original_lwh_mm": [
+        580.0,
+        390.0,
+        120.0
+      ],
+      "oriented_lwh_mm": [
+        120.0,
+        580.0,
+        390.0
+      ],
+      "weight_kg": 6.38
+    },
+    {
+      "packed_list_index": 10,
+      "item_id": "00111825#11",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        765.0,
+        0.0,
+        1575.0
+      ],
+      "original_lwh_mm": [
+        400.0,
+        295.0,
+        260.0
+      ],
+      "oriented_lwh_mm": [
+        400.0,
+        260.0,
+        295.0
+      ],
+      "weight_kg": 4.664
+    },
+    {
+      "packed_list_index": 11,
+      "item_id": "00111311#12",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        120.0,
+        195.0,
+        1180.0
+      ],
+      "original_lwh_mm": [
+        590.0,
+        390.0,
+        290.0
+      ],
+      "oriented_lwh_mm": [
+        290.0,
+        590.0,
+        390.0
+      ],
+      "weight_kg": 9.01
+    },
+    {
+      "packed_list_index": 12,
+      "item_id": "00111311#13",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        195.0,
+        1570.0
+      ],
+      "original_lwh_mm": [
+        590.0,
+        390.0,
+        290.0
+      ],
+      "oriented_lwh_mm": [
+        390.0,
+        590.0,
+        290.0
+      ],
+      "weight_kg": 9.01
+    },
+    {
+      "packed_list_index": 13,
+      "item_id": "00101323#14",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        280.0,
+        195.0,
+        790.0
+      ],
+      "original_lwh_mm": [
+        585.0,
+        390.0,
+        220.0
+      ],
+      "oriented_lwh_mm": [
+        220.0,
+        585.0,
+        390.0
+      ],
+      "weight_kg": 5.936
+    },
+    {
+      "packed_list_index": 14,
+      "item_id": "00101323#15",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        410.0,
+        195.0,
+        1180.0
+      ],
+      "original_lwh_mm": [
+        585.0,
+        390.0,
+        220.0
+      ],
+      "oriented_lwh_mm": [
+        220.0,
+        585.0,
+        390.0
+      ],
+      "weight_kg": 5.936
+    },
+    {
+      "packed_list_index": 15,
+      "item_id": "00101323#16",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        390.0,
+        195.0,
+        1570.0
+      ],
+      "original_lwh_mm": [
+        585.0,
+        390.0,
+        220.0
+      ],
+      "oriented_lwh_mm": [
+        220.0,
+        585.0,
+        390.0
+      ],
+      "weight_kg": 5.936
+    },
+    {
+      "packed_list_index": 16,
+      "item_id": "00104731#17",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        765.0,
+        280.0,
+        985.0
+      ],
+      "original_lwh_mm": [
+        590.0,
+        400.0,
+        290.0
+      ],
+      "oriented_lwh_mm": [
+        400.0,
+        290.0,
+        590.0
+      ],
+      "weight_kg": 10.0
+    },
+    {
+      "packed_list_index": 17,
+      "item_id": "00101846#18",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        765.0,
+        570.0,
+        985.0
+      ],
+      "original_lwh_mm": [
+        580.0,
+        380.0,
+        160.0
+      ],
+      "oriented_lwh_mm": [
+        380.0,
+        160.0,
+        580.0
+      ],
+      "weight_kg": 7.42
+    },
+    {
+      "packed_list_index": 18,
+      "item_id": "00104520#19",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        765.0,
+        260.0,
+        1575.0
+      ],
+      "original_lwh_mm": [
+        390.0,
+        390.0,
+        160.0
+      ],
+      "oriented_lwh_mm": [
+        390.0,
+        390.0,
+        160.0
+      ],
+      "weight_kg": 4.85
+    },
+    {
+      "packed_list_index": 19,
+      "item_id": "00107296#20",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        765.0,
+        290.0,
+        385.0
+      ],
+      "original_lwh_mm": [
+        595.0,
+        400.0,
+        300.0
+      ],
+      "oriented_lwh_mm": [
+        400.0,
+        300.0,
+        595.0
+      ],
+      "weight_kg": 8.586
+    },
+    {
+      "packed_list_index": 20,
+      "item_id": "00107684#21",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        370.0,
+        205.0,
+        385.0
+      ],
+      "original_lwh_mm": [
+        390.0,
+        285.0,
+        330.0
+      ],
+      "oriented_lwh_mm": [
+        390.0,
+        285.0,
+        330.0
+      ],
+      "weight_kg": 8.11
+    },
+    {
+      "packed_list_index": 21,
+      "item_id": "00107657#22",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        765.0,
+        260.0,
+        1735.0
+      ],
+      "original_lwh_mm": [
+        400.0,
+        290.0,
+        260.0
+      ],
+      "oriented_lwh_mm": [
+        400.0,
+        290.0,
+        260.0
+      ],
+      "weight_kg": 5.51
+    }
+  ],
+  "unpacked": [
+    {
+      "item_id": "00101162#23",
+      "reason": "No hay colocación legal con el presupuesto de información actual"
+    },
+    {
+      "item_id": "00101162#24",
+      "reason": "No hay colocación legal con el presupuesto de información actual"
+    },
+    {
+      "item_id": "00101162#25",
+      "reason": "No hay colocación legal con el presupuesto de información actual"
+    }
+  ],
+  "physical_stability_verified": null
+}
