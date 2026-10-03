@@ -1,53 +1,42 @@
 {
   "schema_version": 1,
-  "execution_id": "10-20261002T210200Z",
-  "executed_at_utc": "2026-10-02T21:02:00Z",
-  "reference_commit": "557e2ef477e6173cee20fae5f83c435d59652d76",
-  "head": "557e2ef477e6173cee20fae5f83c435d59652d76",
+  "execution_id": "11-20261002T211906Z",
+  "executed_at_utc": "2026-10-02T21:19:06Z",
+  "reference_commit": "158c5dc0b6c02b50a638f2678cd05482cecd5052",
+  "head": "158c5dc0b6c02b50a638f2678cd05482cecd5052",
   "head_matches_reference": true,
   "branch": "research/paper-online-packing",
   "repo_root": "/home/edmundo/packing-services",
   "working_tree_dirty_before": false,
-  "dirty_before_note": "Antes del paso 10 solo había 17 .pkl sin seguimiento. No había modificaciones rastreadas. Este paso no crea un commit.",
-  "phase": "10_normalization_ablation_freeze",
-  "status": "ablación de normalización congelada; entrenamiento y packing no ejecutados",
+  "dirty_before_note": "Antes del paso 11 solo había 17 .pkl sin seguimiento. No había modificaciones rastreadas. Este paso no crea un commit.",
+  "phase": "11_ablation_runner",
+  "status": "ejecutor de la ablación implementado; entrenamiento y packing reales no ejecutados",
   "result_summary": {
-    "origin_commit": "557e2ef477e6173cee20fae5f83c435d59652d76",
-    "review": "paper/reviews/10_normalization_design.md",
+    "origin_commit": "158c5dc0b6c02b50a638f2678cd05482cecd5052",
+    "review": "paper/reviews/11_ablation_runner.md",
+    "runner": "paper/tools/run_normalization_ablation.py",
     "protocol": "paper/protocols/10_normalization_ablation.json",
     "freeze": "paper/results/10_normalization_freeze.json",
+    "future_output": "paper/results/11_normalization_ablation/",
+    "future_output_created": false,
     "step_08_interpretation_unchanged": "no_concluyente",
     "confirmatory": false,
     "training": false,
     "packing": false,
     "inference": false,
-    "seeds": [
-      42,
-      43,
-      44,
-      45,
-      46
-    ],
-    "standardizer_sha256": "9a8604afe01455e5cd1e075ec32f408d42c464e1256173b0c970a7b15c69e266",
-    "development_list_sha256": "f2b969649484166fe02052fbd26c09ba25337f898b74e17ff4ba86db2fd4ae69",
-    "development_n": {
-      "euro-pallet": 25,
-      "rollcontainer": 25
+    "synthetic_tests_only": true,
+    "planned_cases": {
+      "actors": 500,
+      "heuristic": 50
     },
-    "eligible_after_exclusion_n": {
-      "euro-pallet": 662,
-      "rollcontainer": 789
-    },
-    "constant_columns_train_and_train_val": 15,
     "historical_file_identity": "no_comprobada",
     "physical_stability_verified": null,
-    "scale_test_evaluation_list": "no identificada; 0 ids en full.val y 0 en la muestra",
     "protocol_historical_fields_unchanged": true
   },
   "next_steps": [
-    "No entrenar ni empaquetar hasta un paso que lo autorice.",
-    "Si se ejecuta, informar las cinco diferencias y aplicar la regla de avance.",
-    "Si la regla no se cumple, abandonar esta configuración de normalización."
+    "No lanzar las etapas reales hasta un paso que lo autorice.",
+    "Si se ejecutan, usar los comandos de paper/reviews/11_ablation_runner.md.",
+    "Aplicar la regla de avance sobre las cinco medias y no elegir una semilla."
   ],
   "blockers": [],
   "previous_executions": [
@@ -193,6 +182,15 @@
       "status": "diagnóstico exploratorio registrado; la evaluación independiente sigue no concluyente",
       "review": "paper/reviews/09_exploratory_diagnosis.md",
       "head": "881213f85687debe53a30dc82e9d09e2a4ca2752",
+      "branch": "research/paper-online-packing"
+    },
+    {
+      "execution_id": "10-20261002T210200Z",
+      "executed_at_utc": "2026-10-02T21:02:00Z",
+      "phase": "10_normalization_ablation_freeze",
+      "status": "ablación de normalización congelada; entrenamiento y packing no ejecutados",
+      "review": "paper/reviews/10_normalization_design.md",
+      "head": "557e2ef477e6173cee20fae5f83c435d59652d76",
       "branch": "research/paper-online-packing"
     }
   ]
