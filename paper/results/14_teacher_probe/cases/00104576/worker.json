@@ -1,0 +1,21 @@
+{
+  "status": "ok",
+  "error": null,
+  "attempts": 1,
+  "timeout_seconds": 300,
+  "duration_seconds": 12.504217704999974,
+  "diagnostics": {
+    "teacher": "receding_horizon_ep",
+    "fallback_steps": 13,
+    "multi_candidate_steps": 41,
+    "decisions": 41,
+    "discards": 5,
+    "n_packed": 41,
+    "n_unpacked": 5,
+    "observes_remaining_queue": true,
+    "same_observability_as_greedy": false,
+    "physical_stability_verified": null
+  },
+  "wall_seconds": 12.504217704999974,
+  "returncode": 0
+}

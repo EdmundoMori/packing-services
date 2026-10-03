@@ -1,0 +1,21 @@
+{
+  "confirmatory": false,
+  "not_upper_bound": true,
+  "n_orders": 50,
+  "mean_teacher_minus_greedy": -0.021117453869047634,
+  "by_target": {
+    "euro-pallet": -0.028390104166666673,
+    "rollcontainer": -0.013844803571428583
+  },
+  "wins": 10,
+  "ties": 22,
+  "losses": 18,
+  "failure_types": {
+    "teacher:method_failure": 1
+  },
+  "orders_with_fallback": 28,
+  "orders_with_multi_candidate_decisions": 49,
+  "time_is_diagnostic_only": true,
+  "physical_stability_verified": null,
+  "interpretation": "No hay ventaja media observada. No justifica otra campaña BC que solo imite este teacher sin revisar antes sus etiquetas u objetivo."
+}

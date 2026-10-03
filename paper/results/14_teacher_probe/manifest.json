@@ -1,0 +1,23 @@
+{
+  "stage": "teacher_probe",
+  "status": "complete",
+  "confirmatory": false,
+  "packing_executed": true,
+  "command": [
+    "/home/edmundo/packing-services/paper/tools/run_teacher_probe.py",
+    "--protocol",
+    "/home/edmundo/packing-services/paper/protocols/14_teacher_probe.json",
+    "--comparator",
+    "/home/edmundo/packing-services/paper/results/11_normalization_ablation/packing",
+    "--dataset",
+    "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+    "--output",
+    "/home/edmundo/packing-services/paper/results/14_teacher_probe"
+  ],
+  "comparator_accepted": true,
+  "issues": [],
+  "timeout_seconds": 300,
+  "attempts": 1,
+  "device": "cpu",
+  "mean_teacher_minus_greedy": -0.021117453869047634
+}
