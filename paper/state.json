@@ -1,29 +1,30 @@
 {
   "schema_version": 1,
-  "execution_id": "16a-20261003T143549Z",
-  "executed_at_utc": "2026-10-03T14:35:49Z",
-  "reference_commit": "6fc55b6b74bfa46697b1fd25a6eb52cc4e71a1a2",
-  "head": "6fc55b6b74bfa46697b1fd25a6eb52cc4e71a1a2",
+  "execution_id": "18-20261003T174453Z",
+  "executed_at_utc": "2026-10-03T17:44:53Z",
+  "reference_commit": "91ee3ed10cb028881c2d0823239c3203759b429d",
+  "head": "91ee3ed10cb028881c2d0823239c3203759b429d",
   "head_matches_reference": true,
   "branch": "research/paper-online-packing",
   "repo_root": "/home/edmundo/packing-services",
   "working_tree_dirty_before": true,
-  "dirty_before_note": "El paso 16 seguía sin commit, junto con los 17 .pkl. Este paso no crea un commit y no altera esos resultados.",
-  "phase": "16a_onlinebph_capture_contract",
-  "status": "contrato de captura corregido; cinco pedidos nuevos auditados; listo para calibración",
+  "dirty_before_note": "El paso 17 seguía sin commit, junto con los 17 .pkl. Este cierre no ejecuta experimentos nuevos.",
+  "phase": "18_short_campaign_closure",
+  "status": "campaña corta cerrada; la configuración compacta no continúa",
   "result_summary": {
-    "origin_commit": "6fc55b6b74bfa46697b1fd25a6eb52cc4e71a1a2",
-    "review": "paper/reviews/16a_onlinebph_capture_contract.md",
-    "protocol": "paper/protocols/16_compact_selector_study.json",
-    "smoke_original": "paper/results/16_baseline_smoke",
-    "smoke_original_online_bph": "method_failure con U_geom efectivo 0; no recalificado",
-    "posthoc_audit": "paper/results/16_baseline_smoke/online_bph_posthoc_audit.json",
-    "posthoc_replaces_pipeline_score": false,
-    "capture_verification": "paper/results/16a_onlinebph_capture_smoke",
-    "grid_executed": false,
+    "origin_commit": "91ee3ed10cb028881c2d0823239c3203759b429d",
+    "review": "paper/reviews/17_compact_calibration_run.md",
+    "protocol": "paper/protocols/17_compact_calibration.json",
+    "results": "paper/results/17_compact_calibration",
+    "n_cases": 1520,
+    "grid_executed": true,
+    "chosen_configuration": {"a": 1, "b": 0.5, "c": 0},
+    "gate_passed": false,
     "coefficients_selected": false,
-    "online_bph_pipeline_scored": true,
-    "decision": "listo para calibración",
+    "online_bph_executed": false,
+    "step_17_decision": "Esta cuadrícula y esta configuración quedan abandonadas según la regla congelada",
+    "closure_review": "paper/reviews/18_short_campaign_closure.md",
+    "decision": "Cerrar esta vía experimental. No continuar a comparación externa ni test confirmatorio con esta configuración.",
     "normalization_configuration": "abandonada",
     "step_08_interpretation_unchanged": "no_concluyente",
     "step_15_mean_teacher_minus_greedy": -0.021117453869047634,
@@ -38,10 +39,9 @@
     "physical_stability_verified": null
   },
   "next_steps": [
-    "La calibración queda autorizable en un paso posterior. Este paso no la ejecuta ni entrena.",
-    "No reutilizar las U_geom de los pasos 08, 13 y 15 como baseline de este contrato.",
-    "No tratar physical_stability_verified null como estabilidad demostrada.",
-    "No llamar a este experimento Table 1 de Zhao, evaluación oficial de Kagerer ni PCT."
+    "Esta vía queda cerrada. Una hipótesis distinta exigiría un protocolo nuevo.",
+    "No continuar a comparación externa ni a test confirmatorio con a=1, b=0.5, c=0.",
+    "No tratar physical_stability_verified null como estabilidad demostrada."
   ],
   "blockers": [],
   "previous_executions": [
@@ -259,6 +259,24 @@
       "status": "contrato compacto preparado; OnlineBPH se ejecutó pero el arnés no auditó su captura; calibración bloqueada",
       "review": "paper/reviews/16_protocol_and_baseline_feasibility.md",
       "head": "6fc55b6b74bfa46697b1fd25a6eb52cc4e71a1a2",
+      "branch": "research/paper-online-packing"
+    },
+    {
+      "execution_id": "16a-20261003T143549Z",
+      "executed_at_utc": "2026-10-03T14:35:49Z",
+      "phase": "16a_onlinebph_capture_contract",
+      "status": "contrato de captura corregido; cinco pedidos nuevos auditados; listo para calibración",
+      "review": "paper/reviews/16a_onlinebph_capture_contract.md",
+      "head": "6fc55b6b74bfa46697b1fd25a6eb52cc4e71a1a2",
+      "branch": "research/paper-online-packing"
+    },
+    {
+      "execution_id": "17-20261003T172919Z",
+      "executed_at_utc": "2026-10-03T17:29:19Z",
+      "phase": "17_compact_calibration",
+      "status": "cuadrícula ejecutada; la configuración elegida queda abandonada por la regla congelada",
+      "review": "paper/reviews/17_compact_calibration_run.md",
+      "head": "91ee3ed10cb028881c2d0823239c3203759b429d",
       "branch": "research/paper-online-packing"
     }
   ]

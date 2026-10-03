@@ -1,0 +1,50 @@
+{
+  "status": "congelado_antes_de_ejecutar",
+  "reference_commit": "91ee3ed10cb028881c2d0823239c3203759b429d",
+  "protocol": "/home/edmundo/packing-services/paper/protocols/17_compact_calibration.json",
+  "protocol_sha256": "3f1349ebe5f5327530c3db341ae7888ec56d3506dc15ee861e04838645caac23",
+  "protocol_md_sha256": "fcaee23fde5aa380dcf6ee110a5d1c228f6149fea132ef5afe8c0a2a1eef866f",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "code_sha256": {
+    "paper/tools/compact_selector.py": "7d02d22ade3b41b9336e1e03961c9f15851bfbe6e47cd87614eeb592eb5a9efe",
+    "paper/tools/compact_study.py": "93409b31b093702e80c43da4fe6030cb3913707493756f1df9296c37326af476",
+    "paper/tools/compact_worker.py": "eb8f235e158fa71f322693bef87c3202fa35aade1140d57423d0c13d9083df7a",
+    "paper/tools/run_compact_calibration.py": "7aa8bd86d586b1e05f6d5e8fc5bd9bb1b12dcca341f36145b23da3607f2c2464",
+    "src/packing_services/online/policies.py": "089e1246193285f05241c4729392e7ce3ce8d4cd62a6e15645ba9990e05fe581",
+    "src/packing_services/online/session.py": "a04d09780eca1d9bae6ef78387299ba13cf7f532f9bb0f8735f8fcf3972cb71c",
+    "src/packing_services/online/loop.py": "59f66757d6d91acf5f36f01af343ac50a639e656943438f282989ba79d1cb6a8"
+  },
+  "origin_manifests": {
+    "protocol_16_sha256": "c67f000974ada207be7261ddf787f0044d8e0f04d3d9bbe0575b8497112e77bf",
+    "protocol_10_sha256": "1430f6bea168809ac85767d04b911a0d25f4ac7aafae5c27c20abc934f7e9c93",
+    "protocol_07_sha256": "260e738d2cc28318891f8db8e7c21098eed6a9e7bf5ab714c378996c8ccb88f8",
+    "train_ids_sha256": "77cb5cd628985c30e498e5549258ae9ad71b1f528ecc5ade88290ec123e91066",
+    "smoke_preflight_sha256": "4af384710892f7d8bc7782f8dc4b989af7b4a7f838158281271ed16698041d25"
+  },
+  "signature_rule": "SHA256 de JSON canónico con target y la secuencia de longitud, anchura, altura, peso y allowed_orientations del snapshot compacto, antes de colocar. El origen BED-BPP no trae un permiso por ítem; el permiso relevante es el de ese snapshot.",
+  "n_signatures": 90,
+  "clone_crosses": [],
+  "identity_problems": [],
+  "greedy_smoke_reuse": false,
+  "greedy_smoke_reuse_reason": "compact_study.py o el worker cambiaron después del smoke; no se reutilizan sus U_geom",
+  "cost_estimate_before_execution": {
+    "smoke_greedy_n": 5,
+    "smoke_greedy_mean_wall_seconds": 4.777229768799953,
+    "smoke_greedy_max_wall_seconds": 7.45789335399968,
+    "smoke_greedy_mean_loop_seconds": 2.587089278199346,
+    "planned_cases": 1520,
+    "estimate_at_mean_wall_seconds": 7261.389248575928,
+    "estimate_at_max_wall_seconds": 11335.997898079513,
+    "consumed_process_wall_seconds_steps_16_and_16a": 58.08877340199797,
+    "consumed_timing_files": 15,
+    "budget_seconds": 43200,
+    "uncertainty": "La media y el máximo salen de cinco Greedy de desarrollo. Un pedido más largo o el arranque por proceso pueden alejarse de esa muestra. No es una garantía."
+  },
+  "budget_fits_at_max_smoke_wall": true,
+  "commands": {
+    "prepare": ".venv/bin/python paper/tools/run_compact_calibration.py --prepare",
+    "execute": ".venv/bin/python paper/tools/run_compact_calibration.py --execute"
+  },
+  "physical_stability_verified": null,
+  "grid_executed": false
+}

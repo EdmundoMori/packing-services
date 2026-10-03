@@ -12,7 +12,12 @@ TOOLS = Path(__file__).resolve().parent
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
-from compact_study import build_compact_problem, capture_compact_case, run_compact_greedy  # noqa: E402
+from compact_study import (  # noqa: E402
+    build_compact_problem,
+    capture_compact_case,
+    run_compact_greedy,
+    run_compact_selector,
+)
 from pilot_common import atomic_write_json  # noqa: E402
 from pilot_problems import prepare_imports  # noqa: E402
 
@@ -30,13 +35,26 @@ def main() -> int:
     orders = load_orders(Path(job["dataset"]))
     problem = build_compact_problem(orders, job["order_id"])
     ready = time.perf_counter()
-    solution, diagnostics = run_compact_greedy(problem)
+    coefficients = job.get("coefficients")
+    if coefficients is None:
+        solution, diagnostics = run_compact_greedy(problem)
+    else:
+        problem = problem.model_copy(
+            update={"algorithm": problem.algorithm.model_copy(update={"name": "compact_selector"})}
+        )
+        solution, diagnostics = run_compact_selector(
+            problem,
+            float(coefficients["a"]),
+            float(coefficients["b"]),
+            float(coefficients["c"]),
+        )
     document = capture_compact_case(
         problem,
         solution,
         order_id=job["order_id"],
         dataset=job["dataset"],
         dataset_sha256=job["dataset_sha256"],
+        coefficients=None if coefficients is None else diagnostics["coefficients"],
     )
     finished = time.perf_counter()
     atomic_write_json(

@@ -134,8 +134,17 @@ def compact_selector_view(current: Any, options: list[Any]) -> dict[str, Any]:
     }
 
 
-def run_compact_greedy(problem: Any) -> tuple[Any, dict[str, Any]]:
-    """Coloca con GreedyBestFit y se detiene en el primer ítem sin candidata."""
+def run_compact_episode(
+    problem: Any,
+    chooser: Any,
+    *,
+    algorithm_name: str,
+    display_name: str,
+    description: str,
+    selector: str,
+    coefficients: dict[str, float] | None = None,
+) -> tuple[Any, dict[str, Any]]:
+    """Coloca con el selector recibido y se detiene en el primer ítem sin candidata."""
 
     prepare_imports()
     from packing_services.algorithms.base import build_solution
@@ -146,7 +155,6 @@ def run_compact_greedy(problem: Any) -> tuple[Any, dict[str, Any]]:
     from packing_services.online.budget import InformationBudget
     from packing_services.online.mask import ValidatorMask
     from packing_services.online.params import resolve_selection, support_threshold
-    from packing_services.online.policies import GreedyBestFitPolicy
     from packing_services.online.session import ExtremePointOnlineSession
     from packing_services.online.types import StepOption
 
@@ -165,7 +173,10 @@ def run_compact_greedy(problem: Any) -> tuple[Any, dict[str, Any]]:
     budget = InformationBudget.from_parameters(params)
     session = ExtremePointOnlineSession(problem.containers, selection=resolve_selection(params))
     mask = ValidatorMask(problem, min_support_ratio=support_threshold(params, constraints.basic_stability))
-    chooser = GreedyBestFitPolicy()
+    if problem.algorithm.name != algorithm_name:
+        problem = problem.model_copy(
+            update={"algorithm": problem.algorithm.model_copy(update={"name": algorithm_name})}
+        )
     remaining = order_items(list(problem.items), SortStrategy.INPUT_ORDER)
     unpacked: list[UnpackedItem] = []
     steps: list[dict[str, Any]] = []
@@ -211,9 +222,9 @@ def run_compact_greedy(problem: Any) -> tuple[Any, dict[str, Any]]:
     loop_seconds = time.perf_counter() - started
     metadata = METADATA.model_copy(
         update={
-            "name": ALGORITHM_NAME,
-            "display_name": "GreedyBestFit con terminación al primer ítem imposible",
-            "description": "Mismo selector best-fit del ítem actual. El episodio termina si ese ítem no tiene candidata legal.",
+            "name": algorithm_name,
+            "display_name": display_name,
+            "description": description,
         }
     )
     solution = build_solution(
@@ -230,9 +241,42 @@ def run_compact_greedy(problem: Any) -> tuple[Any, dict[str, Any]]:
         "n_unpacked": len(unpacked),
         "stopped_early": any(item.reason == TERMINAL_REASON for item in unpacked),
         "generator": "extreme_point",
-        "selector": "GreedyBestFitPolicy",
+        "selector": selector,
+        "coefficients": coefficients,
         "physical_stability_verified": None,
     }
+
+
+def run_compact_greedy(problem: Any) -> tuple[Any, dict[str, Any]]:
+    """GreedyBestFit del ítem actual. No usa los coeficientes del selector compacto."""
+
+    prepare_imports()
+    from packing_services.online.policies import GreedyBestFitPolicy
+
+    return run_compact_episode(
+        problem,
+        GreedyBestFitPolicy(),
+        algorithm_name=ALGORITHM_NAME,
+        display_name="GreedyBestFit con terminación al primer ítem imposible",
+        description="Mismo selector best-fit del ítem actual. El episodio termina si ese ítem no tiene candidata legal.",
+        selector="GreedyBestFitPolicy",
+    )
+
+
+def run_compact_selector(problem: Any, a: float, b: float, c: float) -> tuple[Any, dict[str, Any]]:
+    """Selector compacto. Los coeficientes no cambian el generador ni el terminal."""
+
+    from compact_selector import FORMULA_VERSION, CompactScorePolicy
+
+    return run_compact_episode(
+        problem,
+        CompactScorePolicy(a, b, c),
+        algorithm_name="compact_selector",
+        display_name=f"Selector compacto {FORMULA_VERSION}",
+        description="Puntúa candidatas legales del ítem actual. No observa la cola futura.",
+        selector="CompactScorePolicy",
+        coefficients={"a": float(a), "b": float(b), "c": float(c)},
+    )
 
 
 def capture_online_bph(
@@ -335,24 +379,49 @@ def capture_online_bph(
     }
 
 
-def capture_compact_case(problem: Any, solution: Any, *, order_id: str, dataset: str, dataset_sha256: str) -> dict[str, Any]:
+def capture_compact_case(
+    problem: Any,
+    solution: Any,
+    *,
+    order_id: str,
+    dataset: str,
+    dataset_sha256: str,
+    coefficients: dict[str, float] | None = None,
+) -> dict[str, Any]:
     from pathlib import Path
 
+    from compact_selector import FORMULA, FORMULA_VERSION
     from pilot_common import REPO_ROOT
 
+    method = "compact_selector" if coefficients is not None else "greedy"
     document = capture_document(
         problem,
         solution,
-        method="greedy",
+        method=method,
         order_id=order_id,
         orders_path=Path(dataset),
         orders_sha256=dataset_sha256,
         checkpoint_path=REPO_ROOT,
     )
-    document["recipe"]["decision"] = (
-        "GreedyBestFitPolicy sobre las candidatas legales del ítem actual. "
-        "Si no hay ninguna, el episodio termina y el sufijo no se coloca."
-    )
+    if coefficients is None:
+        document["recipe"]["decision"] = (
+            "GreedyBestFitPolicy sobre las candidatas legales del ítem actual. "
+            "Si no hay ninguna, el episodio termina y el sufijo no se coloca."
+        )
+        document["recipe"]["coefficients"] = None
+    else:
+        document["recipe"]["decision"] = (
+            "CompactScorePolicy sobre las candidatas legales del ítem actual. "
+            "El contacto es -rank_key[0] normalizado por el área de las caras. "
+            "No es una prueba de estabilidad. Si no hay candidata válida, el episodio termina."
+        )
+        document["recipe"]["coefficients"] = {
+            "a": float(coefficients["a"]),
+            "b": float(coefficients["b"]),
+            "c": float(coefficients["c"]),
+        }
+        document["recipe"]["formula_version"] = FORMULA_VERSION
+        document["recipe"]["formula"] = FORMULA
     document["recipe"]["terminal"] = "stop_at_first_impossible_item"
     document["recipe"]["observes_future_item_dimensions"] = False
     document["recipe"]["passes_remaining_count"] = False

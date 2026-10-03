@@ -1,0 +1,25 @@
+{
+  "status": "complete",
+  "n_cases_expected": 1520,
+  "elapsed_seconds": 5088.675920605001,
+  "top3": [
+    "a1_b0.5_c0",
+    "a0_b1_c0",
+    "a0.5_b1_c0"
+  ],
+  "chosen": "a1_b0.5_c0",
+  "gate": {
+    "conditions": {
+      "A_mean_delta_at_least_0_005": false,
+      "B_euro_delta_non_negative": false,
+      "C_roll_delta_non_negative": true
+    },
+    "passed": false,
+    "statistical_test": false
+  },
+  "decision": "Esta cuadrícula y esta configuración quedan abandonadas según la regla congelada",
+  "physical_stability_verified": null,
+  "superiority_claimed": false,
+  "statistical_test": false,
+  "confirmatory": false
+}

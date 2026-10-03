@@ -1,0 +1,198 @@
+{
+  "status": "ok",
+  "error": null,
+  "attempts": 1,
+  "timeout_seconds": 300,
+  "diagnostics": {
+    "packing_loop_seconds": 0.12802027799989446,
+    "steps": [
+      {
+        "item_id": "00104899#1",
+        "preview_ids": [
+          "00104899#1"
+        ],
+        "n_candidates": 3,
+        "placed": true
+      },
+      {
+        "item_id": "00101347#2",
+        "preview_ids": [
+          "00101347#2"
+        ],
+        "n_candidates": 12,
+        "placed": true
+      },
+      {
+        "item_id": "00110428#3",
+        "preview_ids": [
+          "00110428#3"
+        ],
+        "n_candidates": 6,
+        "placed": true
+      },
+      {
+        "item_id": "00110732#4",
+        "preview_ids": [
+          "00110732#4"
+        ],
+        "n_candidates": 10,
+        "placed": true
+      },
+      {
+        "item_id": "00112219#5",
+        "preview_ids": [
+          "00112219#5"
+        ],
+        "n_candidates": 14,
+        "placed": true
+      },
+      {
+        "item_id": "00104632#6",
+        "preview_ids": [
+          "00104632#6"
+        ],
+        "n_candidates": 9,
+        "placed": true
+      },
+      {
+        "item_id": "00104632#7",
+        "preview_ids": [
+          "00104632#7"
+        ],
+        "n_candidates": 8,
+        "placed": true
+      },
+      {
+        "item_id": "00106455#8",
+        "preview_ids": [
+          "00106455#8"
+        ],
+        "n_candidates": 10,
+        "placed": true
+      },
+      {
+        "item_id": "00108893#9",
+        "preview_ids": [
+          "00108893#9"
+        ],
+        "n_candidates": 12,
+        "placed": true
+      },
+      {
+        "item_id": "00109674#10",
+        "preview_ids": [
+          "00109674#10"
+        ],
+        "n_candidates": 16,
+        "placed": true
+      },
+      {
+        "item_id": "00109674#11",
+        "preview_ids": [
+          "00109674#11"
+        ],
+        "n_candidates": 11,
+        "placed": true
+      },
+      {
+        "item_id": "00104979#12",
+        "preview_ids": [
+          "00104979#12"
+        ],
+        "n_candidates": 14,
+        "placed": true
+      },
+      {
+        "item_id": "00104979#13",
+        "preview_ids": [
+          "00104979#13"
+        ],
+        "n_candidates": 14,
+        "placed": true
+      },
+      {
+        "item_id": "00110028#14",
+        "preview_ids": [
+          "00110028#14"
+        ],
+        "n_candidates": 24,
+        "placed": true
+      },
+      {
+        "item_id": "00112491#15",
+        "preview_ids": [
+          "00112491#15"
+        ],
+        "n_candidates": 16,
+        "placed": true
+      },
+      {
+        "item_id": "00112491#16",
+        "preview_ids": [
+          "00112491#16"
+        ],
+        "n_candidates": 14,
+        "placed": true
+      },
+      {
+        "item_id": "00112491#17",
+        "preview_ids": [
+          "00112491#17"
+        ],
+        "n_candidates": 20,
+        "placed": true
+      },
+      {
+        "item_id": "00102420#18",
+        "preview_ids": [
+          "00102420#18"
+        ],
+        "n_candidates": 9,
+        "placed": true
+      },
+      {
+        "item_id": "00110819#19",
+        "preview_ids": [
+          "00110819#19"
+        ],
+        "n_candidates": 10,
+        "placed": true
+      },
+      {
+        "item_id": "00110819#20",
+        "preview_ids": [
+          "00110819#20"
+        ],
+        "n_candidates": 6,
+        "placed": true
+      },
+      {
+        "item_id": "00110819#21",
+        "preview_ids": [
+          "00110819#21"
+        ],
+        "n_candidates": 0,
+        "placed": false
+      }
+    ],
+    "n_packed": 20,
+    "n_unpacked": 5,
+    "stopped_early": true,
+    "generator": "extreme_point",
+    "selector": "CompactScorePolicy",
+    "coefficients": {
+      "a": 1.0,
+      "b": 0.5,
+      "c": 0.0
+    },
+    "physical_stability_verified": null
+  },
+  "timings": {
+    "startup_seconds": 1.84674458399968,
+    "packing_loop_seconds": 0.12802027799989446,
+    "capture_build_seconds": 0.03940549999970244
+  },
+  "returncode": 0,
+  "wall_seconds": 2.7962351530004526,
+  "duration_seconds": 2.7962351530004526
+}

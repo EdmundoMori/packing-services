@@ -1,0 +1,589 @@
+{
+  "units": {
+    "length": "mm",
+    "volume": "mm3",
+    "weight": "kg",
+    "time": "s"
+  },
+  "order_id": "00100344",
+  "method": "compact_selector",
+  "recipe": {
+    "method": "compact_selector",
+    "orders_path": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+    "orders_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+    "checkpoint_path": null,
+    "lookahead_p": 1,
+    "select_s": 1,
+    "selection": "best_fit",
+    "sort_strategy": "input_order",
+    "packing_mode": "online",
+    "problem_type": "3D_BPP",
+    "algorithm": "compact_selector",
+    "constraints": {
+      "non_overlap": true,
+      "containment": true,
+      "allow_rotation": true,
+      "max_weight": false,
+      "basic_stability": false,
+      "load_bearing": false,
+      "fragility": false,
+      "unloading_sequence": false
+    },
+    "min_support_ratio_effective": 0.0,
+    "consolidate_effective": false,
+    "n_containers": 1,
+    "device": "cpu",
+    "attempts": 1,
+    "sampling": false,
+    "actor_eval_mode": false,
+    "decision": "CompactScorePolicy sobre las candidatas legales del ítem actual. El contacto es -rank_key[0] normalizado por el área de las caras. No es una prueba de estabilidad. Si no hay candidata válida, el episodio termina.",
+    "coefficients": {
+      "a": 2.0,
+      "b": 2.0,
+      "c": 0.25
+    },
+    "formula_version": "compact_contact_height_v1",
+    "formula": "contacto_normalizado - a * incremento_altura_normalizado - b * techo_normalizado + c * apoyo",
+    "terminal": "stop_at_first_impossible_item",
+    "observes_future_item_dimensions": false,
+    "passes_remaining_count": false
+  },
+  "containers": [
+    {
+      "id": "ROLLCONTAINER",
+      "length_mm": 800.0,
+      "width_mm": 700.0,
+      "height_mm": 2000.0,
+      "max_weight_kg": 1500.0,
+      "volume_mm3": 1120000000.0
+    }
+  ],
+  "input_items": [
+    {
+      "arrival_index": 1,
+      "list_index": 0,
+      "item_id": "00105433#1",
+      "length_mm": 380.0,
+      "width_mm": 300.0,
+      "height_mm": 170.0,
+      "weight_kg": 5.72,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 2,
+      "list_index": 1,
+      "item_id": "00101846#2",
+      "length_mm": 580.0,
+      "width_mm": 380.0,
+      "height_mm": 160.0,
+      "weight_kg": 7.42,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 3,
+      "list_index": 2,
+      "item_id": "00111753#3",
+      "length_mm": 590.0,
+      "width_mm": 395.0,
+      "height_mm": 295.0,
+      "weight_kg": 6.614,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 4,
+      "list_index": 3,
+      "item_id": "00111753#4",
+      "length_mm": 590.0,
+      "width_mm": 395.0,
+      "height_mm": 295.0,
+      "weight_kg": 6.614,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 5,
+      "list_index": 4,
+      "item_id": "00104520#5",
+      "length_mm": 390.0,
+      "width_mm": 390.0,
+      "height_mm": 160.0,
+      "weight_kg": 4.85,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 6,
+      "list_index": 5,
+      "item_id": "00101167#6",
+      "length_mm": 570.0,
+      "width_mm": 380.0,
+      "height_mm": 280.0,
+      "weight_kg": 9.01,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 7,
+      "list_index": 6,
+      "item_id": "00101162#7",
+      "length_mm": 590.0,
+      "width_mm": 390.0,
+      "height_mm": 275.0,
+      "weight_kg": 7.21,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 8,
+      "list_index": 7,
+      "item_id": "00105511#8",
+      "length_mm": 580.0,
+      "width_mm": 390.0,
+      "height_mm": 120.0,
+      "weight_kg": 6.38,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 9,
+      "list_index": 8,
+      "item_id": "00105511#9",
+      "length_mm": 580.0,
+      "width_mm": 390.0,
+      "height_mm": 120.0,
+      "weight_kg": 6.38,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 10,
+      "list_index": 9,
+      "item_id": "00101371#10",
+      "length_mm": 400.0,
+      "width_mm": 300.0,
+      "height_mm": 230.0,
+      "weight_kg": 6.36,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 11,
+      "list_index": 10,
+      "item_id": "00101154#11",
+      "length_mm": 590.0,
+      "width_mm": 390.0,
+      "height_mm": 280.0,
+      "weight_kg": 6.529,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 12,
+      "list_index": 11,
+      "item_id": "00101323#12",
+      "length_mm": 585.0,
+      "width_mm": 390.0,
+      "height_mm": 220.0,
+      "weight_kg": 5.936,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 13,
+      "list_index": 12,
+      "item_id": "00106593#13",
+      "length_mm": 600.0,
+      "width_mm": 400.0,
+      "height_mm": 280.0,
+      "weight_kg": 8.056,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 14,
+      "list_index": 13,
+      "item_id": "00108100#14",
+      "length_mm": 590.0,
+      "width_mm": 390.0,
+      "height_mm": 270.0,
+      "weight_kg": 8.01,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 15,
+      "list_index": 14,
+      "item_id": "00110459#15",
+      "length_mm": 590.0,
+      "width_mm": 390.0,
+      "height_mm": 290.0,
+      "weight_kg": 7.63,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 16,
+      "list_index": 15,
+      "item_id": "00107296#16",
+      "length_mm": 595.0,
+      "width_mm": 400.0,
+      "height_mm": 300.0,
+      "weight_kg": 8.586,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 17,
+      "list_index": 16,
+      "item_id": "00107754#17",
+      "length_mm": 590.0,
+      "width_mm": 390.0,
+      "height_mm": 270.0,
+      "weight_kg": 6.78,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 18,
+      "list_index": 17,
+      "item_id": "00109731#18",
+      "length_mm": 600.0,
+      "width_mm": 400.0,
+      "height_mm": 290.0,
+      "weight_kg": 7.21,
+      "allowed_orientations": "all"
+    },
+    {
+      "arrival_index": 19,
+      "list_index": 18,
+      "item_id": "00110731#19",
+      "length_mm": 590.0,
+      "width_mm": 395.0,
+      "height_mm": 295.0,
+      "weight_kg": 9.8,
+      "allowed_orientations": "all"
+    }
+  ],
+  "placements": [
+    {
+      "packed_list_index": 0,
+      "item_id": "00105433#1",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "original_lwh_mm": [
+        380.0,
+        300.0,
+        170.0
+      ],
+      "oriented_lwh_mm": [
+        380.0,
+        300.0,
+        170.0
+      ],
+      "weight_kg": 5.72
+    },
+    {
+      "packed_list_index": 1,
+      "item_id": "00101846#2",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        300.0,
+        0.0
+      ],
+      "original_lwh_mm": [
+        580.0,
+        380.0,
+        160.0
+      ],
+      "oriented_lwh_mm": [
+        580.0,
+        380.0,
+        160.0
+      ],
+      "weight_kg": 7.42
+    },
+    {
+      "packed_list_index": 2,
+      "item_id": "00111753#3",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        300.0,
+        160.0
+      ],
+      "original_lwh_mm": [
+        590.0,
+        395.0,
+        295.0
+      ],
+      "oriented_lwh_mm": [
+        590.0,
+        395.0,
+        295.0
+      ],
+      "weight_kg": 6.614
+    },
+    {
+      "packed_list_index": 3,
+      "item_id": "00111753#4",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        0.0,
+        170.0
+      ],
+      "original_lwh_mm": [
+        590.0,
+        395.0,
+        295.0
+      ],
+      "oriented_lwh_mm": [
+        590.0,
+        295.0,
+        395.0
+      ],
+      "weight_kg": 6.614
+    },
+    {
+      "packed_list_index": 4,
+      "item_id": "00104520#5",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        590.0,
+        0.0,
+        0.0
+      ],
+      "original_lwh_mm": [
+        390.0,
+        390.0,
+        160.0
+      ],
+      "oriented_lwh_mm": [
+        160.0,
+        390.0,
+        390.0
+      ],
+      "weight_kg": 4.85
+    },
+    {
+      "packed_list_index": 5,
+      "item_id": "00101167#6",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        300.0,
+        455.0
+      ],
+      "original_lwh_mm": [
+        570.0,
+        380.0,
+        280.0
+      ],
+      "oriented_lwh_mm": [
+        570.0,
+        380.0,
+        280.0
+      ],
+      "weight_kg": 9.01
+    },
+    {
+      "packed_list_index": 6,
+      "item_id": "00101162#7",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        0.0,
+        565.0
+      ],
+      "original_lwh_mm": [
+        590.0,
+        390.0,
+        275.0
+      ],
+      "oriented_lwh_mm": [
+        590.0,
+        275.0,
+        390.0
+      ],
+      "weight_kg": 7.21
+    },
+    {
+      "packed_list_index": 7,
+      "item_id": "00105511#8",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        300.0,
+        735.0
+      ],
+      "original_lwh_mm": [
+        580.0,
+        390.0,
+        120.0
+      ],
+      "oriented_lwh_mm": [
+        580.0,
+        390.0,
+        120.0
+      ],
+      "weight_kg": 6.38
+    },
+    {
+      "packed_list_index": 8,
+      "item_id": "00105511#9",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        590.0,
+        0.0,
+        390.0
+      ],
+      "original_lwh_mm": [
+        580.0,
+        390.0,
+        120.0
+      ],
+      "oriented_lwh_mm": [
+        120.0,
+        580.0,
+        390.0
+      ],
+      "weight_kg": 6.38
+    },
+    {
+      "packed_list_index": 9,
+      "item_id": "00101371#10",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        300.0,
+        855.0
+      ],
+      "original_lwh_mm": [
+        400.0,
+        300.0,
+        230.0
+      ],
+      "oriented_lwh_mm": [
+        300.0,
+        400.0,
+        230.0
+      ],
+      "weight_kg": 6.36
+    },
+    {
+      "packed_list_index": 10,
+      "item_id": "00101154#11",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        0.0,
+        955.0
+      ],
+      "original_lwh_mm": [
+        590.0,
+        390.0,
+        280.0
+      ],
+      "oriented_lwh_mm": [
+        590.0,
+        280.0,
+        390.0
+      ],
+      "weight_kg": 6.529
+    },
+    {
+      "packed_list_index": 11,
+      "item_id": "00101323#12",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        300.0,
+        1085.0
+      ],
+      "original_lwh_mm": [
+        585.0,
+        390.0,
+        220.0
+      ],
+      "oriented_lwh_mm": [
+        585.0,
+        390.0,
+        220.0
+      ],
+      "weight_kg": 5.936
+    },
+    {
+      "packed_list_index": 12,
+      "item_id": "00106593#13",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        300.0,
+        1305.0
+      ],
+      "original_lwh_mm": [
+        600.0,
+        400.0,
+        280.0
+      ],
+      "oriented_lwh_mm": [
+        600.0,
+        400.0,
+        280.0
+      ],
+      "weight_kg": 8.056
+    },
+    {
+      "packed_list_index": 13,
+      "item_id": "00108100#14",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        0.0,
+        1345.0
+      ],
+      "original_lwh_mm": [
+        590.0,
+        390.0,
+        270.0
+      ],
+      "oriented_lwh_mm": [
+        590.0,
+        270.0,
+        390.0
+      ],
+      "weight_kg": 8.01
+    },
+    {
+      "packed_list_index": 14,
+      "item_id": "00110459#15",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        300.0,
+        1585.0
+      ],
+      "original_lwh_mm": [
+        590.0,
+        390.0,
+        290.0
+      ],
+      "oriented_lwh_mm": [
+        590.0,
+        390.0,
+        290.0
+      ],
+      "weight_kg": 7.63
+    }
+  ],
+  "unpacked": [
+    {
+      "item_id": "00107296#16",
+      "reason": "el ítem actual no tiene candidata legal; el episodio termina"
+    },
+    {
+      "item_id": "00107754#17",
+      "reason": "el episodio terminó antes de este ítem"
+    },
+    {
+      "item_id": "00109731#18",
+      "reason": "el episodio terminó antes de este ítem"
+    },
+    {
+      "item_id": "00110731#19",
+      "reason": "el episodio terminó antes de este ítem"
+    }
+  ],
+  "physical_stability_verified": null
+}

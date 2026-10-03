@@ -1,0 +1,258 @@
+{
+  "status": "ok",
+  "error": null,
+  "attempts": 1,
+  "timeout_seconds": 300,
+  "diagnostics": {
+    "packing_loop_seconds": 0.4495247880004172,
+    "steps": [
+      {
+        "item_id": "00102527#1",
+        "preview_ids": [
+          "00102527#1"
+        ],
+        "n_candidates": 6,
+        "placed": true
+      },
+      {
+        "item_id": "00102527#2",
+        "preview_ids": [
+          "00102527#2"
+        ],
+        "n_candidates": 18,
+        "placed": true
+      },
+      {
+        "item_id": "00102470#3",
+        "preview_ids": [
+          "00102470#3"
+        ],
+        "n_candidates": 24,
+        "placed": true
+      },
+      {
+        "item_id": "00104249#4",
+        "preview_ids": [
+          "00104249#4"
+        ],
+        "n_candidates": 36,
+        "placed": true
+      },
+      {
+        "item_id": "00104249#5",
+        "preview_ids": [
+          "00104249#5"
+        ],
+        "n_candidates": 42,
+        "placed": true
+      },
+      {
+        "item_id": "00104249#6",
+        "preview_ids": [
+          "00104249#6"
+        ],
+        "n_candidates": 36,
+        "placed": true
+      },
+      {
+        "item_id": "00109718#7",
+        "preview_ids": [
+          "00109718#7"
+        ],
+        "n_candidates": 11,
+        "placed": true
+      },
+      {
+        "item_id": "00109718#8",
+        "preview_ids": [
+          "00109718#8"
+        ],
+        "n_candidates": 16,
+        "placed": true
+      },
+      {
+        "item_id": "00109718#9",
+        "preview_ids": [
+          "00109718#9"
+        ],
+        "n_candidates": 20,
+        "placed": true
+      },
+      {
+        "item_id": "00109718#10",
+        "preview_ids": [
+          "00109718#10"
+        ],
+        "n_candidates": 19,
+        "placed": true
+      },
+      {
+        "item_id": "00103092#11",
+        "preview_ids": [
+          "00103092#11"
+        ],
+        "n_candidates": 64,
+        "placed": true
+      },
+      {
+        "item_id": "00112415#12",
+        "preview_ids": [
+          "00112415#12"
+        ],
+        "n_candidates": 41,
+        "placed": true
+      },
+      {
+        "item_id": "00111777#13",
+        "preview_ids": [
+          "00111777#13"
+        ],
+        "n_candidates": 40,
+        "placed": true
+      },
+      {
+        "item_id": "00110710#14",
+        "preview_ids": [
+          "00110710#14"
+        ],
+        "n_candidates": 60,
+        "placed": true
+      },
+      {
+        "item_id": "00106377#15",
+        "preview_ids": [
+          "00106377#15"
+        ],
+        "n_candidates": 35,
+        "placed": true
+      },
+      {
+        "item_id": "00111329#16",
+        "preview_ids": [
+          "00111329#16"
+        ],
+        "n_candidates": 44,
+        "placed": true
+      },
+      {
+        "item_id": "00100473#17",
+        "preview_ids": [
+          "00100473#17"
+        ],
+        "n_candidates": 46,
+        "placed": true
+      },
+      {
+        "item_id": "00111143#18",
+        "preview_ids": [
+          "00111143#18"
+        ],
+        "n_candidates": 14,
+        "placed": true
+      },
+      {
+        "item_id": "00109739#19",
+        "preview_ids": [
+          "00109739#19"
+        ],
+        "n_candidates": 25,
+        "placed": true
+      },
+      {
+        "item_id": "00109739#20",
+        "preview_ids": [
+          "00109739#20"
+        ],
+        "n_candidates": 25,
+        "placed": true
+      },
+      {
+        "item_id": "00106342#21",
+        "preview_ids": [
+          "00106342#21"
+        ],
+        "n_candidates": 20,
+        "placed": true
+      },
+      {
+        "item_id": "00106011#22",
+        "preview_ids": [
+          "00106011#22"
+        ],
+        "n_candidates": 26,
+        "placed": true
+      },
+      {
+        "item_id": "00107768#23",
+        "preview_ids": [
+          "00107768#23"
+        ],
+        "n_candidates": 24,
+        "placed": true
+      },
+      {
+        "item_id": "00107768#24",
+        "preview_ids": [
+          "00107768#24"
+        ],
+        "n_candidates": 8,
+        "placed": true
+      },
+      {
+        "item_id": "00103757#25",
+        "preview_ids": [
+          "00103757#25"
+        ],
+        "n_candidates": 2,
+        "placed": true
+      },
+      {
+        "item_id": "00106134#26",
+        "preview_ids": [
+          "00106134#26"
+        ],
+        "n_candidates": 11,
+        "placed": true
+      },
+      {
+        "item_id": "00110429#27",
+        "preview_ids": [
+          "00110429#27"
+        ],
+        "n_candidates": 8,
+        "placed": true
+      },
+      {
+        "item_id": "00104334#28",
+        "preview_ids": [
+          "00104334#28"
+        ],
+        "n_candidates": 10,
+        "placed": true
+      },
+      {
+        "item_id": "00100469#29",
+        "preview_ids": [
+          "00100469#29"
+        ],
+        "n_candidates": 0,
+        "placed": false
+      }
+    ],
+    "n_packed": 28,
+    "n_unpacked": 14,
+    "stopped_early": true,
+    "generator": "extreme_point",
+    "selector": "GreedyBestFitPolicy",
+    "coefficients": null,
+    "physical_stability_verified": null
+  },
+  "timings": {
+    "startup_seconds": 1.9153258410005947,
+    "packing_loop_seconds": 0.4495247880004172,
+    "capture_build_seconds": 0.034174862998042954
+  },
+  "returncode": 0,
+  "wall_seconds": 2.823330977000296,
+  "duration_seconds": 2.823330977000296
+}
