@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "protocol_id": "14_teacher_probe",
+  "status": "listo para ejecutar el teacher; la heurística no se relanza",
+  "executed": false,
+  "confirmatory": false,
+  "not_upper_bound": true,
+  "not_online_homologated_baseline": true,
+  "physical_stability_verified": null,
+  "reference_commit": "c97ed114508e01ba6f4a4ebf94129dc68d638ec0",
+  "question": "¿Las decisiones del teacher receding_horizon_ep, aplicadas secuencialmente, mejoran U_geom en los 50 pedidos de desarrollo ya observados?",
+  "sample": {
+    "source_protocol": "paper/protocols/10_normalization_ablation.json",
+    "source_field": "development_sample.execution_items",
+    "n": 50,
+    "per_target": {"euro-pallet": 25, "rollcontainer": 25},
+    "already_observed": true,
+    "reserve_new_orders": false
+  },
+  "geometry": {
+    "lookahead_p": 1,
+    "select_s": 1,
+    "sort_strategy": "input_order",
+    "selection": "best_fit",
+    "device": "cpu",
+    "timeout_seconds": 300,
+    "attempts": 1,
+    "failure_u_geom": 0,
+    "failures_stay_in_denominator": true,
+    "tie_eps": 1e-9,
+    "time_is_diagnostic_only": true
+  },
+  "observability": {
+    "greedy_and_actor": "ven el buffer s y la preview p",
+    "teacher": "la simulación ordena por volumen y coloca el resto completo de la cola",
+    "same_observability": false
+  },
+  "teacher": {
+    "name": "receding_horizon_ep",
+    "decision": "online_policy_ml/src_ml/teacher.py:receding_horizon_ep_index",
+    "rollout_control": "online_policy_ml/src_ml/collect.py:collect_order_transitions",
+    "new_decision_each_step": true,
+    "internal_simulation_is_not_the_final_packing": true
+  },
+  "comparator": {
+    "path": "paper/results/11_normalization_ablation/packing",
+    "role": "heuristic",
+    "algorithm": "online_3d_bpp_heuristic",
+    "reuse": "accepted",
+    "n": 50,
+    "digest": "7073d4898fa8415b53aaa9250e0065daa48f2d5cb10da4a79ac526fa1c280844",
+    "code_sha256": {
+      "online_policy_ml/src_ml/teacher.py": "ecd52eadb8fc1f819a53f6c32ffdc95852c34feb31d5b20f55ba649de2782e96",
+      "online_policy_ml/src_ml/collect.py": "4d37041d98ae19d3ad86154da89d9dc037f94c159ec121527ec568595b7d0737",
+      "src/packing_services/algorithms/online_3d_bpp_heuristic.py": "931dae85d1146deec1223ce4fa1ae7572f45e53020c5036aecf82b58ee69cc97",
+      "src/packing_services/online/policies.py": "089e1246193285f05241c4729392e7ce3ce8d4cd62a6e15645ba9990e05fe581",
+      "src/packing_services/online/loop.py": "59f66757d6d91acf5f36f01af343ac50a639e656943438f282989ba79d1cb6a8",
+      "paper/tools/ablation_pack.py": "ea5f5ec3457f4db639461162facf8fbc087e00a196c92a3f0df5a276d4c3b405",
+      "paper/tools/ablation_worker.py": "01f143f89797ec327088131de79df5d4cb9bd433e5b9c92703e792ebff954f1c"
+    }
+  },
+  "primary": "media de U_geom(teacher) - U_geom(GreedyBestFit) sobre los 50 pedidos",
+  "secondary": [
+    "desglose por target",
+    "victorias, empates y derrotas",
+    "fallos por tipo",
+    "pedidos que usan el fallback",
+    "decisiones con varias candidatas",
+    "tiempo solo diagnóstico"
+  ],
+  "interpretation": {
+    "no_mean_advantage": "No justifica otra campaña BC que solo imite este teacher sin revisar antes sus etiquetas u objetivo.",
+    "mean_advantage": "Investigar si esa ventaja puede aprenderse con la observación limitada del actor.",
+    "operational_failures": "Separar una limitación del presupuesto de la calidad de las decisiones. No atribuir el resultado automáticamente a las etiquetas."
+  }
+}

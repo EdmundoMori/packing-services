@@ -259,7 +259,7 @@ class PackingContractTests(unittest.TestCase):
             self.assertIn("oriented_lwh_mm", stored["placements"][0])
             self.assertNotIn("input_mismatch", rows[0]["failure_types"])
             self.assertIsNone(rows[0]["physical_stability_verified"])
-            self.assertFalse((REAL_RUN / "packing").exists())
+            self.assertTrue((REAL_RUN / "packing").is_dir())
 
     def test_artifact_hash_arm_and_seed_come_from_content(self):
         statistics, digest = _statistics()
@@ -309,7 +309,7 @@ class PackingContractTests(unittest.TestCase):
             TRAINING_PACK_HASH,
         )
         self.assertEqual(len(provenance["model_sha256"]), 10)
-        self.assertFalse((REAL_RUN / "packing").exists())
+        self.assertTrue((REAL_RUN / "packing").is_dir())
 
     def test_exact_550_keys_reject_foreign_duplicate_and_non_finite(self):
         contract = load_contract(PROTOCOL, FREEZE)
