@@ -1,42 +1,47 @@
 {
   "schema_version": 1,
-  "execution_id": "11-20261002T211906Z",
-  "executed_at_utc": "2026-10-02T21:19:06Z",
-  "reference_commit": "158c5dc0b6c02b50a638f2678cd05482cecd5052",
-  "head": "158c5dc0b6c02b50a638f2678cd05482cecd5052",
+  "execution_id": "12-20261003T075732Z",
+  "executed_at_utc": "2026-10-03T07:57:32Z",
+  "reference_commit": "836a4a55ae729b62077db0adf670e8dc8a49b25a",
+  "head": "836a4a55ae729b62077db0adf670e8dc8a49b25a",
   "head_matches_reference": true,
   "branch": "research/paper-online-packing",
   "repo_root": "/home/edmundo/packing-services",
   "working_tree_dirty_before": false,
-  "dirty_before_note": "Antes del paso 11 solo había 17 .pkl sin seguimiento. No había modificaciones rastreadas. Este paso no crea un commit.",
-  "phase": "11_ablation_runner",
-  "status": "ejecutor de la ablación implementado; entrenamiento y packing reales no ejecutados",
+  "dirty_before_note": "Antes del paso 12 solo había 17 .pkl sin seguimiento. No había modificaciones rastreadas. Este paso no crea un commit.",
+  "phase": "12_ablation_training",
+  "status": "entrenamiento de la ablación completo; packing no ejecutado",
   "result_summary": {
-    "origin_commit": "158c5dc0b6c02b50a638f2678cd05482cecd5052",
-    "review": "paper/reviews/11_ablation_runner.md",
-    "runner": "paper/tools/run_normalization_ablation.py",
-    "protocol": "paper/protocols/10_normalization_ablation.json",
-    "freeze": "paper/results/10_normalization_freeze.json",
-    "future_output": "paper/results/11_normalization_ablation/",
-    "future_output_created": false,
-    "step_08_interpretation_unchanged": "no_concluyente",
+    "origin_commit": "836a4a55ae729b62077db0adf670e8dc8a49b25a",
+    "review": "paper/reviews/12_ablation_training.md",
+    "run_dir": "paper/results/11_normalization_ablation/",
+    "verification": "paper/results/11_normalization_ablation/training_verification.json",
+    "training_status": "complete",
+    "n_models": 10,
+    "pairing_equal_seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "discrepancies": 0,
+    "non_finite": 0,
+    "evidence_bytes": 1045517,
     "confirmatory": false,
-    "training": false,
+    "training": true,
     "packing": false,
     "inference": false,
-    "synthetic_tests_only": true,
-    "planned_cases": {
-      "actors": 500,
-      "heuristic": 50
-    },
+    "best_seed_selected": false,
+    "step_08_interpretation_unchanged": "no_concluyente",
     "historical_file_identity": "no_comprobada",
     "physical_stability_verified": null,
     "protocol_historical_fields_unchanged": true
   },
   "next_steps": [
-    "No lanzar las etapas reales hasta un paso que lo autorice.",
-    "Si se ejecutan, usar los comandos de paper/reviews/11_ablation_runner.md.",
-    "Aplicar la regla de avance sobre las cinco medias y no elegir una semilla."
+    "No empaquetar hasta un paso que lo autorice.",
+    "Si se empaqueta, usar los diez modelos y la heurística compartida.",
+    "No elegir una semilla para representar un brazo."
   ],
   "blockers": [],
   "previous_executions": [
@@ -191,6 +196,15 @@
       "status": "ablación de normalización congelada; entrenamiento y packing no ejecutados",
       "review": "paper/reviews/10_normalization_design.md",
       "head": "557e2ef477e6173cee20fae5f83c435d59652d76",
+      "branch": "research/paper-online-packing"
+    },
+    {
+      "execution_id": "11-20261002T211906Z",
+      "executed_at_utc": "2026-10-02T21:19:06Z",
+      "phase": "11_ablation_runner",
+      "status": "ejecutor de la ablación implementado; entrenamiento y packing reales no ejecutados",
+      "review": "paper/reviews/11_ablation_runner.md",
+      "head": "158c5dc0b6c02b50a638f2678cd05482cecd5052",
       "branch": "research/paper-online-packing"
     }
   ]

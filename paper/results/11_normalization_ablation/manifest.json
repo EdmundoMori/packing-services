@@ -1,0 +1,128 @@
+{
+  "stage": "training",
+  "status": "complete",
+  "confirmatory": false,
+  "protocol_sha256": "1430f6bea168809ac85767d04b911a0d25f4ac7aafae5c27c20abc934f7e9c93",
+  "freeze_sha256": "bedc2fab9d3e24e3deac8861bbdcfeb1868a9cdd6ee6fee7da50500ef9ad72bb",
+  "standardizer_sha256": "9a8604afe01455e5cd1e075ec32f408d42c464e1256173b0c970a7b15c69e266",
+  "code_sha256": {
+    "paper/tools/ablation_contract.py": "89e6158060f61bf200de45b0fbf2c824f504a6923546228ae58cb6710cd36a6e",
+    "paper/tools/ablation_train.py": "dbfcfbfa20a6555aa3d13dc57523eb99dbcd781024a0869d389edbd965725883",
+    "paper/tools/ablation_pack.py": "9d18a8eac4b11d20f0c6e20582c3d3186964fd35772dce6741ebb9727628eac6",
+    "paper/tools/ablation_aggregate.py": "9d02f27eb84a80f88b3357a0dc3489a9b2cc568d2c68c55187bf996bd80efb87",
+    "paper/tools/run_normalization_ablation.py": "916443adf2d8045c430f76fd16eaf042d954835f274f3f7faf5bb3d50145afe3",
+    "paper/tools/normalization_features.py": "5a364a8d2ddbe477e320579d6ffb2c919a743fa638604067fa4cad5c2063dcbe"
+  },
+  "command": [
+    "/home/edmundo/packing-services/.venv/bin/python",
+    "/home/edmundo/packing-services/paper/tools/run_normalization_ablation.py",
+    "train",
+    "--protocol",
+    "/home/edmundo/packing-services/paper/protocols/10_normalization_ablation.json",
+    "--freeze",
+    "/home/edmundo/packing-services/paper/results/10_normalization_freeze.json",
+    "--output",
+    "/home/edmundo/packing-services/paper/results/11_normalization_ablation"
+  ],
+  "environment": {
+    "python": "3.10.12",
+    "torch": "2.14.0+cpu",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "device": "cpu",
+    "cuda_visible_devices": "",
+    "threads": {
+      "torch.set_num_threads": 1,
+      "torch.set_num_interop_threads": 1
+    }
+  },
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "models": [
+    {
+      "arm": "raw",
+      "seed": 42,
+      "path": "models/raw_seed42.pt",
+      "best_epoch": 3,
+      "initial_state_sha256": "a92909dc91d476c708038070f516337d80877c653b6f08210298f3cf97999a4a",
+      "permutation_sha256": "706c011ed5e194dc56db4fb0cbbb9075728981c914fd79a17802b918a1ed8d38"
+    },
+    {
+      "arm": "normalized",
+      "seed": 42,
+      "path": "models/normalized_seed42.pt",
+      "best_epoch": 4,
+      "initial_state_sha256": "a92909dc91d476c708038070f516337d80877c653b6f08210298f3cf97999a4a",
+      "permutation_sha256": "706c011ed5e194dc56db4fb0cbbb9075728981c914fd79a17802b918a1ed8d38"
+    },
+    {
+      "arm": "raw",
+      "seed": 43,
+      "path": "models/raw_seed43.pt",
+      "best_epoch": 10,
+      "initial_state_sha256": "b2e729bc1cd7164e51b6583500ed2472671a791cdc5e8ed8baa3f668ae94a266",
+      "permutation_sha256": "7df7a1547a370c394cfc056ccad621f756100517b9d23d92d1742c673ccb683d"
+    },
+    {
+      "arm": "normalized",
+      "seed": 43,
+      "path": "models/normalized_seed43.pt",
+      "best_epoch": 3,
+      "initial_state_sha256": "b2e729bc1cd7164e51b6583500ed2472671a791cdc5e8ed8baa3f668ae94a266",
+      "permutation_sha256": "7df7a1547a370c394cfc056ccad621f756100517b9d23d92d1742c673ccb683d"
+    },
+    {
+      "arm": "raw",
+      "seed": 44,
+      "path": "models/raw_seed44.pt",
+      "best_epoch": 3,
+      "initial_state_sha256": "7c59ed8738547077bb1c01e2a188e83246b59b5822774e42d43987febd75ec62",
+      "permutation_sha256": "a55da6fbb29e70dd5ae3beb3b4acd92656f88ab58024defa02ab7e82a25b4cd8"
+    },
+    {
+      "arm": "normalized",
+      "seed": 44,
+      "path": "models/normalized_seed44.pt",
+      "best_epoch": 2,
+      "initial_state_sha256": "7c59ed8738547077bb1c01e2a188e83246b59b5822774e42d43987febd75ec62",
+      "permutation_sha256": "a55da6fbb29e70dd5ae3beb3b4acd92656f88ab58024defa02ab7e82a25b4cd8"
+    },
+    {
+      "arm": "raw",
+      "seed": 45,
+      "path": "models/raw_seed45.pt",
+      "best_epoch": 10,
+      "initial_state_sha256": "60fb688427b8728065cf19679cb6f48cba6eb779c7cf16421c7394a24cd3922c",
+      "permutation_sha256": "ca92c97d88386e0cc5c45dbacdccf1b7b68c56167b9a93d44c650b958471f204"
+    },
+    {
+      "arm": "normalized",
+      "seed": 45,
+      "path": "models/normalized_seed45.pt",
+      "best_epoch": 4,
+      "initial_state_sha256": "60fb688427b8728065cf19679cb6f48cba6eb779c7cf16421c7394a24cd3922c",
+      "permutation_sha256": "ca92c97d88386e0cc5c45dbacdccf1b7b68c56167b9a93d44c650b958471f204"
+    },
+    {
+      "arm": "raw",
+      "seed": 46,
+      "path": "models/raw_seed46.pt",
+      "best_epoch": 7,
+      "initial_state_sha256": "273496b1c6794ecdea36f891f27afd92f81f45ae9999bf5dd4c445cee9e87f23",
+      "permutation_sha256": "012eca9eeb7a32c8de4fe2f05fdbc5e8b0edbae4b0ceb73ffe90922738af9cee"
+    },
+    {
+      "arm": "normalized",
+      "seed": 46,
+      "path": "models/normalized_seed46.pt",
+      "best_epoch": 8,
+      "initial_state_sha256": "273496b1c6794ecdea36f891f27afd92f81f45ae9999bf5dd4c445cee9e87f23",
+      "permutation_sha256": "012eca9eeb7a32c8de4fe2f05fdbc5e8b0edbae4b0ceb73ffe90922738af9cee"
+    }
+  ],
+  "real_pickles_opened": true
+}
