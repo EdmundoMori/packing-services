@@ -1,0 +1,24 @@
+{
+  "role": "registro de la dependencia externa de los pasos 16 y 16A",
+  "repository": "https://github.com/alexfrom0815/Online-3D-BPP-PCT",
+  "commit": "5e7b4238b18310af4529e0f85157d17de605850c",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 Hang Zhao",
+  "local_clone": "paper/external/pct",
+  "vendored_in_git": false,
+  "isolated_python": "paper/external/pct/.venv/bin/python",
+  "packages_verified": {
+    "numpy": "1.26.4",
+    "gym": "0.26.2",
+    "torch": "2.14.1+cpu"
+  },
+  "heuristic": "OnlineBPH",
+  "learned_pct_executed": false,
+  "adaptations_recorded_in": "paper/protocols/16_compact_selector_study.json",
+  "commands": {
+    "smoke_16": "test ! -d paper/results/16_baseline_smoke && CUDA_VISIBLE_DEVICES= .venv/bin/python paper/tools/run_compact_smoke.py --protocol paper/protocols/16_compact_selector_study.json --dataset /home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json --output paper/results/16_baseline_smoke --external paper/external/pct --external-python paper/external/pct/.venv/bin/python",
+    "verification_16a": ".venv/bin/python paper/tools/run_onlinebph_capture_check.py --protocol paper/protocols/16_compact_selector_study.json --dataset /home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json --output paper/results/16a_onlinebph_capture_smoke"
+  },
+  "superiority_claimed": false,
+  "grid_executed": false
+}

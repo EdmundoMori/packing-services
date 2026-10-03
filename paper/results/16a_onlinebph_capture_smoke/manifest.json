@@ -1,0 +1,104 @@
+{
+  "status": "complete",
+  "confirmatory": false,
+  "n_orders": 5,
+  "methods_executed": [
+    "online_bph"
+  ],
+  "cases": [
+    {
+      "order_id": "00100084",
+      "target": "euro-pallet",
+      "worker_status": "ok",
+      "capture_present": true,
+      "input_mismatch": false,
+      "geometry_invalid": false,
+      "effective_u_geom": 0.6017633463541666,
+      "failure_types": [],
+      "timings": {
+        "startup_seconds": 0.0004637140009435825,
+        "packing_loop_seconds": 0.41128015600043,
+        "import_seconds": 3.205598035001458,
+        "worker_after_loop_seconds": 3.206121469000209,
+        "process_wall_seconds": 4.619043701999544,
+        "audit_and_write_seconds": 0.62749582700053
+      }
+    },
+    {
+      "order_id": "00100101",
+      "target": "rollcontainer",
+      "worker_status": "ok",
+      "capture_present": true,
+      "input_mismatch": false,
+      "geometry_invalid": false,
+      "effective_u_geom": 0.6188446428571429,
+      "failure_types": [],
+      "timings": {
+        "startup_seconds": 0.000416967001001467,
+        "packing_loop_seconds": 0.34628463400076726,
+        "import_seconds": 2.2074912669995683,
+        "worker_after_loop_seconds": 2.208035370998914,
+        "process_wall_seconds": 3.541201367999747,
+        "audit_and_write_seconds": 0.5197047060009936
+      }
+    },
+    {
+      "order_id": "00100802",
+      "target": "rollcontainer",
+      "worker_status": "ok",
+      "capture_present": true,
+      "input_mismatch": false,
+      "geometry_invalid": false,
+      "effective_u_geom": 0.46617053571428574,
+      "failure_types": [],
+      "timings": {
+        "startup_seconds": 0.0006072359992685961,
+        "packing_loop_seconds": 0.21786008199887874,
+        "import_seconds": 2.2655360820008354,
+        "worker_after_loop_seconds": 2.266008189000786,
+        "process_wall_seconds": 3.424939817001359,
+        "audit_and_write_seconds": 0.24880637600108457
+      }
+    },
+    {
+      "order_id": "00100909",
+      "target": "euro-pallet",
+      "worker_status": "ok",
+      "capture_present": true,
+      "input_mismatch": false,
+      "geometry_invalid": false,
+      "effective_u_geom": 0.4891484375,
+      "failure_types": [],
+      "timings": {
+        "startup_seconds": 0.0004817629996978212,
+        "packing_loop_seconds": 0.606636721000541,
+        "import_seconds": 1.9347062580000056,
+        "worker_after_loop_seconds": 1.935375536999345,
+        "process_wall_seconds": 3.518096368999977,
+        "audit_and_write_seconds": 0.9018690590000915
+      }
+    },
+    {
+      "order_id": "00101315",
+      "target": "euro-pallet",
+      "worker_status": "ok",
+      "capture_present": true,
+      "input_mismatch": false,
+      "geometry_invalid": false,
+      "effective_u_geom": 0.5235161458333333,
+      "failure_types": [],
+      "timings": {
+        "startup_seconds": 0.0005304810001689475,
+        "packing_loop_seconds": 0.5724639010004466,
+        "import_seconds": 2.0833020680001937,
+        "worker_after_loop_seconds": 2.0837835459988128,
+        "process_wall_seconds": 3.394010988999071,
+        "audit_and_write_seconds": 1.0429815369989228
+      }
+    }
+  ],
+  "previous_results_unchanged": true,
+  "physical_stability_verified": null,
+  "superiority_claimed": false,
+  "statistical_comparison": false
+}

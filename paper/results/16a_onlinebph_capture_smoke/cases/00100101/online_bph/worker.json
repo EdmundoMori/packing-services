@@ -1,0 +1,38 @@
+{
+  "status": "ok",
+  "error": null,
+  "attempts": 1,
+  "timeout_seconds": 300,
+  "episode": {
+    "n_input": 39,
+    "n_placed": 30,
+    "sentinel_lwh_mm": [
+      801.0,
+      701.0,
+      2001.0
+    ],
+    "orientation": 6,
+    "setting": 2,
+    "reset_calls": 2,
+    "generator": "ems_online_bph",
+    "packing_loop_seconds": 0.34628463400076726,
+    "import_seconds": 2.2074912669995683
+  },
+  "diagnostics": {
+    "n_packed": 30,
+    "generator": "ems_online_bph",
+    "orientation": 6,
+    "setting": 2,
+    "reset_calls": 2,
+    "physical_stability_verified": null
+  },
+  "timings": {
+    "startup_seconds": 0.000416967001001467,
+    "packing_loop_seconds": 0.34628463400076726,
+    "import_seconds": 2.2074912669995683,
+    "worker_after_loop_seconds": 2.208035370998914
+  },
+  "returncode": 0,
+  "wall_seconds": 3.541201367999747,
+  "duration_seconds": 3.541201367999747
+}

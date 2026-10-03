@@ -1,0 +1,30 @@
+{
+  "run_id": "16-baseline-smoke",
+  "order_id": "00100084",
+  "method": "online_bph",
+  "target": "euro-pallet",
+  "worker_status": "crash",
+  "error": "estructura de resultado inválida: status ok sin captura",
+  "duration_seconds": 3.135576692000541,
+  "container_volume_mm3": 1920000000.0,
+  "effective_u_geom": 0.0,
+  "raw_u_geom": null,
+  "raw_packed_volume_mm3": null,
+  "item_fraction": null,
+  "requested_volume_fraction": null,
+  "max_height_mm": null,
+  "n_packed": null,
+  "n_unpacked": null,
+  "n_unpacked_no_candidate": null,
+  "method_failure": true,
+  "geometry_invalid": false,
+  "weight_violation": false,
+  "input_mismatch": false,
+  "worker_failure": "invalid_result",
+  "returncode": 0,
+  "failure_types": [
+    "method_failure"
+  ],
+  "physical_stability_verified": null,
+  "time_is_diagnostic_only": true
+}

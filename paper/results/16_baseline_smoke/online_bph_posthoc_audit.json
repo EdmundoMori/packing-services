@@ -1,0 +1,81 @@
+{
+  "role": "auditoría posterior del payload rechazado; no es una segunda corrida ni sustituye result.json",
+  "replaces_pipeline_score": false,
+  "cases": [
+    {
+      "order_id": "00100084",
+      "pipeline_status": "invalid_result",
+      "stdout": "Result of episode 0, utilization: 0.6017633463541666, length: 34",
+      "n_packed": 34,
+      "n_input": 40,
+      "packing_loop_seconds": 0.42787421499997436,
+      "import_seconds": 2.100709538999581,
+      "posthoc_failure_types": [],
+      "posthoc_effective_u_geom": 0.6017633463541666,
+      "geometry_invalid": false,
+      "input_mismatch": false,
+      "input_changed": false,
+      "physical_stability_verified": null
+    },
+    {
+      "order_id": "00100101",
+      "pipeline_status": "invalid_result",
+      "stdout": "Result of episode 0, utilization: 0.6188446428571429, length: 30",
+      "n_packed": 30,
+      "n_input": 39,
+      "packing_loop_seconds": 0.35814404000120703,
+      "import_seconds": 2.0763866269990103,
+      "posthoc_failure_types": [],
+      "posthoc_effective_u_geom": 0.6188446428571429,
+      "geometry_invalid": false,
+      "input_mismatch": false,
+      "input_changed": false,
+      "physical_stability_verified": null
+    },
+    {
+      "order_id": "00100802",
+      "pipeline_status": "invalid_result",
+      "stdout": "Result of episode 0, utilization: 0.46617053571428574, length: 21",
+      "n_packed": 21,
+      "n_input": 34,
+      "packing_loop_seconds": 0.23018653400140465,
+      "import_seconds": 2.0258843319988955,
+      "posthoc_failure_types": [],
+      "posthoc_effective_u_geom": 0.46617053571428574,
+      "geometry_invalid": false,
+      "input_mismatch": false,
+      "input_changed": false,
+      "physical_stability_verified": null
+    },
+    {
+      "order_id": "00100909",
+      "pipeline_status": "invalid_result",
+      "stdout": "Result of episode 0, utilization: 0.4891484375, length: 48",
+      "n_packed": 48,
+      "n_input": 62,
+      "packing_loop_seconds": 0.5877127330004441,
+      "import_seconds": 2.199773622000066,
+      "posthoc_failure_types": [],
+      "posthoc_effective_u_geom": 0.4891484375,
+      "geometry_invalid": false,
+      "input_mismatch": false,
+      "input_changed": false,
+      "physical_stability_verified": null
+    },
+    {
+      "order_id": "00101315",
+      "pipeline_status": "invalid_result",
+      "stdout": "Result of episode 0, utilization: 0.5235161458333333, length: 49",
+      "n_packed": 49,
+      "n_input": 55,
+      "packing_loop_seconds": 0.6071603930013225,
+      "import_seconds": 2.0239682649989845,
+      "posthoc_failure_types": [],
+      "posthoc_effective_u_geom": 0.5235161458333333,
+      "geometry_invalid": false,
+      "input_mismatch": false,
+      "input_changed": false,
+      "physical_stability_verified": null
+    }
+  ]
+}

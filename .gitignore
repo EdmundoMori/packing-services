@@ -44,3 +44,6 @@ online_policy_ml/data/**/*.pkl
 
 # Informe local fuera de la cascada técnica
 docs/*.docx
+
+# Copia local del repositorio Online-3D-BPP-PCT y su entorno. No entra en el índice.
+paper/external/

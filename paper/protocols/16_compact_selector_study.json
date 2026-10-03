@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "protocol_id": "16_compact_selector_study",
+  "status": "contrato preparado; la cuadrícula no se ejecuta",
+  "reference_commit": "6fc55b6b74bfa46697b1fd25a6eb52cc4e71a1a2",
+  "grid_executed": false,
+  "coefficients_selected": false,
+  "confirmatory": false,
+  "physical_stability_verified": null,
+  "not_zhao_table1": true,
+  "not_kagerer_official_evaluation": true,
+  "inspired_by": "Setting 2 del código continuo de Zhao et al., ICLR 2022; la página del PDF no se pudo abrir",
+  "published_u_geom_reusable_as_baseline": false,
+  "dataset": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "conditions": {
+    "sequence": "orden original de item_sequence; no se ordena por volumen ni huella",
+    "containers": "uno por pedido, el target propio",
+    "euro_pallet_mm": [
+      1200,
+      800,
+      2000
+    ],
+    "rollcontainer_mm": [
+      800,
+      700,
+      2000
+    ],
+    "orientations": "hasta seis permutaciones de (l, w, h)",
+    "non_overlap": true,
+    "containment": true,
+    "max_weight": false,
+    "basic_stability": false,
+    "load_bearing": false,
+    "lookahead_p": 1,
+    "select_s": 1,
+    "terminal": "el episodio termina cuando el ítem actual no tiene candidata legal; el sufijo no se coloca",
+    "future_selector_observation": "ítem actual y candidatas; sin dimensiones futuras ni remaining_count",
+    "primary": "U_geom = volumen colocado geométricamente válido / volumen fijo del contenedor",
+    "failure_u_geom": 0,
+    "invalid_geometry_is_not_scored_as_valid": true,
+    "device": "cpu",
+    "timeout_seconds": 300,
+    "attempts": 1
+  },
+  "universes": {
+    "zhao": "Protocolo del artículo PCT. Este experimento no reproduce Table 1.",
+    "kagerer": "Evaluación oficial BED-BPP. Este experimento no la sustituye.",
+    "ours": "Contrato geométrico nuevo de este protocolo."
+  },
+  "changes_from_published_runs": [
+    "max_weight pasa de activo a inactivo",
+    "el terminal deja de descartar y continuar, y pasa a detener el episodio",
+    "las U_geom de los pasos 08, 13 y 15 no son baseline de este contrato"
+  ],
+  "smoke": {
+    "rule": "En development_sample.execution_items, los tres primeros euro-pallet y los dos primeros rollcontainer, ordenados por position. La regla no mira U_geom.",
+    "max_orders": 5,
+    "max_cases": 10,
+    "orders": [
+      {
+        "order_id": "00100084",
+        "target": "euro-pallet",
+        "position": 0
+      },
+      {
+        "order_id": "00100101",
+        "target": "rollcontainer",
+        "position": 1
+      },
+      {
+        "order_id": "00100802",
+        "target": "rollcontainer",
+        "position": 2
+      },
+      {
+        "order_id": "00100909",
+        "target": "euro-pallet",
+        "position": 3
+      },
+      {
+        "order_id": "00101315",
+        "target": "euro-pallet",
+        "position": 4
+      }
+    ],
+    "methods": [
+      "greedy",
+      "online_bph"
+    ]
+  },
+  "external": {
+    "repository": "https://github.com/alexfrom0815/Online-3D-BPP-PCT",
+    "local_path": "paper/external/pct",
+    "gitignored": true,
+    "commit": "5e7b4238b18310af4529e0f85157d17de605850c",
+    "license_file": "MIT",
+    "heuristic": "OnlineBPH",
+    "not_learned_pct": true,
+    "generator": "EMS del entorno continuo; no se sustituye por el EP interno",
+    "adaptations": [
+      "Secuencia finita de llegada en lugar de muestreo aleatorio o dataset .pt",
+      "times=1 y el reset posterior al episodio no borra la geometría",
+      "Centinela mayor que el contenedor para cerrar la secuencia; no es un ítem del pedido",
+      "internal_node_holder = max(80, n_items+5) para no desbordar el registro de cajas",
+      "Dimensiones en milímetros, sin redondeo adicional",
+      "setting 2, seis orientaciones, shuffle desactivado"
+    ]
+  },
+  "future_selector": {
+    "executed": false,
+    "score": "contacto_normalizado - a * incremento_altura_normalizado - b * techo_normalizado + c * apoyo",
+    "grid": {
+      "a": [
+        0,
+        0.5,
+        1,
+        2
+      ],
+      "b": [
+        0,
+        0.5,
+        1,
+        2
+      ],
+      "c": [
+        0,
+        0.25
+      ],
+      "n_configurations": 32
+    },
+    "calibration": {
+      "source": "online_policy_ml/data/splits/train_order_ids_full.json",
+      "rule": "orden del archivo, 20 euro-pallet y 20 rollcontainer, excluidos los 50 de desarrollo, los 200 de la evaluación 07 y sus positive_exclusion_ids",
+      "per_target": 20,
+      "orders": {
+        "euro-pallet": [
+          "00103953",
+          "00101517",
+          "00108399",
+          "00102724",
+          "00107639",
+          "00104718",
+          "00102745",
+          "00108381",
+          "00100611",
+          "00105052",
+          "00105681",
+          "00109761",
+          "00108417",
+          "00103861",
+          "00100155",
+          "00104904",
+          "00105579",
+          "00109002",
+          "00108838",
+          "00103627"
+        ],
+        "rollcontainer": [
+          "00101238",
+          "00108070",
+          "00108098",
+          "00104447",
+          "00107619",
+          "00109818",
+          "00101918",
+          "00105725",
+          "00100344",
+          "00109135",
+          "00103975",
+          "00108079",
+          "00103483",
+          "00108633",
+          "00109061",
+          "00104531",
+          "00100929",
+          "00105645",
+          "00104561",
+          "00106155"
+        ]
+      }
+    },
+    "validation": "las tres mejores configuraciones de train, sobre los mismos 50 pedidos de desarrollo; no ejecutada",
+    "engineering_gate": {
+      "statistical_test": false,
+      "mean_improvement_vs_greedy_min": 0.005,
+      "both_targets_mean_non_negative": true
+    }
+  },
+  "code_sha256": {
+    "paper/tools/compact_study.py": "9016886e176a97d485f5f7e4d297a9e132d291b1dc2341375bbe0011e5ff7d7f",
+    "paper/tools/compact_worker.py": "196e46fb8250a15a48f1204c615bafea66d575299d07737538fbdd24d3fc3dcc",
+    "paper/tools/online_bph_case.py": "67b5dfeac94f0ee84bc39bc5b47b2120b2fbd4f71ab6a1708e4da56224acf644",
+    "paper/tools/online_bph_worker.py": "113259e2f152d68835300892324ad6b0607d5f2ce4d97d6f678d0574135fdeb6",
+    "paper/tools/run_compact_smoke.py": "5762847ead0e99a8e2c733ca2e68b5238f3b648e3a972a51cf23afb6e71ba54d",
+    "src/packing_services/online/policies.py": "089e1246193285f05241c4729392e7ce3ce8d4cd62a6e15645ba9990e05fe581",
+    "src/packing_services/online/session.py": "a04d09780eca1d9bae6ef78387299ba13cf7f532f9bb0f8735f8fcf3972cb71c",
+    "src/packing_services/online/loop.py": "59f66757d6d91acf5f36f01af343ac50a639e656943438f282989ba79d1cb6a8"
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "status": "complete",
+  "confirmatory": false,
+  "n_orders": 5,
+  "methods_executed": [
+    "greedy",
+    "online_bph"
+  ],
+  "cases": [
+    {
+      "order_id": "00100084",
+      "target": "euro-pallet",
+      "method": "greedy",
+      "worker_status": "ok",
+      "effective_u_geom": 0.7013752604166666,
+      "failure_types": [],
+      "timings": {
+        "startup_seconds": 1.972367658998337,
+        "packing_loop_seconds": 1.967927993999183,
+        "capture_build_seconds": 0.039034233001075336,
+        "process_wall_seconds": 4.317389940999419,
+        "audit_and_write_seconds": 0.7346199760013405
+      }
+    },
+    {
+      "order_id": "00100084",
+      "target": "euro-pallet",
+      "method": "online_bph",
+      "worker_status": "crash",
+      "effective_u_geom": 0.0,
+      "failure_types": [
+        "method_failure"
+      ],
+      "timings": {
+        "process_wall_seconds": 3.135576692000541,
+        "startup_seconds": 0.0,
+        "audit_and_write_seconds": 0.01445235400024103
+      }
+    },
+    {
+      "order_id": "00100101",
+      "target": "rollcontainer",
+      "method": "greedy",
+      "worker_status": "ok",
+      "effective_u_geom": 0.6188446428571429,
+      "failure_types": [],
+      "timings": {
+        "startup_seconds": 1.891299867998896,
+        "packing_loop_seconds": 0.4109390639987396,
+        "capture_build_seconds": 0.03723255100157985,
+        "process_wall_seconds": 2.6148898089995782,
+        "audit_and_write_seconds": 0.35312901100041927
+      }
+    },
+    {
+      "order_id": "00100101",
+      "target": "rollcontainer",
+      "method": "online_bph",
+      "worker_status": "crash",
+      "effective_u_geom": 0.0,
+      "failure_types": [
+        "method_failure"
+      ],
+      "timings": {
+        "process_wall_seconds": 3.017618000998482,
+        "startup_seconds": 0.0,
+        "audit_and_write_seconds": 0.016073893999418942
+      }
+    },
+    {
+      "order_id": "00100802",
+      "target": "rollcontainer",
+      "method": "greedy",
+      "worker_status": "ok",
+      "effective_u_geom": 0.51999375,
+      "failure_types": [],
+      "timings": {
+        "startup_seconds": 1.8084581479997723,
+        "packing_loop_seconds": 0.25995925799907127,
+        "capture_build_seconds": 0.03830099100196094,
+        "process_wall_seconds": 2.3638488260003214,
+        "audit_and_write_seconds": 0.23687768099989626
+      }
+    },
+    {
+      "order_id": "00100802",
+      "target": "rollcontainer",
+      "method": "online_bph",
+      "worker_status": "crash",
+      "effective_u_geom": 0.0,
+      "failure_types": [
+        "method_failure"
+      ],
+      "timings": {
+        "process_wall_seconds": 2.9158439519997046,
+        "startup_seconds": 0.0,
+        "audit_and_write_seconds": 0.015272844000719488
+      }
+    },
+    {
+      "order_id": "00100909",
+      "target": "euro-pallet",
+      "method": "greedy",
+      "worker_status": "ok",
+      "effective_u_geom": 0.6318796875,
+      "failure_types": [],
+      "timings": {
+        "startup_seconds": 1.8372784090006462,
+        "packing_loop_seconds": 5.307002068999282,
+        "capture_build_seconds": 0.034896264000053634,
+        "process_wall_seconds": 7.45789335399968,
+        "audit_and_write_seconds": 1.7284196749988041
+      }
+    },
+    {
+      "order_id": "00100909",
+      "target": "euro-pallet",
+      "method": "online_bph",
+      "worker_status": "crash",
+      "effective_u_geom": 0.0,
+      "failure_types": [
+        "method_failure"
+      ],
+      "timings": {
+        "process_wall_seconds": 3.391755982000177,
+        "startup_seconds": 0.0,
+        "audit_and_write_seconds": 0.016300785000566975
+      }
+    },
+    {
+      "order_id": "00101315",
+      "target": "euro-pallet",
+      "method": "greedy",
+      "worker_status": "ok",
+      "effective_u_geom": 0.6106265625,
+      "failure_types": [],
+      "timings": {
+        "startup_seconds": 1.8588238219999766,
+        "packing_loop_seconds": 4.989618006000455,
+        "capture_build_seconds": 0.038194184000531095,
+        "process_wall_seconds": 7.132126914000764,
+        "audit_and_write_seconds": 1.252810201000102
+      }
+    },
+    {
+      "order_id": "00101315",
+      "target": "euro-pallet",
+      "method": "online_bph",
+      "worker_status": "crash",
+      "effective_u_geom": 0.0,
+      "failure_types": [
+        "method_failure"
+      ],
+      "timings": {
+        "process_wall_seconds": 3.244537685999603,
+        "startup_seconds": 0.0,
+        "audit_and_write_seconds": 0.014991541000199504
+      }
+    }
+  ],
+  "physical_stability_verified": null,
+  "superiority_claimed": false
+}

@@ -1,0 +1,640 @@
+{
+  "status": "crash",
+  "error": "estructura de resultado inválida: status ok sin captura",
+  "worker_failure": "invalid_result",
+  "attempts": 1,
+  "duration_seconds": 3.244537685999603,
+  "returncode": 0,
+  "stderr": "Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.\nPlease upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.\nUsers of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.\nSee the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.",
+  "stdout": "Result of episode 0, utilization: 0.5235161458333333, length: 49",
+  "rejected_payload": {
+    "status": "ok",
+    "error": null,
+    "attempts": 1,
+    "timeout_seconds": 300,
+    "capture": null,
+    "episode": {
+      "placed": [
+        {
+          "oriented_lwh_mm": [
+            460.0,
+            160.0,
+            240.0
+          ],
+          "flb_mm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            460.0,
+            160.0,
+            240.0
+          ],
+          "flb_mm": [
+            460.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            140.0,
+            290.0,
+            470.0
+          ],
+          "flb_mm": [
+            920.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            590.0,
+            200.0,
+            280.0
+          ],
+          "flb_mm": [
+            0.0,
+            160.0,
+            0.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            390.0,
+            290.0,
+            270.0
+          ],
+          "flb_mm": [
+            590.0,
+            160.0,
+            470.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            200.0,
+            210.0,
+            590.0
+          ],
+          "flb_mm": [
+            980.0,
+            290.0,
+            0.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            590.0,
+            200.0,
+            210.0
+          ],
+          "flb_mm": [
+            0.0,
+            360.0,
+            0.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            300.0,
+            210.0,
+            230.0
+          ],
+          "flb_mm": [
+            590.0,
+            450.0,
+            0.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            200.0,
+            220.0,
+            550.0
+          ],
+          "flb_mm": [
+            890.0,
+            500.0,
+            0.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            550.0,
+            200.0,
+            220.0
+          ],
+          "flb_mm": [
+            0.0,
+            560.0,
+            0.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            590.0,
+            300.0,
+            260.0
+          ],
+          "flb_mm": [
+            0.0,
+            360.0,
+            220.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            560.0,
+            170.0,
+            240.0
+          ],
+          "flb_mm": [
+            590.0,
+            450.0,
+            590.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            350.0,
+            200.0,
+            260.0
+          ],
+          "flb_mm": [
+            0.0,
+            0.0,
+            280.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            350.0,
+            200.0,
+            260.0
+          ],
+          "flb_mm": [
+            350.0,
+            0.0,
+            740.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            200.0,
+            590.0,
+            200.0
+          ],
+          "flb_mm": [
+            700.0,
+            0.0,
+            830.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            590.0,
+            200.0,
+            200.0
+          ],
+          "flb_mm": [
+            0.0,
+            200.0,
+            480.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            570.0,
+            150.0,
+            230.0
+          ],
+          "flb_mm": [
+            590.0,
+            620.0,
+            550.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            150.0,
+            570.0,
+            230.0
+          ],
+          "flb_mm": [
+            900.0,
+            0.0,
+            830.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            570.0,
+            190.0,
+            260.0
+          ],
+          "flb_mm": [
+            0.0,
+            400.0,
+            480.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            570.0,
+            190.0,
+            260.0
+          ],
+          "flb_mm": [
+            0.0,
+            590.0,
+            480.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            150.0,
+            210.0,
+            390.0
+          ],
+          "flb_mm": [
+            1050.0,
+            0.0,
+            470.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            390.0,
+            210.0,
+            150.0
+          ],
+          "flb_mm": [
+            0.0,
+            0.0,
+            1000.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            590.0,
+            200.0,
+            190.0
+          ],
+          "flb_mm": [
+            390.0,
+            200.0,
+            1060.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            590.0,
+            200.0,
+            190.0
+          ],
+          "flb_mm": [
+            0.0,
+            210.0,
+            1250.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            150.0,
+            570.0,
+            230.0
+          ],
+          "flb_mm": [
+            1050.0,
+            210.0,
+            830.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            570.0,
+            150.0,
+            230.0
+          ],
+          "flb_mm": [
+            0.0,
+            410.0,
+            740.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            560.0,
+            170.0,
+            200.0
+          ],
+          "flb_mm": [
+            0.0,
+            560.0,
+            740.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            560.0,
+            170.0,
+            200.0
+          ],
+          "flb_mm": [
+            560.0,
+            620.0,
+            1060.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            530.0,
+            210.0,
+            210.0
+          ],
+          "flb_mm": [
+            590.0,
+            400.0,
+            1060.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            530.0,
+            210.0,
+            210.0
+          ],
+          "flb_mm": [
+            0.0,
+            560.0,
+            940.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            380.0,
+            270.0,
+            310.0
+          ],
+          "flb_mm": [
+            0.0,
+            410.0,
+            1150.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            150.0,
+            570.0,
+            200.0
+          ],
+          "flb_mm": [
+            1050.0,
+            0.0,
+            1270.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            390.0,
+            270.0,
+            220.0
+          ],
+          "flb_mm": [
+            380.0,
+            410.0,
+            1270.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            390.0,
+            270.0,
+            220.0
+          ],
+          "flb_mm": [
+            390.0,
+            0.0,
+            1440.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            280.0,
+            550.0,
+            110.0
+          ],
+          "flb_mm": [
+            780.0,
+            0.0,
+            1470.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            550.0,
+            280.0,
+            110.0
+          ],
+          "flb_mm": [
+            0.0,
+            0.0,
+            1660.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            290.0,
+            200.0,
+            190.0
+          ],
+          "flb_mm": [
+            590.0,
+            270.0,
+            1580.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            200.0,
+            190.0,
+            290.0
+          ],
+          "flb_mm": [
+            770.0,
+            610.0,
+            1260.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            490.0,
+            220.0,
+            250.0
+          ],
+          "flb_mm": [
+            0.0,
+            280.0,
+            1490.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            400.0,
+            200.0,
+            260.0
+          ],
+          "flb_mm": [
+            0.0,
+            500.0,
+            1490.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            160.0,
+            190.0,
+            270.0
+          ],
+          "flb_mm": [
+            970.0,
+            610.0,
+            1260.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            270.0,
+            160.0,
+            190.0
+          ],
+          "flb_mm": [
+            490.0,
+            470.0,
+            1490.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            270.0,
+            160.0,
+            190.0
+          ],
+          "flb_mm": [
+            400.0,
+            630.0,
+            1490.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            160.0,
+            190.0,
+            270.0
+          ],
+          "flb_mm": [
+            970.0,
+            550.0,
+            1530.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            560.0,
+            230.0,
+            230.0
+          ],
+          "flb_mm": [
+            550.0,
+            0.0,
+            1660.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            260.0,
+            160.0,
+            260.0
+          ],
+          "flb_mm": [
+            670.0,
+            630.0,
+            1550.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            290.0,
+            390.0,
+            160.0
+          ],
+          "flb_mm": [
+            880.0,
+            230.0,
+            1800.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            390.0,
+            290.0,
+            160.0
+          ],
+          "flb_mm": [
+            490.0,
+            470.0,
+            1810.0
+          ]
+        },
+        {
+          "oriented_lwh_mm": [
+            590.0,
+            190.0,
+            220.0
+          ],
+          "flb_mm": [
+            0.0,
+            280.0,
+            1740.0
+          ]
+        }
+      ],
+      "n_input": 55,
+      "sentinel_lwh_mm": [
+        1201.0,
+        801.0,
+        2001.0
+      ],
+      "reset_calls": 2,
+      "orientation": 6,
+      "setting": 2,
+      "holder": 80,
+      "generator": "ems_online_bph",
+      "packing_loop_seconds": 0.6071603930013225,
+      "import_seconds": 2.0239682649989845,
+      "physical_stability_verified": null
+    },
+    "diagnostics": {
+      "n_packed": 49,
+      "generator": "ems_online_bph",
+      "orientation": 6,
+      "setting": 2,
+      "reset_calls": 2,
+      "physical_stability_verified": null
+    },
+    "timings": {
+      "startup_seconds": 0.00018667900076252408,
+      "packing_loop_seconds": 0.6071603930013225,
+      "import_seconds": 2.0239682649989845,
+      "worker_after_loop_seconds": 2.024137114998666
+    },
+    "returncode": 0
+  },
+  "rejected_raw": "{\"status\": \"ok\", \"error\": null, \"attempts\": 1, \"timeout_seconds\": 300, \"capture\": null, \"episode\": {\"placed\": [{\"oriented_lwh_mm\": [460.0, 160.0, 240.0], \"flb_mm\": [0.0, 0.0, 0.0]}, {\"oriented_lwh_mm\": [460.0, 160.0, 240.0], \"flb_mm\": [460.0, 0.0, 0.0]}, {\"oriented_lwh_mm\": [140.0, 290.0, 470.0], \"flb_mm\": [920.0, 0.0, 0.0]}, {\"oriented_lwh_mm\": [590.0, 200.0, 280.0], \"flb_mm\": [0.0, 160.0, 0.0]}, {\"oriented_lwh_mm\": [390.0, 290.0, 270.0], \"flb_mm\": [590.0, 160.0, 470.0]}, {\"oriented_lwh_mm\": [200.0, 210.0, 590.0], \"flb_mm\": [980.0, 290.0, 0.0]}, {\"oriented_lwh_mm\": [590.0, 200.0, 210.0], \"flb_mm\": [0.0, 360.0, 0.0]}, {\"oriented_lwh_mm\": [300.0, 210.0, 230.0], \"flb_mm\": [590.0, 450.0, 0.0]}, {\"oriented_lwh_mm\": [200.0, 220.0, 550.0], \"flb_mm\": [890.0, 500.0, 0.0]}, {\"oriented_lwh_mm\": [550.0, 200.0, 220.0], \"flb_mm\": [0.0, 560.0, 0.0]}, {\"oriented_lwh_mm\": [590.0, 300.0, 260.0], \"flb_mm\": [0.0, 360.0, 220.0]}, {\"oriented_lwh_mm\": [560.0, 170.0, 240.0], \"flb_mm\": [590.0, 450.0, 590.0]}, {\"oriented_lwh_mm\": [350.0, 200.0, 260.0], \"flb_mm\": [0.0, 0.0, 280.0]}, {\"oriented_lwh_mm\": [350.0, 200.0, 260.0], \"flb_mm\": [350.0, 0.0, 740.0]}, {\"oriented_lwh_mm\": [200.0, 590.0, 200.0], \"flb_mm\": [700.0, 0.0, 830.0]}, {\"oriented_lwh_mm\": [590.0, 200.0, 200.0], \"flb_mm\": [0.0, 200.0, 480.0]}, {\"oriented_lwh_mm\": [570.0, 150.0, 230.0], \"flb_mm\": [590.0, 620.0, 550.0]}, {\"oriented_lwh_mm\": [150.0, 570.0, 230.0], \"flb_mm\": [900.0, 0.0, 830.0]}, {\"oriented_lwh_mm\": [570.0, 190.0, 260.0], \"flb_mm\": [0.0, 400.0, 480.0]}, {\"oriented_lwh_mm\": [570.0, 190.0, 260.0], \"flb_mm\": [0.0, 590.0, 480.0]}, {\"oriented_lwh_mm\": [150.0, 210.0, 390.0], \"flb_mm\": [1050.0, 0.0, 470.0]}, {\"oriented_lwh_mm\": [390.0, 210.0, 150.0], \"flb_mm\": [0.0, 0.0, 1000.0]}, {\"oriented_lwh_mm\": [590.0, 200.0, 190.0], \"flb_mm\": [390.0, 200.0, 1060.0]}, {\"oriented_lwh_mm\": [590.0, 200.0, 190.0], \"flb_mm\": [0.0, 210.0, 1250.0]}, {\"oriented_lwh_mm\": [150.0, 570.0, 230.0], \"flb_mm\": [1050.0, 210.0, 830.0]}, {\"oriented_lwh_mm",
+  "result_error": "estructura de resultado inválida: status ok sin captura"
+}

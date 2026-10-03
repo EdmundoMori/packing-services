@@ -1,0 +1,68 @@
+{
+  "status": "registrado_antes_de_ejecutar",
+  "reason": "El smoke 16 escribió status ok sin captura y invoke_worker lo rechazó. Esta corrida comprueba el worker corregido sobre los mismos cinco pedidos, sin sustituir esos method_failure.",
+  "previous_smoke": "/home/edmundo/packing-services/paper/results/16_baseline_smoke",
+  "previous_online_bph_result_sha256": {
+    "00100084": "520d9e3d0d59fb320783e48c1c0125ffdb715bb6a25a9b17fcb909c6e374fa12",
+    "00100101": "f0d1451ec189bf1adf4c5b1f2c55ca767994c2a465d578cc28e74b8c9a9ddf44",
+    "00100802": "8ebf10a5c70ff473e7632d5fed9bb554216302c4b4a1590b82d358f7f768ff11",
+    "00100909": "3e8de96c6e5458039d6585065cc05ca44598a9f8b4b16572b4baf6dd551b2621",
+    "00101315": "e0c28242854f45119e28fb8a8471b8668e050359ff98a817483c5e9338dc9523"
+  },
+  "replaces_previous_scores": false,
+  "protocol": "/home/edmundo/packing-services/paper/protocols/16_compact_selector_study.json",
+  "protocol_sha256": "c67f000974ada207be7261ddf787f0044d8e0f04d3d9bbe0575b8497112e77bf",
+  "orders": [
+    {
+      "order_id": "00100084",
+      "target": "euro-pallet",
+      "position": 0
+    },
+    {
+      "order_id": "00100101",
+      "target": "rollcontainer",
+      "position": 1
+    },
+    {
+      "order_id": "00100802",
+      "target": "rollcontainer",
+      "position": 2
+    },
+    {
+      "order_id": "00100909",
+      "target": "euro-pallet",
+      "position": 3
+    },
+    {
+      "order_id": "00101315",
+      "target": "euro-pallet",
+      "position": 4
+    }
+  ],
+  "order_ids": [
+    "00100084",
+    "00100101",
+    "00100802",
+    "00100909",
+    "00101315"
+  ],
+  "dataset": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "code_sha256": {
+    "paper/tools/compact_study.py": "d179140db16e22e1d7ba9b443467a6a3851c2b12f326416e88c261eef10b4843",
+    "paper/tools/online_bph_case.py": "67b5dfeac94f0ee84bc39bc5b47b2120b2fbd4f71ab6a1708e4da56224acf644",
+    "paper/tools/online_bph_worker.py": "81fa4e6be397d0d17038f2ff1b840b02c0282dadde2df88099dd2cef414a5d03",
+    "paper/tools/run_onlinebph_capture_check.py": "611d788b74c1b33ace05ead0625cf5658c3f255ab8fea320c6982ed483c8cdd8"
+  },
+  "external_commit": "5e7b4238b18310af4529e0f85157d17de605850c",
+  "external_python": "/home/edmundo/packing-services/paper/external/pct/.venv/bin/python",
+  "timeout_seconds": 300,
+  "attempts": 1,
+  "device": "cpu",
+  "methods": [
+    "online_bph"
+  ],
+  "greedy_rerun": false,
+  "confirmatory": false,
+  "physical_stability_verified": null
+}

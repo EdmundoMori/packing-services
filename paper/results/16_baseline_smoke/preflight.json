@@ -1,0 +1,60 @@
+{
+  "status": "registrado_antes_de_ejecutar",
+  "orders": [
+    {
+      "order_id": "00100084",
+      "target": "euro-pallet",
+      "selection_hash": "047732a95e27325bc6af8c998551f7e8d6ef3aa82950c30b1fd672b3c16d4f1a",
+      "selection_rank": 12,
+      "position": 0
+    },
+    {
+      "order_id": "00100101",
+      "target": "rollcontainer",
+      "selection_hash": "0691438df5051caf3c02dec4c6954b131a544bab6bf893d46261c1174d0ef9fe",
+      "selection_rank": 14,
+      "position": 1
+    },
+    {
+      "order_id": "00100802",
+      "target": "rollcontainer",
+      "selection_hash": "0bf7924b7ac0936073be21da4ea290640863a6cddda5b2a97ecf1c6401a4d10a",
+      "selection_rank": 24,
+      "position": 2
+    },
+    {
+      "order_id": "00100909",
+      "target": "euro-pallet",
+      "selection_hash": "052c7de2dc10a45647cf95cedcbbacf218db017cdf85de9ce0f9c06cb5a50886",
+      "selection_rank": 15,
+      "position": 3
+    },
+    {
+      "order_id": "00101315",
+      "target": "euro-pallet",
+      "selection_hash": "07d3355ca283819b42a8e21b07a60e877306f3988dba215d8788f7a530623fa0",
+      "selection_rank": 22,
+      "position": 4
+    }
+  ],
+  "dataset": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "code_sha256": {
+    "paper/tools/compact_study.py": "9016886e176a97d485f5f7e4d297a9e132d291b1dc2341375bbe0011e5ff7d7f",
+    "paper/tools/compact_worker.py": "196e46fb8250a15a48f1204c615bafea66d575299d07737538fbdd24d3fc3dcc",
+    "paper/tools/online_bph_case.py": "67b5dfeac94f0ee84bc39bc5b47b2120b2fbd4f71ab6a1708e4da56224acf644",
+    "paper/tools/online_bph_worker.py": "113259e2f152d68835300892324ad6b0607d5f2ce4d97d6f678d0574135fdeb6",
+    "paper/tools/run_compact_smoke.py": "5762847ead0e99a8e2c733ca2e68b5238f3b648e3a972a51cf23afb6e71ba54d",
+    "src/packing_services/online/policies.py": "089e1246193285f05241c4729392e7ce3ce8d4cd62a6e15645ba9990e05fe581",
+    "src/packing_services/online/session.py": "a04d09780eca1d9bae6ef78387299ba13cf7f532f9bb0f8735f8fcf3972cb71c",
+    "src/packing_services/online/loop.py": "59f66757d6d91acf5f36f01af343ac50a639e656943438f282989ba79d1cb6a8"
+  },
+  "external_commit": "5e7b4238b18310af4529e0f85157d17de605850c",
+  "external_python": "paper/external/pct/.venv/bin/python",
+  "external_python_exists": true,
+  "timeout_seconds": 300,
+  "attempts": 1,
+  "device": "cpu",
+  "confirmatory": false,
+  "physical_stability_verified": null
+}
