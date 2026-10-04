@@ -1,0 +1,28 @@
+{
+  "started_unix": 1791113802.2057106,
+  "global_deadline_unix": 1791128202.2057106,
+  "seeds": [
+    101,
+    102,
+    103
+  ],
+  "decisions_per_seed": 6144,
+  "rollouts_per_seed": 12,
+  "seed_wall_seconds": 4800.0,
+  "global_wall_seconds": 14400.0,
+  "max_workers": 2,
+  "protocol_sha256": "61923d12ef9069cc0bdb95e547b22a89f05fe1db703f80182420bc79350b9c25",
+  "code_hashes": {
+    "tools/ppo_math.py": "1fb214abc798931b3eb7a3857c49f890a49869318e98482a26f43eb3cf3033fc",
+    "tools/model.py": "1777aa425785845ecf9dbb57c2a6165a0421657c9158340167e44b6cbdb8a5c6",
+    "tools/train_loop.py": "1ace8d2b7acf6eb9d15f4dee401131cef630d9306ae391d0b7903ce27e68c8ae",
+    "tools/environment.py": "3111f00dca1434cecc9a8c9ff527ddfca00d2bc4ec0722e85573bd7ddd5e6125",
+    "tools/observation.py": "252c641df75386b8bf5302f450e0cbb75f85ef5f54ad430cb9fd2e57c089da87",
+    "tools/rules.py": "251fc3709d09863a2473cb59c159e8b015e79be53ed45582c7f529cf5c0e2f08",
+    "tools/sample_audit.py": "019fe20f6ef0ac13af4391d4ae24e492b46a02a934318efab7e500165752a042",
+    "tools/run_training.py": "e9963c2d7199e2de37b85c2f9eeaeac8303ac59519350cf08136a05b369a9f7c"
+  },
+  "development_evaluated": false,
+  "final_test_selected": false,
+  "final_test_executed": false
+}

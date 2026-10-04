@@ -1,0 +1,38 @@
+{
+  "sampled_joint_rss_max_kb": 1138920,
+  "sampled_joint_rss_n": 530,
+  "sampled_joint_rss_note": "Máximo de la suma de VmRSS del proceso padre y de los workers, muestreada. No es ru_maxrss.",
+  "parent_ru_maxrss_kb": 19200,
+  "parent_ru_maxrss_note": "Pico del kernel para el proceso padre desde su inicio. No es la memoria conjunta simultánea.",
+  "tracemalloc_note": "El pico de tracemalloc de cada caso mide asignaciones de Python. No mide toda la memoria de Torch ni del proceso.",
+  "workers": [
+    {
+      "kind": "startup",
+      "pid": 17851,
+      "dataset_load_seconds": 1.770704692000436,
+      "ru_maxrss_kb": 399896
+    },
+    {
+      "kind": "startup",
+      "pid": 17850,
+      "dataset_load_seconds": 1.769265410999651,
+      "ru_maxrss_kb": 399896
+    },
+    {
+      "kind": "worker_done",
+      "pid": 17851,
+      "ru_maxrss_kb": 565552
+    },
+    {
+      "kind": "worker_done",
+      "pid": 17850,
+      "ru_maxrss_kb": 562700
+    }
+  ],
+  "max_workers": 2,
+  "torch_threads_per_worker": 1,
+  "wall_seconds": 134.48249608300011,
+  "global_timeout_seconds": 900.0,
+  "case_timeout_seconds": 300.0,
+  "episodes_repeated": false
+}

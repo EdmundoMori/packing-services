@@ -1,0 +1,23 @@
+{
+  "key": "uniform|102|00103449",
+  "order_id": "00103449",
+  "target": "euro-pallet",
+  "arm": "uniform",
+  "label": "102",
+  "seed": 102,
+  "status": "ok",
+  "error": null,
+  "raw_u_geom": 0.6803994791666667,
+  "geometry_valid": true,
+  "contrast_matches": true,
+  "contrast_errors": [],
+  "rule_counts": {
+    "greedy_best_fit": 14,
+    "lowest_top": 28,
+    "least_height_increase": 18
+  },
+  "n_decisions": 60,
+  "wall_seconds": 4.604635583000345,
+  "physical_stability_verified": null,
+  "sampled_ppo": false
+}

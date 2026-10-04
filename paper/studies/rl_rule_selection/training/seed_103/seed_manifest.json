@@ -1,0 +1,34 @@
+{
+  "status": "completa",
+  "decisions": 6144,
+  "updates": 12,
+  "adam_steps": 192,
+  "nonfinite": 0,
+  "distinct_proposal_decisions": 4981,
+  "open_episode": {
+    "kind": "episode",
+    "order_id": "00107704",
+    "target": "euro-pallet",
+    "n_items": 40,
+    "step_calls": 29,
+    "placed": 29,
+    "distinct_proposal_steps": 24,
+    "termination": "corte_de_presupuesto",
+    "elapsed_seconds": 249.02412025899866
+  },
+  "equal_budget": true,
+  "seed": 103,
+  "wall_seconds": 249.74789126999895,
+  "cpu_user_seconds": 228.014348,
+  "cpu_system_seconds": 0.911829,
+  "ru_maxrss_kb": 695404,
+  "torch_threads": 1,
+  "audit": {
+    "internal_geometry_valid": true,
+    "n_overlap_pairs": 0,
+    "n_boxes_outside_bin": 0,
+    "physical_stability_verified": null
+  },
+  "reward_used_for_selection": false,
+  "historical_checkpoint_loaded": false
+}

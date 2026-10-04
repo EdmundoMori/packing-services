@@ -1,0 +1,23 @@
+{
+  "key": "fixed|least_height_increase|00108101",
+  "order_id": "00108101",
+  "target": "rollcontainer",
+  "arm": "fixed",
+  "label": "least_height_increase",
+  "seed": null,
+  "status": "ok",
+  "error": null,
+  "raw_u_geom": 0.7441901785714286,
+  "geometry_valid": true,
+  "contrast_matches": true,
+  "contrast_errors": [],
+  "rule_counts": {
+    "greedy_best_fit": 0,
+    "lowest_top": 0,
+    "least_height_increase": 74
+  },
+  "n_decisions": 74,
+  "wall_seconds": 8.677703552999446,
+  "physical_stability_verified": null,
+  "sampled_ppo": false
+}

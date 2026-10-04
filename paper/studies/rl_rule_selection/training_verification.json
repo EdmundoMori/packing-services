@@ -1,0 +1,3035 @@
+{
+  "status": "piloto_ejecutado",
+  "comparison_as_equal_budget": true,
+  "development_evaluated": false,
+  "final_test_selected": false,
+  "final_test_executed": false,
+  "checkpoint_selected_by_reward": false,
+  "seed_selected_by_reward": false,
+  "convergence_claimed": false,
+  "publishable_claimed": false,
+  "config": {
+    "started_unix": 1791113802.2057106,
+    "global_deadline_unix": 1791128202.2057106,
+    "seeds": [
+      101,
+      102,
+      103
+    ],
+    "decisions_per_seed": 6144,
+    "rollouts_per_seed": 12,
+    "seed_wall_seconds": 4800.0,
+    "global_wall_seconds": 14400.0,
+    "max_workers": 2,
+    "protocol_sha256": "61923d12ef9069cc0bdb95e547b22a89f05fe1db703f80182420bc79350b9c25",
+    "code_hashes": {
+      "tools/ppo_math.py": "1fb214abc798931b3eb7a3857c49f890a49869318e98482a26f43eb3cf3033fc",
+      "tools/model.py": "1777aa425785845ecf9dbb57c2a6165a0421657c9158340167e44b6cbdb8a5c6",
+      "tools/train_loop.py": "1ace8d2b7acf6eb9d15f4dee401131cef630d9306ae391d0b7903ce27e68c8ae",
+      "tools/environment.py": "3111f00dca1434cecc9a8c9ff527ddfca00d2bc4ec0722e85573bd7ddd5e6125",
+      "tools/observation.py": "252c641df75386b8bf5302f450e0cbb75f85ef5f54ad430cb9fd2e57c089da87",
+      "tools/rules.py": "251fc3709d09863a2473cb59c159e8b015e79be53ed45582c7f529cf5c0e2f08",
+      "tools/sample_audit.py": "019fe20f6ef0ac13af4391d4ae24e492b46a02a934318efab7e500165752a042",
+      "tools/run_training.py": "e9963c2d7199e2de37b85c2f9eeaeac8303ac59519350cf08136a05b369a9f7c"
+    },
+    "development_evaluated": false,
+    "final_test_selected": false,
+    "final_test_executed": false
+  },
+  "memory": {
+    "sampled_joint_rss_max_kb": 1601520,
+    "sampled_joint_rss_n": 509,
+    "sampled_joint_rss_note": "Máximo de la suma de VmRSS del padre y de los workers vivos. No es ru_maxrss.",
+    "parent_ru_maxrss_kb": 219384,
+    "wall_seconds": 522.9520386949989,
+    "max_workers": 2,
+    "torch_threads_per_worker": 1
+  },
+  "seeds": [
+    {
+      "kind": "seed",
+      "status": "completa",
+      "decisions": 6144,
+      "updates": 12,
+      "adam_steps": 192,
+      "nonfinite": 0,
+      "distinct_proposal_decisions": 4972,
+      "open_episode": {
+        "kind": "episode",
+        "order_id": "00106506",
+        "target": "rollcontainer",
+        "n_items": 45,
+        "step_calls": 5,
+        "placed": 5,
+        "distinct_proposal_steps": 4,
+        "termination": "corte_de_presupuesto",
+        "elapsed_seconds": 266.12299193000035
+      },
+      "equal_budget": true,
+      "seed": 101,
+      "wall_seconds": 266.866834026001,
+      "cpu_user_seconds": 244.147937,
+      "cpu_system_seconds": 1.303847,
+      "ru_maxrss_kb": 692336,
+      "torch_threads": 1,
+      "audit": {
+        "internal_geometry_valid": true,
+        "n_overlap_pairs": 0,
+        "n_boxes_outside_bin": 0,
+        "physical_stability_verified": null
+      },
+      "reward_used_for_selection": false,
+      "historical_checkpoint_loaded": false,
+      "episodes_recorded": 160,
+      "episode_terminations": [
+        {
+          "order_id": "00107201",
+          "n_items": 54,
+          "step_calls": 53,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106766",
+          "n_items": 56,
+          "step_calls": 46,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109240",
+          "n_items": 49,
+          "step_calls": 49,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00103733",
+          "n_items": 19,
+          "step_calls": 17,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100653",
+          "n_items": 36,
+          "step_calls": 25,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105417",
+          "n_items": 52,
+          "step_calls": 42,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101685",
+          "n_items": 27,
+          "step_calls": 27,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00100527",
+          "n_items": 37,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105641",
+          "n_items": 49,
+          "step_calls": 39,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104007",
+          "n_items": 38,
+          "step_calls": 33,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104006",
+          "n_items": 39,
+          "step_calls": 30,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106438",
+          "n_items": 40,
+          "step_calls": 25,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103338",
+          "n_items": 40,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101791",
+          "n_items": 63,
+          "step_calls": 55,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104446",
+          "n_items": 36,
+          "step_calls": 36,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00108794",
+          "n_items": 57,
+          "step_calls": 57,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00109713",
+          "n_items": 46,
+          "step_calls": 46,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00102307",
+          "n_items": 16,
+          "step_calls": 13,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101426",
+          "n_items": 55,
+          "step_calls": 52,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109348",
+          "n_items": 44,
+          "step_calls": 39,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105245",
+          "n_items": 31,
+          "step_calls": 22,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105045",
+          "n_items": 31,
+          "step_calls": 24,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106206",
+          "n_items": 43,
+          "step_calls": 43,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00103740",
+          "n_items": 23,
+          "step_calls": 22,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101736",
+          "n_items": 58,
+          "step_calls": 58,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00107351",
+          "n_items": 16,
+          "step_calls": 14,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108631",
+          "n_items": 62,
+          "step_calls": 60,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107561",
+          "n_items": 47,
+          "step_calls": 47,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106500",
+          "n_items": 35,
+          "step_calls": 25,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104744",
+          "n_items": 57,
+          "step_calls": 57,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00105800",
+          "n_items": 46,
+          "step_calls": 46,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106436",
+          "n_items": 57,
+          "step_calls": 52,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104780",
+          "n_items": 47,
+          "step_calls": 40,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107050",
+          "n_items": 37,
+          "step_calls": 27,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103852",
+          "n_items": 19,
+          "step_calls": 16,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109290",
+          "n_items": 49,
+          "step_calls": 40,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101931",
+          "n_items": 44,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109206",
+          "n_items": 43,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105688",
+          "n_items": 73,
+          "step_calls": 65,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106292",
+          "n_items": 35,
+          "step_calls": 25,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107502",
+          "n_items": 46,
+          "step_calls": 46,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105892",
+          "n_items": 55,
+          "step_calls": 55,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101039",
+          "n_items": 40,
+          "step_calls": 27,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109479",
+          "n_items": 38,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106763",
+          "n_items": 55,
+          "step_calls": 55,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00100137",
+          "n_items": 44,
+          "step_calls": 44,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107381",
+          "n_items": 57,
+          "step_calls": 57,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00102333",
+          "n_items": 52,
+          "step_calls": 52,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00103198",
+          "n_items": 47,
+          "step_calls": 36,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107987",
+          "n_items": 35,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104975",
+          "n_items": 56,
+          "step_calls": 56,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00100146",
+          "n_items": 20,
+          "step_calls": 19,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108194",
+          "n_items": 48,
+          "step_calls": 40,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106827",
+          "n_items": 33,
+          "step_calls": 27,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109448",
+          "n_items": 32,
+          "step_calls": 32,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00101938",
+          "n_items": 36,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101784",
+          "n_items": 44,
+          "step_calls": 44,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104258",
+          "n_items": 24,
+          "step_calls": 24,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00107704",
+          "n_items": 40,
+          "step_calls": 40,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106440",
+          "n_items": 40,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104173",
+          "n_items": 42,
+          "step_calls": 33,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107810",
+          "n_items": 32,
+          "step_calls": 28,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108581",
+          "n_items": 22,
+          "step_calls": 21,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109640",
+          "n_items": 51,
+          "step_calls": 45,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103022",
+          "n_items": 46,
+          "step_calls": 45,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108465",
+          "n_items": 35,
+          "step_calls": 26,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100383",
+          "n_items": 40,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109791",
+          "n_items": 43,
+          "step_calls": 30,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105276",
+          "n_items": 17,
+          "step_calls": 17,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106964",
+          "n_items": 32,
+          "step_calls": 26,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109516",
+          "n_items": 38,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103043",
+          "n_items": 66,
+          "step_calls": 53,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101185",
+          "n_items": 45,
+          "step_calls": 33,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103857",
+          "n_items": 42,
+          "step_calls": 30,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107414",
+          "n_items": 54,
+          "step_calls": 50,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109721",
+          "n_items": 28,
+          "step_calls": 27,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101075",
+          "n_items": 53,
+          "step_calls": 53,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00103395",
+          "n_items": 22,
+          "step_calls": 15,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104521",
+          "n_items": 37,
+          "step_calls": 29,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106121",
+          "n_items": 27,
+          "step_calls": 27,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00102681",
+          "n_items": 41,
+          "step_calls": 35,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100478",
+          "n_items": 38,
+          "step_calls": 38,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00108017",
+          "n_items": 19,
+          "step_calls": 16,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105390",
+          "n_items": 39,
+          "step_calls": 39,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00102424",
+          "n_items": 67,
+          "step_calls": 57,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106506",
+          "n_items": 45,
+          "step_calls": 40,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109966",
+          "n_items": 50,
+          "step_calls": 50,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106581",
+          "n_items": 52,
+          "step_calls": 42,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106222",
+          "n_items": 31,
+          "step_calls": 31,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00100771",
+          "n_items": 43,
+          "step_calls": 35,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105548",
+          "n_items": 55,
+          "step_calls": 55,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106952",
+          "n_items": 35,
+          "step_calls": 35,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00101030",
+          "n_items": 26,
+          "step_calls": 22,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102755",
+          "n_items": 63,
+          "step_calls": 56,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104462",
+          "n_items": 41,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105071",
+          "n_items": 63,
+          "step_calls": 60,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100819",
+          "n_items": 54,
+          "step_calls": 54,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00108241",
+          "n_items": 25,
+          "step_calls": 21,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102540",
+          "n_items": 69,
+          "step_calls": 66,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104606",
+          "n_items": 42,
+          "step_calls": 35,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102514",
+          "n_items": 33,
+          "step_calls": 26,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108765",
+          "n_items": 46,
+          "step_calls": 46,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00108815",
+          "n_items": 57,
+          "step_calls": 57,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00108840",
+          "n_items": 42,
+          "step_calls": 38,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101788",
+          "n_items": 57,
+          "step_calls": 51,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101089",
+          "n_items": 46,
+          "step_calls": 37,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102510",
+          "n_items": 56,
+          "step_calls": 56,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00105419",
+          "n_items": 56,
+          "step_calls": 56,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106015",
+          "n_items": 30,
+          "step_calls": 21,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107990",
+          "n_items": 42,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100030",
+          "n_items": 43,
+          "step_calls": 43,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106654",
+          "n_items": 46,
+          "step_calls": 36,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107470",
+          "n_items": 34,
+          "step_calls": 26,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101471",
+          "n_items": 23,
+          "step_calls": 23,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00102503",
+          "n_items": 52,
+          "step_calls": 52,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104036",
+          "n_items": 51,
+          "step_calls": 51,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100249",
+          "n_items": 46,
+          "step_calls": 37,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102869",
+          "n_items": 53,
+          "step_calls": 53,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103616",
+          "n_items": 39,
+          "step_calls": 32,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105039",
+          "n_items": 31,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106936",
+          "n_items": 57,
+          "step_calls": 57,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104987",
+          "n_items": 49,
+          "step_calls": 48,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106344",
+          "n_items": 98,
+          "step_calls": 97,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104005",
+          "n_items": 44,
+          "step_calls": 33,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103516",
+          "n_items": 26,
+          "step_calls": 24,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100932",
+          "n_items": 45,
+          "step_calls": 42,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102615",
+          "n_items": 54,
+          "step_calls": 54,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00100818",
+          "n_items": 53,
+          "step_calls": 53,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00109516",
+          "n_items": 38,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100249",
+          "n_items": 46,
+          "step_calls": 37,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107201",
+          "n_items": 54,
+          "step_calls": 52,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104036",
+          "n_items": 51,
+          "step_calls": 48,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102503",
+          "n_items": 52,
+          "step_calls": 52,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106654",
+          "n_items": 46,
+          "step_calls": 35,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100653",
+          "n_items": 36,
+          "step_calls": 26,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106206",
+          "n_items": 43,
+          "step_calls": 43,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106763",
+          "n_items": 55,
+          "step_calls": 55,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104006",
+          "n_items": 39,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105045",
+          "n_items": 31,
+          "step_calls": 26,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103616",
+          "n_items": 39,
+          "step_calls": 32,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107050",
+          "n_items": 37,
+          "step_calls": 27,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102681",
+          "n_items": 41,
+          "step_calls": 32,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108840",
+          "n_items": 42,
+          "step_calls": 37,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104007",
+          "n_items": 38,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104173",
+          "n_items": 42,
+          "step_calls": 33,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109640",
+          "n_items": 51,
+          "step_calls": 51,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100137",
+          "n_items": 44,
+          "step_calls": 44,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109206",
+          "n_items": 43,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103852",
+          "n_items": 19,
+          "step_calls": 15,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108017",
+          "n_items": 19,
+          "step_calls": 17,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105548",
+          "n_items": 55,
+          "step_calls": 55,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104975",
+          "n_items": 56,
+          "step_calls": 56,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104258",
+          "n_items": 24,
+          "step_calls": 24,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00103395",
+          "n_items": 22,
+          "step_calls": 14,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106936",
+          "n_items": 57,
+          "step_calls": 57,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00100527",
+          "n_items": 37,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102869",
+          "n_items": 53,
+          "step_calls": 47,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105419",
+          "n_items": 56,
+          "step_calls": 56,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106581",
+          "n_items": 52,
+          "step_calls": 44,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106506",
+          "n_items": 45,
+          "step_calls": 5,
+          "termination": "corte_de_presupuesto"
+        }
+      ],
+      "history_nonfinite_tokens": 0
+    },
+    {
+      "kind": "seed",
+      "status": "completa",
+      "decisions": 6144,
+      "updates": 12,
+      "adam_steps": 192,
+      "nonfinite": 0,
+      "distinct_proposal_decisions": 4945,
+      "open_episode": {
+        "kind": "episode",
+        "order_id": "00101736",
+        "target": "euro-pallet",
+        "n_items": 58,
+        "step_calls": 6,
+        "placed": 6,
+        "distinct_proposal_steps": 2,
+        "termination": "corte_de_presupuesto",
+        "elapsed_seconds": 275.39281978299914
+      },
+      "equal_budget": true,
+      "seed": 102,
+      "wall_seconds": 275.7144156559989,
+      "cpu_user_seconds": 252.38505099999998,
+      "cpu_system_seconds": 1.2738589999999999,
+      "ru_maxrss_kb": 691080,
+      "torch_threads": 1,
+      "audit": {
+        "internal_geometry_valid": true,
+        "n_overlap_pairs": 0,
+        "n_boxes_outside_bin": 0,
+        "physical_stability_verified": null
+      },
+      "reward_used_for_selection": false,
+      "historical_checkpoint_loaded": false,
+      "episodes_recorded": 158,
+      "episode_terminations": [
+        {
+          "order_id": "00100030",
+          "n_items": 43,
+          "step_calls": 43,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00107810",
+          "n_items": 32,
+          "step_calls": 29,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100383",
+          "n_items": 40,
+          "step_calls": 32,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106344",
+          "n_items": 98,
+          "step_calls": 98,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00107414",
+          "n_items": 54,
+          "step_calls": 51,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101426",
+          "n_items": 55,
+          "step_calls": 53,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102681",
+          "n_items": 41,
+          "step_calls": 32,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104005",
+          "n_items": 44,
+          "step_calls": 32,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106766",
+          "n_items": 56,
+          "step_calls": 47,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106500",
+          "n_items": 35,
+          "step_calls": 26,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106964",
+          "n_items": 32,
+          "step_calls": 29,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104975",
+          "n_items": 56,
+          "step_calls": 56,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00109240",
+          "n_items": 49,
+          "step_calls": 49,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00107381",
+          "n_items": 57,
+          "step_calls": 57,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00109721",
+          "n_items": 28,
+          "step_calls": 28,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00107470",
+          "n_items": 34,
+          "step_calls": 29,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104462",
+          "n_items": 41,
+          "step_calls": 33,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101039",
+          "n_items": 40,
+          "step_calls": 27,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100818",
+          "n_items": 53,
+          "step_calls": 53,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00105276",
+          "n_items": 17,
+          "step_calls": 16,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103857",
+          "n_items": 42,
+          "step_calls": 28,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109290",
+          "n_items": 49,
+          "step_calls": 39,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103043",
+          "n_items": 66,
+          "step_calls": 52,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105419",
+          "n_items": 56,
+          "step_calls": 55,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106763",
+          "n_items": 55,
+          "step_calls": 55,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104258",
+          "n_items": 24,
+          "step_calls": 24,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106436",
+          "n_items": 57,
+          "step_calls": 48,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100932",
+          "n_items": 45,
+          "step_calls": 45,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105071",
+          "n_items": 63,
+          "step_calls": 63,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106222",
+          "n_items": 31,
+          "step_calls": 31,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00105688",
+          "n_items": 73,
+          "step_calls": 66,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105641",
+          "n_items": 49,
+          "step_calls": 42,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105039",
+          "n_items": 31,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100653",
+          "n_items": 36,
+          "step_calls": 25,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100146",
+          "n_items": 20,
+          "step_calls": 15,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101791",
+          "n_items": 63,
+          "step_calls": 59,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101030",
+          "n_items": 26,
+          "step_calls": 22,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103616",
+          "n_items": 39,
+          "step_calls": 33,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106438",
+          "n_items": 40,
+          "step_calls": 27,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108840",
+          "n_items": 42,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109348",
+          "n_items": 44,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103740",
+          "n_items": 23,
+          "step_calls": 23,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108631",
+          "n_items": 62,
+          "step_calls": 62,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104606",
+          "n_items": 42,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102510",
+          "n_items": 56,
+          "step_calls": 56,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00107987",
+          "n_items": 35,
+          "step_calls": 25,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103516",
+          "n_items": 26,
+          "step_calls": 24,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106952",
+          "n_items": 35,
+          "step_calls": 35,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104744",
+          "n_items": 57,
+          "step_calls": 55,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105245",
+          "n_items": 31,
+          "step_calls": 27,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100137",
+          "n_items": 44,
+          "step_calls": 44,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109640",
+          "n_items": 51,
+          "step_calls": 51,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00102307",
+          "n_items": 16,
+          "step_calls": 13,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100527",
+          "n_items": 37,
+          "step_calls": 33,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104987",
+          "n_items": 49,
+          "step_calls": 49,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106292",
+          "n_items": 35,
+          "step_calls": 24,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104036",
+          "n_items": 51,
+          "step_calls": 50,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108794",
+          "n_items": 57,
+          "step_calls": 57,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104006",
+          "n_items": 39,
+          "step_calls": 33,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106936",
+          "n_items": 57,
+          "step_calls": 57,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00102514",
+          "n_items": 33,
+          "step_calls": 24,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101784",
+          "n_items": 44,
+          "step_calls": 44,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00109479",
+          "n_items": 38,
+          "step_calls": 26,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101075",
+          "n_items": 53,
+          "step_calls": 49,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107351",
+          "n_items": 16,
+          "step_calls": 12,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107561",
+          "n_items": 47,
+          "step_calls": 47,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104007",
+          "n_items": 38,
+          "step_calls": 36,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105548",
+          "n_items": 55,
+          "step_calls": 50,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109966",
+          "n_items": 50,
+          "step_calls": 50,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00103395",
+          "n_items": 22,
+          "step_calls": 16,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101788",
+          "n_items": 57,
+          "step_calls": 53,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101931",
+          "n_items": 44,
+          "step_calls": 39,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105045",
+          "n_items": 31,
+          "step_calls": 24,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101685",
+          "n_items": 27,
+          "step_calls": 27,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00107050",
+          "n_items": 37,
+          "step_calls": 27,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108465",
+          "n_items": 35,
+          "step_calls": 26,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105390",
+          "n_items": 39,
+          "step_calls": 39,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00107990",
+          "n_items": 42,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100819",
+          "n_items": 54,
+          "step_calls": 53,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101471",
+          "n_items": 23,
+          "step_calls": 23,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104780",
+          "n_items": 47,
+          "step_calls": 40,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106206",
+          "n_items": 43,
+          "step_calls": 43,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00108194",
+          "n_items": 48,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100249",
+          "n_items": 46,
+          "step_calls": 36,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103733",
+          "n_items": 19,
+          "step_calls": 14,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103852",
+          "n_items": 19,
+          "step_calls": 17,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101736",
+          "n_items": 58,
+          "step_calls": 58,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00108765",
+          "n_items": 46,
+          "step_calls": 46,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102869",
+          "n_items": 53,
+          "step_calls": 37,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109448",
+          "n_items": 32,
+          "step_calls": 32,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106121",
+          "n_items": 27,
+          "step_calls": 27,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00103022",
+          "n_items": 46,
+          "step_calls": 46,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00105417",
+          "n_items": 52,
+          "step_calls": 42,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105800",
+          "n_items": 46,
+          "step_calls": 39,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101185",
+          "n_items": 45,
+          "step_calls": 42,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103198",
+          "n_items": 47,
+          "step_calls": 38,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106654",
+          "n_items": 46,
+          "step_calls": 40,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108581",
+          "n_items": 22,
+          "step_calls": 21,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107704",
+          "n_items": 40,
+          "step_calls": 40,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00108815",
+          "n_items": 57,
+          "step_calls": 57,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00109206",
+          "n_items": 43,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102424",
+          "n_items": 67,
+          "step_calls": 59,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108017",
+          "n_items": 19,
+          "step_calls": 16,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101089",
+          "n_items": 46,
+          "step_calls": 37,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102615",
+          "n_items": 54,
+          "step_calls": 53,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107502",
+          "n_items": 46,
+          "step_calls": 46,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00109516",
+          "n_items": 38,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106440",
+          "n_items": 40,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109713",
+          "n_items": 46,
+          "step_calls": 46,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00105892",
+          "n_items": 55,
+          "step_calls": 54,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102540",
+          "n_items": 69,
+          "step_calls": 66,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107201",
+          "n_items": 54,
+          "step_calls": 52,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102333",
+          "n_items": 52,
+          "step_calls": 50,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104521",
+          "n_items": 37,
+          "step_calls": 29,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106581",
+          "n_items": 52,
+          "step_calls": 44,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106506",
+          "n_items": 45,
+          "step_calls": 37,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101938",
+          "n_items": 36,
+          "step_calls": 27,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100478",
+          "n_items": 38,
+          "step_calls": 38,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106015",
+          "n_items": 30,
+          "step_calls": 20,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104173",
+          "n_items": 42,
+          "step_calls": 33,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100771",
+          "n_items": 43,
+          "step_calls": 37,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103338",
+          "n_items": 40,
+          "step_calls": 36,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102503",
+          "n_items": 52,
+          "step_calls": 52,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00102755",
+          "n_items": 63,
+          "step_calls": 63,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108241",
+          "n_items": 25,
+          "step_calls": 20,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109791",
+          "n_items": 43,
+          "step_calls": 30,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106827",
+          "n_items": 33,
+          "step_calls": 28,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104446",
+          "n_items": 36,
+          "step_calls": 36,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104975",
+          "n_items": 56,
+          "step_calls": 56,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00102681",
+          "n_items": 41,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106206",
+          "n_items": 43,
+          "step_calls": 43,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00109791",
+          "n_items": 43,
+          "step_calls": 30,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102510",
+          "n_items": 56,
+          "step_calls": 56,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106121",
+          "n_items": 27,
+          "step_calls": 27,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00100030",
+          "n_items": 43,
+          "step_calls": 43,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00109713",
+          "n_items": 46,
+          "step_calls": 46,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00102424",
+          "n_items": 67,
+          "step_calls": 49,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104005",
+          "n_items": 44,
+          "step_calls": 33,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107704",
+          "n_items": 40,
+          "step_calls": 40,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00109240",
+          "n_items": 49,
+          "step_calls": 49,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107381",
+          "n_items": 57,
+          "step_calls": 55,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106964",
+          "n_items": 32,
+          "step_calls": 25,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108631",
+          "n_items": 62,
+          "step_calls": 62,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00108017",
+          "n_items": 19,
+          "step_calls": 17,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102755",
+          "n_items": 63,
+          "step_calls": 63,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103740",
+          "n_items": 23,
+          "step_calls": 18,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104606",
+          "n_items": 42,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105417",
+          "n_items": 52,
+          "step_calls": 43,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106654",
+          "n_items": 46,
+          "step_calls": 42,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108765",
+          "n_items": 46,
+          "step_calls": 46,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00101089",
+          "n_items": 46,
+          "step_calls": 37,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109640",
+          "n_items": 51,
+          "step_calls": 50,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106763",
+          "n_items": 55,
+          "step_calls": 55,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00108241",
+          "n_items": 25,
+          "step_calls": 20,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102503",
+          "n_items": 52,
+          "step_calls": 51,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106952",
+          "n_items": 35,
+          "step_calls": 35,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104521",
+          "n_items": 37,
+          "step_calls": 29,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101736",
+          "n_items": 58,
+          "step_calls": 6,
+          "termination": "corte_de_presupuesto"
+        }
+      ],
+      "history_nonfinite_tokens": 0
+    },
+    {
+      "kind": "seed",
+      "status": "completa",
+      "decisions": 6144,
+      "updates": 12,
+      "adam_steps": 192,
+      "nonfinite": 0,
+      "distinct_proposal_decisions": 4981,
+      "open_episode": {
+        "kind": "episode",
+        "order_id": "00107704",
+        "target": "euro-pallet",
+        "n_items": 40,
+        "step_calls": 29,
+        "placed": 29,
+        "distinct_proposal_steps": 24,
+        "termination": "corte_de_presupuesto",
+        "elapsed_seconds": 249.02412025899866
+      },
+      "equal_budget": true,
+      "seed": 103,
+      "wall_seconds": 249.74789126999895,
+      "cpu_user_seconds": 228.014348,
+      "cpu_system_seconds": 0.911829,
+      "ru_maxrss_kb": 695404,
+      "torch_threads": 1,
+      "audit": {
+        "internal_geometry_valid": true,
+        "n_overlap_pairs": 0,
+        "n_boxes_outside_bin": 0,
+        "physical_stability_verified": null
+      },
+      "reward_used_for_selection": false,
+      "historical_checkpoint_loaded": false,
+      "episodes_recorded": 160,
+      "episode_terminations": [
+        {
+          "order_id": "00100653",
+          "n_items": 36,
+          "step_calls": 25,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103395",
+          "n_items": 22,
+          "step_calls": 20,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109479",
+          "n_items": 38,
+          "step_calls": 35,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100137",
+          "n_items": 44,
+          "step_calls": 44,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101039",
+          "n_items": 40,
+          "step_calls": 24,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102333",
+          "n_items": 52,
+          "step_calls": 52,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00105245",
+          "n_items": 31,
+          "step_calls": 22,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107381",
+          "n_items": 57,
+          "step_calls": 56,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100383",
+          "n_items": 40,
+          "step_calls": 30,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105419",
+          "n_items": 56,
+          "step_calls": 56,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106506",
+          "n_items": 45,
+          "step_calls": 40,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108815",
+          "n_items": 57,
+          "step_calls": 57,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106654",
+          "n_items": 46,
+          "step_calls": 36,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100478",
+          "n_items": 38,
+          "step_calls": 38,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106344",
+          "n_items": 98,
+          "step_calls": 98,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00100030",
+          "n_items": 43,
+          "step_calls": 43,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106500",
+          "n_items": 35,
+          "step_calls": 28,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102540",
+          "n_items": 69,
+          "step_calls": 66,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106121",
+          "n_items": 27,
+          "step_calls": 27,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00102424",
+          "n_items": 67,
+          "step_calls": 59,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104987",
+          "n_items": 49,
+          "step_calls": 48,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100932",
+          "n_items": 45,
+          "step_calls": 41,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102869",
+          "n_items": 53,
+          "step_calls": 47,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101426",
+          "n_items": 55,
+          "step_calls": 54,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101931",
+          "n_items": 44,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106952",
+          "n_items": 35,
+          "step_calls": 35,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00108194",
+          "n_items": 48,
+          "step_calls": 36,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106436",
+          "n_items": 57,
+          "step_calls": 46,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107987",
+          "n_items": 35,
+          "step_calls": 25,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101075",
+          "n_items": 53,
+          "step_calls": 53,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104258",
+          "n_items": 24,
+          "step_calls": 24,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00102503",
+          "n_items": 52,
+          "step_calls": 52,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00101089",
+          "n_items": 46,
+          "step_calls": 37,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100527",
+          "n_items": 37,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105892",
+          "n_items": 55,
+          "step_calls": 50,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102307",
+          "n_items": 16,
+          "step_calls": 13,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104006",
+          "n_items": 39,
+          "step_calls": 26,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105039",
+          "n_items": 31,
+          "step_calls": 29,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105800",
+          "n_items": 46,
+          "step_calls": 40,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103516",
+          "n_items": 26,
+          "step_calls": 24,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107351",
+          "n_items": 16,
+          "step_calls": 13,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109206",
+          "n_items": 43,
+          "step_calls": 35,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107810",
+          "n_items": 32,
+          "step_calls": 30,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109721",
+          "n_items": 28,
+          "step_calls": 27,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106827",
+          "n_items": 33,
+          "step_calls": 28,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104173",
+          "n_items": 42,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106438",
+          "n_items": 40,
+          "step_calls": 25,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103733",
+          "n_items": 19,
+          "step_calls": 16,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100771",
+          "n_items": 43,
+          "step_calls": 26,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107502",
+          "n_items": 46,
+          "step_calls": 46,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00107704",
+          "n_items": 40,
+          "step_calls": 40,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00109713",
+          "n_items": 46,
+          "step_calls": 37,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101471",
+          "n_items": 23,
+          "step_calls": 23,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00109791",
+          "n_items": 43,
+          "step_calls": 32,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106206",
+          "n_items": 43,
+          "step_calls": 43,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103043",
+          "n_items": 66,
+          "step_calls": 56,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101736",
+          "n_items": 58,
+          "step_calls": 58,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104606",
+          "n_items": 42,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108581",
+          "n_items": 22,
+          "step_calls": 21,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108794",
+          "n_items": 57,
+          "step_calls": 57,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00108017",
+          "n_items": 19,
+          "step_calls": 12,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105071",
+          "n_items": 63,
+          "step_calls": 63,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106015",
+          "n_items": 30,
+          "step_calls": 20,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102681",
+          "n_items": 41,
+          "step_calls": 26,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100249",
+          "n_items": 46,
+          "step_calls": 37,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108840",
+          "n_items": 42,
+          "step_calls": 32,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109448",
+          "n_items": 32,
+          "step_calls": 32,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00102615",
+          "n_items": 54,
+          "step_calls": 54,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105688",
+          "n_items": 73,
+          "step_calls": 69,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101784",
+          "n_items": 44,
+          "step_calls": 44,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00107561",
+          "n_items": 47,
+          "step_calls": 47,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101685",
+          "n_items": 27,
+          "step_calls": 27,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00103740",
+          "n_items": 23,
+          "step_calls": 20,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106763",
+          "n_items": 55,
+          "step_calls": 55,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106440",
+          "n_items": 40,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101791",
+          "n_items": 63,
+          "step_calls": 54,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108241",
+          "n_items": 25,
+          "step_calls": 20,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106222",
+          "n_items": 31,
+          "step_calls": 31,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00101938",
+          "n_items": 36,
+          "step_calls": 31,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108765",
+          "n_items": 46,
+          "step_calls": 46,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104744",
+          "n_items": 57,
+          "step_calls": 57,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00109640",
+          "n_items": 51,
+          "step_calls": 51,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00103338",
+          "n_items": 40,
+          "step_calls": 29,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109348",
+          "n_items": 44,
+          "step_calls": 32,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107414",
+          "n_items": 54,
+          "step_calls": 50,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107050",
+          "n_items": 37,
+          "step_calls": 27,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103198",
+          "n_items": 47,
+          "step_calls": 38,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102755",
+          "n_items": 63,
+          "step_calls": 59,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104446",
+          "n_items": 36,
+          "step_calls": 36,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00103022",
+          "n_items": 46,
+          "step_calls": 45,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105548",
+          "n_items": 55,
+          "step_calls": 51,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101030",
+          "n_items": 26,
+          "step_calls": 18,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104975",
+          "n_items": 56,
+          "step_calls": 56,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00103857",
+          "n_items": 42,
+          "step_calls": 28,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109290",
+          "n_items": 49,
+          "step_calls": 40,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103616",
+          "n_items": 39,
+          "step_calls": 32,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106292",
+          "n_items": 35,
+          "step_calls": 22,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105390",
+          "n_items": 39,
+          "step_calls": 39,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104007",
+          "n_items": 38,
+          "step_calls": 36,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109966",
+          "n_items": 50,
+          "step_calls": 50,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00108465",
+          "n_items": 35,
+          "step_calls": 22,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104005",
+          "n_items": 44,
+          "step_calls": 33,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106964",
+          "n_items": 32,
+          "step_calls": 23,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100818",
+          "n_items": 53,
+          "step_calls": 53,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00107201",
+          "n_items": 54,
+          "step_calls": 53,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104462",
+          "n_items": 41,
+          "step_calls": 29,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105276",
+          "n_items": 17,
+          "step_calls": 16,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100819",
+          "n_items": 54,
+          "step_calls": 53,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106936",
+          "n_items": 57,
+          "step_calls": 57,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00109240",
+          "n_items": 49,
+          "step_calls": 49,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00101788",
+          "n_items": 57,
+          "step_calls": 49,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104521",
+          "n_items": 37,
+          "step_calls": 29,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104036",
+          "n_items": 51,
+          "step_calls": 51,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105641",
+          "n_items": 49,
+          "step_calls": 40,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105417",
+          "n_items": 52,
+          "step_calls": 41,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106766",
+          "n_items": 56,
+          "step_calls": 46,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107990",
+          "n_items": 42,
+          "step_calls": 32,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102514",
+          "n_items": 33,
+          "step_calls": 28,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100146",
+          "n_items": 20,
+          "step_calls": 12,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108631",
+          "n_items": 62,
+          "step_calls": 62,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00107470",
+          "n_items": 34,
+          "step_calls": 32,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104780",
+          "n_items": 47,
+          "step_calls": 40,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102510",
+          "n_items": 56,
+          "step_calls": 56,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106581",
+          "n_items": 52,
+          "step_calls": 40,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109516",
+          "n_items": 38,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101185",
+          "n_items": 45,
+          "step_calls": 33,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103852",
+          "n_items": 19,
+          "step_calls": 17,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00105045",
+          "n_items": 31,
+          "step_calls": 25,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107201",
+          "n_items": 54,
+          "step_calls": 54,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109290",
+          "n_items": 49,
+          "step_calls": 42,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106964",
+          "n_items": 32,
+          "step_calls": 28,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108815",
+          "n_items": 57,
+          "step_calls": 56,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103852",
+          "n_items": 19,
+          "step_calls": 16,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109966",
+          "n_items": 50,
+          "step_calls": 50,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00101788",
+          "n_items": 57,
+          "step_calls": 52,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00108765",
+          "n_items": 46,
+          "step_calls": 46,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00105276",
+          "n_items": 17,
+          "step_calls": 16,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107381",
+          "n_items": 57,
+          "step_calls": 57,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00100653",
+          "n_items": 36,
+          "step_calls": 25,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107810",
+          "n_items": 32,
+          "step_calls": 29,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106654",
+          "n_items": 46,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104007",
+          "n_items": 38,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00104005",
+          "n_items": 44,
+          "step_calls": 32,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00109240",
+          "n_items": 49,
+          "step_calls": 49,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00102333",
+          "n_items": 52,
+          "step_calls": 52,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104975",
+          "n_items": 56,
+          "step_calls": 56,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00106222",
+          "n_items": 31,
+          "step_calls": 31,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00103198",
+          "n_items": 47,
+          "step_calls": 42,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106206",
+          "n_items": 43,
+          "step_calls": 43,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00101931",
+          "n_items": 44,
+          "step_calls": 34,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106436",
+          "n_items": 57,
+          "step_calls": 48,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00101089",
+          "n_items": 46,
+          "step_calls": 37,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107561",
+          "n_items": 47,
+          "step_calls": 47,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00105071",
+          "n_items": 63,
+          "step_calls": 63,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00102681",
+          "n_items": 41,
+          "step_calls": 22,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103516",
+          "n_items": 26,
+          "step_calls": 24,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00106952",
+          "n_items": 35,
+          "step_calls": 35,
+          "termination": "secuencia_agotada"
+        },
+        {
+          "order_id": "00104606",
+          "n_items": 42,
+          "step_calls": 35,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00103022",
+          "n_items": 46,
+          "step_calls": 45,
+          "termination": "sin_candidata"
+        },
+        {
+          "order_id": "00107704",
+          "n_items": 40,
+          "step_calls": 29,
+          "termination": "corte_de_presupuesto"
+        }
+      ],
+      "history_nonfinite_tokens": 0
+    }
+  ]
+}

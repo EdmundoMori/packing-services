@@ -1,0 +1,23 @@
+{
+  "key": "fixed|greedy_best_fit|00102093",
+  "order_id": "00102093",
+  "target": "rollcontainer",
+  "arm": "fixed",
+  "label": "greedy_best_fit",
+  "seed": null,
+  "status": "ok",
+  "error": null,
+  "raw_u_geom": 0.7222260044642858,
+  "geometry_valid": true,
+  "contrast_matches": true,
+  "contrast_errors": [],
+  "rule_counts": {
+    "greedy_best_fit": 15,
+    "lowest_top": 0,
+    "least_height_increase": 0
+  },
+  "n_decisions": 15,
+  "wall_seconds": 0.15821884899924044,
+  "physical_stability_verified": null,
+  "sampled_ppo": false
+}

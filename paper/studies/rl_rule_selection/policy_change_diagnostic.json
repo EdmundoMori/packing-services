@@ -1,0 +1,92 @@
+{
+  "observations_saved": false,
+  "sufficient_for_probability_or_action_comparison": false,
+  "reconstruction_performed": false,
+  "reason": "El historial guarda episodios y actualizaciones, no los vectores de observación. La última captura trae acciones de un episodio, sin la observación usada por el actor. No se reconstruye la trayectoria.",
+  "kl_or_entropy_threshold_imposed": false,
+  "tensors": [
+    {
+      "seed": 101,
+      "parameter_names": [
+        "0.bias",
+        "0.weight",
+        "2.bias",
+        "2.weight"
+      ],
+      "identical": false,
+      "max_abs_difference": 0.030360078439116478,
+      "initial_last_weight_is_zero": true,
+      "initial_last_bias": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "final_last_bias": [
+        0.9933154582977295,
+        -0.0015150117687880993,
+        0.007620960474014282
+      ],
+      "initial_deterministic_logits_on_zero_observation": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "seed": 102,
+      "parameter_names": [
+        "0.bias",
+        "0.weight",
+        "2.bias",
+        "2.weight"
+      ],
+      "identical": false,
+      "max_abs_difference": 0.047664836049079895,
+      "initial_last_weight_is_zero": true,
+      "initial_last_bias": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "final_last_bias": [
+        0.9877738952636719,
+        0.01139924954622984,
+        0.0017888834699988365
+      ],
+      "initial_deterministic_logits_on_zero_observation": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "seed": 103,
+      "parameter_names": [
+        "0.bias",
+        "0.weight",
+        "2.bias",
+        "2.weight"
+      ],
+      "identical": false,
+      "max_abs_difference": 0.02964659035205841,
+      "initial_last_weight_is_zero": true,
+      "initial_last_bias": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "final_last_bias": [
+        0.9898609519004822,
+        -0.0018868179759010673,
+        0.014786146581172943
+      ],
+      "initial_deterministic_logits_on_zero_observation": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "proportion_of_decisions_different_from_initial_actor": null,
+  "different_rule_versus_different_geometry": null
+}

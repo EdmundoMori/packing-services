@@ -1,0 +1,130 @@
+{
+  "evaluation_complete": true,
+  "n_cases": 360,
+  "n_scored": 360,
+  "problems": [],
+  "status_counts": {
+    "ok": 360
+  },
+  "summary": {
+    "n_orders": 40,
+    "aggregation": "igual peso por pedido y después por semilla",
+    "fixed_rule_means": {
+      "greedy_best_fit": 0.6490688532366071,
+      "lowest_top": 0.6467826590401785,
+      "least_height_increase": 0.6441794205729167
+    },
+    "reference_rule": "greedy_best_fit",
+    "reference_tie_epsilon": 1e-12,
+    "outcome_tie_epsilon": 1e-09,
+    "per_seed": [
+      {
+        "seed": 101,
+        "mean_rl_minus_reference": 0.0,
+        "mean_rl_minus_uniform": -0.0021927194940476154,
+        "by_target": {
+          "euro-pallet": 0.0,
+          "rollcontainer": 0.0
+        },
+        "outcomes_versus_reference": {
+          "victoria": 0,
+          "empate": 40,
+          "derrota": 0
+        },
+        "mean_rl_minus_each_fixed_rule": {
+          "greedy_best_fit": 0.0,
+          "lowest_top": 0.0022861941964285788,
+          "least_height_increase": 0.004889432663690479
+        }
+      },
+      {
+        "seed": 102,
+        "mean_rl_minus_reference": 0.0,
+        "mean_rl_minus_uniform": -0.004492198660714283,
+        "by_target": {
+          "euro-pallet": 0.0,
+          "rollcontainer": 0.0
+        },
+        "outcomes_versus_reference": {
+          "victoria": 0,
+          "empate": 40,
+          "derrota": 0
+        },
+        "mean_rl_minus_each_fixed_rule": {
+          "greedy_best_fit": 0.0,
+          "lowest_top": 0.0022861941964285788,
+          "least_height_increase": 0.004889432663690479
+        }
+      },
+      {
+        "seed": 103,
+        "mean_rl_minus_reference": 0.0,
+        "mean_rl_minus_uniform": 0.012486530412946437,
+        "by_target": {
+          "euro-pallet": 0.0,
+          "rollcontainer": 0.0
+        },
+        "outcomes_versus_reference": {
+          "victoria": 0,
+          "empate": 40,
+          "derrota": 0
+        },
+        "mean_rl_minus_each_fixed_rule": {
+          "greedy_best_fit": 0.0,
+          "lowest_top": 0.0022861941964285788,
+          "least_height_increase": 0.004889432663690479
+        }
+      }
+    ],
+    "aggregate_rl_minus_reference": 0.0,
+    "aggregate_rl_minus_uniform": 0.0019338707527281793,
+    "aggregate_by_target": {
+      "euro-pallet": 0.0,
+      "rollcontainer": 0.0
+    },
+    "positive_reference_seeds": 0
+  },
+  "gate": {
+    "applied": true,
+    "passed": false,
+    "conditions": {
+      "media_rl_menos_mejor_fija": false,
+      "positiva_en_al_menos_dos_semillas": false,
+      "no_negativo_en_cada_target": true,
+      "media_rl_menos_uniforme": true,
+      "integridad_y_evaluacion_completa": true
+    },
+    "margin": 0.005
+  },
+  "ppo_rule_frequencies": {
+    "101": {
+      "counts": {
+        "greedy_best_fit": 1577,
+        "lowest_top": 0,
+        "least_height_increase": 0
+      },
+      "n_decisions": 1577
+    },
+    "102": {
+      "counts": {
+        "greedy_best_fit": 1577,
+        "lowest_top": 0,
+        "least_height_increase": 0
+      },
+      "n_decisions": 1577
+    },
+    "103": {
+      "counts": {
+        "greedy_best_fit": 1577,
+        "lowest_top": 0,
+        "least_height_increase": 0
+      },
+      "n_decisions": 1577
+    }
+  },
+  "physical_stability_verified": null,
+  "train_returns_used_as_generalization": false,
+  "online_bph_executed": false,
+  "final_test_executed": false,
+  "seed_selected": false
+}

@@ -1,0 +1,23 @@
+{
+  "key": "ppo|101|00109991",
+  "order_id": "00109991",
+  "target": "rollcontainer",
+  "arm": "ppo",
+  "label": "101",
+  "seed": 101,
+  "status": "ok",
+  "error": null,
+  "raw_u_geom": 0.6533934151785714,
+  "geometry_valid": true,
+  "contrast_matches": true,
+  "contrast_errors": [],
+  "rule_counts": {
+    "greedy_best_fit": 13,
+    "lowest_top": 0,
+    "least_height_increase": 0
+  },
+  "n_decisions": 13,
+  "wall_seconds": 0.10579372700158274,
+  "physical_stability_verified": null,
+  "sampled_ppo": false
+}

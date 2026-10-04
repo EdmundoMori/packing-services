@@ -1,0 +1,34 @@
+{
+  "status": "completa",
+  "decisions": 6144,
+  "updates": 12,
+  "adam_steps": 192,
+  "nonfinite": 0,
+  "distinct_proposal_decisions": 4972,
+  "open_episode": {
+    "kind": "episode",
+    "order_id": "00106506",
+    "target": "rollcontainer",
+    "n_items": 45,
+    "step_calls": 5,
+    "placed": 5,
+    "distinct_proposal_steps": 4,
+    "termination": "corte_de_presupuesto",
+    "elapsed_seconds": 266.12299193000035
+  },
+  "equal_budget": true,
+  "seed": 101,
+  "wall_seconds": 266.866834026001,
+  "cpu_user_seconds": 244.147937,
+  "cpu_system_seconds": 1.303847,
+  "ru_maxrss_kb": 692336,
+  "torch_threads": 1,
+  "audit": {
+    "internal_geometry_valid": true,
+    "n_overlap_pairs": 0,
+    "n_boxes_outside_bin": 0,
+    "physical_stability_verified": null
+  },
+  "reward_used_for_selection": false,
+  "historical_checkpoint_loaded": false
+}

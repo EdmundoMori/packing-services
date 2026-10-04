@@ -1,0 +1,1 @@
+Arranque abortado antes de cualquier episodio. El proceso padre se lanzó desde stdin y spawn no pudo reimportar `<stdin>`. Hay 360 result.json en pending y cero capture.json. No es una evaluación ni un reintento de casos empaquetados.

@@ -1,0 +1,23 @@
+{
+  "key": "uniform|102|00104160",
+  "order_id": "00104160",
+  "target": "rollcontainer",
+  "arm": "uniform",
+  "label": "102",
+  "seed": 102,
+  "status": "ok",
+  "error": null,
+  "raw_u_geom": 0.6913763392857143,
+  "geometry_valid": true,
+  "contrast_matches": true,
+  "contrast_errors": [],
+  "rule_counts": {
+    "greedy_best_fit": 5,
+    "lowest_top": 3,
+    "least_height_increase": 10
+  },
+  "n_decisions": 18,
+  "wall_seconds": 0.28370822299984866,
+  "physical_stability_verified": null,
+  "sampled_ppo": false
+}

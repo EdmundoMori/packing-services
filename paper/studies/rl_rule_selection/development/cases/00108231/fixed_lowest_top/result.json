@@ -1,0 +1,23 @@
+{
+  "key": "fixed|lowest_top|00108231",
+  "order_id": "00108231",
+  "target": "rollcontainer",
+  "arm": "fixed",
+  "label": "lowest_top",
+  "seed": null,
+  "status": "ok",
+  "error": null,
+  "raw_u_geom": 0.40123995535714285,
+  "geometry_valid": true,
+  "contrast_matches": true,
+  "contrast_errors": [],
+  "rule_counts": {
+    "greedy_best_fit": 0,
+    "lowest_top": 10,
+    "least_height_increase": 0
+  },
+  "n_decisions": 10,
+  "wall_seconds": 0.054899840000871336,
+  "physical_stability_verified": null,
+  "sampled_ppo": false
+}

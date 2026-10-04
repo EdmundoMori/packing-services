@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "study": "rl_rule_selection",
+  "status": "borrador",
+  "confirmatory_preregistration": false,
+  "training_authorized": false,
+  "real_orders_authorized": false,
+  "final_test_selected": false,
+  "final_test_executed": false,
+  "physical_stability_verified": null,
+  "question": "¿Una política PPO pequeña que selecciona reglas en estados propios mejora frente a cada regla fija bajo el mismo contrato y presupuesto?",
+  "novelty_claim": false,
+  "publication_claim": false,
+  "contract": {
+    "sequence": "input_order",
+    "lookahead_p": 1,
+    "select_s": 1,
+    "containers": 1,
+    "rotations": "compact",
+    "containment": true,
+    "non_overlap": true,
+    "max_weight": false,
+    "basic_stability": false,
+    "load_bearing": false,
+    "stop": "primer ítem actual sin candidata legal",
+    "physical_stability_verified": null
+  },
+  "rules": [
+    {
+      "action": 0,
+      "name": "greedy_best_fit",
+      "primary_key": "rank_key ascendente"
+    },
+    {
+      "action": 1,
+      "name": "lowest_top",
+      "primary_key": "z + altura orientada, ascendente"
+    },
+    {
+      "action": 2,
+      "name": "least_height_increase",
+      "primary_key": "max(altura_actual, z + altura orientada) - altura_actual, ascendente"
+    }
+  ],
+  "tie_break": "menor índice original en la lista legal compartida",
+  "duplicate_actions": "se conservan las tres acciones y se mide la redundancia geométrica",
+  "observation": {
+    "dimension": 36,
+    "includes": ["ítem actual", "estado colocado", "atributos de las tres propuestas"],
+    "excludes": ["sufijo", "identificadores", "cantidad de ítems restantes"],
+    "packed_scale": 1000,
+    "packed_scale_saturates": false,
+    "weight_scale_kg": 1000,
+    "support_ratio_in_reward": false
+  },
+  "model": {
+    "actor": "Linear(36, 64), ReLU, Linear(64, 3)",
+    "critic": "Linear(36, 64), ReLU, Linear(64, 1), parámetros separados",
+    "historical_weights": false,
+    "actor_last_weight": 0,
+    "actor_last_bias": [1.0, 0.0, 0.0],
+    "deterministic_initial_action": 0,
+    "stochastic_initial_greedy_probability": 0.5761168847658291,
+    "initialization_guarantees_greedy_return": false
+  },
+  "reward": {
+    "term": "volumen orientado colocado / volumen del contenedor",
+    "terminal_without_candidate": 0,
+    "gamma": 1,
+    "sum_equals": "U_geom",
+    "excluded_terms": ["altura", "soporte", "Q_hat"]
+  },
+  "ppo_proposal_not_frozen": {
+    "clip": 0.2,
+    "adam_lr": 0.0003,
+    "entropy_coef": 0.01,
+    "value_coef": 0.5,
+    "epochs_per_update": 4,
+    "gae_lambda": 1,
+    "advantage_normalization": "centradas y divididas por la desviación poblacional; si es 0, las ventajas normalizadas quedan en 0",
+    "rollout_decisions": 512,
+    "minibatch": 128,
+    "adam_betas": [0.9, 0.999],
+    "adam_eps": 1e-8,
+    "grad_clip_l2": 0.5,
+    "train_policy": "muestreo",
+    "eval_policy": "argmax"
+  },
+  "budget": {
+    "seeds": [101, 102, 103],
+    "max_decisions_per_seed": 60000,
+    "max_episodes_per_seed": 1000,
+    "training_hours_accumulated": 4,
+    "worker_seconds_per_seed": 4800,
+    "unused_worker_time_reassigned": false,
+    "campaign_hours": 8,
+    "device": "cpu",
+    "max_workers_initial": 2,
+    "torch_threads_per_worker": 1,
+    "limits_adjustable_after_results": false
+  },
+  "data_proposal": {
+    "train_per_target": 64,
+    "development_per_target": 20,
+    "final_per_target": 100,
+    "train_total": 128,
+    "development_total": 40,
+    "final_total": 200,
+    "ids_emitted": "solo train; desarrollo y test no",
+    "train_manifest": "paper/studies/rl_rule_selection/train_manifest.json",
+    "exposure_audit": "paper/studies/rl_rule_selection/exposure_audit.json",
+    "pool_path": "online_policy_ml/data/splits/val_order_ids_full.json",
+    "pool_n": 1500,
+    "historical_excluded_n": 8603,
+    "prior_study_ids_blocked_n": 56,
+    "remaining_euro_pallet": 609,
+    "remaining_rollcontainer": 735,
+    "required_per_target": 184,
+    "raw_signature_collisions_within_remaining": 0,
+    "raw_signature_collisions_against_blocked": 0,
+    "signature_limit": "La muestra de train usa la firma de snapshot compacto. 8658 identificadores excluidos presentes en el dataset recibieron firma; no hubo errores de firma ni clones descartados. Los 17 pickle no se abrieron. La independencia absoluta no se declara."
+  },
+  "development_selection": {
+    "checkpoint_per_seed": "solo el checkpoint del final del presupuesto de esa semilla",
+    "fixed_rule_reference": "mayor media de U_geom en los 40 pedidos de desarrollo; empate al menor índice de regla",
+    "select_best_seed": false
+  },
+  "final_evaluation": {
+    "paired_by_order": true,
+    "by_target": true,
+    "report_all_seeds": true,
+    "bootstrap": "re-muestreo de pedidos que conserva juntas las semillas de cada pedido",
+    "interval_containing_zero_is_equality": false
+  },
+  "baselines": ["greedy_best_fit", "lowest_top", "least_height_increase", "uniform_rule", "ppo", "online_bph"],
+  "excluded_baselines": ["learned_pct", "bed_bpp_leaderboard", "zhao_table_1"],
+  "preflight_command": ".venv/bin/python paper/studies/rl_rule_selection/tools/run_preflight.py --synthetic"
+}

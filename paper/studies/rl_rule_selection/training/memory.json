@@ -1,0 +1,9 @@
+{
+  "sampled_joint_rss_max_kb": 1601520,
+  "sampled_joint_rss_n": 509,
+  "sampled_joint_rss_note": "M\u00e1ximo de la suma de VmRSS del padre y de los workers vivos. No es ru_maxrss.",
+  "parent_ru_maxrss_kb": 219384,
+  "wall_seconds": 522.9520386949989,
+  "max_workers": 2,
+  "torch_threads_per_worker": 1
+}

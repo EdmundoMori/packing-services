@@ -1,0 +1,23 @@
+{
+  "key": "fixed|least_height_increase|00104709",
+  "order_id": "00104709",
+  "target": "euro-pallet",
+  "arm": "fixed",
+  "label": "least_height_increase",
+  "seed": null,
+  "status": "ok",
+  "error": null,
+  "raw_u_geom": 0.6381057291666666,
+  "geometry_valid": true,
+  "contrast_matches": true,
+  "contrast_errors": [],
+  "rule_counts": {
+    "greedy_best_fit": 0,
+    "lowest_top": 0,
+    "least_height_increase": 49
+  },
+  "n_decisions": 49,
+  "wall_seconds": 2.604543306002597,
+  "physical_stability_verified": null,
+  "sampled_ppo": false
+}

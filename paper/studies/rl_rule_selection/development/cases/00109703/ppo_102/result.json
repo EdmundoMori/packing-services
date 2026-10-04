@@ -1,0 +1,23 @@
+{
+  "key": "ppo|102|00109703",
+  "order_id": "00109703",
+  "target": "euro-pallet",
+  "arm": "ppo",
+  "label": "102",
+  "seed": 102,
+  "status": "ok",
+  "error": null,
+  "raw_u_geom": 0.7323677083333333,
+  "geometry_valid": true,
+  "contrast_matches": true,
+  "contrast_errors": [],
+  "rule_counts": {
+    "greedy_best_fit": 64,
+    "lowest_top": 0,
+    "least_height_increase": 0
+  },
+  "n_decisions": 64,
+  "wall_seconds": 7.192145463999623,
+  "physical_stability_verified": null,
+  "sampled_ppo": false
+}

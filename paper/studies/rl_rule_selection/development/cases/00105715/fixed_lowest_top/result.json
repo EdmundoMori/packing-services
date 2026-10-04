@@ -1,0 +1,23 @@
+{
+  "key": "fixed|lowest_top|00105715",
+  "order_id": "00105715",
+  "target": "euro-pallet",
+  "arm": "fixed",
+  "label": "lowest_top",
+  "seed": null,
+  "status": "ok",
+  "error": null,
+  "raw_u_geom": 0.6991125,
+  "geometry_valid": true,
+  "contrast_matches": true,
+  "contrast_errors": [],
+  "rule_counts": {
+    "greedy_best_fit": 0,
+    "lowest_top": 49,
+    "least_height_increase": 0
+  },
+  "n_decisions": 49,
+  "wall_seconds": 2.6794856779997644,
+  "physical_stability_verified": null,
+  "sampled_ppo": false
+}

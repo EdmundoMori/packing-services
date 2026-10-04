@@ -1,0 +1,767 @@
+{
+  "absolute_independence": false,
+  "double_count_avoided_by": "n_new y la unión; n_ids de cada fuente se suma aparte",
+  "sum_of_source_id_counts": 24646,
+  "union_unique": 8659,
+  "count_excess_from_overlapping_sources": 15987,
+  "union_in_pool": 156,
+  "union_in_pool_by_target": {
+    "euro-pallet": 71,
+    "rollcontainer": 85,
+    "other": 0,
+    "absent_from_dataset": 0
+  },
+  "pool_n": 1500,
+  "pool_by_target": {
+    "euro-pallet": 680,
+    "rollcontainer": 820
+  },
+  "remaining_in_pool_by_target": {
+    "euro-pallet": 609,
+    "rollcontainer": 735
+  },
+  "pool_not_used_as_exclusion": [
+    "online_policy_ml/data/splits/val_order_ids_full.json",
+    "online_policy_ml/versions/v1/data/splits/val_order_ids_full.json"
+  ],
+  "sources": [
+    {
+      "path": "online_policy_ml/data/splits/train_order_ids_full.json",
+      "kind": "json",
+      "bytes": 97988,
+      "missing": false,
+      "n_ids": 6999,
+      "n_new": 6999,
+      "n_already_excluded": 0,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/data/splits/test_order_ids_full.json",
+      "kind": "json",
+      "bytes": 20988,
+      "missing": false,
+      "n_ids": 1499,
+      "n_new": 1499,
+      "n_already_excluded": 0,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/data/train/order_ids.json",
+      "kind": "json",
+      "bytes": 338,
+      "missing": false,
+      "n_ids": 24,
+      "n_new": 0,
+      "n_already_excluded": 24,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/data/val/order_ids.json",
+      "kind": "json",
+      "bytes": 114,
+      "missing": false,
+      "n_ids": 8,
+      "n_new": 8,
+      "n_already_excluded": 0,
+      "n_in_pool": 8,
+      "in_pool_by_target": {
+        "euro-pallet": 4,
+        "rollcontainer": 4,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/data/test/order_ids.json",
+      "kind": "json",
+      "bytes": 114,
+      "missing": false,
+      "n_ids": 8,
+      "n_new": 0,
+      "n_already_excluded": 8,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/data/scale/train/order_ids.json",
+      "kind": "json",
+      "bytes": 1122,
+      "missing": false,
+      "n_ids": 80,
+      "n_new": 0,
+      "n_already_excluded": 80,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/data/scale/val/order_ids.json",
+      "kind": "json",
+      "bytes": 282,
+      "missing": false,
+      "n_ids": 20,
+      "n_new": 20,
+      "n_already_excluded": 0,
+      "n_in_pool": 20,
+      "in_pool_by_target": {
+        "euro-pallet": 7,
+        "rollcontainer": 13,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/data/scale/test/order_ids.json",
+      "kind": "json",
+      "bytes": 282,
+      "missing": false,
+      "n_ids": 20,
+      "n_new": 0,
+      "n_already_excluded": 20,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/data/holdout_producto/order_ids.json",
+      "kind": "json",
+      "bytes": 72,
+      "missing": false,
+      "n_ids": 5,
+      "n_new": 5,
+      "n_already_excluded": 0,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/train/order_ids.json",
+      "kind": "json",
+      "bytes": 338,
+      "missing": false,
+      "n_ids": 24,
+      "n_new": 0,
+      "n_already_excluded": 24,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/val/order_ids.json",
+      "kind": "json",
+      "bytes": 114,
+      "missing": false,
+      "n_ids": 8,
+      "n_new": 0,
+      "n_already_excluded": 8,
+      "n_in_pool": 8,
+      "in_pool_by_target": {
+        "euro-pallet": 4,
+        "rollcontainer": 4,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/test/order_ids.json",
+      "kind": "json",
+      "bytes": 114,
+      "missing": false,
+      "n_ids": 8,
+      "n_new": 0,
+      "n_already_excluded": 8,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/scale/train/order_ids.json",
+      "kind": "json",
+      "bytes": 1122,
+      "missing": false,
+      "n_ids": 80,
+      "n_new": 15,
+      "n_already_excluded": 65,
+      "n_in_pool": 15,
+      "in_pool_by_target": {
+        "euro-pallet": 5,
+        "rollcontainer": 10,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/scale/val/order_ids.json",
+      "kind": "json",
+      "bytes": 282,
+      "missing": false,
+      "n_ids": 20,
+      "n_new": 6,
+      "n_already_excluded": 14,
+      "n_in_pool": 6,
+      "in_pool_by_target": {
+        "euro-pallet": 2,
+        "rollcontainer": 4,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/scale/test/order_ids.json",
+      "kind": "json",
+      "bytes": 282,
+      "missing": false,
+      "n_ids": 20,
+      "n_new": 1,
+      "n_already_excluded": 19,
+      "n_in_pool": 1,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 1,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/splits/train_order_ids_full.json",
+      "kind": "json",
+      "bytes": 97988,
+      "missing": false,
+      "n_ids": 6999,
+      "n_new": 0,
+      "n_already_excluded": 6999,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/splits/test_order_ids_full.json",
+      "kind": "json",
+      "bytes": 20988,
+      "missing": false,
+      "n_ids": 1499,
+      "n_new": 0,
+      "n_already_excluded": 1499,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/holdout_producto/order_ids.json",
+      "kind": "json",
+      "bytes": 72,
+      "missing": false,
+      "n_ids": 5,
+      "n_new": 0,
+      "n_already_excluded": 5,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/protocols/07_independent_evaluation.json",
+      "kind": "json",
+      "bytes": 115314,
+      "missing": false,
+      "n_ids": 209,
+      "n_new": 0,
+      "n_already_excluded": 209,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/protocols/10_normalization_ablation.json",
+      "kind": "json",
+      "bytes": 20221,
+      "missing": false,
+      "n_ids": 82,
+      "n_new": 50,
+      "n_already_excluded": 32,
+      "n_in_pool": 58,
+      "in_pool_by_target": {
+        "euro-pallet": 29,
+        "rollcontainer": 29,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/protocols/14_teacher_probe.json",
+      "kind": "json",
+      "bytes": 3475,
+      "missing": false,
+      "n_ids": 0,
+      "n_new": 0,
+      "n_already_excluded": 0,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/protocols/16_compact_selector_study.json",
+      "kind": "json",
+      "bytes": 6732,
+      "missing": false,
+      "n_ids": 45,
+      "n_new": 0,
+      "n_already_excluded": 45,
+      "n_in_pool": 5,
+      "in_pool_by_target": {
+        "euro-pallet": 3,
+        "rollcontainer": 2,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/protocols/17_compact_calibration.json",
+      "kind": "json",
+      "bytes": 15238,
+      "missing": false,
+      "n_ids": 90,
+      "n_new": 0,
+      "n_already_excluded": 90,
+      "n_in_pool": 50,
+      "in_pool_by_target": {
+        "euro-pallet": 25,
+        "rollcontainer": 25,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/09_exposed_evaluation_ids.json",
+      "kind": "json",
+      "bytes": 5524,
+      "missing": false,
+      "n_ids": 220,
+      "n_new": 0,
+      "n_already_excluded": 220,
+      "n_in_pool": 20,
+      "in_pool_by_target": {
+        "euro-pallet": 7,
+        "rollcontainer": 13,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/03_confirmatory_candidates.json",
+      "kind": "json",
+      "bytes": 28917,
+      "missing": false,
+      "n_ids": 1499,
+      "n_new": 0,
+      "n_already_excluded": 1499,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/03_split_cross_audit.json",
+      "kind": "json",
+      "bytes": 8031,
+      "missing": false,
+      "n_ids": 0,
+      "n_new": 0,
+      "n_already_excluded": 0,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/06a_bc_transition_ids.json",
+      "kind": "json",
+      "bytes": 40509,
+      "missing": false,
+      "n_ids": 32,
+      "n_new": 0,
+      "n_already_excluded": 32,
+      "n_in_pool": 8,
+      "in_pool_by_target": {
+        "euro-pallet": 4,
+        "rollcontainer": 4,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/06a_candidate_exposure_by_target.json",
+      "kind": "json",
+      "bytes": 70644,
+      "missing": false,
+      "n_ids": 1499,
+      "n_new": 0,
+      "n_already_excluded": 1499,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/06_candidate_exposure_by_target.json",
+      "kind": "json",
+      "bytes": 78002,
+      "missing": false,
+      "n_ids": 1499,
+      "n_new": 0,
+      "n_already_excluded": 1499,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/07_sample_freeze.json",
+      "kind": "json",
+      "bytes": 65914,
+      "missing": false,
+      "n_ids": 1499,
+      "n_new": 0,
+      "n_already_excluded": 1499,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/10_normalization_freeze.json",
+      "kind": "json",
+      "bytes": 31713,
+      "missing": false,
+      "n_ids": 82,
+      "n_new": 0,
+      "n_already_excluded": 82,
+      "n_in_pool": 58,
+      "in_pool_by_target": {
+        "euro-pallet": 29,
+        "rollcontainer": 29,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/11_normalization_ablation/packing/verification.json",
+      "kind": "json",
+      "bytes": 3618,
+      "missing": false,
+      "n_ids": 50,
+      "n_new": 0,
+      "n_already_excluded": 50,
+      "n_in_pool": 50,
+      "in_pool_by_target": {
+        "euro-pallet": 25,
+        "rollcontainer": 25,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/11_normalization_ablation/packing/manifest.json",
+      "kind": "json",
+      "bytes": 3219,
+      "missing": false,
+      "n_ids": 0,
+      "n_new": 0,
+      "n_already_excluded": 0,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/04_internal_pilot/cases",
+      "kind": "case_directory",
+      "missing": false,
+      "n_ids": 20,
+      "n_new": 0,
+      "n_already_excluded": 20,
+      "n_in_pool": 20,
+      "in_pool_by_target": {
+        "euro-pallet": 7,
+        "rollcontainer": 13,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/07_independent_evaluation/cases",
+      "kind": "case_directory",
+      "missing": false,
+      "n_ids": 200,
+      "n_new": 0,
+      "n_already_excluded": 200,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/14_teacher_probe/cases",
+      "kind": "case_directory",
+      "missing": false,
+      "n_ids": 50,
+      "n_new": 0,
+      "n_already_excluded": 50,
+      "n_in_pool": 50,
+      "in_pool_by_target": {
+        "euro-pallet": 25,
+        "rollcontainer": 25,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/16_baseline_smoke/cases",
+      "kind": "case_directory",
+      "missing": false,
+      "n_ids": 5,
+      "n_new": 0,
+      "n_already_excluded": 5,
+      "n_in_pool": 5,
+      "in_pool_by_target": {
+        "euro-pallet": 3,
+        "rollcontainer": 2,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/16a_onlinebph_capture_smoke/cases",
+      "kind": "case_directory",
+      "missing": false,
+      "n_ids": 5,
+      "n_new": 0,
+      "n_already_excluded": 5,
+      "n_in_pool": 5,
+      "in_pool_by_target": {
+        "euro-pallet": 3,
+        "rollcontainer": 2,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/17_compact_calibration/cases/train",
+      "kind": "case_directory",
+      "missing": false,
+      "n_ids": 40,
+      "n_new": 0,
+      "n_already_excluded": 40,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/17_compact_calibration/cases/development",
+      "kind": "case_directory",
+      "missing": false,
+      "n_ids": 50,
+      "n_new": 0,
+      "n_already_excluded": 50,
+      "n_in_pool": 50,
+      "in_pool_by_target": {
+        "euro-pallet": 25,
+        "rollcontainer": 25,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/results/11_normalization_ablation/packing",
+      "kind": "case_directory",
+      "missing": false,
+      "n_ids": 0,
+      "n_new": 0,
+      "n_already_excluded": 0,
+      "n_in_pool": 0,
+      "in_pool_by_target": {
+        "euro-pallet": 0,
+        "rollcontainer": 0,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/studies/counterfactual_ranking/sample_manifest.json",
+      "kind": "json",
+      "bytes": 13795,
+      "missing": false,
+      "n_ids": 20,
+      "n_new": 20,
+      "n_already_excluded": 0,
+      "n_in_pool": 20,
+      "in_pool_by_target": {
+        "euro-pallet": 10,
+        "rollcontainer": 10,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/studies/counterfactual_ranking/learning_protocol_frozen.json",
+      "kind": "json",
+      "bytes": 27134,
+      "missing": false,
+      "n_ids": 56,
+      "n_new": 36,
+      "n_already_excluded": 20,
+      "n_in_pool": 56,
+      "in_pool_by_target": {
+        "euro-pallet": 28,
+        "rollcontainer": 28,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/studies/counterfactual_ranking/diagnostic_results/orders",
+      "kind": "path_names",
+      "missing": false,
+      "n_ids": 20,
+      "n_new": 0,
+      "n_already_excluded": 20,
+      "n_in_pool": 20,
+      "in_pool_by_target": {
+        "euro-pallet": 10,
+        "rollcontainer": 10,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/studies/counterfactual_ranking/learning_labels/orders",
+      "kind": "path_names",
+      "missing": false,
+      "n_ids": 36,
+      "n_new": 0,
+      "n_already_excluded": 36,
+      "n_in_pool": 36,
+      "in_pool_by_target": {
+        "euro-pallet": 18,
+        "rollcontainer": 18,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    },
+    {
+      "path": "paper/studies/counterfactual_ranking/learning_packing/cases",
+      "kind": "path_names",
+      "missing": false,
+      "n_ids": 12,
+      "n_new": 0,
+      "n_already_excluded": 12,
+      "n_in_pool": 12,
+      "in_pool_by_target": {
+        "euro-pallet": 6,
+        "rollcontainer": 6,
+        "other": 0,
+        "absent_from_dataset": 0
+      }
+    }
+  ],
+  "limits": [
+    "Los 17 pickle históricos no se abrieron.",
+    "No se abrieron checkpoints ni pesos.",
+    "No se recorrieron auditorías JSON grandes; solo listas de ids, protocolos, manifiestos pequeños y nombres de carpeta.",
+    "El protocolo 10 dejó fuera de su exclusión el scale test por falta de una lista histórica. Esta selección sí lee esos order_ids.json si existen.",
+    "Los directorios del estudio counterfactual aportan identificadores por nombre de archivo o carpeta, sin abrir el contenido ni sus U_geom.",
+    "No se eligen ni se consultan resultados de desarrollo o de test de este estudio.",
+    "La independencia absoluta no se declara: pickle no leídos, archivos grandes omitidos y firmas ausentes del dataset quedan fuera de la comprobación."
+  ],
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "pool": "online_policy_ml/data/splits/val_order_ids_full.json",
+  "pool_sha256": "530b1f623f19867f5a178564180d77667597c43d491a0eff1596f1615f8df2b5",
+  "n_excluded_ids": 8659
+}
