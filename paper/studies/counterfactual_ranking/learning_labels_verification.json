@@ -1,0 +1,61 @@
+{
+  "role": "verificacion_de_etiquetas",
+  "training": false,
+  "authorizes_training": false,
+  "status": "completed",
+  "protocol_sha256": "5fd74cc0a6fc52aaf248a977934d9e199919096aa82c3ae6b0309a03e6aa6946",
+  "orders": 36,
+  "states_labeled": 144,
+  "states_complete": 144,
+  "incomplete_states": [],
+  "continuations": 553,
+  "unknown_returns": 0,
+  "duplicate_keys": 0,
+  "capture_q_hat_mismatches": 0,
+  "physical_stability_verified": null,
+  "quantile_index_mismatches": 0,
+  "normalization_refit_max_abs_delta": 9.992007221626409e-16,
+  "normalization_note": "El reajuste desde las filas guardadas difiere de normalization.json solo en el redondeo decimal del JSON, por debajo de 1e-15.",
+  "normalization_train_rows": 368,
+  "development_rows": 185,
+  "gap_vs_greedy": {
+    "positive": 74,
+    "zero": 392,
+    "negative": 87
+  },
+  "elapsed_seconds": 1378.8725992719992,
+  "state_acquisition_seconds": 88.06748423600948,
+  "continuation_seconds": 846.9455351299512,
+  "capture_seconds": 0.16351330999896163,
+  "audit_seconds": 438.7714500490474,
+  "coverage": {
+    "train": {
+      "euro-pallet": {
+        "orders": 12,
+        "choice_states": 660,
+        "labeled_states": 48,
+        "continuations": 187
+      },
+      "rollcontainer": {
+        "orders": 12,
+        "choice_states": 359,
+        "labeled_states": 48,
+        "continuations": 181
+      }
+    },
+    "development": {
+      "euro-pallet": {
+        "orders": 6,
+        "choice_states": 291,
+        "labeled_states": 24,
+        "continuations": 94
+      },
+      "rollcontainer": {
+        "orders": 6,
+        "choice_states": 177,
+        "labeled_states": 24,
+        "continuations": 91
+      }
+    }
+  }
+}

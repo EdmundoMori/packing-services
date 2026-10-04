@@ -1,6 +1,6 @@
 # Diseño del experimento de aprendizaje
 
-Este documento diseña el experimento. No lo ejecuta. No genera continuaciones ni entrena. El protocolo compañero es un borrador: faltan decisiones y no está congelado.
+Este documento recoge el diseño. El protocolo operativo de las etiquetas es `learning_protocol_frozen.md`. El borrador queda como antecedente. El entrenamiento no forma parte de este diseño.
 
 ## Pregunta
 
@@ -83,16 +83,11 @@ Una mejora de ranking no se presenta como mejora de episodios.
 
 ## Puerta propuesta
 
-Es una puerta práctica de desarrollo. No es la puerta del diagnóstico, no es una significación y no autoriza a entrenar por sí sola. No está aplicada.
+Es una puerta práctica de desarrollo. No es la puerta del diagnóstico, no es una significación y no autoriza publicación. No está aplicada: todavía no hay actores entrenados.
 
-La integridad va primero: menos de un 5 % de retornos desconocidos entre las continuaciones programadas de los estados capturados, los dos brazos sobre los mismos estados completos, las tres semillas informadas, geometría auditada, paredes respetadas y `physical_stability_verified` null. Si falla, el resultado queda inconcluso.
+El delta es el `U_geom` de un episodio completo, el mismo pedido y la misma semilla. Cada pedido pesa igual y, después, cada semilla pesa igual. Se avanza con esta configuración solo si se cumplen las cinco condiciones del protocolo congelado: media de preferencias menos clasificación de al menos 0.005, esa diferencia positiva en al menos dos de tres semillas, media de preferencias menos Greedy de al menos 0.01, esa diferencia no negativa en ninguno de los dos targets, e integridad y cobertura del evaluador. Incumplirla significa no avanzar con esta configuración. No es una refutación universal del aprendizaje de preferencias.
 
-Con integridad suficiente, las cláusulas se leen por separado:
-
-- Preferencias mejor que clasificación: la media sobre semillas de la diferencia pareada de `U_geom` supera 0.005, al menos dos semillas son positivas y el signo no cambia.
-- Mejora frente a Greedy: la media sobre semillas de la diferencia pareada supera 0.01 y cada target, por separado, queda por encima de 0. Una media de target inferior a −0.01 es un deterioro y bloquea la mejora global.
-- Variación entre semillas: un cambio de signo deja la cláusula inconclusa.
-- El ranking se informa y no cumple esas dos cláusulas.
+El ranking se informa y no sustituye a esas condiciones.
 
 ## Presupuesto estimado
 
@@ -100,9 +95,9 @@ La media medida de continuación más auditoría en las 391 continuaciones nueva
 
 El peor caso de 576 continuaciones a 60 segundos son 34560 segundos y no cabe en la pared de etiquetas de 14400. El presupuesto, si se acepta al congelar, sería truncado. La pared de entrenamiento propuesta es 600 segundos por cada una de las seis corridas. La de evaluación es 7200 segundos para como máximo 84 episodios, con 60 segundos de decisión y 60 de auditoría por episodio. El tiempo de entrenamiento y el de un episodio del actor no están medidos. Al agotarse una pared se para y se registra lo pendiente.
 
-## Qué refutaría la hipótesis
+## Qué impediría avanzar
 
-Con la integridad en orden, la hipótesis queda refutada en este desarrollo si la ventaja pareada de preferencias sobre clasificación no supera 0.005 al promediar las tres semillas, si menos de dos semillas son positivas, o si el signo cambia entre semillas. También queda sin apoyo si solo mejora el regret y los episodios no se mueven.
+Con la integridad en orden, no se avanza con esta configuración si la media pareada de preferencias menos clasificación queda por debajo de 0.005, si esa diferencia es positiva en menos de dos semillas, o si la comparación con Greedy no cumple su umbral o empeora un target. Tampoco se avanza si solo mejora el ranking y los episodios no se mueven. Ese resultado no refuta el aprendizaje de preferencias fuera de este piloto.
 
 ## Qué se podría afirmar si funciona
 
@@ -110,4 +105,4 @@ En estos 12 pedidos de desarrollo, con esta arquitectura, estas entradas y etiqu
 
 ## Pendiente
 
-Congelar el borrador. Aceptar los umbrales, las épocas, la tasa y el coeficiente de empate. Implementar el encoder, las pérdidas y el ejecutor. Calcular la normalización cuando existan filas de train. Elegir el test final en otro paso. Medir el coste de la trayectoria completa y de los episodios del actor.
+Entrenar los dos brazos con la configuración ya congelada. Evaluar episodios y aplicar la puerta. Elegir el test final en otro paso. El encoder, las pérdidas y la regla de cuantiles ya están implementados; las etiquetas, si esta corrida termina, quedan en `learning_labels/`.

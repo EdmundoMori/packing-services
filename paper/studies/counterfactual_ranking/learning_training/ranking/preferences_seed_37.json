@@ -1,0 +1,364 @@
+{
+  "train": {
+    "per_order": [
+      {
+        "order_id": "00100355",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.0,
+        "match_rate": 1.0,
+        "logit_ties": 0,
+        "q_multi_max": 4
+      },
+      {
+        "order_id": "00100386",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.0,
+        "match_rate": 1.0,
+        "logit_ties": 0,
+        "q_multi_max": 4
+      },
+      {
+        "order_id": "00100563",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.014464285714285707,
+        "match_rate": 0.75,
+        "logit_ties": 0,
+        "q_multi_max": 2
+      },
+      {
+        "order_id": "00101170",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.003294270833333335,
+        "match_rate": 0.75,
+        "logit_ties": 0,
+        "q_multi_max": 3
+      },
+      {
+        "order_id": "00102109",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.0,
+        "match_rate": 1.0,
+        "logit_ties": 0,
+        "q_multi_max": 4
+      },
+      {
+        "order_id": "00102146",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.0,
+        "match_rate": 1.0,
+        "logit_ties": 0,
+        "q_multi_max": 4
+      },
+      {
+        "order_id": "00102177",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.0,
+        "match_rate": 1.0,
+        "logit_ties": 0,
+        "q_multi_max": 4
+      },
+      {
+        "order_id": "00102583",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.0,
+        "match_rate": 1.0,
+        "logit_ties": 0,
+        "q_multi_max": 4
+      },
+      {
+        "order_id": "00103442",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.0,
+        "match_rate": 1.0,
+        "logit_ties": 0,
+        "q_multi_max": 4
+      },
+      {
+        "order_id": "00103630",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.02605379464285712,
+        "match_rate": 0.75,
+        "logit_ties": 0,
+        "q_multi_max": 3
+      },
+      {
+        "order_id": "00104315",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.0,
+        "match_rate": 1.0,
+        "logit_ties": 0,
+        "q_multi_max": 2
+      },
+      {
+        "order_id": "00104830",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.0,
+        "match_rate": 1.0,
+        "logit_ties": 0,
+        "q_multi_max": 4
+      },
+      {
+        "order_id": "00104935",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.0020073660714285957,
+        "match_rate": 0.75,
+        "logit_ties": 0,
+        "q_multi_max": 3
+      },
+      {
+        "order_id": "00105104",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.01593750000000002,
+        "match_rate": 0.75,
+        "logit_ties": 0,
+        "q_multi_max": 3
+      },
+      {
+        "order_id": "00106020",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.03938567708333332,
+        "match_rate": 0.25,
+        "logit_ties": 0,
+        "q_multi_max": 0
+      },
+      {
+        "order_id": "00106148",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.0,
+        "match_rate": 1.0,
+        "logit_ties": 0,
+        "q_multi_max": 1
+      },
+      {
+        "order_id": "00106295",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.0024062500000000264,
+        "match_rate": 0.75,
+        "logit_ties": 0,
+        "q_multi_max": 2
+      },
+      {
+        "order_id": "00106662",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.017614508928571415,
+        "match_rate": 0.5,
+        "logit_ties": 0,
+        "q_multi_max": 1
+      },
+      {
+        "order_id": "00106863",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.0,
+        "match_rate": 1.0,
+        "logit_ties": 0,
+        "q_multi_max": 4
+      },
+      {
+        "order_id": "00107053",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.0073124999999999996,
+        "match_rate": 0.75,
+        "logit_ties": 0,
+        "q_multi_max": 2
+      },
+      {
+        "order_id": "00107700",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.01339062499999999,
+        "match_rate": 0.75,
+        "logit_ties": 0,
+        "q_multi_max": 3
+      },
+      {
+        "order_id": "00108396",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.0,
+        "match_rate": 1.0,
+        "logit_ties": 0,
+        "q_multi_max": 2
+      },
+      {
+        "order_id": "00108605",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.05459665178571427,
+        "match_rate": 0.25,
+        "logit_ties": 0,
+        "q_multi_max": 1
+      },
+      {
+        "order_id": "00109873",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.022825000000000012,
+        "match_rate": 0.75,
+        "logit_ties": 0,
+        "q_multi_max": 3
+      }
+    ],
+    "by_target": {
+      "euro-pallet": {
+        "orders": 12,
+        "regret": 0.004366558159722224
+      },
+      "rollcontainer": {
+        "orders": 12,
+        "regret": 0.013907477678571428
+      }
+    },
+    "regret": 0.009137017919146825,
+    "states": 96,
+    "matches_maximum": 79,
+    "logit_ties": 0,
+    "q_multi_max_states": 67
+  },
+  "development": {
+    "per_order": [
+      {
+        "order_id": "00103051",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.03650357142857141,
+        "match_rate": 0.5,
+        "logit_ties": 0,
+        "q_multi_max": 3
+      },
+      {
+        "order_id": "00103159",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.013101171875000012,
+        "match_rate": 0.75,
+        "logit_ties": 0,
+        "q_multi_max": 3
+      },
+      {
+        "order_id": "00103413",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.028762500000000024,
+        "match_rate": 0.5,
+        "logit_ties": 0,
+        "q_multi_max": 2
+      },
+      {
+        "order_id": "00103739",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.023304687500000004,
+        "match_rate": 0.75,
+        "logit_ties": 0,
+        "q_multi_max": 2
+      },
+      {
+        "order_id": "00104057",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.021614062500000003,
+        "match_rate": 0.25,
+        "logit_ties": 0,
+        "q_multi_max": 3
+      },
+      {
+        "order_id": "00105335",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.0174828125,
+        "match_rate": 0.5,
+        "logit_ties": 0,
+        "q_multi_max": 4
+      },
+      {
+        "order_id": "00105951",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.03666696428571431,
+        "match_rate": 0.0,
+        "logit_ties": 0,
+        "q_multi_max": 1
+      },
+      {
+        "order_id": "00105977",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "regret": 0.053974553571428524,
+        "match_rate": 0.25,
+        "logit_ties": 0,
+        "q_multi_max": 2
+      },
+      {
+        "order_id": "00106393",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.0,
+        "match_rate": 1.0,
+        "logit_ties": 0,
+        "q_multi_max": 4
+      },
+      {
+        "order_id": "00107085",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.0,
+        "match_rate": 1.0,
+        "logit_ties": 0,
+        "q_multi_max": 4
+      },
+      {
+        "order_id": "00109022",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.0,
+        "match_rate": 1.0,
+        "logit_ties": 0,
+        "q_multi_max": 4
+      },
+      {
+        "order_id": "00109092",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "regret": 0.002479166666666671,
+        "match_rate": 0.75,
+        "logit_ties": 0,
+        "q_multi_max": 1
+      }
+    ],
+    "by_target": {
+      "euro-pallet": {
+        "orders": 6,
+        "regret": 0.005510525173611114
+      },
+      "rollcontainer": {
+        "orders": 6,
+        "regret": 0.033471056547619046
+      }
+    },
+    "regret": 0.01949079086061508,
+    "states": 48,
+    "matches_maximum": 29,
+    "logit_ties": 0,
+    "q_multi_max_states": 33
+  }
+}

@@ -1,0 +1,654 @@
+{
+  "document": "learning_protocol_frozen",
+  "status": "congelado_para_generar_etiquetas",
+  "called_freeze": true,
+  "frozen_at_utc": "2026-10-03T19:17:02Z",
+  "antecedent": "paper/studies/counterfactual_ranking/learning_protocol_draft.json",
+  "antecedent_sha256": "9fcf275e162ff433d89265472dcfb1db78f779c01f1ab9bb8989fca592f51981",
+  "confirmatory": false,
+  "pilot": true,
+  "labels_executed_when_frozen": false,
+  "training": false,
+  "authorizes_training": false,
+  "automatic_training": false,
+  "final_test_selected": false,
+  "final_test_consulted": false,
+  "physical_stability_verified": null,
+  "novelty_claimed": false,
+  "publishability_claimed": false,
+  "question": "¿Aprender diferencias de retorno entre candidatas mejora el packing frente a aprender únicamente la identidad de la mejor candidata, manteniendo datos, observabilidad, arquitectura y motor constantes?",
+  "gate_failure_meaning": "No avanzar con esta configuración. No es una refutación universal del aprendizaje de preferencias.",
+  "allowed_claim_if_it_passes": "En estos 12 pedidos de desarrollo, con esta arquitectura, estas entradas y etiquetas de estados Greedy, las preferencias superaron a la clasificación y a GreedyBestFit según la puerta. Eso no sería un test final, no evaluaría estabilidad física, no homologaría al actor histórico y no afirmaría novedad ni publicabilidad.",
+  "limits": [
+    "Los estados de etiqueta salen de trayectorias Greedy y siguen sin ser los estados que visitará el actor.",
+    "Como máximo cuatro estados con elección por pedido, repartidos por cuantiles, no todos los estados.",
+    "Como máximo cuatro candidatas examinadas por estado, incluida Greedy.",
+    "Q_hat usa el sufijo real y una continuación Greedy. El actor no recibe ese sufijo.",
+    "El máximo por estado no es el rendimiento de una política.",
+    "La señal del diagnóstico no prueba que las características predigan el retorno.",
+    "physical_stability_verified permanece null.",
+    "Euro-pallet se conserva en train y en desarrollo aunque su margen diagnóstico fue más débil."
+  ],
+  "loss_comparison_limit": "Los objetivos y sus escalas son distintos. Una diferencia entre pérdidas no demuestra que se deba solo a la ponderación por magnitud.",
+  "contract": "El mismo contrato geométrico del diagnóstico: secuencia original, un contenedor del target propio, p=s=1, hasta seis permutaciones, contención y no solape, peso y estabilidad inactivos, parada en el primer ítem sin candidata.",
+  "dataset": {
+    "path": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+    "sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+    "pool": "online_policy_ml/data/splits/val_order_ids_full.json",
+    "pool_sha256": "530b1f623f19867f5a178564180d77667597c43d491a0eff1596f1615f8df2b5",
+    "exclusion_ids_sha256": "fa27ae825c1e2b5a637c6e4ed0b8e5febbc88edbd9fbcc78826f87001b741a9b",
+    "additional_blocked_order_ids": [
+      "00109938",
+      "00109266",
+      "00102701",
+      "00108060",
+      "00104500",
+      "00103525",
+      "00100812",
+      "00109602",
+      "00109122",
+      "00104671",
+      "00105640",
+      "00109225",
+      "00100129",
+      "00103399",
+      "00105687",
+      "00107454",
+      "00109271",
+      "00105150",
+      "00109874",
+      "00101397"
+    ],
+    "eligible_after_blocking_diagnostic": {
+      "euro-pallet": 627,
+      "rollcontainer": 753
+    },
+    "selection_prefix": "counterfactual-learn-v1|20261003|",
+    "clone_rule": "La misma firma compacta del manifiesto diagnóstico, aplicada antes de cualquier ajuste. Se bloquean las firmas de los pedidos ya excluidos y de los 20 del diagnóstico.",
+    "dropped_clones": [],
+    "packing_executed": false,
+    "final_test_selected": false,
+    "final_test_opened_for_selection": false
+  },
+  "splits": {
+    "euro-pallet": {
+      "development": [
+        {
+          "order_id": "00106393",
+          "target": "euro-pallet",
+          "selection_hash": "00fc402fbf6b9c9597206eca361b183649edc853580ab44c599fcd436404c39c",
+          "signature": "7352c7a89d1df33192866a3e0878a7a17ba7390a92ffde40be64ab7f9d67a78e",
+          "n_items": 42
+        },
+        {
+          "order_id": "00103159",
+          "target": "euro-pallet",
+          "selection_hash": "012e5d2a3f7a320bbbed7742019b8acbdab18ac15d5decd82448b7c3583aeba0",
+          "signature": "53c28eb2603ceddd0b30dd6a6da98b78c0849ccc98bd362fd7795b73ecfe12cb",
+          "n_items": 41
+        },
+        {
+          "order_id": "00105335",
+          "target": "euro-pallet",
+          "selection_hash": "0158c4573f19515be1230d6e37ea0c840477d10815d720dffd004d2956a75d4e",
+          "signature": "19358bf9780db08fa3602970b9ced1f05b7411781a5d08793ac1864610832d69",
+          "n_items": 60
+        },
+        {
+          "order_id": "00109022",
+          "target": "euro-pallet",
+          "selection_hash": "0175b5acfb84c844771bd4347168e98271f4be186e7dce7f431e256bb4bfebf4",
+          "signature": "da329e38cf107b0673f6076b3ce81f41429e62cdb0afd6ffc5fd241ac4f2b869",
+          "n_items": 44
+        },
+        {
+          "order_id": "00107085",
+          "target": "euro-pallet",
+          "selection_hash": "023e815f9635eceab5eefd9d05622e12b88c2eb3cb6562e067730e03523e2840",
+          "signature": "2d9882aa72ab7cb3407e421e66c7cd4813e14f889433280f7c4046cbc544758a",
+          "n_items": 45
+        },
+        {
+          "order_id": "00109092",
+          "target": "euro-pallet",
+          "selection_hash": "025c5cf8e9a5d2e28cf7a16d15e895f1e09f4906ffaa043f365ee4720474149d",
+          "signature": "e566cd83c2ee037bfc90da691484d4e4e92d1703a80662ddc45678311eab3d56",
+          "n_items": 82
+        }
+      ],
+      "train": [
+        {
+          "order_id": "00106295",
+          "target": "euro-pallet",
+          "selection_hash": "02e490f12c79542cc4c3c81a71343546759c28a79a3642e48a7753837fd0b952",
+          "signature": "58af9bb5d3e33c1ef6101d7e33f24bfc367f5533ab5441152e49835593a9b67c",
+          "n_items": 48
+        },
+        {
+          "order_id": "00102109",
+          "target": "euro-pallet",
+          "selection_hash": "0309e81922bd3a9f38d27e1e62269673621de5214af6bc7d0856ff8fd1bfd3c1",
+          "signature": "6f67b4e28ce43bac1f9bedba3b01e87480a833fb093eeeee82eadf40460c1578",
+          "n_items": 61
+        },
+        {
+          "order_id": "00101170",
+          "target": "euro-pallet",
+          "selection_hash": "0345f458ce3a0e52f458d0923eb5898945ab1bff6b2737f8faa6e77a31965d79",
+          "signature": "5224ca68f9658958d205c6fcd2a60903a873adce46502448cab737dfff44a739",
+          "n_items": 60
+        },
+        {
+          "order_id": "00102177",
+          "target": "euro-pallet",
+          "selection_hash": "0347b823a06a22272ce0d4e27b91d938dc6e6fac96912943d0a140b512262ccb",
+          "signature": "2750cf6cb00425b9b807e4eb09618106c50439fb7ca4513715a10064b530056e",
+          "n_items": 50
+        },
+        {
+          "order_id": "00100386",
+          "target": "euro-pallet",
+          "selection_hash": "04dfa866a66ea0a5a7fbdb78334bccef400e4c89c26a3509e0138300b74c5af5",
+          "signature": "abae6fcd5fb0cf60a31cfb88906b6ae8f3261c1f837e065a6028a106115fd26e",
+          "n_items": 53
+        },
+        {
+          "order_id": "00106863",
+          "target": "euro-pallet",
+          "selection_hash": "04fbd8f499677ef040ec56f0406030088fb255f374b782e7a9da592b3c86f607",
+          "signature": "71af26e5cc92215ca9e323096e25660bf4b86b2ebe22565ceb75669d346112fe",
+          "n_items": 45
+        },
+        {
+          "order_id": "00102146",
+          "target": "euro-pallet",
+          "selection_hash": "05f30f4b95e7ff9f475953a08665794d4657356351c565d64e5fbeaf6dde4c9f",
+          "signature": "c420dacf710d45bd38000e561ed9d2ddfd507c49eb65d7b83ae9b6d2b80e8ea3",
+          "n_items": 51
+        },
+        {
+          "order_id": "00106020",
+          "target": "euro-pallet",
+          "selection_hash": "06c034c4150dc81ef495203dc3b77547681a956c333a360bfbbf76ed5720cc73",
+          "signature": "66b1d2137a79848acb9ea70a61d94c5a61b33014c7a8be00805d2ffe490b622e",
+          "n_items": 117
+        },
+        {
+          "order_id": "00104830",
+          "target": "euro-pallet",
+          "selection_hash": "06e91e733abf02e5b01b4f597ced5cc01aa0333384958a2226f6a684373d4275",
+          "signature": "c420b6bf86a6bf6a317ad45ca69fa28847123b43200bc208a6110b35c022be41",
+          "n_items": 54
+        },
+        {
+          "order_id": "00106148",
+          "target": "euro-pallet",
+          "selection_hash": "071c90555240848298b25193971b1301ae512bb7b69cc3218b7c9223153f9f72",
+          "signature": "256fef7194524043f8d2f986f69f649908cfdeb0ec0ff180bfd6afb691ab5c9d",
+          "n_items": 70
+        },
+        {
+          "order_id": "00107053",
+          "target": "euro-pallet",
+          "selection_hash": "079099c2e5e72b1328b3e30b0bc511eceb2ac6f412d2e29deb9679238e2341fe",
+          "signature": "98ee7b23a59127848a6bcefa649e6f558d403f7caff821391d1a07431a183b2d",
+          "n_items": 70
+        },
+        {
+          "order_id": "00100355",
+          "target": "euro-pallet",
+          "selection_hash": "0794b650c0208e94c231a350d17b27505d58f25123a13872659af1a0842b8e52",
+          "signature": "43af02faa5b6dbc52d28d9af0b89f49a180f2eb70a498110186ff6911f3b9986",
+          "n_items": 53
+        }
+      ]
+    },
+    "rollcontainer": {
+      "development": [
+        {
+          "order_id": "00103739",
+          "target": "rollcontainer",
+          "selection_hash": "001b26902491ddbde450abba3b0f5de04aaf227b3d1bcad26c32456af7a9797b",
+          "signature": "871da417832c74258e34452e843b2155fccbd9477926d5622624b2ccfa1da1bd",
+          "n_items": 44
+        },
+        {
+          "order_id": "00105951",
+          "target": "rollcontainer",
+          "selection_hash": "0087cc1b43b6e7b2b2859374fdb56ab79dce697cabad559c32e676648c097d7e",
+          "signature": "dd11f020c908dd9df23ca0e561d98d8580224a81978500e613e3da5547e59b13",
+          "n_items": 35
+        },
+        {
+          "order_id": "00103413",
+          "target": "rollcontainer",
+          "selection_hash": "0119699feab2f4f04b1250a03dbd26c75e495ae1d976fe0f316c3961cfdc5299",
+          "signature": "676ef53c4555fdad846f8be5e8f2ef7bb8f50dc65ac5301eba310ca58a0a581f",
+          "n_items": 26
+        },
+        {
+          "order_id": "00104057",
+          "target": "rollcontainer",
+          "selection_hash": "0190be540d6c63e15cf0aed6afd955f2b5cf749442c12eba359d83dbabe5f42b",
+          "signature": "e637df91fc779e2ee7e31f83066642db23c4d3cf0db025bbba4b1bcc205566aa",
+          "n_items": 47
+        },
+        {
+          "order_id": "00103051",
+          "target": "rollcontainer",
+          "selection_hash": "01944252f9282f442875183d312df5cc9d0387e51cb6a827240b1567092736de",
+          "signature": "9afdeeb36c30ed5bcff6d0c83261e704ee75dda7ace38be463454a63e47a924c",
+          "n_items": 20
+        },
+        {
+          "order_id": "00105977",
+          "target": "rollcontainer",
+          "selection_hash": "01a419d1e26f8f8ddce0cdf2d5016acb3c3665788717542e398eea283c3eacc2",
+          "signature": "1ed746e3570f6f77de3ccb18c67c863aae74bb2128c0e25b948e55efd0d07fd6",
+          "n_items": 58
+        }
+      ],
+      "train": [
+        {
+          "order_id": "00104315",
+          "target": "rollcontainer",
+          "selection_hash": "01fd0870047f30e8f3586e3bb117ad74cef82ab44a3e48c4ba3a0379e1eb5835",
+          "signature": "add7c72a22ff35d2a78ab334a93b8c9e1c1d43430969fbf6e81c03cb58f224e7",
+          "n_items": 36
+        },
+        {
+          "order_id": "00105104",
+          "target": "rollcontainer",
+          "selection_hash": "0237e1cc9f1cbb811569e9918d9159fe3714e5233e711c851e090a2c75346a68",
+          "signature": "359570e86614bc1041ce0eb43ad6910ee1fccd58bf7cf911e4b0ec8dd9994a36",
+          "n_items": 15
+        },
+        {
+          "order_id": "00103442",
+          "target": "rollcontainer",
+          "selection_hash": "0238c9a4a7c5a6ad3216c1c23fb801217030bc319bfebdb18f49d013b681f0ae",
+          "signature": "c0d81378c1b6808f42aa940155ada4f991d2752a345ffd0b11af9f5eaab6c308",
+          "n_items": 19
+        },
+        {
+          "order_id": "00103630",
+          "target": "rollcontainer",
+          "selection_hash": "02476fea3583c4dc3583b0f9e95324cfc1ee3cacb08265fafcb2058712f57c5d",
+          "signature": "9101ea596fd3d0ecc16d5931ddc951b385bd103f26676c38f2b890e956960819",
+          "n_items": 45
+        },
+        {
+          "order_id": "00108605",
+          "target": "rollcontainer",
+          "selection_hash": "0296a8b440c3269753b1922c904cbdf02fd2038703726e9052fd4908a0694d69",
+          "signature": "4287e29e50ce17f7777feddc95de94321db33697ead03f34f77deaac01f500ab",
+          "n_items": 46
+        },
+        {
+          "order_id": "00109873",
+          "target": "rollcontainer",
+          "selection_hash": "029b6148df85de22f7becfb8f0dab00f49000f363890738145d63cb5caf8d516",
+          "signature": "c531769276365076f972450bb677a772b18b97476aa89dff02bf4c9c71955708",
+          "n_items": 35
+        },
+        {
+          "order_id": "00107700",
+          "target": "rollcontainer",
+          "selection_hash": "02a1c3adfeb235b6959941d31d068cd80d75469d5091718d87fb40699f825e05",
+          "signature": "1e339a062aeaa1dc8d48a23d9a219aef642a0ac50a1e55e3f9fc32c159813680",
+          "n_items": 48
+        },
+        {
+          "order_id": "00100563",
+          "target": "rollcontainer",
+          "selection_hash": "02b96c20a54e8f10dfb109906832ee295f509c7b7fb574872ae57f5a1f964098",
+          "signature": "45344a52fe51f993e77cd694468d06f9fcbc6ae916d913d3b63c9919650445a4",
+          "n_items": 40
+        },
+        {
+          "order_id": "00108396",
+          "target": "rollcontainer",
+          "selection_hash": "02e3fa7c7c3b9e0e64b183318cae09beb14d6e28f0eb336a318451588d313f39",
+          "signature": "df3954e32ff183053cd6e76358cd64de344615cb0a4f4ceb934042ebadcdabf4",
+          "n_items": 18
+        },
+        {
+          "order_id": "00104935",
+          "target": "rollcontainer",
+          "selection_hash": "0307fa08a7ab71af98ea633b52aad7b9c504c8b69c619ca2d081df064ce9786c",
+          "signature": "57922211dbc1f9d533b3d97005050de2cff491ac8245e9ac07830d69aab9b0e4",
+          "n_items": 73
+        },
+        {
+          "order_id": "00102583",
+          "target": "rollcontainer",
+          "selection_hash": "04132a646e9642ba6953812d6c26fc39c5837575df6a8a50885d47ca4373da20",
+          "signature": "b210cf957eb898354de2799acf0bfa7dd617fd68b666691e220fe476df906386",
+          "n_items": 36
+        },
+        {
+          "order_id": "00106662",
+          "target": "rollcontainer",
+          "selection_hash": "044f3e951dcf8c6e0945e676adc521ea235ea42a63a1ea987bf0cd220f868bf0",
+          "signature": "590dfcca6cd74f36d96caa0c03cafcca883bc4f2120a8b5897355fa4b3645cc4",
+          "n_items": 45
+        }
+      ]
+    }
+  },
+  "execution_order": [
+    "00106295",
+    "00102109",
+    "00101170",
+    "00102177",
+    "00100386",
+    "00106863",
+    "00102146",
+    "00106020",
+    "00104830",
+    "00106148",
+    "00107053",
+    "00100355",
+    "00104315",
+    "00105104",
+    "00103442",
+    "00103630",
+    "00108605",
+    "00109873",
+    "00107700",
+    "00100563",
+    "00108396",
+    "00104935",
+    "00102583",
+    "00106662",
+    "00106393",
+    "00103159",
+    "00105335",
+    "00109022",
+    "00107085",
+    "00109092",
+    "00103739",
+    "00105951",
+    "00103413",
+    "00104057",
+    "00103051",
+    "00105977"
+  ],
+  "diagnostic_orders_excluded": [
+    "00109938",
+    "00109266",
+    "00102701",
+    "00108060",
+    "00104500",
+    "00103525",
+    "00100812",
+    "00109602",
+    "00109122",
+    "00104671",
+    "00105640",
+    "00109225",
+    "00100129",
+    "00103399",
+    "00105687",
+    "00107454",
+    "00109271",
+    "00105150",
+    "00109874",
+    "00101397"
+  ],
+  "features": {
+    "contract_name": "counterfactual-actor-v1",
+    "dim": 17,
+    "kept_columns": [
+      "item_l_n",
+      "item_w_n",
+      "item_h_n",
+      "item_vol_n",
+      "item_weight_n",
+      "item_can_rotate",
+      "pos_x_n",
+      "pos_y_n",
+      "pos_z_n",
+      "ori_l_n",
+      "ori_w_n",
+      "ori_h_n",
+      "support_ratio",
+      "bin_index_n",
+      "n_packed_n",
+      "loaded_weight_n",
+      "used_height_n"
+    ],
+    "formulas": [
+      {
+        "name": "item_l_n",
+        "unit": "mm/mm",
+        "formula": "longitud almacenada del ítem actual / longitud del contenedor"
+      },
+      {
+        "name": "item_w_n",
+        "unit": "mm/mm",
+        "formula": "anchura almacenada del ítem actual / anchura del contenedor"
+      },
+      {
+        "name": "item_h_n",
+        "unit": "mm/mm",
+        "formula": "altura almacenada del ítem actual / altura del contenedor"
+      },
+      {
+        "name": "item_vol_n",
+        "unit": "mm^3/mm^3",
+        "formula": "volumen del ítem actual / volumen del contenedor"
+      },
+      {
+        "name": "item_weight_n",
+        "unit": "kg/kg",
+        "formula": "peso del ítem actual / peso máximo del contenedor, o / 1 kg si ese máximo no es positivo"
+      },
+      {
+        "name": "item_can_rotate",
+        "unit": "0 o 1",
+        "formula": "1 si el ítem actual admite todas las orientaciones; 0 en otro caso"
+      },
+      {
+        "name": "pos_x_n",
+        "unit": "mm/mm",
+        "formula": "posición x de la candidata / longitud del contenedor"
+      },
+      {
+        "name": "pos_y_n",
+        "unit": "mm/mm",
+        "formula": "posición y de la candidata / anchura del contenedor"
+      },
+      {
+        "name": "pos_z_n",
+        "unit": "mm/mm",
+        "formula": "posición z de la candidata / altura del contenedor"
+      },
+      {
+        "name": "ori_l_n",
+        "unit": "mm/mm",
+        "formula": "arista orientada de la candidata en x / longitud del contenedor"
+      },
+      {
+        "name": "ori_w_n",
+        "unit": "mm/mm",
+        "formula": "arista orientada de la candidata en y / anchura del contenedor"
+      },
+      {
+        "name": "ori_h_n",
+        "unit": "mm/mm",
+        "formula": "arista orientada vertical de la candidata / altura del contenedor"
+      },
+      {
+        "name": "support_ratio",
+        "unit": "fracción",
+        "formula": "fracción de apoyo que el packer asigna a esta candidata en el estado presente"
+      },
+      {
+        "name": "bin_index_n",
+        "unit": "índice/contenedores",
+        "formula": "índice del contenedor / número de contenedores de la sesión"
+      },
+      {
+        "name": "n_packed_n",
+        "unit": "conteo/50",
+        "formula": "mínimo entre 1 y el número de ítems ya colocados dividido por 50"
+      },
+      {
+        "name": "loaded_weight_n",
+        "unit": "kg/kg",
+        "formula": "peso ya cargado en el contenedor / el mismo denominador de item_weight_n"
+      },
+      {
+        "name": "used_height_n",
+        "unit": "mm/mm",
+        "formula": "máxima z ya ocupada por cajas colocadas / altura del contenedor; la candidata puntuada no entra"
+      }
+    ],
+    "excluded_from_historical_encoder": {
+      "rank_0": "componente de rank_key, la clave con la que GreedyBestFit ordena candidatas",
+      "rank_1": "componente de rank_key",
+      "rank_2": "componente de rank_key",
+      "rank_3": "componente de rank_key",
+      "remaining_n": "longitud del sufijo no colocado",
+      "buffer_index_n": "índice en el buffer de selección, no un atributo del contenedor presente",
+      "preview_0_l_n": "geometría de un ítem posterior",
+      "preview_0_w_n": "geometría de un ítem posterior",
+      "preview_0_h_n": "geometría de un ítem posterior",
+      "preview_0_vol_n": "geometría de un ítem posterior",
+      "preview_1_l_n": "geometría de un ítem posterior",
+      "preview_1_w_n": "geometría de un ítem posterior",
+      "preview_1_h_n": "geometría de un ítem posterior",
+      "preview_1_vol_n": "geometría de un ítem posterior",
+      "preview_2_l_n": "geometría de un ítem posterior",
+      "preview_2_w_n": "geometría de un ítem posterior",
+      "preview_2_h_n": "geometría de un ítem posterior",
+      "preview_2_vol_n": "geometría de un ítem posterior"
+    },
+    "historical_encoder_modified": false,
+    "historical_feature_dim": 35,
+    "suffix_in_actor_input": false,
+    "normalization": "Media y desviación poblacional de las filas candidatas de los estados completos de train. Una columna con desviación 0 usa denominador 1. La misma transformación vale para los dos brazos. No se reutilizan estadísticas de la campaña anterior. Los números ajustados son un resultado, no parte de este protocolo."
+  },
+  "architecture": {
+    "layers": "Linear(17, 64), ReLU, Linear(64, 1)",
+    "shared_across_candidates": true,
+    "training_config": {
+      "seeds": [
+        11,
+        23,
+        37
+      ],
+      "epochs": 40,
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0001,
+      "decoupled_weight_decay": false,
+      "amsgrad": false,
+      "maximize": false,
+      "capturable": false,
+      "differentiable": false,
+      "foreach": false,
+      "fused": false,
+      "grad_clip_max_norm": 1.0,
+      "grad_clip_norm_type": 2.0,
+      "grad_clip_error_if_nonfinite": true,
+      "device": "cpu",
+      "dtype": "float32",
+      "torch_num_threads": 1,
+      "torch_num_interop_threads": 1,
+      "batching": "un paso por época con la media aritmética de todos los estados de train",
+      "shuffle": false,
+      "state_order": "orden de train del protocolo y, dentro de cada pedido, índice de elección ascendente",
+      "checkpoint": "última época",
+      "seed_selection": false,
+      "hyperparameter_search": false,
+      "dropout": 0.0,
+      "last_layer_init": "peso y sesgo a cero después de la inicialización de la primera capa",
+      "first_layer_init": "reset_parameters de torch.nn.Linear, con la semilla fijada antes de construir las dos capas",
+      "loss_reduction": "media aritmética por estado, el mismo peso en los dos brazos",
+      "training_executed_by_this_module": false
+    },
+    "training_executed": false
+  },
+  "losses": {
+    "tie_eps": 1e-09,
+    "state_weight": "media aritmética, el mismo peso por estado en los dos brazos",
+    "classification": "Distribución uniforme entre las candidatas a como máximo 1e-9 del máximo Q_hat. Entropía cruzada natural contra el softmax de los logits. Sin temperatura y sin probabilidades proporcionales a Q_hat.",
+    "preferences": "Cada par no empatado se orienta del mayor Q_hat al menor. La pérdida es softplus(-(logit_mayor-logit_menor)), ponderada por |ΔQ| y con los pesos del estado normalizados para sumar 1. Los empates aportan la media de (logit_i-logit_j)^2 con coeficiente 1.0. Si no hay pares de una clase, ese término vale 0. La pérdida del estado es la suma de los dos términos.",
+    "tie_coefficient": 1.0,
+    "incomplete_states_enter_training": false,
+    "unknown_return_value": null
+  },
+  "state_sampling": {
+    "fixed_before_labels": true,
+    "trajectory": "GreedyBestFit",
+    "choice_state": "al menos dos candidatas legales",
+    "max_states_per_order": 4,
+    "rule": "Sea N el número de estados con elección. Si N es 0, el pedido permanece y no se sustituye. Si N es menor o igual que 4, se toman todos. Si N es mayor, los índices son floor(i*(N-1)/3 + 1/2) para i = 0,1,2,3; se eliminan duplicados conservando el primero y no se rellenan huecos.",
+    "alternatives": "la misma select_alternatives del diagnóstico, límite 4, Greedy incluida, sin usar retornos",
+    "actor_state_gap": "Entrenar en estos estados no equivale a evaluar en los estados que el actor visita.",
+    "diagnostic_orders_not_reused_as_labels": "Los 20 pedidos diagnósticos usan los cinco primeros estados, no esta regla. Sus 395 etiquetas no entran en train ni en desarrollo."
+  },
+  "label_budget": {
+    "max_orders": 36,
+    "max_states": 144,
+    "max_continuations": 576,
+    "wall_seconds": 14400,
+    "wall_includes": [
+      "adquisición de la trayectoria",
+      "restauración",
+      "continuación",
+      "captura",
+      "auditoría",
+      "escritura"
+    ],
+    "continuation_timeout_seconds": 60,
+    "capture_and_audit_timeout_seconds": 60,
+    "timeouts_subordinate_to_remaining_wall": true,
+    "truncated": true,
+    "worst_case_timeouts_fit_in_wall": false,
+    "on_exhaustion": "detener trabajos nuevos y registrar lo pendiente",
+    "no_order_substitution": true,
+    "no_budget_increase": true,
+    "no_selective_retry": true,
+    "unknown_is_not_zero": true
+  },
+  "gate": {
+    "name": "puerta_de_desarrollo",
+    "applied": false,
+    "is_statistical_significance": false,
+    "authorizes_training": false,
+    "authorizes_publication": false,
+    "failure_meaning": "no avanzar con esta configuración",
+    "not_a_universal_refutation": true,
+    "delta": "U_geom del episodio completo, el mismo pedido y la misma semilla",
+    "aggregation": "igual peso por pedido y después por semilla",
+    "advance_if_all": [
+      "media de preferencias menos clasificación >= 0.005",
+      "preferencias menos clasificación positiva en al menos dos de tres semillas",
+      "media de preferencias menos Greedy >= 0.01",
+      "media de preferencias menos Greedy >= 0 en cada target",
+      "integridad del evaluador y cobertura suficientes: los 12 pedidos de desarrollo con episodio auditado para las tres semillas y para Greedy, sin tratar un fallo geométrico como retorno 0, con physical_stability_verified null"
+    ]
+  },
+  "code_sha256": {
+    "paper/studies/counterfactual_ranking/tools/actor_features.py": "a4350efa432efbc1a5059398a643a4e25e4be7bdd7e6de5c0938514ffd875291",
+    "paper/studies/counterfactual_ranking/tools/objectives.py": "ec738b4925fcf02eac0b7cf314a94e332efb179d28df28d0ff56441a21e5dc73",
+    "paper/studies/counterfactual_ranking/tools/model_spec.py": "a027b4f4a1324523cbc0db1296beba2c1a8b33ca50eb55d658967f9b3a735d2a",
+    "paper/studies/counterfactual_ranking/tools/label_sampling.py": "34b9883971859a62292b7fa99dec63381eff8b1f409c6bf2730e91b9da0a23c1",
+    "paper/studies/counterfactual_ranking/tools/label_campaign.py": "08f9e52197280c1aba97e1cdb4432e0ba303b69ff404b96f2cd15d987479d7b3",
+    "paper/studies/counterfactual_ranking/tools/run_learning_labels.py": "47935472608ca08095064949340444f02f305d3ecc66033061831046451b21a4",
+    "paper/studies/counterfactual_ranking/tools/diagnostic.py": "8d95f84c50b15a46dcf361a303889be18ba6b8487f605f28c850fa0012f9d4aa",
+    "paper/tools/compact_study.py": "93409b31b093702e80c43da4fe6030cb3913707493756f1df9296c37326af476",
+    "paper/tools/pilot_metrics.py": "26275cea5fdcfb2ac09cd9da61bba389b2daf95a50070ef92c1f2529b25a7fad",
+    "paper/tools/pilot_problems.py": "c347f00ab5b10bcf817954aee4ed9e12bacdaf55e128dba3c5d26f4701494b5e",
+    "paper/tools/audit_internal_solution.py": "e3d874726260b4c84fabd963cb591075c1eefcdddc0e27057de83a8a499028ac"
+  },
+  "code_sha256_note": "Hashes del código que generará las etiquetas. Este protocolo no contiene su propio hash."
+}

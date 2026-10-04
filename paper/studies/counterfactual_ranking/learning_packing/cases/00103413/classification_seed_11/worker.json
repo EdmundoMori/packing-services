@@ -1,0 +1,183 @@
+{
+  "status": "ok",
+  "error": null,
+  "attempts": 1,
+  "timeout_seconds": 300,
+  "diagnostics": {
+    "packing_loop_seconds": 0.10246891499991762,
+    "steps": [
+      {
+        "item_id": "00106355#1",
+        "preview_ids": [
+          "00106355#1"
+        ],
+        "n_candidates": 6,
+        "placed": true
+      },
+      {
+        "item_id": "00108722#2",
+        "preview_ids": [
+          "00108722#2"
+        ],
+        "n_candidates": 14,
+        "placed": true
+      },
+      {
+        "item_id": "00105168#3",
+        "preview_ids": [
+          "00105168#3"
+        ],
+        "n_candidates": 20,
+        "placed": true
+      },
+      {
+        "item_id": "00106463#4",
+        "preview_ids": [
+          "00106463#4"
+        ],
+        "n_candidates": 7,
+        "placed": true
+      },
+      {
+        "item_id": "00112513#5",
+        "preview_ids": [
+          "00112513#5"
+        ],
+        "n_candidates": 17,
+        "placed": true
+      },
+      {
+        "item_id": "00112513#6",
+        "preview_ids": [
+          "00112513#6"
+        ],
+        "n_candidates": 14,
+        "placed": true
+      },
+      {
+        "item_id": "00112513#7",
+        "preview_ids": [
+          "00112513#7"
+        ],
+        "n_candidates": 16,
+        "placed": true
+      },
+      {
+        "item_id": "00107754#8",
+        "preview_ids": [
+          "00107754#8"
+        ],
+        "n_candidates": 5,
+        "placed": true
+      },
+      {
+        "item_id": "00101323#9",
+        "preview_ids": [
+          "00101323#9"
+        ],
+        "n_candidates": 7,
+        "placed": true
+      },
+      {
+        "item_id": "00101323#10",
+        "preview_ids": [
+          "00101323#10"
+        ],
+        "n_candidates": 11,
+        "placed": true
+      },
+      {
+        "item_id": "00106326#11",
+        "preview_ids": [
+          "00106326#11"
+        ],
+        "n_candidates": 8,
+        "placed": true
+      },
+      {
+        "item_id": "00109731#12",
+        "preview_ids": [
+          "00109731#12"
+        ],
+        "n_candidates": 12,
+        "placed": true
+      },
+      {
+        "item_id": "00111708#13",
+        "preview_ids": [
+          "00111708#13"
+        ],
+        "n_candidates": 23,
+        "placed": true
+      },
+      {
+        "item_id": "00112555#14",
+        "preview_ids": [
+          "00112555#14"
+        ],
+        "n_candidates": 22,
+        "placed": true
+      },
+      {
+        "item_id": "00109692#15",
+        "preview_ids": [
+          "00109692#15"
+        ],
+        "n_candidates": 16,
+        "placed": true
+      },
+      {
+        "item_id": "00109692#16",
+        "preview_ids": [
+          "00109692#16"
+        ],
+        "n_candidates": 12,
+        "placed": true
+      },
+      {
+        "item_id": "00111825#17",
+        "preview_ids": [
+          "00111825#17"
+        ],
+        "n_candidates": 6,
+        "placed": true
+      },
+      {
+        "item_id": "00101349#18",
+        "preview_ids": [
+          "00101349#18"
+        ],
+        "n_candidates": 2,
+        "placed": true
+      },
+      {
+        "item_id": "00106593#19",
+        "preview_ids": [
+          "00106593#19"
+        ],
+        "n_candidates": 0,
+        "placed": false
+      }
+    ],
+    "n_packed": 18,
+    "n_unpacked": 8,
+    "stopped_early": true,
+    "generator": "extreme_point",
+    "selector": "ActorPolicy",
+    "coefficients": null,
+    "physical_stability_verified": null
+  },
+  "timings": {
+    "startup_seconds": 0.006328919999987193,
+    "packing_loop_seconds": 0.10246891499991762,
+    "decision_seconds": 0.010491720999880272,
+    "decision_seconds_included_in_packing_loop": true,
+    "candidate_generation_seconds": null,
+    "candidate_generation_note": "La generación de candidatas queda dentro de packing_loop_seconds; el bucle congelado no la separa.",
+    "capture_build_seconds": 0.03606411600003412,
+    "max_legal_candidates": 23
+  },
+  "returncode": 0,
+  "wall_seconds": 5.777300450999974,
+  "duration_seconds": 5.777300450999974
+}

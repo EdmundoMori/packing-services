@@ -1,0 +1,249 @@
+{
+  "role": "diagnostico_descriptivo_previo_al_ajuste",
+  "pairs_are_not_independent_orders": true,
+  "changed_losses_or_hyperparameters": false,
+  "by_split_target": {
+    "development|euro-pallet": {
+      "states": 24,
+      "all_q_tied": 15,
+      "has_untied_pair": 9,
+      "tied_pairs": 103,
+      "untied_pairs": 35,
+      "multi_max": 20
+    },
+    "development|rollcontainer": {
+      "states": 24,
+      "all_q_tied": 5,
+      "has_untied_pair": 19,
+      "tied_pairs": 56,
+      "untied_pairs": 75,
+      "multi_max": 13
+    },
+    "train|euro-pallet": {
+      "states": 48,
+      "all_q_tied": 29,
+      "has_untied_pair": 19,
+      "tied_pairs": 201,
+      "untied_pairs": 74,
+      "multi_max": 36
+    },
+    "train|rollcontainer": {
+      "states": 48,
+      "all_q_tied": 14,
+      "has_untied_pair": 34,
+      "tied_pairs": 124,
+      "untied_pairs": 134,
+      "multi_max": 31
+    }
+  },
+  "normalized_ranges": {
+    "train": [
+      {
+        "name": "item_l_n",
+        "min": -1.6251505613327026,
+        "max": 1.7163057327270508,
+        "constant": false
+      },
+      {
+        "name": "item_w_n",
+        "min": -1.5766873359680176,
+        "max": 2.296062707901001,
+        "constant": false
+      },
+      {
+        "name": "item_h_n",
+        "min": -2.738462209701538,
+        "max": 2.1641252040863037,
+        "constant": false
+      },
+      {
+        "name": "item_vol_n",
+        "min": -1.175954818725586,
+        "max": 3.12981915473938,
+        "constant": false
+      },
+      {
+        "name": "item_weight_n",
+        "min": -1.870996117591858,
+        "max": 2.1736903190612793,
+        "constant": false
+      },
+      {
+        "name": "item_can_rotate",
+        "min": 0.0,
+        "max": 0.0,
+        "constant": true
+      },
+      {
+        "name": "pos_x_n",
+        "min": -0.9158259630203247,
+        "max": 2.2209479808807373,
+        "constant": false
+      },
+      {
+        "name": "pos_y_n",
+        "min": -1.0341330766677856,
+        "max": 2.2826271057128906,
+        "constant": false
+      },
+      {
+        "name": "pos_z_n",
+        "min": -1.1162973642349243,
+        "max": 1.9151188135147095,
+        "constant": false
+      },
+      {
+        "name": "ori_l_n",
+        "min": -1.5347681045532227,
+        "max": 2.6031110286712646,
+        "constant": false
+      },
+      {
+        "name": "ori_w_n",
+        "min": -1.8061968088150024,
+        "max": 3.280061721801758,
+        "constant": false
+      },
+      {
+        "name": "ori_h_n",
+        "min": -1.8009121417999268,
+        "max": 2.1070103645324707,
+        "constant": false
+      },
+      {
+        "name": "support_ratio",
+        "min": -1.2852959632873535,
+        "max": 0.9651980400085449,
+        "constant": false
+      },
+      {
+        "name": "bin_index_n",
+        "min": 0.0,
+        "max": 0.0,
+        "constant": true
+      },
+      {
+        "name": "n_packed_n",
+        "min": -1.166993498802185,
+        "max": 1.7967995405197144,
+        "constant": false
+      },
+      {
+        "name": "loaded_weight_n",
+        "min": -1.1096466779708862,
+        "max": 2.570568323135376,
+        "constant": false
+      },
+      {
+        "name": "used_height_n",
+        "min": -1.6626516580581665,
+        "max": 0.7054129838943481,
+        "constant": false
+      }
+    ],
+    "development": [
+      {
+        "name": "item_l_n",
+        "min": -1.1813634634017944,
+        "max": 1.7163057327270508,
+        "constant": false
+      },
+      {
+        "name": "item_w_n",
+        "min": -1.4210857152938843,
+        "max": 2.296062707901001,
+        "constant": false
+      },
+      {
+        "name": "item_h_n",
+        "min": -2.193730115890503,
+        "max": 1.4378159046173096,
+        "constant": false
+      },
+      {
+        "name": "item_vol_n",
+        "min": -0.958415687084198,
+        "max": 3.167325973510742,
+        "constant": false
+      },
+      {
+        "name": "item_weight_n",
+        "min": -1.6063904762268066,
+        "max": 1.871283769607544,
+        "constant": false
+      },
+      {
+        "name": "item_can_rotate",
+        "min": 0.0,
+        "max": 0.0,
+        "constant": true
+      },
+      {
+        "name": "pos_x_n",
+        "min": -0.9158259630203247,
+        "max": 2.2209479808807373,
+        "constant": false
+      },
+      {
+        "name": "pos_y_n",
+        "min": -1.0341330766677856,
+        "max": 2.2615458965301514,
+        "constant": false
+      },
+      {
+        "name": "pos_z_n",
+        "min": -1.1162973642349243,
+        "max": 1.9151188135147095,
+        "constant": false
+      },
+      {
+        "name": "ori_l_n",
+        "min": -1.4054594039916992,
+        "max": 2.6031110286712646,
+        "constant": false
+      },
+      {
+        "name": "ori_w_n",
+        "min": -1.518295407295227,
+        "max": 3.280061721801758,
+        "constant": false
+      },
+      {
+        "name": "ori_h_n",
+        "min": -1.5952320098876953,
+        "max": 1.8327702283859253,
+        "constant": false
+      },
+      {
+        "name": "support_ratio",
+        "min": -1.2852959632873535,
+        "max": 0.9651980400085449,
+        "constant": false
+      },
+      {
+        "name": "bin_index_n",
+        "min": 0.0,
+        "max": 0.0,
+        "constant": true
+      },
+      {
+        "name": "n_packed_n",
+        "min": -1.166993498802185,
+        "max": 1.7967995405197144,
+        "constant": false
+      },
+      {
+        "name": "loaded_weight_n",
+        "min": -1.1096466779708862,
+        "max": 1.9787240028381348,
+        "constant": false
+      },
+      {
+        "name": "used_height_n",
+        "min": -1.6626516580581665,
+        "max": 0.7054129838943481,
+        "constant": false
+      }
+    ]
+  }
+}

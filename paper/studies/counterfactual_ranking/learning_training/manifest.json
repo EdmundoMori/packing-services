@@ -1,0 +1,72 @@
+{
+  "role": "manifiesto_previo_al_ajuste",
+  "training_started": true,
+  "head": "83b5e1c59808bd761f4c6fc47234c7dc232468d1",
+  "protocol_sha256": "5fd74cc0a6fc52aaf248a977934d9e199919096aa82c3ae6b0309a03e6aa6946",
+  "labels_sha256": "a24af62fbe3bcb4bc6ba0e87b19a9f5b4124673fb53bbf38878cf91b2ab9beb3",
+  "normalization_sha256": "9b8302649364dc7b2e3f3e73d19ac648d625754e7286a8230d7e8596c30897e3",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "annex_sha256": "ec86bf0f8948caeef59daea33b2291f6cace243e6d6b39670d398721a0e732f8",
+  "code_sha256": {
+    "paper/studies/counterfactual_ranking/tools/actor_features.py": "a4350efa432efbc1a5059398a643a4e25e4be7bdd7e6de5c0938514ffd875291",
+    "paper/studies/counterfactual_ranking/tools/objectives.py": "ec738b4925fcf02eac0b7cf314a94e332efb179d28df28d0ff56441a21e5dc73",
+    "paper/studies/counterfactual_ranking/tools/model_spec.py": "a027b4f4a1324523cbc0db1296beba2c1a8b33ca50eb55d658967f9b3a735d2a",
+    "paper/studies/counterfactual_ranking/tools/train_loop.py": "60b782aa6fa6505a5de3cd4f3f128ed4d0bedfa6dc9d8a64d92d00f50b10b31b",
+    "paper/studies/counterfactual_ranking/tools/run_learning_training.py": "69245378470b83dbc5d6f8eb58113c7d2fa2e750bf87e994aca7a4f3aec21950"
+  },
+  "config": {
+    "seeds": [
+      11,
+      23,
+      37
+    ],
+    "epochs": 40,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0.0001,
+    "decoupled_weight_decay": false,
+    "amsgrad": false,
+    "maximize": false,
+    "capturable": false,
+    "differentiable": false,
+    "foreach": false,
+    "fused": false,
+    "grad_clip_max_norm": 1.0,
+    "grad_clip_norm_type": 2.0,
+    "grad_clip_error_if_nonfinite": true,
+    "device": "cpu",
+    "dtype": "float32",
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 1,
+    "batching": "un paso por época con la media aritmética de todos los estados de train",
+    "shuffle": false,
+    "state_order": "orden de train del protocolo y, dentro de cada pedido, índice de elección ascendente",
+    "checkpoint": "última época",
+    "seed_selection": false,
+    "hyperparameter_search": false,
+    "dropout": 0.0,
+    "last_layer_init": "peso y sesgo a cero después de la inicialización de la primera capa",
+    "first_layer_init": "reset_parameters de torch.nn.Linear, con la semilla fijada antes de construir las dos capas",
+    "loss_reduction": "media aritmética por estado, el mismo peso en los dos brazos",
+    "training_executed_by_this_module": false
+  },
+  "environment": {
+    "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+    "torch": "2.14.0+cpu",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "device": "cpu",
+    "torch_num_threads": 1
+  },
+  "seeds": [
+    11,
+    23,
+    37
+  ],
+  "packing_episodes_executed": false,
+  "final_test_selected": false
+}

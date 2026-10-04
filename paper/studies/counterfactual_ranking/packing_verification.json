@@ -1,0 +1,38 @@
+{
+  "role": "verificacion_de_episodios",
+  "status": "completed",
+  "verification": {
+    "ok": true,
+    "issues": [],
+    "n_cases": 84
+  },
+  "gate": {
+    "passed": false,
+    "classification": "no avanzar con esta configuración",
+    "conditions": {
+      "preferences_minus_classification_mean_at_least_0_005": true,
+      "preferences_minus_classification_positive_in_at_least_two_seeds": true,
+      "preferences_minus_greedy_mean_at_least_0_01": false,
+      "preferences_minus_greedy_nonnegative_on_every_target": false,
+      "evaluator_integrity_and_coverage": true
+    },
+    "positive_seeds": 3,
+    "thresholds": {
+      "preferences_minus_classification": 0.005,
+      "positive_seeds": 2,
+      "preferences_minus_greedy": 0.01,
+      "target_floor": 0.0,
+      "positive_tolerance": 1e-09
+    },
+    "evaluator_errors": 0,
+    "missing_keys": 0,
+    "physical_stability_verified": null,
+    "seed_selected": false,
+    "authorizes_automatic_training": false,
+    "authorizes_arm_substitution": false
+  },
+  "elapsed_seconds": 244.25330769499993,
+  "physical_stability_verified": null,
+  "final_test_selected": false,
+  "training_executed": false
+}

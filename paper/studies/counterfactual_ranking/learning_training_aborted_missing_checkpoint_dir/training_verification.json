@@ -1,0 +1,32 @@
+{
+  "role": "verificacion_del_ajuste",
+  "status": "incomplete",
+  "packing_gate_applied": false,
+  "seed_selected": false,
+  "authorizes_packing_evaluation": false,
+  "elapsed_seconds": 4.10323283100297,
+  "checkpoints": [],
+  "runs": [
+    {
+      "seed": 11,
+      "status": "incomplete",
+      "initialization_sha256": "c4326a66218dd60ce82e33f2b7c4e1a133b0a4c71b228f5fcceb5732c9d55986",
+      "permutation_sha256": "584124bb6002f76fd9936a0858637ac2b69530b48f054fe3c2848ebf63c6f3a3",
+      "error": "RuntimeError: Parent directory /home/edmundo/packing-services/paper/studies/counterfactual_ranking/learning_training/checkpoints does not exist."
+    },
+    {
+      "seed": 23,
+      "status": "incomplete",
+      "initialization_sha256": "21bbf716a5921206b75445ca2c4910ecdca7223d53ff8c5f85997601fc3a199d",
+      "permutation_sha256": "cf6c3533f89a6f260564297d2f9a3cc4bb6d1e7631261da3cc06f4ebce7a7a54",
+      "error": "RuntimeError: Parent directory /home/edmundo/packing-services/paper/studies/counterfactual_ranking/learning_training/checkpoints does not exist."
+    },
+    {
+      "seed": 37,
+      "status": "incomplete",
+      "initialization_sha256": "f0c759532d7cd33d62e5c2b57cc66bf42d49e2da5e6fabdc25c0b9943c3ebce7",
+      "permutation_sha256": "26536b7bd868e1228e027cda9d0183a6410b05629f963eec0d877f30ec2ca8ae",
+      "error": "RuntimeError: Parent directory /home/edmundo/packing-services/paper/studies/counterfactual_ranking/learning_training/checkpoints does not exist."
+    }
+  ]
+}

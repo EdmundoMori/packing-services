@@ -1,0 +1,137 @@
+{
+  "role": "manifiesto_previo_a_los_episodios",
+  "episodes_started": true,
+  "head": "83b5e1c59808bd761f4c6fc47234c7dc232468d1",
+  "protocol_sha256": "5fd74cc0a6fc52aaf248a977934d9e199919096aa82c3ae6b0309a03e6aa6946",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "normalization_sha256": "9b8302649364dc7b2e3f3e73d19ac648d625754e7286a8230d7e8596c30897e3",
+  "checkpoint_sha256": {
+    "classification_seed_11.pt": "6a5181fc303867c396048a66d5e84e290bd7926acb89a2a52db9e9a26bf7f647",
+    "classification_seed_23.pt": "a7bc0e0e237d10587e9dd0bb6657aabd756975b665db27357b9d8a6e141de282",
+    "classification_seed_37.pt": "169c2494ad124681aff2332b0872529b6b5e8c2812ead76fb37acdc93b558dbb",
+    "preferences_seed_11.pt": "101ceaead264699be75283bef9e7ef62c4a8ae139316be370c2d4463975da617",
+    "preferences_seed_23.pt": "3e646e889446ee00592816c895d39c7f48bba1318fc046bc578a958149b9db62",
+    "preferences_seed_37.pt": "94c532b5dd57e936d9b797b1f5e10bd0bfd4f37964898b03f88f31f7ef2c0223"
+  },
+  "code_sha256": {
+    "paper/studies/counterfactual_ranking/tools/actor_features.py": "a4350efa432efbc1a5059398a643a4e25e4be7bdd7e6de5c0938514ffd875291",
+    "paper/studies/counterfactual_ranking/tools/actor_policy.py": "647681ac94794b9b272e2872576c594aad0691651df3d37e01439c739b51742b",
+    "paper/studies/counterfactual_ranking/tools/learning_worker.py": "64cd9e6cd17330a11b5aed46c50cd58e70ffbe317cf3fc97a9fb7d836a2bfe25",
+    "paper/studies/counterfactual_ranking/tools/packing_analysis.py": "215aa1348363957697d4a46433e403e2fd6cae44a93d1f448302676723f4cf8c",
+    "paper/studies/counterfactual_ranking/tools/run_learning_packing.py": "810dd92aa0afbaba56d53fe01ca320f94d64d5d783308533ae3036cd389778c1",
+    "paper/tools/compact_study.py": "93409b31b093702e80c43da4fe6030cb3913707493756f1df9296c37326af476",
+    "paper/tools/audit_internal_solution.py": "e3d874726260b4c84fabd963cb591075c1eefcdddc0e27057de83a8a499028ac"
+  },
+  "orders": [
+    {
+      "order_id": "00106393",
+      "target": "euro-pallet",
+      "selection_hash": "00fc402fbf6b9c9597206eca361b183649edc853580ab44c599fcd436404c39c",
+      "signature": "7352c7a89d1df33192866a3e0878a7a17ba7390a92ffde40be64ab7f9d67a78e",
+      "n_items": 42
+    },
+    {
+      "order_id": "00103159",
+      "target": "euro-pallet",
+      "selection_hash": "012e5d2a3f7a320bbbed7742019b8acbdab18ac15d5decd82448b7c3583aeba0",
+      "signature": "53c28eb2603ceddd0b30dd6a6da98b78c0849ccc98bd362fd7795b73ecfe12cb",
+      "n_items": 41
+    },
+    {
+      "order_id": "00105335",
+      "target": "euro-pallet",
+      "selection_hash": "0158c4573f19515be1230d6e37ea0c840477d10815d720dffd004d2956a75d4e",
+      "signature": "19358bf9780db08fa3602970b9ced1f05b7411781a5d08793ac1864610832d69",
+      "n_items": 60
+    },
+    {
+      "order_id": "00109022",
+      "target": "euro-pallet",
+      "selection_hash": "0175b5acfb84c844771bd4347168e98271f4be186e7dce7f431e256bb4bfebf4",
+      "signature": "da329e38cf107b0673f6076b3ce81f41429e62cdb0afd6ffc5fd241ac4f2b869",
+      "n_items": 44
+    },
+    {
+      "order_id": "00107085",
+      "target": "euro-pallet",
+      "selection_hash": "023e815f9635eceab5eefd9d05622e12b88c2eb3cb6562e067730e03523e2840",
+      "signature": "2d9882aa72ab7cb3407e421e66c7cd4813e14f889433280f7c4046cbc544758a",
+      "n_items": 45
+    },
+    {
+      "order_id": "00109092",
+      "target": "euro-pallet",
+      "selection_hash": "025c5cf8e9a5d2e28cf7a16d15e895f1e09f4906ffaa043f365ee4720474149d",
+      "signature": "e566cd83c2ee037bfc90da691484d4e4e92d1703a80662ddc45678311eab3d56",
+      "n_items": 82
+    },
+    {
+      "order_id": "00103739",
+      "target": "rollcontainer",
+      "selection_hash": "001b26902491ddbde450abba3b0f5de04aaf227b3d1bcad26c32456af7a9797b",
+      "signature": "871da417832c74258e34452e843b2155fccbd9477926d5622624b2ccfa1da1bd",
+      "n_items": 44
+    },
+    {
+      "order_id": "00105951",
+      "target": "rollcontainer",
+      "selection_hash": "0087cc1b43b6e7b2b2859374fdb56ab79dce697cabad559c32e676648c097d7e",
+      "signature": "dd11f020c908dd9df23ca0e561d98d8580224a81978500e613e3da5547e59b13",
+      "n_items": 35
+    },
+    {
+      "order_id": "00103413",
+      "target": "rollcontainer",
+      "selection_hash": "0119699feab2f4f04b1250a03dbd26c75e495ae1d976fe0f316c3961cfdc5299",
+      "signature": "676ef53c4555fdad846f8be5e8f2ef7bb8f50dc65ac5301eba310ca58a0a581f",
+      "n_items": 26
+    },
+    {
+      "order_id": "00104057",
+      "target": "rollcontainer",
+      "selection_hash": "0190be540d6c63e15cf0aed6afd955f2b5cf749442c12eba359d83dbabe5f42b",
+      "signature": "e637df91fc779e2ee7e31f83066642db23c4d3cf0db025bbba4b1bcc205566aa",
+      "n_items": 47
+    },
+    {
+      "order_id": "00103051",
+      "target": "rollcontainer",
+      "selection_hash": "01944252f9282f442875183d312df5cc9d0387e51cb6a827240b1567092736de",
+      "signature": "9afdeeb36c30ed5bcff6d0c83261e704ee75dda7ace38be463454a63e47a924c",
+      "n_items": 20
+    },
+    {
+      "order_id": "00105977",
+      "target": "rollcontainer",
+      "selection_hash": "01a419d1e26f8f8ddce0cdf2d5016acb3c3665788717542e398eea283c3eacc2",
+      "signature": "1ed746e3570f6f77de3ccb18c67c863aae74bb2128c0e25b948e55efd0d07fd6",
+      "n_items": 58
+    }
+  ],
+  "n_cases": 84,
+  "seeds": [
+    11,
+    23,
+    37
+  ],
+  "timeout_seconds": 300,
+  "workers": 4,
+  "workers_note": "El solapamiento solo afecta a la pared de la campaña. La latencia de cada política es decision_seconds, medida dentro de su proceso.",
+  "gate_text": [
+    "media de preferencias menos clasificación >= 0.005",
+    "preferencias menos clasificación positiva en al menos dos de tres semillas",
+    "media de preferencias menos Greedy >= 0.01",
+    "media de preferencias menos Greedy >= 0 en cada target",
+    "integridad del evaluador y cobertura suficientes: los 12 pedidos de desarrollo con episodio auditado para las tres semillas y para Greedy, sin tratar un fallo geométrico como retorno 0, con physical_stability_verified null"
+  ],
+  "ranking_used_for_selection": false,
+  "seed_selected": false,
+  "training_executed": false,
+  "final_test_selected": false,
+  "physical_stability_verified": null,
+  "config_reference": {
+    "learning_rate": 0.001,
+    "epochs": 40,
+    "unchanged": true
+  }
+}
