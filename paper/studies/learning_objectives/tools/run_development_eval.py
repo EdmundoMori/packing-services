@@ -457,7 +457,8 @@ def main(argv: list[str] | None = None) -> int:
                 contrast_ok = bool(contrast.get("matches"))
                 geometry_valid = bool(audit.get("internal_geometry_valid", False))
                 raw_u = recompute_u(capture)
-                # El auditor no publica u_geom; la fuente de U es recompute_u sobre la captura.            except Exception as exc:
+                # El auditor no publica u_geom; la fuente de U es recompute_u sobre la captura.
+            except Exception as exc:
                 classified = {
                     "method_failure": False,
                     "harness_failure": False,

@@ -12,7 +12,8 @@
     },
     {
       "path": "paper/studies/learning_objectives/tools/run_development_eval.py",
-      "sha256": "40835785e567b27ba98150075e1a724da0ffd6d0463c41b973b4e1aa62226f0d"
+      "sha256": "7c58be35eb6b624efe8eee5a4ac4da3121d750dc6c13e0dfd71c9096616aa42b",
+      "note": "syntax_hotfix_try_except_after_9e03fdf"
     },
     {
       "path": "paper/studies/learning_objectives/tools/episode_worker.py",
@@ -31,5 +32,6 @@
       "sha256": "5e4514600440c2dd464c1460258ac63cb415294cf4bab858d52cde0dc640da72"
     }
   ],
-  "original_summary_preserved": true
+  "original_summary_preserved": true,
+  "syntax_hotfix_head_pending": true
 }
