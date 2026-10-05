@@ -14,9 +14,9 @@ from unittest import mock
 
 HERE = Path(__file__).resolve().parents[1] / "tools"
 REPO = Path(__file__).resolve().parents[4]
-PY = str((REPO / ".venv" / "bin" / "python").resolve())
-RUNCTL = str((HERE / "labeling_runctl.py").resolve())
-WORKER = str((HERE / "synthetic_labeling_worker.py").resolve())
+PY = str((REPO / ".venv" / "bin" / "python").absolute())
+RUNCTL = str((HERE / "labeling_runctl.py").absolute())
+WORKER = str((HERE / "synthetic_labeling_worker.py").absolute())
 TOKEN = "synthetic_labeling_worker.py"
 
 if str(HERE) not in sys.path:

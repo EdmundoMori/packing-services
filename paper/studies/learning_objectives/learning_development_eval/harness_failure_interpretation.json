@@ -1,0 +1,37 @@
+{
+  "kind": "failed_development_eval_harness_interpretation",
+  "preserves_original_artifacts": true,
+  "original_summary_untouched": true,
+  "original_gate_rewritten": false,
+  "head": "2b4f5e9a8f7c8cdb443130a47cff34b620f21256",
+  "run_id": "dev_eval_2b4f5e9a8f7c_20261005T160901Z",
+  "failure_before_packing": true,
+  "n_captures": 0,
+  "n_audits": 0,
+  "n_cases": 240,
+  "status_counts": {
+    "crash": 240
+  },
+  "interpreter_misresolution": "Path.resolve() on .venv/bin/python followed symlink to /usr/bin/python3.10 without venv site-packages",
+  "wall_seconds_consumed": 22.538368225097656,
+  "development_budget_seconds": 3600.0,
+  "launcher_ops": {
+    "max_workers": 2,
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 1,
+    "case_timeout_seconds": 300.0,
+    "development_wall_seconds": 3600.0,
+    "recorded_before_launch": true,
+    "decision_fixed": true
+  },
+  "original_summary_gate_decision": "no_avanzar_con_esta_configuracion",
+  "original_gate_passed": false,
+  "original_method_failures_recorded": 240,
+  "independent_interpretation": "evaluacion_incompleta_por_fallo_del_arnes",
+  "numeric_contrasts_are_not_packing_results": true,
+  "must_not_close_configuration_for_lack_of_improvement": true,
+  "evaluator_sha256_at_failure": "see_published_2b4f5e9",
+  "published_run_development_eval_sha256": "288603c9b5aa8d604dd0cdc55f13c30f0a09540a0b31ce8264301fc9fa2b5d24",
+  "published_episode_worker_sha256": "181e5aace294fb7b4c93f1fc6e6179e2c9f888ebe3cd2d4781475f7e6bcaf253",
+  "published_labeling_runctl_sha256": "eb66949a375130c47d87b14f06297b65bc82bb2c9dfe789babf1c126062a3695"
+}

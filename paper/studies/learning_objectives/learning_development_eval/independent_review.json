@@ -1,0 +1,40 @@
+{
+  "kind": "independent_development_eval_review",
+  "n_cases": 240,
+  "unique_keys": 240,
+  "status_observed": "completed",
+  "all_cases_crash_without_capture": true,
+  "root_cause": "subprocess used Path.resolve() on .venv/bin/python \u2192 /usr/bin/python3.10 without torch",
+  "method_failures_recorded_as_U0": 240,
+  "audited_captures": 0,
+  "gate_from_runner": {
+    "passed": false,
+    "decision": "no_avanzar_con_esta_configuracion",
+    "conditions": {
+      "mean_pref_minus_class_ge_0_005": false,
+      "positive_mean_in_at_least_two_seeds": false,
+      "aggregate_nonnegative_per_target": true,
+      "complete_audited_evaluation": true,
+      "remaining_budget_for_test": true
+    },
+    "positive_seeds": 0,
+    "does_not_require_beating_greedy": true,
+    "highlighted_vs_greedy": {
+      "preferences_minus_greedy_mean": 0.0,
+      "classification_minus_greedy_mean": 0.0,
+      "preferences_disadvantage_vs_greedy": false,
+      "classification_disadvantage_vs_greedy": false
+    },
+    "remaining_seconds_for_test": 26548.722295570125,
+    "test_wall_seconds": 9000.0,
+    "evaluator_errors": 0,
+    "missing_keys": 0,
+    "seed_selected": false,
+    "secondary_arm_does_not_rescue_gate": true,
+    "engineering_gate_not_significance_test": true
+  },
+  "independent_decision": "evaluacion_incompleta",
+  "note": "No se relanza autom\u00e1ticamente; evidencia conservada. Fix local en run_development_eval/absolute() y labeling_runctl.",
+  "wall_seconds": 22.538368225097656,
+  "remaining_seconds_for_test": 26548.722295570125
+}

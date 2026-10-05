@@ -1,0 +1,8 @@
+{
+  "status": "crash",
+  "error": "sin resultado worker rc=1",
+  "worker_failure": "crash",
+  "attempts": 1,
+  "duration_seconds": 0.14137139200011006,
+  "stderr": "Traceback (most recent call last):\n  File \"/home/edmundo/packing-services/paper/studies/learning_objectives/tools/episode_worker.py\", line 23, in <module>\n    from actor_policy_s import SupportConstrainedActorPolicy  # noqa: E402\n  File \"/home/edmundo/packing-services/paper/studies/learning_objectives/tools/actor_policy_s.py\", line 12, in <module>\n    import torch\nModuleNotFoundError: No module named 'torch'\n"
+}

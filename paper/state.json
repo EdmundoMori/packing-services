@@ -178,8 +178,8 @@
     "general_decision": "Se detiene la búsqueda experimental de mejora algorítmica en estas configuraciones. Se conserva la infraestructura y la evidencia. No se inicia otra campaña sin una pregunta y justificación nuevas."
   },
   "learning_objectives": {
-    "status": "labels_verified_posterior; training_executor_ready; episodes_false",
-    "head": "1240617b0043f7a080564a963a781c525ecb5277",
+    "status": "harness_fix_published_pending_smoke; failed_240_preserved",
+    "head": "2b4f5e9a8f7c8cdb443130a47cff34b620f21256",
     "study": "paper/studies/learning_objectives/",
     "historical_closure_review": "paper/studies/learning_objectives/reviews/00_historical_closure.md",
     "methodological_audit": "paper/studies/learning_objectives/reviews/01_methodological_audit.md",
@@ -239,7 +239,7 @@
     "development_executed": false,
     "does_not_reopen_closed_campaigns": true,
     "prior_labels_reusable_under_new_support": false,
-    "decision": "etiquetas_integras_para_revision_preentrenamiento",
+    "decision": "evaluacion_incompleta_por_fallo_del_arnes",
     "differentiable_losses_review": "paper/studies/learning_objectives/reviews/10_differentiable_losses.md",
     "literature_review": "paper/studies/learning_objectives/reviews/11_literature_and_scope.md",
     "manuscript_alignment_review": "paper/studies/learning_objectives/reviews/12_manuscript_alignment.md",
@@ -322,7 +322,21 @@
     },
     "training_executed": false,
     "label_verification_closure": "paper/studies/learning_objectives/forensics/label_verification_closure.json",
-    "training_executor": "paper/studies/learning_objectives/tools/run_learning_train.py"
+    "training_executor": "paper/studies/learning_objectives/tools/run_learning_train.py",
+    "training_output": "paper/studies/learning_objectives/learning_models/",
+    "training_wall_seconds": 38.334516525268555,
+    "training_budget_seconds": 1800,
+    "n_models": 9,
+    "training_restorer_head": "468ff517bbc1cfae2831abbfbb454cc82af1cf41",
+    "models_publish_head": "2b4f5e9a8f7c8cdb443130a47cff34b620f21256",
+    "development_eval": "paper/studies/learning_objectives/learning_development_eval/",
+    "development_eval_run_id": "dev_eval_2b4f5e9a8f7c_20261005T160901Z",
+    "independent_review": "paper/studies/learning_objectives/forensics/development_eval_independent_review.json",
+    "head_models": "2b4f5e9a8f7c8cdb443130a47cff34b620f21256",
+    "failed_development_eval": "paper/studies/learning_objectives/learning_development_eval/",
+    "independent_interpretation": "evaluacion_incompleta_por_fallo_del_arnes",
+    "evaluator_fix_review": "paper/studies/learning_objectives/reviews/21_venv_workers_and_invalid_gates.md",
+    "test_opened": false
   },
   "previous_executions": [
     {

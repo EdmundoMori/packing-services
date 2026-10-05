@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Worker de un episodio development (Greedy o actor limitado a S)."""
+"""Worker de un episodio development (Greedy o actor limitado a S).
+
+Greedy no importa torch ni el actor. El actor carga torch solo en su rama.
+"""
 
 from __future__ import annotations
 
@@ -20,12 +23,9 @@ sys.path.insert(0, str(COUNTERFACTUAL_TOOLS))
 sys.path.insert(0, str(PAPER_TOOLS))
 sys.path.insert(0, str(HERE))
 
-from actor_policy_s import SupportConstrainedActorPolicy  # noqa: E402
 from compact_study import ALGORITHM_NAME, run_compact_episode  # noqa: E402
 from labeling_io import atomic_write_json  # noqa: E402
-from model_spec import build_actor, configure_torch_runtime  # noqa: E402
 from pilot_problems import capture_document, prepare_imports  # noqa: E402
-from training_loop import configure_training_runtime  # noqa: E402
 
 
 class _TimedChooser:
@@ -44,8 +44,10 @@ class _TimedChooser:
             self.decision_seconds += time.perf_counter() - started
 
 
-def _load_actor(path: Path, stats: dict[str, list[float]]) -> SupportConstrainedActorPolicy:
+def _load_actor(path: Path, stats: dict[str, list[float]]) -> Any:
     import torch
+    from actor_policy_s import SupportConstrainedActorPolicy
+    from model_spec import build_actor
 
     blob = torch.load(path, map_location="cpu", weights_only=False)
     model = build_actor(0)
@@ -82,6 +84,9 @@ def run_problem(
     else:
         if checkpoint_path is None or stats is None:
             raise RuntimeError("el actor necesita checkpoint y normalización")
+        from training_loop import configure_training_runtime
+
+        configure_training_runtime()
         actor = _load_actor(Path(checkpoint_path), stats)
         chooser = actor
         display = f"Actor {arm} sobre S"
@@ -153,8 +158,6 @@ def main() -> int:
     parser.add_argument("--job", required=True, type=Path)
     parser.add_argument("--result", required=True, type=Path)
     args = parser.parse_args()
-    configure_training_runtime()
-    configure_torch_runtime()
     job = json.loads(args.job.read_text(encoding="utf-8"))
     prepare_imports()
     from compact_study import build_compact_problem

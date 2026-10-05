@@ -1,0 +1,11 @@
+{
+  "kind": "failed_attempt_independent_interpretation",
+  "artefact_dir": "paper/studies/learning_objectives/learning_development_eval/",
+  "original_summary_and_gate_untouched": true,
+  "independent_interpretation": "evaluacion_incompleta_por_fallo_del_arnes",
+  "numeric_contrasts_are_not_packing_results": true,
+  "does_not_close_configuration_for_lack_of_improvement": true,
+  "original_gate_decision_recorded": "no_avanzar_con_esta_configuracion",
+  "why_original_gate_must_not_be_reapplied": "240 claves con fila pero 0 capturas auditadas; fallos de infraestructura (intérprete), no de packing",
+  "preservation_record": "forensics/development_eval_failed_attempt_preservation.json"
+}

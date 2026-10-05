@@ -199,10 +199,14 @@ def start_worker(
             env["LABELING_RUN_DIR"] = str(run_dir.resolve())
             env["LABELING_RUN_ID"] = run_id
             env["LABELING_ATTEMPT_ID"] = attempt_id
+            # argv[0]: absolute() sin resolve() para conservar identidad de la venv
+            # (.venv/bin/python → symlink al base; resolve() perdería site-packages).
             fixed: list[str] = []
             for i, a in enumerate(worker_argv):
-                if i == 0 or (a.endswith(".py") and not a.startswith("-")):
-                    fixed.append(str(Path(a).resolve()))
+                if i == 0:
+                    fixed.append(str(Path(a).absolute()))
+                elif a.endswith(".py") and not a.startswith("-"):
+                    fixed.append(str(Path(a).absolute()))
                 else:
                     fixed.append(a)
             os.execvpe(fixed[0], fixed, env)

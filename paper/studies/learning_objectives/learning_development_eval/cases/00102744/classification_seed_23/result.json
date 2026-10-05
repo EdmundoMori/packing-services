@@ -1,0 +1,22 @@
+{
+  "order_id": "00102744",
+  "split": "development",
+  "target": "euro-pallet",
+  "selection_hash": "00ef1dab772ea3424d478bb246c63a2c8ac86f7d9094e991793ba3e7cb8125fa",
+  "signature": "b360ca5182eeb69cace78a63494fa67bb80799c9c331df9f7cccc5017a912c30",
+  "arm": "classification",
+  "seed": 23,
+  "key": "classification|23|00102744",
+  "method_failure": true,
+  "evaluator_error": false,
+  "geometry_invalid": false,
+  "input_mismatch": false,
+  "effective_u_geom": 0.0,
+  "raw_u_geom": null,
+  "in_denominator": true,
+  "physical_stability_verified": null,
+  "status": "crash",
+  "error": "sin resultado worker rc=1",
+  "duration_seconds": 0.14451189100009287,
+  "timings": null
+}

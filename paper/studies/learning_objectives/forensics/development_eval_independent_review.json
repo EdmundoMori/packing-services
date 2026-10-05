@@ -1,0 +1,67 @@
+{
+  "kind": "development_eval_independent_review",
+  "published_head_models": "2b4f5e9a8f7c8cdb443130a47cff34b620f21256",
+  "eval_run_id": "dev_eval_2b4f5e9a8f7c_20261005T160901Z",
+  "n_keys": 240,
+  "unique_keys": 240,
+  "n_orders": 24,
+  "status_counts": {
+    "crash": 240
+  },
+  "n_captures": 0,
+  "n_audits": 0,
+  "method_failures": 240,
+  "evaluator_errors": 0,
+  "worker_crash_root_cause": "subprocess used Path(.../.venv/bin/python).resolve() → /usr/bin/python3.10 without venv site-packages; ModuleNotFoundError: torch in actor_policy_s import",
+  "sample_stderr": "Traceback (most recent call last):\n  File \"/home/edmundo/packing-services/paper/studies/learning_objectives/tools/episode_worker.py\", line 23, in <module>\n    from actor_policy_s import SupportConstrainedActorPolicy  # noqa: E402\n  File \"/home/edmundo/packing-services/paper/studies/learning_objectives/tools/actor_policy_s.py\", line 12, in <module>\n    import torch\nModuleNotFoundError: No module named 'torch'\n",
+  "summary_gate_decision": "no_avanzar_con_esta_configuracion",
+  "scientific_decision": "evaluacion_incompleta",
+  "scientific_decision_rationale": "240/240 crashes before packing; no captures/audits; gate zeros are not an integral development evaluation",
+  "no_automatic_relaunch": true,
+  "wall_seconds": 22.538368225097656,
+  "remaining_seconds_for_test": 26548.722295570125,
+  "gate_conditions_as_recorded": {
+    "mean_pref_minus_class_ge_0_005": false,
+    "positive_mean_in_at_least_two_seeds": false,
+    "aggregate_nonnegative_per_target": true,
+    "complete_audited_evaluation": true,
+    "remaining_budget_for_test": true
+  },
+  "seed_means_pref_minus_class": [
+    {
+      "seed": 11,
+      "mean": 0.0
+    },
+    {
+      "seed": 23,
+      "mean": 0.0
+    },
+    {
+      "seed": 37,
+      "mean": 0.0
+    }
+  ],
+  "order_aggregate_pref_minus_class": {
+    "mean": 0.0,
+    "median": 0.0,
+    "by_target": {
+      "euro-pallet": {
+        "mean": 0.0,
+        "median": 0.0,
+        "n": 12
+      },
+      "rollcontainer": {
+        "mean": 0.0,
+        "median": 0.0,
+        "n": 12
+      }
+    }
+  },
+  "vs_greedy_highlighted": {
+    "preferences_minus_greedy_mean": 0.0,
+    "classification_minus_greedy_mean": 0.0,
+    "preferences_disadvantage_vs_greedy": false,
+    "classification_disadvantage_vs_greedy": false
+  },
+  "checkpoint_hashes_n": 9
+}

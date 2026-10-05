@@ -36,15 +36,20 @@ are preserved. A later, distinct re-verification with a manifest-keyed verifier
 (\texttt{manifest\_keyed\_v2}) accepted $48$ train $+24$ development orders
 ($192$/$96$ complete states; $1115$ alternatives; $743$ train learning rows;
 $372$ development learning rows; sixteen preflight continuations once; no test).
-Process exit is not alone campaign completeness. Reviews \texttt{14}--\texttt{19}
-and \texttt{forensics/label\_verification\_closure.json} hold provenance.
+Process exit is not alone campaign completeness. Reviews \texttt{14}--\texttt{20}
+and \texttt{forensics/} hold provenance.
 
-\paragraph{Operational persistence layer.}
-Atomic JSON writes, content-hash integrity, a safe campaign wrapper and a
-detachable run controller are provided under \texttt{tools/}. The attempt~01
-executor module is retained for provenance.
-
-Paired training code for nine models is published under
-\texttt{tools/run\_learning\_train.py}; episode evaluation and test packing
-remain unexecuted. Seventeen untracked historical transition pickles remain
+\paragraph{Training and development episodes.}
+Paired training of nine models completed under restore commit \texttt{468ff51}
+after an abort that never left hash validation (\texttt{2176460}). Models were
+published in \texttt{2b4f5e9}. The first authorised development episode campaign
+wrote $240$ keys but every worker crashed before capture when
+\texttt{Path.resolve()} followed the venv interpreter symlink to the system
+Python (no \texttt{torch}). That run remains archived under
+\texttt{learning\_development\_eval/} with its original summary and gate string;
+independent interpretation is harness failure, not algorithmic
+\texttt{no\_avanzar}. The evaluator was corrected to keep the absolute venv
+invocation path, run an environment preflight before the case grid, and refuse
+scientific gates when infrastructure prevents audited episodes. Test packing
+remains closed. Seventeen untracked historical transition pickles remain
 excluded from versioned scientific claims.

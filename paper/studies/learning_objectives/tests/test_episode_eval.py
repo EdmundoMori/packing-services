@@ -93,6 +93,13 @@ class TestEpisodeAnalysis(unittest.TestCase):
             evaluator_errors=0,
             missing_keys=0,
             remaining_seconds_for_test=10000,
+            integrity={
+                "gate_applicable": True,
+                "complete_audited_evaluation": True,
+                "captures_audited": 240,
+                "expected_keys": 240,
+                "scientifically_valid": True,
+            },
         )
         self.assertTrue(gate["conditions"]["mean_pref_minus_class_ge_0_005"])
         self.assertTrue(gate["conditions"]["positive_mean_in_at_least_two_seeds"])
@@ -104,6 +111,18 @@ class TestEpisodeAnalysis(unittest.TestCase):
         self.assertTrue(gate["secondary_arm_does_not_rescue_gate"])
 
     def test_gate_fails_incomplete(self) -> None:
+        from episode_analysis import evaluation_integrity
+
+        integrity = evaluation_integrity(
+            n_keys_received=240,
+            expected_keys=240,
+            n_episodes_executed=0,
+            n_audited_captures=0,
+            method_failures=0,
+            harness_failures=0,
+            evaluator_errors=1,
+            harness_preflight_ok=True,
+        )
         gate = apply_development_gate(
             [],
             {
@@ -115,9 +134,11 @@ class TestEpisodeAnalysis(unittest.TestCase):
             evaluator_errors=1,
             missing_keys=0,
             remaining_seconds_for_test=10000,
+            integrity=integrity,
         )
         self.assertFalse(gate["passed"])
-        self.assertEqual(gate["decision"], "no_avanzar_con_esta_configuracion")
+        self.assertFalse(gate["gate_applicable"])
+        self.assertEqual(gate["decision"], "evaluacion_incompleta")
 
 
 class TestCheckpointIdentity(unittest.TestCase):

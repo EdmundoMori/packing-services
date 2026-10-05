@@ -1,0 +1,24 @@
+{
+  "run_id": "dev_eval_2b4f5e9a8f7c_20261005T160828Z",
+  "attempt_id": "development_eval_240",
+  "status": "running",
+  "identity_token": "run_development_eval.py",
+  "worker_argv": [
+    "/home/edmundo/packing-services/.venv/bin/python",
+    "-u",
+    "/home/edmundo/packing-services/paper/studies/learning_objectives/tools/run_development_eval.py",
+    "--study-dir",
+    "/home/edmundo/packing-services/paper/studies/learning_objectives",
+    "--models-dir",
+    "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models",
+    "--labels-output",
+    "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_labels_attempt03",
+    "--output",
+    "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_development_eval"
+  ],
+  "started_unix": 1791216508.8308427,
+  "daemon_unix": 1791216508.8424804,
+  "pid": 17316,
+  "launcher_pid": 17312,
+  "pgid": 17315
+}

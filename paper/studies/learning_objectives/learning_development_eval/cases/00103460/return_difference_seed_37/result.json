@@ -1,0 +1,22 @@
+{
+  "order_id": "00103460",
+  "split": "development",
+  "target": "rollcontainer",
+  "selection_hash": "04ac1ee616cde5551d0d7eb900d5a9746841782b821ee27c5618ca2515dba1d0",
+  "signature": "f5726bf9ac2d30327266ec87a82525424fae8194b6099e8bed2912365265a424",
+  "arm": "return_difference",
+  "seed": 37,
+  "key": "return_difference|37|00103460",
+  "method_failure": true,
+  "evaluator_error": false,
+  "geometry_invalid": false,
+  "input_mismatch": false,
+  "effective_u_geom": 0.0,
+  "raw_u_geom": null,
+  "in_denominator": true,
+  "physical_stability_verified": null,
+  "status": "crash",
+  "error": "sin resultado worker rc=1",
+  "duration_seconds": 0.13540906900016125,
+  "timings": null
+}

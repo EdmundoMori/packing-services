@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Evaluación única de development: 24 Greedy + 216 actores = 240 casos.
+"""Evaluación de development: Greedy + actores bajo contrato S.
 
-No abre test. Máximo 2 workers. Presupuesto 3600 s de development.
+No abre test. Máximo 2 workers. Cupo development 3600 s (no se reinicia).
+El intérprete de workers usa Path.absolute() sobre .venv/bin/python (no resolve).
 """
 
 from __future__ import annotations
@@ -38,6 +39,9 @@ from episode_analysis import (  # noqa: E402
     SEEDS,
     apply_development_gate,
     classify_episode,
+    evaluation_integrity,
+    filter_cases,
+    looks_like_harness_failure,
     order_then_seed_aggregate,
     planned_cases,
     seed_report,
@@ -49,11 +53,13 @@ from model_spec import TRAINING_CONFIG, build_actor  # noqa: E402
 from pilot_metrics import contrast_capture  # noqa: E402
 from pilot_problems import prepare_imports, problem_snapshot  # noqa: E402
 from training_loop import configure_training_runtime, load_checkpoint_logits  # noqa: E402
+from worker_env import environment_preflight, preserve_executable, venv_python  # noqa: E402
 
 DEVELOPMENT_WALL = 3600.0
 CASE_TIMEOUT = 300.0
 MAX_WORKERS = 2
 WORKER = HERE / "episode_worker.py"
+FAILED_DEV_WALL = 22.538368225097656  # intento 240/240 crash; no reiniciar reloj
 
 
 def file_sha256(path: Path) -> str:
@@ -74,6 +80,21 @@ def development_orders(manifest: dict[str, Any]) -> list[dict[str, Any]]:
     return rows
 
 
+def first_development_order_per_target(orders: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Primer pedido development de cada target según orden del manifiesto."""
+
+    seen: dict[str, dict[str, Any]] = {}
+    for row in orders:
+        if row["target"] not in seen:
+            seen[row["target"]] = row
+    # preserve manifest encounter order
+    out = []
+    for row in orders:
+        if seen.get(row["target"]) is row:
+            out.append(row)
+    return out
+
+
 def validate_checkpoints(models_dir: Path, normalization: dict[str, Any]) -> list[dict[str, Any]]:
     rows = []
     for seed in SEEDS:
@@ -91,7 +112,6 @@ def validate_checkpoints(models_dir: Path, normalization: dict[str, Any]) -> lis
                 raise RuntimeError(f"meta brazo/semilla: {path}")
             model = build_actor(0)
             model.load_state_dict(blob["state_dict"])
-            # logits reproducibles sobre un vector sintético
             feats = torch.zeros(2, 17, dtype=torch.float32)
             a = load_checkpoint_logits(path, feats)
             b = load_checkpoint_logits(path, feats)
@@ -111,7 +131,7 @@ def validate_checkpoints(models_dir: Path, normalization: dict[str, Any]) -> lis
             )
     if len(rows) != 9:
         raise RuntimeError("no hay nueve checkpoints")
-    del normalization  # validación de uso ocurre al cargar stats en jobs
+    del normalization
     return rows
 
 
@@ -132,6 +152,7 @@ def invoke_case(
     *,
     case_dir: Path,
     timeout_s: float,
+    python: str,
 ) -> dict[str, Any]:
     case_dir.mkdir(parents=True, exist_ok=True)
     job_path = case_dir / "job.json"
@@ -139,9 +160,9 @@ def invoke_case(
     atomic_write_json(job_path, job)
     atomic_write_json(case_dir / "input.json", job.get("input_snapshot") or {})
     cmd = [
-        str((REPO / ".venv" / "bin" / "python").resolve()),
+        preserve_executable(python),
         "-u",
-        str(WORKER.resolve()),
+        str(WORKER.absolute()),
         "--job",
         str(job_path),
         "--result",
@@ -166,10 +187,12 @@ def invoke_case(
             "status": "timeout",
             "error": f"timeout de {timeout_s} s",
             "worker_failure": "timeout",
+            "failure_class": "method",
             "attempts": 1,
             "duration_seconds": time.perf_counter() - started,
             "stderr": (exc.stderr or "")[:2000] if isinstance(exc.stderr, str) else None,
             "capture": None,
+            "invoked_python": preserve_executable(python),
         }
     wall = time.perf_counter() - started
     payload = None
@@ -177,17 +200,24 @@ def invoke_case(
         payload = json.loads(result_path.read_text(encoding="utf-8"))
         result_path.unlink()
     if payload is None:
+        stderr = (completed.stderr or "")[:2000]
+        harness = looks_like_harness_failure(f"sin resultado worker rc={completed.returncode}", stderr)
         return {
             "status": "crash",
             "error": f"sin resultado worker rc={completed.returncode}",
             "worker_failure": "crash",
+            "failure_class": "harness" if harness else "method",
             "attempts": 1,
             "duration_seconds": wall,
-            "stderr": (completed.stderr or "")[:2000],
+            "stderr": stderr,
             "capture": None,
+            "invoked_python": preserve_executable(python),
         }
     payload["duration_seconds"] = wall
     payload["attempts"] = 1
+    payload["invoked_python"] = preserve_executable(python)
+    if payload.get("status") != "ok" and looks_like_harness_failure(payload.get("error"), None):
+        payload["failure_class"] = "harness"
     return payload
 
 
@@ -197,7 +227,18 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p.add_argument("--models-dir", type=Path, required=True)
     p.add_argument("--labels-output", type=Path, required=True)
     p.add_argument("--output", type=Path, required=True)
-    p.add_argument("--wall-seconds", type=float, default=DEVELOPMENT_WALL)
+    p.add_argument("--wall-seconds", type=float, default=None)
+    p.add_argument(
+        "--prior-development-wall-seconds",
+        type=float,
+        default=FAILED_DEV_WALL,
+        help="Tiempo ya consumido del cupo development (intento fallido inclusive).",
+    )
+    p.add_argument("--smoke-first-target-orders", action="store_true")
+    p.add_argument("--only-seeds", type=str, default=None, help="p.ej. 11")
+    p.add_argument("--only-arms", type=str, default=None, help="greedy,classification,...")
+    p.add_argument("--only-order-ids", type=str, default=None, help="comma-separated")
+    p.add_argument("--skip-checkpoint-validation", action="store_true")
     return p.parse_args(argv)
 
 
@@ -207,7 +248,15 @@ def main(argv: list[str] | None = None) -> int:
     models = args.models_dir.resolve()
     labels = args.labels_output.resolve()
     output = args.output.resolve()
-    wall = float(args.wall_seconds)
+    prior_dev = float(args.prior_development_wall_seconds)
+    remaining_cup = DEVELOPMENT_WALL - prior_dev
+    if remaining_cup <= 0:
+        print(json.dumps({"status": "refused", "reason": "development_cup_exhausted", "prior": prior_dev}))
+        return 2
+    wall = float(args.wall_seconds) if args.wall_seconds is not None else remaining_cup
+    if wall > remaining_cup + 1e-9:
+        print(json.dumps({"status": "refused", "reason": "wall_exceeds_remaining_development_cup", "remaining": remaining_cup}))
+        return 2
     if wall > DEVELOPMENT_WALL:
         print(json.dumps({"status": "refused", "reason": "wall_exceeds_development_budget"}))
         return 2
@@ -228,6 +277,29 @@ def main(argv: list[str] | None = None) -> int:
             },
         )
 
+    # Preflight de entorno ANTES de crear casos / cuadrícula
+    preflight = environment_preflight(REPO, require_actor_imports=True)
+    if not preflight.get("ok"):
+        output.mkdir(parents=True, exist_ok=True)
+        atomic_write_json(output / "environment_preflight.json", preflight)
+        atomic_write_json(
+            output / "evaluation_summary.json",
+            {
+                "status": "harness_preflight_failed",
+                "harness_failure": True,
+                "gate_applicable": False,
+                "gate_decision": "evaluacion_incompleta_por_fallo_del_arnes",
+                "n_cases": 0,
+                "expected_cases": 0,
+                "preflight": preflight,
+                "prior_development_wall_seconds": prior_dev,
+                "test_executed": False,
+            },
+        )
+        print(json.dumps({"status": "harness_preflight_failed", "reason": preflight.get("reason")}))
+        return 3
+
+    python = str(venv_python(REPO))
     contracts = verify_frozen_artifacts(
         protocol_path=study / "protocol_frozen.json",
         sample_path=study / "sample_manifest.json",
@@ -240,10 +312,35 @@ def main(argv: list[str] | None = None) -> int:
     orders = development_orders(manifest)
     normalization = json.loads((labels / "normalization_train.json").read_text(encoding="utf-8"))
     stats = {"mean": normalization["mean"], "scale": normalization["scale"]}
-    ckpt_rows = validate_checkpoints(models, normalization)
+    ckpt_rows = [] if args.skip_checkpoint_validation else validate_checkpoints(models, normalization)
     cases = planned_cases(orders)
 
-    # snapshots independientes de entrada
+    order_ids = None
+    arms = None
+    seeds = None
+    if args.smoke_first_target_orders:
+        smoke_orders = first_development_order_per_target(orders)
+        order_ids = {o["order_id"] for o in smoke_orders}
+        arms = {"greedy", *ARMS}
+        seeds = {11}
+        orders = smoke_orders
+    if args.only_order_ids:
+        order_ids = {x.strip() for x in args.only_order_ids.split(",") if x.strip()}
+        orders = [o for o in orders if o["order_id"] in order_ids]
+    if args.only_arms:
+        arms = {x.strip() for x in args.only_arms.split(",") if x.strip()}
+    if args.only_seeds:
+        seeds = {int(x.strip()) for x in args.only_seeds.split(",") if x.strip()}
+    if order_ids is not None or arms is not None or seeds is not None:
+        # planned_cases over filtered orders when order filter set via smoke
+        base = planned_cases(orders) if (args.smoke_first_target_orders or args.only_order_ids) else cases
+        cases = filter_cases(base, order_ids=order_ids, arms=arms, seeds=seeds)
+
+    expected = len(cases)
+    if expected == 0:
+        print(json.dumps({"status": "refused", "reason": "no_cases"}))
+        return 2
+
     prepare_imports()
     from splits import load_orders
 
@@ -259,18 +356,21 @@ def main(argv: list[str] | None = None) -> int:
         "torch_num_threads": 1,
         "torch_num_interop_threads": 1,
         "case_timeout_seconds": CASE_TIMEOUT,
-        "development_wall_seconds": wall,
+        "development_wall_seconds_cup": DEVELOPMENT_WALL,
+        "prior_development_wall_seconds": prior_dev,
+        "this_run_wall_seconds_limit": wall,
         "recorded_before_launch": True,
         "decision_fixed": True,
+        "worker_python": python,
+        "worker_python_uses_absolute_not_resolve": True,
     }
     output.mkdir(parents=True, exist_ok=True)
+    atomic_write_json(output / "environment_preflight.json", preflight)
     atomic_write_json(output / "operational_decision.json", ops)
     eval_manifest = {
         "kind": "development_evaluation_manifest",
-        "n_cases": len(cases),
+        "n_cases": expected,
         "n_orders": len(orders),
-        "n_greedy": 24,
-        "n_actor": 216,
         "orders": orders,
         "cases": [{"key": c["key"], "order_id": c["order_id"], "arm": c["arm"], "seed": c["seed"]} for c in cases],
         "checkpoints": ckpt_rows,
@@ -280,13 +380,16 @@ def main(argv: list[str] | None = None) -> int:
         "ops": ops,
         "test_excluded": True,
         "written_before_episodes": True,
+        "smoke": bool(args.smoke_first_target_orders),
+        "evaluator_sha256": file_sha256(Path(__file__)),
+        "worker_sha256": file_sha256(WORKER),
+        "worker_env_sha256": file_sha256(HERE / "worker_env.py"),
     }
     atomic_write_json(output / "evaluation_manifest.json", eval_manifest)
     atomic_write_json(
         output / "input_snapshots.json",
         {oid: {"sha256": hashlib.sha256(json.dumps(snap, sort_keys=True).encode()).hexdigest()} for oid, snap in snapshots.items()},
     )
-    # guardar snapshots completos por pedido
     snap_dir = output / "snapshots"
     snap_dir.mkdir(parents=True, exist_ok=True)
     for oid, snap in snapshots.items():
@@ -295,7 +398,7 @@ def main(argv: list[str] | None = None) -> int:
     deadline = time.perf_counter() + wall
     started_unix = time.time()
     results_rows: list[dict[str, Any]] = []
-    progress = {"status": "running", "done": 0, "total": 240, "started_unix": started_unix}
+    progress = {"status": "running", "done": 0, "total": expected, "started_unix": started_unix}
     atomic_write_json(output / "progress.json", progress)
 
     def _one(case: dict[str, Any]) -> dict[str, Any]:
@@ -309,10 +412,12 @@ def main(argv: list[str] | None = None) -> int:
                 "status": "timeout",
                 "error": "global_wall_clock",
                 "method_failure": True,
+                "harness_failure": False,
                 "evaluator_error": False,
                 "effective_u_geom": 0.0,
                 "in_denominator": True,
                 "physical_stability_verified": None,
+                "failure_class": "method",
             }
         timeout = min(CASE_TIMEOUT, remaining)
         label = "greedy" if case["arm"] == "greedy" else f"{case['arm']}_seed_{case['seed']}"
@@ -331,7 +436,7 @@ def main(argv: list[str] | None = None) -> int:
             "normalization": stats,
             "input_snapshot": snapshots[case["order_id"]],
         }
-        outcome = invoke_case(job, case_dir=case_dir, timeout_s=timeout)
+        outcome = invoke_case(job, case_dir=case_dir, timeout_s=timeout, python=python)
         capture = outcome.get("capture") if isinstance(outcome.get("capture"), dict) else None
         audit = None
         contrast_ok = False
@@ -350,14 +455,12 @@ def main(argv: list[str] | None = None) -> int:
                 )
                 atomic_write_json(case_dir / "contrast.json", contrast)
                 contrast_ok = bool(contrast.get("matches"))
-                geometry_valid = bool(audit.get("geometry_valid", False))
+                geometry_valid = bool(audit.get("internal_geometry_valid", False))
                 raw_u = recompute_u(capture)
-                if audit.get("u_geom") is not None and raw_u is not None:
-                    if abs(float(audit["u_geom"]) - float(raw_u)) > 1e-12:
-                        geometry_valid = False
-            except Exception as exc:
+                # El auditor no publica u_geom; la fuente de U es recompute_u sobre la captura.            except Exception as exc:
                 classified = {
                     "method_failure": False,
+                    "harness_failure": False,
                     "evaluator_error": True,
                     "geometry_invalid": False,
                     "input_mismatch": False,
@@ -365,6 +468,7 @@ def main(argv: list[str] | None = None) -> int:
                     "raw_u_geom": None,
                     "in_denominator": False,
                     "physical_stability_verified": None,
+                    "failure_class": "evaluator",
                     "evaluator_exception": f"{type(exc).__name__}: {exc}",
                 }
                 atomic_write_json(case_dir / "worker.json", {k: v for k, v in outcome.items() if k != "capture"})
@@ -376,6 +480,9 @@ def main(argv: list[str] | None = None) -> int:
             raw_u_geom=float(raw_u) if raw_u is not None else None,
             geometry_valid=geometry_valid,
             contrast_matches=contrast_ok,
+            error=outcome.get("error"),
+            stderr=outcome.get("stderr"),
+            failure_class=outcome.get("failure_class"),
         )
         atomic_write_json(case_dir / "worker.json", {k: v for k, v in outcome.items() if k != "capture"})
         result = {
@@ -386,6 +493,8 @@ def main(argv: list[str] | None = None) -> int:
             "duration_seconds": outcome.get("duration_seconds"),
             "timings": outcome.get("timings"),
             "key": case["key"],
+            "audited": audit is not None and not classified.get("evaluator_error") and capture is not None,
+            "invoked_python": outcome.get("invoked_python"),
         }
         atomic_write_json(case_dir / "result.json", result)
         return result
@@ -410,29 +519,45 @@ def main(argv: list[str] | None = None) -> int:
             atomic_write_json(output / "progress.json", progress)
 
     wall_used = time.time() - started_unix
-    # presupuesto de campaña acumulado (aproximación documentada)
-    labeling_prior = 1452.6413891145087 + 702.6418765110001  # prior al 03 + wall 03
-    preflight = 35.121554053999716
+    labeling_prior = 1452.6413891145087 + 702.6418765110001
+    preflight_once = 35.121554053999716
     training_wall = float(training_summary.get("wall_seconds") or 38.334516525268555)
     total_budget = float(protocol["budget"]["total_wall_seconds"])
-    accounted = labeling_prior + preflight + training_wall + wall_used
+    # prior_dev already includes failed full attempt; this_run adds smoke/full
+    accounted = labeling_prior + preflight_once + training_wall + prior_dev + wall_used
     remaining_for_test = total_budget - accounted
 
     by_key = {row["key"]: row for row in results_rows}
     missing = [c["key"] for c in cases if c["key"] not in by_key]
     evaluator_errors = sum(1 for row in results_rows if row.get("evaluator_error"))
     method_failures = sum(1 for row in results_rows if row.get("method_failure"))
+    harness_failures = sum(1 for row in results_rows if row.get("harness_failure"))
+    n_ok = sum(1 for row in results_rows if row.get("status") == "ok" and not row.get("evaluator_error"))
+    n_audited = sum(1 for row in results_rows if row.get("audited"))
+
+    integrity = evaluation_integrity(
+        n_keys_received=len(results_rows),
+        expected_keys=expected,
+        n_episodes_executed=n_ok,
+        n_audited_captures=n_audited,
+        method_failures=method_failures,
+        harness_failures=harness_failures,
+        evaluator_errors=evaluator_errors,
+        harness_preflight_ok=True,
+    )
 
     status = "completed"
-    if missing or len(results_rows) != 240:
+    if missing or len(results_rows) != expected:
         status = "incomplete"
-    if evaluator_errors:
-        status = "incomplete_evaluator" if status == "completed" else status
+    if harness_failures or evaluator_errors:
+        status = "incomplete" if status == "completed" else status
+    if not integrity["scientifically_valid"]:
+        if status == "completed":
+            status = "completed_keys_but_not_scientifically_valid"
 
-    seed_reports = []
+    seed_reports: list[dict[str, Any]] = []
     analysis: dict[str, Any]
-    gate: dict[str, Any]
-    if status == "completed" and not evaluator_errors:
+    if integrity["gate_applicable"] and expected >= 240:
         seed_reports = [seed_report(results_rows, orders, seed) for seed in SEEDS]
         order_agg = order_then_seed_aggregate(seed_reports, orders)
         gate = apply_development_gate(
@@ -442,33 +567,46 @@ def main(argv: list[str] | None = None) -> int:
             missing_keys=len(missing),
             remaining_seconds_for_test=remaining_for_test,
             test_wall_seconds=float(protocol["budget"]["test_wall_seconds"]),
+            integrity=integrity,
         )
         analysis = {
             "seed_reports": seed_reports,
             "order_then_seed_aggregate": order_agg,
-            "seed_means_preferences_minus_classification": [
-                {"seed": r["seed"], "mean": r["preferences_minus_classification"]["mean"]} for r in seed_reports
-            ],
             "gate": gate,
+            "integrity": integrity,
         }
     else:
-        gate = {
-            "passed": False,
-            "decision": "evaluacion_incompleta",
-            "evaluator_errors": evaluator_errors,
-            "missing_keys": len(missing),
-        }
-        analysis = {"gate": gate, "seed_reports": seed_reports}
+        gate = apply_development_gate(
+            [],
+            {
+                "preferences_minus_classification": {
+                    "mean": 0.0,
+                    "by_target": {"euro-pallet": {"mean": 0.0}, "rollcontainer": {"mean": 0.0}},
+                }
+            },
+            evaluator_errors=evaluator_errors,
+            missing_keys=len(missing),
+            remaining_seconds_for_test=remaining_for_test,
+            test_wall_seconds=float(protocol["budget"]["test_wall_seconds"]),
+            integrity={**integrity, "gate_applicable": False},
+        )
+        analysis = {"gate": gate, "integrity": integrity, "smoke_or_invalid": True}
 
     summary = {
         "status": status,
         "n_cases": len(results_rows),
-        "expected_cases": 240,
+        "expected_cases": expected,
         "missing_keys": missing,
         "method_failures": method_failures,
+        "harness_failures": harness_failures,
         "evaluator_errors": evaluator_errors,
+        "episodes_ok": n_ok,
+        "captures_audited": n_audited,
+        "integrity": integrity,
         "wall_seconds": wall_used,
-        "development_budget_seconds": wall,
+        "prior_development_wall_seconds": prior_dev,
+        "development_cup_seconds": DEVELOPMENT_WALL,
+        "development_cup_remaining_after_run": DEVELOPMENT_WALL - prior_dev - wall_used,
         "campaign_accounted_wall_seconds": accounted,
         "remaining_seconds_for_test": remaining_for_test,
         "test_executed": False,
@@ -476,6 +614,9 @@ def main(argv: list[str] | None = None) -> int:
         "ops": ops,
         "gate_decision": gate.get("decision"),
         "gate_passed": gate.get("passed"),
+        "gate_applicable": gate.get("gate_applicable"),
+        "environment_preflight_ok": True,
+        "worker_python": python,
     }
     atomic_write_json(output / "evaluation_summary.json", summary)
     atomic_write_json(output / "evaluation_analysis.json", analysis)
@@ -488,15 +629,29 @@ def main(argv: list[str] | None = None) -> int:
             {
                 "run_id": os.environ.get("LABELING_RUN_ID"),
                 "attempt_id": os.environ.get("LABELING_ATTEMPT_ID"),
-                "status": "completed" if status == "completed" else "exited_nonzero",
-                "exit_code": 0 if status == "completed" else 1,
+                "status": "completed" if integrity.get("scientifically_valid") or (expected < 240 and harness_failures == 0 and not missing) else "exited_nonzero",
+                "exit_code": 0 if harness_failures == 0 and not missing else 1,
                 "pid": os.getpid(),
                 "finished_unix": time.time(),
                 "gate_decision": gate.get("decision"),
             },
         )
-    print(json.dumps({"status": status, "gate": gate.get("decision"), "wall_seconds": wall_used, "output": str(output)}))
-    return 0 if status == "completed" else 1
+    print(
+        json.dumps(
+            {
+                "status": status,
+                "gate": gate.get("decision"),
+                "gate_applicable": gate.get("gate_applicable"),
+                "wall_seconds": wall_used,
+                "n_cases": len(results_rows),
+                "audited": n_audited,
+                "output": str(output),
+            }
+        )
+    )
+    if harness_failures:
+        return 3
+    return 0 if not missing else 1
 
 
 if __name__ == "__main__":

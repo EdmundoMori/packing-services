@@ -50,9 +50,51 @@ test & --- & --- & 0 & 0 \\
 \end{tabular}
 \end{table}
 
-\subsection{Actor evaluation (pending)}
+\subsection{Paired training under the frozen protocol}
 
-TODO: primary contrast (seed-averaged preferences minus classification),
-secondary contrasts including greedy, target breakdowns, $R_S$, failures and
-timings after authorised training and evaluation. No anticipated numbers are
-stated. Labels alone do not constitute policy results.
+Nine models were fitted once (three arms $\times$ seeds $11,23,37$) with paired
+initialisation, shared per-seed permutations, forty epochs and one Adam step per
+epoch on the $192$ train states. Final checkpoints are epoch~$40$ only; no
+development-based selection was applied. Wall budget for training is $1800$\,s
+and was not expanded; equal wall does not guarantee equal convergence across
+arms. Loss magnitudes are not comparable across objectives and do not rank packing
+quality. An earlier launch under commit \texttt{2176460} aborted at frozen-hash
+validation of \texttt{model\_spec.py} before any data load or Adam step; the valid
+run started from fresh initialisations after restore commit \texttt{468ff51}.
+
+\subsection{Development episodes (harness failure; not packing results)}
+
+One authorised development campaign planned $240$ unique keys ($24$ GreedyBestFit
+episodes on the full legal list plus $216$ support-constrained actors). All $240$
+worker processes crashed before writing captures (\texttt{ModuleNotFoundError: torch}
+after \texttt{Path.resolve()} followed the venv interpreter symlink to the system
+Python). Independent review finds zero captures and zero audits. The recorded
+zeros and the automated gate string
+\texttt{no\_avanzar\_con\_esta\_configuracion} are preserved as operational
+artefacts only; they are \textbf{not} packing outcomes and do not close the
+configuration for lack of improvement. Independent classification:
+\texttt{evaluacion\_incompleta\_por\_fallo\_del\_arnes}. No selective retry and no
+test split were run. A labelled-state $R_S$ diagnostic exists under
+\texttt{learning\_models} but does not substitute episode $U_{\mathrm{geom}}$.
+
+\begin{table}[t]
+\centering
+\caption{Failed development launch (infrastructure; not an integral packing evaluation).}
+\label{tab:dev-eval-incomplete}
+\begin{tabular}{lrr}
+\toprule
+Quantity & Planned & Observed \\
+\midrule
+Unique keys & 240 & 240 \\
+Captures audited & 240 & 0 \\
+Pre-pack harness crashes & --- & 240 \\
+Wall seconds (development cup) & $\le 3600$ & $\approx 22.5$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The evaluator was corrected to preserve the venv invocation path
+(\texttt{Path.absolute()}, environment preflight, integrity-gated scientific door).
+A bounded development smoke and the full $240$-case campaign remain separate
+authorised steps. Test packing remains closed. No development gate is applied
+from the failed attempt.

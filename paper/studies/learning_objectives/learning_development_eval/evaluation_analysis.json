@@ -1,0 +1,1709 @@
+{
+  "seed_reports": [
+    {
+      "seed": 11,
+      "n_orders": 24,
+      "preferences_minus_classification": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "preferences_minus_greedy": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "classification_minus_greedy": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_classification": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_preferences": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_greedy": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "failures": {
+        "greedy": 24,
+        "classification": 24,
+        "preferences": 24,
+        "return_difference": 24
+      },
+      "orders": [
+        {
+          "order_id": "00107391",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00106955",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00108470",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00105989",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00102744",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00104382",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00106806",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00100842",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00102462",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00101838",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00108036",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00108236",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00109447",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00107236",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00102796",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00102346",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00105250",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00105797",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00107107",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00103460",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00106319",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00103738",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00107235",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00105391",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        }
+      ]
+    },
+    {
+      "seed": 23,
+      "n_orders": 24,
+      "preferences_minus_classification": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "preferences_minus_greedy": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "classification_minus_greedy": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_classification": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_preferences": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_greedy": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "failures": {
+        "greedy": 24,
+        "classification": 24,
+        "preferences": 24,
+        "return_difference": 24
+      },
+      "orders": [
+        {
+          "order_id": "00107391",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00106955",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00108470",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00105989",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00102744",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00104382",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00106806",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00100842",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00102462",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00101838",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00108036",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00108236",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00109447",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00107236",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00102796",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00102346",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00105250",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00105797",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00107107",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00103460",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00106319",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00103738",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00107235",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00105391",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        }
+      ]
+    },
+    {
+      "seed": 37,
+      "n_orders": 24,
+      "preferences_minus_classification": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "preferences_minus_greedy": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "classification_minus_greedy": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_classification": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_preferences": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_greedy": {
+        "n": 24,
+        "mean": 0.0,
+        "median": 0.0,
+        "wins": 0,
+        "ties": 24,
+        "losses": 0,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.0,
+            "median": 0.0,
+            "wins": 0,
+            "ties": 12,
+            "losses": 0,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "failures": {
+        "greedy": 24,
+        "classification": 24,
+        "preferences": 24,
+        "return_difference": 24
+      },
+      "orders": [
+        {
+          "order_id": "00107391",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00106955",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00108470",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00105989",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00102744",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00104382",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00106806",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00100842",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00102462",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00101838",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00108036",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00108236",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00109447",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00107236",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00102796",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00102346",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00105250",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00105797",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00107107",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00103460",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00106319",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00103738",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00107235",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        },
+        {
+          "order_id": "00105391",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": true,
+          "classification_failure": true,
+          "preferences_failure": true,
+          "return_difference_failure": true
+        }
+      ]
+    }
+  ],
+  "order_then_seed_aggregate": {
+    "aggregation": "mean_seeds_within_order_then_equal_orders",
+    "preferences_minus_classification": {
+      "mean": 0.0,
+      "median": 0.0,
+      "by_target": {
+        "euro-pallet": {
+          "mean": 0.0,
+          "median": 0.0,
+          "n": 12
+        },
+        "rollcontainer": {
+          "mean": 0.0,
+          "median": 0.0,
+          "n": 12
+        }
+      }
+    },
+    "preferences_minus_greedy": {
+      "mean": 0.0,
+      "median": 0.0,
+      "by_target": {
+        "euro-pallet": {
+          "mean": 0.0,
+          "median": 0.0,
+          "n": 12
+        },
+        "rollcontainer": {
+          "mean": 0.0,
+          "median": 0.0,
+          "n": 12
+        }
+      }
+    },
+    "classification_minus_greedy": {
+      "mean": 0.0,
+      "median": 0.0,
+      "by_target": {
+        "euro-pallet": {
+          "mean": 0.0,
+          "median": 0.0,
+          "n": 12
+        },
+        "rollcontainer": {
+          "mean": 0.0,
+          "median": 0.0,
+          "n": 12
+        }
+      }
+    },
+    "return_difference_minus_classification": {
+      "mean": 0.0,
+      "median": 0.0,
+      "by_target": {
+        "euro-pallet": {
+          "mean": 0.0,
+          "median": 0.0,
+          "n": 12
+        },
+        "rollcontainer": {
+          "mean": 0.0,
+          "median": 0.0,
+          "n": 12
+        }
+      }
+    },
+    "return_difference_minus_preferences": {
+      "mean": 0.0,
+      "median": 0.0,
+      "by_target": {
+        "euro-pallet": {
+          "mean": 0.0,
+          "median": 0.0,
+          "n": 12
+        },
+        "rollcontainer": {
+          "mean": 0.0,
+          "median": 0.0,
+          "n": 12
+        }
+      }
+    },
+    "return_difference_minus_greedy": {
+      "mean": 0.0,
+      "median": 0.0,
+      "by_target": {
+        "euro-pallet": {
+          "mean": 0.0,
+          "median": 0.0,
+          "n": 12
+        },
+        "rollcontainer": {
+          "mean": 0.0,
+          "median": 0.0,
+          "n": 12
+        }
+      }
+    }
+  },
+  "seed_means_preferences_minus_classification": [
+    {
+      "seed": 11,
+      "mean": 0.0
+    },
+    {
+      "seed": 23,
+      "mean": 0.0
+    },
+    {
+      "seed": 37,
+      "mean": 0.0
+    }
+  ],
+  "gate": {
+    "passed": false,
+    "decision": "no_avanzar_con_esta_configuracion",
+    "conditions": {
+      "mean_pref_minus_class_ge_0_005": false,
+      "positive_mean_in_at_least_two_seeds": false,
+      "aggregate_nonnegative_per_target": true,
+      "complete_audited_evaluation": true,
+      "remaining_budget_for_test": true
+    },
+    "positive_seeds": 0,
+    "does_not_require_beating_greedy": true,
+    "highlighted_vs_greedy": {
+      "preferences_minus_greedy_mean": 0.0,
+      "classification_minus_greedy_mean": 0.0,
+      "preferences_disadvantage_vs_greedy": false,
+      "classification_disadvantage_vs_greedy": false
+    },
+    "remaining_seconds_for_test": 26548.722295570125,
+    "test_wall_seconds": 9000.0,
+    "evaluator_errors": 0,
+    "missing_keys": 0,
+    "seed_selected": false,
+    "secondary_arm_does_not_rescue_gate": true,
+    "engineering_gate_not_significance_test": true
+  }
+}

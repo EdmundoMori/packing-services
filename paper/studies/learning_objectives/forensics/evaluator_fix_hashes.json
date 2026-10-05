@@ -1,0 +1,35 @@
+{
+  "kind": "evaluator_fix_hashes",
+  "initial_head": "2b4f5e9a8f7c8cdb443130a47cff34b620f21256",
+  "failed_attempt_wall_seconds": 22.538368225097656,
+  "development_cup_seconds": 3600.0,
+  "development_cup_remaining_before_smoke": 3577.4616317749023,
+  "campaign_accounted_at_failure": 2251.2777044298746,
+  "files": [
+    {
+      "path": "paper/studies/learning_objectives/tools/worker_env.py",
+      "sha256": "eea0f83c72b5695182e3a3c7a32ca30e0066ebfa9591b06b5084599df9286da1"
+    },
+    {
+      "path": "paper/studies/learning_objectives/tools/run_development_eval.py",
+      "sha256": "40835785e567b27ba98150075e1a724da0ffd6d0463c41b973b4e1aa62226f0d"
+    },
+    {
+      "path": "paper/studies/learning_objectives/tools/episode_worker.py",
+      "sha256": "2e0950710d103d43bb3bef842cc24b81c4db761699228a4c7353ef92314f2436"
+    },
+    {
+      "path": "paper/studies/learning_objectives/tools/episode_analysis.py",
+      "sha256": "4ec4185ac8adac17f05e27ea304b63a0b6b781adb5e96cf6c0ffb7d98c3be0a2"
+    },
+    {
+      "path": "paper/studies/learning_objectives/tools/labeling_runctl.py",
+      "sha256": "d0c8d470d4398ad9a2e344eb0d72817fea3bb73fb85f3458e692862006a62788"
+    },
+    {
+      "path": "paper/studies/learning_objectives/tests/test_worker_env_integration.py",
+      "sha256": "5e4514600440c2dd464c1460258ac63cb415294cf4bab858d52cde0dc640da72"
+    }
+  ],
+  "original_summary_preserved": true
+}

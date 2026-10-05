@@ -2,16 +2,13 @@
 
 | Claim | Evidence / source | Status |
 | --- | --- | --- |
-| Mandi / Crainic / Zhao / Kagerer as scoped | primary URLs in review 11 | Verified within stated limits |
-| Protocol and samples frozen | digests unchanged | Verified |
-| Differentiable losses | `torch_losses.py` tests | Verified |
-| Attempt 01 interrupted | `learning_labels/`, reviews 13–14 | Cause/exit unknown; empty files retained as incident evidence |
-| Attempt 02 recovery interrupted | `learning_labels_recovery/`, review 16 | 46 verified; 26 pending at interrupt |
-| Attempt 03 generation complete | `learning_labels_attempt03/`, summary `completed` | 46 referenced + 26 new |
-| Attempt 03 process exit 1 | `runs/attempt_03/run_state.json` | Preserved; verifier glob then included staging |
-| Posterior label verification | `forensics/label_verification_closure.json`, verifier `manifest_keyed_v2` | Distinct from process exit; `verified` |
-| Coverage 48/24; 192/96 states; 1115 alts | posterior verification | Verified; test not executed |
-| Final train normalisation 743 rows | `normalization_train.json` | Fitted once; provisional unused; 372 development rows not fitted |
-| Paired training executor (9 models) | `run_learning_train.py`, tests | Implemented; campaign pending publication then one run |
-| Actor episodes / abstract / superiority | — | Pending |
-| Physical stability | `null` | Not verified |
+| Protocol / samples frozen | digests; `model_spec.py` = `ca2f6dc3…` | Verified |
+| Training abort `2176460` | `forensics/training_abort_*` | Solo validación de hashes; sin Adam/pesos |
+| Valid training `468ff51` | `learning_models/` | 9× epoch 40; init nueva; sin selección por development |
+| Models published | commit `2b4f5e9` | Verified on remote |
+| Failed 240-key launch | `learning_development_eval/` (summary intact) | Harness: `resolve()` → system Python; 0 captures |
+| Independent interpretation | `independent_interpretation.json` | `evaluacion_incompleta_por_fallo_del_arnes` |
+| Zeros / original gate | preserved, not packing results | Do not close config for lack of improvement |
+| Evaluator fix | `worker_env.py`, `run_development_eval.py`, review 21 | Absolute venv path + preflight + integrity gate |
+| Full development / test | — | Not claimed; not opened |
+| Superiority / PCT / physical stability | — | Not claimed |
