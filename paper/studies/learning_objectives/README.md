@@ -1,25 +1,29 @@
 # learning_objectives
 
-Etiquetas train/development verificadas (re-verificación posterior). Entrenamiento emparejado preparado. Sin episodios ni test.
+Etiquetas verificadas (re-verificación posterior). Entrenamiento emparejado de 9 modelos completado. Sin episodios ni test.
 
-## Cobertura verificada
+## Cobertura
 
-| Split | pedidos | estados | filas aprendizaje |
+| Split | pedidos | estados | filas |
 | --- | ---: | ---: | ---: |
 | train | 48 | 192 | 743 |
 | development | 24 | 96 | 372 |
-| test | 0 | 0 | 0 |
+| test | 0 | — | — |
 
-Alternativas totales: 1115. Preflight reutilizado: 16 (una vez).
+## Intento 03
 
-## Cierre intento 03
-
-- Exit original del proceso: **1** (conservado)
-- Summary: `completed`
-- Re-verificación: `forensics/label_verification_closure.json` (verificador `manifest_keyed_v2`)
+- Exit proceso original: **1** (conservado)
+- Re-verificación: `forensics/label_verification_closure.json`
 
 ## Entrenamiento
 
-- CLI: [`tools/run_learning_train.py`](tools/run_learning_train.py)
-- 3 brazos × semillas 11/23/37; 40 épocas; presupuesto 1800 s
-- Revisión: [`reviews/19_label_closure_and_training.md`](reviews/19_label_closure_and_training.md)
+- HEAD: `468ff517bbc1cfae2831abbfbb454cc82af1cf41`
+- Salida: [`learning_models/`](learning_models/) — 9 × `checkpoint_epoch_40.pt`
+- Pared ≈ 38.3 s / presupuesto 1800 s
+- Decisión operativa: `entrenamiento_integro_para_revision_de_desarrollo`
+
+## Modelos y evaluación development
+
+- Modelos: [`learning_models/`](learning_models/)
+- Evaluador: [`tools/run_development_eval.py`](tools/run_development_eval.py)
+- Procedencia aborto: [`forensics/training_abort_provenance.json`](forensics/training_abort_provenance.json)

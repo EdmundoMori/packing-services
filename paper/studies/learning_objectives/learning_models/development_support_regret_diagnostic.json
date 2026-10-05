@@ -1,0 +1,49 @@
+{
+  "kind": "labeled_development_support_regret_diagnostic",
+  "n_states": 96,
+  "note": "not used for checkpoint/seed selection or episode gate",
+  "by_seed_arm": {
+    "11": {
+      "classification": {
+        "mean_R_S": 0.019390650867280507,
+        "n": 96
+      },
+      "preferences": {
+        "mean_R_S": 0.016354415457589293,
+        "n": 96
+      },
+      "return_difference": {
+        "mean_R_S": 0.01549576590401786,
+        "n": 96
+      }
+    },
+    "23": {
+      "classification": {
+        "mean_R_S": 0.018777666945684526,
+        "n": 96
+      },
+      "preferences": {
+        "mean_R_S": 0.017739030238560268,
+        "n": 96
+      },
+      "return_difference": {
+        "mean_R_S": 0.019390967959449407,
+        "n": 96
+      }
+    },
+    "37": {
+      "classification": {
+        "mean_R_S": 0.015894673084077382,
+        "n": 96
+      },
+      "preferences": {
+        "mean_R_S": 0.01840168108258929,
+        "n": 96
+      },
+      "return_difference": {
+        "mean_R_S": 0.018161594354538693,
+        "n": 96
+      }
+    }
+  }
+}

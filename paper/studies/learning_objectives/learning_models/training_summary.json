@@ -1,0 +1,127 @@
+{
+  "status": "completed",
+  "started_unix": 1791216089.8304389,
+  "seeds": {
+    "11": {
+      "seed": 11,
+      "initialization_sha256": "c4326a66218dd60ce82e33f2b7c4e1a133b0a4c71b228f5fcceb5732c9d55986",
+      "torch_equal_across_arms": {
+        "classification": true,
+        "preferences": true,
+        "return_difference": true
+      },
+      "permutation_sha256": "6ec41a8bfc6d9cb6d3d700b0b663a358e340a733e3a524ade13256203bc2ccaf",
+      "n_states": 192,
+      "epochs": 40,
+      "arms": {
+        "classification": {
+          "wall_seconds": 3.84700130300007,
+          "n_optimizer_steps": 40,
+          "checkpoint": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_11/classification/checkpoint_epoch_40.pt",
+          "checkpoint_sha256": "52c766f0f38619d69e617455816fd89fe96dff62a9850498f2bd2974cc589d14",
+          "final_loss": 1.3235551118850708,
+          "all_finite": true
+        },
+        "preferences": {
+          "wall_seconds": 6.451739663999888,
+          "n_optimizer_steps": 40,
+          "checkpoint": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_11/preferences/checkpoint_epoch_40.pt",
+          "checkpoint_sha256": "22927b038a2d8d49c7db77e474b8075d11f46f7836016ae2bd06d669fec151b6",
+          "final_loss": 0.4032653570175171,
+          "all_finite": true
+        },
+        "return_difference": {
+          "wall_seconds": 4.490276215999984,
+          "n_optimizer_steps": 40,
+          "checkpoint": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_11/return_difference/checkpoint_epoch_40.pt",
+          "checkpoint_sha256": "8e1d9c59d75337ba905858325a6cfedc127013ed4447adc1c5c7fe9bcffeebcb",
+          "final_loss": 0.002221472794190049,
+          "all_finite": true
+        }
+      }
+    },
+    "23": {
+      "seed": 23,
+      "initialization_sha256": "21bbf716a5921206b75445ca2c4910ecdca7223d53ff8c5f85997601fc3a199d",
+      "torch_equal_across_arms": {
+        "classification": true,
+        "preferences": true,
+        "return_difference": true
+      },
+      "permutation_sha256": "e4f06896d77143ed15337f19cc64c7f911ecab5d3fa0a39e63f24baf927dbd07",
+      "n_states": 192,
+      "epochs": 40,
+      "arms": {
+        "classification": {
+          "wall_seconds": 2.0043923989996983,
+          "n_optimizer_steps": 40,
+          "checkpoint": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_23/classification/checkpoint_epoch_40.pt",
+          "checkpoint_sha256": "2ca37c69fa23e21062fce25e96ba07beee169c3ed5271d6477cdbbb671fbeb8a",
+          "final_loss": 1.324524998664856,
+          "all_finite": true
+        },
+        "preferences": {
+          "wall_seconds": 5.897703082000135,
+          "n_optimizer_steps": 40,
+          "checkpoint": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_23/preferences/checkpoint_epoch_40.pt",
+          "checkpoint_sha256": "857a8bacce2e8d3030cdd41141d5d933cebdc51af56f5b5f3560aadd3bfa66a6",
+          "final_loss": 0.4032304286956787,
+          "all_finite": true
+        },
+        "return_difference": {
+          "wall_seconds": 4.437703027000225,
+          "n_optimizer_steps": 40,
+          "checkpoint": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_23/return_difference/checkpoint_epoch_40.pt",
+          "checkpoint_sha256": "02cb0da33fda1ce9ca28cfd78f6eaf81ad50c1d0033375a9224aaf6ca41d337d",
+          "final_loss": 0.002294800942763686,
+          "all_finite": true
+        }
+      }
+    },
+    "37": {
+      "seed": 37,
+      "initialization_sha256": "f0c759532d7cd33d62e5c2b57cc66bf42d49e2da5e6fabdc25c0b9943c3ebce7",
+      "torch_equal_across_arms": {
+        "classification": true,
+        "preferences": true,
+        "return_difference": true
+      },
+      "permutation_sha256": "11d955c24f16e24fca682b89d837b3c2771f1a70fd9deb8a639cc716b363e5b1",
+      "n_states": 192,
+      "epochs": 40,
+      "arms": {
+        "classification": {
+          "wall_seconds": 1.8891674080000485,
+          "n_optimizer_steps": 40,
+          "checkpoint": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_37/classification/checkpoint_epoch_40.pt",
+          "checkpoint_sha256": "986a011bd4feb2f8fe11f83912893c941b832fc1bf172d851fc89f8f6f6a0e1c",
+          "final_loss": 1.3250054121017456,
+          "all_finite": true
+        },
+        "preferences": {
+          "wall_seconds": 6.425965692000318,
+          "n_optimizer_steps": 40,
+          "checkpoint": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_37/preferences/checkpoint_epoch_40.pt",
+          "checkpoint_sha256": "260e1d623a6af7361df30a9fd3b78f497179d8d6eb76e64413faa4b186d546e5",
+          "final_loss": 0.402886301279068,
+          "all_finite": true
+        },
+        "return_difference": {
+          "wall_seconds": 4.196101371000168,
+          "n_optimizer_steps": 40,
+          "checkpoint": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_37/return_difference/checkpoint_epoch_40.pt",
+          "checkpoint_sha256": "ae7b981f5e627ba0737d51f614c50db0ed3c021511157a8378bbc4f1d74308e7",
+          "final_loss": 0.002322403946891427,
+          "all_finite": true
+        }
+      }
+    }
+  },
+  "wall_budget_seconds": 1800.0,
+  "finished_unix": 1791216128.1649554,
+  "wall_seconds": 38.334516525268555,
+  "n_models": 9,
+  "episodes_executed": false,
+  "test_executed": false,
+  "development_gate_applied": false
+}

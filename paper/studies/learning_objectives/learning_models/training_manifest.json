@@ -1,0 +1,81 @@
+{
+  "kind": "training_execution_manifest",
+  "written_before_fit": true,
+  "study_dir": "/home/edmundo/packing-services/paper/studies/learning_objectives",
+  "labels_output": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_labels_attempt03",
+  "output": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models",
+  "protocol_file_sha256": "385f25c60e92dc936c02363b7152031d20b2728db13c2f9d4911446930b83b05",
+  "labels_summary_status": "completed",
+  "label_verification_status": "verified",
+  "label_verifier_version": "manifest_keyed_v2",
+  "normalization_path": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_labels_attempt03/normalization_train.json",
+  "normalization_sha256": "f5122244d48f6c535d6fc0e9ca4a89cb68242d61ef4d2fdf92477201f2da9f02",
+  "arms": [
+    "classification",
+    "preferences",
+    "return_difference"
+  ],
+  "seeds": [
+    11,
+    23,
+    37
+  ],
+  "epochs": 40,
+  "optimizer_steps_per_model": 40,
+  "wall_budget_seconds": 1800.0,
+  "runtime": {
+    "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+    "torch_version": "2.14.0+cpu",
+    "dtype": "float32",
+    "device": "cpu",
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 1,
+    "training_config": {
+      "seeds": [
+        11,
+        23,
+        37
+      ],
+      "epochs": 40,
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.0001,
+      "decoupled_weight_decay": false,
+      "amsgrad": false,
+      "maximize": false,
+      "capturable": false,
+      "differentiable": false,
+      "foreach": false,
+      "fused": false,
+      "grad_clip_max_norm": 1.0,
+      "grad_clip_norm_type": 2.0,
+      "grad_clip_error_if_nonfinite": true,
+      "device": "cpu",
+      "dtype": "float32",
+      "torch_num_threads": 1,
+      "torch_num_interop_threads": 1,
+      "batching": "un paso por época con la media aritmética de todos los estados de train",
+      "checkpoint": "época 40",
+      "seed_selection": false,
+      "early_stopping": false,
+      "last_layer_init": "cero",
+      "arms": [
+        "classification",
+        "preferences",
+        "return_difference"
+      ],
+      "training_executed_by_this_module": false
+    },
+    "documented_before_fit": true
+  },
+  "development_selection": false,
+  "episodes_executed": false,
+  "test_executed": false,
+  "note_loss_scales": "magnitudes de pérdida no comparables entre brazos; menor pérdida ≠ mejor packing"
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "training_abort_provenance",
+  "abort_head": "2176460395cca7154f05e1ff242e7c79a003ac5b",
+  "restorer_head": "468ff517bbc1cfae2831abbfbb454cc82af1cf41",
+  "failure_site": "run_learning_train.main → verify_frozen_artifacts (code hash model_spec.py)",
+  "traceback_evidence": "forensics/training_abort_model_spec_hash/training_stderr.log",
+  "before_abort_reached": {
+    "output_existence_check": true,
+    "verify_frozen_artifacts": "failed",
+    "label_verification": false,
+    "output_mkdir": false,
+    "training_manifest_written": false,
+    "load_train_states": false,
+    "forward": false,
+    "backward": false,
+    "adam_steps": false,
+    "checkpoints_written": false,
+    "training_metrics_observed": false
+  },
+  "conclusion": "solo_validacion_de_hashes; sin_entrenamiento",
+  "valid_training": {
+    "head": "468ff517bbc1cfae2831abbfbb454cc82af1cf41",
+    "output": "learning_models/",
+    "fresh_initialization": true,
+    "continued_from_abort_weights": false,
+    "n_models": 9,
+    "epochs": 40,
+    "development_selection": false
+  }
+}
