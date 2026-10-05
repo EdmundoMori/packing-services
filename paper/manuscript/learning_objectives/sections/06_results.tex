@@ -1,27 +1,27 @@
 \section{Results}
 
-\subsection{Exploratory pilot}
+\subsection{Exploratory pilot (not this campaign)}
 
-The closed counterfactual pilot compared classification and preference losses
-with shared data and architecture on twelve development orders and three seeds
-(84 complete episodes). Recalculation from published per-order results gives:
+A closed counterfactual pilot compared classification and preference losses with
+shared data and architecture on twelve development orders and three seeds
+(84 complete episodes). Recalculation from published per-order artefacts yields
+approximate means
 \begin{align*}
-\mathrm{preferences}-\mathrm{classification} &= 0.03094863126240079,\\
-\mathrm{preferences}-\mathrm{greedy} &= -0.019783628885582008,\\
-\mathrm{classification}-\mathrm{greedy} &= -0.050732260147982794.
+\mathrm{preferences}-\mathrm{classification} &\approx 0.031,\\
+\mathrm{preferences}-\mathrm{greedy} &\approx -0.020,\\
+\mathrm{classification}-\mathrm{greedy} &\approx -0.051.
 \end{align*}
-An analysis designed after observing that pilot, using order-level means and a
-stratified order bootstrap (20{,}000 replicates, seed 20261004), yields an
-exploratory 95\% interval for the preferences-minus-classification mean of
-$[-0.004208279906580691, 0.07644716396432695]$. The interval includes zero and
-is not a confirmatory claim.
+Exact values are archived with the pilot. An analysis designed after observing
+that pilot, using order-level means and a stratified order bootstrap
+(20{,}000 replicates), produced an exploratory 95\% interval for the
+preferences-minus-classification mean of approximately $[-0.004,\,0.076]$. The
+interval includes zero and is not confirmatory. That pilot labelled at most four
+candidates while deployment scored the full legal list, so it is not an exact
+reproduction of the unified support contract $S$ used here.
 
-That pilot labelled at most four candidates per state while deployment scored
-the full legal list. It is therefore exploratory and not an exact reproduction
-of the unified support contract $S$ specified in this draft. Ranking regret on
-labelled greedy states did not uniformly foreshadow episode-level utilisation.
+\subsection{Frozen-protocol campaign}
 
-\subsection{New study results}
-
-TODO: results of any preregistered learning-objectives campaign after protocol
-freeze and execution. No hypothetical numbers are stated here.
+TODO: primary contrast (seed-averaged preferences minus classification),
+secondary contrasts including greedy, target breakdowns, $R_S$, failures and
+timings after authorised labelling, training and evaluation. No anticipated
+numbers are stated.

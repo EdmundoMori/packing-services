@@ -18,7 +18,11 @@
     "results": "paper/results/17_compact_calibration",
     "n_cases": 1520,
     "grid_executed": true,
-    "chosen_configuration": {"a": 1, "b": 0.5, "c": 0},
+    "chosen_configuration": {
+      "a": 1,
+      "b": 0.5,
+      "c": 0
+    },
     "gate_passed": false,
     "coefficients_selected": false,
     "online_bph_executed": false,
@@ -62,7 +66,10 @@
     "diagnostic_results": "paper/studies/counterfactual_ranking/diagnostic_results/",
     "diagnostic_review": "paper/studies/counterfactual_ranking/diagnostic_review.md",
     "exposure_registry": "paper/studies/counterfactual_ranking/diagnostic_results/exposure_registry.json",
-    "observed_order_ids": ["00109938", "00105640"],
+    "observed_order_ids": [
+      "00109938",
+      "00105640"
+    ],
     "inspected_order_count": 20,
     "preflight_states": 2,
     "preflight_continuations": 4,
@@ -171,8 +178,8 @@
     "general_decision": "Se detiene la búsqueda experimental de mejora algorítmica en estas configuraciones. Se conserva la infraestructura y la evidencia. No se inicia otra campaña sin una pregunta y justificación nuevas."
   },
   "learning_objectives": {
-    "status": "protocolo congelado; preflight reducido completado; sin autorizar campaña",
-    "head": "904038ff7f495510f1b8f3d398da3e4eb281a406",
+    "status": "protocolo congelado; ejecutor y pérdidas diferenciables verificados; etiquetas completas no ejecutadas; manuscrito alineado",
+    "head": "ee1e6b925a8cb539139bd00958de9d6984937fc3",
     "study": "paper/studies/learning_objectives/",
     "historical_closure_review": "paper/studies/learning_objectives/reviews/00_historical_closure.md",
     "methodological_audit": "paper/studies/learning_objectives/reviews/01_methodological_audit.md",
@@ -184,6 +191,9 @@
     "protocol_freeze_review": "paper/studies/learning_objectives/reviews/06_protocol_freeze.md",
     "preflight_review": "paper/studies/learning_objectives/reviews/07_preflight.md",
     "freeze_publication_review": "paper/studies/learning_objectives/reviews/08_freeze_publication.md",
+    "labeling_executor_review": "paper/studies/learning_objectives/reviews/09_labeling_executor.md",
+    "labeling_executor": "paper/studies/learning_objectives/tools/run_learning_labels.py",
+    "labeling_output_proposed": "paper/studies/learning_objectives/learning_labels/",
     "protocol_file_sha256": "385f25c60e92dc936c02363b7152031d20b2728db13c2f9d4911446930b83b05",
     "protocol_internal_digest_sha256": "a5959cb602ee00dfcb56b531de02d6e9d1dd618c42a54b7aa1e0d2214e6ad155",
     "design_draft": "paper/studies/learning_objectives/design_draft.md",
@@ -192,7 +202,10 @@
     "sample_manifest": "paper/studies/learning_objectives/sample_manifest.json",
     "sample_manifest_sha256": "782eb3abe10163270db8dec9594d099ea936e4491747278bee1b06a73accda62",
     "preflight_verification": "paper/studies/learning_objectives/preflight/preflight_verification.json",
-    "preflight_orders": ["00105883", "00104801"],
+    "preflight_orders": [
+      "00105883",
+      "00104801"
+    ],
     "preflight_states": 4,
     "preflight_continuations": 16,
     "preflight_unknown_returns": 0,
@@ -204,10 +217,17 @@
     "exploratory_analysis_executed": true,
     "new_experimental_runs": true,
     "preflight_executed": true,
+    "labeling_executor_implemented": true,
+    "labeling_synthetic_tests": true,
+    "etiquetas_completas_ejecutadas": false,
+    "full_labels_executed": false,
     "training": false,
+    "entrenamiento": false,
     "packing_real": false,
     "new_labels": false,
     "etiquetas_nuevas": false,
+    "desarrollo_evaluado": false,
+    "development_evaluated": false,
     "protocol_frozen_flag": true,
     "protocolo_congelado": true,
     "authorizes_labeling": false,
@@ -219,7 +239,14 @@
     "development_executed": false,
     "does_not_reopen_closed_campaigns": true,
     "prior_labels_reusable_under_new_support": false,
-    "decision": "viable_para_autorizar_etiquetado"
+    "decision": "listo_para_autorizar_etiquetado",
+    "differentiable_losses_review": "paper/studies/learning_objectives/reviews/10_differentiable_losses.md",
+    "literature_review": "paper/studies/learning_objectives/reviews/11_literature_and_scope.md",
+    "manuscript_alignment_review": "paper/studies/learning_objectives/reviews/12_manuscript_alignment.md",
+    "implementation_manifest": "paper/studies/learning_objectives/implementation_manifest.json",
+    "torch_losses": "paper/studies/learning_objectives/tools/torch_losses.py",
+    "differentiable_losses_verified": true,
+    "entrenamiento_real": false
   },
   "previous_executions": [
     {

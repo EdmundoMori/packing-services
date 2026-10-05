@@ -1,35 +1,48 @@
 \section{Problem formulation}
 
-An order is a sequence of items together with a single container of a declared
-target (euro-pallet or rollcontainer). At each step the engine exposes the
-current item and the set of legal placements under the compact geometric
-contract: containment, non-overlap, explicit orientations, inactive weight and
-stability constraints, and stop at the first current item with no legal
-candidate. Physical stability is recorded as null and is not claimed.
+An order is a fixed sequence of items together with a single container of a
+declared target (euro-pallet or rollcontainer). At decision time $t$ the engine
+exposes the current item $i_t$ and the legal candidate set $\mathcal{L}_t$ under
+the compact geometric contract: containment and non-overlap are enforced;
+rotations follow the audited orientation conversion (at most six permutations);
+weight limits, basic stability and load-bearing are inactive; packing stops when
+the current item has no legal candidate. Physical stability is recorded as
+$\mathrm{null}$.
 
-A candidate encoder maps the present state and a candidate to a fixed 17-dimensional
-feature vector that excludes future suffix identifiers and return labels. Before
-scoring, every arm applies the same pure support map
-$S(\mathcal{L},\mathrm{greedy})$ that returns at most four distinct geometries,
-always including the greedy proposal, using only present geometry. Labelling,
-training and deployment must call this single implementation.
+A candidate encoder maps the present session state and a candidate $a\in\mathcal{L}_t$
+to a 17-dimensional feature vector that excludes future suffix identifiers and
+return labels. Before scoring, every arm applies the same pure support map
+\begin{equation}
+  S_t = S(\mathcal{L}_t,a^{\mathrm{greedy}}_t)\subseteq\mathcal{L}_t,
+\end{equation}
+with $|S_t|\le 4$, $a^{\mathrm{greedy}}_t\in S_t$, deterministic diversification
+by orientation and Chebyshev distance, and no access to $Q_{\mathrm{hat}}$.
+Labelling, training and deployment call this single implementation.
 
-A model assigns a scalar score to each candidate in $S_t$. Larger scores mean
-better candidates; exact logit ties keep the smallest index inside $S_t$.
-The episode metric is geometric utilisation
+A scorer $f_\theta$ assigns a scalar score $s_a=f_\theta(x_a)$ to each
+$a\in S_t$. Larger scores are better; exact logit ties keep the smallest index in
+$S_t$. The induced policy is
+\begin{equation}
+  \pi_\theta(t)=\arg\max_{a\in S_t} s_a
+\end{equation}
+with that tie-break. Episode quality is geometric utilisation
 \begin{equation}
   U_{\mathrm{geom}}
   =
-  \frac{\sum_{p\in\mathrm{placements}} \mathrm{vol}(p)}{\mathrm{vol}(\mathrm{container})}.
+  \frac{\sum_{p\in\mathrm{placements}}\mathrm{vol}(p)}{\mathrm{vol}(\mathrm{container})}.
 \end{equation}
-Privileged continuation returns $Q_{\mathrm{hat}}(a)$ used only when building
-labels are the utilisation obtained by committing candidate $a$ and completing
-the suffix with greedy. They are not global optima and not values of the learned
-policy.
 
+Privileged continuation returns used only when building labels are
+\begin{equation}
+  Q_{\mathrm{hat}}(t,a)
+  =
+  U_{\mathrm{geom}}\bigl(\mathrm{GreedyContinuation}(t,a)\bigr),
+\end{equation}
+i.e.\ the utilisation obtained after committing $a$ and completing the remaining
+suffix with greedy. They are not global optima and not values of $\pi_\theta$.
 Support regret on labelled states,
 \begin{equation}
-  R_S(s)=\max_{a\in S(s)} Q_{\mathrm{hat}}(s,a)-Q_{\mathrm{hat}}(s,\pi(s)),
+  R_S(t)=\max_{a\in S_t} Q_{\mathrm{hat}}(t,a)-Q_{\mathrm{hat}}(t,\pi(t)),
 \end{equation}
-is defined only when every needed return is known and $\pi(s)\in S(s)$. It does
+is diagnostic only when every needed return is known and $\pi(t)\in S_t$; it does
 not replace complete-episode evaluation.

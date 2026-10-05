@@ -2,15 +2,17 @@
 
 | Claim | Evidence / source | Status |
 | --- | --- | --- |
-| Mandi et al., ICML 2022, PMLR 162:14935–14947; §4.3 Eq. (13) | PMLR HTML/PDF; ar5iv 2112.03609 | Verified (exact folio of Eq. 13 within the range not recovered by PDF text extraction) |
-| Pairwise-difference is Mandi Eq. 13; our preference loss is softplus-weighted pairs | Mandi; `tools/losses.py` | Verified |
-| Unified S is the single support map for label/train/deploy | `tools/candidate_support.py`, `support_api.py` | Verified in specification + synthetic tests |
-| Actor features exclude suffix and Q_hat | counterfactual `actor_features.py` | Verified |
-| Pref−class / pref−greedy / class−greedy means | Recalculated from 84 `result.json` | Verified |
-| Exploratory bootstrap interval for pref−class | `results/02_existing_pilot_analysis.json` | Verified; non-confirmatory |
-| Prior labels reusable under new S | Metadata audit: 122/144 states with `n_legal` > alternatives; full legal lists absent | No respaldado / no comprobada |
-| Prior pilot uses the new support contract | Deployment scored full legal lists | No respaldado |
-| PPO rule selection chose Greedy on development; 120/120 plans match | `rl_rule_selection` closure | Verified historically |
-| New campaign improves packing / publishability | — | Pendiente |
-| Final abstract and conclusions | — | Pendiente |
-| Protocol freeze and sample sizes | `reviews/05_experiment_design_decisions.md` | Pendiente |
+| Mandi et al.\ ICML 2022; §4.3 Eq.\ (13) | PMLR HTML/PDF | Verified (adaptation, not exact reproduction) |
+| Crainic et al.\ extreme points JOC 2008 | DOI 10.1287/ijoc.1070.0250 | Verified as candidate-generation context |
+| Zhao et al.\ PCT ICLR 2022 | OpenReview `bfuGjlCwAq` | Verified as related online packing RL; not an experimental baseline here |
+| Kagerer et al.\ BED-BPP IJRR 2023 | DOI 10.1177/02783649231193048 | Verified as instance source; not official robotic eval here |
+| Unified $S$ for label/train/deploy | `candidate_support.py`, `pipeline.py`, synthetic + preflight | Verified |
+| Differentiable losses match frozen formulae | `torch_losses.py` vs `losses.py`; autograd tests | Verified (extreme-logit float reference may underflow; stable log-sum-exp used) |
+| Protocol and samples frozen | `protocol_frozen.json`, `sample_manifest.json` | Verified |
+| Labelling executor implemented | `run_learning_labels.py`, review 09 | Verified; full campaign not run |
+| Pref−class / vs Greedy exploratory pilot | Recalculated 84 episodes | Verified; exploratory only |
+| Prior labels reusable under new $S$ | Metadata audit | Not supported |
+| New campaign improves packing / publishability | — | Pending |
+| Final abstract and conclusions | — | Pending |
+| PCT / OnlineBPH / MLP conflation | Manuscript wording | Explicitly separated |
+| Physical stability | `physical_stability_verified=null` | Not verified |

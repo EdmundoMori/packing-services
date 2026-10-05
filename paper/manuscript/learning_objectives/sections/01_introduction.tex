@@ -1,19 +1,36 @@
 \section{Introduction}
 
-Online packing systems often reduce each placement decision to scoring a finite
-set of geometrically legal candidates. When supervision is available for those
-candidates, the choice of learning objective---classification of the best
-candidate, pairwise preference learning, or a return-difference loss---can
-change which candidates are preferred and, downstream, the quality of complete
-packing episodes.
+In online three-dimensional packing, each arriving item must be assigned a
+feasible placement before the remainder of the order is observed in full.
+Practical engines therefore expose a finite set of geometrically legal
+candidates and score them with a heuristic or a learned scorer
+\citep{crainic2008extreme,zhao2022pct}. When candidate-level supervision is
+available, the \emph{learning objective}---how mismatches between scores and
+labels are penalised---can change which placements are preferred and, through
+the sequential packing process, the utilisation of complete episodes.
 
-This manuscript studies that choice under a controlled contract: one container
-per order, original item sequence, compact geometric legality, and no claim of
-full robotic physical validation. The work is \emph{not} presented as
-reinforcement learning. Prior closed campaigns in the same repository remain
-closed; their outcomes motivate the question without being numerically pooled.
+The scientific question of this manuscript is therefore:
+\begin{quote}
+Under a fixed geometric contract, a shared candidate encoder, a shared local
+support map $S$, shared labels and a shared optimisation budget, how do
+classification, pairwise preference and return-difference supervision affect
+complete-episode geometric utilisation?
+\end{quote}
+The primary contrast compares preference learning with classification after
+paired seeds. A Mandi-inspired return-difference loss is retained as a
+secondary arm \citep{mandi2022decision}. GreedyBestFit remains a mandatory
+practical reference; packing-configuration-tree (PCT) policies are discussed
+only as related work and are not experimental baselines here
+\citep{zhao2022pct}.
 
-We do not assert demonstrated novelty relative to the broader packing or
-predict-and-optimize literature. The intended contribution, if a protocol is
-later frozen and executed, is a bounded empirical comparison of supervision
-objectives with shared representation, labels, engine, and budget.
+Orders are drawn from the BED-BPP instance collection
+\citep{kagerer2023bedbpp}. The evaluation metric and constraints follow a
+compact geometric contract defined in this repository, not the official robotic
+BED-BPP evaluation with rigid-body stability simulation. Physical stability is
+recorded as null and is not claimed.
+
+The intended contribution is a bounded empirical comparison of supervision
+objectives for local packing actions with continuation labels and episode-level
+readouts. Demonstrated superiority, statistical confirmation and publication
+readiness remain contingent on executing the frozen protocol; they are not
+asserted in this draft.

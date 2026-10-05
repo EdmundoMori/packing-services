@@ -1,17 +1,39 @@
 \section{Related work}
 
-Decision-focused learning trains predictors so that downstream combinatorial
-decisions have low regret rather than low parameter error alone.
-\cite{mandi2022decision} cast that setting as learning to rank feasible
-solutions and derive pointwise, pairwise, pairwise-difference, and listwise
-surrogate losses over a subset $S$ of solutions. Their pairwise-difference loss
-regresses differences of true objective values against differences of predicted
-objectives (their Eq.~13). Their listwise loss follows a ListNet-style cross-entropy with a temperature,
-as stated in Mandi et al.\ (their Eq.~15--16).
+\paragraph{Packing and candidate generation.}
+Constructive three-dimensional packing relies on a placement rule that proposes
+candidate locations among the free space created by already packed items. Extreme
+points are a classical mechanism for generating such locations and for deriving
+fast heuristics \citep{crainic2008extreme}. Online learned packing instead
+scores a structured action set with a policy network; Zhao et al.\ introduce
+packing configuration trees (PCT) and train deep reinforcement learning policies
+over tree leaves \citep{zhao2022pct}. Our engine likewise exposes a finite legal
+list, then restricts scoring to a deterministic support map $S$ of at most four
+geometries. We do not claim identity with extreme-point FFD/BFD, nor do we
+evaluate PCT experimentally.
 
-Our setting differs in structural ways documented in the repository audit:
-candidates are local packing actions rather than full CO solutions; labels are
-returns of a concrete greedy continuation rather than solver-optimal objective
-values; and the deployed scorer selects among candidates at each online step.
-We therefore treat Mandi et al.\ as a source of adaptable loss forms, not as a
-target for exact reproduction.
+\paragraph{Learning of placement selection.}
+Prior work on learned online packing emphasises representation and exploration of
+the action space under reinforcement learning \citep{zhao2022pct}. The present
+study holds the representation and packing engine fixed and varies only the
+supervised objective used to fit a shared multilayer scorer. The setting is
+therefore complementary: it isolates supervision rather than proposing a new
+search architecture.
+
+\paragraph{Decision-focused and ranking objectives.}
+Decision-focused learning trains predictors so that downstream decisions improve,
+not only predictive accuracy. Mandi et al.\ connect that agenda to learning-to-rank
+losses and, in particular, to regressing pairwise score differences onto pairwise
+solution-value differences \citep{mandi2022decision}. We adapt that pairwise
+difference idea to local packing candidates labelled by greedy continuations.
+Our existing preference loss remains a softplus ranking surrogate and is
+\emph{not} Mandi's regress-on-difference objective.
+
+\paragraph{Data source and evaluation scope.}
+BED-BPP provides realistic robotic packing orders and an evaluation protocol that
+includes stability simulation \citep{kagerer2023bedbpp}. We use BED-BPP as an
+instance source. Episode quality is measured by geometric utilisation under the
+compact contract (containment and non-overlap active; weight, basic stability and
+load-bearing inactive; stop at the first current item without a legal candidate).
+That contract must not be conflated with Zhao's PCT protocol or with Kagerer's
+official robotic benchmark.

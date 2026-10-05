@@ -1,0 +1,37 @@
+{
+  "study": "learning_objectives",
+  "kind": "implementation_manifest_supplementary",
+  "note": "No modifica bytes ni hashes del protocolo congelado. Distingue contrato matemático, implementación y publicación.",
+  "frozen_contract": {
+    "protocol_frozen": "paper/studies/learning_objectives/protocol_frozen.json",
+    "protocol_file_sha256": "385f25c60e92dc936c02363b7152031d20b2728db13c2f9d4911446930b83b05",
+    "protocol_internal_digest": "a5959cb602ee00dfcb56b531de02d6e9d1dd618c42a54b7aa1e0d2214e6ad155",
+    "sample_manifest_sha256": "782eb3abe10163270db8dec9594d099ea936e4491747278bee1b06a73accda62",
+    "losses_py_sha256_frozen": "50e862d2538422de9687ff46d17b440b04a5b21392f33b64c1c45484c497699d",
+    "losses_py_modified": false
+  },
+  "implementation_added": {
+    "head_at_authoring": "ee1e6b925a8cb539139bd00958de9d6984937fc3",
+    "files": {
+      "tools/torch_losses.py": "e3d68d51eb377b62c338ab45b2879d374c9cf3c17dc2de244f24b4d2b07bcd9d",
+      "tools/labeling_contracts.py": "73377a96d30e6f080b7fda35fbfa4bd662ece3c8ff3e097ae32f84c1687fecf1",
+      "tools/labeling_states.py": "ef848952110a2b343362447be02480bd85b44b4b906b538c64cdaf70748dbce3",
+      "tools/labeling_reuse.py": "d96b3d4d09995d8960046dbdd4b852a87f9be322c0d2f36955c31fad5633c7be",
+      "tools/labeling_campaign.py": "de83ae72941df1c95960efe6b223e786424505300e2ffb878a3b93c68eb97c64",
+      "tools/labeling_verify.py": "f7059eeab9bc8f2ca49f9bec9889a46e0f6924b593336f3eab1a76453dfec82d",
+      "tools/run_learning_labels.py": "2e6ccae1c93e4881f716ef2d85b7ca3e4dc4b0f7e4c3f450b43eac660e47cbe4",
+      "tests/test_torch_losses.py": "be69389b12f3291e3c6b21c1dab28c68f06849a43868dbcf8dbd0416dc3847b1",
+      "tests/test_labeling_executor.py": "1dba0b4b63c039ab1d30636b8365b022c446b175b97e7d49c07bd8027f80b5ab"
+    }
+  },
+  "correspondence_checks": {
+    "single_support_source": true,
+    "preflight_reused_once": true,
+    "test_excluded_from_execution": true,
+    "manifest_before_work": true,
+    "clock_covers_capture_audit_write": true,
+    "unknown_qhat_is_null": true,
+    "completeness_against_expected_keys": true,
+    "no_selective_retry_or_substitution": true
+  }
+}

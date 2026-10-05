@@ -1,33 +1,66 @@
 \section{Learning objectives}
 
-All arms share architecture, labelled states constructed on $S$, normalisation
-fitted on train only, initialisation, checkpoint rule, and the support map $S$.
-They differ only in the state-wise loss. The encoder remains the audited
-17-feature map.
+All arms share architecture, labelled states constructed on $S_t$, normalisation
+fitted on train only, initialisation, checkpoint rule and the support map $S$.
+They differ only in the state-wise loss. Scores are larger-is-better. Let
+$s\in\mathbb{R}^{|S_t|}$ denote scores and $Q\in\mathbb{R}^{|S_t|}$ the constant
+continuation labels. Write $\varepsilon=10^{-9}$. Losses below are implemented as
+autograd-compatible tensor maps that match the frozen scalar reference formulae.
 
 \paragraph{Classification.}
-Let $\mathcal{B}$ be the set of candidates in $S$ whose $Q_{\mathrm{hat}}$ is
-within $10^{-9}$ of the maximum. The target places equal mass on $\mathcal{B}$.
-The loss is cross-entropy between that target and $\mathrm{softmax}(\mathrm{logits})$.
-If every return ties, the target is uniform on $S$.
+Let
+\begin{equation}
+  \mathcal{B}(t)=\bigl\{a\in S_t:\ |Q_a-\max_{b\in S_t}Q_b|\le\varepsilon\bigr\}.
+\end{equation}
+The target places mass $1/|\mathcal{B}(t)|$ on each element of $\mathcal{B}(t)$
+(and zero elsewhere). With $p=\mathrm{softmax}(s)$ and no temperature,
+\begin{equation}
+  L_{\mathrm{cls}}(t)=-\sum_{a\in S_t} \mathbf{1}[a\in\mathcal{B}(t)]\,\frac{1}{|\mathcal{B}(t)|}\,\log p_a.
+\end{equation}
+If every return ties, $\mathcal{B}(t)=S_t$ and the target is uniform. A singleton
+$S_t$ yields loss zero under a one-point softmax.
 
 \paragraph{Existing preferences.}
-For every unordered pair with $|Q_i-Q_j|>10^{-9}$, orient the pair from higher
-to lower return and accumulate
-$\mathrm{softplus}(-(s_{\mathrm{high}}-s_{\mathrm{low}}))$ with weight
-$|Q_i-Q_j|$, renormalised to sum to one within the state. Exact ties contribute
-the mean squared logit gap. This is \emph{not} Mandi et al.'s
-pairwise-difference loss.
+For unordered pairs $\{i,j\}$ with $i<j$, let $\Delta Q_{ij}=Q_i-Q_j$. Strict pairs
+($|\Delta Q_{ij}|>\varepsilon$) contribute
+\begin{equation}
+  \ell_{ij}=\mathrm{softplus}\bigl(-(s_{\mathrm{high}}-s_{\mathrm{low}})\bigr),
+\end{equation}
+oriented toward the higher return, with weight $w_{ij}=|\Delta Q_{ij}|$ renormalised
+to sum to one over strict pairs in the state. Tied pairs contribute
+$(s_i-s_j)^2$. With tie coefficient $1$,
+\begin{equation}
+  L_{\mathrm{pref}}(t)
+  =
+  \sum_{(i,j)\in\mathrm{strict}} \tilde w_{ij}\,\ell_{ij}
+  +
+  \mathbf{1}[\mathrm{ties}\neq\emptyset]\,
+  \frac{1}{|\mathrm{ties}|}\sum_{(i,j)\in\mathrm{ties}}(s_i-s_j)^2.
+\end{equation}
+If there are no strict pairs (including $|S_t|=1$), the pairwise term is zero. This
+is not Mandi et al.'s pairwise-difference regression.
 
 \paragraph{Return-difference adaptation.}
 Following Mandi et al.'s Section~4.3, Equation~(13)
-\citep{mandi2022decision}, a secondary arm penalises squared mismatches between
-score gaps and $Q_{\mathrm{hat}}$ gaps on strict ordered pairs inside the same
-$S$. Empty pair sets yield loss zero. This is an adaptation to local packing
-candidates, not an exact reproduction of the combinatorial setting in that paper.
+\citep{mandi2022decision}, define ordered pairs
+$\mathrm{OP}=\{(p,q):Q_p>Q_q+\varepsilon\}$. Then
+\begin{equation}
+  L_{\mathrm{rd}}(t)
+  =
+  \begin{cases}
+  \displaystyle\frac{1}{|\mathrm{OP}|}
+  \sum_{(p,q)\in\mathrm{OP}}
+  \bigl((s_p-s_q)-(Q_p-Q_q)\bigr)^2,
+  & \mathrm{OP}\neq\emptyset,\\[1em]
+  0, & \mathrm{OP}=\emptyset.
+  \end{cases}
+\end{equation}
+The empty-pair case remains connected to the score graph with zero gradient.
+Relative to Mandi, we substitute local continuation returns for combinatorial
+solution values and average over all strict ordered pairs inside $S_t$.
 
-\paragraph{Fair references.}
-GreedyBestFit remains a full-legal-list policy. Learned actors select only inside
-$S$. The best examined return $\max_{a\in S} Q_{\mathrm{hat}}$ is diagnostic or
-labelling-only. Including greedy in $S$ makes its proposal available; it does not
-force the actor to match greedy packings.
+\paragraph{State reduction and calibration.}
+Training minimises the arithmetic mean of state losses with equal weight per
+state. The three losses are not rescaled to a common numeric range; a shared
+Adam schedule enables comparison under a fixed configuration, not a claim that
+the objectives are equally calibrated or equally easy to optimise.

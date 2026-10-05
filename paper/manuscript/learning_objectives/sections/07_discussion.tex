@@ -1,15 +1,12 @@
 \section{Discussion}
 
-The exploratory pilot suggests that the supervision objective can matter for
-complete-episode utilisation even when architecture and labels are shared, but
-it does not establish a general ranking among learning methods, statistical
-equivalence, or improvement over greedy placement. The candidate-subset
-mismatch and privileged greedy continuations limit causal attribution.
-
-Mandi et al.'s losses clarify how a return-difference objective could be
-specified, while also marking why the existing preference loss should not be
-renamed as their pairwise-difference surrogate.
-
-Closed campaigns on historical actors, compact selectors, and PPO rule
-selection remain out of scope for pooling. They only bound expectations about
-cost and failure modes.
+Several issues must be addressed once the frozen campaign reports numbers.
+Continuation returns $Q_{\mathrm{hat}}$ supervise local actions but are not the
+return of the learned actor; improvement on labelled greedy states need not
+transfer to states visited under $\pi_\theta$. Restricting decisions to $S_t$
+trades coverage for budget and can leave high-value legal placements unscored.
+The three losses operate on different numeric scales; a common Adam schedule
+equalises optimisation effort, not loss magnitude. Uncertainty arises from both
+order sampling and seed pairing. Finally, the geometric contract and the two
+BED-BPP targets bound external validity: results must not be read as robotic
+stability certificates or as comparisons against PCT.
