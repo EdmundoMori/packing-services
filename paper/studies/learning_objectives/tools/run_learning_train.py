@@ -22,10 +22,11 @@ if str(HERE) not in sys.path:
 from labeling_contracts import verify_frozen_artifacts  # noqa: E402
 from labeling_io import atomic_write_json  # noqa: E402
 from labeling_verify import VERIFIER_VERSION, verify_labeling_output  # noqa: E402
-from model_spec import ARMS, TRAINING_CONFIG, configure_torch_runtime  # noqa: E402
+from model_spec import ARMS, TRAINING_CONFIG  # noqa: E402
 from training_data import load_train_states  # noqa: E402
 from training_loop import (  # noqa: E402
     TrainingBudgetExceeded,
+    configure_training_runtime,
     run_seed_arms,
 )
 
@@ -49,11 +50,11 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 def runtime_document() -> dict[str, Any]:
     import torch
 
-    configure_torch_runtime()
+    configure_training_runtime()
     return {
         "python": sys.version,
         "platform": platform.platform(),
-        "torch_version": torch.__version(),
+        "torch_version": torch.__version__,
         "dtype": TRAINING_CONFIG["dtype"],
         "device": TRAINING_CONFIG["device"],
         "torch_num_threads": TRAINING_CONFIG["torch_num_threads"],

@@ -21,9 +21,10 @@ if str(HERE) in sys.path:
     sys.path.remove(str(HERE))
 sys.path.insert(0, str(HERE))
 
-from model_spec import ARMS, TRAINING_CONFIG, configure_torch_runtime  # noqa: E402
+from model_spec import ARMS, TRAINING_CONFIG  # noqa: E402
 from training_loop import (  # noqa: E402
     TrainingBudgetExceeded,
+    configure_training_runtime,
     epoch_permutations,
     load_checkpoint_logits,
     paired_start,
@@ -57,7 +58,7 @@ def _synthetic_states(n_states: int = 4, n_alt: int = 3) -> list[dict]:
 
 class TestTrainingSynthetic(unittest.TestCase):
     def setUp(self) -> None:
-        configure_torch_runtime()
+        configure_training_runtime()
 
     def test_autograd_through_torch_losses(self) -> None:
         scores = torch.tensor([0.2, -0.1, 0.4], dtype=torch.float32, requires_grad=True)

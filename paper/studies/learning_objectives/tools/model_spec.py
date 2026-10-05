@@ -46,16 +46,7 @@ TRAINING_CONFIG = {
 
 def configure_torch_runtime() -> None:
     torch.set_num_threads(int(TRAINING_CONFIG["torch_num_threads"]))
-    try:
-        torch.set_num_interop_threads(int(TRAINING_CONFIG["torch_num_interop_threads"]))
-    except RuntimeError:
-        # Torch solo permite fijar interop threads una vez por proceso.
-        current = torch.get_num_interop_threads()
-        expected = int(TRAINING_CONFIG["torch_num_interop_threads"])
-        if current != expected:
-            raise RuntimeError(
-                f"torch interop threads={current} distinto del contrato {expected}"
-            ) from None
+    torch.set_num_interop_threads(int(TRAINING_CONFIG["torch_num_interop_threads"]))
 
 
 def build_actor(seed: int) -> nn.Sequential:

@@ -17,16 +17,30 @@ import torch
 from torch import nn
 from torch.nn.utils import clip_grad_norm_
 
-from model_spec import (
+from model_spec import (  # noqa: E402
     ARMS,
     TRAINING_CONFIG,
     adam_for,
     build_actor,
-    configure_torch_runtime,
     initialization_sha256,
     paired_actors,
 )
-from torch_losses import loss_for_arm_torch
+from torch_losses import loss_for_arm_torch  # noqa: E402
+
+
+def configure_training_runtime() -> None:
+    """Respeta model_spec congelado; tolera interop ya fijado en el mismo proceso."""
+
+    torch.set_num_threads(int(TRAINING_CONFIG["torch_num_threads"]))
+    try:
+        torch.set_num_interop_threads(int(TRAINING_CONFIG["torch_num_interop_threads"]))
+    except RuntimeError:
+        current = torch.get_num_interop_threads()
+        expected = int(TRAINING_CONFIG["torch_num_interop_threads"])
+        if current != expected:
+            raise RuntimeError(
+                f"torch interop threads={current} distinto del contrato {expected}"
+            ) from None
 
 
 class PairingError(RuntimeError):
@@ -163,7 +177,7 @@ def run_seed_arms(
     output_seed_dir: Path,
     deadline: float | None = None,
 ) -> dict[str, Any]:
-    configure_torch_runtime()
+    configure_training_runtime()
     epochs = int(TRAINING_CONFIG["epochs"])
     permutations = epoch_permutations(len(states), epochs, seed)
     actors, init_hash, equalities = paired_start(seed)

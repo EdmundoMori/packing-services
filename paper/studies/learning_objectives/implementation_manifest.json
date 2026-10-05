@@ -36,12 +36,12 @@
       "tools/labeling_runctl.py": "eb66949a375130c47d87b14f06297b65bc82bb2c9dfe789babf1c126062a3695",
       "tools/run_learning_labels_attempt03.py": "afc4097b6b33715609a7dc3181b25ad97d0e86089e26a410236b8e802d8d4788",
       "tools/synthetic_labeling_worker.py": "d42573378c57981e072c8e5cb4f3ea2f138e5d64390a64a3e71d7363a9798f4e",
-      "tools/training_loop.py": "c7c77ff2d8af691a31a8ddd8e4fc8916d2fc03f63d8b93f879550c57c93ef950",
+      "tools/training_loop.py": "28d16fc9ca17b5afacbe2cc05b27467ba2a2c8835cac55a3ae49111296728c74",
       "tools/training_data.py": "3e48c268e067d61dc4867b387cce7f52038c4efed653eab4c86eef09c50f0824",
-      "tools/run_learning_train.py": "4cd9204d2a7c20a68af3afb6f0f255681cc562b657e279ca8ab987547b224e81",
-      "tools/model_spec.py": "00917a6fdd463f0d107a3877ac587f172e91559a6e2cd71ca807bc67d4b13b45",
+      "tools/run_learning_train.py": "62d6a5b092e49825b3803519ee3607c5eef144d01e1a6835c66a680084154a20",
+      "tools/model_spec.py": "ca2f6dc31fbd2a85ec266a47de2932dd1c249822c7a6f521495190f5da21f499",
       "tests/test_labeling_verify_manifest.py": "f7b42a86c454301f5da4de590fac98062d5f3fbf6dbce5c2575689b4d64269e7",
-      "tests/test_training_executor.py": "120b882413a3482aae1f9d3a328e3f685805b1f7524bf161f117923f4d45da8a"
+      "tests/test_training_executor.py": "6d658d2d70f5e8f3c059a5f4e74f37c5760d403fa7820884d1431ce96f3b934a"
     },
     "wire_persistent_recovery": {
       "worker": "tools/run_learning_labels_attempt03.py",
@@ -61,7 +61,8 @@
       "cli": "tools/run_learning_train.py",
       "loop": "tools/training_loop.py",
       "frozen_protocol_untouched": true
-    }
+    },
+    "model_spec_note": "restored to protocol code_hashes; interop wrapper lives in training_loop"
   },
   "correspondence_checks": {
     "single_support_source": true,
