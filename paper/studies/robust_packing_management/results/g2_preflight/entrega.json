@@ -1,0 +1,55 @@
+{
+  "entrega": "G2 freeze + preflight real",
+  "decision": "preflight_valido_para_revisar_ejecucion_G2",
+  "head": "74c878e1a7bc7e77a2182d92d72c8a76f39d6de2",
+  "branch": "research/paper-online-packing",
+  "agents_md": "ausente",
+  "commit_push": false,
+  "training": false,
+  "g2_full_launched": false,
+  "modelo_sintetico": {
+    "id": "b1_mult_expand_v1",
+    "formula": "realized_axis = max(1.0, nominal_axis * (1+alpha))",
+    "units": "mm",
+    "scenarios": {
+      "sens_low": {"alpha": 0.02, "uniform_ref_mm": 3.0},
+      "sens_mid": {"alpha": 0.05, "uniform_ref_mm": 7.0},
+      "sens_high": {"alpha": 0.10, "uniform_ref_mm": 12.0}
+    },
+    "R": 1,
+    "risk_scope": "frecuencia observada en escenarios; no calibra Pr(fallo)",
+    "not_bedbpp_ngram_2cm": true
+  },
+  "metodos": {
+    "M0": "m=(0,0,0); chooser rank_key; comparison=method",
+    "M1": "m=(u,u,u); comparison=protection_level_within_scenario",
+    "M2": "m_i=alpha*nominal_i; comparison=method",
+    "M3": "menu {0,u,axis}; risk 0/1 feasibility; comparison=method"
+  },
+  "preflight": {
+    "orders": ["00100030", "00100007"],
+    "scenario": "sens_mid",
+    "methods": ["M0", "M1", "M2", "M3"],
+    "planned": 8,
+    "executed": 8,
+    "pending": 0,
+    "timeout_episode_s": 100.0,
+    "wall_global_limit_s": 900.0,
+    "wall_seconds_total": 4.4000305680001475,
+    "rss_max_mb": 404.96484375,
+    "pairing_ok": true,
+    "verify_all_ok": true
+  },
+  "presupuesto_g2_completo": {
+    "max_episodes": 120,
+    "naive_extrapolation_s": 39.28,
+    "uncertainty": "preflight no representa necesariamente el resto de pedidos/escenarios; no extrapolar G1 sintético; timeout 100s/ep es cota de diseño"
+  },
+  "artefactos": {
+    "protocol": "paper/studies/robust_packing_management/g2_protocol_frozen.json",
+    "manifest": "paper/studies/robust_packing_management/sample_manifest.json",
+    "preflight_summary": "paper/studies/robust_packing_management/results/g2_preflight/preflight_summary.json",
+    "verify": "paper/studies/robust_packing_management/results/g2_preflight/verify_independent.json",
+    "review": "paper/studies/robust_packing_management/reviews/04_g2_freeze_preflight.md"
+  }
+}

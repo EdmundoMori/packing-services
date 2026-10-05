@@ -1,0 +1,115 @@
+{
+  "status": "frozen_sample",
+  "packing_executed": false,
+  "namespace": "robust-packing-management-g2|20261005",
+  "dataset": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "pool_val": "online_policy_ml/data/splits/val_order_ids_full.json",
+  "pool_val_sha256": "530b1f623f19867f5a178564180d77667597c43d491a0eff1596f1615f8df2b5",
+  "absolute_independence": false,
+  "independence_note": "Ausencia de ID en registros de exposición no implica independencia absoluta; absolute_independence=false.",
+  "excluded_sources_note": "Excluye IDs de learning_objectives train/dev/test, counterfactual execution_order/selected, y pools train/test full. No usa ni abre el test reservado como muestra.",
+  "n_exposed_union_approx": 8590,
+  "n_blocked_signatures": 8589,
+  "n_unsigned_signature_errors": 0,
+  "unsigned_signature_errors_head": [],
+  "eligible_n": {
+    "euro-pallet": 634,
+    "rollcontainer": 774
+  },
+  "development": {
+    "euro-pallet": [
+      {
+        "order_id": "00100030",
+        "target": "euro-pallet",
+        "signature": "5191915bd262ab38331115a472d9836602d66565ee49e419cb9b3ca3aba38ff1",
+        "selection_chain": "robust-packing-management-g2|20261005|development|euro-pallet|00100030",
+        "selection_hash": "15c7898ae3fb7d42d738b53fc5dd0ff2db9e306e8ce8af92caada9a3dccf606b",
+        "n_items": 43
+      },
+      {
+        "order_id": "00100078",
+        "target": "euro-pallet",
+        "signature": "d6b25056f3c9820ed4f196c6bf60726be3e4f8cd9a9fe38a7b80643d38748279",
+        "selection_chain": "robust-packing-management-g2|20261005|development|euro-pallet|00100078",
+        "selection_hash": "55b91f061467e7f6d538288969fe80f45ca9fbe86ef1eb5de3796210392e01f6",
+        "n_items": 44
+      },
+      {
+        "order_id": "00100084",
+        "target": "euro-pallet",
+        "signature": "9e8d5c4636fc718debbc6d395187b72ec89eeca879c0468336666957304cf9b6",
+        "selection_chain": "robust-packing-management-g2|20261005|development|euro-pallet|00100084",
+        "selection_hash": "6a797ffad73994f206dc341fe680f3d08a4164c7eb7c380bae576791a4936e41",
+        "n_items": 40
+      },
+      {
+        "order_id": "00100099",
+        "target": "euro-pallet",
+        "signature": "3f3fe6a3cd14a7aa8f77cb53727571da2768e13e6ad8c5fd076d92a2e5b49057",
+        "selection_chain": "robust-packing-management-g2|20261005|development|euro-pallet|00100099",
+        "selection_hash": "ad1f6c91624f083b2f591f7b428bcbf16628e37e4dec9438e482bed9f8d3382f",
+        "n_items": 57
+      },
+      {
+        "order_id": "00100118",
+        "target": "euro-pallet",
+        "signature": "e9924a3e84d41728c464694656b5a4c705b8d161d274263eddc455aca753165e",
+        "selection_chain": "robust-packing-management-g2|20261005|development|euro-pallet|00100118",
+        "selection_hash": "355d4efb05c87cdb38cea57789ee645346a9ddd97fd102a7dcd25e82ae9ec3fe",
+        "n_items": 45
+      }
+    ],
+    "rollcontainer": [
+      {
+        "order_id": "00100007",
+        "target": "rollcontainer",
+        "signature": "bdfab5c1edf73b36b39fa2cd05c80844b04b9b21365b02404a20b9877d963784",
+        "selection_chain": "robust-packing-management-g2|20261005|development|rollcontainer|00100007",
+        "selection_hash": "1f646b06e656dcd8b5659fcef390b52d499826951dd3639f9257494fa107a0ae",
+        "n_items": 29
+      },
+      {
+        "order_id": "00100009",
+        "target": "rollcontainer",
+        "signature": "86f31f536d163d0425121c930d58b4963aaf5fd2b91328a50a48df282961678b",
+        "selection_chain": "robust-packing-management-g2|20261005|development|rollcontainer|00100009",
+        "selection_hash": "7674649a26a63150119ad19a248c4c08ba74a7b7510e0e8ae9899117938d1f0c",
+        "n_items": 45
+      },
+      {
+        "order_id": "00100020",
+        "target": "rollcontainer",
+        "signature": "932f59efa3c83a08321dabd413b390288b1ced89800cabe785f318e8e96a89ae",
+        "selection_chain": "robust-packing-management-g2|20261005|development|rollcontainer|00100020",
+        "selection_hash": "0a0b5d0486ed942f1318c03be98bedd1646cd9bdec0ec0b3050f9323d54f8353",
+        "n_items": 45
+      },
+      {
+        "order_id": "00100056",
+        "target": "rollcontainer",
+        "signature": "6eb05a72d77336bcdd7adc96152903cc871b351d22c0aefde8146cfff4ff914c",
+        "selection_chain": "robust-packing-management-g2|20261005|development|rollcontainer|00100056",
+        "selection_hash": "752109e02fd8eacc2532831c643b3ad3550683c4afa194b4684029ff8b476a23",
+        "n_items": 43
+      },
+      {
+        "order_id": "00100087",
+        "target": "rollcontainer",
+        "signature": "d6396da136bfb6a02627422ec3c34aa447fa9d93c4aceeabd364f700596bad4d",
+        "selection_chain": "robust-packing-management-g2|20261005|development|rollcontainer|00100087",
+        "selection_hash": "027cbe814b26570f8293660ecfa77664fcbc5e86a9fd2e4b529c445b55b73fb0",
+        "n_items": 23
+      }
+    ]
+  },
+  "n_development": 10,
+  "preflight_orders": [
+    "00100030",
+    "00100007"
+  ],
+  "preflight_rule": "first_selected_order_id_ascending_per_target",
+  "clone_rule": "signature_payload(problem_snapshot, target); one order per signature in sample",
+  "test_split_closed": true,
+  "learning_objectives_test_not_used": true
+}

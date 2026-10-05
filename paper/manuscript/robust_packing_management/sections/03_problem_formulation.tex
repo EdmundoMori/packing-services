@@ -1,0 +1,71 @@
+\section{Problem Formulation}
+
+\subsection*{Provisional research question}
+Can a management policy select geometric protection during online packing of
+BED-BPP \emph{nominal} orders under \emph{synthetic} dimensional uncertainty
+(not BED-BPP field noise) and retain more nominal placed volume than
+fixed-margin strategies under a common geometric-failure risk criterion?
+The G2 v1 freeze used deterministic known growth and is closed for RL under
+guarantee. A v2 i.i.d.\ draft separates immediate geometric risk from layout
+consequences; a toy enumeration shows a specified local rule can be suboptimal,
+but does not justify an RL pilot.
+
+\subsection*{Active contract}
+Original sequence; one container equal to the order's own target; online
+$p=s=1$; explicit orientations; containment and non-overlap only. Stop when the
+chosen protection admits no candidate, or when a realisation violates geometry.
+Useful business volume uses \emph{nominal} dimensions of successfully placed
+items; artificial protection volume is not merchandise. BED-BPP supplies
+nominal sizes, sequence, and target; realisation errors are synthetic and are
+not BED-BPP field measurements.
+
+\subsection*{Inactive in the initial scope}
+Placement-position noise, box deformation, pile stability, accessibility,
+robot trajectories, and recovery after a collision. No latent episode noise
+regime is introduced merely to motivate learning.
+
+\subsection*{Information}
+\emph{Before} placing item $t$: nominal size of $t$, revealed geometry of
+successfully placed items, container size, the public error law, and candidates
+computed only from available information. The agent does \emph{not} observe the
+current realisation, future errors, the item suffix, or outcomes of unevaluated
+alternative protections. Under item-wise independence, history does not identify
+the next error.
+\emph{After} a successful placement: the simulator reveals the exact realised
+dimensions and updates occupancy accordingly. Exact revelation is a simulator
+idealisation, not a demonstrated robot sensing claim.
+
+\subsection*{Candidate setting B and reference A}
+\textbf{(B)~Candidate (v2 draft).} Realised sizes follow a public generative
+law \(R=N(1+\varepsilon)\) (mm; positivity enforced) with synthetic sensitivity
+parameters. Default B1: known i.i.d.\ law across items. Axis dependence within
+an item is declared at freeze time. Orientation permutes the same realised
+vector. The G2 v1 freeze (\(R=N(1+\alpha)\) with public \(\alpha\)) remains
+historical harness evidence only.
+
+\textbf{(A)~Conservative reference.} Known support bounds imply a directly
+computable protective margin. Under full guarantee, choosing the minimal
+sufficient margin is analytically trivial and is not an RL task.
+
+\subsection*{Action and transition}
+The management action selects protection $m$ from a small menu. A
+\emph{fixed} placement chooser, identical across methods, picks among
+candidates whose envelope is
+\texttt{nominal\_oriented}+\texttt{margin\_oriented} with a shared
+front-left-bottom corner (no centred protection). Margin changes the candidate
+set and thus the pose; geometric failure is evaluated on the \emph{realised}
+AABB at that pose.
+
+Three distinct events are used: \texttt{no\_candidate} ends with partial
+nominal volume; \texttt{envelope\_exceeded} means the realisation outgrows the
+reserved envelope and is \emph{not} synonymous with geometric failure---if the
+realised box neither overlaps revealed boxes nor exits the container, the
+episode continues and occupancy is updated with the \emph{realised} geometry;
+\texttt{geometric\_failure} ends the episode without recovery. Actions are never
+revised retrospectively.
+
+\subsection*{Objective and risk}
+Primary score \(J_B\): nominal volume over container volume if the episode has
+no \texttt{geometric\_failure}, else zero. Immediate risk is
+\(\Pr(\mathrm{geometric\_failure}\mid\mathrm{pose},G^{\mathrm{rev}},P_\varepsilon)\),
+not candidate existence. Coefficients and a PPO reward are not fixed here.

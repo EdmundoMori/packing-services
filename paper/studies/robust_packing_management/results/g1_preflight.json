@@ -1,0 +1,139 @@
+{
+  "preflight": "G1_synthetic",
+  "wall_limit_seconds": 120.0,
+  "wall_seconds": 0.0064597060008964036,
+  "incomplete": false,
+  "error": null,
+  "n_cases": 7,
+  "cases": [
+    {
+      "name": "zero_error",
+      "termination": "completed",
+      "J_B": 0.008,
+      "V_nom_mm3": 8000.0,
+      "V_nom_before_failure_mm3": 8000.0,
+      "geometric_failure": false,
+      "n_envelope_exceeded": 0,
+      "events": [
+        "placed"
+      ],
+      "rebuild_ok": true,
+      "rebuild_note": null,
+      "placed_ids": [
+        "a"
+      ]
+    },
+    {
+      "name": "smaller",
+      "termination": "completed",
+      "J_B": 0.008,
+      "V_nom_mm3": 8000.0,
+      "V_nom_before_failure_mm3": 8000.0,
+      "geometric_failure": false,
+      "n_envelope_exceeded": 0,
+      "events": [
+        "placed"
+      ],
+      "rebuild_ok": true,
+      "rebuild_note": null,
+      "placed_ids": [
+        "a"
+      ]
+    },
+    {
+      "name": "exceed_continue",
+      "termination": "completed",
+      "J_B": 0.009,
+      "V_nom_mm3": 9000.0,
+      "V_nom_before_failure_mm3": 9000.0,
+      "geometric_failure": false,
+      "n_envelope_exceeded": 1,
+      "events": [
+        "envelope_exceeded",
+        "placed"
+      ],
+      "rebuild_ok": true,
+      "rebuild_note": null,
+      "placed_ids": [
+        "a",
+        "b"
+      ]
+    },
+    {
+      "name": "exceed_exit",
+      "termination": "geometric_failure",
+      "J_B": 0.0,
+      "V_nom_mm3": 0.0,
+      "V_nom_before_failure_mm3": 0.0,
+      "geometric_failure": true,
+      "n_envelope_exceeded": 1,
+      "events": [
+        "geometric_failure"
+      ],
+      "rebuild_ok": true,
+      "rebuild_note": null,
+      "placed_ids": []
+    },
+    {
+      "name": "no_candidate_partial",
+      "termination": "no_candidate",
+      "J_B": 0.064,
+      "V_nom_mm3": 8000.0,
+      "V_nom_before_failure_mm3": 8000.0,
+      "geometric_failure": false,
+      "n_envelope_exceeded": 0,
+      "events": [
+        "placed",
+        "no_candidate"
+      ],
+      "rebuild_ok": true,
+      "rebuild_note": null,
+      "placed_ids": [
+        "a"
+      ]
+    },
+    {
+      "name": "uniform_margin",
+      "termination": "completed",
+      "J_B": 0.027,
+      "V_nom_mm3": 27000.0,
+      "V_nom_before_failure_mm3": 27000.0,
+      "geometric_failure": false,
+      "n_envelope_exceeded": 0,
+      "events": [
+        "placed"
+      ],
+      "rebuild_ok": true,
+      "rebuild_note": null,
+      "placed_ids": [
+        "a"
+      ]
+    },
+    {
+      "name": "axis_margin",
+      "termination": "completed",
+      "J_B": 0.006,
+      "V_nom_mm3": 6000.0,
+      "V_nom_before_failure_mm3": 6000.0,
+      "geometric_failure": false,
+      "n_envelope_exceeded": 0,
+      "events": [
+        "placed"
+      ],
+      "rebuild_ok": true,
+      "rebuild_note": null,
+      "placed_ids": [
+        "a"
+      ]
+    }
+  ],
+  "memory": {
+    "tracemalloc_current_mb": 0.06293487548828125,
+    "tracemalloc_peak_mb": 0.07228851318359375,
+    "rss_max_mb": 25.8828125,
+    "note": "tracemalloc ≠ RSS; rss_max_mb from resource.ru_maxrss"
+  },
+  "training_authorized": false,
+  "bed_bpp_read": false,
+  "ppo_implemented": false
+}

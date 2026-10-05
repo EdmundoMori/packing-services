@@ -1,0 +1,21 @@
+\section{Introduction}
+
+Online three-dimensional packing for industrial order sequences must often act
+under imperfect \emph{dimensional} information: realised item extents can
+deviate from the nominal catalogue sizes used by a planner. Prior robotic
+packing studies document a reliability--compactness trade-off under fixed
+protective buffers and under deterministic clearance margins. This outline
+concerns geometric \emph{protection management} only: synthetic dimensional
+uncertainty on BED-BPP nominal orders, sequences, and own-target containers.
+Position error, deformation, physical stability, robot trajectories, and
+post-collision recovery are out of the initial scope.
+
+The provisional question is whether a sequential policy can choose a
+protective envelope online ($p=s=1$) and retain more \emph{nominal} placed
+volume than fixed-margin baselines under a common geometric-failure risk
+measure. BED-BPP contributes nominal catalogue data only. Reinforcement
+learning is not assumed necessary: support-bounded uncertainty yields a
+directly computable conservative baseline (and makes learning trivial under
+full guarantee), while genuine stochastic sensitivity---still pending a
+corrected protocol---must be compared first to analytical rules that share
+the same public law. Necessity of RL is not established.

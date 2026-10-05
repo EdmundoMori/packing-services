@@ -1,0 +1,164 @@
+{
+  "protocol_id": "rpm-g2-frozen-v1",
+  "frozen_at": "2026-10-05T20:55:00Z",
+  "status": "frozen_preflight_executed",
+  "packing_authorized": "preflight_only_8_episodes",
+  "g2_full_authorized": false,
+  "training_authorized": false,
+  "head_expected": "74c878e1a7bc7e77a2182d92d72c8a76f39d6de2",
+  "branch_expected": "research/paper-online-packing",
+  "agents_md": "ausente_en_repositorio",
+  "formulation": "B",
+  "error_model": {
+    "model_id": "b1_mult_expand_v1",
+    "family": "realized_axis = max(1.0, nominal_axis * (1+alpha)); independiente entre ítems; misma realización por ítem entre métodos; orientación permuta el mismo triplete realizado.",
+    "units": "mm",
+    "scenarios": {
+      "sens_low": {
+        "alpha": 0.02,
+        "uniform_ref_mm": 3.0
+      },
+      "sens_mid": {
+        "alpha": 0.05,
+        "uniform_ref_mm": 7.0
+      },
+      "sens_high": {
+        "alpha": 0.1,
+        "uniform_ref_mm": 12.0
+      }
+    },
+    "realizations_per_order_scenario": 1,
+    "uncertainty_level": "Condiciones de sensibilidad propias (ingeniería), no calibración empírica sobre BED-BPP. No se usa el 2 cm del n-gram BED-BPP. Ancla de orden de magnitud del nivel medio: buffer GOPT 7 mm (no ley del dataset).",
+    "risk_metric_scope": "Con R=1, las tasas reportadas son frecuencias observadas en escenarios de sensibilidad. No permiten calibrar una restricción probabilística Pr(fallo)≤ε ni interpretar 0 fallos como garantía.",
+    "not_bedbpp_ngram_2cm": true,
+    "seed_namespace": "rpm-g2-error|v1",
+    "realization_rule": "Determinista dado (order_id, scenario_id, alpha): expand_nominal(nominal, alpha). Sin muestreo adicional; no hay semilla aleatoria por repetición porque R=1."
+  },
+  "methods": {
+    "M0": {
+      "math": "m=(0,0,0); choice=argmin rank_key over EP envelope candidates",
+      "comparison_kind": "method",
+      "public_info_only": true
+    },
+    "M1": {
+      "math": "m=(u,u,u), u=uniform_ref_mm(scenario); same chooser",
+      "comparison_kind": "protection_level_within_scenario",
+      "note": "Comparación principal = nivel de protección uniforme vs M0/M2, no política distinta",
+      "public_info_only": true
+    },
+    "M2": {
+      "math": "m_i = alpha * nominal_i for i in {L,W,H}; same chooser",
+      "comparison_kind": "method",
+      "public_info_only": true
+    },
+    "M3": {
+      "math": "menu M={m0,m1,m2}; risk_hat=0 if n_cand(m)>0 else 1; select argmin (risk_hat, sum(m), best_cand.rank_key); si todos risk=1 → no_candidate",
+      "comparison_kind": "method",
+      "public_info_only": true,
+      "note": "Si M2/M3 dominan el menú sin residual material, RL puede ser innecesario en el alcance examinado; eso se decide tras G2 completo, no en preflight."
+    },
+    "parameter_lock": "No ajuste de parámetros tras observar packing.",
+    "chooser": "fixed_rank_chooser: menor rank_key; sin lookahead; sin realizados ocultos"
+  },
+  "what_g2_can_show": [
+    "arnes_invalido",
+    "sensibilidad_insuficiente_o_diseno_no_informativo",
+    "baseline_analitico_suficiente_en_alcance_examinado",
+    "compromiso_observado_que_justifica_disenar_diagnostico_adicional_de_seleccion_adaptativa"
+  ],
+  "what_g2_cannot_show": [
+    "necesidad_de_RL_solo_por_diferencias_entre_margenes",
+    "que_una_politica_online_identifica_el_mejor_metodo_por_pedido_elegido_post_hoc",
+    "calibracion_probabilistica_con_R=1",
+    "autorizacion_de_entrenamiento"
+  ],
+  "metrics": {
+    "J_B": "V_nom/Vol(C) con V_nom nominal acumulado; 0 si geometric_failure",
+    "geometric_failure": "salida o solape de AABB realizado",
+    "envelope_exceeded": "realizado_orientado no ⊆ envelope; distinto de geometric_failure",
+    "no_candidate": "sin candidata EP bajo envelope; distinto de fallo geométrico",
+    "physical_stability_verified": null,
+    "risk_volume_tradeoff": "Compromiso riesgo–volumen = contraste emparejado entre métodos de (frecuencia_observada_geometric_failure, J_B, V_nom_before_failure) bajo los mismos pedidos×escenarios. No es residual de RL identificable sin contraste adicional de selección adaptativa.",
+    "observed_frequency_label": "frecuencia observada en escenarios"
+  },
+  "sample": {
+    "manifest": "sample_manifest.json",
+    "manifest_sha256": "b71000ce8f60d435183b4c3c2319d1044391556ec10f9461ec0710e5396fa92f",
+    "n_development_max": 10,
+    "preflight_orders": [
+      "00100030",
+      "00100007"
+    ],
+    "preflight_rule": "first_selected_order_id_ascending_per_target",
+    "absolute_independence": false,
+    "learning_objectives_test_not_used": true
+  },
+  "budget": {
+    "g2_max_episodes": 120,
+    "g2_structure": "N<=10 × S=3 × M=4",
+    "preflight_episodes_max": 8,
+    "preflight_structure": "2 orders × 4 methods × 1 scenario (sens_mid)",
+    "timeout_episode_s": 100.0,
+    "wall_global_preflight_s": 900.0,
+    "no_selective_retries": true,
+    "ceiling_not_silently_expanded": true
+  },
+  "preflight": {
+    "scenario_id": "sens_mid",
+    "orders": [
+      "00100030",
+      "00100007"
+    ],
+    "methods": [
+      "M0",
+      "M1",
+      "M2",
+      "M3"
+    ],
+    "episodes_planned": 8,
+    "reuse_in_g2_full": "Solo si coinciden exactamente contrato, código pertinente, métodos, entradas y realizaciones; no por similitud de nombres. No autorizado aún.",
+    "do_not_use_to_retune_methods_or_orders": true
+  },
+  "integrity_rules": {
+    "src_unchanged": true,
+    "realized_geometry_after_reveal": true,
+    "envelope_exceeded_separated": true,
+    "no_candidate_separated": true,
+    "J_B_nominal_zero_on_geom_fail": true,
+    "physical_stability_verified": null,
+    "policy_no_current_realized_before_act": true,
+    "paired_realizations_across_methods": true,
+    "failed_attempt_preserved": true,
+    "atomic_persist": true
+  },
+  "hashes": {
+    "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+    "sample_manifest_sha256": "b71000ce8f60d435183b4c3c2319d1044391556ec10f9461ec0710e5396fa92f",
+    "code": {
+      "tools/error_model.py": "8fab70835f00c58c7b3c4812f3d87cc277156b506f133841cb8649f602370c4b",
+      "tools/methods_g2.py": "e3d203945ec63cacc0b7d19d18a002b7753596ce29a20be0af0bca64adafe85c",
+      "tools/run_g2_episode.py": "43da0c75a3c13319bc549c9e48f9602f74ae705f5ea8822160d80ae9e0f6e7db",
+      "tools/bedbpp_episode.py": "8c227c6e1ccd31967b7493baadc415edd708fd5fecba0d34d893f442936b1d85",
+      "tools/episode.py": "285d1ef8a050100aa38bf3d4ec4d1b02523416aa3674a67c979013875b6dd588",
+      "tools/adapters.py": "22070d6e9c3feb200d6fe8e0ec532eb03de08f1ece2015ae99ea288068ab3950",
+      "tools/geometry_contract.py": "8d2e3925a688e4ff45ccc6f2208b92b3983d77d23c81153daea4625a814f2176",
+      "tools/info_separation.py": "faacb798f8497222d5029dff92186e797a77b2953cc884a6abe3884785db6578",
+      "tools/baselines.py": "db35c364fa7ba4ab8b3f1a17f5daaf6711d87730e9759899b23c4b676a2f53ff",
+      "tools/freeze_g2_sample.py": "ea8651a5047ad57e0fe08ba018b92b615704d0665577879adc7d5fb416953944",
+      "tools/run_g2_preflight.py": "35319e6eb3581813ecccecc4012ee2eec4cef622c69e3f390266b81fe6a8fef0",
+      "tools/verify_g2_preflight.py": "5ffce7e7b806b29c23f9defc3ebc7a57e990fc2cf55f75e344c2f0e4ddd4781c"
+    }
+  },
+  "protocol_content_sha256": "222601adb186ef53d1df814cc7641dbfb51b2e324ecf2248a50e73ad1e89c7eb",
+  "preflight_execution": {
+    "executed_episodes": 8,
+    "pending_episodes": 0,
+    "summary": "results/g2_preflight/preflight_summary.json",
+    "verify": "results/g2_preflight/verify_independent.json",
+    "review": "reviews/04_g2_freeze_preflight.md",
+    "methods_retuned_after_packing": false,
+    "orders_reselected_after_packing": false,
+    "g2_full_launched": false
+  },
+  "post_preflight_note": "status/preflight_execution updated after packing; M0–M3 parameters and sample_manifest unchanged. Verifier list/tuple normalisation patched post-hoc."
+}

@@ -1,0 +1,914 @@
+{
+  "verify": "g2_preflight_independent",
+  "wall_seconds": 1.6146266530013236,
+  "n_checks": 181,
+  "n_failed": 0,
+  "all_ok": true,
+  "checks": [
+    {
+      "check": "executed_8",
+      "ok": true,
+      "detail": "8"
+    },
+    {
+      "check": "pairing_ok",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "g2_full_not_launched",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "training_false",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists_00100030_M0",
+      "ok": true,
+      "detail": "/home/edmundo/packing-services/paper/studies/robust_packing_management/results/g2_preflight/00100030_M0_sens_mid/result.json"
+    },
+    {
+      "check": "scenario_00100030_M0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "method_00100030_M0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "stability_null_00100030_M0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "JB_zero_on_fail_00100030_M0",
+      "ok": true,
+      "detail": "0.0"
+    },
+    {
+      "check": "failed_attempt_00100030_M0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "failed_event_00100030_M0",
+      "ok": true,
+      "detail": "geometric_failure"
+    },
+    {
+      "check": "accepted_geom_00100030_M0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00109722#1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00109722#2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00109802#3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00109896#4",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00109896#5",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00110904#6",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00100669#7",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00100669#8",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00100669#9",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00104826#10",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00104826#11",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00111831#12",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00111831#13",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00111831#14",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00111831#15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00101974#16",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00101974#17",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00106538#18",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00110809#19",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00110809#20",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00106124#21",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00106124#22",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00106124#23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00111305#24",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00101017#25",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00105412#26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00105329#27",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00105329#28",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00102471#29",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00102471#30",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M0_00105990#31",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists_00100030_M1",
+      "ok": true,
+      "detail": "/home/edmundo/packing-services/paper/studies/robust_packing_management/results/g2_preflight/00100030_M1_sens_mid/result.json"
+    },
+    {
+      "check": "scenario_00100030_M1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "method_00100030_M1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "stability_null_00100030_M1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "JB_zero_on_fail_00100030_M1",
+      "ok": true,
+      "detail": "0.0"
+    },
+    {
+      "check": "failed_attempt_00100030_M1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "failed_event_00100030_M1",
+      "ok": true,
+      "detail": "geometric_failure"
+    },
+    {
+      "check": "accepted_geom_00100030_M1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00109722#1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00109722#2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00109802#3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00109896#4",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00109896#5",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00110904#6",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00100669#7",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00100669#8",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00100669#9",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00104826#10",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00104826#11",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00111831#12",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00111831#13",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00111831#14",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00111831#15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00101974#16",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00101974#17",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00106538#18",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00110809#19",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00110809#20",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00106124#21",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00106124#22",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00106124#23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00111305#24",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00101017#25",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00105412#26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00105329#27",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00105329#28",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00102471#29",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00102471#30",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00105990#31",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00105990#32",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M1_00102366#33",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists_00100030_M2",
+      "ok": true,
+      "detail": "/home/edmundo/packing-services/paper/studies/robust_packing_management/results/g2_preflight/00100030_M2_sens_mid/result.json"
+    },
+    {
+      "check": "scenario_00100030_M2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "method_00100030_M2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "stability_null_00100030_M2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "JB_nominal_00100030_M2",
+      "ok": true,
+      "detail": "0.5546598958333333 vs 0.5546598958333333"
+    },
+    {
+      "check": "failed_attempt_00100030_M2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "failed_event_00100030_M2",
+      "ok": true,
+      "detail": "no_candidate"
+    },
+    {
+      "check": "accepted_geom_00100030_M2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists_00100030_M3",
+      "ok": true,
+      "detail": "/home/edmundo/packing-services/paper/studies/robust_packing_management/results/g2_preflight/00100030_M3_sens_mid/result.json"
+    },
+    {
+      "check": "scenario_00100030_M3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "method_00100030_M3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "stability_null_00100030_M3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "JB_zero_on_fail_00100030_M3",
+      "ok": true,
+      "detail": "0.0"
+    },
+    {
+      "check": "failed_attempt_00100030_M3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "failed_event_00100030_M3",
+      "ok": true,
+      "detail": "geometric_failure"
+    },
+    {
+      "check": "accepted_geom_00100030_M3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00109722#1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00109722#2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00109802#3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00109896#4",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00109896#5",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00110904#6",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00100669#7",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00100669#8",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00100669#9",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00104826#10",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00104826#11",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00111831#12",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00111831#13",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00111831#14",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00111831#15",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00101974#16",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00101974#17",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00106538#18",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00110809#19",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00110809#20",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00106124#21",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00106124#22",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00106124#23",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00111305#24",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00101017#25",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00105412#26",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00105329#27",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00105329#28",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00102471#29",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00102471#30",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100030_M3_00105990#31",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "paired_realized_00100030",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "regen_realized_00100030",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists_00100007_M0",
+      "ok": true,
+      "detail": "/home/edmundo/packing-services/paper/studies/robust_packing_management/results/g2_preflight/00100007_M0_sens_mid/result.json"
+    },
+    {
+      "check": "scenario_00100007_M0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "method_00100007_M0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "stability_null_00100007_M0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "JB_zero_on_fail_00100007_M0",
+      "ok": true,
+      "detail": "0.0"
+    },
+    {
+      "check": "failed_attempt_00100007_M0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "failed_event_00100007_M0",
+      "ok": true,
+      "detail": "geometric_failure"
+    },
+    {
+      "check": "accepted_geom_00100007_M0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100007_M0_00106003#1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100007_M0_00109722#2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100007_M0_00101017#3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists_00100007_M1",
+      "ok": true,
+      "detail": "/home/edmundo/packing-services/paper/studies/robust_packing_management/results/g2_preflight/00100007_M1_sens_mid/result.json"
+    },
+    {
+      "check": "scenario_00100007_M1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "method_00100007_M1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "stability_null_00100007_M1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "JB_zero_on_fail_00100007_M1",
+      "ok": true,
+      "detail": "0.0"
+    },
+    {
+      "check": "failed_attempt_00100007_M1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "failed_event_00100007_M1",
+      "ok": true,
+      "detail": "geometric_failure"
+    },
+    {
+      "check": "accepted_geom_00100007_M1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100007_M1_00106003#1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100007_M1_00109722#2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100007_M1_00101017#3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists_00100007_M2",
+      "ok": true,
+      "detail": "/home/edmundo/packing-services/paper/studies/robust_packing_management/results/g2_preflight/00100007_M2_sens_mid/result.json"
+    },
+    {
+      "check": "scenario_00100007_M2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "method_00100007_M2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "stability_null_00100007_M2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "JB_nominal_00100007_M2",
+      "ok": true,
+      "detail": "0.5156223214285715 vs 0.5156223214285715"
+    },
+    {
+      "check": "failed_attempt_00100007_M2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "failed_event_00100007_M2",
+      "ok": true,
+      "detail": "no_candidate"
+    },
+    {
+      "check": "accepted_geom_00100007_M2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "exists_00100007_M3",
+      "ok": true,
+      "detail": "/home/edmundo/packing-services/paper/studies/robust_packing_management/results/g2_preflight/00100007_M3_sens_mid/result.json"
+    },
+    {
+      "check": "scenario_00100007_M3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "method_00100007_M3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "stability_null_00100007_M3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "JB_zero_on_fail_00100007_M3",
+      "ok": true,
+      "detail": "0.0"
+    },
+    {
+      "check": "failed_attempt_00100007_M3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "failed_event_00100007_M3",
+      "ok": true,
+      "detail": "geometric_failure"
+    },
+    {
+      "check": "accepted_geom_00100007_M3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100007_M3_00106003#1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100007_M3_00109722#2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "env_exc_not_geom_00100007_M3_00101017#3",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "paired_realized_00100007",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "regen_realized_00100007",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "obs_has_no_realized_field",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "method_public_only_M0",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "method_public_only_M1",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "method_public_only_M2",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "check": "method_public_only_M3",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

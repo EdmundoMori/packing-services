@@ -1,0 +1,40 @@
+\section{Related Work}
+
+\paragraph{Measurement error and fixed buffers.}
+Yang et al.\ (GOPT) report real-robot packing in which camera-induced
+measurement error can cause collisions; allocating a fixed $0.7\,\mathrm{cm}$
+buffer around placed boxes yields average utilisation $67.5\%$ over 20 tests,
+whereas a zero buffer raises utilisation on successful runs but produces
+failures (2 of 20). They explicitly flag future work on reliability and
+compactness (GOPT, Sec.~IV-E and Sec.~V; primary HTML source).
+
+\paragraph{Industrial nominal orders.}
+Kagerer et al.\ introduce BED-BPP, orders derived from grocery industry data,
+with evaluation KPIs and a stability check. Their n-gram analysis uses a
+$2\,\mathrm{cm}$ size tolerance, and they note that algorithms must account for
+size tolerances; future work includes closing the simulation--reality gap
+(BED-BPP, Sec.~3 and Sec.~6; primary PDF).
+
+\paragraph{Conservative clearances and closed-loop correction.}
+Wang and Hauser plan with a clearance threshold $\delta$ that penalises tight
+fits and, when planning fails, reduce $\delta$ linearly toward zero; they also
+study closed-loop vision replanning under execution uncertainty (IEEE TRO;
+primary preprint verified).
+
+\paragraph{Execution compliance under plural uncertainties.}
+Shuai et al.\ analyse planning, transform, perception, and execution
+uncertainty for robotic packing and emphasise compliant contact rather than a
+learned geometric-margin manager (IET Control Theory Appl.; abstract and body
+text verified; publisher epdf blocked in this environment).
+
+\paragraph{Sequence robustness is a different uncertainty.}
+Pan et al.\ (AR2L, NeurIPS 2023) train adjustable robust packing policies
+against a permutation-based attacker on item sequences. That uncertainty class
+is not interchangeable with dimensional geometry (primary NeurIPS PDF).
+
+\paragraph{Other adjacent lines.}
+One-dimensional online bin packing with size estimates, distribution-shift
+adaptation for placement selection (ASAP), and robust offline one-dimensional
+packing address related but non-identical problems. We do not claim global
+absence of adaptive-margin learning elsewhere; unverified sources are marked as
+such in the study archive.

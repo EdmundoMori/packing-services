@@ -1,0 +1,186 @@
+{
+  "preflight": "G2_real",
+  "scenario_id": "sens_mid",
+  "orders": [
+    "00100030",
+    "00100007"
+  ],
+  "planned_episodes": 8,
+  "executed_episodes": 8,
+  "pending_episodes": 0,
+  "wall_global_limit_s": 900.0,
+  "timeout_episode_s": 100.0,
+  "wall_seconds_total": 4.4000305680001475,
+  "incomplete": false,
+  "error": null,
+  "pairing_ok": true,
+  "pairing_notes": [],
+  "rss_max_mb": 404.96484375,
+  "results": [
+    {
+      "order_id": "00100030",
+      "method_id": "M0",
+      "scenario_id": "sens_mid",
+      "termination": "geometric_failure",
+      "J_B": 0.0,
+      "geometric_failure": true,
+      "n_envelope_exceeded": 32,
+      "events_tail": [
+        "envelope_exceeded",
+        "envelope_exceeded",
+        "geometric_failure"
+      ],
+      "n_placed": 31,
+      "n_items": 43,
+      "wall_seconds": 0.42144471899882774,
+      "rebuild_ok": true,
+      "case_dir": "results/g2_preflight/00100030_M0_sens_mid"
+    },
+    {
+      "order_id": "00100030",
+      "method_id": "M1",
+      "scenario_id": "sens_mid",
+      "termination": "geometric_failure",
+      "J_B": 0.0,
+      "geometric_failure": true,
+      "n_envelope_exceeded": 34,
+      "events_tail": [
+        "envelope_exceeded",
+        "envelope_exceeded",
+        "geometric_failure"
+      ],
+      "n_placed": 33,
+      "n_items": 43,
+      "wall_seconds": 0.5634066339989658,
+      "rebuild_ok": true,
+      "case_dir": "results/g2_preflight/00100030_M1_sens_mid"
+    },
+    {
+      "order_id": "00100030",
+      "method_id": "M2",
+      "scenario_id": "sens_mid",
+      "termination": "no_candidate",
+      "J_B": 0.5546598958333333,
+      "geometric_failure": false,
+      "n_envelope_exceeded": 0,
+      "events_tail": [
+        "placed",
+        "placed",
+        "no_candidate"
+      ],
+      "n_placed": 39,
+      "n_items": 43,
+      "wall_seconds": 0.6728103700006614,
+      "rebuild_ok": true,
+      "case_dir": "results/g2_preflight/00100030_M2_sens_mid"
+    },
+    {
+      "order_id": "00100030",
+      "method_id": "M3",
+      "scenario_id": "sens_mid",
+      "termination": "geometric_failure",
+      "J_B": 0.0,
+      "geometric_failure": true,
+      "n_envelope_exceeded": 32,
+      "events_tail": [
+        "envelope_exceeded",
+        "envelope_exceeded",
+        "geometric_failure"
+      ],
+      "n_placed": 31,
+      "n_items": 43,
+      "wall_seconds": 0.8134484060010436,
+      "rebuild_ok": true,
+      "case_dir": "results/g2_preflight/00100030_M3_sens_mid"
+    },
+    {
+      "order_id": "00100007",
+      "method_id": "M0",
+      "scenario_id": "sens_mid",
+      "termination": "geometric_failure",
+      "J_B": 0.0,
+      "geometric_failure": true,
+      "n_envelope_exceeded": 4,
+      "events_tail": [
+        "envelope_exceeded",
+        "envelope_exceeded",
+        "geometric_failure"
+      ],
+      "n_placed": 3,
+      "n_items": 29,
+      "wall_seconds": 0.005751553000663989,
+      "rebuild_ok": true,
+      "case_dir": "results/g2_preflight/00100007_M0_sens_mid"
+    },
+    {
+      "order_id": "00100007",
+      "method_id": "M1",
+      "scenario_id": "sens_mid",
+      "termination": "geometric_failure",
+      "J_B": 0.0,
+      "geometric_failure": true,
+      "n_envelope_exceeded": 4,
+      "events_tail": [
+        "envelope_exceeded",
+        "envelope_exceeded",
+        "geometric_failure"
+      ],
+      "n_placed": 3,
+      "n_items": 29,
+      "wall_seconds": 0.006622990998948808,
+      "rebuild_ok": true,
+      "case_dir": "results/g2_preflight/00100007_M1_sens_mid"
+    },
+    {
+      "order_id": "00100007",
+      "method_id": "M2",
+      "scenario_id": "sens_mid",
+      "termination": "no_candidate",
+      "J_B": 0.5156223214285715,
+      "geometric_failure": false,
+      "n_envelope_exceeded": 0,
+      "events_tail": [
+        "placed",
+        "placed",
+        "no_candidate"
+      ],
+      "n_placed": 19,
+      "n_items": 29,
+      "wall_seconds": 0.12460480099980487,
+      "rebuild_ok": true,
+      "case_dir": "results/g2_preflight/00100007_M2_sens_mid"
+    },
+    {
+      "order_id": "00100007",
+      "method_id": "M3",
+      "scenario_id": "sens_mid",
+      "termination": "geometric_failure",
+      "J_B": 0.0,
+      "geometric_failure": true,
+      "n_envelope_exceeded": 4,
+      "events_tail": [
+        "envelope_exceeded",
+        "envelope_exceeded",
+        "geometric_failure"
+      ],
+      "n_placed": 3,
+      "n_items": 29,
+      "wall_seconds": 0.010904742001002887,
+      "rebuild_ok": true,
+      "case_dir": "results/g2_preflight/00100007_M3_sens_mid"
+    }
+  ],
+  "g2_full_not_launched": true,
+  "training_authorized": false,
+  "reuse_in_g2_full": {
+    "allowed_if_exact_match": true,
+    "authorized_now": false,
+    "note": "Reutilizable una vez en G2 solo si coinciden contrato, código, métodos, entradas y realizaciones exactamente."
+  },
+  "cost_estimate_full_g2": {
+    "max_episodes": 120,
+    "preflight_mean_wall_s": 0.3273742769999899,
+    "naive_extrapolation_s": 39.28491323999879,
+    "uncertainty_note": "Extrapolación ingenua e incierta: pedidos preflight pueden no representar tamaños/ocupación del resto; no usar como presupuesto fijo sin medición."
+  }
+}

@@ -1,0 +1,23 @@
+\section{Method}
+
+\textit{G2 v1 freeze and deterministic preflight retained as historical harness
+evidence. Stochastic uncertainty for management diagnosis remains pending
+(design draft v2). No RL training.}
+
+Protection $m$ from a small menu; envelope
+\texttt{nominal\_oriented}+\texttt{margin\_oriented}; shared FLB.
+Fixed placement chooser (\texttt{rank\_key}).
+
+The frozen G2 v1 error map was
+$\mathrm{realized}=\max(1,\mathrm{nominal}\cdot(1+\alpha))$ with public
+scenario $\alpha$. That is a \emph{deterministic known-growth scenario}, not
+unknown dimensional noise and not a POMDP: every method can compute the
+realisation from public inputs before acting. Under that map, support-covering
+margin $m_i=\alpha\cdot\mathrm{nominal}_i$ is an analytical guaranteed baseline;
+learning a protection policy against it is trivial. The M3 v1 ``risk'' bit was
+candidate existence under an envelope, not geometric failure probability.
+
+A corrected stochastic sensitivity model
+($R=N(1+\varepsilon)$ with public i.i.d.\ law, current $\varepsilon$ unobserved)
+is drafted separately and is \emph{not} validated by the v1 preflight. BED-BPP
+supplies nominal catalogue sizes, sequences, and targets only.

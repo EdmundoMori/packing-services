@@ -1,0 +1,1926 @@
+{
+  "order_id": "00100007",
+  "target": "rollcontainer",
+  "n_items": 29,
+  "container_mm": [
+    800.0,
+    700.0,
+    2000.0
+  ],
+  "realized_by_item": {
+    "00106003#1": [
+      430.5,
+      357.0,
+      241.5
+    ],
+    "00109722#2": [
+      567.0,
+      283.5,
+      273.0
+    ],
+    "00101017#3": [
+      346.5,
+      220.5,
+      304.5
+    ],
+    "00104044#4": [
+      409.5,
+      252.0,
+      346.5
+    ],
+    "00104826#5": [
+      346.5,
+      220.5,
+      304.5
+    ],
+    "00104826#6": [
+      346.5,
+      220.5,
+      304.5
+    ],
+    "00112392#7": [
+      619.5,
+      409.5,
+      157.5
+    ],
+    "00110904#8": [
+      378.0,
+      262.5,
+      336.0
+    ],
+    "00100669#9": [
+      420.0,
+      315.0,
+      252.0
+    ],
+    "00100647#10": [
+      420.0,
+      273.0,
+      304.5
+    ],
+    "00109802#11": [
+      567.0,
+      283.5,
+      273.0
+    ],
+    "00108496#12": [
+      367.5,
+      273.0,
+      189.0
+    ],
+    "00110809#13": [
+      556.5,
+      283.5,
+      231.0
+    ],
+    "00106673#14": [
+      556.5,
+      283.5,
+      231.0
+    ],
+    "00106124#15": [
+      346.5,
+      210.0,
+      294.0
+    ],
+    "00111668#16": [
+      346.5,
+      220.5,
+      304.5
+    ],
+    "00106538#17": [
+      588.0,
+      241.5,
+      231.0
+    ],
+    "00105329#18": [
+      567.0,
+      283.5,
+      273.0
+    ],
+    "00100264#19": [
+      630.0,
+      420.0,
+      315.0
+    ],
+    "00100264#20": [
+      630.0,
+      420.0,
+      315.0
+    ],
+    "00100264#21": [
+      630.0,
+      420.0,
+      315.0
+    ],
+    "00109896#22": [
+      346.5,
+      220.5,
+      304.5
+    ],
+    "00111831#23": [
+      409.5,
+      283.5,
+      283.5
+    ],
+    "00111831#24": [
+      409.5,
+      283.5,
+      283.5
+    ],
+    "00111831#25": [
+      409.5,
+      283.5,
+      283.5
+    ],
+    "00111831#26": [
+      409.5,
+      283.5,
+      283.5
+    ],
+    "00110913#27": [
+      420.0,
+      273.0,
+      273.0
+    ],
+    "00105412#28": [
+      630.0,
+      399.0,
+      126.0
+    ],
+    "00112877#29": [
+      567.0,
+      283.5,
+      273.0
+    ]
+  },
+  "model": {
+    "scenario_id": "sens_mid",
+    "alpha": 0.05,
+    "model_id": "b1_mult_expand_v1"
+  },
+  "constraints_active": [
+    "containment",
+    "non_overlap",
+    "orientations"
+  ],
+  "physical_stability_verified": null,
+  "method_id": "M2",
+  "method_spec": "margen por eje alpha*nominal_axis del modelo público; chooser rank_key",
+  "comparison_kind": "method",
+  "scenario_id": "sens_mid",
+  "model_public": {
+    "model_id": "b1_mult_expand_v1",
+    "scenario_id": "sens_mid",
+    "alpha": 0.05,
+    "uniform_ref_mm": 7.0,
+    "units": "mm",
+    "family": "realized_axis = max(1.0, nominal_axis * (1+alpha)); alpha fijo por escenario de sensibilidad; independiente entre ítems; misma realización por ítem entre métodos; orientación permuta el mismo triplete.",
+    "probabilistic_calibration": false,
+    "note": "Condiciones de sensibilidad propias, no ley medida sobre BED-BPP. Una realización por pedido×escenario ⇒ frecuencias observadas, no estimación fiable de Pr(fallo) ni garantía por 0 fallos.",
+    "seed_namespace": "rpm-g2-error|v1",
+    "scenarios_all": {
+      "sens_low": {
+        "alpha": 0.02,
+        "uniform_ref_mm": 3.0
+      },
+      "sens_mid": {
+        "alpha": 0.05,
+        "uniform_ref_mm": 7.0
+      },
+      "sens_high": {
+        "alpha": 0.1,
+        "uniform_ref_mm": 12.0
+      }
+    },
+    "not_bedbpp_ngram_2cm": true
+  },
+  "protocol_id": "rpm-g2-frozen-v1",
+  "preflight": true,
+  "timeout_episode_s": 100.0,
+  "wall_seconds": 0.12460480099980487,
+  "termination": "no_candidate",
+  "J_B": 0.5156223214285715,
+  "V_nom_mm3": 577497000.0,
+  "V_nom_before_failure_mm3": 577497000.0,
+  "container_volume_mm3": 1120000000.0,
+  "geometric_failure": false,
+  "n_envelope_exceeded": 0,
+  "events": [
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "placed",
+    "no_candidate"
+  ],
+  "placed_ids": [
+    "00106003#1",
+    "00109722#2",
+    "00101017#3",
+    "00104044#4",
+    "00104826#5",
+    "00104826#6",
+    "00112392#7",
+    "00110904#8",
+    "00100669#9",
+    "00100647#10",
+    "00109802#11",
+    "00108496#12",
+    "00110809#13",
+    "00106673#14",
+    "00106124#15",
+    "00111668#16",
+    "00106538#17",
+    "00105329#18",
+    "00100264#19"
+  ],
+  "rebuild_ok": true,
+  "rebuild_note": null,
+  "steps": [
+    {
+      "item_id": "00106003#1",
+      "margin_mm": [
+        20.5,
+        17.0,
+        11.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "orientation_order": [
+        0,
+        1,
+        2
+      ],
+      "nominal_oriented": [
+        410.0,
+        340.0,
+        230.0
+      ],
+      "envelope": [
+        430.5,
+        357.0,
+        241.5
+      ],
+      "realized_oriented": [
+        430.5,
+        357.0,
+        241.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 6
+    },
+    {
+      "item_id": "00109722#2",
+      "margin_mm": [
+        27.0,
+        13.5,
+        13.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        0.0,
+        241.5
+      ],
+      "orientation_order": [
+        1,
+        2,
+        0
+      ],
+      "nominal_oriented": [
+        270.0,
+        260.0,
+        540.0
+      ],
+      "envelope": [
+        283.5,
+        273.0,
+        567.0
+      ],
+      "realized_oriented": [
+        283.5,
+        273.0,
+        567.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 14
+    },
+    {
+      "item_id": "00101017#3",
+      "margin_mm": [
+        16.5,
+        10.5,
+        14.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        430.5,
+        0.0,
+        0.0
+      ],
+      "orientation_order": [
+        0,
+        2,
+        1
+      ],
+      "nominal_oriented": [
+        330.0,
+        290.0,
+        210.0
+      ],
+      "envelope": [
+        346.5,
+        304.5,
+        220.5
+      ],
+      "realized_oriented": [
+        346.5,
+        304.5,
+        220.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 28
+    },
+    {
+      "item_id": "00104044#4",
+      "margin_mm": [
+        19.5,
+        12.0,
+        16.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        0.0,
+        808.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        330.0,
+        240.0,
+        390.0
+      ],
+      "envelope": [
+        346.5,
+        252.0,
+        409.5
+      ],
+      "realized_oriented": [
+        346.5,
+        252.0,
+        409.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 26
+    },
+    {
+      "item_id": "00104826#5",
+      "margin_mm": [
+        16.5,
+        10.5,
+        14.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        357.0,
+        0.0
+      ],
+      "orientation_order": [
+        0,
+        2,
+        1
+      ],
+      "nominal_oriented": [
+        330.0,
+        290.0,
+        210.0
+      ],
+      "envelope": [
+        346.5,
+        304.5,
+        220.5
+      ],
+      "realized_oriented": [
+        346.5,
+        304.5,
+        220.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 46
+    },
+    {
+      "item_id": "00104826#6",
+      "margin_mm": [
+        16.5,
+        10.5,
+        14.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        0.0,
+        1218.0
+      ],
+      "orientation_order": [
+        0,
+        1,
+        2
+      ],
+      "nominal_oriented": [
+        330.0,
+        210.0,
+        290.0
+      ],
+      "envelope": [
+        346.5,
+        220.5,
+        304.5
+      ],
+      "realized_oriented": [
+        346.5,
+        220.5,
+        304.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 50
+    },
+    {
+      "item_id": "00112392#7",
+      "margin_mm": [
+        29.5,
+        19.5,
+        7.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        0.0,
+        1522.5
+      ],
+      "orientation_order": [
+        0,
+        2,
+        1
+      ],
+      "nominal_oriented": [
+        590.0,
+        150.0,
+        390.0
+      ],
+      "envelope": [
+        619.5,
+        157.5,
+        409.5
+      ],
+      "realized_oriented": [
+        619.5,
+        157.5,
+        409.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 31
+    },
+    {
+      "item_id": "00110904#8",
+      "margin_mm": [
+        18.0,
+        12.5,
+        16.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        283.5,
+        0.0,
+        241.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        320.0,
+        250.0,
+        360.0
+      ],
+      "envelope": [
+        336.0,
+        262.5,
+        378.0
+      ],
+      "realized_oriented": [
+        336.0,
+        262.5,
+        378.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 54
+    },
+    {
+      "item_id": "00100669#9",
+      "margin_mm": [
+        20.0,
+        15.0,
+        12.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        273.0,
+        241.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        240.0,
+        300.0,
+        400.0
+      ],
+      "envelope": [
+        252.0,
+        315.0,
+        420.0
+      ],
+      "realized_oriented": [
+        252.0,
+        315.0,
+        420.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 48
+    },
+    {
+      "item_id": "00100647#10",
+      "margin_mm": [
+        20.0,
+        13.0,
+        14.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        157.5,
+        1522.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        290.0,
+        260.0,
+        400.0
+      ],
+      "envelope": [
+        304.5,
+        273.0,
+        420.0
+      ],
+      "realized_oriented": [
+        304.5,
+        273.0,
+        420.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 52
+    },
+    {
+      "item_id": "00109802#11",
+      "margin_mm": [
+        27.0,
+        13.5,
+        13.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        346.5,
+        0.0,
+        808.5
+      ],
+      "orientation_order": [
+        1,
+        2,
+        0
+      ],
+      "nominal_oriented": [
+        270.0,
+        260.0,
+        540.0
+      ],
+      "envelope": [
+        283.5,
+        273.0,
+        567.0
+      ],
+      "realized_oriented": [
+        283.5,
+        273.0,
+        567.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 24
+    },
+    {
+      "item_id": "00108496#12",
+      "margin_mm": [
+        17.5,
+        13.0,
+        9.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        283.5,
+        0.0,
+        619.5
+      ],
+      "orientation_order": [
+        0,
+        1,
+        2
+      ],
+      "nominal_oriented": [
+        350.0,
+        260.0,
+        180.0
+      ],
+      "envelope": [
+        367.5,
+        273.0,
+        189.0
+      ],
+      "realized_oriented": [
+        367.5,
+        273.0,
+        189.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 50
+    },
+    {
+      "item_id": "00110809#13",
+      "margin_mm": [
+        26.5,
+        13.5,
+        11.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        273.0,
+        661.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        220.0,
+        270.0,
+        530.0
+      ],
+      "envelope": [
+        231.0,
+        283.5,
+        556.5
+      ],
+      "realized_oriented": [
+        231.0,
+        283.5,
+        556.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 17
+    },
+    {
+      "item_id": "00106673#14",
+      "margin_mm": [
+        26.5,
+        13.5,
+        11.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        231.0,
+        273.0,
+        661.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        220.0,
+        270.0,
+        530.0
+      ],
+      "envelope": [
+        231.0,
+        283.5,
+        556.5
+      ],
+      "realized_oriented": [
+        231.0,
+        283.5,
+        556.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 17
+    },
+    {
+      "item_id": "00106124#15",
+      "margin_mm": [
+        16.5,
+        10.0,
+        14.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        220.5,
+        1218.0
+      ],
+      "orientation_order": [
+        0,
+        1,
+        2
+      ],
+      "nominal_oriented": [
+        330.0,
+        200.0,
+        280.0
+      ],
+      "envelope": [
+        346.5,
+        210.0,
+        294.0
+      ],
+      "realized_oriented": [
+        346.5,
+        210.0,
+        294.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 46
+    },
+    {
+      "item_id": "00111668#16",
+      "margin_mm": [
+        16.5,
+        10.5,
+        14.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        430.5,
+        1218.0
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        290.0,
+        210.0,
+        330.0
+      ],
+      "envelope": [
+        304.5,
+        220.5,
+        346.5
+      ],
+      "realized_oriented": [
+        304.5,
+        220.5,
+        346.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 36
+    },
+    {
+      "item_id": "00106538#17",
+      "margin_mm": [
+        28.0,
+        11.5,
+        11.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        462.0,
+        273.0,
+        661.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        220.0,
+        230.0,
+        560.0
+      ],
+      "envelope": [
+        231.0,
+        241.5,
+        588.0
+      ],
+      "realized_oriented": [
+        231.0,
+        241.5,
+        588.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 10
+    },
+    {
+      "item_id": "00105329#18",
+      "margin_mm": [
+        27.0,
+        13.5,
+        13.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        346.5,
+        357.0,
+        0.0
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        260.0,
+        270.0,
+        540.0
+      ],
+      "envelope": [
+        273.0,
+        283.5,
+        567.0
+      ],
+      "realized_oriented": [
+        273.0,
+        283.5,
+        567.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 6
+    },
+    {
+      "item_id": "00100264#19",
+      "margin_mm": [
+        30.0,
+        20.0,
+        15.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        462.0,
+        273.0,
+        1249.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        300.0,
+        400.0,
+        600.0
+      ],
+      "envelope": [
+        315.0,
+        420.0,
+        630.0
+      ],
+      "realized_oriented": [
+        315.0,
+        420.0,
+        630.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 1
+    },
+    {
+      "item_id": "00100264#20",
+      "margin_mm": [
+        30.0,
+        20.0,
+        15.0
+      ],
+      "event": "no_candidate",
+      "envelope_exceeded_flag": false,
+      "flb_mm": null,
+      "orientation_order": null,
+      "nominal_oriented": null,
+      "envelope": null,
+      "realized_oriented": null,
+      "certificate": null,
+      "n_candidates": 0
+    }
+  ],
+  "failed_attempt": {
+    "item_id": "00100264#20",
+    "margin_mm": [
+      30.0,
+      20.0,
+      15.0
+    ],
+    "event": "no_candidate",
+    "envelope_exceeded_flag": false,
+    "flb_mm": null,
+    "orientation_order": null,
+    "nominal_oriented": null,
+    "envelope": null,
+    "realized_oriented": null,
+    "certificate": null,
+    "n_candidates": 0
+  },
+  "accepted_placements": [
+    {
+      "item_id": "00106003#1",
+      "margin_mm": [
+        20.5,
+        17.0,
+        11.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "orientation_order": [
+        0,
+        1,
+        2
+      ],
+      "nominal_oriented": [
+        410.0,
+        340.0,
+        230.0
+      ],
+      "envelope": [
+        430.5,
+        357.0,
+        241.5
+      ],
+      "realized_oriented": [
+        430.5,
+        357.0,
+        241.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 6
+    },
+    {
+      "item_id": "00109722#2",
+      "margin_mm": [
+        27.0,
+        13.5,
+        13.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        0.0,
+        241.5
+      ],
+      "orientation_order": [
+        1,
+        2,
+        0
+      ],
+      "nominal_oriented": [
+        270.0,
+        260.0,
+        540.0
+      ],
+      "envelope": [
+        283.5,
+        273.0,
+        567.0
+      ],
+      "realized_oriented": [
+        283.5,
+        273.0,
+        567.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 14
+    },
+    {
+      "item_id": "00101017#3",
+      "margin_mm": [
+        16.5,
+        10.5,
+        14.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        430.5,
+        0.0,
+        0.0
+      ],
+      "orientation_order": [
+        0,
+        2,
+        1
+      ],
+      "nominal_oriented": [
+        330.0,
+        290.0,
+        210.0
+      ],
+      "envelope": [
+        346.5,
+        304.5,
+        220.5
+      ],
+      "realized_oriented": [
+        346.5,
+        304.5,
+        220.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 28
+    },
+    {
+      "item_id": "00104044#4",
+      "margin_mm": [
+        19.5,
+        12.0,
+        16.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        0.0,
+        808.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        330.0,
+        240.0,
+        390.0
+      ],
+      "envelope": [
+        346.5,
+        252.0,
+        409.5
+      ],
+      "realized_oriented": [
+        346.5,
+        252.0,
+        409.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 26
+    },
+    {
+      "item_id": "00104826#5",
+      "margin_mm": [
+        16.5,
+        10.5,
+        14.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        357.0,
+        0.0
+      ],
+      "orientation_order": [
+        0,
+        2,
+        1
+      ],
+      "nominal_oriented": [
+        330.0,
+        290.0,
+        210.0
+      ],
+      "envelope": [
+        346.5,
+        304.5,
+        220.5
+      ],
+      "realized_oriented": [
+        346.5,
+        304.5,
+        220.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 46
+    },
+    {
+      "item_id": "00104826#6",
+      "margin_mm": [
+        16.5,
+        10.5,
+        14.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        0.0,
+        1218.0
+      ],
+      "orientation_order": [
+        0,
+        1,
+        2
+      ],
+      "nominal_oriented": [
+        330.0,
+        210.0,
+        290.0
+      ],
+      "envelope": [
+        346.5,
+        220.5,
+        304.5
+      ],
+      "realized_oriented": [
+        346.5,
+        220.5,
+        304.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 50
+    },
+    {
+      "item_id": "00112392#7",
+      "margin_mm": [
+        29.5,
+        19.5,
+        7.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        0.0,
+        1522.5
+      ],
+      "orientation_order": [
+        0,
+        2,
+        1
+      ],
+      "nominal_oriented": [
+        590.0,
+        150.0,
+        390.0
+      ],
+      "envelope": [
+        619.5,
+        157.5,
+        409.5
+      ],
+      "realized_oriented": [
+        619.5,
+        157.5,
+        409.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 31
+    },
+    {
+      "item_id": "00110904#8",
+      "margin_mm": [
+        18.0,
+        12.5,
+        16.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        283.5,
+        0.0,
+        241.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        320.0,
+        250.0,
+        360.0
+      ],
+      "envelope": [
+        336.0,
+        262.5,
+        378.0
+      ],
+      "realized_oriented": [
+        336.0,
+        262.5,
+        378.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 54
+    },
+    {
+      "item_id": "00100669#9",
+      "margin_mm": [
+        20.0,
+        15.0,
+        12.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        273.0,
+        241.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        240.0,
+        300.0,
+        400.0
+      ],
+      "envelope": [
+        252.0,
+        315.0,
+        420.0
+      ],
+      "realized_oriented": [
+        252.0,
+        315.0,
+        420.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 48
+    },
+    {
+      "item_id": "00100647#10",
+      "margin_mm": [
+        20.0,
+        13.0,
+        14.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        157.5,
+        1522.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        290.0,
+        260.0,
+        400.0
+      ],
+      "envelope": [
+        304.5,
+        273.0,
+        420.0
+      ],
+      "realized_oriented": [
+        304.5,
+        273.0,
+        420.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 52
+    },
+    {
+      "item_id": "00109802#11",
+      "margin_mm": [
+        27.0,
+        13.5,
+        13.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        346.5,
+        0.0,
+        808.5
+      ],
+      "orientation_order": [
+        1,
+        2,
+        0
+      ],
+      "nominal_oriented": [
+        270.0,
+        260.0,
+        540.0
+      ],
+      "envelope": [
+        283.5,
+        273.0,
+        567.0
+      ],
+      "realized_oriented": [
+        283.5,
+        273.0,
+        567.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 24
+    },
+    {
+      "item_id": "00108496#12",
+      "margin_mm": [
+        17.5,
+        13.0,
+        9.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        283.5,
+        0.0,
+        619.5
+      ],
+      "orientation_order": [
+        0,
+        1,
+        2
+      ],
+      "nominal_oriented": [
+        350.0,
+        260.0,
+        180.0
+      ],
+      "envelope": [
+        367.5,
+        273.0,
+        189.0
+      ],
+      "realized_oriented": [
+        367.5,
+        273.0,
+        189.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 50
+    },
+    {
+      "item_id": "00110809#13",
+      "margin_mm": [
+        26.5,
+        13.5,
+        11.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        273.0,
+        661.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        220.0,
+        270.0,
+        530.0
+      ],
+      "envelope": [
+        231.0,
+        283.5,
+        556.5
+      ],
+      "realized_oriented": [
+        231.0,
+        283.5,
+        556.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 17
+    },
+    {
+      "item_id": "00106673#14",
+      "margin_mm": [
+        26.5,
+        13.5,
+        11.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        231.0,
+        273.0,
+        661.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        220.0,
+        270.0,
+        530.0
+      ],
+      "envelope": [
+        231.0,
+        283.5,
+        556.5
+      ],
+      "realized_oriented": [
+        231.0,
+        283.5,
+        556.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 17
+    },
+    {
+      "item_id": "00106124#15",
+      "margin_mm": [
+        16.5,
+        10.0,
+        14.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        220.5,
+        1218.0
+      ],
+      "orientation_order": [
+        0,
+        1,
+        2
+      ],
+      "nominal_oriented": [
+        330.0,
+        200.0,
+        280.0
+      ],
+      "envelope": [
+        346.5,
+        210.0,
+        294.0
+      ],
+      "realized_oriented": [
+        346.5,
+        210.0,
+        294.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 46
+    },
+    {
+      "item_id": "00111668#16",
+      "margin_mm": [
+        16.5,
+        10.5,
+        14.5
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        0.0,
+        430.5,
+        1218.0
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        290.0,
+        210.0,
+        330.0
+      ],
+      "envelope": [
+        304.5,
+        220.5,
+        346.5
+      ],
+      "realized_oriented": [
+        304.5,
+        220.5,
+        346.5
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 36
+    },
+    {
+      "item_id": "00106538#17",
+      "margin_mm": [
+        28.0,
+        11.5,
+        11.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        462.0,
+        273.0,
+        661.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        220.0,
+        230.0,
+        560.0
+      ],
+      "envelope": [
+        231.0,
+        241.5,
+        588.0
+      ],
+      "realized_oriented": [
+        231.0,
+        241.5,
+        588.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 10
+    },
+    {
+      "item_id": "00105329#18",
+      "margin_mm": [
+        27.0,
+        13.5,
+        13.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        346.5,
+        357.0,
+        0.0
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        260.0,
+        270.0,
+        540.0
+      ],
+      "envelope": [
+        273.0,
+        283.5,
+        567.0
+      ],
+      "realized_oriented": [
+        273.0,
+        283.5,
+        567.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 6
+    },
+    {
+      "item_id": "00100264#19",
+      "margin_mm": [
+        30.0,
+        20.0,
+        15.0
+      ],
+      "event": "placed",
+      "envelope_exceeded_flag": false,
+      "flb_mm": [
+        462.0,
+        273.0,
+        1249.5
+      ],
+      "orientation_order": [
+        2,
+        1,
+        0
+      ],
+      "nominal_oriented": [
+        300.0,
+        400.0,
+        600.0
+      ],
+      "envelope": [
+        315.0,
+        420.0,
+        630.0
+      ],
+      "realized_oriented": [
+        315.0,
+        420.0,
+        630.0
+      ],
+      "certificate": {
+        "envelope_feasible_vs_revealed": true,
+        "realized_subseteq_envelope": true,
+        "realized_geometric_failure": false,
+        "certificate_holds": true,
+        "applies": true
+      },
+      "n_candidates": 1
+    }
+  ]
+}
