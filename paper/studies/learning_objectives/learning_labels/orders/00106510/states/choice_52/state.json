@@ -1,0 +1,202 @@
+{
+  "choice_index": 52,
+  "current_item_id": "00100669#53",
+  "n_legal": 2,
+  "legal_ids": [
+    [
+      0,
+      550.0,
+      300.0,
+      1210.0,
+      300.0,
+      240.0,
+      400.0,
+      0
+    ],
+    [
+      0,
+      420.0,
+      470.0,
+      1500.0,
+      400.0,
+      300.0,
+      240.0,
+      1
+    ]
+  ],
+  "support_ids": [
+    [
+      0,
+      550.0,
+      300.0,
+      1210.0,
+      300.0,
+      240.0,
+      400.0
+    ],
+    [
+      0,
+      420.0,
+      470.0,
+      1500.0,
+      400.0,
+      300.0,
+      240.0
+    ]
+  ],
+  "support_contract": "greedy_plus_orientation_position_diversity_v1",
+  "greedy_key": [
+    0,
+    550.0,
+    300.0,
+    1210.0,
+    300.0,
+    240.0,
+    400.0
+  ],
+  "greedy_in_support": true,
+  "n_support": 2,
+  "fewer_than_four_geometries": true,
+  "checkpoint_remaining_ids": [
+    "00100669#53"
+  ],
+  "alternatives": [
+    {
+      "action": [
+        0,
+        550.0,
+        300.0,
+        1210.0,
+        300.0,
+        240.0,
+        400.0
+      ],
+      "is_greedy": true,
+      "features": [
+        0.3333333333333333,
+        0.375,
+        0.12,
+        0.015,
+        0.006393333333333333,
+        1.0,
+        0.4583333333333333,
+        0.375,
+        0.605,
+        0.25,
+        0.3,
+        0.2,
+        0.0,
+        0.0,
+        1.0,
+        0.28197333333333324,
+        1.0
+      ],
+      "feature_sha256": "1b4539899566cfe4d62c7a753077887f98d4bb46d80fa3924579ed5a02b1cddd",
+      "feature_names": [
+        "item_l_n",
+        "item_w_n",
+        "item_h_n",
+        "item_vol_n",
+        "item_weight_n",
+        "item_can_rotate",
+        "pos_x_n",
+        "pos_y_n",
+        "pos_z_n",
+        "ori_l_n",
+        "ori_w_n",
+        "ori_h_n",
+        "support_ratio",
+        "bin_index_n",
+        "n_packed_n",
+        "loaded_weight_n",
+        "used_height_n"
+      ],
+      "q_hat": 0.689678125,
+      "reason": null,
+      "audited": true,
+      "source": "new",
+      "recomputed_u_geom": 0.689678125,
+      "capture_ok": true,
+      "geometry_valid": true,
+      "continuation_seconds": 0.022521975000017846,
+      "capture_seconds": 0.00035324399959790753,
+      "audit_seconds": 1.2394182430007277,
+      "action_matches_current_item_placement": true,
+      "audit_failure_types": [],
+      "suffix_ids_not_an_actor_input": [
+        "00100669#53"
+      ],
+      "capture_saved": true
+    },
+    {
+      "action": [
+        0,
+        420.0,
+        470.0,
+        1500.0,
+        400.0,
+        300.0,
+        240.0
+      ],
+      "is_greedy": false,
+      "features": [
+        0.3333333333333333,
+        0.375,
+        0.12,
+        0.015,
+        0.006393333333333333,
+        1.0,
+        0.35,
+        0.5875,
+        0.75,
+        0.3333333333333333,
+        0.375,
+        0.12,
+        0.0,
+        0.0,
+        1.0,
+        0.28197333333333324,
+        1.0
+      ],
+      "feature_sha256": "6a366620f23ace235382a99bac9aabbb84544b633c76fc0d97c3a770f6c9b897",
+      "feature_names": [
+        "item_l_n",
+        "item_w_n",
+        "item_h_n",
+        "item_vol_n",
+        "item_weight_n",
+        "item_can_rotate",
+        "pos_x_n",
+        "pos_y_n",
+        "pos_z_n",
+        "ori_l_n",
+        "ori_w_n",
+        "ori_h_n",
+        "support_ratio",
+        "bin_index_n",
+        "n_packed_n",
+        "loaded_weight_n",
+        "used_height_n"
+      ],
+      "q_hat": 0.689678125,
+      "reason": null,
+      "audited": true,
+      "source": "new",
+      "recomputed_u_geom": 0.689678125,
+      "capture_ok": true,
+      "geometry_valid": true,
+      "continuation_seconds": 0.022667045000162034,
+      "capture_seconds": 0.0004932960000587627,
+      "audit_seconds": 1.0633492150000166,
+      "action_matches_current_item_placement": true,
+      "audit_failure_types": [],
+      "suffix_ids_not_an_actor_input": [
+        "00100669#53"
+      ],
+      "capture_saved": true
+    }
+  ],
+  "complete": true,
+  "eligible_for_learning": true,
+  "incomplete_reasons": []
+}

@@ -1,0 +1,790 @@
+{
+  "status": "verified",
+  "verifier_version": "manifest_keyed_v2",
+  "issues": [],
+  "n_orders": 72,
+  "expected_orders": 72,
+  "n_load_failures": 0,
+  "unknown_returns": 0,
+  "continuations_reused_observed": 16,
+  "continuations_new_observed": 1099,
+  "n_alternatives": 1115,
+  "n_order_state_action_keys": 1115,
+  "order_state_action_key_duplicates": 0,
+  "note_geometry_identity": "unicidad exigida solo en (order_id, choice_index, action); la misma geometr\u00eda puede repetirse en estados distintos",
+  "coverage": {
+    "by_split": {
+      "train": {
+        "orders": 48,
+        "states": 192,
+        "complete_states": 192,
+        "unknown": 0
+      },
+      "development": {
+        "orders": 24,
+        "states": 96,
+        "complete_states": 96,
+        "unknown": 0
+      }
+    },
+    "by_target": {
+      "euro-pallet": {
+        "orders": 36,
+        "states": 144,
+        "complete_states": 144,
+        "unknown": 0
+      },
+      "rollcontainer": {
+        "orders": 36,
+        "states": 144,
+        "complete_states": 144,
+        "unknown": 0
+      }
+    },
+    "by_order": [
+      {
+        "order_id": "00105883",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00104801",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00104010",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00101334",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00107369",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00101384",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00105453",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00108032",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00106510",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00107708",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00103305",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00104251",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00108806",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00106013",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00100727",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00107788",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00104000",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00101098",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00104736",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00109335",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00106793",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00107765",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00107768",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00107831",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00106125",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00107580",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00109197",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00102964",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00105354",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00104604",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00106371",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00102767",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00105274",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00103125",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00107904",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00109181",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00103653",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00107806",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00103607",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00109684",
+        "split": "train",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00101233",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00100464",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00105763",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00107718",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00102292",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00108710",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": true
+      },
+      {
+        "order_id": "00109078",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00102629",
+        "split": "train",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00107391",
+        "split": "development",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00106955",
+        "split": "development",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00108470",
+        "split": "development",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00105989",
+        "split": "development",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00102744",
+        "split": "development",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00104382",
+        "split": "development",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00106806",
+        "split": "development",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00100842",
+        "split": "development",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00102462",
+        "split": "development",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00101838",
+        "split": "development",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00108036",
+        "split": "development",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00108236",
+        "split": "development",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00109447",
+        "split": "development",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00107236",
+        "split": "development",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00102796",
+        "split": "development",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00102346",
+        "split": "development",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00105250",
+        "split": "development",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00105797",
+        "split": "development",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00107107",
+        "split": "development",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00103460",
+        "split": "development",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00106319",
+        "split": "development",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00103738",
+        "split": "development",
+        "target": "rollcontainer",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00107235",
+        "split": "development",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      },
+      {
+        "order_id": "00105391",
+        "split": "development",
+        "target": "euro-pallet",
+        "n_states": 4,
+        "complete_states": 4,
+        "unknown_returns": 0,
+        "referenced": false
+      }
+    ]
+  },
+  "n_train_learning_rows": 743,
+  "n_development_learning_rows": 372,
+  "normalization": {
+    "fit_on": "train_rows_only",
+    "row_weight": "equal",
+    "feature_names": [
+      "item_l_n",
+      "item_w_n",
+      "item_h_n",
+      "item_vol_n",
+      "item_weight_n",
+      "item_can_rotate",
+      "pos_x_n",
+      "pos_y_n",
+      "pos_z_n",
+      "ori_l_n",
+      "ori_w_n",
+      "ori_h_n",
+      "support_ratio",
+      "bin_index_n",
+      "n_packed_n",
+      "loaded_weight_n",
+      "used_height_n"
+    ],
+    "feature_order": [
+      "item_l_n",
+      "item_w_n",
+      "item_h_n",
+      "item_vol_n",
+      "item_weight_n",
+      "item_can_rotate",
+      "pos_x_n",
+      "pos_y_n",
+      "pos_z_n",
+      "ori_l_n",
+      "ori_w_n",
+      "ori_h_n",
+      "support_ratio",
+      "bin_index_n",
+      "n_packed_n",
+      "loaded_weight_n",
+      "used_height_n"
+    ],
+    "n_rows": 743,
+    "n_columns": 17,
+    "mean": [
+      0.45809668012561644,
+      0.3304316477600457,
+      0.1142907133243606,
+      0.017639134046337202,
+      0.004651054284432467,
+      1.0,
+      0.26640646029609677,
+      0.24017640838300328,
+      0.33451211305518186,
+      0.3287516823687755,
+      0.3785053355124016,
+      0.15735868102288,
+      0.617769442735667,
+      0.0,
+      0.3846837146702554,
+      0.08877061283086583,
+      0.6865020188425317
+    ],
+    "scale": [
+      0.1484382932732312,
+      0.09484187813629913,
+      0.02456636590293529,
+      0.010604991533626169,
+      0.0017859839988699066,
+      1.0,
+      0.280823490319287,
+      0.2482242444193196,
+      0.3091583044144248,
+      0.15096784193719376,
+      0.14985935401374523,
+      0.06342774591793951,
+      0.4376324108820545,
+      1.0,
+      0.32314175387827165,
+      0.080671812677222,
+      0.41968275005745825
+    ],
+    "denominator": "population_std_or_1_if_constant",
+    "refit_on_development_or_test": false,
+    "sha256": "f5122244d48f6c535d6fc0e9ca4a89cb68242d61ef4d2fdf92477201f2da9f02"
+  },
+  "normalization_independent_ok": true,
+  "summary_status": "completed",
+  "expected_keys_complete": true,
+  "ready_for_training": true,
+  "development_gate_evaluated": false,
+  "test_executed": false,
+  "physical_stability_verified": null,
+  "staging_policy": "staging_never_counts_as_final_order"
+}

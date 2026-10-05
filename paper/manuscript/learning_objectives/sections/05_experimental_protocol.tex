@@ -47,16 +47,18 @@ which is an intentional transfer gap rather than a hidden confounder.
 
 \paragraph{Label construction.}
 Labels are continuation returns $Q_{\mathrm{hat}}$ under greedy packing after each
-candidate in $S_t$, with unknown returns recorded as null. Sixteen preflight
-continuations are reusable at most once when hashes and captures match, counted
-globally once across attempts. The labelling campaign may comprise multiple
-attempts under the same frozen protocol. Attempt~01 was interrupted with unknown
-cause and exit code; twelve train orders remain content-verified for reuse;
-order \texttt{00108806} is corrupt on disk and requires an inevitable repeat for
-insufficient evidence; development labels and remaining train orders were pending
-after attempt~01. A provisional normalisation on the partial train subset is not
-used for training. Operational forensics and recovery mechanics are deferred to
-the appendix and study reviews. Label evidence is not actor evaluation.
+candidate in $S_t$, with unknown returns as null. Sixteen preflight continuations
+count once globally across attempts. The campaign used three attempts under one
+frozen protocol. Attempt~01 interrupted with unknown cause/exit code; twelve
+train orders remain content-verified for read-only reuse. Attempt~02 referenced
+those twelve, repeated corrupt order \texttt{00108806} for insufficient evidence,
+and labelled further train orders before interrupting (two train and all
+development orders still pending). Attempt~03, launched once via the persistent
+controller, referenced the forty-six content-verified orders and labelled the
+twenty-six pending orders only. Final train-only normalisation was fitted once
+on the complete train coverage ($48$ orders); the provisional attempt~01 fit was
+not used. Operational detail is in the appendix and reviews. Label evidence is
+not actor evaluation.
 
 \paragraph{Contrasts, gate and budget.}
 Primary: order-level mean, after averaging paired seeds, of
@@ -65,9 +67,12 @@ Secondary: return-difference versus each main arm; both main arms versus greedy;
 target breakdowns; $R_S$; failures and timings. The development gate
 (mean preference margin $\ge 0.005$, positive in at least two of three seeds,
 non-negative aggregate on each target, complete audit, remaining test budget) is
-an engineering continuity rule, not a significance test, and does not require
-beating greedy. Wall-clock ceilings allocate 900\,s preflight, 13500\,s
-labelling, 1800\,s training, 3600\,s development and 9000\,s test within a
-28800\,s experimental compute cap; writing time is separate. Labelling dominates
-cost because each alternative requires a continuation, capture and audit.
-Training and evaluation budgets remain undemonstrated until those stages run.
+an engineering continuity rule, not a significance test. Wall-clock ceilings
+allocate 900\,s preflight, 13500\,s labelling, 1800\,s training, 3600\,s
+development and 9000\,s test within 28800\,s; writing is separate. Accounted
+labelling walls use
+$\max(\mathrm{reg}_{01},\mathrm{span}_{01})+120+\max(\mathrm{reg}_{02},\mathrm{span}_{02})$
+with spans treated as approximate artefact intervals (not exact process wall),
+plus attempt~03 registered wall $\approx 702.6$\,s; preflight
+$35.121554053999716$\,s remains separate and counted once. Training and
+actor-evaluation budgets remain undemonstrated.

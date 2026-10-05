@@ -1,0 +1,541 @@
+{
+  "study": "learning_objectives",
+  "stage": "labeling",
+  "status": "manifest_written_before_first_continuation",
+  "authorizes_training": false,
+  "test_executed": false,
+  "development_evaluated": false,
+  "labels_campaign_executed": false,
+  "output": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_labels_attempt03",
+  "protocol_path": "/home/edmundo/packing-services/paper/studies/learning_objectives/protocol_frozen.json",
+  "protocol_file_sha256": "385f25c60e92dc936c02363b7152031d20b2728db13c2f9d4911446930b83b05",
+  "protocol_internal_digest": "a5959cb602ee00dfcb56b531de02d6e9d1dd618c42a54b7aa1e0d2214e6ad155",
+  "sample_manifest_sha256": "782eb3abe10163270db8dec9594d099ea936e4491747278bee1b06a73accda62",
+  "dataset": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "preflight_dir": "/home/edmundo/packing-services/paper/studies/learning_objectives/preflight",
+  "preflight_wall_seconds_accounted": 35.121554053999716,
+  "preflight_wall_phase": "preflight",
+  "labeling_wall_budget_seconds": 13500.0,
+  "global_wall_budget_seconds": 28800.0,
+  "execution_order": [
+    {
+      "order_id": "00105883",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0026985d8d6d074d27a29db3ebb234234d68d0dbf3c28c1c51cc0adfc519c72c",
+      "signature": "7f8cfecff221cdbbdc6c99bac7bc68ec0af92e666322e844a25ff6e3e2c571db"
+    },
+    {
+      "order_id": "00104801",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "0050ced7c47709f29dd95c562855ca422cf0d788884296f2db697db2e13801f8",
+      "signature": "cf34412ca154c26a4027ffe415246a61161ff2f3f0609fdd325b0197a6397cf0"
+    },
+    {
+      "order_id": "00104010",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "007f9eba127097536a5e2cb5ca3b160039b3b7c3f16300ab4ba258b092ed1a2c",
+      "signature": "ea3e71e8cc60803d4073bd3202ae7aac4300404060dfd4233ef04aec3a6bcaf0"
+    },
+    {
+      "order_id": "00101334",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "00ac7ae568ac74b9a5c14fd0f8afbe980e00874c39e14e6d0ebec31026de2612",
+      "signature": "124a3bb9a01cf70982c04b2f25206fae604fae9834186a0d561a90a4cacd4f74"
+    },
+    {
+      "order_id": "00107369",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "00bc1112d91ec42a2590bbe736bcb1e39814c4a7410fcc9f58d535663481dff0",
+      "signature": "06a81b928139ca71874669acf8b1123184d28c1725495a883c7f28e4327ad1b0"
+    },
+    {
+      "order_id": "00101384",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "00cfce8c176210d1eb563033c3ae05fa58cb2a6c219eabb484de403362c6325f",
+      "signature": "c8a75ecade1cab9133c3060e3a539764489e998b09a5e021bedebe8af907cf12"
+    },
+    {
+      "order_id": "00105453",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "0135893c31d897c02a07a049bec9aa583567f6e7f6d7de3331cce4144d29d53e",
+      "signature": "768b4629a7a427cc840958e96b53a7d14b2ae938b75823ee41e019b6cfca4383"
+    },
+    {
+      "order_id": "00108032",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "01498b3c6f29defe3c53253fdf13e084a414230fbb648ac56de2fe8d316f7e43",
+      "signature": "be7ab3c9e3cdaed451239ff3c097feb5729ca2a0f62badb4934b098d5d05ef39"
+    },
+    {
+      "order_id": "00106510",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "014daed3887e39e9592f388b88eb636dc706b5c8dd31e877f95425b2bad81989",
+      "signature": "02d81a11ab3e1edd6f265559d0898578cc4f0b903dd2fa138a8502e6817cf2a9"
+    },
+    {
+      "order_id": "00107708",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "019918ece7370f50345c9b8456e4dc0bdcc4713545763cc3ef955bb2fefeb458",
+      "signature": "8bd0a41f68a0230bcc47df020b7a97d2cb9ed08082f7404581d65de8225282de"
+    },
+    {
+      "order_id": "00103305",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "01c0db6302487166617f9407f900b95e6aae0df3d4db498ca7d0a8b8ce157f91",
+      "signature": "086f73f624ecfe568732697a7030b4cc26932c5627470b5faad983a96d6ca28c"
+    },
+    {
+      "order_id": "00104251",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "01c1b196146e873cc13dec4153d90bf092e3f39e90b0fbd7cc534c80d1d2dc81",
+      "signature": "ccdb1b8d4faf2aca16ee7389ce1916960e0ccc4fe9caf7f65880243958cda9d1"
+    },
+    {
+      "order_id": "00108806",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "01c36a306f1e13f7be216b1fcae606e68d8c90c339144d6769e2885db96b6845",
+      "signature": "7c7ec50b17e791c8b31d8e23ebc977c139a6a8d16bcd99bece7e10410d18c2f3"
+    },
+    {
+      "order_id": "00106013",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "01c7a1dce9f1a7e9e9daf72d8d448361054db68e64b823d034b6d3ca286d3b59",
+      "signature": "463b834ce1b9f09e95d65028995dec2b021ef723e4096a2bcf58155afd548490"
+    },
+    {
+      "order_id": "00100727",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "01e065ad238c7e0cebe284665570c6f50619531c472cf729db93fa843e3e68a4",
+      "signature": "f2b17a7baca7e26069dbab0649579e3dc22d6f71d32b1b3706125c9d62089d6d"
+    },
+    {
+      "order_id": "00107788",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "01f89e0022380249ee356f978a3736daff01c84cdb8cd8958853a33201ab3237",
+      "signature": "93f957c42f3f5f170ad0c33bf1aef9d8300f5589d7dfb7951fa8e71b0444ec78"
+    },
+    {
+      "order_id": "00104000",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "021652b9846e8a46280dbe158a1a14846e17f89b0196e8106ddb79bf9714e3fa",
+      "signature": "d32b86a5c706201a7f8d93477be015416a2de3383e7e8cc13beb924d9c4e9724"
+    },
+    {
+      "order_id": "00101098",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "023f744cd97aee342033e9312434659bb4fb8fe16581c9f7b5aa110f8796335f",
+      "signature": "d10c8420a0e49eeae4691c44b964fb2aa99c307c6d9923fdffaeb80a3a8fc1f0"
+    },
+    {
+      "order_id": "00104736",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "029e01f22676cfc4419f799664d5cbb48083c5522d0186e4b3f8321efebb34e7",
+      "signature": "9cb335147d90289df57e6f8593b21a654e2853f13ca9f44357f645f375d71f84"
+    },
+    {
+      "order_id": "00109335",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "02ab9447b69ab09e22b9a82d4a7649414d9ab424ff9212a2917c6213fb1d1965",
+      "signature": "3028e9b008808601ab0db1411709e46d3ec23a8ed48cc4ef1612e8b0ac17563e"
+    },
+    {
+      "order_id": "00106793",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "02fa1372295729dc38f7fa7828623aa167772e003c63f02614e7655beb835817",
+      "signature": "20850b63c5cb1fbdbc94ec4a99766b3ad9c932ed657248e4ae2043a177d7198e"
+    },
+    {
+      "order_id": "00107765",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "034711eaeaef335e82dfa9d7c1531fadf6bc362dd39640598660bf067d2ecb0e",
+      "signature": "e57eef5dda0b3331201487cfcb722d5d08a2378f20ebfc83c6599382768ee749"
+    },
+    {
+      "order_id": "00107768",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "03d9243f2a169d02914c8823722eb96b0e42b92d3671a48c1025f2dd02d3c37e",
+      "signature": "0de09822dfa0209a63f8b319f08035bf6fc6ac7c910366231a0cab413af75161"
+    },
+    {
+      "order_id": "00107831",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "045173e30ebac88f0d77a305266b35263dcbd91453dcfb29612e8696000fd5e3",
+      "signature": "abac70cd8ef37e8ad28d303ed9e3fefcc6a487a6a8d4c36aefe1ccf2703390bd"
+    },
+    {
+      "order_id": "00106125",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "04897b158c66f618d7b4620c85ed87cf47a13866ecc7c0bbb1473fd162ba96e1",
+      "signature": "b7083ef743278a23951adb4687961e2080ae0c903767599103dc4b6c0b2dff36"
+    },
+    {
+      "order_id": "00107580",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "04e56c036201309ba37e49d2495256782bee9c74636215ee9731b60e1aaa26a9",
+      "signature": "de13a2c4682ec9408cc2005d2d88aac0067a6d211ff69319082fa0e00125216b"
+    },
+    {
+      "order_id": "00109197",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "04ec6f24b681aff95b48592cb703075e14846d0c251efa6a119d87f8aa8b98f3",
+      "signature": "822dd89b2eeb8d4b69ec33e0ff02e9a7d681f37bdd213a656dd6e17ff69d10aa"
+    },
+    {
+      "order_id": "00102964",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "04f6560a0bffe46c106740515e83a8f1daeb5a210ba9ffdf9824d04600665b76",
+      "signature": "3dda0f8733efa2aee49e391b315fa6d00192c2620e313f8247aab9bd55015b0f"
+    },
+    {
+      "order_id": "00105354",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0562db2fb1375ca8e35afc30759b75914f56eacbe6e7bae556b42f7c8b6b2638",
+      "signature": "2180e5cb4f15b6da6d46ce75655bf3793d20c265ee12b44a1ce7599a9037217b"
+    },
+    {
+      "order_id": "00104604",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "057620d652631940ad25dc62c1f87257d2ffe878c4d014023805e6df71b32053",
+      "signature": "7c2f5a78cb478b1a3079f2463139a43c6024fb478b8d37e18e5087af71e463fb"
+    },
+    {
+      "order_id": "00106371",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "05aa1a6464fc934df93174a3afca097ae2ac96fb7ef9ae87b8f8bce7604d91a4",
+      "signature": "5efcd1ca63c0b4ca4aa757a6e4740daee2eec127c128ff14c6976d03e16234a4"
+    },
+    {
+      "order_id": "00102767",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "05dc71d8b50069a355b4c16674d5d7b944a4ed31e37c6f82fff994f3d0b8a0c6",
+      "signature": "8b30126a24b551833ecc9f8c5f2b7547fe5937f26f5303ad5c929a30ec33c75a"
+    },
+    {
+      "order_id": "00105274",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0679fa263bcd33b5f8f9595ffe07aed4878f958d1116f501f5b251176196b4e0",
+      "signature": "08bff97c82f8a9bfae60a8e235c4c07d0344cd1fd70682099fb2f9d6a2afd96a"
+    },
+    {
+      "order_id": "00103125",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "06c89d2330fcefa843b5d6b51d6b0c76b8a265a4cc0a11c61ced8fedd9bfbb19",
+      "signature": "41a6695c69ac4e104e7a2fb41c2a610f909691a0098f55478068f1830d579b1f"
+    },
+    {
+      "order_id": "00107904",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "070c2d5485d28f4c366f456d638514021ea992abff642c4746dd85ac15a2c214",
+      "signature": "7408e7306ebdb242d306c36e2e110b695d96ed64bb9aab903b55acd718ab7322"
+    },
+    {
+      "order_id": "00109181",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "0717b63407234b2863808ab601f07bdee32efcf48937ffe4dcd32fbc17278d0d",
+      "signature": "4bb8a3958634211364e186f0668108c4ddeb13e92d009c4673eca9d625509af6"
+    },
+    {
+      "order_id": "00103653",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "071f3900ca7482b678a34505badd432c8209e4f0d297ea9e3e1089f98700bad9",
+      "signature": "76e53d5aab6987541340a61a91b49d12eaff9ba78ac1ef5215af6731bd28dfd3"
+    },
+    {
+      "order_id": "00107806",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "075edfa4201b2b6a6253d71433e7e887c3b08e50e0cf10528ee1994dea1ff237",
+      "signature": "46a89deb98dae5d55d4174d09fc71cb6f1c543bf396bbb162098db5134ef8d7a"
+    },
+    {
+      "order_id": "00103607",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "077988bb0f5faa352666b2ad59710ddc6ff2546e2bc0ccc6d68a9dae731bcbd6",
+      "signature": "16f4cc2e94bcba0551829d617d6e4b7d56bc350b3f8a95a3b47c88426537a830"
+    },
+    {
+      "order_id": "00109684",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "0798ae97319574ab645e8bdd866fdc7b6763ab2ef6b15016223a4fc2e8815d00",
+      "signature": "152baf93dd5e18bf65f4f4a4b2a08a5b79c4720f8e0fdd38c223bb646c6b84de"
+    },
+    {
+      "order_id": "00101233",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "087bc58542b4d100f1f93fb33f9cb897ec0a6b02c9379638e02e33e173eb0bdc",
+      "signature": "cca91c2e8f825f0af6d5bc282f678abb586a9d3cafdd933f379d55de2d3c6f17"
+    },
+    {
+      "order_id": "00100464",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "08fcb2be6079e32a296fcbd6c5e7b61d965bd68b5bfc783b46b5c520ae8971f3",
+      "signature": "edfe26542f18cb4e170f8668ad7fa3cc1b9d5fbd1d12c4a4c891d8ab65d0e8b1"
+    },
+    {
+      "order_id": "00105763",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0a1eb1c2c7db10254e47760c2e492515f4698a6db9b2b9b0c90118877fa1d8ef",
+      "signature": "dd5fbcacc11b941af6a5bc92e63051f51f5fb7110fc8ab97a57bae3170e1c363"
+    },
+    {
+      "order_id": "00107718",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0ad669687e204e36d9f13e0ddf52a95118af8b3efebba917d748259bc57f3546",
+      "signature": "7a673e0503d7569eb01d92d43f14b41a506864a79e032207173ef80e7c1b4391"
+    },
+    {
+      "order_id": "00102292",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0ae7f5b5f7f852150dc09e88a3ea59440d4b44949b2540bd548e5cf7d06a225a",
+      "signature": "054eb84c739e8fee8a0beaa49887e22fc88061b08d414f04a0e1b519fe7e9312"
+    },
+    {
+      "order_id": "00108710",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0b7c5aa8b2d7118ecd1475d7b84265d375e9ef5e18fd0112a739e7879cc413b0",
+      "signature": "294c8bee910468e7078d51c26e940b76259da705736f52f1fe0e33d8d68336bd"
+    },
+    {
+      "order_id": "00109078",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0c9dc70cc97aa27bf371524e2242b22c62d9e6da68d35d249daaa5d0b78c970d",
+      "signature": "37de9ffccc2b1337fdce178a292596024b6b957e7cf4fd13084cc2669e497664"
+    },
+    {
+      "order_id": "00102629",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0d25c65c77c8cea881435d523b717d1343b3ab8a9ee909bd8b9b1594afb6e143",
+      "signature": "87f0ac4dec2f47076722b38dbd3bfb60dd632a7b5f1d7448e2fba57186e932c3"
+    },
+    {
+      "order_id": "00107391",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "0021ba121afe12c544439d72604f5e7bed777a655cc4c8d4bb990cb6f5bcd12c",
+      "signature": "dfc51578d906c2bd178a6594797bad73797bd3b6a264254f05e93deff01692cf"
+    },
+    {
+      "order_id": "00106955",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "003c9fac7b902698e5c3d3804d50347b90438a72a8d14c967742f93d0ee813dd",
+      "signature": "23e520f06e3e6fa677b003f8fcf5e533aafd826566067bd19817a95c1b024dd2"
+    },
+    {
+      "order_id": "00108470",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "00cd697df9ee4689b386bec56d9446e46ded797957a67236ec04bbff1d14d039",
+      "signature": "e66ecd401c6f0656022b37734fc13597d1cb5b0b276349213423540e47486a8e"
+    },
+    {
+      "order_id": "00105989",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "00dffc8ee800fd10590f67072c6988dfe1f0737ed0397c4735df2a666d3900fa",
+      "signature": "379cbdb6831f1dbcbee7213f667fe89fc7aa92d27e606f4b4e2159e99dc9bed2"
+    },
+    {
+      "order_id": "00102744",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "00ef1dab772ea3424d478bb246c63a2c8ac86f7d9094e991793ba3e7cb8125fa",
+      "signature": "b360ca5182eeb69cace78a63494fa67bb80799c9c331df9f7cccc5017a912c30"
+    },
+    {
+      "order_id": "00104382",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "01758446ea0a4defadb20ed433e84bf58fb64a63312cb64af4a5a71203c2c8e6",
+      "signature": "46e7afa1342f30c3e126d634e171767150666dbf11c2d395ddd9b52e579eb897"
+    },
+    {
+      "order_id": "00106806",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "01fb70a2fb9270e3bb05fb15a9f2980eee2e6534c07e2d14c7db6bdcd2870ca0",
+      "signature": "9242cf8d1071193feb7c6f8e7c0423d6e6da937d2e9e5392f11d446c6f126217"
+    },
+    {
+      "order_id": "00100842",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "021055c0a2f9475d0012e0fee874061fbf8eaa94d370950f96d0a9a66e5cba18",
+      "signature": "cbec3356d629da4079ab7713d7d06d4d7fe7ed99a0baa2ad1b5ecaadf6404750"
+    },
+    {
+      "order_id": "00102462",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "021391e868aab72f56779660a5f696444e0ba71d55c29767264a8b44f08b67ea",
+      "signature": "76304160cae9c70072bf18b61cfd6276cb764b9d23544a5e8d3ab50f37a11158"
+    },
+    {
+      "order_id": "00101838",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "028aac96eb33d02992780ee9a09772fca9d4df1c8a62005295d5554577cb45cd",
+      "signature": "9faf099587a646003a06ffecbd346a0a3d99fd65876201bf07fb349183d50c75"
+    },
+    {
+      "order_id": "00108036",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "033a4fbafc6e05dc020ed9982fe853615dcf11701019676a4c14b5cede3b33ac",
+      "signature": "acb59de270604b5382bf566d86031fd8b627f604c2a2fedeb5d26a992cc5a945"
+    },
+    {
+      "order_id": "00108236",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "034aafcb9e5ad6e6000d0e826c66cd4172669e26318f96323316a3f92ee21757",
+      "signature": "36f90d5c7787ee32312ad601cc73a326570ca8b9c4ef30ee4f99a364e55cd35a"
+    },
+    {
+      "order_id": "00109447",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "03b54ad05e184449d3034ae6be8ff6cd61b1105dc54f9049035757f4e1cc42cb",
+      "signature": "bfd6802e419504346c61164d3d08fa57fc2b66e1e04c04885ba68b8747f5bed8"
+    },
+    {
+      "order_id": "00107236",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "03df97e6de1b6737669c25695bcf6c8a84962951137ab61987a5b2fa9b0dfb83",
+      "signature": "71658e6745b6f16c5c3affd44c709be32f833d9f51edc0a3af1d8b9175bbd276"
+    },
+    {
+      "order_id": "00102796",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "03ea5332a280722f53f26903f856953d8f23271df1b000b7af3881804c967d78",
+      "signature": "33e177382b0f066f18418ce87eb2564147e337e7e18d18adab936b6e515b1bff"
+    },
+    {
+      "order_id": "00102346",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "042fc0ea3b4c23c32393a987ea2943d40d7e3d1317d61df2a3e6621dbac82dfe",
+      "signature": "5f665561116196dd7dd6edb0358056baf77c79768e55977a0a6bf8a5c027e1b8"
+    },
+    {
+      "order_id": "00105250",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "0464de73ec212c5119e98ae10a1c2237c02c2c404fe8a17dea7a83819e3d3ded",
+      "signature": "a7d8e39801cdf32b94b4ff0c51290e2e0cb52a977e832255ebffbe4ebc23c137"
+    },
+    {
+      "order_id": "00105797",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "046725eb6d7ba32fd762fc37d4c3af5db0e0a670e00fcb60efd0cc4f50d9db3b",
+      "signature": "41361526e16d6f0bc24850e943adbd21d993b332a3fa7d766fbf4d298916a223"
+    },
+    {
+      "order_id": "00107107",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "04882810f755e4249fcf1296ec164bdfb42bd488553eb6f04f436e6d96002b1a",
+      "signature": "2ddb2f0c3e8fd008f091d600c3d989f31b3940d29caffa9509918f2f189b90ff"
+    },
+    {
+      "order_id": "00103460",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "04ac1ee616cde5551d0d7eb900d5a9746841782b821ee27c5618ca2515dba1d0",
+      "signature": "f5726bf9ac2d30327266ec87a82525424fae8194b6099e8bed2912365265a424"
+    },
+    {
+      "order_id": "00106319",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "05a6722e01fcb7747c906e2782287719dbc0006b725fe38f4393a1a8f6f1f0a3",
+      "signature": "a015b257ce23620e85b79b346f73e6582f25220288f5fb37a14e92e4cae897d0"
+    },
+    {
+      "order_id": "00103738",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "05e3eb0035c1e3b6d4c5f13a7414c809e2dbee2ca0e1f4d6a154ea0aa0fa8191",
+      "signature": "4b69ff245bd5ff15e450b97976dd18a80b5c2b04e43ad96e6e14fc78daceec2f"
+    },
+    {
+      "order_id": "00107235",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "06a3202b9698635e31d7a3605421fd22e400bf43c877b3246c10330fd23c6c79",
+      "signature": "c0e675ab26bee44b9de3c9207559a1fcea9fc56e746e804ef12976d1323738e9"
+    },
+    {
+      "order_id": "00105391",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "076ef2e8adb2e825daa3ea4c48457bc106feb73292da8c50f1b1f532e222b42b",
+      "signature": "1401825e28535aa7c95a6605a1ddc6dbe69fe8e478c23c32352e35ac58335734"
+    }
+  ],
+  "n_orders": 72,
+  "splits": [
+    "train",
+    "development"
+  ],
+  "support_contract": "greedy_plus_orientation_position_diversity_v1",
+  "states_per_order_max": 4,
+  "train_max_states": 192,
+  "train_max_continuations": 768,
+  "development_max_states": 96,
+  "development_max_continuations": 384,
+  "incomplete_states_kept": true,
+  "no_training_on_partial_labels": true,
+  "physical_stability_verified": null
+}

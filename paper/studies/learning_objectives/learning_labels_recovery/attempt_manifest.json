@@ -1,0 +1,27 @@
+{
+  "kind": "labeling_attempt_manifest",
+  "attempt_id": "attempt_02_recovery",
+  "status": "running",
+  "prior_wall_accounted_seconds": 336.745745165,
+  "effective_labeling_wall_seconds": 13163.254254835,
+  "preflight_wall_seconds_accounted_once": 35.121554053999716,
+  "referenced_order_ids": [
+    "00101334",
+    "00101384",
+    "00103305",
+    "00104010",
+    "00104251",
+    "00104801",
+    "00105453",
+    "00105883",
+    "00106510",
+    "00107369",
+    "00107708",
+    "00108032"
+  ],
+  "corrupt_inevitable_repeat": [
+    "00108806"
+  ],
+  "progress_is_source_of_truth": false,
+  "cause_of_attempt_01": "unknown"
+}

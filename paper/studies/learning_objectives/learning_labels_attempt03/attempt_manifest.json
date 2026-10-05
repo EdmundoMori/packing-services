@@ -1,0 +1,13 @@
+{
+  "kind": "labeling_attempt_manifest",
+  "attempt_id": "attempt_03_persistent_recovery",
+  "status": "completed",
+  "closed": true,
+  "prior_wall_accounted_seconds": 1452.6413891145087,
+  "labeling_wall_seconds_this_attempt": 702.6418765110001,
+  "preflight_wall_seconds_accounted_once": 35.121554053999716,
+  "preflight_reused_global_unique": 16,
+  "progress_is_source_of_truth": false,
+  "process_exit_is_not_campaign_complete": true,
+  "uncatchable_interruptions_note": "SIGKILL and host crash may prevent a normal close; no absolute durability is promised."
+}

@@ -4,42 +4,47 @@ Artefacts live under
 \texttt{paper/studies/counterfactual\_ranking/}
 (closed exploratory pilot) and
 \texttt{paper/studies/learning\_objectives/}
-(frozen protocol, sample manifest, reduced preflight, labelling tools).
+(frozen protocol, sample manifest, reduced preflight, labelling executor and
+differentiable losses).
 Manuscript sources are in
 \texttt{paper/manuscript/learning\_objectives/}.
+Protocol and sample digests are recorded in
+\texttt{protocol\_frozen.json} and \texttt{sample\_manifest.json}.
+Supplementary implementation hashes are in
+\texttt{implementation\_manifest.json}.
 
-\paragraph{Campaign versus attempts.}
-The frozen-protocol labelling \emph{campaign} admits multiple
-\emph{attempts}. Attempt~01 wrote \texttt{learning\_labels/} and was interrupted
-with unknown exit code/cause. Demonstrated facts include non-atomic
-\texttt{write\_text} persistence, eleven empty JSON files under order
-\texttt{00108806}, and a progress-versus-content inconsistency; the exact
-corruption mechanism is not established. Progress is not the integrity source of
-truth. Twelve train orders verify by on-disk content; fifty-nine orders remain
-pending as registered in progress; development labels were not produced in
-attempt~01. A provisional normalisation on the twelve intact orders is marked
-non-usable for training.
+\paragraph{Interrupted attempts and recovery.}
+Attempt~01 wrote \texttt{learning\_labels/}; attempt~02 wrote
+\texttt{learning\_labels\_recovery/}. Both stopped with unknown exit code/cause
+while \texttt{progress.status=running}. Demonstrated facts include non-atomic
+writes in the attempt~01 executor, empty files under \texttt{00108806}, and
+progress/content inconsistency; the corruption mechanism is not established.
+Attempt~02 referenced twelve verified orders via read-only links, counted sixteen
+preflight continuations once, and left development unfinished. Forty-six
+content-verified orders from attempts~01/--02 were reusable
+($12$ referenced $+33$ new $+1$ inevitable repeat); twenty-six were pending
+($2$ train $+24$ development). Staging directories were not auto-promoted.
 
-\paragraph{Registered time and reserve.}
-The sum of per-order \texttt{wall\_seconds} in progress
-($214.80055754699697$\,s) is \emph{registered} time for sequential order work,
-not a proven bound on total process wall time. A launcher artefact span
-(progress versus execution-manifest mtimes, $\approx 216.7$\,s) provides a
-verifiable interval between artefacts. An explicit operational reserve of
-$120$\,s is applied inside the existing $13500$\,s labelling budget before
-attempt~02; the budget is not expanded. Preflight
-$35.121554053999716$\,s remains a separate, once-accounted phase.
+\paragraph{Attempt~03.}
+Published wiring commit \texttt{1240617} connected
+\texttt{run\_learning\_labels\_attempt03.py} to \texttt{labeling\_runctl.py}.
+One launch wrote \texttt{learning\_labels\_attempt03/}, referenced the forty-six
+verified orders, and executed only the twenty-six pending orders. The process
+recorded exit code~$1$ because the verifier then in the binary counted
+\texttt{.staging\_*} paths via a wide glob; that original exit code and summary
+are preserved. A later, distinct re-verification with a manifest-keyed verifier
+(\texttt{manifest\_keyed\_v2}) accepted $48$ train $+24$ development orders
+($192$/$96$ complete states; $1115$ alternatives; $743$ train learning rows;
+$372$ development learning rows; sixteen preflight continuations once; no test).
+Process exit is not alone campaign completeness. Reviews \texttt{14}--\texttt{19}
+and \texttt{forensics/label\_verification\_closure.json} hold provenance.
 
-\paragraph{Operational recovery layer.}
-Atomic JSON writes (same-directory temp, flush/fsync, validate, \texttt{replace},
-optional directory fsync), content-hash integrity, and attempt~02 execution are
-implemented in \texttt{labeling\_io.py}, \texttt{labeling\_integrity.py},
-\texttt{labeling\_campaign\_safe.py} and
-\texttt{run\_learning\_labels\_recover.py}. No absolute durability against every
-failure mode is claimed. The attempt~01 executor module is retained for
-provenance. Forensic summaries are under \texttt{forensics/} and
-\texttt{reviews/14\_interruption\_forensics.md}.
+\paragraph{Operational persistence layer.}
+Atomic JSON writes, content-hash integrity, a safe campaign wrapper and a
+detachable run controller are provided under \texttt{tools/}. The attempt~01
+executor module is retained for provenance.
 
-Complete labelling recovery, training and actor evaluation are documented
-separately when executed. Seventeen untracked historical transition pickles
-remain excluded from versioned claims.
+Paired training code for nine models is published under
+\texttt{tools/run\_learning\_train.py}; episode evaluation and test packing
+remain unexecuted. Seventeen untracked historical transition pickles remain
+excluded from versioned scientific claims.

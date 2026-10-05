@@ -21,16 +21,38 @@ reproduction of the unified support contract $S$ used here.
 
 \subsection{Label generation under the frozen protocol}
 
-Attempt~01 under the frozen protocol was interrupted before completeness
-(unknown cause/exit code). Content-verified partial train labels exist for
-reuse; development labels and actor evaluation from that attempt do not. Partial
-continuation returns are supervision artefacts only and are not primary packing
-findings. Attempt~02 recovery, when authorised and executed, is documented in
-the study artefacts rather than as confirmatory episode results here.
+Labelling completed for the protocol-permitted train and development sample
+after three attempts. Coverage is $48$ train and $24$ development orders
+($24$/$12$ per target); test was not executed. Attempt~01 left twelve
+content-verified train orders; attempt~02 reused them read-only, repeated
+\texttt{00108806}, and verified additional train labels before interrupting;
+attempt~03 referenced forty-six verified orders and executed the twenty-six
+pending ones only. Independent verification reports zero unknown $Q_{\mathrm{hat}}$,
+unique $(\mathrm{order},\mathrm{state},\mathrm{action})$ keys (the same geometry
+may recur across states), sixteen preflight continuations reused once, a final
+train-only normalisation ($743$ equal-weight rows) and $372$ development learning
+rows unused for fitting. Continuation returns
+are supervision artefacts only, not primary packing or online-improvement
+findings; descriptive margins belong in study reviews with explicit denominators.
+
+\begin{table}[t]
+\centering
+\caption{Label coverage after attempt~03 (content-verified orders).}
+\label{tab:label-coverage}
+\begin{tabular}{lrrrr}
+\toprule
+Split & euro-pallet & rollcontainer & Orders & Complete states \\
+\midrule
+train & 24 & 24 & 48 & 192 \\
+development & 12 & 12 & 24 & 96 \\
+test & --- & --- & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{Actor evaluation (pending)}
 
 TODO: primary contrast (seed-averaged preferences minus classification),
 secondary contrasts including greedy, target breakdowns, $R_S$, failures and
-timings after authorised complete labelling, training and evaluation. No
-anticipated numbers are stated.
+timings after authorised training and evaluation. No anticipated numbers are
+stated. Labels alone do not constitute policy results.

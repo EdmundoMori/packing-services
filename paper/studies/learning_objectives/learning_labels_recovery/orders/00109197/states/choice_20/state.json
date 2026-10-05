@@ -1,0 +1,205 @@
+{
+  "choice_index": 20,
+  "current_item_id": "00107608#22",
+  "n_legal": 2,
+  "legal_ids": [
+    [
+      0,
+      0.0,
+      390.0,
+      250.0,
+      400.0,
+      300.0,
+      220.0,
+      0
+    ],
+    [
+      0,
+      0.0,
+      380.0,
+      280.0,
+      400.0,
+      300.0,
+      220.0,
+      1
+    ]
+  ],
+  "support_ids": [
+    [
+      0,
+      0.0,
+      390.0,
+      250.0,
+      400.0,
+      300.0,
+      220.0
+    ],
+    [
+      0,
+      0.0,
+      380.0,
+      280.0,
+      400.0,
+      300.0,
+      220.0
+    ]
+  ],
+  "support_contract": "greedy_plus_orientation_position_diversity_v1",
+  "greedy_key": [
+    0,
+    0.0,
+    390.0,
+    250.0,
+    400.0,
+    300.0,
+    220.0
+  ],
+  "greedy_in_support": true,
+  "n_support": 2,
+  "fewer_than_four_geometries": true,
+  "checkpoint_remaining_ids": [
+    "00107608#22",
+    "00110049#23"
+  ],
+  "alternatives": [
+    {
+      "action": [
+        0,
+        0.0,
+        390.0,
+        250.0,
+        400.0,
+        300.0,
+        220.0
+      ],
+      "is_greedy": true,
+      "features": [
+        0.5,
+        0.42857142857142855,
+        0.11,
+        0.023571428571428573,
+        0.002193333333333333,
+        1.0,
+        0.0,
+        0.5571428571428572,
+        0.125,
+        0.5,
+        0.42857142857142855,
+        0.11,
+        0.9666666666666667,
+        0.0,
+        0.42,
+        0.09840266666666668,
+        1.0
+      ],
+      "feature_sha256": "24092eefafc6bde46ce7c955f4b8a30158b8a6adfe7ed94d438581d5cacb45bd",
+      "feature_names": [
+        "item_l_n",
+        "item_w_n",
+        "item_h_n",
+        "item_vol_n",
+        "item_weight_n",
+        "item_can_rotate",
+        "pos_x_n",
+        "pos_y_n",
+        "pos_z_n",
+        "ori_l_n",
+        "ori_w_n",
+        "ori_h_n",
+        "support_ratio",
+        "bin_index_n",
+        "n_packed_n",
+        "loaded_weight_n",
+        "used_height_n"
+      ],
+      "q_hat": 0.7569608258928572,
+      "reason": null,
+      "audited": true,
+      "source": "new",
+      "recomputed_u_geom": 0.7569608258928572,
+      "capture_ok": true,
+      "geometry_valid": true,
+      "continuation_seconds": 0.00895488900005148,
+      "capture_seconds": 0.0001644889998715371,
+      "audit_seconds": 0.1619459910000387,
+      "action_matches_current_item_placement": true,
+      "audit_failure_types": [],
+      "suffix_ids_not_an_actor_input": [
+        "00107608#22",
+        "00110049#23"
+      ],
+      "capture_saved": true
+    },
+    {
+      "action": [
+        0,
+        0.0,
+        380.0,
+        280.0,
+        400.0,
+        300.0,
+        220.0
+      ],
+      "is_greedy": false,
+      "features": [
+        0.5,
+        0.42857142857142855,
+        0.11,
+        0.023571428571428573,
+        0.002193333333333333,
+        1.0,
+        0.0,
+        0.5428571428571428,
+        0.14,
+        0.5,
+        0.42857142857142855,
+        0.11,
+        0.03333333333333333,
+        0.0,
+        0.42,
+        0.09840266666666668,
+        1.0
+      ],
+      "feature_sha256": "0c796c0b1b71525c825f3db50ed65d86b6b63777d01285e68f91f2cf8563d92a",
+      "feature_names": [
+        "item_l_n",
+        "item_w_n",
+        "item_h_n",
+        "item_vol_n",
+        "item_weight_n",
+        "item_can_rotate",
+        "pos_x_n",
+        "pos_y_n",
+        "pos_z_n",
+        "ori_l_n",
+        "ori_w_n",
+        "ori_h_n",
+        "support_ratio",
+        "bin_index_n",
+        "n_packed_n",
+        "loaded_weight_n",
+        "used_height_n"
+      ],
+      "q_hat": 0.7569608258928572,
+      "reason": null,
+      "audited": true,
+      "source": "new",
+      "recomputed_u_geom": 0.7569608258928572,
+      "capture_ok": true,
+      "geometry_valid": true,
+      "continuation_seconds": 0.008312969999906272,
+      "capture_seconds": 0.00017606200003683625,
+      "audit_seconds": 0.15331964799997877,
+      "action_matches_current_item_placement": true,
+      "audit_failure_types": [],
+      "suffix_ids_not_an_actor_input": [
+        "00107608#22",
+        "00110049#23"
+      ],
+      "capture_saved": true
+    }
+  ],
+  "complete": true,
+  "eligible_for_learning": true,
+  "incomplete_reasons": []
+}

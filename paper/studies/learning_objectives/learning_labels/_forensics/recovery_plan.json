@@ -1,0 +1,802 @@
+{
+  "kind": "labeling_recovery_plan",
+  "status": "designed_not_executed",
+  "campaign": "learning_objectives_frozen_protocol",
+  "prior_attempt": {
+    "attempt_id": "attempt_01_interrupted_20261005",
+    "directory": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_labels",
+    "execution_manifest_sha256": "bd2dfc91552f1dfe56b6fd592ed3954c0d3d48789acb6dd71bf9d1f7979ad552",
+    "progress_trusted": false
+  },
+  "recovery_attempt": {
+    "attempt_id": "attempt_02_recovery_proposed",
+    "directory": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_labels_recovery",
+    "must_not_exist_before_start": true,
+    "references_prior_evidence": true,
+    "not_a_single_attempt_campaign": true
+  },
+  "integrity_audit_summary": {
+    "reusable_valid": 12,
+    "corrupt": 1,
+    "corrupt_or_incomplete": 0,
+    "insufficient": 0,
+    "never_executed": 59
+  },
+  "reusable_order_ids": [
+    "00101334",
+    "00101384",
+    "00103305",
+    "00104010",
+    "00104251",
+    "00104801",
+    "00105453",
+    "00105883",
+    "00106510",
+    "00107369",
+    "00107708",
+    "00108032"
+  ],
+  "corrupt_order_ids": [
+    "00108806"
+  ],
+  "never_executed_order_ids": [
+    "00100464",
+    "00100727",
+    "00100842",
+    "00101098",
+    "00101233",
+    "00101838",
+    "00102292",
+    "00102346",
+    "00102462",
+    "00102629",
+    "00102744",
+    "00102767",
+    "00102796",
+    "00102964",
+    "00103125",
+    "00103460",
+    "00103607",
+    "00103653",
+    "00103738",
+    "00104000",
+    "00104382",
+    "00104604",
+    "00104736",
+    "00105250",
+    "00105274",
+    "00105354",
+    "00105391",
+    "00105763",
+    "00105797",
+    "00105989",
+    "00106013",
+    "00106125",
+    "00106319",
+    "00106371",
+    "00106793",
+    "00106806",
+    "00106955",
+    "00107107",
+    "00107235",
+    "00107236",
+    "00107391",
+    "00107580",
+    "00107718",
+    "00107765",
+    "00107768",
+    "00107788",
+    "00107806",
+    "00107831",
+    "00107904",
+    "00108036",
+    "00108236",
+    "00108470",
+    "00108710",
+    "00109078",
+    "00109181",
+    "00109197",
+    "00109335",
+    "00109447",
+    "00109684"
+  ],
+  "insufficient_order_ids": [],
+  "partial_state_references_not_complete_labels": [
+    {
+      "order_id": "00108806",
+      "choice_dir": "choice_0",
+      "provenance": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_labels/orders/00108806/states/choice_0",
+      "usable_as_complete_order_label": false,
+      "note": "capturas parciales presentes; pedido incompleto/corrupto a nivel result.json"
+    },
+    {
+      "order_id": "00108806",
+      "choice_dir": "choice_10",
+      "provenance": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_labels/orders/00108806/states/choice_10",
+      "usable_as_complete_order_label": false,
+      "note": "capturas parciales presentes; pedido incompleto/corrupto a nivel result.json"
+    }
+  ],
+  "pending_work_in_manifest_order": [
+    {
+      "order_id": "00105883",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0026985d8d6d074d27a29db3ebb234234d68d0dbf3c28c1c51cc0adfc519c72c",
+      "action": "link_or_copy_verified_result",
+      "inevitable_repeat": false,
+      "source_attempt": "attempt_01_interrupted_20261005"
+    },
+    {
+      "order_id": "00104801",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "0050ced7c47709f29dd95c562855ca422cf0d788884296f2db697db2e13801f8",
+      "action": "link_or_copy_verified_result",
+      "inevitable_repeat": false,
+      "source_attempt": "attempt_01_interrupted_20261005"
+    },
+    {
+      "order_id": "00104010",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "007f9eba127097536a5e2cb5ca3b160039b3b7c3f16300ab4ba258b092ed1a2c",
+      "action": "link_or_copy_verified_result",
+      "inevitable_repeat": false,
+      "source_attempt": "attempt_01_interrupted_20261005"
+    },
+    {
+      "order_id": "00101334",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "00ac7ae568ac74b9a5c14fd0f8afbe980e00874c39e14e6d0ebec31026de2612",
+      "action": "link_or_copy_verified_result",
+      "inevitable_repeat": false,
+      "source_attempt": "attempt_01_interrupted_20261005"
+    },
+    {
+      "order_id": "00107369",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "00bc1112d91ec42a2590bbe736bcb1e39814c4a7410fcc9f58d535663481dff0",
+      "action": "link_or_copy_verified_result",
+      "inevitable_repeat": false,
+      "source_attempt": "attempt_01_interrupted_20261005"
+    },
+    {
+      "order_id": "00101384",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "00cfce8c176210d1eb563033c3ae05fa58cb2a6c219eabb484de403362c6325f",
+      "action": "link_or_copy_verified_result",
+      "inevitable_repeat": false,
+      "source_attempt": "attempt_01_interrupted_20261005"
+    },
+    {
+      "order_id": "00105453",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "0135893c31d897c02a07a049bec9aa583567f6e7f6d7de3331cce4144d29d53e",
+      "action": "link_or_copy_verified_result",
+      "inevitable_repeat": false,
+      "source_attempt": "attempt_01_interrupted_20261005"
+    },
+    {
+      "order_id": "00108032",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "01498b3c6f29defe3c53253fdf13e084a414230fbb648ac56de2fe8d316f7e43",
+      "action": "link_or_copy_verified_result",
+      "inevitable_repeat": false,
+      "source_attempt": "attempt_01_interrupted_20261005"
+    },
+    {
+      "order_id": "00106510",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "014daed3887e39e9592f388b88eb636dc706b5c8dd31e877f95425b2bad81989",
+      "action": "link_or_copy_verified_result",
+      "inevitable_repeat": false,
+      "source_attempt": "attempt_01_interrupted_20261005"
+    },
+    {
+      "order_id": "00107708",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "019918ece7370f50345c9b8456e4dc0bdcc4713545763cc3ef955bb2fefeb458",
+      "action": "link_or_copy_verified_result",
+      "inevitable_repeat": false,
+      "source_attempt": "attempt_01_interrupted_20261005"
+    },
+    {
+      "order_id": "00103305",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "01c0db6302487166617f9407f900b95e6aae0df3d4db498ca7d0a8b8ce157f91",
+      "action": "link_or_copy_verified_result",
+      "inevitable_repeat": false,
+      "source_attempt": "attempt_01_interrupted_20261005"
+    },
+    {
+      "order_id": "00104251",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "01c1b196146e873cc13dec4153d90bf092e3f39e90b0fbd7cc534c80d1d2dc81",
+      "action": "link_or_copy_verified_result",
+      "inevitable_repeat": false,
+      "source_attempt": "attempt_01_interrupted_20261005"
+    },
+    {
+      "order_id": "00108806",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "01c36a306f1e13f7be216b1fcae606e68d8c90c339144d6769e2885db96b6845",
+      "action": "reexecute_order_incomplete_or_corrupt",
+      "inevitable_repeat": true,
+      "source_attempt": "attempt_01_interrupted_20261005"
+    },
+    {
+      "order_id": "00106013",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "01c7a1dce9f1a7e9e9daf72d8d448361054db68e64b823d034b6d3ca286d3b59",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00100727",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "01e065ad238c7e0cebe284665570c6f50619531c472cf729db93fa843e3e68a4",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00107788",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "01f89e0022380249ee356f978a3736daff01c84cdb8cd8958853a33201ab3237",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00104000",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "021652b9846e8a46280dbe158a1a14846e17f89b0196e8106ddb79bf9714e3fa",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00101098",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "023f744cd97aee342033e9312434659bb4fb8fe16581c9f7b5aa110f8796335f",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00104736",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "029e01f22676cfc4419f799664d5cbb48083c5522d0186e4b3f8321efebb34e7",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00109335",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "02ab9447b69ab09e22b9a82d4a7649414d9ab424ff9212a2917c6213fb1d1965",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00106793",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "02fa1372295729dc38f7fa7828623aa167772e003c63f02614e7655beb835817",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00107765",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "034711eaeaef335e82dfa9d7c1531fadf6bc362dd39640598660bf067d2ecb0e",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00107768",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "03d9243f2a169d02914c8823722eb96b0e42b92d3671a48c1025f2dd02d3c37e",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00107831",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "045173e30ebac88f0d77a305266b35263dcbd91453dcfb29612e8696000fd5e3",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00106125",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "04897b158c66f618d7b4620c85ed87cf47a13866ecc7c0bbb1473fd162ba96e1",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00107580",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "04e56c036201309ba37e49d2495256782bee9c74636215ee9731b60e1aaa26a9",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00109197",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "04ec6f24b681aff95b48592cb703075e14846d0c251efa6a119d87f8aa8b98f3",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00102964",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "04f6560a0bffe46c106740515e83a8f1daeb5a210ba9ffdf9824d04600665b76",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00105354",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0562db2fb1375ca8e35afc30759b75914f56eacbe6e7bae556b42f7c8b6b2638",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00104604",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "057620d652631940ad25dc62c1f87257d2ffe878c4d014023805e6df71b32053",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00106371",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "05aa1a6464fc934df93174a3afca097ae2ac96fb7ef9ae87b8f8bce7604d91a4",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00102767",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "05dc71d8b50069a355b4c16674d5d7b944a4ed31e37c6f82fff994f3d0b8a0c6",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00105274",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0679fa263bcd33b5f8f9595ffe07aed4878f958d1116f501f5b251176196b4e0",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00103125",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "06c89d2330fcefa843b5d6b51d6b0c76b8a265a4cc0a11c61ced8fedd9bfbb19",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00107904",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "070c2d5485d28f4c366f456d638514021ea992abff642c4746dd85ac15a2c214",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00109181",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "0717b63407234b2863808ab601f07bdee32efcf48937ffe4dcd32fbc17278d0d",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00103653",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "071f3900ca7482b678a34505badd432c8209e4f0d297ea9e3e1089f98700bad9",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00107806",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "075edfa4201b2b6a6253d71433e7e887c3b08e50e0cf10528ee1994dea1ff237",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00103607",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "077988bb0f5faa352666b2ad59710ddc6ff2546e2bc0ccc6d68a9dae731bcbd6",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00109684",
+      "split": "train",
+      "target": "rollcontainer",
+      "selection_hash": "0798ae97319574ab645e8bdd866fdc7b6763ab2ef6b15016223a4fc2e8815d00",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00101233",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "087bc58542b4d100f1f93fb33f9cb897ec0a6b02c9379638e02e33e173eb0bdc",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00100464",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "08fcb2be6079e32a296fcbd6c5e7b61d965bd68b5bfc783b46b5c520ae8971f3",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00105763",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0a1eb1c2c7db10254e47760c2e492515f4698a6db9b2b9b0c90118877fa1d8ef",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00107718",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0ad669687e204e36d9f13e0ddf52a95118af8b3efebba917d748259bc57f3546",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00102292",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0ae7f5b5f7f852150dc09e88a3ea59440d4b44949b2540bd548e5cf7d06a225a",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00108710",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0b7c5aa8b2d7118ecd1475d7b84265d375e9ef5e18fd0112a739e7879cc413b0",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00109078",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0c9dc70cc97aa27bf371524e2242b22c62d9e6da68d35d249daaa5d0b78c970d",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00102629",
+      "split": "train",
+      "target": "euro-pallet",
+      "selection_hash": "0d25c65c77c8cea881435d523b717d1343b3ab8a9ee909bd8b9b1594afb6e143",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00107391",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "0021ba121afe12c544439d72604f5e7bed777a655cc4c8d4bb990cb6f5bcd12c",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00106955",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "003c9fac7b902698e5c3d3804d50347b90438a72a8d14c967742f93d0ee813dd",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00108470",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "00cd697df9ee4689b386bec56d9446e46ded797957a67236ec04bbff1d14d039",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00105989",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "00dffc8ee800fd10590f67072c6988dfe1f0737ed0397c4735df2a666d3900fa",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00102744",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "00ef1dab772ea3424d478bb246c63a2c8ac86f7d9094e991793ba3e7cb8125fa",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00104382",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "01758446ea0a4defadb20ed433e84bf58fb64a63312cb64af4a5a71203c2c8e6",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00106806",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "01fb70a2fb9270e3bb05fb15a9f2980eee2e6534c07e2d14c7db6bdcd2870ca0",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00100842",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "021055c0a2f9475d0012e0fee874061fbf8eaa94d370950f96d0a9a66e5cba18",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00102462",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "021391e868aab72f56779660a5f696444e0ba71d55c29767264a8b44f08b67ea",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00101838",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "028aac96eb33d02992780ee9a09772fca9d4df1c8a62005295d5554577cb45cd",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00108036",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "033a4fbafc6e05dc020ed9982fe853615dcf11701019676a4c14b5cede3b33ac",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00108236",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "034aafcb9e5ad6e6000d0e826c66cd4172669e26318f96323316a3f92ee21757",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00109447",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "03b54ad05e184449d3034ae6be8ff6cd61b1105dc54f9049035757f4e1cc42cb",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00107236",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "03df97e6de1b6737669c25695bcf6c8a84962951137ab61987a5b2fa9b0dfb83",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00102796",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "03ea5332a280722f53f26903f856953d8f23271df1b000b7af3881804c967d78",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00102346",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "042fc0ea3b4c23c32393a987ea2943d40d7e3d1317d61df2a3e6621dbac82dfe",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00105250",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "0464de73ec212c5119e98ae10a1c2237c02c2c404fe8a17dea7a83819e3d3ded",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00105797",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "046725eb6d7ba32fd762fc37d4c3af5db0e0a670e00fcb60efd0cc4f50d9db3b",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00107107",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "04882810f755e4249fcf1296ec164bdfb42bd488553eb6f04f436e6d96002b1a",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00103460",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "04ac1ee616cde5551d0d7eb900d5a9746841782b821ee27c5618ca2515dba1d0",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00106319",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "05a6722e01fcb7747c906e2782287719dbc0006b725fe38f4393a1a8f6f1f0a3",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00103738",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "05e3eb0035c1e3b6d4c5f13a7414c809e2dbee2ca0e1f4d6a154ea0aa0fa8191",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00107235",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "06a3202b9698635e31d7a3605421fd22e400bf43c877b3246c10330fd23c6c79",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    },
+    {
+      "order_id": "00105391",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "076ef2e8adb2e825daa3ea4c48457bc106feb73292da8c50f1b1f532e222b42b",
+      "action": "execute_never_run_or_insufficient",
+      "inevitable_repeat": false,
+      "source_attempt": null
+    }
+  ],
+  "rules": {
+    "no_selection_by_signal_or_margins": true,
+    "do_not_reexecute_verified_complete_continuations": true,
+    "corrupt_order_not_treated_as_valid_labels": true,
+    "inevitable_repeats_recorded_explicitly": true,
+    "do_not_reset_or_expand_budget": true,
+    "preserve_interrupted_attempt_directory": true,
+    "test_excluded": true,
+    "provisional_normalization_not_for_training": true
+  },
+  "budget_accounting": {
+    "labeling_wall_budget_seconds": 13500.0,
+    "prior_labeling_wall_charged_seconds": 214.80055754699697,
+    "prior_charge_method": "conservative_sum_of_progress_order_wall_seconds_including_corrupt_claim; mtime_span_approx=205.09s_not_used_as_charge",
+    "remaining_labeling_wall_seconds": 13285.199442453002,
+    "preflight_wall_seconds_separate": 35.121554053999716,
+    "preflight_already_accounted_once": true,
+    "do_not_recharge_preflight": true,
+    "training_budget_unaffected_undemonstrated": true
+  },
+  "operational_executor": {
+    "persistence_module": "tools/labeling_io.py",
+    "integrity_module": "tools/labeling_integrity.py",
+    "safe_campaign_module": "tools/labeling_campaign_safe.py",
+    "entry": "tools/run_learning_labels_recover.py",
+    "compatibility": "No modifica protocol_frozen.json, sample_manifest.json, preflight ni losses.py. El ejecutor original tools/labeling_campaign.py se conserva; la recuperación usa la capa safe con escritura atómica y progreso post-validación."
+  },
+  "authorization": {
+    "recovery_authorized": false,
+    "executed": false,
+    "note": "Plan solamente; no ejecutar en este paso."
+  }
+}

@@ -178,8 +178,8 @@
     "general_decision": "Se detiene la búsqueda experimental de mejora algorítmica en estas configuraciones. Se conserva la infraestructura y la evidencia. No se inicia otra campaña sin una pregunta y justificación nuevas."
   },
   "learning_objectives": {
-    "status": "capa de recuperación durable publicada/pendiente de push; intento 01 interrumpido conservado; intento 02 no ejecutado aún en este commit; entrenamiento/test false",
-    "head": "16d2aee819f1776629ceb6a5e2eef27ec42353d5",
+    "status": "labels_verified_posterior; training_executor_ready; episodes_false",
+    "head": "1240617b0043f7a080564a963a781c525ecb5277",
     "study": "paper/studies/learning_objectives/",
     "historical_closure_review": "paper/studies/learning_objectives/reviews/00_historical_closure.md",
     "methodological_audit": "paper/studies/learning_objectives/reviews/01_methodological_audit.md",
@@ -239,7 +239,7 @@
     "development_executed": false,
     "does_not_reopen_closed_campaigns": true,
     "prior_labels_reusable_under_new_support": false,
-    "decision": "recuperacion_operativa_viable",
+    "decision": "etiquetas_integras_para_revision_preentrenamiento",
     "differentiable_losses_review": "paper/studies/learning_objectives/reviews/10_differentiable_losses.md",
     "literature_review": "paper/studies/learning_objectives/reviews/11_literature_and_scope.md",
     "manuscript_alignment_review": "paper/studies/learning_objectives/reviews/12_manuscript_alignment.md",
@@ -262,13 +262,67 @@
     "preflight_wall_seconds_accounted_once": 35.121554053999716,
     "interruption_forensics_review": "paper/studies/learning_objectives/reviews/14_interruption_forensics.md",
     "recovery_plan": "paper/studies/learning_objectives/learning_labels_recovery_plan.json",
-    "recovery_executed": false,
+    "recovery_executed": true,
     "reusable_label_orders": 12,
     "corrupt_label_orders": 1,
     "never_executed_label_orders": 59,
     "provisional_normalization_usable_for_training": false,
-    "recovery_layer_manifest": "paper/studies/learning_objectives/implementation_manifest_recovery.json",
-    "forensics_dir": "paper/studies/learning_objectives/forensics/"
+    "recovery_completed": false,
+    "attempt_02_dir": "paper/studies/learning_objectives/learning_labels_recovery/",
+    "attempt_02_review": "paper/studies/learning_objectives/reviews/16_attempt_02_interruption.md",
+    "attempt_02_orders_done": 46,
+    "attempt_02_pending": 26,
+    "execution_control_review": "paper/studies/learning_objectives/reviews/17_execution_control.md",
+    "attempt_03_plan": "paper/studies/learning_objectives/attempt_03_plan.json",
+    "labeling_runctl": "paper/studies/learning_objectives/tools/labeling_runctl.py",
+    "reusable_orders_exclusive": {
+      "referenced_12": 12,
+      "new_33": 33,
+      "repeat_1": 1,
+      "total": 46
+    },
+    "pending_orders": {
+      "train": 2,
+      "development": 24,
+      "total": 26
+    },
+    "budget_ledger": {
+      "labeling_wall_budget_seconds": 13500.0,
+      "preflight_wall_seconds_separate": 35.121554053999716,
+      "preflight_already_accounted_once": true,
+      "attempt01": {
+        "registered_order_wall_sum_seconds": 214.80055754699697,
+        "launcher_artifact_span_seconds": 216.745745165,
+        "spans_are_approximate": true,
+        "operational_reserve_seconds": 120.0,
+        "accounted_component_seconds": 336.745745165
+      },
+      "attempt02": {
+        "registered_new_order_wall_sum_seconds": 1108.0330003329998,
+        "launcher_artifact_span_seconds_documentary": 1115.8956439495087,
+        "spans_are_approximate": true,
+        "accounted_component_seconds": 1108.0330003329998,
+        "note": "span_02 no se suma además del registered_02 (evita doble conteo)"
+      },
+      "prior_wall_accounted_for_next_deadline_seconds": 1444.7787454979998,
+      "remaining_labeling_wall_seconds": 12055.221254502001,
+      "clock_resets_on_new_process": false,
+      "includes_load_capture_audit_write_in_order_walls": true,
+      "rule": "accounted = max(reg01, span01) + reserve120 + reg02_new_orders; preflight separate; no budget expansion"
+    },
+    "attempt_03_executed": false,
+    "attempt_03_output": "paper/studies/learning_objectives/learning_labels_attempt03/",
+    "attempt_03_run_dir": "paper/studies/learning_objectives/runs/attempt_03/",
+    "attempt_03_run_id": "attempt_03_1240617b0043_20261005T153559Z",
+    "wire_review": "paper/studies/learning_objectives/reviews/18_wire_persistent_worker.md",
+    "label_coverage": {
+      "train": 48,
+      "development": 24,
+      "test": 0
+    },
+    "training_executed": false,
+    "label_verification_closure": "paper/studies/learning_objectives/forensics/label_verification_closure.json",
+    "training_executor": "paper/studies/learning_objectives/tools/run_learning_train.py"
   },
   "previous_executions": [
     {

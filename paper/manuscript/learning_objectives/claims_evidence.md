@@ -2,18 +2,16 @@
 
 | Claim | Evidence / source | Status |
 | --- | --- | --- |
-| Mandi et al.\ ICML 2022; §4.3 Eq.\ (13) | PMLR HTML/PDF | Verified (adaptation, not exact reproduction) |
-| Crainic et al.\ extreme points JOC 2008 | DOI 10.1287/ijoc.1070.0250 | Verified as candidate-generation context |
-| Zhao et al.\ PCT ICLR 2022 | OpenReview `bfuGjlCwAq` | Related only; not an experimental baseline |
-| Kagerer et al.\ BED-BPP IJRR 2023 | DOI 10.1177/02783649231193048 | Instance source; not official robotic eval |
-| Unified $S$ for label/train/deploy | `candidate_support.py`, preflight | Verified |
-| Differentiable losses match frozen formulae | `torch_losses.py` vs `losses.py` | Verified |
-| Protocol and samples frozen | digests in protocol/sample manifests | Verified; unchanged by recovery layer |
-| Attempt 01 interrupted | `learning_labels/`, reviews 13–14 | Cause and exit code unknown; non-atomic writes and empty files demonstrated |
-| Progress as integrity SoT | review 14 | Rejected |
-| Registered time 214.80… s | sum of progress order walls | Registered time, not proven total wall bound |
-| Recovery layer (atomic IO + plan + execute) | `labeling_io.py`, `labeling_campaign_safe.py`, `run_learning_labels_recover.py` | Implemented; `--execute-recovery` wires attempt 02 |
-| Attempt 02 recovery results | `learning_labels_recovery/` | Pending until authorised run after this publication |
-| Pref−class / vs Greedy exploratory pilot | Recalculated 84 episodes | Exploratory only |
-| Actor evaluation / final abstract | — | Pending |
+| Mandi / Crainic / Zhao / Kagerer as scoped | primary URLs in review 11 | Verified within stated limits |
+| Protocol and samples frozen | digests unchanged | Verified |
+| Differentiable losses | `torch_losses.py` tests | Verified |
+| Attempt 01 interrupted | `learning_labels/`, reviews 13–14 | Cause/exit unknown; empty files retained as incident evidence |
+| Attempt 02 recovery interrupted | `learning_labels_recovery/`, review 16 | 46 verified; 26 pending at interrupt |
+| Attempt 03 generation complete | `learning_labels_attempt03/`, summary `completed` | 46 referenced + 26 new |
+| Attempt 03 process exit 1 | `runs/attempt_03/run_state.json` | Preserved; verifier glob then included staging |
+| Posterior label verification | `forensics/label_verification_closure.json`, verifier `manifest_keyed_v2` | Distinct from process exit; `verified` |
+| Coverage 48/24; 192/96 states; 1115 alts | posterior verification | Verified; test not executed |
+| Final train normalisation 743 rows | `normalization_train.json` | Fitted once; provisional unused; 372 development rows not fitted |
+| Paired training executor (9 models) | `run_learning_train.py`, tests | Implemented; campaign pending publication then one run |
+| Actor episodes / abstract / superiority | — | Pending |
 | Physical stability | `null` | Not verified |

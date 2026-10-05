@@ -1,0 +1,57 @@
+{
+  "kind": "labeling_interruption_record",
+  "recorded_at_local": "2026-10-05T11:21:34+02:00",
+  "head": "16d2aee819f1776629ceb6a5e2eef27ec42353d5",
+  "branch": "research/paper-online-packing",
+  "command": [
+    "/home/edmundo/packing-services/.venv/bin/python",
+    "/home/edmundo/packing-services/paper/studies/learning_objectives/tools/run_learning_labels.py",
+    "--study-dir",
+    "/home/edmundo/packing-services/paper/studies/learning_objectives",
+    "--output",
+    "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_labels"
+  ],
+  "attempts": 1,
+  "relaunched": false,
+  "executor_modified": false,
+  "failure_phase": "after_experimental_work",
+  "failure_mode": "process_terminated_while_status_running",
+  "exit_code": null,
+  "exit_code_note": "wrapper and /usr/bin/time logs lost with process; no labeling_summary.json written",
+  "timestamps": {
+    "execution_manifest_birth": "2026-10-05T11:14:58+02:00",
+    "progress_birth": "2026-10-05T11:15:10+02:00",
+    "progress_last_modify": "2026-10-05T11:18:35+02:00",
+    "observed_dead_at": "2026-10-05T11:21:34+02:00"
+  },
+  "progress_status_at_death": "running",
+  "n_orders_expected": 72,
+  "n_orders_claimed_in_progress": 13,
+  "n_orders_with_valid_result_json": 12,
+  "corrupt_order_id": "00108806",
+  "corrupt_note": "progress marks ok; result.json and choice_21/choice_31 captures empty on disk",
+  "pending_order_ids_count": 59,
+  "budget_at_death": {
+    "states_used": {
+      "train": 52,
+      "development": 0
+    },
+    "continuations_new": {
+      "train": 184,
+      "development": 0
+    },
+    "continuations_reused": 16,
+    "continuations_unknown": 0,
+    "pending_continuations": 0
+  },
+  "preflight_wall_seconds_accounted_once": 35.121554053999716,
+  "labeling_wall_seconds_approx_from_mtimes": 205.09,
+  "labeling_wall_seconds_sum_progress_order_walls": 214.80055754699697,
+  "labeling_wall_seconds_sum_valid_order_walls": 204.07653358699736,
+  "memory_ru_maxrss": null,
+  "memory_method": "unavailable_process_killed_before_time_v_flush",
+  "training_executed": false,
+  "development_evaluated": false,
+  "test_executed": false,
+  "decision": "bloqueado_por_integridad_o_cobertura"
+}

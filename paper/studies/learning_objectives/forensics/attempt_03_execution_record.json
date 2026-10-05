@@ -1,0 +1,22 @@
+{
+  "kind": "attempt_03_execution_record",
+  "published_head": "1240617b0043f7a080564a963a781c525ecb5277",
+  "run_id": "attempt_03_1240617b0043_20261005T153559Z",
+  "attempt_id": "attempt_03_persistent_recovery",
+  "worker_pid": 6152,
+  "output": "paper/studies/learning_objectives/learning_labels_attempt03",
+  "run_dir": "paper/studies/learning_objectives/runs/attempt_03",
+  "summary_status": "completed",
+  "process_exit_code": 1,
+  "process_exit_note": "initial verification counted .staging_* via glob; independent re-verify excluding staging passed",
+  "independent_verification": "verified",
+  "n_referenced": 46,
+  "n_newly_executed": 26,
+  "coverage": {
+    "train": 48,
+    "development": 24,
+    "test": 0
+  },
+  "training_executed": false,
+  "test_executed": false
+}

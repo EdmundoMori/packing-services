@@ -1,0 +1,49 @@
+{
+  "kind": "label_verification_closure",
+  "attempt_03_run_id": "attempt_03_1240617b0043_20261005T153559Z",
+  "generation": "completed_summary_72_orders",
+  "original_process_exit_code": 1,
+  "original_process_exit_not_rewritten": true,
+  "original_summary_status": "completed",
+  "original_summary_preserved": true,
+  "original_verifier": {
+    "path": "tools/labeling_verify.py@HEAD_1240617",
+    "behavior": "glob */result.json including .staging_*",
+    "sha256": "f7059eeab9bc8f2ca49f9bec9889a46e0f6924b593336f3eab1a76453dfec82d",
+    "result_at_process_exit": "issues_found (order_ids_duplicados)"
+  },
+  "corrected_verifier": {
+    "path": "tools/labeling_verify.py",
+    "version": "manifest_keyed_v2",
+    "behavior": "manifest-keyed load; staging never final",
+    "sha256": "c107c460ef0deb7f9274be25778498f7834fb1344fa8c06927576340c9fb1f8c"
+  },
+  "posterior_reverification": {
+    "status": "verified",
+    "ready_for_training": true,
+    "n_orders": 72,
+    "n_alternatives": 1115,
+    "n_train_learning_rows": 743,
+    "n_development_learning_rows": 372,
+    "coverage": {
+      "train": {
+        "orders": 48,
+        "states": 192,
+        "complete_states": 192,
+        "unknown": 0
+      },
+      "development": {
+        "orders": 24,
+        "states": 96,
+        "complete_states": 96,
+        "unknown": 0
+      }
+    },
+    "continuations_reused_observed": 16,
+    "unknown_returns": 0,
+    "normalization_sha256": "f5122244d48f6c535d6fc0e9ca4a89cb68242d61ef4d2fdf92477201f2da9f02",
+    "test_executed": false,
+    "distinct_from_process_exit": true
+  },
+  "narrative": "generation_complete; process_closed_with_verifier_failure_exit_1; posterior_validation_accepted"
+}

@@ -1,0 +1,233 @@
+{
+  "frozen_ok": true,
+  "protocol_file_sha256": "385f25c60e92dc936c02363b7152031d20b2728db13c2f9d4911446930b83b05",
+  "protocol_internal_digest": "a5959cb602ee00dfcb56b531de02d6e9d1dd618c42a54b7aa1e0d2214e6ad155",
+  "sample_manifest_sha256": "782eb3abe10163270db8dec9594d099ea936e4491747278bee1b06a73accda62",
+  "preflight_wall_accounted": 35.121554053999716,
+  "n_orders_expected": 72,
+  "n_orders_valid_results": 12,
+  "n_orders_corrupt": 1,
+  "corrupt": [
+    {
+      "order_id": "00108806",
+      "path": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_labels/orders/00108806/result.json",
+      "issue": "empty_result_json"
+    }
+  ],
+  "empty_files": [
+    "orders/00108806/result.json",
+    "orders/00108806/states/choice_31/state.json",
+    "orders/00108806/states/choice_31/alt_2_capture.json",
+    "orders/00108806/states/choice_31/alt_1_capture.json",
+    "orders/00108806/states/choice_31/alt_3_capture.json",
+    "orders/00108806/states/choice_31/alt_0_capture.json",
+    "orders/00108806/states/choice_21/state.json",
+    "orders/00108806/states/choice_21/alt_2_capture.json",
+    "orders/00108806/states/choice_21/alt_1_capture.json",
+    "orders/00108806/states/choice_21/alt_3_capture.json",
+    "orders/00108806/states/choice_21/alt_0_capture.json"
+  ],
+  "n_missing_including_corrupt": 60,
+  "progress_status": "running",
+  "progress_budget": {
+    "states_used": {
+      "train": 52,
+      "development": 0
+    },
+    "continuations_new": {
+      "train": 184,
+      "development": 0
+    },
+    "continuations_reused": 16,
+    "continuations_unknown": 0,
+    "pending_continuations": 0
+  },
+  "issues": [
+    "missing_valid_results:60",
+    "progress_ok_but_result_corrupt:00108806"
+  ],
+  "dup_keys": 0,
+  "support_issues": 0,
+  "q_mismatch_inline": 0,
+  "q_recompute": {
+    "ok": 0,
+    "fail": 0,
+    "skip": 184
+  },
+  "audit_issues": 0,
+  "reuse_count_in_alts": 0,
+  "reuse_dup": 0,
+  "unknown_q": 0,
+  "eligible_states": 48,
+  "ineligible_states": 0,
+  "feature_names": [
+    "item_l_n",
+    "item_w_n",
+    "item_h_n",
+    "item_vol_n",
+    "item_weight_n",
+    "item_can_rotate",
+    "pos_x_n",
+    "pos_y_n",
+    "pos_z_n",
+    "ori_l_n",
+    "ori_w_n",
+    "ori_h_n",
+    "support_ratio",
+    "bin_index_n",
+    "n_packed_n",
+    "loaded_weight_n",
+    "used_height_n"
+  ],
+  "normalization": {
+    "fit_on": "train_rows_only",
+    "row_weight": "equal",
+    "feature_names": [
+      "item_l_n",
+      "item_w_n",
+      "item_h_n",
+      "item_vol_n",
+      "item_weight_n",
+      "item_can_rotate",
+      "pos_x_n",
+      "pos_y_n",
+      "pos_z_n",
+      "ori_l_n",
+      "ori_w_n",
+      "ori_h_n",
+      "support_ratio",
+      "bin_index_n",
+      "n_packed_n",
+      "loaded_weight_n",
+      "used_height_n"
+    ],
+    "feature_order": [
+      "item_l_n",
+      "item_w_n",
+      "item_h_n",
+      "item_vol_n",
+      "item_weight_n",
+      "item_can_rotate",
+      "pos_x_n",
+      "pos_y_n",
+      "pos_z_n",
+      "ori_l_n",
+      "ori_w_n",
+      "ori_h_n",
+      "support_ratio",
+      "bin_index_n",
+      "n_packed_n",
+      "loaded_weight_n",
+      "used_height_n"
+    ],
+    "n_rows": 184,
+    "n_columns": 17,
+    "scale": [
+      0.153487337215778,
+      0.09183668838554164,
+      0.02214723925815662,
+      0.010993381524978517,
+      0.0014624768006209696,
+      1.0,
+      0.26664384288741333,
+      0.2501371990810533,
+      0.30638641274173384,
+      0.16296484208502088,
+      0.1564351078761562,
+      0.06580408097897662,
+      0.4189936060608317,
+      1.0,
+      0.27773538612678494,
+      0.06407530143515383,
+      0.4170189688921583
+    ],
+    "denominator": "population_std_or_1_if_constant",
+    "refit_on_development_or_test": false,
+    "sha256": "68bef1e83acb3698d682f30d6fb9289f1199f02eaae91b99b66fa5192fc4fcf8"
+  },
+  "normalization_mean": [
+    0.5165987318840581,
+    0.3365392080745338,
+    0.10964673913043481,
+    0.019348926792184248,
+    0.004478115942028981,
+    1.0,
+    0.2552309782608694,
+    0.24203707298136648,
+    0.33297554347826086,
+    0.3555932971014495,
+    0.38739324534161484,
+    0.15942934782608703,
+    0.6770143298666451,
+    0.0,
+    0.34510869565217395,
+    0.07432148550724638,
+    0.6936956521739127
+  ],
+  "normalization_error": null,
+  "by_split_target": {
+    "train|rollcontainer": {
+      "orders": 9,
+      "traj_states_sum": 296,
+      "labeled_states": 36,
+      "candidates": 140,
+      "continuations": 140,
+      "all_tied": 5,
+      "strict_states": 31,
+      "strict_pairs": 142,
+      "tie_pairs": 63,
+      "adv_pos": 31,
+      "adv_zero": 30,
+      "adv_neg": 43,
+      "fewer_geom": 3,
+      "unknown_q": 0,
+      "best_margin_desc": {
+        "n": 36,
+        "min": -0.05356249999999996,
+        "max": 0.15364017857142853,
+        "mean": 0.026149999999999993,
+        "stdev": 0.04711316979739566,
+        "q50": 0.010803571428571412
+      }
+    },
+    "train|euro-pallet": {
+      "orders": 3,
+      "traj_states_sum": 138,
+      "labeled_states": 12,
+      "candidates": 44,
+      "continuations": 44,
+      "all_tied": 6,
+      "strict_states": 6,
+      "strict_pairs": 23,
+      "tie_pairs": 38,
+      "adv_pos": 0,
+      "adv_zero": 21,
+      "adv_neg": 11,
+      "fewer_geom": 3,
+      "unknown_q": 0,
+      "best_margin_desc": {
+        "n": 12,
+        "min": -0.09120729166666663,
+        "max": 0.0,
+        "mean": -0.008834592013888892,
+        "stdev": 0.026287641706843442,
+        "q50": 0.0
+      }
+    }
+  },
+  "q_hat_vs_recomputed_u_geom_mismatches": 0,
+  "preflight_reused_alternatives": 16,
+  "source_counts": {
+    "new": 168,
+    "preflight_reused": 16
+  },
+  "feature_names_match_actor_features": true,
+  "normalization_sha256": "68bef1e83acb3698d682f30d6fb9289f1199f02eaae91b99b66fa5192fc4fcf8",
+  "normalization_constant_scale_columns": [
+    "item_can_rotate",
+    "bin_index_n"
+  ],
+  "normalization_note": "fit on 184 complete train rows from 12 intact orders only; not campaign-complete; must not be used as frozen campaign normalisation",
+  "completeness": "incomplete",
+  "verified_status": "partial_ok_blocked_coverage"
+}

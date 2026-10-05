@@ -1,0 +1,41 @@
+{
+  "order_id": "00108806",
+  "reason": "insufficient_on_disk_evidence",
+  "not_because_of_return_value": true,
+  "prior_partial_comprobable": [
+    {
+      "order_id": "00108806",
+      "choice_dir": "choice_0",
+      "provenance": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_labels/orders/00108806/states/choice_0",
+      "usable_as_complete_order_label": false,
+      "comprobable": true,
+      "note": "JSON legibles parciales; no constituyen etiqueta completa de pedido"
+    },
+    {
+      "order_id": "00108806",
+      "choice_dir": "choice_10",
+      "provenance": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_labels/orders/00108806/states/choice_10",
+      "usable_as_complete_order_label": false,
+      "comprobable": true,
+      "note": "JSON legibles parciales; no constituyen etiqueta completa de pedido"
+    }
+  ],
+  "prior_uncomprobable": [
+    {
+      "order_id": "00108806",
+      "choice_dir": "choice_21",
+      "provenance": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_labels/orders/00108806/states/choice_21",
+      "usable_as_complete_order_label": false,
+      "comprobable": false,
+      "note": "archivos vacíos; trabajo no comprobable"
+    },
+    {
+      "order_id": "00108806",
+      "choice_dir": "choice_31",
+      "provenance": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_labels/orders/00108806/states/choice_31",
+      "usable_as_complete_order_label": false,
+      "comprobable": false,
+      "note": "archivos vacíos; trabajo no comprobable"
+    }
+  ]
+}
