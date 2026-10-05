@@ -1,0 +1,33 @@
+\section{Learning objectives}
+
+All arms share architecture, labelled states constructed on $S$, normalisation
+fitted on train only, initialisation, checkpoint rule, and the support map $S$.
+They differ only in the state-wise loss. The encoder remains the audited
+17-feature map.
+
+\paragraph{Classification.}
+Let $\mathcal{B}$ be the set of candidates in $S$ whose $Q_{\mathrm{hat}}$ is
+within $10^{-9}$ of the maximum. The target places equal mass on $\mathcal{B}$.
+The loss is cross-entropy between that target and $\mathrm{softmax}(\mathrm{logits})$.
+If every return ties, the target is uniform on $S$.
+
+\paragraph{Existing preferences.}
+For every unordered pair with $|Q_i-Q_j|>10^{-9}$, orient the pair from higher
+to lower return and accumulate
+$\mathrm{softplus}(-(s_{\mathrm{high}}-s_{\mathrm{low}}))$ with weight
+$|Q_i-Q_j|$, renormalised to sum to one within the state. Exact ties contribute
+the mean squared logit gap. This is \emph{not} Mandi et al.'s
+pairwise-difference loss.
+
+\paragraph{Return-difference adaptation.}
+Following Mandi et al.'s Section~4.3, Equation~(13)
+\citep{mandi2022decision}, a secondary arm penalises squared mismatches between
+score gaps and $Q_{\mathrm{hat}}$ gaps on strict ordered pairs inside the same
+$S$. Empty pair sets yield loss zero. This is an adaptation to local packing
+candidates, not an exact reproduction of the combinatorial setting in that paper.
+
+\paragraph{Fair references.}
+GreedyBestFit remains a full-legal-list policy. Learned actors select only inside
+$S$. The best examined return $\max_{a\in S} Q_{\mathrm{hat}}$ is diagnostic or
+labelling-only. Including greedy in $S$ makes its proposal available; it does not
+force the actor to match greedy packings.

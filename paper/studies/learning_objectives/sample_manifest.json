@@ -1,0 +1,1275 @@
+{
+  "status": "samples_selected",
+  "packing_executed": false,
+  "labels_executed": false,
+  "training_executed": false,
+  "namespace": "learning-objectives-v1|20261005",
+  "selection_chain_template": "{namespace}|{split}|{order_id}",
+  "dataset": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "pool_val": "online_policy_ml/data/splits/val_order_ids_full.json",
+  "pool_val_sha256": "530b1f623f19867f5a178564180d77667597c43d491a0eff1596f1615f8df2b5",
+  "pool_test": "online_policy_ml/data/splits/test_order_ids_full.json",
+  "pool_test_sha256": "96d005e0b69be35a5cb97c4882c3a2a11a02f7914f790193073f3768f6570550",
+  "per_target": {
+    "train": 24,
+    "development": 12,
+    "test": 50
+  },
+  "n_train": 48,
+  "n_development": 24,
+  "n_test": 100,
+  "train": {
+    "euro-pallet": [
+      {
+        "order_id": "00105883",
+        "target": "euro-pallet",
+        "selection_hash": "0026985d8d6d074d27a29db3ebb234234d68d0dbf3c28c1c51cc0adfc519c72c",
+        "selection_chain": "learning-objectives-v1|20261005|train|00105883",
+        "signature": "7f8cfecff221cdbbdc6c99bac7bc68ec0af92e666322e844a25ff6e3e2c571db"
+      },
+      {
+        "order_id": "00106510",
+        "target": "euro-pallet",
+        "selection_hash": "014daed3887e39e9592f388b88eb636dc706b5c8dd31e877f95425b2bad81989",
+        "selection_chain": "learning-objectives-v1|20261005|train|00106510",
+        "signature": "02d81a11ab3e1edd6f265559d0898578cc4f0b903dd2fa138a8502e6817cf2a9"
+      },
+      {
+        "order_id": "00107708",
+        "target": "euro-pallet",
+        "selection_hash": "019918ece7370f50345c9b8456e4dc0bdcc4713545763cc3ef955bb2fefeb458",
+        "selection_chain": "learning-objectives-v1|20261005|train|00107708",
+        "signature": "8bd0a41f68a0230bcc47df020b7a97d2cb9ed08082f7404581d65de8225282de"
+      },
+      {
+        "order_id": "00106013",
+        "target": "euro-pallet",
+        "selection_hash": "01c7a1dce9f1a7e9e9daf72d8d448361054db68e64b823d034b6d3ca286d3b59",
+        "selection_chain": "learning-objectives-v1|20261005|train|00106013",
+        "signature": "463b834ce1b9f09e95d65028995dec2b021ef723e4096a2bcf58155afd548490"
+      },
+      {
+        "order_id": "00101098",
+        "target": "euro-pallet",
+        "selection_hash": "023f744cd97aee342033e9312434659bb4fb8fe16581c9f7b5aa110f8796335f",
+        "selection_chain": "learning-objectives-v1|20261005|train|00101098",
+        "signature": "d10c8420a0e49eeae4691c44b964fb2aa99c307c6d9923fdffaeb80a3a8fc1f0"
+      },
+      {
+        "order_id": "00109335",
+        "target": "euro-pallet",
+        "selection_hash": "02ab9447b69ab09e22b9a82d4a7649414d9ab424ff9212a2917c6213fb1d1965",
+        "selection_chain": "learning-objectives-v1|20261005|train|00109335",
+        "signature": "3028e9b008808601ab0db1411709e46d3ec23a8ed48cc4ef1612e8b0ac17563e"
+      },
+      {
+        "order_id": "00106793",
+        "target": "euro-pallet",
+        "selection_hash": "02fa1372295729dc38f7fa7828623aa167772e003c63f02614e7655beb835817",
+        "selection_chain": "learning-objectives-v1|20261005|train|00106793",
+        "signature": "20850b63c5cb1fbdbc94ec4a99766b3ad9c932ed657248e4ae2043a177d7198e"
+      },
+      {
+        "order_id": "00106125",
+        "target": "euro-pallet",
+        "selection_hash": "04897b158c66f618d7b4620c85ed87cf47a13866ecc7c0bbb1473fd162ba96e1",
+        "selection_chain": "learning-objectives-v1|20261005|train|00106125",
+        "signature": "b7083ef743278a23951adb4687961e2080ae0c903767599103dc4b6c0b2dff36"
+      },
+      {
+        "order_id": "00105354",
+        "target": "euro-pallet",
+        "selection_hash": "0562db2fb1375ca8e35afc30759b75914f56eacbe6e7bae556b42f7c8b6b2638",
+        "selection_chain": "learning-objectives-v1|20261005|train|00105354",
+        "signature": "2180e5cb4f15b6da6d46ce75655bf3793d20c265ee12b44a1ce7599a9037217b"
+      },
+      {
+        "order_id": "00104604",
+        "target": "euro-pallet",
+        "selection_hash": "057620d652631940ad25dc62c1f87257d2ffe878c4d014023805e6df71b32053",
+        "selection_chain": "learning-objectives-v1|20261005|train|00104604",
+        "signature": "7c2f5a78cb478b1a3079f2463139a43c6024fb478b8d37e18e5087af71e463fb"
+      },
+      {
+        "order_id": "00106371",
+        "target": "euro-pallet",
+        "selection_hash": "05aa1a6464fc934df93174a3afca097ae2ac96fb7ef9ae87b8f8bce7604d91a4",
+        "selection_chain": "learning-objectives-v1|20261005|train|00106371",
+        "signature": "5efcd1ca63c0b4ca4aa757a6e4740daee2eec127c128ff14c6976d03e16234a4"
+      },
+      {
+        "order_id": "00105274",
+        "target": "euro-pallet",
+        "selection_hash": "0679fa263bcd33b5f8f9595ffe07aed4878f958d1116f501f5b251176196b4e0",
+        "selection_chain": "learning-objectives-v1|20261005|train|00105274",
+        "signature": "08bff97c82f8a9bfae60a8e235c4c07d0344cd1fd70682099fb2f9d6a2afd96a"
+      },
+      {
+        "order_id": "00103125",
+        "target": "euro-pallet",
+        "selection_hash": "06c89d2330fcefa843b5d6b51d6b0c76b8a265a4cc0a11c61ced8fedd9bfbb19",
+        "selection_chain": "learning-objectives-v1|20261005|train|00103125",
+        "signature": "41a6695c69ac4e104e7a2fb41c2a610f909691a0098f55478068f1830d579b1f"
+      },
+      {
+        "order_id": "00107904",
+        "target": "euro-pallet",
+        "selection_hash": "070c2d5485d28f4c366f456d638514021ea992abff642c4746dd85ac15a2c214",
+        "selection_chain": "learning-objectives-v1|20261005|train|00107904",
+        "signature": "7408e7306ebdb242d306c36e2e110b695d96ed64bb9aab903b55acd718ab7322"
+      },
+      {
+        "order_id": "00103653",
+        "target": "euro-pallet",
+        "selection_hash": "071f3900ca7482b678a34505badd432c8209e4f0d297ea9e3e1089f98700bad9",
+        "selection_chain": "learning-objectives-v1|20261005|train|00103653",
+        "signature": "76e53d5aab6987541340a61a91b49d12eaff9ba78ac1ef5215af6731bd28dfd3"
+      },
+      {
+        "order_id": "00103607",
+        "target": "euro-pallet",
+        "selection_hash": "077988bb0f5faa352666b2ad59710ddc6ff2546e2bc0ccc6d68a9dae731bcbd6",
+        "selection_chain": "learning-objectives-v1|20261005|train|00103607",
+        "signature": "16f4cc2e94bcba0551829d617d6e4b7d56bc350b3f8a95a3b47c88426537a830"
+      },
+      {
+        "order_id": "00101233",
+        "target": "euro-pallet",
+        "selection_hash": "087bc58542b4d100f1f93fb33f9cb897ec0a6b02c9379638e02e33e173eb0bdc",
+        "selection_chain": "learning-objectives-v1|20261005|train|00101233",
+        "signature": "cca91c2e8f825f0af6d5bc282f678abb586a9d3cafdd933f379d55de2d3c6f17"
+      },
+      {
+        "order_id": "00100464",
+        "target": "euro-pallet",
+        "selection_hash": "08fcb2be6079e32a296fcbd6c5e7b61d965bd68b5bfc783b46b5c520ae8971f3",
+        "selection_chain": "learning-objectives-v1|20261005|train|00100464",
+        "signature": "edfe26542f18cb4e170f8668ad7fa3cc1b9d5fbd1d12c4a4c891d8ab65d0e8b1"
+      },
+      {
+        "order_id": "00105763",
+        "target": "euro-pallet",
+        "selection_hash": "0a1eb1c2c7db10254e47760c2e492515f4698a6db9b2b9b0c90118877fa1d8ef",
+        "selection_chain": "learning-objectives-v1|20261005|train|00105763",
+        "signature": "dd5fbcacc11b941af6a5bc92e63051f51f5fb7110fc8ab97a57bae3170e1c363"
+      },
+      {
+        "order_id": "00107718",
+        "target": "euro-pallet",
+        "selection_hash": "0ad669687e204e36d9f13e0ddf52a95118af8b3efebba917d748259bc57f3546",
+        "selection_chain": "learning-objectives-v1|20261005|train|00107718",
+        "signature": "7a673e0503d7569eb01d92d43f14b41a506864a79e032207173ef80e7c1b4391"
+      },
+      {
+        "order_id": "00102292",
+        "target": "euro-pallet",
+        "selection_hash": "0ae7f5b5f7f852150dc09e88a3ea59440d4b44949b2540bd548e5cf7d06a225a",
+        "selection_chain": "learning-objectives-v1|20261005|train|00102292",
+        "signature": "054eb84c739e8fee8a0beaa49887e22fc88061b08d414f04a0e1b519fe7e9312"
+      },
+      {
+        "order_id": "00108710",
+        "target": "euro-pallet",
+        "selection_hash": "0b7c5aa8b2d7118ecd1475d7b84265d375e9ef5e18fd0112a739e7879cc413b0",
+        "selection_chain": "learning-objectives-v1|20261005|train|00108710",
+        "signature": "294c8bee910468e7078d51c26e940b76259da705736f52f1fe0e33d8d68336bd"
+      },
+      {
+        "order_id": "00109078",
+        "target": "euro-pallet",
+        "selection_hash": "0c9dc70cc97aa27bf371524e2242b22c62d9e6da68d35d249daaa5d0b78c970d",
+        "selection_chain": "learning-objectives-v1|20261005|train|00109078",
+        "signature": "37de9ffccc2b1337fdce178a292596024b6b957e7cf4fd13084cc2669e497664"
+      },
+      {
+        "order_id": "00102629",
+        "target": "euro-pallet",
+        "selection_hash": "0d25c65c77c8cea881435d523b717d1343b3ab8a9ee909bd8b9b1594afb6e143",
+        "selection_chain": "learning-objectives-v1|20261005|train|00102629",
+        "signature": "87f0ac4dec2f47076722b38dbd3bfb60dd632a7b5f1d7448e2fba57186e932c3"
+      }
+    ],
+    "rollcontainer": [
+      {
+        "order_id": "00104801",
+        "target": "rollcontainer",
+        "selection_hash": "0050ced7c47709f29dd95c562855ca422cf0d788884296f2db697db2e13801f8",
+        "selection_chain": "learning-objectives-v1|20261005|train|00104801",
+        "signature": "cf34412ca154c26a4027ffe415246a61161ff2f3f0609fdd325b0197a6397cf0"
+      },
+      {
+        "order_id": "00104010",
+        "target": "rollcontainer",
+        "selection_hash": "007f9eba127097536a5e2cb5ca3b160039b3b7c3f16300ab4ba258b092ed1a2c",
+        "selection_chain": "learning-objectives-v1|20261005|train|00104010",
+        "signature": "ea3e71e8cc60803d4073bd3202ae7aac4300404060dfd4233ef04aec3a6bcaf0"
+      },
+      {
+        "order_id": "00101334",
+        "target": "rollcontainer",
+        "selection_hash": "00ac7ae568ac74b9a5c14fd0f8afbe980e00874c39e14e6d0ebec31026de2612",
+        "selection_chain": "learning-objectives-v1|20261005|train|00101334",
+        "signature": "124a3bb9a01cf70982c04b2f25206fae604fae9834186a0d561a90a4cacd4f74"
+      },
+      {
+        "order_id": "00107369",
+        "target": "rollcontainer",
+        "selection_hash": "00bc1112d91ec42a2590bbe736bcb1e39814c4a7410fcc9f58d535663481dff0",
+        "selection_chain": "learning-objectives-v1|20261005|train|00107369",
+        "signature": "06a81b928139ca71874669acf8b1123184d28c1725495a883c7f28e4327ad1b0"
+      },
+      {
+        "order_id": "00101384",
+        "target": "rollcontainer",
+        "selection_hash": "00cfce8c176210d1eb563033c3ae05fa58cb2a6c219eabb484de403362c6325f",
+        "selection_chain": "learning-objectives-v1|20261005|train|00101384",
+        "signature": "c8a75ecade1cab9133c3060e3a539764489e998b09a5e021bedebe8af907cf12"
+      },
+      {
+        "order_id": "00105453",
+        "target": "rollcontainer",
+        "selection_hash": "0135893c31d897c02a07a049bec9aa583567f6e7f6d7de3331cce4144d29d53e",
+        "selection_chain": "learning-objectives-v1|20261005|train|00105453",
+        "signature": "768b4629a7a427cc840958e96b53a7d14b2ae938b75823ee41e019b6cfca4383"
+      },
+      {
+        "order_id": "00108032",
+        "target": "rollcontainer",
+        "selection_hash": "01498b3c6f29defe3c53253fdf13e084a414230fbb648ac56de2fe8d316f7e43",
+        "selection_chain": "learning-objectives-v1|20261005|train|00108032",
+        "signature": "be7ab3c9e3cdaed451239ff3c097feb5729ca2a0f62badb4934b098d5d05ef39"
+      },
+      {
+        "order_id": "00103305",
+        "target": "rollcontainer",
+        "selection_hash": "01c0db6302487166617f9407f900b95e6aae0df3d4db498ca7d0a8b8ce157f91",
+        "selection_chain": "learning-objectives-v1|20261005|train|00103305",
+        "signature": "086f73f624ecfe568732697a7030b4cc26932c5627470b5faad983a96d6ca28c"
+      },
+      {
+        "order_id": "00104251",
+        "target": "rollcontainer",
+        "selection_hash": "01c1b196146e873cc13dec4153d90bf092e3f39e90b0fbd7cc534c80d1d2dc81",
+        "selection_chain": "learning-objectives-v1|20261005|train|00104251",
+        "signature": "ccdb1b8d4faf2aca16ee7389ce1916960e0ccc4fe9caf7f65880243958cda9d1"
+      },
+      {
+        "order_id": "00108806",
+        "target": "rollcontainer",
+        "selection_hash": "01c36a306f1e13f7be216b1fcae606e68d8c90c339144d6769e2885db96b6845",
+        "selection_chain": "learning-objectives-v1|20261005|train|00108806",
+        "signature": "7c7ec50b17e791c8b31d8e23ebc977c139a6a8d16bcd99bece7e10410d18c2f3"
+      },
+      {
+        "order_id": "00100727",
+        "target": "rollcontainer",
+        "selection_hash": "01e065ad238c7e0cebe284665570c6f50619531c472cf729db93fa843e3e68a4",
+        "selection_chain": "learning-objectives-v1|20261005|train|00100727",
+        "signature": "f2b17a7baca7e26069dbab0649579e3dc22d6f71d32b1b3706125c9d62089d6d"
+      },
+      {
+        "order_id": "00107788",
+        "target": "rollcontainer",
+        "selection_hash": "01f89e0022380249ee356f978a3736daff01c84cdb8cd8958853a33201ab3237",
+        "selection_chain": "learning-objectives-v1|20261005|train|00107788",
+        "signature": "93f957c42f3f5f170ad0c33bf1aef9d8300f5589d7dfb7951fa8e71b0444ec78"
+      },
+      {
+        "order_id": "00104000",
+        "target": "rollcontainer",
+        "selection_hash": "021652b9846e8a46280dbe158a1a14846e17f89b0196e8106ddb79bf9714e3fa",
+        "selection_chain": "learning-objectives-v1|20261005|train|00104000",
+        "signature": "d32b86a5c706201a7f8d93477be015416a2de3383e7e8cc13beb924d9c4e9724"
+      },
+      {
+        "order_id": "00104736",
+        "target": "rollcontainer",
+        "selection_hash": "029e01f22676cfc4419f799664d5cbb48083c5522d0186e4b3f8321efebb34e7",
+        "selection_chain": "learning-objectives-v1|20261005|train|00104736",
+        "signature": "9cb335147d90289df57e6f8593b21a654e2853f13ca9f44357f645f375d71f84"
+      },
+      {
+        "order_id": "00107765",
+        "target": "rollcontainer",
+        "selection_hash": "034711eaeaef335e82dfa9d7c1531fadf6bc362dd39640598660bf067d2ecb0e",
+        "selection_chain": "learning-objectives-v1|20261005|train|00107765",
+        "signature": "e57eef5dda0b3331201487cfcb722d5d08a2378f20ebfc83c6599382768ee749"
+      },
+      {
+        "order_id": "00107768",
+        "target": "rollcontainer",
+        "selection_hash": "03d9243f2a169d02914c8823722eb96b0e42b92d3671a48c1025f2dd02d3c37e",
+        "selection_chain": "learning-objectives-v1|20261005|train|00107768",
+        "signature": "0de09822dfa0209a63f8b319f08035bf6fc6ac7c910366231a0cab413af75161"
+      },
+      {
+        "order_id": "00107831",
+        "target": "rollcontainer",
+        "selection_hash": "045173e30ebac88f0d77a305266b35263dcbd91453dcfb29612e8696000fd5e3",
+        "selection_chain": "learning-objectives-v1|20261005|train|00107831",
+        "signature": "abac70cd8ef37e8ad28d303ed9e3fefcc6a487a6a8d4c36aefe1ccf2703390bd"
+      },
+      {
+        "order_id": "00107580",
+        "target": "rollcontainer",
+        "selection_hash": "04e56c036201309ba37e49d2495256782bee9c74636215ee9731b60e1aaa26a9",
+        "selection_chain": "learning-objectives-v1|20261005|train|00107580",
+        "signature": "de13a2c4682ec9408cc2005d2d88aac0067a6d211ff69319082fa0e00125216b"
+      },
+      {
+        "order_id": "00109197",
+        "target": "rollcontainer",
+        "selection_hash": "04ec6f24b681aff95b48592cb703075e14846d0c251efa6a119d87f8aa8b98f3",
+        "selection_chain": "learning-objectives-v1|20261005|train|00109197",
+        "signature": "822dd89b2eeb8d4b69ec33e0ff02e9a7d681f37bdd213a656dd6e17ff69d10aa"
+      },
+      {
+        "order_id": "00102964",
+        "target": "rollcontainer",
+        "selection_hash": "04f6560a0bffe46c106740515e83a8f1daeb5a210ba9ffdf9824d04600665b76",
+        "selection_chain": "learning-objectives-v1|20261005|train|00102964",
+        "signature": "3dda0f8733efa2aee49e391b315fa6d00192c2620e313f8247aab9bd55015b0f"
+      },
+      {
+        "order_id": "00102767",
+        "target": "rollcontainer",
+        "selection_hash": "05dc71d8b50069a355b4c16674d5d7b944a4ed31e37c6f82fff994f3d0b8a0c6",
+        "selection_chain": "learning-objectives-v1|20261005|train|00102767",
+        "signature": "8b30126a24b551833ecc9f8c5f2b7547fe5937f26f5303ad5c929a30ec33c75a"
+      },
+      {
+        "order_id": "00109181",
+        "target": "rollcontainer",
+        "selection_hash": "0717b63407234b2863808ab601f07bdee32efcf48937ffe4dcd32fbc17278d0d",
+        "selection_chain": "learning-objectives-v1|20261005|train|00109181",
+        "signature": "4bb8a3958634211364e186f0668108c4ddeb13e92d009c4673eca9d625509af6"
+      },
+      {
+        "order_id": "00107806",
+        "target": "rollcontainer",
+        "selection_hash": "075edfa4201b2b6a6253d71433e7e887c3b08e50e0cf10528ee1994dea1ff237",
+        "selection_chain": "learning-objectives-v1|20261005|train|00107806",
+        "signature": "46a89deb98dae5d55d4174d09fc71cb6f1c543bf396bbb162098db5134ef8d7a"
+      },
+      {
+        "order_id": "00109684",
+        "target": "rollcontainer",
+        "selection_hash": "0798ae97319574ab645e8bdd866fdc7b6763ab2ef6b15016223a4fc2e8815d00",
+        "selection_chain": "learning-objectives-v1|20261005|train|00109684",
+        "signature": "152baf93dd5e18bf65f4f4a4b2a08a5b79c4720f8e0fdd38c223bb646c6b84de"
+      }
+    ]
+  },
+  "development": {
+    "euro-pallet": [
+      {
+        "order_id": "00106955",
+        "target": "euro-pallet",
+        "selection_hash": "003c9fac7b902698e5c3d3804d50347b90438a72a8d14c967742f93d0ee813dd",
+        "selection_chain": "learning-objectives-v1|20261005|development|00106955",
+        "signature": "23e520f06e3e6fa677b003f8fcf5e533aafd826566067bd19817a95c1b024dd2"
+      },
+      {
+        "order_id": "00105989",
+        "target": "euro-pallet",
+        "selection_hash": "00dffc8ee800fd10590f67072c6988dfe1f0737ed0397c4735df2a666d3900fa",
+        "selection_chain": "learning-objectives-v1|20261005|development|00105989",
+        "signature": "379cbdb6831f1dbcbee7213f667fe89fc7aa92d27e606f4b4e2159e99dc9bed2"
+      },
+      {
+        "order_id": "00102744",
+        "target": "euro-pallet",
+        "selection_hash": "00ef1dab772ea3424d478bb246c63a2c8ac86f7d9094e991793ba3e7cb8125fa",
+        "selection_chain": "learning-objectives-v1|20261005|development|00102744",
+        "signature": "b360ca5182eeb69cace78a63494fa67bb80799c9c331df9f7cccc5017a912c30"
+      },
+      {
+        "order_id": "00104382",
+        "target": "euro-pallet",
+        "selection_hash": "01758446ea0a4defadb20ed433e84bf58fb64a63312cb64af4a5a71203c2c8e6",
+        "selection_chain": "learning-objectives-v1|20261005|development|00104382",
+        "signature": "46e7afa1342f30c3e126d634e171767150666dbf11c2d395ddd9b52e579eb897"
+      },
+      {
+        "order_id": "00100842",
+        "target": "euro-pallet",
+        "selection_hash": "021055c0a2f9475d0012e0fee874061fbf8eaa94d370950f96d0a9a66e5cba18",
+        "selection_chain": "learning-objectives-v1|20261005|development|00100842",
+        "signature": "cbec3356d629da4079ab7713d7d06d4d7fe7ed99a0baa2ad1b5ecaadf6404750"
+      },
+      {
+        "order_id": "00108036",
+        "target": "euro-pallet",
+        "selection_hash": "033a4fbafc6e05dc020ed9982fe853615dcf11701019676a4c14b5cede3b33ac",
+        "selection_chain": "learning-objectives-v1|20261005|development|00108036",
+        "signature": "acb59de270604b5382bf566d86031fd8b627f604c2a2fedeb5d26a992cc5a945"
+      },
+      {
+        "order_id": "00109447",
+        "target": "euro-pallet",
+        "selection_hash": "03b54ad05e184449d3034ae6be8ff6cd61b1105dc54f9049035757f4e1cc42cb",
+        "selection_chain": "learning-objectives-v1|20261005|development|00109447",
+        "signature": "bfd6802e419504346c61164d3d08fa57fc2b66e1e04c04885ba68b8747f5bed8"
+      },
+      {
+        "order_id": "00102346",
+        "target": "euro-pallet",
+        "selection_hash": "042fc0ea3b4c23c32393a987ea2943d40d7e3d1317d61df2a3e6621dbac82dfe",
+        "selection_chain": "learning-objectives-v1|20261005|development|00102346",
+        "signature": "5f665561116196dd7dd6edb0358056baf77c79768e55977a0a6bf8a5c027e1b8"
+      },
+      {
+        "order_id": "00105250",
+        "target": "euro-pallet",
+        "selection_hash": "0464de73ec212c5119e98ae10a1c2237c02c2c404fe8a17dea7a83819e3d3ded",
+        "selection_chain": "learning-objectives-v1|20261005|development|00105250",
+        "signature": "a7d8e39801cdf32b94b4ff0c51290e2e0cb52a977e832255ebffbe4ebc23c137"
+      },
+      {
+        "order_id": "00105797",
+        "target": "euro-pallet",
+        "selection_hash": "046725eb6d7ba32fd762fc37d4c3af5db0e0a670e00fcb60efd0cc4f50d9db3b",
+        "selection_chain": "learning-objectives-v1|20261005|development|00105797",
+        "signature": "41361526e16d6f0bc24850e943adbd21d993b332a3fa7d766fbf4d298916a223"
+      },
+      {
+        "order_id": "00107235",
+        "target": "euro-pallet",
+        "selection_hash": "06a3202b9698635e31d7a3605421fd22e400bf43c877b3246c10330fd23c6c79",
+        "selection_chain": "learning-objectives-v1|20261005|development|00107235",
+        "signature": "c0e675ab26bee44b9de3c9207559a1fcea9fc56e746e804ef12976d1323738e9"
+      },
+      {
+        "order_id": "00105391",
+        "target": "euro-pallet",
+        "selection_hash": "076ef2e8adb2e825daa3ea4c48457bc106feb73292da8c50f1b1f532e222b42b",
+        "selection_chain": "learning-objectives-v1|20261005|development|00105391",
+        "signature": "1401825e28535aa7c95a6605a1ddc6dbe69fe8e478c23c32352e35ac58335734"
+      }
+    ],
+    "rollcontainer": [
+      {
+        "order_id": "00107391",
+        "target": "rollcontainer",
+        "selection_hash": "0021ba121afe12c544439d72604f5e7bed777a655cc4c8d4bb990cb6f5bcd12c",
+        "selection_chain": "learning-objectives-v1|20261005|development|00107391",
+        "signature": "dfc51578d906c2bd178a6594797bad73797bd3b6a264254f05e93deff01692cf"
+      },
+      {
+        "order_id": "00108470",
+        "target": "rollcontainer",
+        "selection_hash": "00cd697df9ee4689b386bec56d9446e46ded797957a67236ec04bbff1d14d039",
+        "selection_chain": "learning-objectives-v1|20261005|development|00108470",
+        "signature": "e66ecd401c6f0656022b37734fc13597d1cb5b0b276349213423540e47486a8e"
+      },
+      {
+        "order_id": "00106806",
+        "target": "rollcontainer",
+        "selection_hash": "01fb70a2fb9270e3bb05fb15a9f2980eee2e6534c07e2d14c7db6bdcd2870ca0",
+        "selection_chain": "learning-objectives-v1|20261005|development|00106806",
+        "signature": "9242cf8d1071193feb7c6f8e7c0423d6e6da937d2e9e5392f11d446c6f126217"
+      },
+      {
+        "order_id": "00102462",
+        "target": "rollcontainer",
+        "selection_hash": "021391e868aab72f56779660a5f696444e0ba71d55c29767264a8b44f08b67ea",
+        "selection_chain": "learning-objectives-v1|20261005|development|00102462",
+        "signature": "76304160cae9c70072bf18b61cfd6276cb764b9d23544a5e8d3ab50f37a11158"
+      },
+      {
+        "order_id": "00101838",
+        "target": "rollcontainer",
+        "selection_hash": "028aac96eb33d02992780ee9a09772fca9d4df1c8a62005295d5554577cb45cd",
+        "selection_chain": "learning-objectives-v1|20261005|development|00101838",
+        "signature": "9faf099587a646003a06ffecbd346a0a3d99fd65876201bf07fb349183d50c75"
+      },
+      {
+        "order_id": "00108236",
+        "target": "rollcontainer",
+        "selection_hash": "034aafcb9e5ad6e6000d0e826c66cd4172669e26318f96323316a3f92ee21757",
+        "selection_chain": "learning-objectives-v1|20261005|development|00108236",
+        "signature": "36f90d5c7787ee32312ad601cc73a326570ca8b9c4ef30ee4f99a364e55cd35a"
+      },
+      {
+        "order_id": "00107236",
+        "target": "rollcontainer",
+        "selection_hash": "03df97e6de1b6737669c25695bcf6c8a84962951137ab61987a5b2fa9b0dfb83",
+        "selection_chain": "learning-objectives-v1|20261005|development|00107236",
+        "signature": "71658e6745b6f16c5c3affd44c709be32f833d9f51edc0a3af1d8b9175bbd276"
+      },
+      {
+        "order_id": "00102796",
+        "target": "rollcontainer",
+        "selection_hash": "03ea5332a280722f53f26903f856953d8f23271df1b000b7af3881804c967d78",
+        "selection_chain": "learning-objectives-v1|20261005|development|00102796",
+        "signature": "33e177382b0f066f18418ce87eb2564147e337e7e18d18adab936b6e515b1bff"
+      },
+      {
+        "order_id": "00107107",
+        "target": "rollcontainer",
+        "selection_hash": "04882810f755e4249fcf1296ec164bdfb42bd488553eb6f04f436e6d96002b1a",
+        "selection_chain": "learning-objectives-v1|20261005|development|00107107",
+        "signature": "2ddb2f0c3e8fd008f091d600c3d989f31b3940d29caffa9509918f2f189b90ff"
+      },
+      {
+        "order_id": "00103460",
+        "target": "rollcontainer",
+        "selection_hash": "04ac1ee616cde5551d0d7eb900d5a9746841782b821ee27c5618ca2515dba1d0",
+        "selection_chain": "learning-objectives-v1|20261005|development|00103460",
+        "signature": "f5726bf9ac2d30327266ec87a82525424fae8194b6099e8bed2912365265a424"
+      },
+      {
+        "order_id": "00106319",
+        "target": "rollcontainer",
+        "selection_hash": "05a6722e01fcb7747c906e2782287719dbc0006b725fe38f4393a1a8f6f1f0a3",
+        "selection_chain": "learning-objectives-v1|20261005|development|00106319",
+        "signature": "a015b257ce23620e85b79b346f73e6582f25220288f5fb37a14e92e4cae897d0"
+      },
+      {
+        "order_id": "00103738",
+        "target": "rollcontainer",
+        "selection_hash": "05e3eb0035c1e3b6d4c5f13a7414c809e2dbee2ca0e1f4d6a154ea0aa0fa8191",
+        "selection_chain": "learning-objectives-v1|20261005|development|00103738",
+        "signature": "4b69ff245bd5ff15e450b97976dd18a80b5c2b04e43ad96e6e14fc78daceec2f"
+      }
+    ]
+  },
+  "test": {
+    "euro-pallet": [
+      {
+        "order_id": "00108917",
+        "target": "euro-pallet",
+        "selection_hash": "00a73f7c9c544e260a7cd54dc4fde8e62ac04b7c3ecfe05bda1d8d4e29771e2f",
+        "selection_chain": "learning-objectives-v1|20261005|test|00108917",
+        "signature": "0da645ace2ae1db340783fadfd1c8dceacafffe30ecd2e4f53d91bccd5f46957"
+      },
+      {
+        "order_id": "00106843",
+        "target": "euro-pallet",
+        "selection_hash": "015d0dc0691e641f80e499ae1e6061a6f0ce5a5b7f92d17d62fcba6e52300454",
+        "selection_chain": "learning-objectives-v1|20261005|test|00106843",
+        "signature": "5c9147ee7da734d3479ccbe64014d5c490f2476ae468dc203dc213e186b34f2a"
+      },
+      {
+        "order_id": "00109324",
+        "target": "euro-pallet",
+        "selection_hash": "018eac4c282b7a2d43a6a9c549bf943f0ffd5741fbc58a7a2b8d133ce53ebedd",
+        "selection_chain": "learning-objectives-v1|20261005|test|00109324",
+        "signature": "96e61f46b0405bc758938340ea25d9504976b311af52663ed469c3f5e77faa6d"
+      },
+      {
+        "order_id": "00109555",
+        "target": "euro-pallet",
+        "selection_hash": "01a41ad8ba2c039f9c88a913ed826b6d1a18fa5d663a8ff4c063c139dcf61649",
+        "selection_chain": "learning-objectives-v1|20261005|test|00109555",
+        "signature": "a9d451977a4cd5f09d618c8566e900fa8e938e708bf98b8a10db80b6f75824c3"
+      },
+      {
+        "order_id": "00108481",
+        "target": "euro-pallet",
+        "selection_hash": "01be59acaa246401a0befb7491aff5e795bb9dd6704661b90c2148b524eecbf7",
+        "selection_chain": "learning-objectives-v1|20261005|test|00108481",
+        "signature": "ac3802daba4b5c102c95362cb2d15c697774e2862a93733528ef4b607382e8b6"
+      },
+      {
+        "order_id": "00104885",
+        "target": "euro-pallet",
+        "selection_hash": "0216a00d106b21e80e2bc21d81396763cff379ca2f6c8f433f121f927ae20848",
+        "selection_chain": "learning-objectives-v1|20261005|test|00104885",
+        "signature": "97b116ab8941d902d0830810bbe6ef806e151cfd15afae266f3f0147d67e54ab"
+      },
+      {
+        "order_id": "00100708",
+        "target": "euro-pallet",
+        "selection_hash": "0303bd6928984af3ffdaaf6f22e21390e24df37a050c699972d1fe8ec4ab389a",
+        "selection_chain": "learning-objectives-v1|20261005|test|00100708",
+        "signature": "86f5e5584cd51c630122fe012b083d0ce6f82f846f8b99f965f77046bec1f577"
+      },
+      {
+        "order_id": "00109498",
+        "target": "euro-pallet",
+        "selection_hash": "0334c9d66461abec765a3ea1c13316049d4eceb5b21297a6aa162c3a4a41811c",
+        "selection_chain": "learning-objectives-v1|20261005|test|00109498",
+        "signature": "1bfe36a427f70ba8f5ed839e24948ac19399f5705a40c0c42a8dcc8c29516732"
+      },
+      {
+        "order_id": "00100836",
+        "target": "euro-pallet",
+        "selection_hash": "03d2e65b3d5073de03f365e3b187ab457affe88d36fb98e0cffae39d431e4071",
+        "selection_chain": "learning-objectives-v1|20261005|test|00100836",
+        "signature": "218366c74e94ef861b5c9f56942bc4e20423546a641091399819036a351fd7ef"
+      },
+      {
+        "order_id": "00102062",
+        "target": "euro-pallet",
+        "selection_hash": "0426ef801404e1cbe0ac2cbd1da19e18de750960af1e08c675fd3ebbad9255b4",
+        "selection_chain": "learning-objectives-v1|20261005|test|00102062",
+        "signature": "26c327930f996eb7c07d34a73f50a8ee57029be0946dc49253a501c9f7adabbb"
+      },
+      {
+        "order_id": "00105660",
+        "target": "euro-pallet",
+        "selection_hash": "04afbe7f51edbdfd71fd5ee9535e8159083d30a46385a0e2de386eeeb3c4228b",
+        "selection_chain": "learning-objectives-v1|20261005|test|00105660",
+        "signature": "fd39c36c2f4378e549675e874a9ce1652c23bfddc72ac7162b706d5ab23e12e3"
+      },
+      {
+        "order_id": "00108968",
+        "target": "euro-pallet",
+        "selection_hash": "04c2863b29bd9f8beb03ad226f50d10997fb060b8b78347fa8a2f777b96fd066",
+        "selection_chain": "learning-objectives-v1|20261005|test|00108968",
+        "signature": "35af974d7668ac3684bb99792e09ead5526cd422ca0be05068c39f627d0084ef"
+      },
+      {
+        "order_id": "00101505",
+        "target": "euro-pallet",
+        "selection_hash": "0530f6fc0c8cc56ccc9f64c8e4d73dd9a8e29c5dca7b550ea35fae42ae052c93",
+        "selection_chain": "learning-objectives-v1|20261005|test|00101505",
+        "signature": "cfbe0419bb8534fa7abcbd06512fb7c99f0226ef39759d7144f456ed8106ccbc"
+      },
+      {
+        "order_id": "00106759",
+        "target": "euro-pallet",
+        "selection_hash": "057801f22f7d5039e9e77fd4e3b1d9909c9984e5cea0983c983e2cb62c6122ee",
+        "selection_chain": "learning-objectives-v1|20261005|test|00106759",
+        "signature": "5273f09ee9dd457314a7e71f22552db4a78e673ec4361a09df5836e48a5440d8"
+      },
+      {
+        "order_id": "00107256",
+        "target": "euro-pallet",
+        "selection_hash": "057cbdd92afa47e1501251a4fcdbca87c633224e9ba6926b1a8ba5ce3470d5ee",
+        "selection_chain": "learning-objectives-v1|20261005|test|00107256",
+        "signature": "400210d4251449ab51d258170ba20baade4587b55e6d0bb4d07da36eb50d6fc9"
+      },
+      {
+        "order_id": "00100454",
+        "target": "euro-pallet",
+        "selection_hash": "05a1d3e8f5839b172aefc8b5bd218f0dc3e8ae1cf8ad172dc66a5cba1f4c8057",
+        "selection_chain": "learning-objectives-v1|20261005|test|00100454",
+        "signature": "84356b63d72dc278fed285c137a03369bf3d06348a0d787783898c4cbae71cbd"
+      },
+      {
+        "order_id": "00102870",
+        "target": "euro-pallet",
+        "selection_hash": "05f7263fff7fffd6efffa635758046d98c1b83a8758c4e30a1275f6144123009",
+        "selection_chain": "learning-objectives-v1|20261005|test|00102870",
+        "signature": "0ba9ae1491146d1961fe9c296b496f776a403453378bdb2b0e8481c0f37e08cb"
+      },
+      {
+        "order_id": "00105221",
+        "target": "euro-pallet",
+        "selection_hash": "05fd1c3557bca8f4aba49699788f234c182dfacdf731c8e59eaf50450baf9a16",
+        "selection_chain": "learning-objectives-v1|20261005|test|00105221",
+        "signature": "b94fe8827baa98ff55b72002827a4f235b8e0e2222eebb2e409da9e2c6b3d943"
+      },
+      {
+        "order_id": "00107814",
+        "target": "euro-pallet",
+        "selection_hash": "06fbcc192e85d0795a882a1b0b2002cca60655a65f8575c94e0e7e41f852817c",
+        "selection_chain": "learning-objectives-v1|20261005|test|00107814",
+        "signature": "d6a18aca30d768f6778fbaf6ce2278a5dc11804e02906e1077d7e2852f8adba1"
+      },
+      {
+        "order_id": "00109112",
+        "target": "euro-pallet",
+        "selection_hash": "0767c935f8653d5c063209503a41f4279a34bb8419c294e5e3bfbd2689dbb0ec",
+        "selection_chain": "learning-objectives-v1|20261005|test|00109112",
+        "signature": "019359b35c7bbfa52ac9a122d1da8d0ec4a99ebfde83f6766906ea852aef04cc"
+      },
+      {
+        "order_id": "00105709",
+        "target": "euro-pallet",
+        "selection_hash": "084d9b54518f555fd9922ed26f124be32d180d70e9d574acec3aff2ff7dae9b2",
+        "selection_chain": "learning-objectives-v1|20261005|test|00105709",
+        "signature": "a0db14a864f4dc6fe75f827ea8e4172f5247bbf5455edb1a5fa340240dcf69e1"
+      },
+      {
+        "order_id": "00103142",
+        "target": "euro-pallet",
+        "selection_hash": "087d55ac98214a89c1c523b9a7d494847ff2c3f8f0cdd8c3d51a16ceab00941e",
+        "selection_chain": "learning-objectives-v1|20261005|test|00103142",
+        "signature": "0fd6298e3b43250ccc6ebc8e90367c2d4da4e2580bb180688813d2c6c7cc5eb1"
+      },
+      {
+        "order_id": "00107682",
+        "target": "euro-pallet",
+        "selection_hash": "08f239b0fa783dd46f2d705b03f9be4381b1221b2d32608406f1da71f24d7561",
+        "selection_chain": "learning-objectives-v1|20261005|test|00107682",
+        "signature": "2ab3097820087a76f27347dd2ea3fe63231dda5a44dfcc83f4972e37522bc76c"
+      },
+      {
+        "order_id": "00100245",
+        "target": "euro-pallet",
+        "selection_hash": "0a49c80960c68fe2916da3eef41caf38027c61a61a525198a5323bebbc301ae8",
+        "selection_chain": "learning-objectives-v1|20261005|test|00100245",
+        "signature": "9a17f51ca6c63d85c5d2ae216b0c9a24e552d3220abefa39961bf2799b21a3fe"
+      },
+      {
+        "order_id": "00104450",
+        "target": "euro-pallet",
+        "selection_hash": "0a81f19270d5b31a46dbb9daea47b92dca26d1ba017197a1326d6ec74342ac4c",
+        "selection_chain": "learning-objectives-v1|20261005|test|00104450",
+        "signature": "4ce9350a4195a6e53120323632289ec793370758e85bd8df7d47fb63a908c7b2"
+      },
+      {
+        "order_id": "00101289",
+        "target": "euro-pallet",
+        "selection_hash": "0c55431b32e8a0dfc9cd0627807036beebebe383df1439d969232ef7bfc38d6f",
+        "selection_chain": "learning-objectives-v1|20261005|test|00101289",
+        "signature": "85dff147b691bb825ddb6a81a12732c147a2c792b275621305fe112f56f4b4f8"
+      },
+      {
+        "order_id": "00106536",
+        "target": "euro-pallet",
+        "selection_hash": "0c5bad4f080871b6c518881c538dbc67441b54561719bfb9a21839585613c676",
+        "selection_chain": "learning-objectives-v1|20261005|test|00106536",
+        "signature": "1f4e707d977e4dffb95bcce5e0c4ca87ee8ebf5465d2ed11665f4cb737325c26"
+      },
+      {
+        "order_id": "00100985",
+        "target": "euro-pallet",
+        "selection_hash": "0c68db65f3d941658028fc0e35c7e80d3e33d28a9bf2561c8d5ac3201ddec9d7",
+        "selection_chain": "learning-objectives-v1|20261005|test|00100985",
+        "signature": "1a84984e59ae263d12856c94063e500b7687be357a38957a8a3c6c806a5de283"
+      },
+      {
+        "order_id": "00104178",
+        "target": "euro-pallet",
+        "selection_hash": "0d21a1217e80163830632a34a680c598e52c18961763ba2760461739a0aef113",
+        "selection_chain": "learning-objectives-v1|20261005|test|00104178",
+        "signature": "ac6334a99efa25b3e30bfc3348b627cbab30c19d474bf0b7347951ce56f7a146"
+      },
+      {
+        "order_id": "00100552",
+        "target": "euro-pallet",
+        "selection_hash": "0df386ec77dac7785cb3b5488ac4218a04d48ce0cc446619a0e2431fca1820d1",
+        "selection_chain": "learning-objectives-v1|20261005|test|00100552",
+        "signature": "ce3d9b1bd4adcefd574745b65b47fe47e0e2e282d40bf58c85edb197d63f5501"
+      },
+      {
+        "order_id": "00106164",
+        "target": "euro-pallet",
+        "selection_hash": "0e2c07094b59a25af6d27178b10ab3de7d968759c7a35a769ed29f27677b99c2",
+        "selection_chain": "learning-objectives-v1|20261005|test|00106164",
+        "signature": "cdf236eb8547f706322a829fa68db1aab6e3d7970bc28c41b928dbdc6f10d631"
+      },
+      {
+        "order_id": "00102094",
+        "target": "euro-pallet",
+        "selection_hash": "0fa7092632f9c52671f5ac0b540fb047227f4960b60456c86e20691aea824781",
+        "selection_chain": "learning-objectives-v1|20261005|test|00102094",
+        "signature": "c54a293f2d0438781f5981174ad6a8126b60053b0dacea1d4c314594ceb6b6f4"
+      },
+      {
+        "order_id": "00106181",
+        "target": "euro-pallet",
+        "selection_hash": "0fe5283755b9ed9c2f146c391ce3a499c5865fb88427e29e8ae2026f3eb9fabb",
+        "selection_chain": "learning-objectives-v1|20261005|test|00106181",
+        "signature": "6f657fb1bf67e9ba0806f5a7caa2cecae486c5a04efbcd318825e579d3c46104"
+      },
+      {
+        "order_id": "00107012",
+        "target": "euro-pallet",
+        "selection_hash": "1099ebc0dc87e00c066f7f2f47161879afde75a1955f26dce784817348992ee7",
+        "selection_chain": "learning-objectives-v1|20261005|test|00107012",
+        "signature": "3fd3f32d9360ea768ab8d47b80c8acc0790b58ad057273fa722243901ead9064"
+      },
+      {
+        "order_id": "00107627",
+        "target": "euro-pallet",
+        "selection_hash": "115a371afa74d0fcd9d58bcdc829c59b2bf597a80e3e3f79165a83a4829df5d2",
+        "selection_chain": "learning-objectives-v1|20261005|test|00107627",
+        "signature": "8af3860cf63cd45c4da1ae2d79b19e002e76345f74bd91419b8ade4240bcbd47"
+      },
+      {
+        "order_id": "00104457",
+        "target": "euro-pallet",
+        "selection_hash": "116517295343b603dff3f41228ffcf2264163f9ab4df0626765d3751fbd3b883",
+        "selection_chain": "learning-objectives-v1|20261005|test|00104457",
+        "signature": "68a1710f6944b18124c11e882bc4ee92f1ba8064a9b224be83a01b14e8cdaf8a"
+      },
+      {
+        "order_id": "00100271",
+        "target": "euro-pallet",
+        "selection_hash": "11e8f1a889bdc41b2364a91eb618ece7ea75210834f70dd87628225df3117de3",
+        "selection_chain": "learning-objectives-v1|20261005|test|00100271",
+        "signature": "4254f9c55dc1875802d6f26538d503693c34a0ea4c277c58e2cd519b2d3e9d20"
+      },
+      {
+        "order_id": "00101617",
+        "target": "euro-pallet",
+        "selection_hash": "127fe4e6e9ccaed090934008c46aa1694040140e460c12631f17b7f63f9d6e80",
+        "selection_chain": "learning-objectives-v1|20261005|test|00101617",
+        "signature": "823a520a799ed59cd648d00a91057dd4670bcad9de6a68ec363d5055b40a440c"
+      },
+      {
+        "order_id": "00104809",
+        "target": "euro-pallet",
+        "selection_hash": "12e7af923b1433a6bcd2a23f3f8e7ea3d2bbb9c58f7cb87f26d37d55799be646",
+        "selection_chain": "learning-objectives-v1|20261005|test|00104809",
+        "signature": "4cd99f8edd32b062ce98f44d9a983e2c06930a3e96dbc002b2b72b930d81a152"
+      },
+      {
+        "order_id": "00102349",
+        "target": "euro-pallet",
+        "selection_hash": "13f8a80e86d1d5f565e4b72407368c654615195798c99894c76498105b368c09",
+        "selection_chain": "learning-objectives-v1|20261005|test|00102349",
+        "signature": "1c04f72f06ce5046efd768a5f66107584db4b9b0268a0bc02b269c51665dc35c"
+      },
+      {
+        "order_id": "00109523",
+        "target": "euro-pallet",
+        "selection_hash": "151f007d5bf0725812da5df42e8cc73e45ea1f40141005f89a3c98956bf66cbc",
+        "selection_chain": "learning-objectives-v1|20261005|test|00109523",
+        "signature": "d872dffff71b9181697a0143771a994fe9210384daff9cd9f8ac5bdddbd9249d"
+      },
+      {
+        "order_id": "00105081",
+        "target": "euro-pallet",
+        "selection_hash": "157db853f03f3ac2b12562bb72dc40302d9b4be30120f8ae0edcfa4255fb12b7",
+        "selection_chain": "learning-objectives-v1|20261005|test|00105081",
+        "signature": "97cdcc597ba7227f97b146de9e9e17ec49535ce296d70442aee45f39ff19146f"
+      },
+      {
+        "order_id": "00103464",
+        "target": "euro-pallet",
+        "selection_hash": "160028c338f1a0504c5e881e8aa367a8debd03330bdb0a16a69afae2746308b6",
+        "selection_chain": "learning-objectives-v1|20261005|test|00103464",
+        "signature": "51dee4e179fc0c82f2bc763958375b547f68bdb69753529fec0fec3a8ba3392d"
+      },
+      {
+        "order_id": "00104626",
+        "target": "euro-pallet",
+        "selection_hash": "1708466ce71b21432ee96adc4b353c2a71d52edc95018412438c4d0d843b2810",
+        "selection_chain": "learning-objectives-v1|20261005|test|00104626",
+        "signature": "8758913523a7625922a6d5ebd525342c8487cfcd0314b08071f1a27b01141441"
+      },
+      {
+        "order_id": "00104813",
+        "target": "euro-pallet",
+        "selection_hash": "171b7c2269309cb5765da10c83c39a039758b1d8b5f0b5259adc785fdef1bd37",
+        "selection_chain": "learning-objectives-v1|20261005|test|00104813",
+        "signature": "68ecd2f09ac5221c030f3cbf7052684cabff0bbce1bd436077bb64d4b87d6bf4"
+      },
+      {
+        "order_id": "00105387",
+        "target": "euro-pallet",
+        "selection_hash": "171b82bb15a84d4607ecd47354cb6d843b4c1eba1e9ac99b3f6713d14ecb7028",
+        "selection_chain": "learning-objectives-v1|20261005|test|00105387",
+        "signature": "8758dc8e320ea66decb1283a37a2017531619bd5384c4688394df3fa7680794b"
+      },
+      {
+        "order_id": "00108950",
+        "target": "euro-pallet",
+        "selection_hash": "17288a89110597937a4c4eb16db85ef78236e48641c71614e068aae5d7493f8b",
+        "selection_chain": "learning-objectives-v1|20261005|test|00108950",
+        "signature": "88db797c1c52b97aef3b0c8db3a9136c1f8f5ada0706fa0a40fbb22ef2cc4ee7"
+      },
+      {
+        "order_id": "00107653",
+        "target": "euro-pallet",
+        "selection_hash": "17a784e7c5bd28712b0e6f1763c8233bde0f66d2d67a36b32b54e5704a75d7f0",
+        "selection_chain": "learning-objectives-v1|20261005|test|00107653",
+        "signature": "8346b26e8b339be282a9ffb194000d8d73ba2f714ab297a05eab4eae1298e7ca"
+      },
+      {
+        "order_id": "00105567",
+        "target": "euro-pallet",
+        "selection_hash": "189b4a7258e3d9e06699e0fe20a9d0aec5913951d1d52cbdb9a52a51804d7f36",
+        "selection_chain": "learning-objectives-v1|20261005|test|00105567",
+        "signature": "7684dbdaa02f0bffd71c00e134cf25fdf4c7a314d81595c69d6f2d9d89b54691"
+      },
+      {
+        "order_id": "00102381",
+        "target": "euro-pallet",
+        "selection_hash": "1985b0def10ef19c59b960a5215d0c7ad4f9ca7c1a45751f00aa429ae94d2753",
+        "selection_chain": "learning-objectives-v1|20261005|test|00102381",
+        "signature": "6da96c83c7db28fbdd540053e702256da83a070db4482e0d34a08a295fa0d70e"
+      }
+    ],
+    "rollcontainer": [
+      {
+        "order_id": "00102025",
+        "target": "rollcontainer",
+        "selection_hash": "0010246cb3bb00ebb8d9bc85f4a3793881296fff23aa6ae688231d9cda77e4fa",
+        "selection_chain": "learning-objectives-v1|20261005|test|00102025",
+        "signature": "07cdf5b332d475546e91f6d9f9404e9f1f738f93a11099c1d20cdbc19c1d67cd"
+      },
+      {
+        "order_id": "00103776",
+        "target": "rollcontainer",
+        "selection_hash": "005eccc4eed60a49a2126ecb736299cc625e73c0fb20a9e3fb2fd7ebb8af9f63",
+        "selection_chain": "learning-objectives-v1|20261005|test|00103776",
+        "signature": "36883405faa5e82645de840e313d929c138f25581afe0f27a0216112e5cf3b34"
+      },
+      {
+        "order_id": "00108702",
+        "target": "rollcontainer",
+        "selection_hash": "00d2409f5836fdcf6d1f3bfc9d3bd4a0d4b1d5bd63a5e817a475a2a70dd2c2c3",
+        "selection_chain": "learning-objectives-v1|20261005|test|00108702",
+        "signature": "7d7f9bc5d45c1cf66935f93c9a4ef86914d59c0680a7d96ef49fac32537038f5"
+      },
+      {
+        "order_id": "00103136",
+        "target": "rollcontainer",
+        "selection_hash": "00d4a6c96ab6f06f3a53013fb849b16997df55f3d4da6ad57bd9d29eff9d413c",
+        "selection_chain": "learning-objectives-v1|20261005|test|00103136",
+        "signature": "9298efb1d1fee19e98b0a5eacc223d8dd7c38baf84729a134bd98818a4e8efd9"
+      },
+      {
+        "order_id": "00106257",
+        "target": "rollcontainer",
+        "selection_hash": "014a79cb4e681a169c7fe65be0828f6627ceb27622f6d2a3a423900f4e34377c",
+        "selection_chain": "learning-objectives-v1|20261005|test|00106257",
+        "signature": "1d0cbfbd1a0260a78f5db611798054ff10ecf15f860c42843d3d6c86388a310a"
+      },
+      {
+        "order_id": "00106649",
+        "target": "rollcontainer",
+        "selection_hash": "0190dff99cf514e1544c39123d416d0aa5be0951f84acfa2d0d37c6e1a6776de",
+        "selection_chain": "learning-objectives-v1|20261005|test|00106649",
+        "signature": "05e33ceabde604fe0bd4464b71a2ff3830cb5075b2c7b5983036faf2a2aee88e"
+      },
+      {
+        "order_id": "00101696",
+        "target": "rollcontainer",
+        "selection_hash": "0217cd8dabf5ea4a144982a85d236b89355fb508560b5b0f1201c8d45375c032",
+        "selection_chain": "learning-objectives-v1|20261005|test|00101696",
+        "signature": "0186a89abfed2dda486336c9ad651619bc9a22aa0c4a80606685a0bac29eb618"
+      },
+      {
+        "order_id": "00109603",
+        "target": "rollcontainer",
+        "selection_hash": "02aaba6ab2c3799b7db48ce318bd4d5f779e0ec2c16f84e2a6a9ebcb72a667b3",
+        "selection_chain": "learning-objectives-v1|20261005|test|00109603",
+        "signature": "a55fdc5ad2fdd3a87a7023c7775498dc3c2b45b372e198f83808e2d3694dd03b"
+      },
+      {
+        "order_id": "00100091",
+        "target": "rollcontainer",
+        "selection_hash": "02cf8b23eae0a5a07a631e9bc95d591e4a362eb88fc27141dbad3a096e79826a",
+        "selection_chain": "learning-objectives-v1|20261005|test|00100091",
+        "signature": "8c334d5df3e0600e29e9546053d7cb463ec943165765a8128d108a211240e38f"
+      },
+      {
+        "order_id": "00106169",
+        "target": "rollcontainer",
+        "selection_hash": "0303b5696da5af9d61f2f9b22d5173ebbdc6f5e46856dc51da219ded675fac11",
+        "selection_chain": "learning-objectives-v1|20261005|test|00106169",
+        "signature": "645586749178d7ddd494e51a0b2975924c630973d2b185f02e39e52a22db7eec"
+      },
+      {
+        "order_id": "00101647",
+        "target": "rollcontainer",
+        "selection_hash": "03110ed97258ae45c45027ee3a78a3a00e930b081cb82c055e2e0af3a92b3c1b",
+        "selection_chain": "learning-objectives-v1|20261005|test|00101647",
+        "signature": "180fb5f3026723f9ab4bb83fb1aef70387d07d7175d943d4aec392afedf9de0a"
+      },
+      {
+        "order_id": "00109141",
+        "target": "rollcontainer",
+        "selection_hash": "0363cfa720b28d2866eff7a8cb2cc77e05c32e8d9be927928b9c7a10222052a7",
+        "selection_chain": "learning-objectives-v1|20261005|test|00109141",
+        "signature": "6aae1946430ff57be792bed4e20c9c6371ef5ac3dc6d7d293fe03b5f81293461"
+      },
+      {
+        "order_id": "00108993",
+        "target": "rollcontainer",
+        "selection_hash": "03c34a4190dc42d5904b2a2de3e3cc4d6ab23af04be0c793d039ebb1f7465983",
+        "selection_chain": "learning-objectives-v1|20261005|test|00108993",
+        "signature": "fc3a94979bcde6576ec7995b206a0d80134413efe75cbe68dc13391b887c4708"
+      },
+      {
+        "order_id": "00106474",
+        "target": "rollcontainer",
+        "selection_hash": "04f906d3d301e8df5cc0892df9a7baeee5772c64996ff2e6d0a224d0973939b9",
+        "selection_chain": "learning-objectives-v1|20261005|test|00106474",
+        "signature": "d14c8f50ddd5f09da2763a17e941eac6e9f613d93dd806c04f1929f188066f24"
+      },
+      {
+        "order_id": "00103755",
+        "target": "rollcontainer",
+        "selection_hash": "04fb81943e4ca83c640d54b6185243a986e481d08073e0a3f25ab2a6b2485966",
+        "selection_chain": "learning-objectives-v1|20261005|test|00103755",
+        "signature": "0b7598b0e4e2592b4f6960abf4d8051f706f53be68441df4d4b67507672e7f77"
+      },
+      {
+        "order_id": "00101945",
+        "target": "rollcontainer",
+        "selection_hash": "0615ff5579c6be87f9fa7389503f72a00e8a8aac88563ab442386d2d1d8b4fb0",
+        "selection_chain": "learning-objectives-v1|20261005|test|00101945",
+        "signature": "114197faaab067b56cce684ce3399fa3b44f36229502b997e422b87b722a1b73"
+      },
+      {
+        "order_id": "00101919",
+        "target": "rollcontainer",
+        "selection_hash": "066b1589c5a2db5e68d131ede3aa0355ae1041b5fb77a923d186c038459118c0",
+        "selection_chain": "learning-objectives-v1|20261005|test|00101919",
+        "signature": "f2c121308e70a669912b2e5c6ed4e829eb8ef9cf834e200d53ca327ea42c1cc3"
+      },
+      {
+        "order_id": "00109763",
+        "target": "rollcontainer",
+        "selection_hash": "066d31abc615252ebc1e3eea22e77e001e05f773abf367974d8facb222a919f8",
+        "selection_chain": "learning-objectives-v1|20261005|test|00109763",
+        "signature": "516b34f3c1f21b8c864f0461c10d6ea78638675bdf1af89be28ffea86c9950e7"
+      },
+      {
+        "order_id": "00105853",
+        "target": "rollcontainer",
+        "selection_hash": "087249ee12193a97ce26690d052850b8433a9784dd5eb8bc0d24ca822e4d8ae4",
+        "selection_chain": "learning-objectives-v1|20261005|test|00105853",
+        "signature": "4608acd2a647802a14c24ba7c3956386c0f07cdfb7aadae4206ffb25c1030fab"
+      },
+      {
+        "order_id": "00101891",
+        "target": "rollcontainer",
+        "selection_hash": "087dda0e865c81cafab64970041e96fa7afb6d41b8ad60cc9bc2b399b2eb5b12",
+        "selection_chain": "learning-objectives-v1|20261005|test|00101891",
+        "signature": "b4d19f501b49a63f9cf5b2304184875456204944d8f7da39fe749d2048da61a3"
+      },
+      {
+        "order_id": "00100594",
+        "target": "rollcontainer",
+        "selection_hash": "088ee95093e83aab39343633749802f67fefbccecd54ebdca10d6224a800db9a",
+        "selection_chain": "learning-objectives-v1|20261005|test|00100594",
+        "signature": "60598aa728353ead828f5cd55dff9ed52f46148443c9b396a4133833cd42738f"
+      },
+      {
+        "order_id": "00107221",
+        "target": "rollcontainer",
+        "selection_hash": "08e7221ebb43bffaf47aa8dc138719eca9b73bc3d8e5910d29c8fb4f8c225ea0",
+        "selection_chain": "learning-objectives-v1|20261005|test|00107221",
+        "signature": "6f90f0b063495c4be8a103545b00235e4d1cb5c3fbf0f330269792c55082fe78"
+      },
+      {
+        "order_id": "00104187",
+        "target": "rollcontainer",
+        "selection_hash": "096a9cc088d8917c5d27eeb1b9f40cf30d7b8908150d09afe1f132b7d443ff8a",
+        "selection_chain": "learning-objectives-v1|20261005|test|00104187",
+        "signature": "5680b159b4796a5d7076f636b3311726a210c3aa94caa978e3c3c5358385d724"
+      },
+      {
+        "order_id": "00102642",
+        "target": "rollcontainer",
+        "selection_hash": "096bd759a0b0d15d4a7752326125fe2371617087325c2b7f6ff9f4de4f994c35",
+        "selection_chain": "learning-objectives-v1|20261005|test|00102642",
+        "signature": "a27221066acacae0e17fc0a1036857f271a07700d6db37404e03af25eeba3df8"
+      },
+      {
+        "order_id": "00100629",
+        "target": "rollcontainer",
+        "selection_hash": "097011e16cfd8bd3ee0cc259b752837edbed5e398f6b821a491c41ce54b11f67",
+        "selection_chain": "learning-objectives-v1|20261005|test|00100629",
+        "signature": "c8419cbee9ca9ae3260c39bc7ecb95fc82f98b789faf7dda0160ed76f154ba78"
+      },
+      {
+        "order_id": "00103825",
+        "target": "rollcontainer",
+        "selection_hash": "0991e11dc6d36ef8caecf32d243fccd76fb82d5feb33d684f00748ad92723fe7",
+        "selection_chain": "learning-objectives-v1|20261005|test|00103825",
+        "signature": "d6a4ed73761400a3d12a4bfb983763e641b1e3298fb8eefab4b06e0f23eea31d"
+      },
+      {
+        "order_id": "00102009",
+        "target": "rollcontainer",
+        "selection_hash": "0a9d9d63ada0a5267cbb1565bb1ca91577eeea17ae03352561cdc4d284f9adff",
+        "selection_chain": "learning-objectives-v1|20261005|test|00102009",
+        "signature": "99313cb999b16c45e061792861435f3f63c0f52c369a2a4a9da3e361f9d70567"
+      },
+      {
+        "order_id": "00107575",
+        "target": "rollcontainer",
+        "selection_hash": "0ab82b08fce05b9f20ff805973d3dcd814c17747b99e4b70b3dc82813b8834e6",
+        "selection_chain": "learning-objectives-v1|20261005|test|00107575",
+        "signature": "fde89125fbd140afbf58f961ce6e677d98cbf6d896eee58c71bf84d6ca91e086"
+      },
+      {
+        "order_id": "00100284",
+        "target": "rollcontainer",
+        "selection_hash": "0ab989b13a40128685ebff8f03a51f2c835d197eee21177f49920f69daba243d",
+        "selection_chain": "learning-objectives-v1|20261005|test|00100284",
+        "signature": "84a84a6b65a3d282321d3467303640fc7435117fb73116caeeb2c056eed3f6e9"
+      },
+      {
+        "order_id": "00108300",
+        "target": "rollcontainer",
+        "selection_hash": "0bb3c7f8b76caa00b27ec5b7b496e9fe026130831bb0e5b2eaf7faf5051a0346",
+        "selection_chain": "learning-objectives-v1|20261005|test|00108300",
+        "signature": "fe6f315031ba0903ac96b45d2d82c3c5c7bc7dd23bb78d055d921a15ca07dbca"
+      },
+      {
+        "order_id": "00109997",
+        "target": "rollcontainer",
+        "selection_hash": "0be58b74ed64b1e73099de069b21eef562879c51b3738b370375b5276782f782",
+        "selection_chain": "learning-objectives-v1|20261005|test|00109997",
+        "signature": "22a3bbeb196848e13ee5c31edde92960daea7190572a122b4960798fc48c46c8"
+      },
+      {
+        "order_id": "00108048",
+        "target": "rollcontainer",
+        "selection_hash": "0bf344ecfe09549358ff12f8cb2c37c7dcf83017fe9323764ef0c13dfbe51f31",
+        "selection_chain": "learning-objectives-v1|20261005|test|00108048",
+        "signature": "5b3a836d8232425139057a96aae38f7ee85c4835d80372c81ed1e76b5537495f"
+      },
+      {
+        "order_id": "00102090",
+        "target": "rollcontainer",
+        "selection_hash": "0c7489d6c7eec568768b002bab2c8841cf41bb1e9e4252575ff22abfaa722a24",
+        "selection_chain": "learning-objectives-v1|20261005|test|00102090",
+        "signature": "180e780f61f48d2dc8b3330a9d01b880e5087f9a914ba1eb779f1cd826b02069"
+      },
+      {
+        "order_id": "00108686",
+        "target": "rollcontainer",
+        "selection_hash": "0c868112d3f94eb9e24ed226574a68f2c48ab58e6a5f1c9322197e0712a1fb81",
+        "selection_chain": "learning-objectives-v1|20261005|test|00108686",
+        "signature": "2a2a31f987095bbd5a35b28a8cf76f2abd4272014d17b2e363558a0973a07035"
+      },
+      {
+        "order_id": "00109167",
+        "target": "rollcontainer",
+        "selection_hash": "0d7d6c3b7cfc7faf8371c39666b6b84b3ef5a56c182a2684d93e3e10a2e55547",
+        "selection_chain": "learning-objectives-v1|20261005|test|00109167",
+        "signature": "d1b8305ec01487baa66cd1e4044d805340b1436c40f3eb6e1f57144165dec194"
+      },
+      {
+        "order_id": "00101879",
+        "target": "rollcontainer",
+        "selection_hash": "0e929f7114bcf4063fe26f111543bdc558aca6f7528478638706bf0ff4cd8113",
+        "selection_chain": "learning-objectives-v1|20261005|test|00101879",
+        "signature": "546777f9958e2daa1b27fd3b34dd9f706c4eb1a033b39c25a11fb5394b28baf0"
+      },
+      {
+        "order_id": "00109481",
+        "target": "rollcontainer",
+        "selection_hash": "0efd8fa84548ecd9c32dc1683e595c4b3fd4f5bd2afc46a5422cd9bfc22e0be0",
+        "selection_chain": "learning-objectives-v1|20261005|test|00109481",
+        "signature": "5ecb79bf29dc1aabd7195d52fabf68a4b3981251705b46cbe5f1f7e2366c31d7"
+      },
+      {
+        "order_id": "00109267",
+        "target": "rollcontainer",
+        "selection_hash": "0f257bb1f41fdb6f88d6f2b998240a023aded95751a42d4ec2205db9c0f8374d",
+        "selection_chain": "learning-objectives-v1|20261005|test|00109267",
+        "signature": "094b7d64c302521761ed01958fb8851ba4139c507457422918be74367b6f212e"
+      },
+      {
+        "order_id": "00104455",
+        "target": "rollcontainer",
+        "selection_hash": "0fc491c3a29e9700581d98d5d85c8667bfe10aaac0e3165d2581d6401d22f5c7",
+        "selection_chain": "learning-objectives-v1|20261005|test|00104455",
+        "signature": "e9433c81e5b610a57d95eff189ddf656b78fbf88aac343379715f68de688fc35"
+      },
+      {
+        "order_id": "00108198",
+        "target": "rollcontainer",
+        "selection_hash": "110e738059c9cdb185404d52304c94ad3c17822e30f7a66dd5edfbf979856da4",
+        "selection_chain": "learning-objectives-v1|20261005|test|00108198",
+        "signature": "9f42e083e2e245a17c6cb5c8b0644f3a05a338357eac395fa4febb8c6ab34cd0"
+      },
+      {
+        "order_id": "00104921",
+        "target": "rollcontainer",
+        "selection_hash": "112aa77684ef007fc44b3e103ada4ea9f47ba6b31160541bfdced5842ec6f2a9",
+        "selection_chain": "learning-objectives-v1|20261005|test|00104921",
+        "signature": "21cda85c8a3947534fe625a239374de30feb3a3da932c5c65c150dfee9210a79"
+      },
+      {
+        "order_id": "00100713",
+        "target": "rollcontainer",
+        "selection_hash": "117a09a1a59002c482ae5b25539e817608fd9a8504e5a1aa978a6972f1acf3a2",
+        "selection_chain": "learning-objectives-v1|20261005|test|00100713",
+        "signature": "127aeb5690168edf32caa02ad0fda1fb21efd51400e33dbb593c260c425178c7"
+      },
+      {
+        "order_id": "00106170",
+        "target": "rollcontainer",
+        "selection_hash": "1189eb31d6a4e9c8f1de4d4406af1921359fb9562caeb2516c8e3d7a86672621",
+        "selection_chain": "learning-objectives-v1|20261005|test|00106170",
+        "signature": "e8aa446a8d68d9fad1520e01f3b34e5886c28c73744f08aba61e1310189b75b4"
+      },
+      {
+        "order_id": "00107062",
+        "target": "rollcontainer",
+        "selection_hash": "1196704e470bed38026b83bd77944a8bf74c8e826a06475eb62f30046b459804",
+        "selection_chain": "learning-objectives-v1|20261005|test|00107062",
+        "signature": "95b1fb1b7b50d83b7f75bf0d9fd0b11532a46f4f9ba3df79efadb713e7434e90"
+      },
+      {
+        "order_id": "00103991",
+        "target": "rollcontainer",
+        "selection_hash": "11e806988a1063c2a36e6ad00c3d318a208312e656da7d4ef42ccb052c600d0b",
+        "selection_chain": "learning-objectives-v1|20261005|test|00103991",
+        "signature": "3f6228ed255bdd1fd65659ea6606e2a73580e9aafa70d48fd2e0b1cdd748551d"
+      },
+      {
+        "order_id": "00107074",
+        "target": "rollcontainer",
+        "selection_hash": "1202f9b05987a7359ba8cf86a3b5634e4141f2246419d04c378f3f768c36c898",
+        "selection_chain": "learning-objectives-v1|20261005|test|00107074",
+        "signature": "c09d0d57fcbc8036a47af97183511a7057d04974d8699cef368594340a158ba4"
+      },
+      {
+        "order_id": "00106814",
+        "target": "rollcontainer",
+        "selection_hash": "12a0b252b5e6bd374073ffee80bbdf5f15f923b522ebf8637bb9d60804628143",
+        "selection_chain": "learning-objectives-v1|20261005|test|00106814",
+        "signature": "bb9a205f9ab04cf7cfa4269748729d51ee0aacd06b14693d21bdd6c481be1fc4"
+      },
+      {
+        "order_id": "00102472",
+        "target": "rollcontainer",
+        "selection_hash": "136b45afba3000378075c749ad3db9bd8b2d897768410db3f8662a93c5e7c441",
+        "selection_chain": "learning-objectives-v1|20261005|test|00102472",
+        "signature": "ddb76a57c461745b755056a0588a3ed4f7336fe3f341aa1f99002f2a2832a313"
+      },
+      {
+        "order_id": "00109031",
+        "target": "rollcontainer",
+        "selection_hash": "13a2e06aed9975741069598ad5a125da99228894b2b0b9f5f7f5bc4f70366c83",
+        "selection_chain": "learning-objectives-v1|20261005|test|00109031",
+        "signature": "eb3e5f6bf8d80c6fd40336df5168ec963bbde09a5a16c63fac3cb7ff66ada530"
+      },
+      {
+        "order_id": "00108355",
+        "target": "rollcontainer",
+        "selection_hash": "141370ee3861dab9dfd403db9125be464f7027de5149a5917bf4e495faa28f73",
+        "selection_chain": "learning-objectives-v1|20261005|test|00108355",
+        "signature": "c5ebf3be592442f0c9add8f14caf94443e1c39f1a51caa8b3d7e9135dd718ff3"
+      }
+    ]
+  },
+  "dropped_clones": {
+    "train": [],
+    "development": [],
+    "test": []
+  },
+  "preflight_orders": [
+    {
+      "order_id": "00105883",
+      "target": "euro-pallet",
+      "role": "first_train_by_target"
+    },
+    {
+      "order_id": "00104801",
+      "target": "rollcontainer",
+      "role": "first_train_by_target"
+    }
+  ],
+  "n_blocked_signatures": 8826,
+  "n_blocked_signatures_val": 8826,
+  "n_blocked_signatures_test": 7557,
+  "n_unsigned_absent": 0,
+  "absolute_independence": false,
+  "exposure_audit_val_remaining": {
+    "euro-pallet": 525,
+    "rollcontainer": 651
+  },
+  "exposure_audit_test_remaining": {
+    "euro-pallet": 575,
+    "rollcontainer": 694
+  },
+  "note_test": "Las firmas de test se calcularon solo para elegibilidad/disyunción/clon; no se analizó packing ni retornos. full.test no se autoexcluye."
+}

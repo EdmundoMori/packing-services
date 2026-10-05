@@ -1,0 +1,17 @@
+\section{Related work}
+
+Decision-focused learning trains predictors so that downstream combinatorial
+decisions have low regret rather than low parameter error alone.
+\cite{mandi2022decision} cast that setting as learning to rank feasible
+solutions and derive pointwise, pairwise, pairwise-difference, and listwise
+surrogate losses over a subset $S$ of solutions. Their pairwise-difference loss
+regresses differences of true objective values against differences of predicted
+objectives (their Eq.~13). Their listwise loss follows a ListNet-style cross-entropy with a temperature,
+as stated in Mandi et al.\ (their Eq.~15--16).
+
+Our setting differs in structural ways documented in the repository audit:
+candidates are local packing actions rather than full CO solutions; labels are
+returns of a concrete greedy continuation rather than solver-optimal objective
+values; and the deployed scorer selects among candidates at each online step.
+We therefore treat Mandi et al.\ as a source of adaptable loss forms, not as a
+target for exact reproduction.

@@ -1,0 +1,27 @@
+\section{Results}
+
+\subsection{Exploratory pilot}
+
+The closed counterfactual pilot compared classification and preference losses
+with shared data and architecture on twelve development orders and three seeds
+(84 complete episodes). Recalculation from published per-order results gives:
+\begin{align*}
+\mathrm{preferences}-\mathrm{classification} &= 0.03094863126240079,\\
+\mathrm{preferences}-\mathrm{greedy} &= -0.019783628885582008,\\
+\mathrm{classification}-\mathrm{greedy} &= -0.050732260147982794.
+\end{align*}
+An analysis designed after observing that pilot, using order-level means and a
+stratified order bootstrap (20{,}000 replicates, seed 20261004), yields an
+exploratory 95\% interval for the preferences-minus-classification mean of
+$[-0.004208279906580691, 0.07644716396432695]$. The interval includes zero and
+is not a confirmatory claim.
+
+That pilot labelled at most four candidates per state while deployment scored
+the full legal list. It is therefore exploratory and not an exact reproduction
+of the unified support contract $S$ specified in this draft. Ranking regret on
+labelled greedy states did not uniformly foreshadow episode-level utilisation.
+
+\subsection{New study results}
+
+TODO: results of any preregistered learning-objectives campaign after protocol
+freeze and execution. No hypothetical numbers are stated here.

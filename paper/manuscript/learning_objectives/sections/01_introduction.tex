@@ -1,0 +1,19 @@
+\section{Introduction}
+
+Online packing systems often reduce each placement decision to scoring a finite
+set of geometrically legal candidates. When supervision is available for those
+candidates, the choice of learning objective---classification of the best
+candidate, pairwise preference learning, or a return-difference loss---can
+change which candidates are preferred and, downstream, the quality of complete
+packing episodes.
+
+This manuscript studies that choice under a controlled contract: one container
+per order, original item sequence, compact geometric legality, and no claim of
+full robotic physical validation. The work is \emph{not} presented as
+reinforcement learning. Prior closed campaigns in the same repository remain
+closed; their outcomes motivate the question without being numerically pooled.
+
+We do not assert demonstrated novelty relative to the broader packing or
+predict-and-optimize literature. The intended contribution, if a protocol is
+later frozen and executed, is a bounded empirical comparison of supervision
+objectives with shared representation, labels, engine, and budget.

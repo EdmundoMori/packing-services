@@ -1,0 +1,17 @@
+\section{Reproducibility notes}
+
+Artefacts live under
+\texttt{paper/studies/counterfactual\_ranking/}
+(closed exploratory pilot) and
+\texttt{paper/studies/learning\_objectives/}
+(audits, frozen protocol, sample manifest, reduced preflight).
+The manuscript sources are in
+\texttt{paper/manuscript/learning\_objectives/}.
+Frozen protocol and sample hashes are recorded in
+\texttt{protocol\_frozen.json} and \texttt{sample\_manifest.json}.
+
+Exploratory reanalysis code does not load checkpoints for inference and does
+not call the packing engine as a confirmatory study. Historical campaign
+closures are preserved. Seventeen untracked historical transition pickles are
+intentionally excluded from versioned scientific claims. This draft does not
+authorise labelling, training, development packing or test packing.

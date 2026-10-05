@@ -1,0 +1,82 @@
+\section{Experimental protocol}
+
+The geometric contract is frozen for this study: original input order; one
+container of the order's own target; $p=s=1$; up to six audited orientations;
+containment and non-overlap active; weight, basic stability and load-bearing
+inactive; stop at the first current item without a legal candidate;
+$U_{\mathrm{geom}}$ as oriented placed volume over the fixed container volume;
+$\mathrm{physical\_stability\_verified}=\mathrm{null}$.
+
+The support map
+$S=\texttt{greedy\_plus\_orientation\_position\_diversity\_v1}$ is shared by
+labelling, training and deployment. It keeps at most four distinct geometries,
+always includes greedy first, then greedily maximises the lexicographic key
+$(\mathrm{new\_orientation},\mathrm{min\ Chebyshev\ to\ chosen},-\mathrm{source\_index})$
+after exact $\mathrm{float()}$ geometric identities. Exact logit ties keep the
+smallest index in $S$.
+
+$Q_{\mathrm{hat}}$ is the utilisation of a full greedy continuation after the
+labelled action. The real suffix is used only to build labels. It is not a
+global optimum and not the value of the learned policy.
+
+\paragraph{Arms.}
+Classification, the existing preference loss (tie coefficient $1.0$, no
+temperature), and a Mandi-adapted return-difference loss on strict ordered pairs
+inside $S$. Scores are larger-is-better. State losses are averaged with equal
+weight.
+
+\paragraph{Architecture and fitting.}
+The audited 17-feature encoder (present information only) feeds
+$\mathrm{Linear}(17,64)\to\mathrm{ReLU}\to\mathrm{Linear}(64,1)$ with the last
+layer initialised at zero. Seeds $11,23,37$ are paired across arms. Training uses
+forty Adam steps (one per epoch on the mean state loss) with
+$\mathrm{lr}=0.001$, $\mathrm{weight\_decay}=10^{-4}$,
+$\beta=(0.9,0.999)$, $\varepsilon=10^{-8}$, and amsgrad/foreach/fused off;
+gradient clipping uses $\ell_2$ norm with maximum $1$; checkpoint is epoch 40;
+CPU with one Torch thread and one interop thread. Normalisation uses train rows
+only (equal row weight; population standard deviation; denominator $1$ on
+constant columns) and is not refit on development or test.
+
+\paragraph{Samples.}
+Train $48$ and development $24$ orders are drawn from \texttt{full.val}
+($24$/$12$ per target). Test $100$ orders ($50$ per target) are drawn from
+\texttt{full.test}. Selection sorts by SHA256 of
+\texttt{learning-objectives-v1|20261005|\{split\}|\{order\_id\}}, with id as
+tie-break, after excluding registered positive exposure and snapshot-signature
+clones. Absence of a registered id is not absolute independence. Sample sizes
+are a scope and budget decision, not a power analysis. Test identities may be
+listed; packing, labels, predictions and returns on test are not analysed until
+authorised.
+
+\paragraph{Labelling.}
+Up to four incomplete states per order are taken at quantiles of the greedy
+trajectory:
+$\mathrm{floor}(i(N-1)/(L-1)+1/2)$ with duplicates dropped and not refilled.
+Old incompatible labels are not reused.
+
+\paragraph{Primary contrast.}
+For each order $i$, $d_i$ is the seed-mean of
+$U_{\mathrm{geom}}(\mathrm{preferences},i)-U_{\mathrm{geom}}(\mathrm{classification},i)$.
+The primary result is the arithmetic mean of $d_i$ with equal order weight.
+Secondary contrasts include return-difference versus the other arms, both main
+arms versus greedy, target breakdowns, $R_S$ on labelled states, failures and
+timings. Greedy is run once per order under the same contract. On test, a
+stratified order bootstrap (20{,}000 replicates,
+\texttt{numpy.random.default\_rng(20261005)}, seeds and methods kept together,
+percentiles $2.5$/$97.5$, \texttt{method="linear"}) is reserved for authorised
+evaluation. Secondary analyses do not rescue a non-conclusive primary contrast.
+An interval containing zero does not prove equality. Results are not extrapolated
+to physical stability or superiority over PCT.
+
+\paragraph{Gates and budget.}
+Operational, post-training and development gates are frozen in
+\texttt{protocol\_frozen.json}. The development gate requires mean
+preferences-minus-classification $\ge 0.005$, a positive mean in at least two of
+three seeds, non-negative aggregate difference on each target, complete audited
+evaluation, and remaining budget for test. It does not require beating greedy.
+Wall-clock ceiling for new experimental compute is $28800$\,s (preflight $900$,
+labelling $13500$, training $1800$, development $3600$, test $9000$), with no
+automatic reallocation. Writing time is recorded separately.
+
+This manuscript records the freeze and a reduced train-only preflight. It does
+not authorise or report the full campaign.

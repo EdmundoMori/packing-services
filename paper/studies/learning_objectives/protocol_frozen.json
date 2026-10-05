@@ -1,0 +1,221 @@
+{
+  "study": "learning_objectives",
+  "status": "frozen",
+  "authorizes_full_campaign": false,
+  "authorizes_labeling": false,
+  "authorizes_training": false,
+  "head_at_freeze": "904038ff7f495510f1b8f3d398da3e4eb281a406",
+  "branch_at_freeze": "research/paper-online-packing",
+  "dataset": "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "support_contract": {
+    "name": "greedy_plus_orientation_position_diversity_v1",
+    "limit": 4,
+    "includes_greedy": true,
+    "geometric_id": "(bin_index:int, x:float, y:float, z:float, length:float, width:float, height:float)",
+    "numeric_comparison": "float() sobre coordenadas y aristas; igualdad exacta de tuplas tras float()",
+    "chebyshev": "max(|dx|,|dy|,|dz|) entre posiciones presentes",
+    "diversity_priority": "lexicográfico maximizar (nueva_orientacion, chebyshev_min_a_elegidos, -source_index)",
+    "order_in_S": "Greedy primero; demás en orden de selección de diversidad",
+    "source_of_truth": "tools/candidate_support.py::build_candidate_support",
+    "call_sites": [
+      "pipeline.labeling_select_support",
+      "pipeline.deployment_select_action",
+      "support_api.build_S"
+    ]
+  },
+  "geometry_contract": {
+    "sequence": "input_order original",
+    "containers": 1,
+    "target": "propio del pedido",
+    "p": 1,
+    "s": 1,
+    "orientations": "hasta seis permutaciones según conversion auditada compacta",
+    "containment": true,
+    "non_overlap": true,
+    "max_weight": false,
+    "basic_stability": false,
+    "load_bearing": false,
+    "stop": "primer ítem actual sin candidata legal",
+    "U_geom": "volumen orientado colocado / volumen fijo del contenedor",
+    "physical_stability_verified": null
+  },
+  "q_hat": {
+    "definition": "U_geom de continuación Greedy completa tras la acción, con sufijo real solo al etiquetar",
+    "not": [
+      "optimo_global",
+      "upper_bound_global",
+      "valor_de_la_politica_aprendida"
+    ]
+  },
+  "logit_tie_break": "mayor score; empate exacto -> menor índice en S",
+  "arms": [
+    "classification",
+    "preferences",
+    "return_difference"
+  ],
+  "losses": {
+    "score_sign": "mayor_es_mejor",
+    "tie_eps": 1e-09,
+    "preference_tie_coefficient": 1.0,
+    "state_reduction": "media aritmética con peso uno por estado",
+    "classification": "CE natural; masa uniforme sobre máximos empatados de Q_hat; sin temperatura",
+    "preferences": "pares i<j; softplus(-(s_high-s_low)) con peso |dQ| renormalizado; empates: media de (si-sj)^2 * 1.0",
+    "return_difference": "adaptación Mandi 2022 §4.3 Eq.13; media de ( (sp-sq)-(Qp-Qq) )^2 sobre pares estrictos; 0 si todos empatan"
+  },
+  "architecture": {
+    "encoder": "17 features presentes sin sufijo",
+    "mlp": "Linear(17,64)->ReLU->Linear(64,1)",
+    "last_layer_init": "cero",
+    "seeds": [
+      11,
+      23,
+      37
+    ],
+    "paired_initialization": true,
+    "epochs": 40,
+    "adam": {
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "eps": 1e-08,
+      "amsgrad": false,
+      "foreach": false,
+      "fused": false
+    },
+    "grad_clip": {
+      "max_norm": 1.0,
+      "norm_type": 2.0
+    },
+    "checkpoint": "epoch_40",
+    "early_stopping": false,
+    "seed_selection": false,
+    "device": "cpu",
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 1,
+    "shared_permutations_per_seed": true
+  },
+  "normalization": {
+    "fit_on": "train_rows_only",
+    "row_weight": "equal",
+    "scale": "population_std_or_1_if_constant",
+    "refit_on_development_or_test": false
+  },
+  "samples": {
+    "train": {
+      "n": 48,
+      "per_target": 24,
+      "pool": "full.val"
+    },
+    "development": {
+      "n": 24,
+      "per_target": 12,
+      "pool": "full.val"
+    },
+    "test": {
+      "n": 100,
+      "per_target": 50,
+      "pool": "full.test"
+    },
+    "selection_chain_template": "{namespace}|{split}|{order_id}",
+    "sizes_are_scope_not_power": true
+  },
+  "labeling": {
+    "states_per_order_max": 4,
+    "quantile_rule": "floor(i*(N-1)/(limit-1)+0.5); duplicates dropped without refill",
+    "train_max_states": 192,
+    "train_max_continuations": 768,
+    "development_max_states": 96,
+    "development_max_continuations": 384,
+    "incomplete_states_kept": true,
+    "no_training_on_partial_labels": true,
+    "reuse_old_labels": false
+  },
+  "metrics": {
+    "primary": "mean_i mean_seed (U_pref - U_class)",
+    "secondary": [
+      "return_difference vs other arms",
+      "pref and class vs Greedy",
+      "by_target",
+      "R_S on labeled states",
+      "failures_and_timings"
+    ],
+    "greedy_once_per_order": true,
+    "test_bootstrap": {
+      "replicas": 20000,
+      "rng": "numpy.random.default_rng(20261005)",
+      "unit": "order",
+      "stratify_by_target": true,
+      "keep_seeds_and_methods_together": true,
+      "percentiles": [
+        2.5,
+        97.5
+      ],
+      "method": "linear"
+    }
+  },
+  "gates": {
+    "operational_before_campaign": [
+      "support_inputs_restore_geometry_ok",
+      "no_unknown_returns_in_preflight",
+      "hashes_verifiable",
+      "budget_estimate_compatible_with_uncertainty"
+    ],
+    "after_training": [
+      "nine_complete_models",
+      "pairing_checked",
+      "data_and_normalization_ok",
+      "no_nonfinite_values"
+    ],
+    "development": {
+      "mean_pref_minus_class_ge": 0.005,
+      "positive_mean_in_at_least_two_seeds": true,
+      "aggregate_nonnegative_per_target": true,
+      "complete_audited_evaluation": true,
+      "remaining_budget_for_test": true,
+      "does_not_require_beating_greedy": true,
+      "engineering_gate_not_significance_test": true
+    }
+  },
+  "budget": {
+    "total_wall_seconds": 28800,
+    "preflight_wall_seconds": 900,
+    "labeling_wall_seconds": 13500,
+    "training_wall_seconds": 1800,
+    "development_wall_seconds": 3600,
+    "test_wall_seconds": 9000,
+    "no_automatic_reallocation": true,
+    "writing_time_separate": true
+  },
+  "code_files": [
+    "tools/candidate_support.py",
+    "tools/support_api.py",
+    "tools/pipeline.py",
+    "tools/losses.py",
+    "tools/support_metrics.py",
+    "tools/quantile_sampling.py",
+    "tools/model_spec.py",
+    "tools/normalization.py",
+    "tools/select_samples.py",
+    "tools/preflight.py",
+    "tools/freeze_protocol.py"
+  ],
+  "code_hashes": {
+    "tools/candidate_support.py": "767a5bcc1ca4d279bb64044582e75686d19a7ca0bc191ec66bcf1af2e93aded3",
+    "tools/support_api.py": "e07026f4a6bf73e143fa6ffc7ae7e610a3cc695ed47298d5cc7bfbbd2c5954dc",
+    "tools/pipeline.py": "3e7e6d118477ddb63f7e274fd6878881be5b2b85c1997717f4df301b3dbd4daf",
+    "tools/losses.py": "50e862d2538422de9687ff46d17b440b04a5b21392f33b64c1c45484c497699d",
+    "tools/support_metrics.py": "deebca5a6bcf3bad637df801de4a2589357a76204b5e7808c44463d259767e81",
+    "tools/quantile_sampling.py": "1cf45c0d699391ae13cff4423b6447fc59c4c9f482fc5ccd53368701e59c6ec0",
+    "tools/model_spec.py": "ca2f6dc31fbd2a85ec266a47de2932dd1c249822c7a6f521495190f5da21f499",
+    "tools/normalization.py": "1d61d444662cbf584e844c48dc6af9e80228fd2aa140615a47bd9626c7dab61d",
+    "tools/select_samples.py": "cf8c29ea1f734a7776fb59caaf97086593dbe565dd3f34b064448efdb4901d40",
+    "tools/preflight.py": "152b4bbb1e9cd728fa65788f082b3e9a4861b4a98ca8599af6c3c18caa08c9ab",
+    "tools/freeze_protocol.py": "723a85115489378aa27795d9dc0a12db7e3eb6f2dfd31e05c03cad5289603b98"
+  },
+  "sample_manifest_sha256": "782eb3abe10163270db8dec9594d099ea936e4491747278bee1b06a73accda62",
+  "sha256": "a5959cb602ee00dfcb56b531de02d6e9d1dd618c42a54b7aa1e0d2214e6ad155"
+}

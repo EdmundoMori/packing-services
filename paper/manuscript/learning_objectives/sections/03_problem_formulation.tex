@@ -1,0 +1,35 @@
+\section{Problem formulation}
+
+An order is a sequence of items together with a single container of a declared
+target (euro-pallet or rollcontainer). At each step the engine exposes the
+current item and the set of legal placements under the compact geometric
+contract: containment, non-overlap, explicit orientations, inactive weight and
+stability constraints, and stop at the first current item with no legal
+candidate. Physical stability is recorded as null and is not claimed.
+
+A candidate encoder maps the present state and a candidate to a fixed 17-dimensional
+feature vector that excludes future suffix identifiers and return labels. Before
+scoring, every arm applies the same pure support map
+$S(\mathcal{L},\mathrm{greedy})$ that returns at most four distinct geometries,
+always including the greedy proposal, using only present geometry. Labelling,
+training and deployment must call this single implementation.
+
+A model assigns a scalar score to each candidate in $S_t$. Larger scores mean
+better candidates; exact logit ties keep the smallest index inside $S_t$.
+The episode metric is geometric utilisation
+\begin{equation}
+  U_{\mathrm{geom}}
+  =
+  \frac{\sum_{p\in\mathrm{placements}} \mathrm{vol}(p)}{\mathrm{vol}(\mathrm{container})}.
+\end{equation}
+Privileged continuation returns $Q_{\mathrm{hat}}(a)$ used only when building
+labels are the utilisation obtained by committing candidate $a$ and completing
+the suffix with greedy. They are not global optima and not values of the learned
+policy.
+
+Support regret on labelled states,
+\begin{equation}
+  R_S(s)=\max_{a\in S(s)} Q_{\mathrm{hat}}(s,a)-Q_{\mathrm{hat}}(s,\pi(s)),
+\end{equation}
+is defined only when every needed return is known and $\pi(s)\in S(s)$. It does
+not replace complete-episode evaluation.

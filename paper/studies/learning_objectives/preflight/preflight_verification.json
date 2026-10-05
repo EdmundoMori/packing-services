@@ -1,0 +1,61 @@
+{
+  "status": "completed",
+  "orders": [
+    {
+      "order_id": "00105883",
+      "target": "euro-pallet",
+      "n_choice_states_found": 39,
+      "selected_indices": [
+        0,
+        13
+      ],
+      "unknown_returns": 0,
+      "wall_seconds": 13.838499237000178,
+      "snapshot_target": null,
+      "physical_stability_verified": null,
+      "n_states": 2
+    },
+    {
+      "order_id": "00104801",
+      "target": "rollcontainer",
+      "n_choice_states_found": 48,
+      "selected_indices": [
+        0,
+        16
+      ],
+      "unknown_returns": 0,
+      "wall_seconds": 21.26580563600055,
+      "snapshot_target": null,
+      "physical_stability_verified": null,
+      "n_states": 2
+    }
+  ],
+  "states_used": 4,
+  "continuations_used": 16,
+  "unknown_returns": 0,
+  "wall_seconds": 35.121554053999716,
+  "memory": {
+    "ru_maxrss_kb": 399836,
+    "note": "ru_maxrss es pico del proceso; no es RSS conjunto ni duración de pared"
+  },
+  "code_hashes": {
+    "tools/candidate_support.py": "767a5bcc1ca4d279bb64044582e75686d19a7ca0bc191ec66bcf1af2e93aded3",
+    "tools/support_api.py": "e07026f4a6bf73e143fa6ffc7ae7e610a3cc695ed47298d5cc7bfbbd2c5954dc",
+    "tools/pipeline.py": "3e7e6d118477ddb63f7e274fd6878881be5b2b85c1997717f4df301b3dbd4daf",
+    "tools/losses.py": "50e862d2538422de9687ff46d17b440b04a5b21392f33b64c1c45484c497699d",
+    "tools/support_metrics.py": "deebca5a6bcf3bad637df801de4a2589357a76204b5e7808c44463d259767e81",
+    "tools/quantile_sampling.py": "1cf45c0d699391ae13cff4423b6447fc59c4c9f482fc5ccd53368701e59c6ec0",
+    "tools/model_spec.py": "ca2f6dc31fbd2a85ec266a47de2932dd1c249822c7a6f521495190f5da21f499",
+    "tools/normalization.py": "1d61d444662cbf584e844c48dc6af9e80228fd2aa140615a47bd9626c7dab61d",
+    "tools/select_samples.py": "cf8c29ea1f734a7776fb59caaf97086593dbe565dd3f34b064448efdb4901d40",
+    "tools/preflight.py": "152b4bbb1e9cd728fa65788f082b3e9a4861b4a98ca8599af6c3c18caa08c9ab",
+    "tools/freeze_protocol.py": "723a85115489378aa27795d9dc0a12db7e3eb6f2dfd31e05c03cad5289603b98"
+  },
+  "protocol_sha256": "a5959cb602ee00dfcb56b531de02d6e9d1dd618c42a54b7aa1e0d2214e6ad155",
+  "support_contract": "greedy_plus_orientation_position_diversity_v1",
+  "greedy_in_all_recorded_supports": true,
+  "physical_stability_verified": null,
+  "training_executed": false,
+  "development_executed": false,
+  "test_executed": false
+}

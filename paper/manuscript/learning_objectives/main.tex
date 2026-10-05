@@ -1,0 +1,46 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{natbib}
+
+\title{Learning Objectives for Candidate Selection in Online 3D Packing:\\
+A Controlled Empirical Study}
+\author{Provisional draft compiled from the packing-services research archive}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This draft freezes a controlled empirical protocol comparing supervised learning
+objectives for candidate selection in online one-container packing under a
+shared geometric contract and a shared support map $S$. A reduced train-only
+preflight is recorded; labelling, training, development and test are not
+authorised here. The draft does not claim novelty, PCT superiority, physical
+stability, or publication acceptance. An exploratory counterfactual pilot already
+published in the repository is summarised separately and is not reused as a
+result of this campaign.
+\end{abstract}
+
+\tableofcontents
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_problem_formulation}
+\input{sections/04_learning_objectives}
+\input{sections/05_experimental_protocol}
+\input{sections/06_results}
+\input{sections/07_discussion}
+\input{sections/08_conclusion}
+
+\appendix
+\input{appendices/reproducibility}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}
