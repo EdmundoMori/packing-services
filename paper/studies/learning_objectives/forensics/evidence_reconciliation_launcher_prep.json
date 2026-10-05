@@ -1,0 +1,116 @@
+{
+  "kind": "evidence_reconciliation_pre_attempt03_launcher",
+  "n_content_verified_orders": 46,
+  "mutually_exclusive_categories": {
+    "referenced_readonly_from_attempt01": {
+      "n": 12,
+      "ids": [
+        "00101334",
+        "00101384",
+        "00103305",
+        "00104010",
+        "00104251",
+        "00104801",
+        "00105453",
+        "00105883",
+        "00106510",
+        "00107369",
+        "00107708",
+        "00108032"
+      ]
+    },
+    "newly_executed_attempt02_excluding_repeat": {
+      "n": 33,
+      "ids": [
+        "00100464",
+        "00100727",
+        "00101098",
+        "00101233",
+        "00102292",
+        "00102767",
+        "00102964",
+        "00103125",
+        "00103607",
+        "00103653",
+        "00104000",
+        "00104604",
+        "00104736",
+        "00105274",
+        "00105354",
+        "00105763",
+        "00106013",
+        "00106125",
+        "00106371",
+        "00106793",
+        "00107580",
+        "00107718",
+        "00107765",
+        "00107768",
+        "00107788",
+        "00107806",
+        "00107831",
+        "00107904",
+        "00108710",
+        "00109181",
+        "00109197",
+        "00109335",
+        "00109684"
+      ]
+    },
+    "inevitable_repeat_00108806": {
+      "n": 1,
+      "ids": [
+        "00108806"
+      ]
+    }
+  },
+  "category_sum_equals_46": true,
+  "note_on_prior_34_plus_1": "Previously “34 nuevos” counted nonsymlink results including the repeat; exclusive split is 33 new + 1 repeat + 12 referenced = 46",
+  "pending": {
+    "n": 26,
+    "train": 2,
+    "development": 24,
+    "ids": [
+      "00109078",
+      "00102629",
+      "00107391",
+      "00106955",
+      "00108470",
+      "00105989",
+      "00102744",
+      "00104382",
+      "00106806",
+      "00100842",
+      "00102462",
+      "00101838",
+      "00108036",
+      "00108236",
+      "00109447",
+      "00107236",
+      "00102796",
+      "00102346",
+      "00105250",
+      "00105797",
+      "00107107",
+      "00103460",
+      "00106319",
+      "00103738",
+      "00107235",
+      "00105391"
+    ],
+    "matches_progress_pending": true
+  },
+  "preflight_unique_geom_keys_available": 16,
+  "preflight_reused_alts_observed_in_46": 16,
+  "geom_keys_unique_in_46_except_repeat_allowed": true,
+  "staging": {
+    "n": 35,
+    "by_class": {
+      "staging_duplicate_of_complete_final": 34,
+      "incomplete_no_result": 1
+    },
+    "valid_recoverable_candidates": [],
+    "auto_promote_forbidden": true
+  },
+  "living_labeling_processes": false
+}

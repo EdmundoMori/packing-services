@@ -1042,8 +1042,8 @@
     "compatibility": "No modifica protocol_frozen.json, sample_manifest.json, preflight ni losses.py. labeling_campaign.py del intento 01 se conserva."
   },
   "authorization": {
-    "recovery_authorized": false,
+    "recovery_authorized": true,
     "executed": false,
-    "note": "Actualizar al ejecutar."
+    "note": "execution_starting"
   }
 }

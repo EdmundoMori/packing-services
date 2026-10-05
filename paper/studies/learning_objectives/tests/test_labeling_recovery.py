@@ -17,7 +17,7 @@ if str(HERE) not in sys.path:
 from labeling_integrity import audit_labeling_tree, verify_order_artifacts  # noqa: E402
 from labeling_io import AtomicWriteError, atomic_write_json, read_json_strict  # noqa: E402
 from labeling_recovery import (  # noqa: E402
-    REGISTERED_ORDER_WALL_SUM_SECONDS,
+    CONSERVATIVE_PRIOR_LABELING_WALL_SECONDS,
     build_recovery_plan,
 )
 
@@ -161,16 +161,17 @@ class TestRecoveryPlan(unittest.TestCase):
         self.assertFalse(plan["authorization"]["executed"])
         self.assertGreaterEqual(len(plan["reusable_order_ids"]), 12)
         self.assertIn("00108806", plan["corrupt_order_ids"])
-        self.assertEqual(len(plan["pending_registered_order_ids"]), 59)
-        ba = plan["budget_accounting"]
-        self.assertEqual(ba["registered_order_wall_sum_seconds"], REGISTERED_ORDER_WALL_SUM_SECONDS)
-        self.assertFalse(ba["registered_is_proven_total_wall_bound"])
-        self.assertGreater(ba["operational_reserve_seconds"], 0)
-        self.assertAlmostEqual(
-            ba["remaining_labeling_wall_seconds"],
-            13500.0 - ba["prior_wall_accounted_for_deadline_seconds"],
+        self.assertEqual(len(plan["never_executed_order_ids"]), 59)
+        self.assertEqual(
+            plan["budget_accounting"]["prior_labeling_wall_charged_seconds"],
+            CONSERVATIVE_PRIOR_LABELING_WALL_SECONDS,
         )
-        self.assertEqual(ba["preflight_wall_seconds_separate"], 35.121554053999716)
+        self.assertAlmostEqual(
+            plan["budget_accounting"]["remaining_labeling_wall_seconds"],
+            13500.0 - CONSERVATIVE_PRIOR_LABELING_WALL_SECONDS,
+        )
+        self.assertEqual(plan["budget_accounting"]["preflight_wall_seconds_separate"], 35.121554053999716)
+        # test excluded from pending work
         self.assertTrue(all(item["split"] != "test" for item in plan["pending_work_in_manifest_order"]))
         self.assertEqual(len(plan["pending_work_in_manifest_order"]), 72)
 
