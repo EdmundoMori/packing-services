@@ -4,21 +4,42 @@ Artefacts live under
 \texttt{paper/studies/counterfactual\_ranking/}
 (closed exploratory pilot) and
 \texttt{paper/studies/learning\_objectives/}
-(frozen protocol, sample manifest, reduced preflight, labelling executor and
-differentiable losses).
+(frozen protocol, sample manifest, reduced preflight, labelling tools).
 Manuscript sources are in
 \texttt{paper/manuscript/learning\_objectives/}.
-Protocol and sample digests are recorded in
-\texttt{protocol\_frozen.json} and \texttt{sample\_manifest.json}.
-Supplementary implementation hashes are in
-\texttt{implementation\_manifest.json}.
-The labelling CLI is
-\texttt{tools/run\_learning\_labels.py}; proposed output
-\texttt{learning\_labels/}.
-Differentiable objectives are in
-\texttt{tools/torch\_losses.py} (frozen scalar reference:
-\texttt{tools/losses.py}).
 
-Full labelling, training, development packing and test packing are not
-executed in this draft. Seventeen untracked historical transition pickles remain
-excluded from versioned scientific claims.
+\paragraph{Campaign versus attempts.}
+The frozen-protocol labelling \emph{campaign} admits multiple
+\emph{attempts}. Attempt~01 wrote \texttt{learning\_labels/} and was interrupted
+with unknown exit code/cause. Demonstrated facts include non-atomic
+\texttt{write\_text} persistence, eleven empty JSON files under order
+\texttt{00108806}, and a progress-versus-content inconsistency; the exact
+corruption mechanism is not established. Progress is not the integrity source of
+truth. Twelve train orders verify by on-disk content; fifty-nine orders remain
+pending as registered in progress; development labels were not produced in
+attempt~01. A provisional normalisation on the twelve intact orders is marked
+non-usable for training.
+
+\paragraph{Registered time and reserve.}
+The sum of per-order \texttt{wall\_seconds} in progress
+($214.80055754699697$\,s) is \emph{registered} time for sequential order work,
+not a proven bound on total process wall time. A launcher artefact span
+(progress versus execution-manifest mtimes, $\approx 216.7$\,s) provides a
+verifiable interval between artefacts. An explicit operational reserve of
+$120$\,s is applied inside the existing $13500$\,s labelling budget before
+attempt~02; the budget is not expanded. Preflight
+$35.121554053999716$\,s remains a separate, once-accounted phase.
+
+\paragraph{Operational recovery layer.}
+Atomic JSON writes (same-directory temp, flush/fsync, validate, \texttt{replace},
+optional directory fsync), content-hash integrity, and attempt~02 execution are
+implemented in \texttt{labeling\_io.py}, \texttt{labeling\_integrity.py},
+\texttt{labeling\_campaign\_safe.py} and
+\texttt{run\_learning\_labels\_recover.py}. No absolute durability against every
+failure mode is claimed. The attempt~01 executor module is retained for
+provenance. Forensic summaries are under \texttt{forensics/} and
+\texttt{reviews/14\_interruption\_forensics.md}.
+
+Complete labelling recovery, training and actor evaluation are documented
+separately when executed. Seventeen untracked historical transition pickles
+remain excluded from versioned claims.

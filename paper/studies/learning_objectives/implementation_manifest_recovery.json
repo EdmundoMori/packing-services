@@ -1,0 +1,59 @@
+{
+  "study": "learning_objectives",
+  "kind": "implementation_manifest_recovery_layer",
+  "created_utc": "2026-10-05T09:39:40.507284+00:00",
+  "head_at_authoring": "16d2aee819f1776629ceb6a5e2eef27ec42353d5",
+  "compatibility": {
+    "protocol_frozen_modified": false,
+    "sample_manifest_modified": false,
+    "preflight_modified": false,
+    "losses_py_modified": false,
+    "attempt_01_executor_preserved": "tools/labeling_campaign.py",
+    "execute_recovery_previously": "deliberately_refused_plan_only_now_wired"
+  },
+  "frozen_contract_digests_unchanged": {
+    "protocol_frozen": "paper/studies/learning_objectives/protocol_frozen.json",
+    "protocol_file_sha256": "385f25c60e92dc936c02363b7152031d20b2728db13c2f9d4911446930b83b05",
+    "protocol_internal_digest": "a5959cb602ee00dfcb56b531de02d6e9d1dd618c42a54b7aa1e0d2214e6ad155",
+    "sample_manifest_sha256": "782eb3abe10163270db8dec9594d099ea936e4491747278bee1b06a73accda62",
+    "losses_py_sha256_frozen": "50e862d2538422de9687ff46d17b440b04a5b21392f33b64c1c45484c497699d",
+    "losses_py_modified": false
+  },
+  "files": {
+    "tools/labeling_io.py": "d8461e6328bbf9c10124dc8fd7abe9fcbb20508a5578576ece720f710f379843",
+    "tools/labeling_integrity.py": "e8ff3d63b70880752e60c8b3fb37aff1f072121ee5375c321dfc6fac971609f4",
+    "tools/labeling_campaign_safe.py": "46c0aa4b2a2885f495e1dcfa78cce7da9e3006060ef54f33b018a5ee1f5552a4",
+    "tools/labeling_recovery.py": "e11c6f6b74b1fb426196ee63351839e86de2baba04174642614f9d7906d46811",
+    "tools/run_learning_labels_recover.py": "d7fb60e55e1bc78faa0eef634c6493ee9837285236b0bdf757e77f4bf4a24ca4",
+    "tests/test_labeling_recovery.py": "bfdf9a005974fda5daa830938ac9621178f4f0206677513f0aa0ebbfed16b871",
+    "learning_labels_recovery_plan.json": "762aeeb2ee846dd61d88183fc818d7985fd994e9dc756fb934f5648fb4e38f72"
+  },
+  "budget_accounting_snapshot": {
+    "labeling_wall_budget_seconds": 13500.0,
+    "registered_order_wall_sum_seconds": 214.80055754699697,
+    "registered_includes": [
+      "suma de wall_seconds por pedido en progress.orders_done",
+      "incluye la reclamación de pared de 00108806 (result vacío)",
+      "fases por pedido según el ejecutor (estados+continuaciones+captura+auditoría+escritura de ese pedido)"
+    ],
+    "registered_excludes_or_uncertain": [
+      "arranque del proceso y static_preflight del intento 01",
+      "huecos entre pedidos no reflejados en wall_seconds",
+      "teardown tras la última escritura",
+      "si alguna pared interna fue concurrente (el diseño es secuencial por pedido; no hay evidencia de concurrencia)"
+    ],
+    "walls_are_successive_by_design": true,
+    "registered_is_proven_total_wall_bound": false,
+    "launcher_artifact_span_seconds": 216.745745165,
+    "launcher_artifact_span_definition": "mtime(progress.json) - mtime(execution_manifest.json); cota verificable inferior del wall del intento 01 entre artefactos",
+    "operational_reserve_seconds": 120.0,
+    "prior_wall_accounted_for_deadline_seconds": 336.745745165,
+    "remaining_labeling_wall_seconds": 13163.254254835,
+    "preflight_wall_seconds_separate": 35.121554053999716,
+    "preflight_already_accounted_once": true,
+    "do_not_recharge_preflight": true,
+    "training_budget_unaffected_undemonstrated": true,
+    "note": "No se denomina 'cargo conservador demostrado'. Se usa tiempo registrado + span de artefactos + reserva operativa explícita."
+  },
+  "note": "Supplementary hashes for recovery durability layer; does not alter frozen protocol bytes."
+}

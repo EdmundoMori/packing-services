@@ -45,6 +45,19 @@ Sample sizes are a scope and budget decision, not a power analysis. Labels are
 built on greedy trajectories; deployment induces a different state distribution,
 which is an intentional transfer gap rather than a hidden confounder.
 
+\paragraph{Label construction.}
+Labels are continuation returns $Q_{\mathrm{hat}}$ under greedy packing after each
+candidate in $S_t$, with unknown returns recorded as null. Sixteen preflight
+continuations are reusable at most once when hashes and captures match, counted
+globally once across attempts. The labelling campaign may comprise multiple
+attempts under the same frozen protocol. Attempt~01 was interrupted with unknown
+cause and exit code; twelve train orders remain content-verified for reuse;
+order \texttt{00108806} is corrupt on disk and requires an inevitable repeat for
+insufficient evidence; development labels and remaining train orders were pending
+after attempt~01. A provisional normalisation on the partial train subset is not
+used for training. Operational forensics and recovery mechanics are deferred to
+the appendix and study reviews. Label evidence is not actor evaluation.
+
 \paragraph{Contrasts, gate and budget.}
 Primary: order-level mean, after averaging paired seeds, of
 $U_{\mathrm{geom}}(\mathrm{preferences})-U_{\mathrm{geom}}(\mathrm{classification})$.
@@ -57,3 +70,4 @@ beating greedy. Wall-clock ceilings allocate 900\,s preflight, 13500\,s
 labelling, 1800\,s training, 3600\,s development and 9000\,s test within a
 28800\,s experimental compute cap; writing time is separate. Labelling dominates
 cost because each alternative requires a continuation, capture and audit.
+Training and evaluation budgets remain undemonstrated until those stages run.

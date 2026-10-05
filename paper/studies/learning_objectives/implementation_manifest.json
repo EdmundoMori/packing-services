@@ -21,7 +21,13 @@
       "tools/labeling_verify.py": "f7059eeab9bc8f2ca49f9bec9889a46e0f6924b593336f3eab1a76453dfec82d",
       "tools/run_learning_labels.py": "2e6ccae1c93e4881f716ef2d85b7ca3e4dc4b0f7e4c3f450b43eac660e47cbe4",
       "tests/test_torch_losses.py": "be69389b12f3291e3c6b21c1dab28c68f06849a43868dbcf8dbd0416dc3847b1",
-      "tests/test_labeling_executor.py": "1dba0b4b63c039ab1d30636b8365b022c446b175b97e7d49c07bd8027f80b5ab"
+      "tests/test_labeling_executor.py": "1dba0b4b63c039ab1d30636b8365b022c446b175b97e7d49c07bd8027f80b5ab",
+      "tools/labeling_io.py": "d8461e6328bbf9c10124dc8fd7abe9fcbb20508a5578576ece720f710f379843",
+      "tools/labeling_integrity.py": "e8ff3d63b70880752e60c8b3fb37aff1f072121ee5375c321dfc6fac971609f4",
+      "tools/labeling_campaign_safe.py": "e6425f2aee8f08603a2c7630f78303f9b46399ba7e41d0902bef37bbb0f023e0",
+      "tools/labeling_recovery.py": "810dc3a1296503dd7e6283ef496e17c5d35e96d4e202466a8ccf514d74292133",
+      "tools/run_learning_labels_recover.py": "4f292f90a6a8a9f79dd4c315d0d4ec93d7bdbf41e053231fc66add8698684865",
+      "tests/test_labeling_recovery.py": "649deeb14efb4fc9042d95100883a2d5521bd344a2af3343491ecc8bd788da74"
     }
   },
   "correspondence_checks": {
@@ -33,5 +39,12 @@
     "unknown_qhat_is_null": true,
     "completeness_against_expected_keys": true,
     "no_selective_retry_or_substitution": true
-  }
+  },
+  "operational_persistence": {
+    "progress_is_source_of_truth": false,
+    "recovery_plan": "learning_labels_recovery_plan.json",
+    "recovery_executed": false,
+    "execute_cli": "tools/run_learning_labels_recover.py --execute-recovery"
+  },
+  "recovery_layer_manifest": "implementation_manifest_recovery.json"
 }
