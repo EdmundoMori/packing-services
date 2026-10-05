@@ -1,0 +1,61 @@
+{
+  "gate": {
+    "passed": false,
+    "gate_applicable": false,
+    "decision": "evaluacion_incompleta",
+    "conditions": {
+      "mean_pref_minus_class_ge_0_005": false,
+      "positive_mean_in_at_least_two_seeds": false,
+      "aggregate_nonnegative_per_target": true,
+      "complete_audited_evaluation": true,
+      "remaining_budget_for_test": true
+    },
+    "positive_seeds": 0,
+    "does_not_require_beating_greedy": true,
+    "highlighted_vs_greedy": {
+      "preferences_minus_greedy_mean": 0.0,
+      "classification_minus_greedy_mean": 0.0,
+      "preferences_disadvantage_vs_greedy": false,
+      "classification_disadvantage_vs_greedy": false
+    },
+    "remaining_seconds_for_test": 26525.82750039076,
+    "test_wall_seconds": 9000.0,
+    "evaluator_errors": 0,
+    "missing_keys": 0,
+    "integrity": {
+      "keys_received": 8,
+      "expected_keys": 8,
+      "keys_complete": true,
+      "episodes_executed": 8,
+      "captures_audited": 8,
+      "method_failures": 0,
+      "harness_failures": 0,
+      "evaluator_errors": 0,
+      "harness_preflight_ok": true,
+      "infrastructure_blocked": false,
+      "scientifically_valid": true,
+      "gate_applicable": false,
+      "complete_audited_evaluation": true
+    },
+    "seed_selected": false,
+    "secondary_arm_does_not_rescue_gate": true,
+    "engineering_gate_not_significance_test": true,
+    "numeric_contrasts_are_packing_results": false
+  },
+  "integrity": {
+    "keys_received": 8,
+    "expected_keys": 8,
+    "keys_complete": true,
+    "episodes_executed": 8,
+    "captures_audited": 8,
+    "method_failures": 0,
+    "harness_failures": 0,
+    "evaluator_errors": 0,
+    "harness_preflight_ok": true,
+    "infrastructure_blocked": false,
+    "scientifically_valid": true,
+    "gate_applicable": true,
+    "complete_audited_evaluation": true
+  },
+  "smoke_or_invalid": true
+}

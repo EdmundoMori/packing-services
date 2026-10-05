@@ -1,0 +1,1727 @@
+{
+  "seed_reports": [
+    {
+      "seed": 11,
+      "n_orders": 24,
+      "preferences_minus_classification": {
+        "n": 24,
+        "mean": -0.026016768973214286,
+        "median": 0.0,
+        "wins": 4,
+        "ties": 9,
+        "losses": 11,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": -0.03259921875,
+            "median": -0.008282812500000014,
+            "wins": 1,
+            "ties": 5,
+            "losses": 6,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": -0.019434319196428573,
+            "median": 0.0,
+            "wins": 3,
+            "ties": 4,
+            "losses": 5,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "preferences_minus_greedy": {
+        "n": 24,
+        "mean": -0.05866640198722719,
+        "median": -0.039684374999999994,
+        "wins": 3,
+        "ties": 3,
+        "losses": 18,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": -0.07708226453993056,
+            "median": -0.05734531250000002,
+            "wins": 1,
+            "ties": 1,
+            "losses": 10,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": -0.040250539434523815,
+            "median": -0.02986696428571428,
+            "wins": 2,
+            "ties": 2,
+            "losses": 8,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "classification_minus_greedy": {
+        "n": 24,
+        "mean": -0.032649633014012906,
+        "median": 0.0,
+        "wins": 4,
+        "ties": 9,
+        "losses": 11,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": -0.044483045789930564,
+            "median": 0.0,
+            "wins": 2,
+            "ties": 5,
+            "losses": 5,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": -0.020816220238095245,
+            "median": -0.010008928571428544,
+            "wins": 2,
+            "ties": 4,
+            "losses": 6,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_classification": {
+        "n": 24,
+        "mean": -0.01500904947916667,
+        "median": 0.0,
+        "wins": 5,
+        "ties": 8,
+        "losses": 11,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": -0.0047692708333333346,
+            "median": 0.0,
+            "wins": 2,
+            "ties": 6,
+            "losses": 4,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": -0.025248828125000008,
+            "median": -0.027171428571428513,
+            "wins": 3,
+            "ties": 2,
+            "losses": 7,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_preferences": {
+        "n": 24,
+        "mean": 0.011007719494047616,
+        "median": 0.0,
+        "wins": 11,
+        "ties": 6,
+        "losses": 7,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.027829947916666667,
+            "median": 0.028560937499999994,
+            "wins": 7,
+            "ties": 3,
+            "losses": 2,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": -0.005814508928571434,
+            "median": 0.0,
+            "wins": 4,
+            "ties": 3,
+            "losses": 5,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_greedy": {
+        "n": 24,
+        "mean": -0.04765868249317958,
+        "median": -0.02165312500000005,
+        "wins": 2,
+        "ties": 8,
+        "losses": 14,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": -0.049252316623263896,
+            "median": -0.02165312500000005,
+            "wins": 1,
+            "ties": 4,
+            "losses": 7,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": -0.04606504836309525,
+            "median": -0.02764687500000007,
+            "wins": 1,
+            "ties": 4,
+            "losses": 7,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "failures": {
+        "greedy": 0,
+        "classification": 0,
+        "preferences": 0,
+        "return_difference": 0
+      },
+      "orders": [
+        {
+          "order_id": "00107391",
+          "target": "rollcontainer",
+          "preferences_minus_classification": -0.14300535714285711,
+          "preferences_minus_greedy": -0.14300535714285711,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": -0.0464,
+          "return_difference_minus_preferences": 0.09660535714285712,
+          "return_difference_minus_greedy": -0.0464,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00106955",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.12279270833333333,
+          "preferences_minus_greedy": -0.12279270833333333,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": -0.12279270833333333,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": -0.12279270833333333,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00108470",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.08156763392857136,
+          "preferences_minus_greedy": 0.05983906249999993,
+          "classification_minus_greedy": -0.02172857142857143,
+          "return_difference_minus_classification": 0.06440066964285707,
+          "return_difference_minus_preferences": -0.017166964285714292,
+          "return_difference_minus_greedy": 0.042672098214285636,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00105989",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0710046875,
+          "preferences_minus_greedy": -0.01708281249999999,
+          "classification_minus_greedy": -0.08808749999999999,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": -0.0710046875,
+          "return_difference_minus_greedy": -0.08808749999999999,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00102744",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.02688574218750006,
+          "classification_minus_greedy": 0.02688574218750006,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.02688574218750006,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00104382",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.016565625000000028,
+          "preferences_minus_greedy": -0.016565625000000028,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.016565625000000028,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00106806",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": -0.038662500000000044,
+          "classification_minus_greedy": -0.038662500000000044,
+          "return_difference_minus_classification": -0.03588749999999996,
+          "return_difference_minus_preferences": -0.03588749999999996,
+          "return_difference_minus_greedy": -0.07455,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00100842",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.06962500000000005,
+          "preferences_minus_greedy": -0.06962500000000005,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": -0.01974375000000006,
+          "return_difference_minus_preferences": 0.04988124999999999,
+          "return_difference_minus_greedy": -0.01974375000000006,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00102462",
+          "target": "rollcontainer",
+          "preferences_minus_classification": -0.15195267857142858,
+          "preferences_minus_greedy": -0.1105848214285714,
+          "classification_minus_greedy": 0.04136785714285718,
+          "return_difference_minus_classification": -0.12717053571428572,
+          "return_difference_minus_preferences": 0.024782142857142864,
+          "return_difference_minus_greedy": -0.08580267857142854,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00101838",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00108036",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.04055624999999996,
+          "preferences_minus_greedy": -0.04055624999999996,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.04055624999999996,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00108236",
+          "target": "rollcontainer",
+          "preferences_minus_classification": -0.017943750000000036,
+          "preferences_minus_greedy": -0.017943750000000036,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": -0.03588750000000007,
+          "return_difference_minus_preferences": -0.017943750000000036,
+          "return_difference_minus_greedy": -0.03588750000000007,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00109447",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": -0.045065625,
+          "classification_minus_greedy": -0.045065625,
+          "return_difference_minus_classification": 0.045065625,
+          "return_difference_minus_preferences": 0.045065625,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00107236",
+          "target": "rollcontainer",
+          "preferences_minus_classification": -0.13178571428571428,
+          "preferences_minus_greedy": -0.15180357142857137,
+          "classification_minus_greedy": -0.020017857142857087,
+          "return_difference_minus_classification": -0.13178571428571428,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": -0.15180357142857137,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00102796",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.11137678571428578,
+          "preferences_minus_greedy": -0.02107142857142852,
+          "classification_minus_greedy": -0.1324482142857143,
+          "return_difference_minus_classification": 0.1324482142857143,
+          "return_difference_minus_preferences": 0.02107142857142852,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00102346",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.10215468750000001,
+          "preferences_minus_greedy": -0.13614843750000005,
+          "classification_minus_greedy": -0.033993750000000045,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.10215468750000001,
+          "return_difference_minus_greedy": -0.033993750000000045,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00105250",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": -0.1221395833333333,
+          "classification_minus_greedy": -0.1221395833333333,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": -0.1221395833333333,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00105797",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.11050104166666663,
+          "preferences_minus_greedy": -0.08116979166666671,
+          "classification_minus_greedy": 0.02933124999999992,
+          "return_difference_minus_classification": -0.02933124999999992,
+          "return_difference_minus_preferences": 0.08116979166666671,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00107107",
+          "target": "rollcontainer",
+          "preferences_minus_classification": -0.023504464285714288,
+          "preferences_minus_greedy": -0.08145267857142857,
+          "classification_minus_greedy": -0.05794821428571428,
+          "return_difference_minus_classification": -0.1236544642857143,
+          "return_difference_minus_preferences": -0.10015000000000002,
+          "return_difference_minus_greedy": -0.1816026785714286,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00103460",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": -0.03881250000000003,
+          "classification_minus_greedy": -0.03881250000000003,
+          "return_difference_minus_classification": 0.019406249999999958,
+          "return_difference_minus_preferences": 0.019406249999999958,
+          "return_difference_minus_greedy": -0.01940625000000007,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00106319",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.04203571428571429,
+          "preferences_minus_greedy": 0.06049107142857135,
+          "classification_minus_greedy": 0.018455357142857065,
+          "return_difference_minus_classification": -0.018455357142857065,
+          "return_difference_minus_preferences": -0.06049107142857135,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00103738",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00107235",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": -0.023562500000000042,
+          "return_difference_minus_preferences": -0.023562500000000042,
+          "return_difference_minus_greedy": -0.023562500000000042,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00105391",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": -0.30072708333333337,
+          "classification_minus_greedy": -0.30072708333333337,
+          "return_difference_minus_classification": 0.09313333333333335,
+          "return_difference_minus_preferences": 0.09313333333333335,
+          "return_difference_minus_greedy": -0.20759375000000002,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        }
+      ]
+    },
+    {
+      "seed": 23,
+      "n_orders": 24,
+      "preferences_minus_classification": {
+        "n": 24,
+        "mean": 0.013023960270957341,
+        "median": 0.0,
+        "wins": 11,
+        "ties": 3,
+        "losses": 10,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": -0.023196815321180547,
+            "median": -0.01876640624999998,
+            "wins": 2,
+            "ties": 3,
+            "losses": 7,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.049244735863095225,
+            "median": 0.034159821428571435,
+            "wins": 9,
+            "ties": 0,
+            "losses": 3,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "preferences_minus_greedy": {
+        "n": 24,
+        "mean": -0.03830077194940477,
+        "median": 0.0,
+        "wins": 4,
+        "ties": 10,
+        "losses": 10,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": -0.060652734374999996,
+            "median": -0.0225328125,
+            "wins": 1,
+            "ties": 5,
+            "losses": 6,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": -0.015948809523809542,
+            "median": 0.0,
+            "wins": 3,
+            "ties": 5,
+            "losses": 4,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "classification_minus_greedy": {
+        "n": 24,
+        "mean": -0.05132473222036211,
+        "median": -0.021538727678571457,
+        "wins": 2,
+        "ties": 6,
+        "losses": 16,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": -0.03745591905381945,
+            "median": -0.01980781250000002,
+            "wins": 1,
+            "ties": 4,
+            "losses": 7,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": -0.06519354538690476,
+            "median": -0.03267991071428572,
+            "wins": 1,
+            "ties": 2,
+            "losses": 9,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_classification": {
+        "n": 24,
+        "mean": 0.013511132812499988,
+        "median": 0.0,
+        "wins": 9,
+        "ties": 4,
+        "losses": 11,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.000208854166666661,
+            "median": 0.0,
+            "wins": 3,
+            "ties": 4,
+            "losses": 5,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.026813411458333315,
+            "median": 0.0013004464285714112,
+            "wins": 6,
+            "ties": 0,
+            "losses": 6,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_preferences": {
+        "n": 24,
+        "mean": 0.0004871725415426474,
+        "median": 0.0,
+        "wins": 7,
+        "ties": 7,
+        "losses": 10,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.023405669487847208,
+            "median": 0.0,
+            "wins": 5,
+            "ties": 3,
+            "losses": 4,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": -0.02243132440476191,
+            "median": -0.010341964285714322,
+            "wins": 2,
+            "ties": 4,
+            "losses": 6,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_greedy": {
+        "n": 24,
+        "mean": -0.03781359940786212,
+        "median": -0.041704687500000004,
+        "wins": 4,
+        "ties": 4,
+        "losses": 16,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": -0.03724706488715279,
+            "median": -0.030438281250000032,
+            "wins": 2,
+            "ties": 2,
+            "losses": 8,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": -0.03838013392857145,
+            "median": -0.05106919642857144,
+            "wins": 2,
+            "ties": 2,
+            "losses": 8,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "failures": {
+        "greedy": 0,
+        "classification": 0,
+        "preferences": 0,
+        "return_difference": 0
+      },
+      "orders": [
+        {
+          "order_id": "00107391",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.14300535714285711,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": -0.14300535714285711,
+          "return_difference_minus_classification": 0.14300535714285711,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00106955",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.1281177083333333,
+          "preferences_minus_greedy": -0.1703942708333333,
+          "classification_minus_greedy": -0.0422765625,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.1281177083333333,
+          "return_difference_minus_greedy": -0.0422765625,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00108470",
+          "target": "rollcontainer",
+          "preferences_minus_classification": -0.2960069196428572,
+          "preferences_minus_greedy": -0.18323035714285718,
+          "classification_minus_greedy": 0.11277656250000001,
+          "return_difference_minus_classification": -0.1809569196428572,
+          "return_difference_minus_preferences": 0.11504999999999999,
+          "return_difference_minus_greedy": -0.0681803571428572,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00105989",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.0710046875,
+          "preferences_minus_greedy": -0.08808749999999999,
+          "classification_minus_greedy": -0.01708281249999999,
+          "return_difference_minus_classification": -0.0710046875,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": -0.08808749999999999,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00102744",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.02688574218750006,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.02688574218750006,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.02688574218750006,
+          "return_difference_minus_greedy": 0.02688574218750006,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00104382",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00106806",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.02263392857142854,
+          "preferences_minus_greedy": 0.02263392857142854,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": -0.05660625000000008,
+          "return_difference_minus_preferences": -0.07924017857142862,
+          "return_difference_minus_greedy": -0.05660625000000008,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00100842",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": -0.01974375000000006,
+          "return_difference_minus_preferences": -0.01974375000000006,
+          "return_difference_minus_greedy": -0.01974375000000006,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00102462",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.05278660714285721,
+          "preferences_minus_greedy": 0.04136785714285718,
+          "classification_minus_greedy": -0.011418750000000033,
+          "return_difference_minus_classification": 0.03210267857142857,
+          "return_difference_minus_preferences": -0.020683928571428645,
+          "return_difference_minus_greedy": 0.020683928571428534,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00101838",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.02054464285714286,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": -0.02054464285714286,
+          "return_difference_minus_classification": 0.02054464285714286,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00108036",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00108236",
+          "target": "rollcontainer",
+          "preferences_minus_classification": -0.03588750000000007,
+          "preferences_minus_greedy": -0.03588750000000007,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": -0.017943750000000036,
+          "return_difference_minus_preferences": 0.017943750000000036,
+          "return_difference_minus_greedy": -0.017943750000000036,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00109447",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.022532812499999944,
+          "preferences_minus_greedy": -0.045065625,
+          "classification_minus_greedy": -0.022532812500000055,
+          "return_difference_minus_classification": -0.07179739583333333,
+          "return_difference_minus_preferences": -0.04926458333333339,
+          "return_difference_minus_greedy": -0.09433020833333339,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00107236",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.2025732142857143,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": -0.2025732142857143,
+          "return_difference_minus_classification": 0.1570410714285715,
+          "return_difference_minus_preferences": -0.0455321428571428,
+          "return_difference_minus_greedy": -0.0455321428571428,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00102796",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.08834821428571427,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": -0.08834821428571427,
+          "return_difference_minus_classification": -0.022050000000000014,
+          "return_difference_minus_preferences": -0.11039821428571428,
+          "return_difference_minus_greedy": -0.11039821428571428,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00102346",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.03051614583333334,
+          "preferences_minus_greedy": -0.18237291666666672,
+          "classification_minus_greedy": -0.15185677083333338,
+          "return_difference_minus_classification": 0.13211302083333332,
+          "return_difference_minus_preferences": 0.16262916666666666,
+          "return_difference_minus_greedy": -0.01974375000000006,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00105250",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.015000000000000013,
+          "preferences_minus_greedy": -0.04898437499999997,
+          "classification_minus_greedy": -0.033984374999999956,
+          "return_difference_minus_classification": -0.08815520833333335,
+          "return_difference_minus_preferences": -0.07315520833333333,
+          "return_difference_minus_greedy": -0.1221395833333333,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00105797",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.014665625000000015,
+          "preferences_minus_greedy": 0.014665625000000015,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.02933124999999992,
+          "return_difference_minus_preferences": 0.014665624999999904,
+          "return_difference_minus_greedy": 0.02933124999999992,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00107107",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.023504464285714288,
+          "preferences_minus_greedy": -0.05794821428571428,
+          "classification_minus_greedy": -0.08145267857142857,
+          "return_difference_minus_classification": 0.023504464285714288,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": -0.05794821428571428,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00103460",
+          "target": "rollcontainer",
+          "preferences_minus_classification": -0.019406249999999958,
+          "preferences_minus_greedy": -0.03881250000000003,
+          "classification_minus_greedy": -0.01940625000000007,
+          "return_difference_minus_classification": -0.058218749999999986,
+          "return_difference_minus_preferences": -0.03881250000000003,
+          "return_difference_minus_greedy": -0.07762500000000006,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00106319",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.3440258928571428,
+          "preferences_minus_greedy": 0.06049107142857135,
+          "classification_minus_greedy": -0.28353482142857145,
+          "return_difference_minus_classification": 0.3440258928571428,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.06049107142857135,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00103738",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.04481517857142858,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": -0.04481517857142858,
+          "return_difference_minus_classification": -0.06268750000000001,
+          "return_difference_minus_preferences": -0.10750267857142859,
+          "return_difference_minus_greedy": -0.10750267857142859,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00107235",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.023562500000000042,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": -0.023562500000000042,
+          "return_difference_minus_classification": -0.05216510416666664,
+          "return_difference_minus_preferences": -0.07572760416666668,
+          "return_difference_minus_greedy": -0.07572760416666668,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00105391",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.022532812499999944,
+          "preferences_minus_greedy": -0.20759375000000002,
+          "classification_minus_greedy": -0.18506093750000008,
+          "return_difference_minus_classification": 0.14392812500000007,
+          "return_difference_minus_preferences": 0.16646093750000002,
+          "return_difference_minus_greedy": -0.041132812500000004,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        }
+      ]
+    },
+    {
+      "seed": 37,
+      "n_orders": 24,
+      "preferences_minus_classification": {
+        "n": 24,
+        "mean": -0.011232907056051589,
+        "median": 0.0,
+        "wins": 8,
+        "ties": 5,
+        "losses": 11,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": -0.03405516493055556,
+            "median": -0.007500000000000007,
+            "wins": 2,
+            "ties": 4,
+            "losses": 6,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": 0.011589350818452382,
+            "median": 0.008971875000000018,
+            "wins": 6,
+            "ties": 1,
+            "losses": 5,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "preferences_minus_greedy": {
+        "n": 24,
+        "mean": -0.05793573327442956,
+        "median": -0.04186406250000002,
+        "wins": 4,
+        "ties": 5,
+        "losses": 15,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": -0.07705843641493056,
+            "median": -0.049199218749999996,
+            "wins": 1,
+            "ties": 3,
+            "losses": 8,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": -0.03881303013392858,
+            "median": -0.032096875000000025,
+            "wins": 3,
+            "ties": 2,
+            "losses": 7,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "classification_minus_greedy": {
+        "n": 24,
+        "mean": -0.04670282621837798,
+        "median": -0.041704687500000004,
+        "wins": 3,
+        "ties": 6,
+        "losses": 15,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": -0.043003271484374994,
+            "median": -0.041704687500000004,
+            "wins": 1,
+            "ties": 4,
+            "losses": 7,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": -0.05040238095238097,
+            "median": -0.04197321428571432,
+            "wins": 2,
+            "ties": 2,
+            "losses": 8,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_classification": {
+        "n": 24,
+        "mean": -0.009337206643725207,
+        "median": -0.015282714843750045,
+        "wins": 8,
+        "ties": 3,
+        "losses": 13,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": -0.006504324001736135,
+            "median": -0.015282714843750045,
+            "wins": 4,
+            "ties": 1,
+            "losses": 7,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": -0.01217008928571428,
+            "median": -0.009227678571428588,
+            "wins": 4,
+            "ties": 2,
+            "losses": 6,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_preferences": {
+        "n": 24,
+        "mean": 0.0018957004123263815,
+        "median": 0.0,
+        "wins": 7,
+        "ties": 8,
+        "losses": 9,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": 0.027550840928819428,
+            "median": 0.0,
+            "wins": 5,
+            "ties": 3,
+            "losses": 4,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": -0.023759440104166665,
+            "median": 0.0,
+            "wins": 2,
+            "ties": 5,
+            "losses": 5,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "return_difference_minus_greedy": {
+        "n": 24,
+        "mean": -0.056040032862103184,
+        "median": -0.031112500000000043,
+        "wins": 3,
+        "ties": 6,
+        "losses": 15,
+        "tie_tolerance": 1e-09,
+        "by_target": {
+          "euro-pallet": {
+            "n": 12,
+            "mean": -0.04950759548611113,
+            "median": -0.020064062500000035,
+            "wins": 3,
+            "ties": 2,
+            "losses": 7,
+            "tie_tolerance": 1e-09
+          },
+          "rollcontainer": {
+            "n": 12,
+            "mean": -0.06257247023809524,
+            "median": -0.038737500000000036,
+            "wins": 0,
+            "ties": 4,
+            "losses": 8,
+            "tie_tolerance": 1e-09
+          }
+        }
+      },
+      "failures": {
+        "greedy": 0,
+        "classification": 0,
+        "preferences": 0,
+        "return_difference": 0
+      },
+      "orders": [
+        {
+          "order_id": "00107391",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.14254553571428574,
+          "preferences_minus_greedy": -0.025531250000000005,
+          "classification_minus_greedy": -0.16807678571428575,
+          "return_difference_minus_classification": 0.10127678571428578,
+          "return_difference_minus_preferences": -0.041268749999999965,
+          "return_difference_minus_greedy": -0.06679999999999997,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00106955",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.14292552083333326,
+          "preferences_minus_greedy": -0.18520208333333327,
+          "classification_minus_greedy": -0.0422765625,
+          "return_difference_minus_classification": 0.0422765625,
+          "return_difference_minus_preferences": 0.18520208333333327,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00108470",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.11504999999999999,
+          "preferences_minus_greedy": -0.0681803571428572,
+          "classification_minus_greedy": -0.18323035714285718,
+          "return_difference_minus_classification": 0.11504999999999999,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": -0.0681803571428572,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00105989",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.06950937499999998,
+          "preferences_minus_greedy": -0.05333281249999999,
+          "classification_minus_greedy": -0.12284218749999998,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": -0.06950937499999998,
+          "return_difference_minus_greedy": -0.12284218749999998,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00102744",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.02688574218750006,
+          "classification_minus_greedy": 0.02688574218750006,
+          "return_difference_minus_classification": -0.015565429687500076,
+          "return_difference_minus_preferences": -0.015565429687500076,
+          "return_difference_minus_greedy": 0.011320312499999985,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00104382",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.14356406250000003,
+          "preferences_minus_greedy": -0.14356406250000003,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": -0.016565625000000028,
+          "return_difference_minus_preferences": 0.1269984375,
+          "return_difference_minus_greedy": -0.016565625000000028,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00106806",
+          "target": "rollcontainer",
+          "preferences_minus_classification": -0.061296428571428585,
+          "preferences_minus_greedy": -0.038662500000000044,
+          "classification_minus_greedy": 0.02263392857142854,
+          "return_difference_minus_classification": -0.061296428571428585,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": -0.038662500000000044,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00100842",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": -0.06962500000000005,
+          "return_difference_minus_preferences": -0.06962500000000005,
+          "return_difference_minus_greedy": -0.06962500000000005,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00102462",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": -0.08580267857142854,
+          "classification_minus_greedy": -0.08580267857142854,
+          "return_difference_minus_classification": 0.08580267857142854,
+          "return_difference_minus_preferences": 0.08580267857142854,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00101838",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.05467399553571428,
+          "preferences_minus_greedy": 0.05467399553571428,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": -0.05467399553571428,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00108036",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.12353749999999997,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": -0.12353749999999997,
+          "return_difference_minus_classification": 0.12353749999999997,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00108236",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.017943750000000036,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": -0.017943750000000036,
+          "return_difference_minus_classification": 0.017943750000000036,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00109447",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": -0.045065625,
+          "classification_minus_greedy": -0.045065625,
+          "return_difference_minus_classification": 0.08101874999999992,
+          "return_difference_minus_preferences": 0.08101874999999992,
+          "return_difference_minus_greedy": 0.03595312499999992,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00107236",
+          "target": "rollcontainer",
+          "preferences_minus_classification": -0.05914642857142849,
+          "preferences_minus_greedy": -0.15180357142857137,
+          "classification_minus_greedy": -0.09265714285714288,
+          "return_difference_minus_classification": -0.1353008928571428,
+          "return_difference_minus_preferences": -0.07615446428571432,
+          "return_difference_minus_greedy": -0.2279580357142857,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00102796",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.09342053571428577,
+          "preferences_minus_greedy": 0.04828660714285715,
+          "classification_minus_greedy": -0.045133928571428616,
+          "return_difference_minus_classification": -0.06526428571428566,
+          "return_difference_minus_preferences": -0.15868482142857143,
+          "return_difference_minus_greedy": -0.11039821428571428,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00102346",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.01706249999999998,
+          "preferences_minus_greedy": -0.13614843750000005,
+          "classification_minus_greedy": -0.11908593750000007,
+          "return_difference_minus_classification": -0.032770833333333305,
+          "return_difference_minus_preferences": -0.015708333333333324,
+          "return_difference_minus_greedy": -0.15185677083333338,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00105250",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.015000000000000013,
+          "preferences_minus_greedy": -0.06398437499999998,
+          "classification_minus_greedy": -0.04898437499999997,
+          "return_difference_minus_classification": -0.015000000000000013,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": -0.06398437499999998,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00105797",
+          "target": "euro-pallet",
+          "preferences_minus_classification": 0.0,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": 0.014665625000000015,
+          "return_difference_minus_preferences": 0.014665625000000015,
+          "return_difference_minus_greedy": 0.014665625000000015,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00107107",
+          "target": "rollcontainer",
+          "preferences_minus_classification": -0.1236544642857143,
+          "preferences_minus_greedy": -0.1816026785714286,
+          "classification_minus_greedy": -0.05794821428571428,
+          "return_difference_minus_classification": -0.1236544642857143,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": -0.1816026785714286,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00103460",
+          "target": "rollcontainer",
+          "preferences_minus_classification": -0.03881250000000003,
+          "preferences_minus_greedy": -0.07762500000000006,
+          "classification_minus_greedy": -0.03881250000000003,
+          "return_difference_minus_classification": 0.0,
+          "return_difference_minus_preferences": 0.03881250000000003,
+          "return_difference_minus_greedy": -0.03881250000000003,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00106319",
+          "target": "rollcontainer",
+          "preferences_minus_classification": 0.06049107142857135,
+          "preferences_minus_greedy": 0.06049107142857135,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": -0.018455357142857176,
+          "return_difference_minus_preferences": -0.07894642857142853,
+          "return_difference_minus_greedy": -0.018455357142857176,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00103738",
+          "target": "rollcontainer",
+          "preferences_minus_classification": -0.062142857142857166,
+          "preferences_minus_greedy": 0.0,
+          "classification_minus_greedy": 0.062142857142857166,
+          "return_difference_minus_classification": -0.062142857142857166,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": 0.0,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00107235",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.023562500000000042,
+          "preferences_minus_greedy": -0.023562500000000042,
+          "classification_minus_greedy": 0.0,
+          "return_difference_minus_classification": -0.023562500000000042,
+          "return_difference_minus_preferences": 0.0,
+          "return_difference_minus_greedy": -0.023562500000000042,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        },
+        {
+          "order_id": "00105391",
+          "target": "euro-pallet",
+          "preferences_minus_classification": -0.25959427083333336,
+          "preferences_minus_greedy": -0.30072708333333337,
+          "classification_minus_greedy": -0.041132812500000004,
+          "return_difference_minus_classification": -0.16646093750000002,
+          "return_difference_minus_preferences": 0.09313333333333335,
+          "return_difference_minus_greedy": -0.20759375000000002,
+          "greedy_failure": false,
+          "classification_failure": false,
+          "preferences_failure": false,
+          "return_difference_failure": false
+        }
+      ]
+    }
+  ],
+  "order_then_seed_aggregate": {
+    "aggregation": "mean_seeds_within_order_then_equal_orders",
+    "preferences_minus_classification": {
+      "mean": -0.008075238586102845,
+      "median": -0.010981250000000015,
+      "by_target": {
+        "euro-pallet": {
+          "mean": -0.02995039966724537,
+          "median": -0.016604166666666677,
+          "n": 12
+        },
+        "rollcontainer": {
+          "mean": 0.01379992249503968,
+          "median": -0.008869196428571442,
+          "n": 12
+        }
+      }
+    },
+    "preferences_minus_greedy": {
+      "mean": -0.05163430240368717,
+      "median": -0.048369419642857125,
+      "by_target": {
+        "euro-pallet": {
+          "mean": -0.07159781177662038,
+          "median": -0.048949999999999994,
+          "n": 12
+        },
+        "rollcontainer": {
+          "mean": -0.03167079303075398,
+          "median": -0.03495178571428572,
+          "n": 12
+        }
+      }
+    },
+    "classification_minus_greedy": {
+      "mean": -0.04355906381758432,
+      "median": -0.03153560267857145,
+      "by_target": {
+        "euro-pallet": {
+          "mean": -0.041647412109375004,
+          "median": -0.03286953125000001,
+          "n": 12
+        },
+        "rollcontainer": {
+          "mean": -0.04547071552579366,
+          "median": -0.03153560267857145,
+          "n": 12
+        }
+      }
+    },
+    "return_difference_minus_classification": {
+      "mean": -0.0036117077701306286,
+      "median": -0.005355175781250018,
+      "by_target": {
+        "euro-pallet": {
+          "mean": -0.0036882468894676016,
+          "median": -0.005355175781250018,
+          "n": 12
+        },
+        "rollcontainer": {
+          "mean": -0.0035351686507936564,
+          "median": -0.007525446428571447,
+          "n": 12
+        }
+      }
+    },
+    "return_difference_minus_preferences": {
+      "mean": 0.0044635308159722146,
+      "median": 0.0018867187499999976,
+      "by_target": {
+        "euro-pallet": {
+          "mean": 0.02626215277777777,
+          "median": 0.01956267361111108,
+          "n": 12
+        },
+        "rollcontainer": {
+          "mean": -0.017335091145833335,
+          "median": -0.025803999255952385,
+          "n": 12
+        }
+      }
+    },
+    "return_difference_minus_greedy": {
+      "mean": -0.04717077158771495,
+      "median": -0.037052083333333354,
+      "by_target": {
+        "euro-pallet": {
+          "mean": -0.0453356589988426,
+          "median": -0.038660850694444485,
+          "n": 12
+        },
+        "rollcontainer": {
+          "mean": -0.04900588417658732,
+          "median": -0.03678377976190476,
+          "n": 12
+        }
+      }
+    }
+  },
+  "gate": {
+    "passed": false,
+    "gate_applicable": true,
+    "decision": "no_avanzar_con_esta_configuracion",
+    "conditions": {
+      "mean_pref_minus_class_ge_0_005": false,
+      "positive_mean_in_at_least_two_seeds": false,
+      "aggregate_nonnegative_per_target": false,
+      "complete_audited_evaluation": true,
+      "remaining_budget_for_test": true
+    },
+    "positive_seeds": 1,
+    "does_not_require_beating_greedy": true,
+    "highlighted_vs_greedy": {
+      "preferences_minus_greedy_mean": -0.05163430240368717,
+      "classification_minus_greedy_mean": -0.04355906381758432,
+      "preferences_disadvantage_vs_greedy": true,
+      "classification_disadvantage_vs_greedy": true
+    },
+    "remaining_seconds_for_test": 25828.434637832393,
+    "test_wall_seconds": 9000.0,
+    "evaluator_errors": 0,
+    "missing_keys": 0,
+    "integrity": {
+      "keys_received": 240,
+      "expected_keys": 240,
+      "keys_complete": true,
+      "episodes_executed": 240,
+      "captures_audited": 240,
+      "method_failures": 0,
+      "harness_failures": 0,
+      "evaluator_errors": 0,
+      "harness_preflight_ok": true,
+      "infrastructure_blocked": false,
+      "scientifically_valid": true,
+      "gate_applicable": true,
+      "complete_audited_evaluation": true
+    },
+    "seed_selected": false,
+    "secondary_arm_does_not_rescue_gate": true,
+    "engineering_gate_not_significance_test": true,
+    "numeric_contrasts_are_packing_results": true
+  },
+  "integrity": {
+    "keys_received": 240,
+    "expected_keys": 240,
+    "keys_complete": true,
+    "episodes_executed": 240,
+    "captures_audited": 240,
+    "method_failures": 0,
+    "harness_failures": 0,
+    "evaluator_errors": 0,
+    "harness_preflight_ok": true,
+    "infrastructure_blocked": false,
+    "scientifically_valid": true,
+    "gate_applicable": true,
+    "complete_audited_evaluation": true
+  }
+}

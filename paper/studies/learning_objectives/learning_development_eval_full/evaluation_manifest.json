@@ -1,0 +1,3138 @@
+{
+  "kind": "development_evaluation_manifest",
+  "n_cases": 240,
+  "n_orders": 24,
+  "n_reused": 8,
+  "n_new": 232,
+  "reused_keys": [
+    "greedy|00107391",
+    "classification|11|00107391",
+    "preferences|11|00107391",
+    "return_difference|11|00107391",
+    "greedy|00106955",
+    "classification|11|00106955",
+    "preferences|11|00106955",
+    "return_difference|11|00106955"
+  ],
+  "orders": [
+    {
+      "order_id": "00107391",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "0021ba121afe12c544439d72604f5e7bed777a655cc4c8d4bb990cb6f5bcd12c",
+      "signature": "dfc51578d906c2bd178a6594797bad73797bd3b6a264254f05e93deff01692cf"
+    },
+    {
+      "order_id": "00106955",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "003c9fac7b902698e5c3d3804d50347b90438a72a8d14c967742f93d0ee813dd",
+      "signature": "23e520f06e3e6fa677b003f8fcf5e533aafd826566067bd19817a95c1b024dd2"
+    },
+    {
+      "order_id": "00108470",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "00cd697df9ee4689b386bec56d9446e46ded797957a67236ec04bbff1d14d039",
+      "signature": "e66ecd401c6f0656022b37734fc13597d1cb5b0b276349213423540e47486a8e"
+    },
+    {
+      "order_id": "00105989",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "00dffc8ee800fd10590f67072c6988dfe1f0737ed0397c4735df2a666d3900fa",
+      "signature": "379cbdb6831f1dbcbee7213f667fe89fc7aa92d27e606f4b4e2159e99dc9bed2"
+    },
+    {
+      "order_id": "00102744",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "00ef1dab772ea3424d478bb246c63a2c8ac86f7d9094e991793ba3e7cb8125fa",
+      "signature": "b360ca5182eeb69cace78a63494fa67bb80799c9c331df9f7cccc5017a912c30"
+    },
+    {
+      "order_id": "00104382",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "01758446ea0a4defadb20ed433e84bf58fb64a63312cb64af4a5a71203c2c8e6",
+      "signature": "46e7afa1342f30c3e126d634e171767150666dbf11c2d395ddd9b52e579eb897"
+    },
+    {
+      "order_id": "00106806",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "01fb70a2fb9270e3bb05fb15a9f2980eee2e6534c07e2d14c7db6bdcd2870ca0",
+      "signature": "9242cf8d1071193feb7c6f8e7c0423d6e6da937d2e9e5392f11d446c6f126217"
+    },
+    {
+      "order_id": "00100842",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "021055c0a2f9475d0012e0fee874061fbf8eaa94d370950f96d0a9a66e5cba18",
+      "signature": "cbec3356d629da4079ab7713d7d06d4d7fe7ed99a0baa2ad1b5ecaadf6404750"
+    },
+    {
+      "order_id": "00102462",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "021391e868aab72f56779660a5f696444e0ba71d55c29767264a8b44f08b67ea",
+      "signature": "76304160cae9c70072bf18b61cfd6276cb764b9d23544a5e8d3ab50f37a11158"
+    },
+    {
+      "order_id": "00101838",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "028aac96eb33d02992780ee9a09772fca9d4df1c8a62005295d5554577cb45cd",
+      "signature": "9faf099587a646003a06ffecbd346a0a3d99fd65876201bf07fb349183d50c75"
+    },
+    {
+      "order_id": "00108036",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "033a4fbafc6e05dc020ed9982fe853615dcf11701019676a4c14b5cede3b33ac",
+      "signature": "acb59de270604b5382bf566d86031fd8b627f604c2a2fedeb5d26a992cc5a945"
+    },
+    {
+      "order_id": "00108236",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "034aafcb9e5ad6e6000d0e826c66cd4172669e26318f96323316a3f92ee21757",
+      "signature": "36f90d5c7787ee32312ad601cc73a326570ca8b9c4ef30ee4f99a364e55cd35a"
+    },
+    {
+      "order_id": "00109447",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "03b54ad05e184449d3034ae6be8ff6cd61b1105dc54f9049035757f4e1cc42cb",
+      "signature": "bfd6802e419504346c61164d3d08fa57fc2b66e1e04c04885ba68b8747f5bed8"
+    },
+    {
+      "order_id": "00107236",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "03df97e6de1b6737669c25695bcf6c8a84962951137ab61987a5b2fa9b0dfb83",
+      "signature": "71658e6745b6f16c5c3affd44c709be32f833d9f51edc0a3af1d8b9175bbd276"
+    },
+    {
+      "order_id": "00102796",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "03ea5332a280722f53f26903f856953d8f23271df1b000b7af3881804c967d78",
+      "signature": "33e177382b0f066f18418ce87eb2564147e337e7e18d18adab936b6e515b1bff"
+    },
+    {
+      "order_id": "00102346",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "042fc0ea3b4c23c32393a987ea2943d40d7e3d1317d61df2a3e6621dbac82dfe",
+      "signature": "5f665561116196dd7dd6edb0358056baf77c79768e55977a0a6bf8a5c027e1b8"
+    },
+    {
+      "order_id": "00105250",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "0464de73ec212c5119e98ae10a1c2237c02c2c404fe8a17dea7a83819e3d3ded",
+      "signature": "a7d8e39801cdf32b94b4ff0c51290e2e0cb52a977e832255ebffbe4ebc23c137"
+    },
+    {
+      "order_id": "00105797",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "046725eb6d7ba32fd762fc37d4c3af5db0e0a670e00fcb60efd0cc4f50d9db3b",
+      "signature": "41361526e16d6f0bc24850e943adbd21d993b332a3fa7d766fbf4d298916a223"
+    },
+    {
+      "order_id": "00107107",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "04882810f755e4249fcf1296ec164bdfb42bd488553eb6f04f436e6d96002b1a",
+      "signature": "2ddb2f0c3e8fd008f091d600c3d989f31b3940d29caffa9509918f2f189b90ff"
+    },
+    {
+      "order_id": "00103460",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "04ac1ee616cde5551d0d7eb900d5a9746841782b821ee27c5618ca2515dba1d0",
+      "signature": "f5726bf9ac2d30327266ec87a82525424fae8194b6099e8bed2912365265a424"
+    },
+    {
+      "order_id": "00106319",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "05a6722e01fcb7747c906e2782287719dbc0006b725fe38f4393a1a8f6f1f0a3",
+      "signature": "a015b257ce23620e85b79b346f73e6582f25220288f5fb37a14e92e4cae897d0"
+    },
+    {
+      "order_id": "00103738",
+      "split": "development",
+      "target": "rollcontainer",
+      "selection_hash": "05e3eb0035c1e3b6d4c5f13a7414c809e2dbee2ca0e1f4d6a154ea0aa0fa8191",
+      "signature": "4b69ff245bd5ff15e450b97976dd18a80b5c2b04e43ad96e6e14fc78daceec2f"
+    },
+    {
+      "order_id": "00107235",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "06a3202b9698635e31d7a3605421fd22e400bf43c877b3246c10330fd23c6c79",
+      "signature": "c0e675ab26bee44b9de3c9207559a1fcea9fc56e746e804ef12976d1323738e9"
+    },
+    {
+      "order_id": "00105391",
+      "split": "development",
+      "target": "euro-pallet",
+      "selection_hash": "076ef2e8adb2e825daa3ea4c48457bc106feb73292da8c50f1b1f532e222b42b",
+      "signature": "1401825e28535aa7c95a6605a1ddc6dbe69fe8e478c23c32352e35ac58335734"
+    }
+  ],
+  "cases": [
+    {
+      "key": "greedy|00107391",
+      "order_id": "00107391",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00107391",
+      "order_id": "00107391",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00107391",
+      "order_id": "00107391",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00107391",
+      "order_id": "00107391",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00107391",
+      "order_id": "00107391",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00107391",
+      "order_id": "00107391",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00107391",
+      "order_id": "00107391",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00107391",
+      "order_id": "00107391",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00107391",
+      "order_id": "00107391",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00107391",
+      "order_id": "00107391",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00106955",
+      "order_id": "00106955",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00106955",
+      "order_id": "00106955",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00106955",
+      "order_id": "00106955",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00106955",
+      "order_id": "00106955",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00106955",
+      "order_id": "00106955",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00106955",
+      "order_id": "00106955",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00106955",
+      "order_id": "00106955",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00106955",
+      "order_id": "00106955",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00106955",
+      "order_id": "00106955",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00106955",
+      "order_id": "00106955",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00108470",
+      "order_id": "00108470",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00108470",
+      "order_id": "00108470",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00108470",
+      "order_id": "00108470",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00108470",
+      "order_id": "00108470",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00108470",
+      "order_id": "00108470",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00108470",
+      "order_id": "00108470",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00108470",
+      "order_id": "00108470",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00108470",
+      "order_id": "00108470",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00108470",
+      "order_id": "00108470",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00108470",
+      "order_id": "00108470",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00105989",
+      "order_id": "00105989",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00105989",
+      "order_id": "00105989",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00105989",
+      "order_id": "00105989",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00105989",
+      "order_id": "00105989",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00105989",
+      "order_id": "00105989",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00105989",
+      "order_id": "00105989",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00105989",
+      "order_id": "00105989",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00105989",
+      "order_id": "00105989",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00105989",
+      "order_id": "00105989",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00105989",
+      "order_id": "00105989",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00102744",
+      "order_id": "00102744",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00102744",
+      "order_id": "00102744",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00102744",
+      "order_id": "00102744",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00102744",
+      "order_id": "00102744",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00102744",
+      "order_id": "00102744",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00102744",
+      "order_id": "00102744",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00102744",
+      "order_id": "00102744",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00102744",
+      "order_id": "00102744",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00102744",
+      "order_id": "00102744",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00102744",
+      "order_id": "00102744",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00104382",
+      "order_id": "00104382",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00104382",
+      "order_id": "00104382",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00104382",
+      "order_id": "00104382",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00104382",
+      "order_id": "00104382",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00104382",
+      "order_id": "00104382",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00104382",
+      "order_id": "00104382",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00104382",
+      "order_id": "00104382",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00104382",
+      "order_id": "00104382",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00104382",
+      "order_id": "00104382",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00104382",
+      "order_id": "00104382",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00106806",
+      "order_id": "00106806",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00106806",
+      "order_id": "00106806",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00106806",
+      "order_id": "00106806",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00106806",
+      "order_id": "00106806",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00106806",
+      "order_id": "00106806",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00106806",
+      "order_id": "00106806",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00106806",
+      "order_id": "00106806",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00106806",
+      "order_id": "00106806",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00106806",
+      "order_id": "00106806",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00106806",
+      "order_id": "00106806",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00100842",
+      "order_id": "00100842",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00100842",
+      "order_id": "00100842",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00100842",
+      "order_id": "00100842",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00100842",
+      "order_id": "00100842",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00100842",
+      "order_id": "00100842",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00100842",
+      "order_id": "00100842",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00100842",
+      "order_id": "00100842",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00100842",
+      "order_id": "00100842",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00100842",
+      "order_id": "00100842",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00100842",
+      "order_id": "00100842",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00102462",
+      "order_id": "00102462",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00102462",
+      "order_id": "00102462",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00102462",
+      "order_id": "00102462",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00102462",
+      "order_id": "00102462",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00102462",
+      "order_id": "00102462",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00102462",
+      "order_id": "00102462",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00102462",
+      "order_id": "00102462",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00102462",
+      "order_id": "00102462",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00102462",
+      "order_id": "00102462",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00102462",
+      "order_id": "00102462",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00101838",
+      "order_id": "00101838",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00101838",
+      "order_id": "00101838",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00101838",
+      "order_id": "00101838",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00101838",
+      "order_id": "00101838",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00101838",
+      "order_id": "00101838",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00101838",
+      "order_id": "00101838",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00101838",
+      "order_id": "00101838",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00101838",
+      "order_id": "00101838",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00101838",
+      "order_id": "00101838",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00101838",
+      "order_id": "00101838",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00108036",
+      "order_id": "00108036",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00108036",
+      "order_id": "00108036",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00108036",
+      "order_id": "00108036",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00108036",
+      "order_id": "00108036",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00108036",
+      "order_id": "00108036",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00108036",
+      "order_id": "00108036",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00108036",
+      "order_id": "00108036",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00108036",
+      "order_id": "00108036",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00108036",
+      "order_id": "00108036",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00108036",
+      "order_id": "00108036",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00108236",
+      "order_id": "00108236",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00108236",
+      "order_id": "00108236",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00108236",
+      "order_id": "00108236",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00108236",
+      "order_id": "00108236",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00108236",
+      "order_id": "00108236",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00108236",
+      "order_id": "00108236",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00108236",
+      "order_id": "00108236",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00108236",
+      "order_id": "00108236",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00108236",
+      "order_id": "00108236",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00108236",
+      "order_id": "00108236",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00109447",
+      "order_id": "00109447",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00109447",
+      "order_id": "00109447",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00109447",
+      "order_id": "00109447",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00109447",
+      "order_id": "00109447",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00109447",
+      "order_id": "00109447",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00109447",
+      "order_id": "00109447",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00109447",
+      "order_id": "00109447",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00109447",
+      "order_id": "00109447",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00109447",
+      "order_id": "00109447",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00109447",
+      "order_id": "00109447",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00107236",
+      "order_id": "00107236",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00107236",
+      "order_id": "00107236",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00107236",
+      "order_id": "00107236",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00107236",
+      "order_id": "00107236",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00107236",
+      "order_id": "00107236",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00107236",
+      "order_id": "00107236",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00107236",
+      "order_id": "00107236",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00107236",
+      "order_id": "00107236",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00107236",
+      "order_id": "00107236",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00107236",
+      "order_id": "00107236",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00102796",
+      "order_id": "00102796",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00102796",
+      "order_id": "00102796",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00102796",
+      "order_id": "00102796",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00102796",
+      "order_id": "00102796",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00102796",
+      "order_id": "00102796",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00102796",
+      "order_id": "00102796",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00102796",
+      "order_id": "00102796",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00102796",
+      "order_id": "00102796",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00102796",
+      "order_id": "00102796",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00102796",
+      "order_id": "00102796",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00102346",
+      "order_id": "00102346",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00102346",
+      "order_id": "00102346",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00102346",
+      "order_id": "00102346",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00102346",
+      "order_id": "00102346",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00102346",
+      "order_id": "00102346",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00102346",
+      "order_id": "00102346",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00102346",
+      "order_id": "00102346",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00102346",
+      "order_id": "00102346",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00102346",
+      "order_id": "00102346",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00102346",
+      "order_id": "00102346",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00105250",
+      "order_id": "00105250",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00105250",
+      "order_id": "00105250",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00105250",
+      "order_id": "00105250",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00105250",
+      "order_id": "00105250",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00105250",
+      "order_id": "00105250",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00105250",
+      "order_id": "00105250",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00105250",
+      "order_id": "00105250",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00105250",
+      "order_id": "00105250",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00105250",
+      "order_id": "00105250",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00105250",
+      "order_id": "00105250",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00105797",
+      "order_id": "00105797",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00105797",
+      "order_id": "00105797",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00105797",
+      "order_id": "00105797",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00105797",
+      "order_id": "00105797",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00105797",
+      "order_id": "00105797",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00105797",
+      "order_id": "00105797",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00105797",
+      "order_id": "00105797",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00105797",
+      "order_id": "00105797",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00105797",
+      "order_id": "00105797",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00105797",
+      "order_id": "00105797",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00107107",
+      "order_id": "00107107",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00107107",
+      "order_id": "00107107",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00107107",
+      "order_id": "00107107",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00107107",
+      "order_id": "00107107",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00107107",
+      "order_id": "00107107",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00107107",
+      "order_id": "00107107",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00107107",
+      "order_id": "00107107",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00107107",
+      "order_id": "00107107",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00107107",
+      "order_id": "00107107",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00107107",
+      "order_id": "00107107",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00103460",
+      "order_id": "00103460",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00103460",
+      "order_id": "00103460",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00103460",
+      "order_id": "00103460",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00103460",
+      "order_id": "00103460",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00103460",
+      "order_id": "00103460",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00103460",
+      "order_id": "00103460",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00103460",
+      "order_id": "00103460",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00103460",
+      "order_id": "00103460",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00103460",
+      "order_id": "00103460",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00103460",
+      "order_id": "00103460",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00106319",
+      "order_id": "00106319",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00106319",
+      "order_id": "00106319",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00106319",
+      "order_id": "00106319",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00106319",
+      "order_id": "00106319",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00106319",
+      "order_id": "00106319",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00106319",
+      "order_id": "00106319",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00106319",
+      "order_id": "00106319",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00106319",
+      "order_id": "00106319",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00106319",
+      "order_id": "00106319",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00106319",
+      "order_id": "00106319",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00103738",
+      "order_id": "00103738",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00103738",
+      "order_id": "00103738",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00103738",
+      "order_id": "00103738",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00103738",
+      "order_id": "00103738",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00103738",
+      "order_id": "00103738",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00103738",
+      "order_id": "00103738",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00103738",
+      "order_id": "00103738",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00103738",
+      "order_id": "00103738",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00103738",
+      "order_id": "00103738",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00103738",
+      "order_id": "00103738",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00107235",
+      "order_id": "00107235",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00107235",
+      "order_id": "00107235",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00107235",
+      "order_id": "00107235",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00107235",
+      "order_id": "00107235",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00107235",
+      "order_id": "00107235",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00107235",
+      "order_id": "00107235",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00107235",
+      "order_id": "00107235",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00107235",
+      "order_id": "00107235",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00107235",
+      "order_id": "00107235",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00107235",
+      "order_id": "00107235",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00105391",
+      "order_id": "00105391",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00105391",
+      "order_id": "00105391",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00105391",
+      "order_id": "00105391",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00105391",
+      "order_id": "00105391",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00105391",
+      "order_id": "00105391",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00105391",
+      "order_id": "00105391",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00105391",
+      "order_id": "00105391",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00105391",
+      "order_id": "00105391",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00105391",
+      "order_id": "00105391",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00105391",
+      "order_id": "00105391",
+      "arm": "return_difference",
+      "seed": 37
+    }
+  ],
+  "cases_to_execute": [
+    {
+      "key": "classification|23|00107391",
+      "order_id": "00107391",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00107391",
+      "order_id": "00107391",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|23|00107391",
+      "order_id": "00107391",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00107391",
+      "order_id": "00107391",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|23|00107391",
+      "order_id": "00107391",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00107391",
+      "order_id": "00107391",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "classification|23|00106955",
+      "order_id": "00106955",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00106955",
+      "order_id": "00106955",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|23|00106955",
+      "order_id": "00106955",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00106955",
+      "order_id": "00106955",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|23|00106955",
+      "order_id": "00106955",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00106955",
+      "order_id": "00106955",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00108470",
+      "order_id": "00108470",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00108470",
+      "order_id": "00108470",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00108470",
+      "order_id": "00108470",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00108470",
+      "order_id": "00108470",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00108470",
+      "order_id": "00108470",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00108470",
+      "order_id": "00108470",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00108470",
+      "order_id": "00108470",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00108470",
+      "order_id": "00108470",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00108470",
+      "order_id": "00108470",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00108470",
+      "order_id": "00108470",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00105989",
+      "order_id": "00105989",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00105989",
+      "order_id": "00105989",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00105989",
+      "order_id": "00105989",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00105989",
+      "order_id": "00105989",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00105989",
+      "order_id": "00105989",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00105989",
+      "order_id": "00105989",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00105989",
+      "order_id": "00105989",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00105989",
+      "order_id": "00105989",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00105989",
+      "order_id": "00105989",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00105989",
+      "order_id": "00105989",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00102744",
+      "order_id": "00102744",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00102744",
+      "order_id": "00102744",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00102744",
+      "order_id": "00102744",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00102744",
+      "order_id": "00102744",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00102744",
+      "order_id": "00102744",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00102744",
+      "order_id": "00102744",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00102744",
+      "order_id": "00102744",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00102744",
+      "order_id": "00102744",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00102744",
+      "order_id": "00102744",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00102744",
+      "order_id": "00102744",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00104382",
+      "order_id": "00104382",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00104382",
+      "order_id": "00104382",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00104382",
+      "order_id": "00104382",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00104382",
+      "order_id": "00104382",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00104382",
+      "order_id": "00104382",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00104382",
+      "order_id": "00104382",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00104382",
+      "order_id": "00104382",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00104382",
+      "order_id": "00104382",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00104382",
+      "order_id": "00104382",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00104382",
+      "order_id": "00104382",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00106806",
+      "order_id": "00106806",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00106806",
+      "order_id": "00106806",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00106806",
+      "order_id": "00106806",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00106806",
+      "order_id": "00106806",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00106806",
+      "order_id": "00106806",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00106806",
+      "order_id": "00106806",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00106806",
+      "order_id": "00106806",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00106806",
+      "order_id": "00106806",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00106806",
+      "order_id": "00106806",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00106806",
+      "order_id": "00106806",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00100842",
+      "order_id": "00100842",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00100842",
+      "order_id": "00100842",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00100842",
+      "order_id": "00100842",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00100842",
+      "order_id": "00100842",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00100842",
+      "order_id": "00100842",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00100842",
+      "order_id": "00100842",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00100842",
+      "order_id": "00100842",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00100842",
+      "order_id": "00100842",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00100842",
+      "order_id": "00100842",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00100842",
+      "order_id": "00100842",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00102462",
+      "order_id": "00102462",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00102462",
+      "order_id": "00102462",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00102462",
+      "order_id": "00102462",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00102462",
+      "order_id": "00102462",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00102462",
+      "order_id": "00102462",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00102462",
+      "order_id": "00102462",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00102462",
+      "order_id": "00102462",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00102462",
+      "order_id": "00102462",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00102462",
+      "order_id": "00102462",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00102462",
+      "order_id": "00102462",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00101838",
+      "order_id": "00101838",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00101838",
+      "order_id": "00101838",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00101838",
+      "order_id": "00101838",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00101838",
+      "order_id": "00101838",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00101838",
+      "order_id": "00101838",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00101838",
+      "order_id": "00101838",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00101838",
+      "order_id": "00101838",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00101838",
+      "order_id": "00101838",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00101838",
+      "order_id": "00101838",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00101838",
+      "order_id": "00101838",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00108036",
+      "order_id": "00108036",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00108036",
+      "order_id": "00108036",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00108036",
+      "order_id": "00108036",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00108036",
+      "order_id": "00108036",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00108036",
+      "order_id": "00108036",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00108036",
+      "order_id": "00108036",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00108036",
+      "order_id": "00108036",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00108036",
+      "order_id": "00108036",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00108036",
+      "order_id": "00108036",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00108036",
+      "order_id": "00108036",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00108236",
+      "order_id": "00108236",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00108236",
+      "order_id": "00108236",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00108236",
+      "order_id": "00108236",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00108236",
+      "order_id": "00108236",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00108236",
+      "order_id": "00108236",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00108236",
+      "order_id": "00108236",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00108236",
+      "order_id": "00108236",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00108236",
+      "order_id": "00108236",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00108236",
+      "order_id": "00108236",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00108236",
+      "order_id": "00108236",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00109447",
+      "order_id": "00109447",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00109447",
+      "order_id": "00109447",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00109447",
+      "order_id": "00109447",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00109447",
+      "order_id": "00109447",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00109447",
+      "order_id": "00109447",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00109447",
+      "order_id": "00109447",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00109447",
+      "order_id": "00109447",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00109447",
+      "order_id": "00109447",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00109447",
+      "order_id": "00109447",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00109447",
+      "order_id": "00109447",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00107236",
+      "order_id": "00107236",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00107236",
+      "order_id": "00107236",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00107236",
+      "order_id": "00107236",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00107236",
+      "order_id": "00107236",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00107236",
+      "order_id": "00107236",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00107236",
+      "order_id": "00107236",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00107236",
+      "order_id": "00107236",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00107236",
+      "order_id": "00107236",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00107236",
+      "order_id": "00107236",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00107236",
+      "order_id": "00107236",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00102796",
+      "order_id": "00102796",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00102796",
+      "order_id": "00102796",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00102796",
+      "order_id": "00102796",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00102796",
+      "order_id": "00102796",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00102796",
+      "order_id": "00102796",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00102796",
+      "order_id": "00102796",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00102796",
+      "order_id": "00102796",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00102796",
+      "order_id": "00102796",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00102796",
+      "order_id": "00102796",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00102796",
+      "order_id": "00102796",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00102346",
+      "order_id": "00102346",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00102346",
+      "order_id": "00102346",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00102346",
+      "order_id": "00102346",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00102346",
+      "order_id": "00102346",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00102346",
+      "order_id": "00102346",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00102346",
+      "order_id": "00102346",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00102346",
+      "order_id": "00102346",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00102346",
+      "order_id": "00102346",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00102346",
+      "order_id": "00102346",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00102346",
+      "order_id": "00102346",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00105250",
+      "order_id": "00105250",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00105250",
+      "order_id": "00105250",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00105250",
+      "order_id": "00105250",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00105250",
+      "order_id": "00105250",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00105250",
+      "order_id": "00105250",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00105250",
+      "order_id": "00105250",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00105250",
+      "order_id": "00105250",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00105250",
+      "order_id": "00105250",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00105250",
+      "order_id": "00105250",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00105250",
+      "order_id": "00105250",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00105797",
+      "order_id": "00105797",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00105797",
+      "order_id": "00105797",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00105797",
+      "order_id": "00105797",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00105797",
+      "order_id": "00105797",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00105797",
+      "order_id": "00105797",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00105797",
+      "order_id": "00105797",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00105797",
+      "order_id": "00105797",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00105797",
+      "order_id": "00105797",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00105797",
+      "order_id": "00105797",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00105797",
+      "order_id": "00105797",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00107107",
+      "order_id": "00107107",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00107107",
+      "order_id": "00107107",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00107107",
+      "order_id": "00107107",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00107107",
+      "order_id": "00107107",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00107107",
+      "order_id": "00107107",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00107107",
+      "order_id": "00107107",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00107107",
+      "order_id": "00107107",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00107107",
+      "order_id": "00107107",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00107107",
+      "order_id": "00107107",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00107107",
+      "order_id": "00107107",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00103460",
+      "order_id": "00103460",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00103460",
+      "order_id": "00103460",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00103460",
+      "order_id": "00103460",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00103460",
+      "order_id": "00103460",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00103460",
+      "order_id": "00103460",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00103460",
+      "order_id": "00103460",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00103460",
+      "order_id": "00103460",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00103460",
+      "order_id": "00103460",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00103460",
+      "order_id": "00103460",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00103460",
+      "order_id": "00103460",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00106319",
+      "order_id": "00106319",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00106319",
+      "order_id": "00106319",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00106319",
+      "order_id": "00106319",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00106319",
+      "order_id": "00106319",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00106319",
+      "order_id": "00106319",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00106319",
+      "order_id": "00106319",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00106319",
+      "order_id": "00106319",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00106319",
+      "order_id": "00106319",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00106319",
+      "order_id": "00106319",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00106319",
+      "order_id": "00106319",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00103738",
+      "order_id": "00103738",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00103738",
+      "order_id": "00103738",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00103738",
+      "order_id": "00103738",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00103738",
+      "order_id": "00103738",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00103738",
+      "order_id": "00103738",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00103738",
+      "order_id": "00103738",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00103738",
+      "order_id": "00103738",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00103738",
+      "order_id": "00103738",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00103738",
+      "order_id": "00103738",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00103738",
+      "order_id": "00103738",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00107235",
+      "order_id": "00107235",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00107235",
+      "order_id": "00107235",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00107235",
+      "order_id": "00107235",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00107235",
+      "order_id": "00107235",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00107235",
+      "order_id": "00107235",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00107235",
+      "order_id": "00107235",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00107235",
+      "order_id": "00107235",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00107235",
+      "order_id": "00107235",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00107235",
+      "order_id": "00107235",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00107235",
+      "order_id": "00107235",
+      "arm": "return_difference",
+      "seed": 37
+    },
+    {
+      "key": "greedy|00105391",
+      "order_id": "00105391",
+      "arm": "greedy",
+      "seed": null
+    },
+    {
+      "key": "classification|11|00105391",
+      "order_id": "00105391",
+      "arm": "classification",
+      "seed": 11
+    },
+    {
+      "key": "classification|23|00105391",
+      "order_id": "00105391",
+      "arm": "classification",
+      "seed": 23
+    },
+    {
+      "key": "classification|37|00105391",
+      "order_id": "00105391",
+      "arm": "classification",
+      "seed": 37
+    },
+    {
+      "key": "preferences|11|00105391",
+      "order_id": "00105391",
+      "arm": "preferences",
+      "seed": 11
+    },
+    {
+      "key": "preferences|23|00105391",
+      "order_id": "00105391",
+      "arm": "preferences",
+      "seed": 23
+    },
+    {
+      "key": "preferences|37|00105391",
+      "order_id": "00105391",
+      "arm": "preferences",
+      "seed": 37
+    },
+    {
+      "key": "return_difference|11|00105391",
+      "order_id": "00105391",
+      "arm": "return_difference",
+      "seed": 11
+    },
+    {
+      "key": "return_difference|23|00105391",
+      "order_id": "00105391",
+      "arm": "return_difference",
+      "seed": 23
+    },
+    {
+      "key": "return_difference|37|00105391",
+      "order_id": "00105391",
+      "arm": "return_difference",
+      "seed": 37
+    }
+  ],
+  "checkpoints": [
+    {
+      "path": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_11/classification/checkpoint_epoch_40.pt",
+      "arm": "classification",
+      "seed": 11,
+      "sha256": "52c766f0f38619d69e617455816fd89fe96dff62a9850498f2bd2974cc589d14",
+      "initialization_sha256": "c4326a66218dd60ce82e33f2b7c4e1a133b0a4c71b228f5fcceb5732c9d55986",
+      "permutation_sha256": "6ec41a8bfc6d9cb6d3d700b0b663a358e340a733e3a524ade13256203bc2ccaf",
+      "logits_match": true,
+      "epoch": 40
+    },
+    {
+      "path": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_11/preferences/checkpoint_epoch_40.pt",
+      "arm": "preferences",
+      "seed": 11,
+      "sha256": "22927b038a2d8d49c7db77e474b8075d11f46f7836016ae2bd06d669fec151b6",
+      "initialization_sha256": "c4326a66218dd60ce82e33f2b7c4e1a133b0a4c71b228f5fcceb5732c9d55986",
+      "permutation_sha256": "6ec41a8bfc6d9cb6d3d700b0b663a358e340a733e3a524ade13256203bc2ccaf",
+      "logits_match": true,
+      "epoch": 40
+    },
+    {
+      "path": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_11/return_difference/checkpoint_epoch_40.pt",
+      "arm": "return_difference",
+      "seed": 11,
+      "sha256": "8e1d9c59d75337ba905858325a6cfedc127013ed4447adc1c5c7fe9bcffeebcb",
+      "initialization_sha256": "c4326a66218dd60ce82e33f2b7c4e1a133b0a4c71b228f5fcceb5732c9d55986",
+      "permutation_sha256": "6ec41a8bfc6d9cb6d3d700b0b663a358e340a733e3a524ade13256203bc2ccaf",
+      "logits_match": true,
+      "epoch": 40
+    },
+    {
+      "path": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_23/classification/checkpoint_epoch_40.pt",
+      "arm": "classification",
+      "seed": 23,
+      "sha256": "2ca37c69fa23e21062fce25e96ba07beee169c3ed5271d6477cdbbb671fbeb8a",
+      "initialization_sha256": "21bbf716a5921206b75445ca2c4910ecdca7223d53ff8c5f85997601fc3a199d",
+      "permutation_sha256": "e4f06896d77143ed15337f19cc64c7f911ecab5d3fa0a39e63f24baf927dbd07",
+      "logits_match": true,
+      "epoch": 40
+    },
+    {
+      "path": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_23/preferences/checkpoint_epoch_40.pt",
+      "arm": "preferences",
+      "seed": 23,
+      "sha256": "857a8bacce2e8d3030cdd41141d5d933cebdc51af56f5b5f3560aadd3bfa66a6",
+      "initialization_sha256": "21bbf716a5921206b75445ca2c4910ecdca7223d53ff8c5f85997601fc3a199d",
+      "permutation_sha256": "e4f06896d77143ed15337f19cc64c7f911ecab5d3fa0a39e63f24baf927dbd07",
+      "logits_match": true,
+      "epoch": 40
+    },
+    {
+      "path": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_23/return_difference/checkpoint_epoch_40.pt",
+      "arm": "return_difference",
+      "seed": 23,
+      "sha256": "02cb0da33fda1ce9ca28cfd78f6eaf81ad50c1d0033375a9224aaf6ca41d337d",
+      "initialization_sha256": "21bbf716a5921206b75445ca2c4910ecdca7223d53ff8c5f85997601fc3a199d",
+      "permutation_sha256": "e4f06896d77143ed15337f19cc64c7f911ecab5d3fa0a39e63f24baf927dbd07",
+      "logits_match": true,
+      "epoch": 40
+    },
+    {
+      "path": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_37/classification/checkpoint_epoch_40.pt",
+      "arm": "classification",
+      "seed": 37,
+      "sha256": "986a011bd4feb2f8fe11f83912893c941b832fc1bf172d851fc89f8f6f6a0e1c",
+      "initialization_sha256": "f0c759532d7cd33d62e5c2b57cc66bf42d49e2da5e6fabdc25c0b9943c3ebce7",
+      "permutation_sha256": "11d955c24f16e24fca682b89d837b3c2771f1a70fd9deb8a639cc716b363e5b1",
+      "logits_match": true,
+      "epoch": 40
+    },
+    {
+      "path": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_37/preferences/checkpoint_epoch_40.pt",
+      "arm": "preferences",
+      "seed": 37,
+      "sha256": "260e1d623a6af7361df30a9fd3b78f497179d8d6eb76e64413faa4b186d546e5",
+      "initialization_sha256": "f0c759532d7cd33d62e5c2b57cc66bf42d49e2da5e6fabdc25c0b9943c3ebce7",
+      "permutation_sha256": "11d955c24f16e24fca682b89d837b3c2771f1a70fd9deb8a639cc716b363e5b1",
+      "logits_match": true,
+      "epoch": 40
+    },
+    {
+      "path": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_models/seed_37/return_difference/checkpoint_epoch_40.pt",
+      "arm": "return_difference",
+      "seed": 37,
+      "sha256": "ae7b981f5e627ba0737d51f614c50db0ed3c021511157a8378bbc4f1d74308e7",
+      "initialization_sha256": "f0c759532d7cd33d62e5c2b57cc66bf42d49e2da5e6fabdc25c0b9943c3ebce7",
+      "permutation_sha256": "11d955c24f16e24fca682b89d837b3c2771f1a70fd9deb8a639cc716b363e5b1",
+      "logits_match": true,
+      "epoch": 40
+    }
+  ],
+  "normalization_sha256": "f5122244d48f6c535d6fc0e9ca4a89cb68242d61ef4d2fdf92477201f2da9f02",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "training_summary_status": "completed",
+  "ops": {
+    "max_workers": 2,
+    "torch_num_threads": 1,
+    "torch_num_interop_threads": 1,
+    "case_timeout_seconds": 300.0,
+    "development_wall_seconds_cup": 3600.0,
+    "prior_development_wall_seconds": 45.43316340446472,
+    "this_run_wall_seconds_limit": 3554.5668365955353,
+    "recorded_before_launch": true,
+    "decision_fixed": true,
+    "worker_python": "/home/edmundo/packing-services/.venv/bin/python",
+    "worker_python_uses_absolute_not_resolve": true
+  },
+  "test_excluded": true,
+  "written_before_episodes": true,
+  "smoke": false,
+  "reuse_from": "/home/edmundo/packing-services/paper/studies/learning_objectives/learning_development_smoke_8",
+  "evaluator_sha256": "ad3f1ed0f5df7ef36659ff1cb4854387427bfebaa10d7c0c38760efe3cd0c216",
+  "worker_sha256": "2e0950710d103d43bb3bef842cc24b81c4db761699228a4c7353ef92314f2436",
+  "worker_env_sha256": "eea0f83c72b5695182e3a3c7a32ca30e0066ebfa9591b06b5084599df9286da1"
+}

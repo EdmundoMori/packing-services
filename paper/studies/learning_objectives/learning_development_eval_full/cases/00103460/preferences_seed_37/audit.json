@@ -1,0 +1,2496 @@
+{
+  "tolerance_mm": 1e-06,
+  "n_input": 25,
+  "n_packed": 19,
+  "n_unpacked": 6,
+  "errors": [],
+  "n_boxes_outside_bin": 0,
+  "n_overlap_pairs": 0,
+  "boxes": [
+    {
+      "item_id": "00101452#1",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "oriented_lwh_mm": [
+        400.0,
+        590.0,
+        295.0
+      ],
+      "max_corner_mm": [
+        400.0,
+        590.0,
+        295.0
+      ],
+      "volume_mm3": 69620000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00101452#2",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        0.0,
+        295.0
+      ],
+      "oriented_lwh_mm": [
+        295.0,
+        590.0,
+        400.0
+      ],
+      "max_corner_mm": [
+        295.0,
+        590.0,
+        695.0
+      ],
+      "volume_mm3": 69620000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00101452#3",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        0.0,
+        695.0
+      ],
+      "oriented_lwh_mm": [
+        295.0,
+        400.0,
+        590.0
+      ],
+      "max_corner_mm": [
+        295.0,
+        400.0,
+        1285.0
+      ],
+      "volume_mm3": 69620000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00101452#4",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        0.0,
+        1285.0
+      ],
+      "oriented_lwh_mm": [
+        295.0,
+        400.0,
+        590.0
+      ],
+      "max_corner_mm": [
+        295.0,
+        400.0,
+        1875.0
+      ],
+      "volume_mm3": 69620000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00101452#5",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        295.0,
+        0.0,
+        1285.0
+      ],
+      "oriented_lwh_mm": [
+        400.0,
+        295.0,
+        590.0
+      ],
+      "max_corner_mm": [
+        695.0,
+        295.0,
+        1875.0
+      ],
+      "volume_mm3": 69620000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00101452#6",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        400.0,
+        0.0,
+        0.0
+      ],
+      "oriented_lwh_mm": [
+        400.0,
+        590.0,
+        295.0
+      ],
+      "max_corner_mm": [
+        800.0,
+        590.0,
+        295.0
+      ],
+      "volume_mm3": 69620000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00101452#7",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        295.0,
+        0.0,
+        295.0
+      ],
+      "oriented_lwh_mm": [
+        400.0,
+        590.0,
+        295.0
+      ],
+      "max_corner_mm": [
+        695.0,
+        590.0,
+        590.0
+      ],
+      "volume_mm3": 69620000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00101452#8",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        295.0,
+        0.0,
+        590.0
+      ],
+      "oriented_lwh_mm": [
+        400.0,
+        295.0,
+        590.0
+      ],
+      "max_corner_mm": [
+        695.0,
+        295.0,
+        1180.0
+      ],
+      "volume_mm3": 69620000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00100993#9",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        400.0,
+        1285.0
+      ],
+      "oriented_lwh_mm": [
+        300.0,
+        150.0,
+        400.0
+      ],
+      "max_corner_mm": [
+        300.0,
+        550.0,
+        1685.0
+      ],
+      "volume_mm3": 18000000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00111690#10",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        0.0,
+        1875.0
+      ],
+      "oriented_lwh_mm": [
+        400.0,
+        300.0,
+        100.0
+      ],
+      "max_corner_mm": [
+        400.0,
+        300.0,
+        1975.0
+      ],
+      "volume_mm3": 12000000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00104331#11",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        400.0,
+        1685.0
+      ],
+      "oriented_lwh_mm": [
+        400.0,
+        200.0,
+        200.0
+      ],
+      "max_corner_mm": [
+        400.0,
+        600.0,
+        1885.0
+      ],
+      "volume_mm3": 16000000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00105168#12",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        400.0,
+        400.0,
+        1685.0
+      ],
+      "oriented_lwh_mm": [
+        400.0,
+        300.0,
+        160.0
+      ],
+      "max_corner_mm": [
+        800.0,
+        700.0,
+        1845.0
+      ],
+      "volume_mm3": 19200000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00106385#13",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        295.0,
+        295.0,
+        590.0
+      ],
+      "oriented_lwh_mm": [
+        390.0,
+        265.0,
+        165.0
+      ],
+      "max_corner_mm": [
+        685.0,
+        560.0,
+        755.0
+      ],
+      "volume_mm3": 17052750.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00106552#14",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        295.0,
+        295.0,
+        755.0
+      ],
+      "oriented_lwh_mm": [
+        390.0,
+        390.0,
+        180.0
+      ],
+      "max_corner_mm": [
+        685.0,
+        685.0,
+        935.0
+      ],
+      "volume_mm3": 27378000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00102264#15",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        295.0,
+        295.0,
+        935.0
+      ],
+      "oriented_lwh_mm": [
+        400.0,
+        265.0,
+        160.0
+      ],
+      "max_corner_mm": [
+        695.0,
+        560.0,
+        1095.0
+      ],
+      "volume_mm3": 16960000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        295.0,
+        295.0,
+        1095.0
+      ],
+      "oriented_lwh_mm": [
+        270.0,
+        395.0,
+        160.0
+      ],
+      "max_corner_mm": [
+        565.0,
+        690.0,
+        1255.0
+      ],
+      "volume_mm3": 17064000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        565.0,
+        295.0,
+        1095.0
+      ],
+      "oriented_lwh_mm": [
+        160.0,
+        395.0,
+        270.0
+      ],
+      "max_corner_mm": [
+        725.0,
+        690.0,
+        1365.0
+      ],
+      "volume_mm3": 17064000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        565.0,
+        295.0,
+        1365.0
+      ],
+      "oriented_lwh_mm": [
+        160.0,
+        395.0,
+        270.0
+      ],
+      "max_corner_mm": [
+        725.0,
+        690.0,
+        1635.0
+      ],
+      "volume_mm3": 17064000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "flb_mm": [
+        0.0,
+        400.0,
+        695.0
+      ],
+      "oriented_lwh_mm": [
+        200.0,
+        200.0,
+        400.0
+      ],
+      "max_corner_mm": [
+        200.0,
+        600.0,
+        1095.0
+      ],
+      "volume_mm3": 16000000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    }
+  ],
+  "pairs": [
+    {
+      "id_i": "00101452#1",
+      "id_j": "00101452#2",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 590.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00101452#3",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 400.0,
+        "z": -400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00101452#4",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 400.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00101452#5",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 295.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00101452#6",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 590.0,
+        "z": 295.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00101452#7",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 590.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00101452#8",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 295.0,
+        "z": -295.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00100993#9",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 300.0,
+        "y": 150.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00111690#10",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 400.0,
+        "y": 300.0,
+        "z": -1580.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00104331#11",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 400.0,
+        "y": 190.0,
+        "z": -1390.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00105168#12",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 190.0,
+        "z": -1390.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00106385#13",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 265.0,
+        "z": -295.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00106552#14",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 295.0,
+        "z": -460.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00102264#15",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 265.0,
+        "z": -640.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 295.0,
+        "z": -800.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -165.0,
+        "y": 295.0,
+        "z": -800.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -165.0,
+        "y": 295.0,
+        "z": -1070.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#1",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 200.0,
+        "y": 190.0,
+        "z": -400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00101452#3",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00101452#4",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 400.0,
+        "z": -590.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00101452#5",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 295.0,
+        "z": -590.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00101452#6",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -105.0,
+        "y": 590.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00101452#7",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 590.0,
+        "z": 295.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00101452#8",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 295.0,
+        "z": 105.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00100993#9",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 150.0,
+        "z": -590.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00111690#10",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 300.0,
+        "z": -1180.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00104331#11",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 190.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00105168#12",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -105.0,
+        "y": 190.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00106385#13",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 265.0,
+        "z": 105.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00106552#14",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 295.0,
+        "z": -60.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00102264#15",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 265.0,
+        "z": -240.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 295.0,
+        "z": -400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 295.0,
+        "z": -400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 295.0,
+        "z": -670.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#2",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 200.0,
+        "y": 190.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00101452#4",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00101452#5",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 295.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00101452#6",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -105.0,
+        "y": 400.0,
+        "z": -400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00101452#7",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 400.0,
+        "z": -105.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00101452#8",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 295.0,
+        "z": 485.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00100993#9",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00111690#10",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 300.0,
+        "z": -590.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00104331#11",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 0.0,
+        "z": -400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00105168#12",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -105.0,
+        "y": 0.0,
+        "z": -400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00106385#13",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 105.0,
+        "z": 60.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00106552#14",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 105.0,
+        "z": 180.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00102264#15",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 105.0,
+        "z": 160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 105.0,
+        "z": 160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 105.0,
+        "z": 190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 105.0,
+        "z": -80.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#3",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 200.0,
+        "y": 0.0,
+        "z": 400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#4",
+      "id_j": "00101452#5",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 295.0,
+        "z": 590.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#4",
+      "id_j": "00101452#6",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -105.0,
+        "y": 400.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#4",
+      "id_j": "00101452#7",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 400.0,
+        "z": -695.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#4",
+      "id_j": "00101452#8",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 295.0,
+        "z": -105.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#4",
+      "id_j": "00100993#9",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 0.0,
+        "z": 400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#4",
+      "id_j": "00111690#10",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 300.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#4",
+      "id_j": "00104331#11",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 0.0,
+        "z": 190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#4",
+      "id_j": "00105168#12",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -105.0,
+        "y": 0.0,
+        "z": 160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#4",
+      "id_j": "00106385#13",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 105.0,
+        "z": -530.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#4",
+      "id_j": "00106552#14",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 105.0,
+        "z": -350.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#4",
+      "id_j": "00102264#15",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 105.0,
+        "z": -190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#4",
+      "id_j": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 105.0,
+        "z": -30.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#4",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 105.0,
+        "z": 80.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#4",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 105.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#4",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 200.0,
+        "y": 0.0,
+        "z": -190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#5",
+      "id_j": "00101452#6",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 295.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#5",
+      "id_j": "00101452#7",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 400.0,
+        "y": 295.0,
+        "z": -695.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#5",
+      "id_j": "00101452#8",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 400.0,
+        "y": 295.0,
+        "z": -105.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#5",
+      "id_j": "00100993#9",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 5.0,
+        "y": -105.0,
+        "z": 400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#5",
+      "id_j": "00111690#10",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 295.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#5",
+      "id_j": "00104331#11",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": -105.0,
+        "z": 190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#5",
+      "id_j": "00105168#12",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": -105.0,
+        "z": 160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#5",
+      "id_j": "00106385#13",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 390.0,
+        "y": 0.0,
+        "z": -530.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#5",
+      "id_j": "00106552#14",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 390.0,
+        "y": 0.0,
+        "z": -350.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#5",
+      "id_j": "00102264#15",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 400.0,
+        "y": 0.0,
+        "z": -190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#5",
+      "id_j": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 0.0,
+        "z": -30.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#5",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 130.0,
+        "y": 0.0,
+        "z": 80.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#5",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 130.0,
+        "y": 0.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#5",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -95.0,
+        "y": -105.0,
+        "z": -190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#6",
+      "id_j": "00101452#7",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 590.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#6",
+      "id_j": "00101452#8",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 295.0,
+        "z": -295.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#6",
+      "id_j": "00100993#9",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -100.0,
+        "y": 150.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#6",
+      "id_j": "00111690#10",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 300.0,
+        "z": -1580.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#6",
+      "id_j": "00104331#11",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 190.0,
+        "z": -1390.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#6",
+      "id_j": "00105168#12",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 400.0,
+        "y": 190.0,
+        "z": -1390.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#6",
+      "id_j": "00106385#13",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 285.0,
+        "y": 265.0,
+        "z": -295.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#6",
+      "id_j": "00106552#14",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 285.0,
+        "y": 295.0,
+        "z": -460.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#6",
+      "id_j": "00102264#15",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 265.0,
+        "z": -640.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#6",
+      "id_j": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 165.0,
+        "y": 295.0,
+        "z": -800.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#6",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 160.0,
+        "y": 295.0,
+        "z": -800.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#6",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 160.0,
+        "y": 295.0,
+        "z": -1070.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#6",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -200.0,
+        "y": 190.0,
+        "z": -400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#7",
+      "id_j": "00101452#8",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 400.0,
+        "y": 295.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#7",
+      "id_j": "00100993#9",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 5.0,
+        "y": 150.0,
+        "z": -695.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#7",
+      "id_j": "00111690#10",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 300.0,
+        "z": -1285.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#7",
+      "id_j": "00104331#11",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 190.0,
+        "z": -1095.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#7",
+      "id_j": "00105168#12",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 190.0,
+        "z": -1095.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#7",
+      "id_j": "00106385#13",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 390.0,
+        "y": 265.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#7",
+      "id_j": "00106552#14",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 390.0,
+        "y": 295.0,
+        "z": -165.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#7",
+      "id_j": "00102264#15",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 400.0,
+        "y": 265.0,
+        "z": -345.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#7",
+      "id_j": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 295.0,
+        "z": -505.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#7",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 130.0,
+        "y": 295.0,
+        "z": -505.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#7",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 130.0,
+        "y": 295.0,
+        "z": -775.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#7",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -95.0,
+        "y": 190.0,
+        "z": -105.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#8",
+      "id_j": "00100993#9",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 5.0,
+        "y": -105.0,
+        "z": -105.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#8",
+      "id_j": "00111690#10",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 295.0,
+        "z": -695.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#8",
+      "id_j": "00104331#11",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": -105.0,
+        "z": -505.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#8",
+      "id_j": "00105168#12",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": -105.0,
+        "z": -505.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#8",
+      "id_j": "00106385#13",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 390.0,
+        "y": 0.0,
+        "z": 165.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#8",
+      "id_j": "00106552#14",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 390.0,
+        "y": 0.0,
+        "z": 180.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#8",
+      "id_j": "00102264#15",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 400.0,
+        "y": 0.0,
+        "z": 160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#8",
+      "id_j": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 0.0,
+        "z": 85.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#8",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 130.0,
+        "y": 0.0,
+        "z": 85.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#8",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 130.0,
+        "y": 0.0,
+        "z": -185.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101452#8",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -95.0,
+        "y": -105.0,
+        "z": 400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100993#9",
+      "id_j": "00111690#10",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 300.0,
+        "y": -100.0,
+        "z": -190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100993#9",
+      "id_j": "00104331#11",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 300.0,
+        "y": 150.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100993#9",
+      "id_j": "00105168#12",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -100.0,
+        "y": 150.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100993#9",
+      "id_j": "00106385#13",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 5.0,
+        "y": 150.0,
+        "z": -530.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100993#9",
+      "id_j": "00106552#14",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 5.0,
+        "y": 150.0,
+        "z": -350.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100993#9",
+      "id_j": "00102264#15",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 5.0,
+        "y": 150.0,
+        "z": -190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100993#9",
+      "id_j": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 5.0,
+        "y": 150.0,
+        "z": -30.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100993#9",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -265.0,
+        "y": 150.0,
+        "z": 80.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100993#9",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -265.0,
+        "y": 150.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100993#9",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 200.0,
+        "y": 150.0,
+        "z": -190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111690#10",
+      "id_j": "00104331#11",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 400.0,
+        "y": -100.0,
+        "z": 10.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111690#10",
+      "id_j": "00105168#12",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": -100.0,
+        "z": -30.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111690#10",
+      "id_j": "00106385#13",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 5.0,
+        "z": -1120.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111690#10",
+      "id_j": "00106552#14",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 5.0,
+        "z": -940.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111690#10",
+      "id_j": "00102264#15",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 5.0,
+        "z": -780.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111690#10",
+      "id_j": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 5.0,
+        "z": -620.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111690#10",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -165.0,
+        "y": 5.0,
+        "z": -510.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111690#10",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -165.0,
+        "y": 5.0,
+        "z": -240.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111690#10",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 200.0,
+        "y": -100.0,
+        "z": -780.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104331#11",
+      "id_j": "00105168#12",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 200.0,
+        "z": 160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104331#11",
+      "id_j": "00106385#13",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 160.0,
+        "z": -930.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104331#11",
+      "id_j": "00106552#14",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 200.0,
+        "z": -750.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104331#11",
+      "id_j": "00102264#15",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 160.0,
+        "z": -590.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104331#11",
+      "id_j": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 105.0,
+        "y": 200.0,
+        "z": -430.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104331#11",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -165.0,
+        "y": 200.0,
+        "z": -320.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104331#11",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -165.0,
+        "y": 200.0,
+        "z": -50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104331#11",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 200.0,
+        "y": 200.0,
+        "z": -590.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105168#12",
+      "id_j": "00106385#13",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 285.0,
+        "y": 160.0,
+        "z": -930.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105168#12",
+      "id_j": "00106552#14",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 285.0,
+        "y": 285.0,
+        "z": -750.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105168#12",
+      "id_j": "00102264#15",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 295.0,
+        "y": 160.0,
+        "z": -590.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105168#12",
+      "id_j": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 165.0,
+        "y": 290.0,
+        "z": -430.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105168#12",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 160.0,
+        "y": 290.0,
+        "z": -320.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105168#12",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 160.0,
+        "y": 290.0,
+        "z": -50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105168#12",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -200.0,
+        "y": 200.0,
+        "z": -590.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106385#13",
+      "id_j": "00106552#14",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 390.0,
+        "y": 265.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106385#13",
+      "id_j": "00102264#15",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 390.0,
+        "y": 265.0,
+        "z": -180.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106385#13",
+      "id_j": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 265.0,
+        "z": -340.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106385#13",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 120.0,
+        "y": 265.0,
+        "z": -340.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106385#13",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 120.0,
+        "y": 265.0,
+        "z": -610.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106385#13",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -95.0,
+        "y": 160.0,
+        "z": 60.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106552#14",
+      "id_j": "00102264#15",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 390.0,
+        "y": 265.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106552#14",
+      "id_j": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 390.0,
+        "z": -160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106552#14",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 120.0,
+        "y": 390.0,
+        "z": -160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106552#14",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 120.0,
+        "y": 390.0,
+        "z": -430.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106552#14",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -95.0,
+        "y": 200.0,
+        "z": 180.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102264#15",
+      "id_j": "00112513#16",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 265.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102264#15",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 130.0,
+        "y": 265.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102264#15",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 130.0,
+        "y": 265.0,
+        "z": -270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102264#15",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -95.0,
+        "y": 160.0,
+        "z": 160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112513#16",
+      "id_j": "00112513#17",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 395.0,
+        "z": 160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112513#16",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 395.0,
+        "z": -110.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112513#16",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -95.0,
+        "y": 200.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112513#17",
+      "id_j": "00112513#18",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": 160.0,
+        "y": 395.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112513#17",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -365.0,
+        "y": 200.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112513#18",
+      "id_j": "00104705#19",
+      "container_id": "ROLLCONTAINER",
+      "intersection_mm": {
+        "x": -365.0,
+        "y": 200.0,
+        "z": -270.0
+      },
+      "overlap": false
+    }
+  ],
+  "per_container": [
+    {
+      "container_id": "ROLLCONTAINER",
+      "n_boxes": 19,
+      "max_height_mm": 1975.0,
+      "packed_volume_mm3": 750742750.0,
+      "bin_volume_mm3": 1120000000.0
+    }
+  ],
+  "internal_geometry_valid": true,
+  "all_items_packed": false,
+  "physical_stability_verified": null,
+  "note": "Este auditor comprueba la geometría de la captura: contención, solapes en el mismo contenedor, partición de ítems y permutaciones autorizadas. No verifica todas las restricciones físicas ni todas las reglas de los papers. physical_stability_verified queda null."
+}

@@ -1,15 +1,19 @@
-# learning_objectives
+# learning_objectives — **configuración cerrada**
 
-Etiquetas verificadas. 9 modelos publicados (`2b4f5e9`).
+**Decisión:** `no_avanzar_con_esta_configuracion`
+**Test:** no ejecutado
+**Nuevas campañas:** no autorizadas en este cierre
 
-## Intento development fallido (conservado)
-- run_id `dev_eval_2b4f5e9a8f7c_20261005T160901Z`
-- 240/240 crash pre-packing (`Path.resolve` del intérprete venv)
-- 0 capturas / 0 auditorías; summary y gate originales intactos
-- Interpretación: `evaluacion_incompleta_por_fallo_del_arnes`
-- Los ceros **no** son resultados de packing
+## Evidencia principal
+- Modelos: `learning_models/` (9× época 40)
+- Development íntegro: `learning_development_eval_full/` (240 auditados; 8 reuse smoke + 232 nuevos)
+- Smoke procedencia: `learning_development_smoke_8/`
+- Intento arnés (excluido packing): `learning_development_eval/`
+- Cierre: `campaign_closure.md`, `forensics/campaign_closure_verification.json`
 
-## Corrección de arnés
-- `worker_env.py` + preflight subprocess; `absolute()` no `resolve()`
-- Puerta científica no aplicable sin capturas auditadas
-- Revisión: `reviews/21_venv_workers_and_invalid_gates.md`
+## HEAD de evaluación
+`ee9e0ec854c303d14d54b5be342558645777cb0a` — run `dev_full_ee9e0ec854c3_20261005T174540Z`
+
+## Presupuesto (registrado)
+- Cupo development 3600 s; consumido ≈ 743.3 s; restante ≈ 2857.2 s
+- Saldo global campaña para condición test (≥9000 s): ≈ 25828.4 s contabilizados (no equivale solo al cupo development restante)

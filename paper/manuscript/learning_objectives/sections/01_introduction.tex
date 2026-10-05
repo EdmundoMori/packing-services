@@ -2,35 +2,31 @@
 
 In online three-dimensional packing, each arriving item must be assigned a
 feasible placement before the remainder of the order is observed in full.
-Practical engines therefore expose a finite set of geometrically legal
-candidates and score them with a heuristic or a learned scorer
+Practical engines expose a finite set of geometrically legal candidates and score
+them with a heuristic or a learned scorer
 \citep{crainic2008extreme,zhao2022pct}. When candidate-level supervision is
-available, the \emph{learning objective}---how mismatches between scores and
-labels are penalised---can change which placements are preferred and, through
-the sequential packing process, the utilisation of complete episodes.
+available, the \emph{learning objective} can change which placements are preferred
+and, through sequential packing, complete-episode geometric utilisation.
 
-The scientific question of this manuscript is therefore:
+This manuscript reports a \emph{controlled empirical comparison}, not a
+demonstrated algorithmic improvement. The scientific question is:
 \begin{quote}
 Under a fixed geometric contract, a shared candidate encoder, a shared local
 support map $S$, shared labels and a shared optimisation budget, how do
 classification, pairwise preference and return-difference supervision affect
 complete-episode geometric utilisation?
 \end{quote}
-The primary contrast compares preference learning with classification after
-paired seeds. A Mandi-inspired return-difference loss is retained as a
-secondary arm \citep{mandi2022decision}. GreedyBestFit remains a mandatory
-practical reference; packing-configuration-tree (PCT) policies are discussed
-only as related work and are not experimental baselines here
-\citep{zhao2022pct}.
+The primary contrast compares preference learning with classification after paired
+seeds. A return-difference arm is secondary \citep{mandi2022decision}.
+GreedyBestFit on the full legal list is the mandatory deployment reference.
+PCT policies are related work only \citep{zhao2022pct}.
 
-Orders are drawn from the BED-BPP instance collection
-\citep{kagerer2023bedbpp}. The evaluation metric and constraints follow a
-compact geometric contract defined in this repository, not the official robotic
-BED-BPP evaluation with rigid-body stability simulation. Physical stability is
-recorded as null and is not claimed.
+Orders come from the BED-BPP collection \citep{kagerer2023bedbpp}. Evaluation uses
+this repository's compact geometric contract; official robotic stability simulation
+is not used. \texttt{physical\_stability\_verified} remains null throughout.
 
-The intended contribution is a bounded empirical comparison of supervision
-objectives for local packing actions with continuation labels and episode-level
-readouts. Demonstrated superiority, statistical confirmation and publication
-readiness remain contingent on executing the frozen protocol; they are not
-asserted in this draft.
+The frozen campaign completed labelling, paired training and a full development
+episode evaluation. A preregistered development gate did not pass; the held-out
+test split was not opened. The contribution is therefore a bounded, auditable
+negative result under the stated configuration rather than evidence of superiority
+of any objective.

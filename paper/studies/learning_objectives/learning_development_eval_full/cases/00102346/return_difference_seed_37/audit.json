@@ -1,0 +1,8072 @@
+{
+  "tolerance_mm": 1e-06,
+  "n_input": 47,
+  "n_packed": 36,
+  "n_unpacked": 11,
+  "errors": [],
+  "n_boxes_outside_bin": 0,
+  "n_overlap_pairs": 0,
+  "boxes": [
+    {
+      "item_id": "00111305#1",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "oriented_lwh_mm": [
+        560.0,
+        230.0,
+        220.0
+      ],
+      "max_corner_mm": [
+        560.0,
+        230.0,
+        220.0
+      ],
+      "volume_mm3": 28336000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00110809#2",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        560.0,
+        0.0,
+        0.0
+      ],
+      "oriented_lwh_mm": [
+        530.0,
+        220.0,
+        270.0
+      ],
+      "max_corner_mm": [
+        1090.0,
+        220.0,
+        270.0
+      ],
+      "volume_mm3": 31482000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00101974#3",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        560.0,
+        220.0,
+        0.0
+      ],
+      "oriented_lwh_mm": [
+        170.0,
+        380.0,
+        170.0
+      ],
+      "max_corner_mm": [
+        730.0,
+        600.0,
+        170.0
+      ],
+      "volume_mm3": 10982000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00105329#4",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        730.0,
+        220.0,
+        0.0
+      ],
+      "oriented_lwh_mm": [
+        270.0,
+        540.0,
+        260.0
+      ],
+      "max_corner_mm": [
+        1000.0,
+        760.0,
+        260.0
+      ],
+      "volume_mm3": 37908000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00110913#5",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        730.0,
+        220.0,
+        260.0
+      ],
+      "oriented_lwh_mm": [
+        260.0,
+        400.0,
+        260.0
+      ],
+      "max_corner_mm": [
+        990.0,
+        620.0,
+        520.0
+      ],
+      "volume_mm3": 27040000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00106538#6",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        560.0,
+        0.0,
+        270.0
+      ],
+      "oriented_lwh_mm": [
+        560.0,
+        220.0,
+        230.0
+      ],
+      "max_corner_mm": [
+        1120.0,
+        220.0,
+        500.0
+      ],
+      "volume_mm3": 28336000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00105504#7",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        230.0,
+        0.0
+      ],
+      "oriented_lwh_mm": [
+        260.0,
+        540.0,
+        270.0
+      ],
+      "max_corner_mm": [
+        260.0,
+        770.0,
+        270.0
+      ],
+      "volume_mm3": 37908000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00100264#8",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        230.0,
+        270.0
+      ],
+      "oriented_lwh_mm": [
+        600.0,
+        400.0,
+        300.0
+      ],
+      "max_corner_mm": [
+        600.0,
+        630.0,
+        570.0
+      ],
+      "volume_mm3": 72000000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00104636#9",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        1000.0,
+        220.0,
+        0.0
+      ],
+      "oriented_lwh_mm": [
+        130.0,
+        210.0,
+        490.0
+      ],
+      "max_corner_mm": [
+        1130.0,
+        430.0,
+        490.0
+      ],
+      "volume_mm3": 13377000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00104636#10",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        1000.0,
+        430.0,
+        0.0
+      ],
+      "oriented_lwh_mm": [
+        130.0,
+        210.0,
+        490.0
+      ],
+      "max_corner_mm": [
+        1130.0,
+        640.0,
+        490.0
+      ],
+      "volume_mm3": 13377000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00109895#11",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        730.0,
+        220.0,
+        520.0
+      ],
+      "oriented_lwh_mm": [
+        380.0,
+        250.0,
+        240.0
+      ],
+      "max_corner_mm": [
+        1110.0,
+        470.0,
+        760.0
+      ],
+      "volume_mm3": 22800000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00110904#12",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        730.0,
+        220.0,
+        760.0
+      ],
+      "oriented_lwh_mm": [
+        360.0,
+        320.0,
+        250.0
+      ],
+      "max_corner_mm": [
+        1090.0,
+        540.0,
+        1010.0
+      ],
+      "volume_mm3": 28800000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00110904#13",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        730.0,
+        220.0,
+        1010.0
+      ],
+      "oriented_lwh_mm": [
+        360.0,
+        320.0,
+        250.0
+      ],
+      "max_corner_mm": [
+        1090.0,
+        540.0,
+        1260.0
+      ],
+      "volume_mm3": 28800000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00105650#14",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        730.0,
+        220.0,
+        1260.0
+      ],
+      "oriented_lwh_mm": [
+        370.0,
+        270.0,
+        200.0
+      ],
+      "max_corner_mm": [
+        1100.0,
+        490.0,
+        1460.0
+      ],
+      "volume_mm3": 19980000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00105650#15",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        730.0,
+        220.0,
+        1460.0
+      ],
+      "oriented_lwh_mm": [
+        370.0,
+        270.0,
+        200.0
+      ],
+      "max_corner_mm": [
+        1100.0,
+        490.0,
+        1660.0
+      ],
+      "volume_mm3": 19980000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        730.0,
+        220.0,
+        1660.0
+      ],
+      "oriented_lwh_mm": [
+        390.0,
+        270.0,
+        250.0
+      ],
+      "max_corner_mm": [
+        1120.0,
+        490.0,
+        1910.0
+      ],
+      "volume_mm3": 26325000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        230.0,
+        570.0
+      ],
+      "oriented_lwh_mm": [
+        270.0,
+        390.0,
+        250.0
+      ],
+      "max_corner_mm": [
+        270.0,
+        620.0,
+        820.0
+      ],
+      "volume_mm3": 26325000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        230.0,
+        820.0
+      ],
+      "oriented_lwh_mm": [
+        270.0,
+        400.0,
+        240.0
+      ],
+      "max_corner_mm": [
+        270.0,
+        630.0,
+        1060.0
+      ],
+      "volume_mm3": 25920000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        260.0,
+        230.0,
+        0.0
+      ],
+      "oriented_lwh_mm": [
+        200.0,
+        400.0,
+        270.0
+      ],
+      "max_corner_mm": [
+        460.0,
+        630.0,
+        270.0
+      ],
+      "volume_mm3": 21600000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        730.0,
+        470.0,
+        520.0
+      ],
+      "oriented_lwh_mm": [
+        290.0,
+        210.0,
+        210.0
+      ],
+      "max_corner_mm": [
+        1020.0,
+        680.0,
+        730.0
+      ],
+      "volume_mm3": 12789000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        0.0,
+        220.0
+      ],
+      "oriented_lwh_mm": [
+        290.0,
+        210.0,
+        210.0
+      ],
+      "max_corner_mm": [
+        290.0,
+        210.0,
+        430.0
+      ],
+      "volume_mm3": 12789000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        730.0,
+        490.0,
+        1260.0
+      ],
+      "oriented_lwh_mm": [
+        330.0,
+        290.0,
+        210.0
+      ],
+      "max_corner_mm": [
+        1060.0,
+        780.0,
+        1470.0
+      ],
+      "volume_mm3": 20097000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        270.0,
+        230.0,
+        570.0
+      ],
+      "oriented_lwh_mm": [
+        270.0,
+        540.0,
+        260.0
+      ],
+      "max_corner_mm": [
+        540.0,
+        770.0,
+        830.0
+      ],
+      "volume_mm3": 37908000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        230.0,
+        1060.0
+      ],
+      "oriented_lwh_mm": [
+        230.0,
+        570.0,
+        330.0
+      ],
+      "max_corner_mm": [
+        230.0,
+        800.0,
+        1390.0
+      ],
+      "volume_mm3": 43263000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        230.0,
+        1390.0
+      ],
+      "oriented_lwh_mm": [
+        290.0,
+        390.0,
+        300.0
+      ],
+      "max_corner_mm": [
+        290.0,
+        620.0,
+        1690.0
+      ],
+      "volume_mm3": 33930000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        230.0,
+        1690.0
+      ],
+      "oriented_lwh_mm": [
+        290.0,
+        390.0,
+        300.0
+      ],
+      "max_corner_mm": [
+        290.0,
+        620.0,
+        1990.0
+      ],
+      "volume_mm3": 33930000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        290.0,
+        230.0,
+        1390.0
+      ],
+      "oriented_lwh_mm": [
+        150.0,
+        390.0,
+        590.0
+      ],
+      "max_corner_mm": [
+        440.0,
+        620.0,
+        1980.0
+      ],
+      "volume_mm3": 34515000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        440.0,
+        230.0,
+        1390.0
+      ],
+      "oriented_lwh_mm": [
+        150.0,
+        390.0,
+        590.0
+      ],
+      "max_corner_mm": [
+        590.0,
+        620.0,
+        1980.0
+      ],
+      "volume_mm3": 34515000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        0.0,
+        630.0,
+        270.0
+      ],
+      "oriented_lwh_mm": [
+        170.0,
+        170.0,
+        510.0
+      ],
+      "max_corner_mm": [
+        170.0,
+        800.0,
+        780.0
+      ],
+      "volume_mm3": 14739000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        270.0,
+        230.0,
+        830.0
+      ],
+      "oriented_lwh_mm": [
+        290.0,
+        330.0,
+        210.0
+      ],
+      "max_corner_mm": [
+        560.0,
+        560.0,
+        1040.0
+      ],
+      "volume_mm3": 20097000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        730.0,
+        490.0,
+        1470.0
+      ],
+      "oriented_lwh_mm": [
+        330.0,
+        290.0,
+        210.0
+      ],
+      "max_corner_mm": [
+        1060.0,
+        780.0,
+        1680.0
+      ],
+      "volume_mm3": 20097000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        260.0,
+        630.0,
+        0.0
+      ],
+      "oriented_lwh_mm": [
+        160.0,
+        160.0,
+        400.0
+      ],
+      "max_corner_mm": [
+        420.0,
+        790.0,
+        400.0
+      ],
+      "volume_mm3": 10240000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        1000.0,
+        640.0,
+        0.0
+      ],
+      "oriented_lwh_mm": [
+        160.0,
+        160.0,
+        400.0
+      ],
+      "max_corner_mm": [
+        1160.0,
+        800.0,
+        400.0
+      ],
+      "volume_mm3": 10240000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        730.0,
+        490.0,
+        1680.0
+      ],
+      "oriented_lwh_mm": [
+        390.0,
+        270.0,
+        270.0
+      ],
+      "max_corner_mm": [
+        1120.0,
+        760.0,
+        1950.0
+      ],
+      "volume_mm3": 28431000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        270.0,
+        230.0,
+        1040.0
+      ],
+      "oriented_lwh_mm": [
+        270.0,
+        390.0,
+        270.0
+      ],
+      "max_corner_mm": [
+        540.0,
+        620.0,
+        1310.0
+      ],
+      "volume_mm3": 28431000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    },
+    {
+      "item_id": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "flb_mm": [
+        730.0,
+        540.0,
+        760.0
+      ],
+      "oriented_lwh_mm": [
+        400.0,
+        260.0,
+        290.0
+      ],
+      "max_corner_mm": [
+        1130.0,
+        800.0,
+        1050.0
+      ],
+      "volume_mm3": 30160000.0,
+      "lower_negative": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "upper_excess": {
+        "x": false,
+        "y": false,
+        "z": false
+      },
+      "outside_bin": false
+    }
+  ],
+  "pairs": [
+    {
+      "id_i": "00111305#1",
+      "id_j": "00110809#2",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 220.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00101974#3",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 10.0,
+        "z": 170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00105329#4",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 10.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00110913#5",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 10.0,
+        "z": -40.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00106538#6",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 220.0,
+        "z": -50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00105504#7",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 0.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00100264#8",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 560.0,
+        "y": 0.0,
+        "z": -50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00104636#9",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 10.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00104636#10",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -200.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00109895#11",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 10.0,
+        "z": -300.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00110904#12",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 10.0,
+        "z": -540.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00110904#13",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 10.0,
+        "z": -790.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00105650#14",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 10.0,
+        "z": -1040.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00105650#15",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 10.0,
+        "z": -1240.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 10.0,
+        "z": -1440.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 0.0,
+        "z": -350.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 0.0,
+        "z": -600.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 200.0,
+        "y": 0.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": -240.0,
+        "z": -300.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 210.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": -260.0,
+        "z": -1040.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 0.0,
+        "z": -350.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 230.0,
+        "y": 0.0,
+        "z": -840.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 0.0,
+        "z": -1170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 0.0,
+        "z": -1470.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 150.0,
+        "y": 0.0,
+        "z": -1170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 120.0,
+        "y": 0.0,
+        "z": -1170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 170.0,
+        "y": -400.0,
+        "z": -50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 0.0,
+        "z": -610.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": -260.0,
+        "z": -1250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 160.0,
+        "y": -400.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -410.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": -260.0,
+        "z": -1460.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 0.0,
+        "z": -820.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111305#1",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": -310.0,
+        "z": -540.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00101974#3",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 170.0,
+        "y": 0.0,
+        "z": 170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00105329#4",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 0.0,
+        "z": 260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00110913#5",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 0.0,
+        "z": 10.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00106538#6",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 530.0,
+        "y": 220.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00105504#7",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -300.0,
+        "y": -10.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00100264#8",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 40.0,
+        "y": -10.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00104636#9",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 90.0,
+        "y": 0.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00104636#10",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 90.0,
+        "y": -210.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00109895#11",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 0.0,
+        "z": -250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00110904#12",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 0.0,
+        "z": -490.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00110904#13",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 0.0,
+        "z": -740.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00105650#14",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 0.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00105650#15",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 0.0,
+        "z": -1190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 0.0,
+        "z": -1390.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": -10.0,
+        "z": -300.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": -10.0,
+        "z": -550.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -100.0,
+        "y": -10.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": -250.0,
+        "z": -250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 210.0,
+        "z": 50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": -270.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -20.0,
+        "y": -10.0,
+        "z": -300.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -330.0,
+        "y": -10.0,
+        "z": -790.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": -10.0,
+        "z": -1120.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": -10.0,
+        "z": -1420.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -120.0,
+        "y": -10.0,
+        "z": -1120.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 30.0,
+        "y": -10.0,
+        "z": -1120.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -390.0,
+        "y": -410.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": -10.0,
+        "z": -560.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": -270.0,
+        "z": -1200.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": -410.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 90.0,
+        "y": -420.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": -270.0,
+        "z": -1410.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -20.0,
+        "y": -10.0,
+        "z": -770.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110809#2",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": -320.0,
+        "z": -490.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00105329#4",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 380.0,
+        "z": 170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00110913#5",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 380.0,
+        "z": -90.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00106538#6",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 170.0,
+        "y": 0.0,
+        "z": -100.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00105504#7",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -300.0,
+        "y": 370.0,
+        "z": 170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00100264#8",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 40.0,
+        "y": 370.0,
+        "z": -100.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00104636#9",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 210.0,
+        "z": 170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00104636#10",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 170.0,
+        "z": 170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00109895#11",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 250.0,
+        "z": -350.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00110904#12",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 320.0,
+        "z": -590.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00110904#13",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 320.0,
+        "z": -840.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00105650#14",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 270.0,
+        "z": -1090.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00105650#15",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 270.0,
+        "z": -1290.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 270.0,
+        "z": -1490.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": 370.0,
+        "z": -400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": 370.0,
+        "z": -650.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -100.0,
+        "y": 370.0,
+        "z": 170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 130.0,
+        "z": -350.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": -10.0,
+        "z": -50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 110.0,
+        "z": -1090.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -20.0,
+        "y": 370.0,
+        "z": -400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -330.0,
+        "y": 370.0,
+        "z": -890.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 370.0,
+        "z": -1220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 370.0,
+        "z": -1520.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -120.0,
+        "y": 370.0,
+        "z": -1220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 30.0,
+        "y": 370.0,
+        "z": -1220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -390.0,
+        "y": -30.0,
+        "z": -100.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 330.0,
+        "z": -660.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 110.0,
+        "z": -1300.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": -30.0,
+        "z": 170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": -40.0,
+        "z": 170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 110.0,
+        "z": -1510.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -20.0,
+        "y": 370.0,
+        "z": -870.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101974#3",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 60.0,
+        "z": -590.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00110913#5",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00106538#6",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 0.0,
+        "z": -10.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00105504#7",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -470.0,
+        "y": 530.0,
+        "z": 260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00100264#8",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -130.0,
+        "y": 400.0,
+        "z": -10.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00104636#9",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 210.0,
+        "z": 260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00104636#10",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 210.0,
+        "z": 260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00109895#11",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 250.0,
+        "z": -260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00110904#12",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 320.0,
+        "z": -500.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00110904#13",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 320.0,
+        "z": -750.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00105650#14",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 270.0,
+        "z": -1000.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00105650#15",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 270.0,
+        "z": -1200.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 270.0,
+        "z": -1400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 390.0,
+        "z": -310.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 400.0,
+        "z": -560.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 400.0,
+        "z": 260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 210.0,
+        "z": -260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -10.0,
+        "z": 40.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 270.0,
+        "z": -1000.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 530.0,
+        "z": -310.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -500.0,
+        "y": 530.0,
+        "z": -800.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 390.0,
+        "z": -1130.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 390.0,
+        "z": -1430.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": 390.0,
+        "z": -1130.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": 390.0,
+        "z": -1130.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": 130.0,
+        "z": -10.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 330.0,
+        "z": -570.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 270.0,
+        "z": -1210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -310.0,
+        "y": 130.0,
+        "z": 260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 120.0,
+        "z": 260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 270.0,
+        "z": -1420.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 390.0,
+        "z": -780.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105329#4",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 220.0,
+        "z": -500.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00106538#6",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 0.0,
+        "z": 230.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00105504#7",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -470.0,
+        "y": 390.0,
+        "z": 10.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00100264#8",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -130.0,
+        "y": 390.0,
+        "z": 250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00104636#9",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -10.0,
+        "y": 210.0,
+        "z": 230.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00104636#10",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -10.0,
+        "y": 190.0,
+        "z": 230.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00109895#11",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 250.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00110904#12",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 320.0,
+        "z": -240.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00110904#13",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 320.0,
+        "z": -490.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00105650#14",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 270.0,
+        "z": -740.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00105650#15",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 270.0,
+        "z": -940.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 270.0,
+        "z": -1140.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 390.0,
+        "z": -50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 390.0,
+        "z": -300.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 390.0,
+        "z": 10.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 150.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -10.0,
+        "z": 170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 130.0,
+        "z": -740.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 390.0,
+        "z": -50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -500.0,
+        "y": 390.0,
+        "z": -540.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 390.0,
+        "z": -870.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 390.0,
+        "z": -1170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": 390.0,
+        "z": -870.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": 390.0,
+        "z": -870.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": -10.0,
+        "z": 250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 330.0,
+        "z": -310.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 130.0,
+        "z": -950.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -310.0,
+        "y": -10.0,
+        "z": 140.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -10.0,
+        "y": -20.0,
+        "z": 140.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 130.0,
+        "z": -1160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 390.0,
+        "z": -520.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110913#5",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 80.0,
+        "z": -240.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00105504#7",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -300.0,
+        "y": -10.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00100264#8",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 40.0,
+        "y": -10.0,
+        "z": 230.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00104636#9",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 120.0,
+        "y": 0.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00104636#10",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 120.0,
+        "y": -210.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00109895#11",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 380.0,
+        "y": 0.0,
+        "z": -20.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00110904#12",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 0.0,
+        "z": -260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00110904#13",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 0.0,
+        "z": -510.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00105650#14",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 370.0,
+        "y": 0.0,
+        "z": -760.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00105650#15",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 370.0,
+        "y": 0.0,
+        "z": -960.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 390.0,
+        "y": 0.0,
+        "z": -1160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": -10.0,
+        "z": -70.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": -10.0,
+        "z": -320.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -100.0,
+        "y": -10.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": -250.0,
+        "z": -20.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 210.0,
+        "z": 160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": -270.0,
+        "z": -760.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -20.0,
+        "y": -10.0,
+        "z": -70.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -330.0,
+        "y": -10.0,
+        "z": -560.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": -10.0,
+        "z": -890.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": -10.0,
+        "z": -1190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -120.0,
+        "y": -10.0,
+        "z": -890.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 30.0,
+        "y": -10.0,
+        "z": -890.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -390.0,
+        "y": -410.0,
+        "z": 230.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": -10.0,
+        "z": -330.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": -270.0,
+        "z": -970.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": -410.0,
+        "z": 130.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 120.0,
+        "y": -420.0,
+        "z": 130.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 390.0,
+        "y": -270.0,
+        "z": -1180.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -20.0,
+        "y": -10.0,
+        "z": -540.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106538#6",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 390.0,
+        "y": -320.0,
+        "z": -260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00100264#8",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00104636#9",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -740.0,
+        "y": 200.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00104636#10",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -740.0,
+        "y": 210.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00109895#11",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -470.0,
+        "y": 240.0,
+        "z": -250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00110904#12",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -470.0,
+        "y": 310.0,
+        "z": -490.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00110904#13",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -470.0,
+        "y": 310.0,
+        "z": -740.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00105650#14",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -470.0,
+        "y": 260.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00105650#15",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -470.0,
+        "y": 260.0,
+        "z": -1190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -470.0,
+        "y": 260.0,
+        "z": -1390.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 390.0,
+        "z": -300.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 400.0,
+        "z": -550.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 400.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -470.0,
+        "y": 210.0,
+        "z": -250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": -20.0,
+        "z": 50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -470.0,
+        "y": 280.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -10.0,
+        "y": 540.0,
+        "z": -300.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 230.0,
+        "y": 540.0,
+        "z": -790.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 390.0,
+        "z": -1120.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 260.0,
+        "y": 390.0,
+        "z": -1420.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -30.0,
+        "y": 390.0,
+        "z": -1120.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -180.0,
+        "y": 390.0,
+        "z": -1120.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 170.0,
+        "y": 140.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -10.0,
+        "y": 330.0,
+        "z": -560.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -470.0,
+        "y": 280.0,
+        "z": -1200.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 140.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -740.0,
+        "y": 130.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -470.0,
+        "y": 270.0,
+        "z": -1410.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -10.0,
+        "y": 390.0,
+        "z": -770.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105504#7",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -470.0,
+        "y": 230.0,
+        "z": -490.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00104636#9",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -400.0,
+        "y": 200.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00104636#10",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -400.0,
+        "y": 200.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00109895#11",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -130.0,
+        "y": 240.0,
+        "z": 50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00110904#12",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -130.0,
+        "y": 310.0,
+        "z": -190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00110904#13",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -130.0,
+        "y": 310.0,
+        "z": -440.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00105650#14",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -130.0,
+        "y": 260.0,
+        "z": -690.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00105650#15",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -130.0,
+        "y": 260.0,
+        "z": -890.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -130.0,
+        "y": 260.0,
+        "z": -1090.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 390.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 400.0,
+        "z": -250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 200.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -130.0,
+        "y": 160.0,
+        "z": 50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": -20.0,
+        "z": 160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -130.0,
+        "y": 140.0,
+        "z": -690.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 230.0,
+        "y": 400.0,
+        "z": -490.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 390.0,
+        "z": -820.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 390.0,
+        "z": -1120.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 150.0,
+        "y": 390.0,
+        "z": -820.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 150.0,
+        "y": 390.0,
+        "z": -820.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 170.0,
+        "y": 0.0,
+        "z": 300.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 330.0,
+        "z": -260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -130.0,
+        "y": 140.0,
+        "z": -900.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 160.0,
+        "y": 0.0,
+        "z": 130.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -400.0,
+        "y": -10.0,
+        "z": 130.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -130.0,
+        "y": 140.0,
+        "z": -1110.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 390.0,
+        "z": -470.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00100264#8",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -130.0,
+        "y": 90.0,
+        "z": -190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00104636#10",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 130.0,
+        "y": 0.0,
+        "z": 490.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00109895#11",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 110.0,
+        "y": 210.0,
+        "z": -30.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00110904#12",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 90.0,
+        "y": 210.0,
+        "z": -270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00110904#13",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 90.0,
+        "y": 210.0,
+        "z": -520.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00105650#14",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 100.0,
+        "y": 210.0,
+        "z": -770.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00105650#15",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 100.0,
+        "y": 210.0,
+        "z": -970.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 120.0,
+        "y": 210.0,
+        "z": -1170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -730.0,
+        "y": 200.0,
+        "z": -80.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -730.0,
+        "y": 200.0,
+        "z": -330.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -540.0,
+        "y": 200.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 20.0,
+        "y": -40.0,
+        "z": -30.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -710.0,
+        "y": -10.0,
+        "z": 210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 60.0,
+        "y": -60.0,
+        "z": -770.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 200.0,
+        "z": -80.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -770.0,
+        "y": 200.0,
+        "z": -570.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -710.0,
+        "y": 200.0,
+        "z": -900.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -710.0,
+        "y": 200.0,
+        "z": -1200.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": 200.0,
+        "z": -900.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -410.0,
+        "y": 200.0,
+        "z": -900.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -830.0,
+        "y": -200.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 200.0,
+        "z": -340.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 60.0,
+        "y": -60.0,
+        "z": -980.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -580.0,
+        "y": -200.0,
+        "z": 400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 130.0,
+        "y": -210.0,
+        "z": 400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 120.0,
+        "y": -60.0,
+        "z": -1190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 200.0,
+        "z": -550.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#9",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 130.0,
+        "y": -110.0,
+        "z": -270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00109895#11",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 110.0,
+        "y": 40.0,
+        "z": -30.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00110904#12",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 90.0,
+        "y": 110.0,
+        "z": -270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00110904#13",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 90.0,
+        "y": 110.0,
+        "z": -520.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00105650#14",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 100.0,
+        "y": 60.0,
+        "z": -770.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00105650#15",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 100.0,
+        "y": 60.0,
+        "z": -970.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 120.0,
+        "y": 60.0,
+        "z": -1170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -730.0,
+        "y": 190.0,
+        "z": -80.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -730.0,
+        "y": 200.0,
+        "z": -330.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -540.0,
+        "y": 200.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 20.0,
+        "y": 170.0,
+        "z": -30.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -710.0,
+        "y": -220.0,
+        "z": 210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 60.0,
+        "y": 150.0,
+        "z": -770.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 210.0,
+        "z": -80.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -770.0,
+        "y": 210.0,
+        "z": -570.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -710.0,
+        "y": 190.0,
+        "z": -900.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -710.0,
+        "y": 190.0,
+        "z": -1200.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": 190.0,
+        "z": -900.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -410.0,
+        "y": 190.0,
+        "z": -900.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -830.0,
+        "y": 10.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 130.0,
+        "z": -340.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 60.0,
+        "y": 150.0,
+        "z": -980.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -580.0,
+        "y": 10.0,
+        "z": 400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 130.0,
+        "y": 0.0,
+        "z": 400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 120.0,
+        "y": 150.0,
+        "z": -1190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 190.0,
+        "z": -550.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104636#10",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 130.0,
+        "y": 100.0,
+        "z": -270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00110904#12",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 250.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00110904#13",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 250.0,
+        "z": -250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00105650#14",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 370.0,
+        "y": 250.0,
+        "z": -500.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00105650#15",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 370.0,
+        "y": 250.0,
+        "z": -700.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 380.0,
+        "y": 250.0,
+        "z": -900.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 240.0,
+        "z": 190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 240.0,
+        "z": -60.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 240.0,
+        "z": -250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 0.0,
+        "z": 210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -10.0,
+        "z": -90.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": -20.0,
+        "z": -500.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 240.0,
+        "z": 190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -500.0,
+        "y": 240.0,
+        "z": -300.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 240.0,
+        "z": -630.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 240.0,
+        "z": -930.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": 240.0,
+        "z": -630.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": 240.0,
+        "z": -630.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": -160.0,
+        "z": 240.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 240.0,
+        "z": -70.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": -20.0,
+        "z": -710.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -310.0,
+        "y": -160.0,
+        "z": -120.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 110.0,
+        "y": -170.0,
+        "z": -120.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 380.0,
+        "y": -20.0,
+        "z": -920.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 240.0,
+        "z": -280.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109895#11",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 380.0,
+        "y": -70.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00110904#13",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 320.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00105650#14",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 270.0,
+        "z": -250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00105650#15",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 270.0,
+        "z": -450.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 270.0,
+        "z": -650.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 310.0,
+        "z": 60.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 310.0,
+        "z": 190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 310.0,
+        "z": -490.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 70.0,
+        "z": -30.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -10.0,
+        "z": -330.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": 50.0,
+        "z": -250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 310.0,
+        "z": 70.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -500.0,
+        "y": 310.0,
+        "z": -50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 310.0,
+        "z": -380.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 310.0,
+        "z": -680.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": 310.0,
+        "z": -380.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": 310.0,
+        "z": -380.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": -90.0,
+        "z": 20.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 310.0,
+        "z": 180.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": 50.0,
+        "z": -460.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -310.0,
+        "y": -90.0,
+        "z": -360.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 90.0,
+        "y": -100.0,
+        "z": -360.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 50.0,
+        "z": -670.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 310.0,
+        "z": -30.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#12",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 0.0,
+        "z": 250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00105650#14",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 270.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00105650#15",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 270.0,
+        "z": -200.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 270.0,
+        "z": -400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 310.0,
+        "z": -190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 310.0,
+        "z": 50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 310.0,
+        "z": -740.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 70.0,
+        "z": -280.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -10.0,
+        "z": -580.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": 50.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 310.0,
+        "z": -180.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -500.0,
+        "y": 310.0,
+        "z": 200.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 310.0,
+        "z": -130.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 310.0,
+        "z": -430.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": 310.0,
+        "z": -130.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": 310.0,
+        "z": -130.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": -90.0,
+        "z": -230.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 310.0,
+        "z": 30.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": 50.0,
+        "z": -210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -310.0,
+        "y": -90.0,
+        "z": -610.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 90.0,
+        "y": -100.0,
+        "z": -610.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 50.0,
+        "z": -420.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 310.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110904#13",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 360.0,
+        "y": 0.0,
+        "z": 40.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00105650#15",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 370.0,
+        "y": 270.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 370.0,
+        "y": 270.0,
+        "z": -200.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 260.0,
+        "z": -440.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 260.0,
+        "z": -200.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 260.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 20.0,
+        "z": -530.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -10.0,
+        "z": -830.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": 0.0,
+        "z": 200.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 260.0,
+        "z": -430.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -500.0,
+        "y": 260.0,
+        "z": 130.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 260.0,
+        "z": 70.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 260.0,
+        "z": -230.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": 260.0,
+        "z": 70.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": 260.0,
+        "z": 70.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": -140.0,
+        "z": -480.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 260.0,
+        "z": -220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": 0.0,
+        "z": -10.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -310.0,
+        "y": -140.0,
+        "z": -860.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 100.0,
+        "y": -150.0,
+        "z": -860.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 370.0,
+        "y": 0.0,
+        "z": -220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 260.0,
+        "z": 50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#14",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 370.0,
+        "y": -50.0,
+        "z": -210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00112620#16",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 370.0,
+        "y": 270.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 260.0,
+        "z": -640.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 260.0,
+        "z": -400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 260.0,
+        "z": -1190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 20.0,
+        "z": -730.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -10.0,
+        "z": -1030.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": 0.0,
+        "z": 10.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 260.0,
+        "z": -630.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -500.0,
+        "y": 260.0,
+        "z": -70.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 260.0,
+        "z": 200.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 260.0,
+        "z": -30.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": 260.0,
+        "z": 200.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": 260.0,
+        "z": 200.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": -140.0,
+        "z": -680.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 260.0,
+        "z": -420.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": 0.0,
+        "z": 190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -310.0,
+        "y": -140.0,
+        "z": -1060.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 100.0,
+        "y": -150.0,
+        "z": -1060.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 370.0,
+        "y": 0.0,
+        "z": -20.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 260.0,
+        "z": -150.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00105650#15",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 370.0,
+        "y": -50.0,
+        "z": -410.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00112620#17",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 260.0,
+        "z": -840.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 260.0,
+        "z": -600.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 260.0,
+        "z": -1390.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 20.0,
+        "z": -930.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -10.0,
+        "z": -1230.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": 0.0,
+        "z": -190.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 260.0,
+        "z": -830.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -500.0,
+        "y": 260.0,
+        "z": -270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 260.0,
+        "z": 30.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 260.0,
+        "z": 220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": 260.0,
+        "z": 250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": 260.0,
+        "z": 250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": -140.0,
+        "z": -880.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 260.0,
+        "z": -620.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": 0.0,
+        "z": 20.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -310.0,
+        "y": -140.0,
+        "z": -1260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 120.0,
+        "y": -150.0,
+        "z": -1260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 390.0,
+        "y": 0.0,
+        "z": 230.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 260.0,
+        "z": -350.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#16",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 390.0,
+        "y": -50.0,
+        "z": -610.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00106110#18",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 390.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 10.0,
+        "y": 390.0,
+        "z": -300.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 150.0,
+        "z": 160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": -20.0,
+        "z": -140.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 130.0,
+        "z": -440.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 390.0,
+        "z": 250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 230.0,
+        "y": 390.0,
+        "z": -240.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 390.0,
+        "z": -570.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 390.0,
+        "z": -870.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -20.0,
+        "y": 390.0,
+        "z": -570.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 390.0,
+        "z": -570.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 170.0,
+        "y": -10.0,
+        "z": 210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 330.0,
+        "z": -10.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 130.0,
+        "z": -650.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 10.0,
+        "y": -10.0,
+        "z": -170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -730.0,
+        "y": -20.0,
+        "z": -170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 130.0,
+        "z": -860.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 390.0,
+        "z": -220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112620#17",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 80.0,
+        "z": 60.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00107798#19",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 10.0,
+        "y": 400.0,
+        "z": -550.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 160.0,
+        "z": -90.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": -20.0,
+        "z": -390.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 140.0,
+        "z": -200.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 400.0,
+        "z": 10.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 230.0,
+        "y": 400.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 390.0,
+        "z": -330.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 390.0,
+        "z": -630.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -20.0,
+        "y": 390.0,
+        "z": -330.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 390.0,
+        "z": -330.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 170.0,
+        "y": 0.0,
+        "z": -40.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 330.0,
+        "z": 210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 140.0,
+        "z": -410.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 10.0,
+        "y": 0.0,
+        "z": -420.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -730.0,
+        "y": -10.0,
+        "z": -420.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 140.0,
+        "z": -620.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 390.0,
+        "z": 20.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106110#18",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 90.0,
+        "z": 230.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00102099#20",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 160.0,
+        "z": -250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 30.0,
+        "y": -20.0,
+        "z": 50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 140.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 190.0,
+        "y": 400.0,
+        "z": -300.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -30.0,
+        "y": 400.0,
+        "z": -790.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 30.0,
+        "y": 390.0,
+        "z": -1120.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 30.0,
+        "y": 390.0,
+        "z": -1420.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 150.0,
+        "y": 390.0,
+        "z": -1120.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 20.0,
+        "y": 390.0,
+        "z": -1120.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -90.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 190.0,
+        "y": 330.0,
+        "z": -560.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 140.0,
+        "z": -1200.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 160.0,
+        "y": 0.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -540.0,
+        "y": -10.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 140.0,
+        "z": -1410.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 190.0,
+        "y": 390.0,
+        "z": -770.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00107798#19",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": 90.0,
+        "z": -490.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00102099#21",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -260.0,
+        "z": -90.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 190.0,
+        "z": -530.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 210.0,
+        "z": 160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -500.0,
+        "y": 210.0,
+        "z": -330.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 150.0,
+        "z": -660.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 150.0,
+        "z": -960.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": 150.0,
+        "z": -660.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": 150.0,
+        "z": -660.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": 50.0,
+        "z": 210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 90.0,
+        "z": -100.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 190.0,
+        "z": -740.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -310.0,
+        "y": 50.0,
+        "z": -120.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 20.0,
+        "y": 40.0,
+        "z": -120.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 190.0,
+        "z": -950.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 150.0,
+        "z": -310.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#20",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 140.0,
+        "z": -30.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#21",
+      "id_j": "00104826#22",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -280.0,
+        "z": -830.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#21",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 20.0,
+        "y": -20.0,
+        "z": -140.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#21",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 230.0,
+        "y": -20.0,
+        "z": -630.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#21",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": -20.0,
+        "z": -960.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#21",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": -20.0,
+        "z": -1260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#21",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": -20.0,
+        "z": -960.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#21",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -150.0,
+        "y": -20.0,
+        "z": -960.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#21",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 170.0,
+        "y": -420.0,
+        "z": 160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#21",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 20.0,
+        "y": -20.0,
+        "z": -400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#21",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -280.0,
+        "z": -1040.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#21",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 30.0,
+        "y": -420.0,
+        "z": 180.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#21",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -710.0,
+        "y": -430.0,
+        "z": 180.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#21",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -280.0,
+        "z": -1250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#21",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 20.0,
+        "y": -20.0,
+        "z": -610.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00102099#21",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -330.0,
+        "z": -330.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104826#22",
+      "id_j": "00109802#23",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 280.0,
+        "z": -430.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104826#22",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -500.0,
+        "y": 290.0,
+        "z": 130.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104826#22",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 130.0,
+        "z": 80.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104826#22",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 130.0,
+        "z": -220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104826#22",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": 130.0,
+        "z": 80.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104826#22",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": 130.0,
+        "z": 80.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104826#22",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": 150.0,
+        "z": -480.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104826#22",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 70.0,
+        "z": -220.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104826#22",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": 290.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104826#22",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -310.0,
+        "y": 150.0,
+        "z": -860.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104826#22",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 60.0,
+        "y": 140.0,
+        "z": -860.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104826#22",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": 270.0,
+        "z": -210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104826#22",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 130.0,
+        "z": 50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00104826#22",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": 240.0,
+        "z": -210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109802#23",
+      "id_j": "00106708#24",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -40.0,
+        "y": 540.0,
+        "z": -230.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109802#23",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 20.0,
+        "y": 390.0,
+        "z": -560.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109802#23",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 20.0,
+        "y": 390.0,
+        "z": -860.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109802#23",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 150.0,
+        "y": 390.0,
+        "z": -560.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109802#23",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 100.0,
+        "y": 390.0,
+        "z": -560.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109802#23",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -100.0,
+        "y": 140.0,
+        "z": 210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109802#23",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 330.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109802#23",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 280.0,
+        "z": -640.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109802#23",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 150.0,
+        "y": 140.0,
+        "z": -170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109802#23",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": 130.0,
+        "z": -170.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109802#23",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 270.0,
+        "z": -850.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109802#23",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 390.0,
+        "z": -210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109802#23",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 230.0,
+        "z": 70.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106708#24",
+      "id_j": "00109671#25",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 230.0,
+        "y": 390.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106708#24",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 230.0,
+        "y": 390.0,
+        "z": -300.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106708#24",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -60.0,
+        "y": 390.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106708#24",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -210.0,
+        "y": 390.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106708#24",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 170.0,
+        "y": 170.0,
+        "z": -280.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106708#24",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -40.0,
+        "y": 330.0,
+        "z": -20.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106708#24",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -500.0,
+        "y": 290.0,
+        "z": -80.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106708#24",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -30.0,
+        "y": 160.0,
+        "z": -660.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106708#24",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -770.0,
+        "y": 160.0,
+        "z": -660.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106708#24",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -500.0,
+        "y": 270.0,
+        "z": -290.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106708#24",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -40.0,
+        "y": 390.0,
+        "z": 250.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00106708#24",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -500.0,
+        "y": 260.0,
+        "z": -10.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#25",
+      "id_j": "00109671#26",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 290.0,
+        "y": 390.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#25",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 390.0,
+        "z": 300.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#25",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -150.0,
+        "y": 390.0,
+        "z": 300.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#25",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 170.0,
+        "y": -10.0,
+        "z": -610.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#25",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 20.0,
+        "y": 330.0,
+        "z": -350.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#25",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 130.0,
+        "z": 210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#25",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 30.0,
+        "y": -10.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#25",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -710.0,
+        "y": -20.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#25",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 130.0,
+        "z": 10.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#25",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 20.0,
+        "y": 390.0,
+        "z": -80.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#25",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 80.0,
+        "z": -340.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#26",
+      "id_j": "00112392#27",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 390.0,
+        "z": 290.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#26",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -150.0,
+        "y": 390.0,
+        "z": 290.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#26",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 170.0,
+        "y": -10.0,
+        "z": -910.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#26",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 20.0,
+        "y": 330.0,
+        "z": -650.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#26",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 130.0,
+        "z": -10.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#26",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 30.0,
+        "y": -10.0,
+        "z": -1290.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#26",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -710.0,
+        "y": -20.0,
+        "z": -1290.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#26",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 130.0,
+        "z": 260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#26",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 20.0,
+        "y": 390.0,
+        "z": -380.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00109671#26",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": 80.0,
+        "z": -640.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#27",
+      "id_j": "00112392#28",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 0.0,
+        "y": 390.0,
+        "z": 590.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#27",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -120.0,
+        "y": -10.0,
+        "z": -610.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#27",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 150.0,
+        "y": 330.0,
+        "z": -350.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#27",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": 130.0,
+        "z": 210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#27",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 130.0,
+        "y": -10.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#27",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": -20.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#27",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": 130.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#27",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 150.0,
+        "y": 390.0,
+        "z": -80.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#27",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -290.0,
+        "y": 80.0,
+        "z": -340.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#28",
+      "id_j": "00110601#29",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -270.0,
+        "y": -10.0,
+        "z": -610.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#28",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 120.0,
+        "y": 330.0,
+        "z": -350.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#28",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": 130.0,
+        "z": 210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#28",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -20.0,
+        "y": -10.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#28",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -410.0,
+        "y": -20.0,
+        "z": -990.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#28",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": 130.0,
+        "z": 270.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#28",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 100.0,
+        "y": 390.0,
+        "z": -80.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00112392#28",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -140.0,
+        "y": 80.0,
+        "z": -340.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110601#29",
+      "id_j": "00101017#30",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -100.0,
+        "y": -70.0,
+        "z": -50.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110601#29",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": 150.0,
+        "z": -690.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110601#29",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -90.0,
+        "y": 160.0,
+        "z": 130.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110601#29",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -830.0,
+        "y": 160.0,
+        "z": 130.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110601#29",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": 130.0,
+        "z": -900.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110601#29",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -100.0,
+        "y": -10.0,
+        "z": -260.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00110601#29",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -560.0,
+        "y": 170.0,
+        "z": 20.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101017#30",
+      "id_j": "00101017#31",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 70.0,
+        "z": -430.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101017#30",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 150.0,
+        "y": -70.0,
+        "z": -430.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101017#30",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -440.0,
+        "y": -80.0,
+        "z": -430.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101017#30",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 70.0,
+        "z": -640.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101017#30",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 270.0,
+        "y": 330.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101017#30",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -170.0,
+        "y": 20.0,
+        "z": 210.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101017#31",
+      "id_j": "00101126#32",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -310.0,
+        "y": 150.0,
+        "z": -1070.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101017#31",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 60.0,
+        "y": 140.0,
+        "z": -1070.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101017#31",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": 270.0,
+        "z": 0.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101017#31",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 130.0,
+        "z": -160.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101017#31",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 330.0,
+        "y": 240.0,
+        "z": -420.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101126#32",
+      "id_j": "00101126#33",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -580.0,
+        "y": 150.0,
+        "z": 400.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101126#32",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -310.0,
+        "y": 130.0,
+        "z": -1280.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101126#32",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 150.0,
+        "y": -10.0,
+        "z": -640.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101126#32",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -310.0,
+        "y": 160.0,
+        "z": -360.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101126#33",
+      "id_j": "00111831#34",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 120.0,
+        "y": 120.0,
+        "z": -1280.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101126#33",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -460.0,
+        "y": -20.0,
+        "z": -640.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00101126#33",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 130.0,
+        "y": 160.0,
+        "z": -360.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111831#34",
+      "id_j": "00111831#35",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 130.0,
+        "z": -370.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111831#34",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": 390.0,
+        "y": 220.0,
+        "z": -630.0
+      },
+      "overlap": false
+    },
+    {
+      "id_i": "00111831#35",
+      "id_j": "00100647#36",
+      "container_id": "EURO_PALLET",
+      "intersection_mm": {
+        "x": -190.0,
+        "y": 80.0,
+        "z": 10.0
+      },
+      "overlap": false
+    }
+  ],
+  "per_container": [
+    {
+      "container_id": "EURO_PALLET",
+      "n_boxes": 36,
+      "max_height_mm": 1990.0,
+      "packed_volume_mm3": 947447000.0,
+      "bin_volume_mm3": 1920000000.0
+    }
+  ],
+  "internal_geometry_valid": true,
+  "all_items_packed": false,
+  "physical_stability_verified": null,
+  "note": "Este auditor comprueba la geometría de la captura: contención, solapes en el mismo contenedor, partición de ítems y permutaciones autorizadas. No verifica todas las restricciones físicas ni todas las reglas de los papers. physical_stability_verified queda null."
+}

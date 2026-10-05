@@ -1,10 +1,14 @@
 \section{Conclusion}
 
-This manuscript specifies a controlled comparison of supervision objectives for
-online packing candidate selection under a shared geometric contract and support
-map. Differentiable realisations of the frozen losses and a labelling executor
-are in place. Labelling under the frozen protocol was interrupted with partial
-content-verified evidence; a recovery path is designed but not executed.
-Definitive empirical conclusions remain pending until complete labelling,
-training and evaluation are authorised and finished. No claim of superiority,
-physical stability or publication readiness is made here.
+Under the executed frozen configuration---shared geometry, encoder, support map
+$S$, labels, and optimisation budget---paired preference learning did \emph{not}
+outperform classification on the primary development contrast
+(preferences$-$classification mean $\approx -0.00808$), and neither learned arm
+outperformed GreedyBestFit on episode $U_{\mathrm{geom}}$. The preregistered
+development gate failed; the test split was not evaluated. We therefore close
+this configuration as \texttt{no\_avanzar\_con\_esta\_configuracion}.
+
+This closure answers the stated question for one controlled setup. It does not
+establish impossibility of better learned selectors, superiority over PCT, or
+physical stability. Any broader claim would require different authorised evidence,
+not retrospective relabelling of this campaign.

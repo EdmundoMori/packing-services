@@ -1,0 +1,32 @@
+{
+  "kind": "geometry_hotfix_compatibility_check",
+  "initial_head": "ee9e0ec854c303d14d54b5be342558645777cb0a",
+  "corrector_commit": "9e03fdf22e644dc3efaf77bbf6bf95e0b3511e23",
+  "hotfix_commit": "ee9e0ec854c303d14d54b5be342558645777cb0a",
+  "geometry_edit_summary": {
+    "what_changed": "post-capture audit field name used by the evaluator",
+    "before": "audit.get('geometry_valid') (key absent in audit_internal_solution → always False) plus unused audit.u_geom cross-check",
+    "after": "audit.get('internal_geometry_valid') (actual auditor key); U_geom from recompute_u(capture) only",
+    "capture_or_serialization": false,
+    "candidate_generation": false,
+    "dimensions_orientations_constraints_termination": false,
+    "policy_or_scoring": false,
+    "problem_definition": false,
+    "scientific_contract_frozen_unchanged": true
+  },
+  "hotfix_ee9e0ec": "syntax-only: restore try/except newline after geometry field comment (no scientific change)",
+  "smoke_compatible_as_equivalent": true,
+  "smoke_run_id": "dev_smoke_ee9e0ec854c3_20261005T173933Z",
+  "protocol_digest_prefix": "385f25c60e92dc93",
+  "sample_digest_prefix": "782eb3abe1016327",
+  "model_spec_sha256_prefix": "ca2f6dc31fbd2a85",
+  "normalization_sha256": "f5122244d48f6c535d6fc0e9ca4a89cb68242d61ef4d2fdf92477201f2da9f02",
+  "subprocess_preflight_ok": true,
+  "budget": {
+    "failed_attempt_wall_seconds": 22.538368225097656,
+    "smoke_wall_seconds": 22.894795179367065,
+    "prior_development_wall_seconds": 45.43316340446472,
+    "development_cup_seconds": 3600.0,
+    "remaining_cup_seconds": 3554.5668365955353
+  }
+}

@@ -1,12 +1,34 @@
 \section{Discussion}
 
-Several issues must be addressed once the frozen campaign reports numbers.
-Continuation returns $Q_{\mathrm{hat}}$ supervise local actions but are not the
-return of the learned actor; improvement on labelled greedy states need not
-transfer to states visited under $\pi_\theta$. Restricting decisions to $S_t$
-trades coverage for budget and can leave high-value legal placements unscored.
-The three losses operate on different numeric scales; a common Adam schedule
-equalises optimisation effort, not loss magnitude. Uncertainty arises from both
-order sampling and seed pairing. Finally, the geometric contract and the two
-BED-BPP targets bound external validity: results must not be read as robotic
-stability certificates or as comparisons against PCT.
+\paragraph{Primary contrast and Greedy reference.}
+On the frozen development sample, episode-level mean
+preferences$-$classification was $-0.00808$ (order-then-seed aggregation).
+Both learned arms trailed GreedyBestFit (preferences$-$Greedy $\approx -0.0516$;
+classification$-$Greedy $\approx -0.044$). These readouts describe this
+configuration only; they do not refute preference learning in general.
+
+\paragraph{Exploratory pilot versus this campaign.}
+An earlier counterfactual pilot (different study, smaller development sample,
+different support contract) reported an approximate positive
+preferences$-$classification margin. That pilot is not reproduced here: sample
+sizes, $S$, and episode contract differ. Attributing the sign change to any
+single factor (loss, target, Adam steps, or support) would be unwarranted.
+
+\paragraph{Labels, states and geometry.}
+Continuation returns $Q_{\mathrm{hat}}$ supervise local actions on greedy
+trajectories; deployment actors visit a different state distribution. Restricting
+scoring to $S_t$ (at most four candidates) is a budgeted deployment choice, not
+an claim that the full legal list was scored. Loss magnitudes are not comparable
+across objectives; equal wall-clock training does not imply equal convergence.
+Uncertainty combines order sampling and three paired seeds---seeds are averaged
+within orders, not treated as independent orders.
+
+\paragraph{Scope and missing test.}
+Results apply to twenty-four development orders and two BED-BPP targets under the
+compact contract. Without the preregistered test split, out-of-sample generalisation
+is not established. Physical stability was not verified.
+
+\paragraph{Operational incident.}
+An initial development launch failed at the evaluator harness (venv interpreter
+resolution) before any packing capture; it is documented separately and excluded
+from algorithmic contrasts. It is not the scientific contribution of this work.

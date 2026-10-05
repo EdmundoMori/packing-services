@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "reason": null,
+  "harness_failure": false,
+  "gate_applicable": true,
+  "python_absolute": "/home/edmundo/packing-services/.venv/bin/python",
+  "python_resolve_would_be": "/usr/bin/python3.10",
+  "resolve_differs_from_absolute": true,
+  "under_repo_venv": true,
+  "parent_has_torch": true,
+  "parent_torch_version": "2.14.0+cpu",
+  "subprocess_interpreter": {
+    "sys_executable": "/home/edmundo/packing-services/.venv/bin/python",
+    "sys_prefix": "/home/edmundo/packing-services/.venv",
+    "sys_base_prefix": "/usr",
+    "in_venv": true,
+    "imports": {
+      "torch": true,
+      "actor_policy_s": true,
+      "actor_features": true,
+      "audit_internal_solution": true
+    },
+    "torch_ok": true,
+    "torch_version": "2.14.0+cpu",
+    "ok": true,
+    "invoked_python": "/home/edmundo/packing-services/.venv/bin/python",
+    "returncode": 0
+  },
+  "note": "parent torch alone is insufficient; workers must pass subprocess probe",
+  "harness_failure_if_not_ok": true
+}

@@ -1,0 +1,159 @@
+{
+  "status": "ok",
+  "error": null,
+  "attempts": 1,
+  "timeout_seconds": 300,
+  "diagnostics": {
+    "packing_loop_seconds": 0.13692870300019422,
+    "steps": [
+      {
+        "item_id": "00103159#1",
+        "preview_ids": [
+          "00103159#1"
+        ],
+        "n_candidates": 6,
+        "placed": true
+      },
+      {
+        "item_id": "00109070#2",
+        "preview_ids": [
+          "00109070#2"
+        ],
+        "n_candidates": 16,
+        "placed": true
+      },
+      {
+        "item_id": "00111585#3",
+        "preview_ids": [
+          "00111585#3"
+        ],
+        "n_candidates": 22,
+        "placed": true
+      },
+      {
+        "item_id": "00106045#4",
+        "preview_ids": [
+          "00106045#4"
+        ],
+        "n_candidates": 30,
+        "placed": true
+      },
+      {
+        "item_id": "00106045#5",
+        "preview_ids": [
+          "00106045#5"
+        ],
+        "n_candidates": 36,
+        "placed": true
+      },
+      {
+        "item_id": "00109693#6",
+        "preview_ids": [
+          "00109693#6"
+        ],
+        "n_candidates": 30,
+        "placed": true
+      },
+      {
+        "item_id": "00105108#7",
+        "preview_ids": [
+          "00105108#7"
+        ],
+        "n_candidates": 28,
+        "placed": true
+      },
+      {
+        "item_id": "00105920#8",
+        "preview_ids": [
+          "00105920#8"
+        ],
+        "n_candidates": 14,
+        "placed": true
+      },
+      {
+        "item_id": "00108079#9",
+        "preview_ids": [
+          "00108079#9"
+        ],
+        "n_candidates": 33,
+        "placed": true
+      },
+      {
+        "item_id": "00111817#10",
+        "preview_ids": [
+          "00111817#10"
+        ],
+        "n_candidates": 22,
+        "placed": true
+      },
+      {
+        "item_id": "00102382#11",
+        "preview_ids": [
+          "00102382#11"
+        ],
+        "n_candidates": 17,
+        "placed": true
+      },
+      {
+        "item_id": "00102382#12",
+        "preview_ids": [
+          "00102382#12"
+        ],
+        "n_candidates": 13,
+        "placed": true
+      },
+      {
+        "item_id": "00105612#13",
+        "preview_ids": [
+          "00105612#13"
+        ],
+        "n_candidates": 47,
+        "placed": true
+      },
+      {
+        "item_id": "00101203#14",
+        "preview_ids": [
+          "00101203#14"
+        ],
+        "n_candidates": 31,
+        "placed": true
+      },
+      {
+        "item_id": "00101203#15",
+        "preview_ids": [
+          "00101203#15"
+        ],
+        "n_candidates": 25,
+        "placed": true
+      },
+      {
+        "item_id": "00112148#16",
+        "preview_ids": [
+          "00112148#16"
+        ],
+        "n_candidates": 0,
+        "placed": false
+      }
+    ],
+    "n_packed": 15,
+    "n_unpacked": 21,
+    "stopped_early": true,
+    "generator": "extreme_point",
+    "selector": "SupportConstrainedActorPolicy",
+    "coefficients": null,
+    "physical_stability_verified": null
+  },
+  "timings": {
+    "startup_seconds": 1.8268148779998228,
+    "packing_loop_seconds": 0.13692870300019422,
+    "decision_seconds": 0.013211478001721844,
+    "decision_seconds_included_in_packing_loop": true,
+    "capture_build_seconds": 0.002086308999423636,
+    "max_legal_candidates": 47,
+    "max_support": 4,
+    "normalization_calls": 60
+  },
+  "returncode": 0,
+  "duration_seconds": 4.458094839000296,
+  "invoked_python": "/home/edmundo/packing-services/.venv/bin/python"
+}

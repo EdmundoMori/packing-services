@@ -238,8 +238,101 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     p.add_argument("--only-seeds", type=str, default=None, help="p.ej. 11")
     p.add_argument("--only-arms", type=str, default=None, help="greedy,classification,...")
     p.add_argument("--only-order-ids", type=str, default=None, help="comma-separated")
+    p.add_argument(
+        "--reuse-from",
+        type=Path,
+        default=None,
+        help="Directorio de smoke auditado cuyas claves se integran una sola vez (sin relanzar).",
+    )
     p.add_argument("--skip-checkpoint-validation", action="store_true")
     return p.parse_args(argv)
+
+
+def _case_label(arm: str, seed: int | None) -> str:
+    return "greedy" if arm == "greedy" else f"{arm}_seed_{seed}"
+
+
+def integrate_smoke_reuse(
+    *,
+    reuse_dir: Path,
+    output: Path,
+    models: Path,
+    normalization: dict[str, Any],
+    dataset_sha: str,
+    snapshots: dict[str, Any],
+    ckpt_rows: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[str]]:
+    """Copia y valida claves smoke. Devuelve (filas_reutilizadas, claves)."""
+
+    reuse_dir = reuse_dir.resolve()
+    rows = json.loads((reuse_dir / "case_results.json").read_text(encoding="utf-8"))
+    smoke_man = json.loads((reuse_dir / "evaluation_manifest.json").read_text(encoding="utf-8"))
+    if smoke_man.get("normalization_sha256") != normalization.get("sha256"):
+        raise RuntimeError("normalización smoke incompatible")
+    if smoke_man.get("dataset_sha256") != dataset_sha:
+        raise RuntimeError("dataset smoke incompatible")
+    ckpt_by = {(c["arm"], int(c["seed"])): c["sha256"] for c in ckpt_rows}
+    smoke_ckpt = {(c["arm"], int(c["seed"])): c["sha256"] for c in (smoke_man.get("checkpoints") or [])}
+    if ckpt_by and smoke_ckpt and ckpt_by != smoke_ckpt:
+        raise RuntimeError("checkpoints smoke incompatibles con modelos actuales")
+
+    out_rows: list[dict[str, Any]] = []
+    keys: list[str] = []
+    for row in rows:
+        key = row["key"]
+        if key in keys:
+            raise RuntimeError(f"clave smoke duplicada: {key}")
+        label = _case_label(row["arm"], row["seed"])
+        src = reuse_dir / "cases" / row["order_id"] / label
+        dst = output / "cases" / row["order_id"] / label
+        if not (src / "capture.json").is_file() or not (src / "audit.json").is_file():
+            raise RuntimeError(f"smoke sin captura/auditoría: {key}")
+        capture = json.loads((src / "capture.json").read_text(encoding="utf-8"))
+        audit = json.loads((src / "audit.json").read_text(encoding="utf-8"))
+        contrast = json.loads((src / "contrast.json").read_text(encoding="utf-8"))
+        u = recompute_u(capture)
+        if u is None or abs(float(u) - float(row["effective_u_geom"])) > 1e-15:
+            raise RuntimeError(f"U_geom smoke no recompuesto: {key} {u} vs {row.get('effective_u_geom')}")
+        if not audit.get("internal_geometry_valid"):
+            raise RuntimeError(f"geometría smoke inválida: {key}")
+        if not contrast.get("matches"):
+            raise RuntimeError(f"contraste smoke fallido: {key}")
+        # snapshot de entrada equivalente al de esta campaña
+        snap_sha = hashlib.sha256(json.dumps(snapshots[row["order_id"]], sort_keys=True).encode()).hexdigest()
+        smoke_snap_index = json.loads((reuse_dir / "input_snapshots.json").read_text(encoding="utf-8"))
+        if smoke_snap_index.get(row["order_id"], {}).get("sha256") != snap_sha:
+            raise RuntimeError(f"snapshot de entrada distinto para {row['order_id']}")
+        # recipiente S / greedy
+        recipe = capture.get("recipe") or {}
+        if row["arm"] == "greedy":
+            if recipe.get("scores_all_legal_candidates") is not True:
+                raise RuntimeError(f"greedy smoke no puntuó lista legal: {key}")
+        else:
+            if recipe.get("support_constrained") is not True:
+                raise RuntimeError(f"actor smoke no limitado a S: {key}")
+            ckpt_path = models / f"seed_{row['seed']}" / row["arm"] / "checkpoint_epoch_40.pt"
+            if file_sha256(ckpt_path) != ckpt_by[(row["arm"], int(row["seed"]))]:
+                raise RuntimeError(f"hash modelo distinto al validado: {key}")
+        # copiar artefactos sin modificar
+        import shutil
+
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        if dst.exists():
+            raise RuntimeError(f"destino reuse ya existe: {dst}")
+        shutil.copytree(src, dst)
+        integrated = {
+            **row,
+            "reused_from_smoke": True,
+            "smoke_run_id": "dev_smoke_ee9e0ec854c3_20261005T173933Z",
+            "audited": True,
+            "physical_stability_verified": None,
+        }
+        atomic_write_json(dst / "result.json", integrated)
+        out_rows.append(integrated)
+        keys.append(key)
+    if len(keys) != 8:
+        raise RuntimeError(f"se esperaban 8 claves smoke, got {len(keys)}")
+    return out_rows, keys
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -336,7 +429,8 @@ def main(argv: list[str] | None = None) -> int:
         base = planned_cases(orders) if (args.smoke_first_target_orders or args.only_order_ids) else cases
         cases = filter_cases(base, order_ids=order_ids, arms=arms, seeds=seeds)
 
-    expected = len(cases)
+    all_planned = list(cases)
+    expected = len(all_planned)
     if expected == 0:
         print(json.dumps({"status": "refused", "reason": "no_cases"}))
         return 2
@@ -345,6 +439,12 @@ def main(argv: list[str] | None = None) -> int:
     from splits import load_orders
 
     orders_blob = load_orders(dataset)
+    # snapshots para todos los pedidos del plan (desarrollo completo o smoke)
+    snap_orders = development_orders(manifest) if args.reuse_from else orders
+    if args.reuse_from and not (args.smoke_first_target_orders or args.only_order_ids):
+        orders = snap_orders
+        all_planned = planned_cases(orders)
+        expected = len(all_planned)
     snapshots = {}
     for order in orders:
         problem = build_compact_problem(orders_blob, order["order_id"])
@@ -365,14 +465,37 @@ def main(argv: list[str] | None = None) -> int:
         "worker_python_uses_absolute_not_resolve": True,
     }
     output.mkdir(parents=True, exist_ok=True)
+
+    reused_rows: list[dict[str, Any]] = []
+    reused_keys: list[str] = []
+    if args.reuse_from:
+        reused_rows, reused_keys = integrate_smoke_reuse(
+            reuse_dir=args.reuse_from,
+            output=output,
+            models=models,
+            normalization=normalization,
+            dataset_sha=dataset_sha,
+            snapshots=snapshots,
+            ckpt_rows=ckpt_rows,
+        )
+        cases = [c for c in all_planned if c["key"] not in set(reused_keys)]
+        if len(reused_keys) + len(cases) != expected:
+            raise RuntimeError("plan reuse inconsistente")
+    else:
+        cases = all_planned
+
     atomic_write_json(output / "environment_preflight.json", preflight)
     atomic_write_json(output / "operational_decision.json", ops)
     eval_manifest = {
         "kind": "development_evaluation_manifest",
         "n_cases": expected,
         "n_orders": len(orders),
+        "n_reused": len(reused_keys),
+        "n_new": len(cases),
+        "reused_keys": reused_keys,
         "orders": orders,
-        "cases": [{"key": c["key"], "order_id": c["order_id"], "arm": c["arm"], "seed": c["seed"]} for c in cases],
+        "cases": [{"key": c["key"], "order_id": c["order_id"], "arm": c["arm"], "seed": c["seed"]} for c in all_planned],
+        "cases_to_execute": [{"key": c["key"], "order_id": c["order_id"], "arm": c["arm"], "seed": c["seed"]} for c in cases],
         "checkpoints": ckpt_rows,
         "normalization_sha256": normalization.get("sha256"),
         "dataset_sha256": dataset_sha,
@@ -381,6 +504,7 @@ def main(argv: list[str] | None = None) -> int:
         "test_excluded": True,
         "written_before_episodes": True,
         "smoke": bool(args.smoke_first_target_orders),
+        "reuse_from": str(args.reuse_from.resolve()) if args.reuse_from else None,
         "evaluator_sha256": file_sha256(Path(__file__)),
         "worker_sha256": file_sha256(WORKER),
         "worker_env_sha256": file_sha256(HERE / "worker_env.py"),
@@ -397,8 +521,15 @@ def main(argv: list[str] | None = None) -> int:
 
     deadline = time.perf_counter() + wall
     started_unix = time.time()
-    results_rows: list[dict[str, Any]] = []
-    progress = {"status": "running", "done": 0, "total": expected, "started_unix": started_unix}
+    results_rows: list[dict[str, Any]] = list(reused_rows)
+    progress = {
+        "status": "running",
+        "done": len(reused_rows),
+        "total": expected,
+        "reused": len(reused_rows),
+        "new_pending": len(cases),
+        "started_unix": started_unix,
+    }
     atomic_write_json(output / "progress.json", progress)
 
     def _one(case: dict[str, Any]) -> dict[str, Any]:
@@ -529,12 +660,13 @@ def main(argv: list[str] | None = None) -> int:
     remaining_for_test = total_budget - accounted
 
     by_key = {row["key"]: row for row in results_rows}
-    missing = [c["key"] for c in cases if c["key"] not in by_key]
+    missing = [c["key"] for c in all_planned if c["key"] not in by_key]
     evaluator_errors = sum(1 for row in results_rows if row.get("evaluator_error"))
     method_failures = sum(1 for row in results_rows if row.get("method_failure"))
     harness_failures = sum(1 for row in results_rows if row.get("harness_failure"))
     n_ok = sum(1 for row in results_rows if row.get("status") == "ok" and not row.get("evaluator_error"))
     n_audited = sum(1 for row in results_rows if row.get("audited"))
+    n_reused = sum(1 for row in results_rows if row.get("reused_from_smoke"))
 
     integrity = evaluation_integrity(
         n_keys_received=len(results_rows),
@@ -597,6 +729,9 @@ def main(argv: list[str] | None = None) -> int:
         "status": status,
         "n_cases": len(results_rows),
         "expected_cases": expected,
+        "n_reused_from_smoke": n_reused,
+        "n_newly_executed": len(results_rows) - n_reused,
+        "reused_keys": reused_keys,
         "missing_keys": missing,
         "method_failures": method_failures,
         "harness_failures": harness_failures,
@@ -618,6 +753,7 @@ def main(argv: list[str] | None = None) -> int:
         "gate_applicable": gate.get("gate_applicable"),
         "environment_preflight_ok": True,
         "worker_python": python,
+        "failed_240_crash_attempt_excluded_from_packing": True,
     }
     atomic_write_json(output / "evaluation_summary.json", summary)
     atomic_write_json(output / "evaluation_analysis.json", analysis)

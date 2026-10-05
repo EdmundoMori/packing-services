@@ -1,0 +1,19 @@
+{
+  "kind": "smoke_reuse_rules",
+  "smoke_dir": "paper/studies/learning_objectives/learning_development_smoke_8",
+  "n_cases": 8,
+  "keys": [
+    "greedy|00107391",
+    "classification|11|00107391",
+    "preferences|11|00107391",
+    "return_difference|11|00107391",
+    "greedy|00106955",
+    "classification|11|00106955",
+    "preferences|11|00106955",
+    "return_difference|11|00106955"
+  ],
+  "may_incorporate_once_into_full_eval": true,
+  "compatibility": "same key scheme arm|seed|order_id / greedy|order_id; same models/normalization/contract hashes",
+  "not_for_seed_or_config_selection": true,
+  "do_not_silently_rerun": true
+}
