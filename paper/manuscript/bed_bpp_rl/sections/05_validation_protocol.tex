@@ -1,9 +1,15 @@
-\section{Validation protocol (planned)}
+\section{Validation protocol (synthetic, executed)}
 
 Success means a correct, reusable, RL-usable resource---not beating a heuristic.
-Planned small checks (not executed in R01): no future leakage in observations;
-legal actions; reward sums equal \(U_{\mathrm{geom}}\) on complete episodes;
-terminated versus truncated semantics; transition consistency; corpus
-read/write; seeded reproducibility; a minimal on-policy update smoke test.
-Corpus size and wall budgets are deferred until a measured preflight; they are
-not extrapolated from closed campaigns here.
+R02 executes synthetic checks under
+\codepath{paper/studies/bed\_bpp\_rl/tools/test\_r02\_synthetic.py}: all items
+placed; first item impossible (zero transitions); next item impossible after a
+valid placement; truncation with usable next observation/mask; natural
+termination coinciding with the budget limit; coincident geometries with
+preserved action identities; \texttt{step} after close; reset releasing the
+previous episode; observation independence from the unseen suffix; reward versus
+audited volume; interrupted writes, incomplete files, and duplicates; agent
+loader excluding audit fields; and an explicit post-C04 engine probe. These
+tests measure contractual correctness only; they are not performance on
+BED-BPP. Real-order corpus sizing and wall budgets remain deferred to a measured
+preflight.

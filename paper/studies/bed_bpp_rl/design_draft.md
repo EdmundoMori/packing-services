@@ -1,4 +1,4 @@
-# Diseño resumido — BED-BPP-RL (R01)
+# Diseño resumido — BED-BPP-RL (R01→R02)
 
 ## Pregunta
 
@@ -6,23 +6,21 @@
 interacción y experiencias para estudiar políticas de RL, manteniendo explícitos
 la observabilidad, las acciones, los retornos y el presupuesto computacional?
 
-## Respuesta de diseño (sin resultados empíricos nuevos)
+## Estado
 
-Reutilizar el entorno de **selección entre tres reglas** ya implementado en
-`rl_rule_selection`, bajo el contrato compacto moncontenedor, con motor EP
-**post-C04**, reward incremental de volumen nominal / volumen del bin y
-\(\gamma=1\) para que el retorno no descontado coincida con \(U_{\mathrm{geom}}\)
-en episodios completos. Versionar un **corpus de transiciones** distinto de
-capturas de packing y de etiquetas \(Q_{\hat{}}\).
+- **R01:** diseño y reutilización.
+- **R02:** implementación sintética verificada (`BedBppRlEnv` + corpus atómico +
+  verificador). Decisión:
+  `implementacion_sintetica_verificada_para_disenar_preflight_real`.
 
-## Alcance
+## Respuesta implementada (sintético)
 
-- Acción: índice de regla \(\{0,1,2\}\); identidades preservadas.
-- No segundo espacio de acciones en el recurso inicial.
-- No protocolo robótico oficial BED-BPP; `physical_stability_verified=null`.
-- No apertura de test; no selección de IDs en R01.
+Reutilizar reglas/encoder de `rl_rule_selection` sin mutar artefactos hasheados;
+adaptar wrappers en `bed_bpp_rl/tools/` con motor EP **post-C04**, reward
+\(\Delta V/V_{\mathrm{bin}}\), \(\gamma=1\), terminated/truncated separados, y
+corpus con campos agente vs auditoría.
 
-## Próximo paso autorizado (fuera de R01)
+## Próximo paso (no ejecutado en R02)
 
-Implementación de wrappers `bed_bpp_rl/tools/`, freeze del contrato, preflight
-medido y generación controlada de experiencias.
+Diseñar preflight real medido antes de fijar tamaños/presupuestos y generar
+experiencias industriales.

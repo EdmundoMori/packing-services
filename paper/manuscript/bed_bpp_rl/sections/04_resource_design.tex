@@ -1,24 +1,49 @@
 \section{Resource design}
 
-\paragraph{Environment contract (draft).}
-Documented in \codepath{paper/studies/bed_bpp_rl/environment_contract_draft.json}:
-original sequence; one target container; \(p=s=1\); up to six orientations;
-containment and non-overlap; stop on first impossible item; present-only
-36-dimensional observation (no suffix, future counts, or returns); incremental
-volume reward; \(\gamma=1\). Each clause is checked against reusable
-implementations (\codepath{build_compact_problem},
-\codepath{RuleSelectionEnv}, \codepath{observation.py}, \codepath{rules.py}).
+\paragraph{Implemented environment interface.}
+Module \codepath{paper/studies/bed_bpp_rl/tools/environment.py} exposes
+\path{BedBppRlEnv} with public \texttt{reset}, \texttt{step}, and
+\texttt{close}. \texttt{step} returns
+\((\mathrm{observation},\, r,\, \mathrm{terminated},\, \mathrm{truncated},\, \mathrm{info})\).
+The historical \path{RuleSelectionEnv} is reused by import of rules and the
+observation encoder; its hashed campaign tree is not mutated.
 
-\paragraph{Corpus schema v1.}
-Each stored transition separates \emph{agent-visible} fields
-(observation, next observation, action, mask, reward, terminated, truncated)
-from \emph{audit-only} fields (episode and step ids, order/target,
-environment and engine versions, behaviour policy and seed, rule proposals,
-chosen geometry, end reason, hashes, units). Auxiliary audit fields must not
-reintroduce future information into training tensors.
+\paragraph{Observability and layers.}
+The agent receives a 36-dimensional present-only vector documented in
+\codepath{observation\_spec.py} (names, order, formulae, units, scales, dtype,
+terminal values). The observation excludes suffix dimensions, remaining counts,
+identifiers, and future returns. We distinguish (i)~full simulator internal
+state, (ii)~the summarised observation, and (iii)~audit metadata. Markov
+sufficiency of the observation is \emph{not} claimed.
 
-\paragraph{Reuse stance.}
-Import compatible modules; adapt wrappers under
-\codepath{paper/studies/bed_bpp_rl/} rather than copying campaign trees; exclude
-historical \(Q_{\hat{}}\) labels and closed-campaign captures as RL transitions
-(see appendix).
+\paragraph{Actions, reward, and closures.}
+Actions select among three named rules and keep distinct identities even when
+geometries coincide; out-of-domain actions are rejected. Reward is
+\(\Delta V_{\mathrm{nominal}}/V_{\mathrm{bin}}\) with \(\gamma=1\). After a
+placement, if the sequence ends or the next item has no legal candidate, the
+episode terminates without requiring an extra step on an empty list. A first
+impossible item yields a terminated episode with zero transitions and an
+explicit summary. Budget cuts with an open episode set \texttt{truncated} and
+preserve the real next observation and mask for bootstrap; natural termination
+has priority when it coincides with the budget. \texttt{step} after close is
+rejected. Weight, stability, and load-bearing remain inactive;
+\texttt{physical\_stability\_verified} stays null.
+
+\paragraph{Corpus schema and validation.}
+Transitions store agent fields
+(\texttt{observation}, \texttt{observation\_next}, \texttt{action},
+\texttt{action\_mask}, \texttt{action\_mask\_next}, \texttt{reward},
+\texttt{terminated}, \texttt{truncated})
+separately from audit fields
+(episode/step ids, provenance, proposals, geometries, end reason, hashes).
+Persistence is atomic with a confirmed-file manifest; incomplete or temporary
+files are not valid experiences. Closure flags are assigned when the episode
+document is closed, before a single atomic publish---published transitions are
+not rewritten retrospectively. An agent loader returns only learning fields.
+Behaviour policy and seed are recorded; behaviour log-probabilities are not
+stored, so importance-sampling off-policy evaluation is not promised. The
+independent verifier checks continuity, masks, closure reasons, placement
+identity, containment/non-overlap via the AABB auditor, and recomposed placed
+volume against stored rewards (not a blind re-sum alone). Complete episodes
+match \(U_{\mathrm{geom}}\); truncated episodes report a partial observed
+return only.

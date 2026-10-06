@@ -1,13 +1,15 @@
 {
   "schema_version": 1,
-  "kind": "bed_bpp_rl_environment_contract_draft",
-  "status": "draft_r01_not_frozen",
-  "title": "BED-BPP-RL initial mono-container rule-selection contract",
+  "kind": "bed_bpp_rl_environment_contract",
+  "status": "frozen_r02_synthetic_verified",
+  "title": "BED-BPP-RL mono-container rule-selection contract",
   "not_official_bedbpp_robotic_protocol": true,
   "physical_stability_verified": null,
+  "environment_version": "bed_bpp_rl_env_r02_v1+ep_c04",
   "engine": {
     "generator": "simplified_extreme_points",
     "module": "src/packing_services/algorithms/_extreme_points.py",
+    "required_commit": "a5fb46879c7bfbe16400eec2ab985dd23bf30385",
     "required_correction": "C04_post_a5fb468",
     "not_historical_learning_objectives_ee9e0ec": true,
     "not_ems": true,
@@ -36,7 +38,15 @@
   },
   "observation": {
     "dim": 36,
+    "dtype": "float64_python_list_serialized_as_float",
     "source_module_reference": "paper/studies/rl_rule_selection/tools/observation.py",
+    "spec_module": "paper/studies/bed_bpp_rl/tools/observation_spec.py",
+    "markov_sufficiency_claimed": false,
+    "layers": {
+      "simulator_internal": "remaining queue, packed session, mask, full legal candidates, unpacked reasons",
+      "agent_observation": "36-D present summary only",
+      "audit": "order_id, geometries, end_reason, hashes, capture AABB, physical_stability_verified=null"
+    },
     "includes": [
       "current_item_normalized_geometry_and_weight",
       "used_height_n",
@@ -49,49 +59,53 @@
       "remaining_item_count",
       "suffix_ids",
       "returns_or_q_hat",
-      "teacher_labels"
+      "teacher_labels",
+      "item_identifiers_in_observation"
     ]
   },
   "action_space": {
     "type": "discrete_rule_selection",
     "n": 3,
+    "domain": [0, 1, 2],
     "rules": [
       "greedy_best_fit",
       "lowest_top",
       "least_height_increase"
     ],
     "identities_preserved_if_geometry_coincides": true,
-    "second_action_space": false,
-    "note": "Resource studies rule-selection RL; does not claim to represent all placement policies."
+    "out_of_domain_rejected": true,
+    "second_action_space": false
   },
   "reward": {
     "definition": "incremental_nominal_placed_volume / bin_volume",
     "gamma": 1.0,
     "undiscounted_return_equals_u_geom_on_complete_episodes": true,
-    "u_geom_definition": "sum of per-step rewards under this contract"
+    "u_geom_definition": "sum of per-step rewards under this contract; verified by recomposing packed AABB volumes"
+  },
+  "public_api": {
+    "reset": "(observation, info)",
+    "step": "(observation, reward, terminated, truncated, info)",
+    "close": "releases session",
+    "truncate_budget": "optional open-episode cut without fabricating transitions"
   },
   "termination_truncation": {
     "terminated_when": [
-      "no_legal_candidate_for_current_item",
+      "no_legal_candidate_on_reset (zero transitions, explicit summary)",
+      "no_legal_candidate_after_placement (auto-stop; no empty-list step)",
       "all_items_placed"
     ],
     "truncated_when": [
-      "wall_or_decision_budget_cut_with_episode_open"
+      "budget_decision_cut or budget_wall_cut with episode still open"
     ],
-    "terminal_observation": "item features zeroed; proposals empty placeholders; audit records end_reason",
-    "budget_cut_export": "mark truncated=true on last stored transition; do not invent completing return"
+    "natural_termination_priority_if_budget_coincides": true,
+    "bootstrap_on_truncation": "preserve real next observation and action_mask before marking truncated",
+    "zero_action_budget_cut": "summary only; no fabricated zero-reward transition",
+    "step_after_close": "rejected",
+    "closure_on_published_transitions": "truncated/terminated set atomically at episode close; no retrospective rewrite of published files"
   },
-  "verified_against_reusable_implementation": {
-    "build_compact_problem": true,
-    "RuleSelectionEnv._assert_contract": true,
-    "RuleSelectionEnv.reward": true,
-    "observation.encode_observation_no_suffix": true,
-    "rules.propose_rules_three_identities": true,
-    "ppo_math.terminated_vs_truncated": true
-  },
-  "pending_adaptations_before_freeze": [
-    "expose truncated in environment step API or corpus writer",
-    "bind engine commit/hash explicitly in corpus metadata",
-    "version bed_bpp_rl wrappers without mutating rl_rule_selection campaign artefacts"
-  ]
+  "implementation": {
+    "module": "paper/studies/bed_bpp_rl/tools/environment.py",
+    "class": "BedBppRlEnv",
+    "does_not_mutate": "paper/studies/rl_rule_selection/tools/environment.py"
+  }
 }

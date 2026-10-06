@@ -810,24 +810,28 @@
     "note": "Cierre de hallazgos identificados C01–C08; metadato triestado; Overfull corregidos; no certifica todo el repositorio."
   },
   "bed_bpp_rl": {
-    "status": "r01_design_scope_defined",
-    "phase": "R01_scope_and_reuse",
+    "status": "r02_synthetic_env_and_corpus_verified",
+    "phase": "R02_synthetic_implementation",
     "executed_at_local": "2026-10-06",
-    "head_at_edit": "203d061c41ac8d7ae902cacbd6bd3a8377264d5b",
+    "head_at_edit": "38bb9d5192b20844bd071e83debc9675c313a9ca",
     "branch": "research/paper-online-packing",
     "study": "paper/studies/bed_bpp_rl/",
     "manuscript": "paper/manuscript/bed_bpp_rl/",
-    "review": "paper/reviews/R01_scope_and_reuse.md",
+    "review_r01": "paper/reviews/R01_scope_and_reuse.md",
+    "review": "paper/reviews/R02_synthetic_env_and_corpus.md",
+    "claims_evidence": "paper/studies/bed_bpp_rl/claims_evidence.md",
     "reuse_matrix": "paper/studies/bed_bpp_rl/reuse_matrix.md",
-    "environment_contract_draft": "paper/studies/bed_bpp_rl/environment_contract_draft.json",
+    "environment_contract": "paper/studies/bed_bpp_rl/environment_contract_draft.json",
     "corpus_schema": "paper/studies/bed_bpp_rl/corpus_schema_v1.json",
+    "tools": "paper/studies/bed_bpp_rl/tools/",
+    "synthetic_tests": "paper/studies/bed_bpp_rl/tools/test_r02_synthetic.py",
     "engine_required": "C04_post_a5fb468",
     "executes_real_orders": false,
     "training": false,
     "corpus_generated": false,
     "opens_closed_test": false,
     "does_not_reopen_closed_campaigns": true,
-    "decision": "diseno_del_recurso_listo_para_implementacion",
-    "note": "Línea nueva aislada; reutiliza entorno de selección de reglas por import/adaptación; no inventa resultados ni novedad."
+    "decision": "implementacion_sintetica_verificada_para_disenar_preflight_real",
+    "note": "Interfaz y exportación verificadas solo con sintéticos; no autoriza experiencias reales ni entrenamiento."
   }
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "kind": "bed_bpp_rl_corpus_transition_v1",
-  "status": "draft_r01_not_frozen",
+  "status": "frozen_r02_code_validated",
   "units": {
     "length": "mm",
     "volume": "mm3",
@@ -14,6 +14,7 @@
     "observation_next",
     "action",
     "action_mask",
+    "action_mask_next",
     "reward",
     "terminated",
     "truncated"
@@ -31,7 +32,7 @@
     "chosen_geometry",
     "end_reason",
     "hashes",
-    "wall_seconds_partial",
+    "units",
     "notes"
   ],
   "forbidden_in_agent_channels": [
@@ -39,18 +40,28 @@
     "remaining_count",
     "q_hat",
     "teacher_labels",
-    "suffix_item_ids_as_features"
+    "suffix_item_ids",
+    "behavior_log_probs"
   ],
+  "off_policy_importance_supported": false,
+  "off_policy_note": "R02 does not store behavior_log_probs; do not claim importance-sampling off-policy evaluation.",
+  "persistence": {
+    "atomic_write": true,
+    "confirmed_manifest_required": true,
+    "tmp_or_incomplete_rejected": true,
+    "duplicate_episode_path_rejected": true,
+    "closure_flag_timing": "set on last transition at episode close before single atomic publish; no rewrite of already published transitions"
+  },
   "transition_record": {
     "observation": {
-      "type": "float32_vector",
+      "type": "float_vector",
       "dim": 36,
-      "feature_names_ref": "environment_contract_draft.observation"
+      "feature_names_ref": "observation_spec.FEATURE_NAMES"
     },
     "observation_next": {
-      "type": "float32_vector",
+      "type": "float_vector",
       "dim": 36,
-      "note": "After terminal step, next observation is the terminal view (zeros for item/proposals as in RuleSelectionEnv)."
+      "note": "After natural terminal step: terminal view. After truncation: real next open-state observation for bootstrap."
     },
     "action": {
       "type": "int",
@@ -58,24 +69,29 @@
     },
     "action_mask": {
       "type": "bool_vector",
-      "dim": 3,
-      "note": "Under the initial contract all three rule identities remain selectable whenever legal candidates exist; if no candidates, episode terminates before a stored decision or records end_reason without inventing a legal action."
+      "dim": 3
     },
-    "reward": {"type": "float"},
+    "action_mask_next": {
+      "type": "bool_vector",
+      "dim": 3,
+      "note": "On truncation, usable bootstrap mask of the open next state."
+    },
+    "reward": {"type": "finite_float"},
     "terminated": {"type": "bool"},
     "truncated": {"type": "bool"},
+    "mutual_exclusion": "terminated XOR truncated on closing transition",
     "episode_id": {"type": "string"},
     "step_index": {"type": "int", "min": 0},
     "order_id": {"type": "string"},
     "target_id": {"type": "string"},
     "environment_version": {
       "type": "string",
-      "example": "bed_bpp_rl_env_contract_draft_v1+ep_c04"
+      "example": "bed_bpp_rl_env_r02_v1+ep_c04"
     },
-    "engine_commit": {"type": "git_sha"},
+    "engine_commit": {"type": "git_sha", "example": "a5fb46879c7bfbe16400eec2ab985dd23bf30385"},
     "behavior_policy": {
       "type": "string",
-      "examples": ["uniform_rules", "fixed_greedy_best_fit", "ppo_actor_seed_X"]
+      "examples": ["uniform_rules", "fixed_greedy_best_fit"]
     },
     "behavior_seed": {"type": "int_or_null"},
     "rule_proposals": {
@@ -93,24 +109,21 @@
       "type": "string_or_null",
       "examples": [
         null,
-        "no_legal_candidate",
+        "no_legal_candidate_on_reset",
+        "no_legal_candidate_after_placement",
         "all_items_placed",
         "budget_wall_cut",
         "budget_decision_cut"
       ]
     },
-    "hashes": {
-      "dataset_sha256": "string_or_null",
-      "contract_sha256": "string",
-      "observation_sha256": "string_optional"
-    }
+    "physical_stability_verified": null
   },
-  "terminal_state_recording": {
-    "when_no_candidate": "Mark terminated=true; reward for that decision is 0 if a step was attempted against empty options; store end_reason=no_legal_candidate; do not fabricate placements.",
-    "budget_cut": "Set truncated=true on the last written transition; terminated=false; do not invent remaining rewards to complete U_geom; export partial wall diagnostics in audit-only fields."
+  "loader": {
+    "module": "paper/studies/bed_bpp_rl/tools/corpus_loader.py",
+    "agent_only": true
   },
-  "completeness_invariant": {
-    "complete_unterminated_by_budget": "sum(rewards) == U_geom under contract",
-    "truncated_episodes": "sum(rewards) is partial; must not be labelled as full U_geom return"
+  "verifier": {
+    "module": "paper/studies/bed_bpp_rl/tools/resource_verifier.py",
+    "volume_check": "recompose packed AABB volumes via bedbpp_eval.kpis_zhao; not reward re-sum alone"
   }
 }
