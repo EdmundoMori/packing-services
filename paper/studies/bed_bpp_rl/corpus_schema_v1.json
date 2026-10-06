@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "kind": "bed_bpp_rl_corpus_transition_v1",
+  "status": "draft_r01_not_frozen",
+  "units": {
+    "length": "mm",
+    "volume": "mm3",
+    "weight": "kg",
+    "time": "s",
+    "reward": "dimensionless_volume_fraction"
+  },
+  "agent_visible_fields": [
+    "observation",
+    "observation_next",
+    "action",
+    "action_mask",
+    "reward",
+    "terminated",
+    "truncated"
+  ],
+  "audit_only_fields": [
+    "episode_id",
+    "step_index",
+    "order_id",
+    "target_id",
+    "environment_version",
+    "engine_commit",
+    "behavior_policy",
+    "behavior_seed",
+    "rule_proposals",
+    "chosen_geometry",
+    "end_reason",
+    "hashes",
+    "wall_seconds_partial",
+    "notes"
+  ],
+  "forbidden_in_agent_channels": [
+    "future_item_dimensions",
+    "remaining_count",
+    "q_hat",
+    "teacher_labels",
+    "suffix_item_ids_as_features"
+  ],
+  "transition_record": {
+    "observation": {
+      "type": "float32_vector",
+      "dim": 36,
+      "feature_names_ref": "environment_contract_draft.observation"
+    },
+    "observation_next": {
+      "type": "float32_vector",
+      "dim": 36,
+      "note": "After terminal step, next observation is the terminal view (zeros for item/proposals as in RuleSelectionEnv)."
+    },
+    "action": {
+      "type": "int",
+      "domain": [0, 1, 2]
+    },
+    "action_mask": {
+      "type": "bool_vector",
+      "dim": 3,
+      "note": "Under the initial contract all three rule identities remain selectable whenever legal candidates exist; if no candidates, episode terminates before a stored decision or records end_reason without inventing a legal action."
+    },
+    "reward": {"type": "float"},
+    "terminated": {"type": "bool"},
+    "truncated": {"type": "bool"},
+    "episode_id": {"type": "string"},
+    "step_index": {"type": "int", "min": 0},
+    "order_id": {"type": "string"},
+    "target_id": {"type": "string"},
+    "environment_version": {
+      "type": "string",
+      "example": "bed_bpp_rl_env_contract_draft_v1+ep_c04"
+    },
+    "engine_commit": {"type": "git_sha"},
+    "behavior_policy": {
+      "type": "string",
+      "examples": ["uniform_rules", "fixed_greedy_best_fit", "ppo_actor_seed_X"]
+    },
+    "behavior_seed": {"type": "int_or_null"},
+    "rule_proposals": {
+      "type": "array",
+      "length": 3,
+      "items": {
+        "rule": "string",
+        "action": "int",
+        "candidate_index": "int_or_null",
+        "geometry": "tuple_or_null"
+      }
+    },
+    "chosen_geometry": {"type": "tuple_or_null"},
+    "end_reason": {
+      "type": "string_or_null",
+      "examples": [
+        null,
+        "no_legal_candidate",
+        "all_items_placed",
+        "budget_wall_cut",
+        "budget_decision_cut"
+      ]
+    },
+    "hashes": {
+      "dataset_sha256": "string_or_null",
+      "contract_sha256": "string",
+      "observation_sha256": "string_optional"
+    }
+  },
+  "terminal_state_recording": {
+    "when_no_candidate": "Mark terminated=true; reward for that decision is 0 if a step was attempted against empty options; store end_reason=no_legal_candidate; do not fabricate placements.",
+    "budget_cut": "Set truncated=true on the last written transition; terminated=false; do not invent remaining rewards to complete U_geom; export partial wall diagnostics in audit-only fields."
+  },
+  "completeness_invariant": {
+    "complete_unterminated_by_budget": "sum(rewards) == U_geom under contract",
+    "truncated_episodes": "sum(rewards) is partial; must not be labelled as full U_geom return"
+  }
+}

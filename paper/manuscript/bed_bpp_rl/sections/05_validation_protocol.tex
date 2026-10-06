@@ -1,0 +1,9 @@
+\section{Validation protocol (planned)}
+
+Success means a correct, reusable, RL-usable resource---not beating a heuristic.
+Planned small checks (not executed in R01): no future leakage in observations;
+legal actions; reward sums equal \(U_{\mathrm{geom}}\) on complete episodes;
+terminated versus truncated semantics; transition consistency; corpus
+read/write; seeded reproducibility; a minimal on-policy update smoke test.
+Corpus size and wall budgets are deferred until a measured preflight; they are
+not extrapolated from closed campaigns here.

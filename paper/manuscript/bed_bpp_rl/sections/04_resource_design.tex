@@ -1,0 +1,24 @@
+\section{Resource design}
+
+\paragraph{Environment contract (draft).}
+Documented in \codepath{paper/studies/bed_bpp_rl/environment_contract_draft.json}:
+original sequence; one target container; \(p=s=1\); up to six orientations;
+containment and non-overlap; stop on first impossible item; present-only
+36-dimensional observation (no suffix, future counts, or returns); incremental
+volume reward; \(\gamma=1\). Each clause is checked against reusable
+implementations (\codepath{build_compact_problem},
+\codepath{RuleSelectionEnv}, \codepath{observation.py}, \codepath{rules.py}).
+
+\paragraph{Corpus schema v1.}
+Each stored transition separates \emph{agent-visible} fields
+(observation, next observation, action, mask, reward, terminated, truncated)
+from \emph{audit-only} fields (episode and step ids, order/target,
+environment and engine versions, behaviour policy and seed, rule proposals,
+chosen geometry, end reason, hashes, units). Auxiliary audit fields must not
+reintroduce future information into training tensors.
+
+\paragraph{Reuse stance.}
+Import compatible modules; adapt wrappers under
+\codepath{paper/studies/bed_bpp_rl/} rather than copying campaign trees; exclude
+historical \(Q_{\hat{}}\) labels and closed-campaign captures as RL transitions
+(see appendix).

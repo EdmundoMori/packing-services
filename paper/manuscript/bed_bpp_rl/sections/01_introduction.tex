@@ -1,0 +1,22 @@
+\section{Introduction}
+
+Online three-dimensional packing under industrial order streams requires
+decision procedures that respect limited observability and computational
+budgets. BED-BPP provides realistic orders and targets~\citep{kagerer2023bedbpp},
+while packing-configuration and extreme-point heuristics supply candidate
+geometry~\citep{zhao2022pct,crainic2008extreme}. Reinforcement learning (RL)
+can, in principle, select among such candidates or rules, but only if the
+\emph{environment interface} makes observations, actions, rewards, termination,
+and budgets explicit and reproducible.
+
+\paragraph{Question.}
+How can BED-BPP orders be transformed into a reusable interaction and experience
+resource for studying RL policies while keeping observability, actions, returns,
+and compute budgets explicit?
+
+\paragraph{R01 contribution (design only).}
+This manuscript drafts that resource---named BED-BPP-RL---by (i)~verifying which
+repository components can be reused, (ii)~stating a minimal mono-container
+rule-selection contract, and (iii)~defining a versioned transition schema.
+No real orders are executed here; no models are trained; no experience files are
+emitted. Novelty and venue fitness are not claimed.

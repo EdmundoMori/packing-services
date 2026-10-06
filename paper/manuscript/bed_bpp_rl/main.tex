@@ -1,0 +1,50 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{natbib}
+
+\newcommand{\codepath}[1]{\path{#1}}
+
+\title{BED-BPP-RL: A Reusable Environment and Experience Corpus for\\
+Resource-Constrained Online Packing Research\\
+\large Design note --- R01 scope (no empirical corpus yet)}
+\author{Draft from the packing-services research archive}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We outline a reusable interaction resource that turns industrial BED-BPP orders
+into explicit online packing episodes for resource-constrained reinforcement
+learning research. The initial contract reuses a mono-container extreme-point
+session, a three-rule discrete action space, a 36-dimensional present-only
+observation, and an incremental nominal-volume reward with \(\gamma=1\) so that
+undiscounted returns match geometric utilisation on complete episodes.
+Terminated and truncated endings are kept separate. This note records scope,
+reuse, and a validation plan; it does not train policies, generate a corpus, or
+claim novelty or benchmark superiority.
+\end{abstract}
+
+\input{sections/01_introduction}
+\input{sections/02_background}
+\input{sections/03_formulation}
+\input{sections/04_resource_design}
+\input{sections/05_validation_protocol}
+\input{sections/06_pending_results}
+\input{sections/07_limitations}
+\input{sections/08_availability}
+\input{sections/09_conclusion}
+
+\appendix
+\input{appendices/reuse_summary}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}

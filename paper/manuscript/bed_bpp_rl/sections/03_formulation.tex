@@ -1,0 +1,23 @@
+\section{Problem formulation}
+
+We consider online packing of a single BED-BPP order into one container given by
+the order target. Items arrive in the original sequence. At each decision the
+environment exposes the current item and legal placements under containment and
+non-overlap (rotation allowed; weight, basic stability, and load-bearing
+inactive in the initial contract). The episode stops at the first item without a
+legal candidate; remaining suffix items are recorded as unpacked for audit only.
+
+\paragraph{Rule-selection MDP (initial resource).}
+The agent selects among three fixed rule identities
+\(\{\texttt{greedy\_best\_fit},\texttt{lowest\_top},\texttt{least\_height\_increase}\}\).
+Identities are preserved even when two rules propose the same geometry. This
+studies \emph{rule-selection} RL; it does not claim to represent every placement
+policy (e.g.\ free indexing over the full legal list). A second action space is
+out of scope for the initial resource.
+
+\paragraph{Reward and return.}
+The step reward is the incremental nominal placed volume divided by the bin
+volume. With \(\gamma=1\), the undiscounted return on a complete
+(non-truncated) episode equals geometric utilisation
+\(U_{\mathrm{geom}}\) under this contract. Budget cuts mark
+\texttt{truncated} without inventing a completing return.

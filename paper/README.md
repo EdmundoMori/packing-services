@@ -28,6 +28,8 @@ Contrato moncontenedor del evaluador y metadato de captura (C07): [`reviews/C07_
 
 Cierre final de mantenimiento C01–C08 (metadato triestado, cobertura portable, tiempo development, maquetación): [`reviews/C08_final_maintenance_closure.md`](reviews/C08_final_maintenance_closure.md). No abre el test ni regenera resultados.
 
+Nueva línea **BED-BPP-RL** (R01, diseño de recurso; sin pedidos reales ni corpus): [`studies/bed_bpp_rl/`](studies/bed_bpp_rl/), revisión [`reviews/R01_scope_and_reuse.md`](reviews/R01_scope_and_reuse.md), manuscrito [`manuscript/bed_bpp_rl/`](manuscript/bed_bpp_rl/). No reabre campañas cerradas ni el test.
+
 ## Objetivo provisional
 
 Evaluar si el selector aprendido de colocaciones mejora al heurístico del mismo entorno, o si mantiene calidad comparable a PCT con menor coste. La superioridad y la publicación no están demostradas. Esta carpeta no busca confirmar una conclusión previa.
