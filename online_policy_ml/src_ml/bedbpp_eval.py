@@ -6,7 +6,12 @@ comprobaciones locales bajo ``evaluator_contract``. La semántica histórica
 «supera»/«empata» sin protocolos homologados; ver
 ``paper/reviews/C02_feasibility_semantics_correction.md``.
 
-``packing_plan_actions`` se conserva sin cambios en esta pasada (C03: yaw).
+Exportación yaw 0/1 (C03): ``packing_plan_actions`` es estricta — rechaza el
+plan entero si alguna colocación interna no es representable como (L,W,H) o
+(W,L,H) del original almacenado. Ver
+``paper/reviews/C03_yaw_export_contract_correction.md``.
+El comportamiento pre-C03 (aplastamiento silencioso) vive solo en
+``packing_plan_actions_legacy_unsafe_yaw`` y no es fallback automático.
 """
 
 from __future__ import annotations
@@ -74,9 +79,216 @@ MARCO_ZHAO = {
 }
 
 
+YAW_EXPORT_TOLERANCE_MM = 1e-6
+YAW_EXPORT_CONTRACT = (
+    "yaw_0_1_v1 (contrato interno del evaluador packing-services): "
+    "orientation 0 decodifica exactamente a (L,W,H) de las dimensiones "
+    "originales almacenadas; orientation 1 a (W,L,H) con la misma altura H. "
+    "No reordena L/W para forzar el lado mayor. No cambia altura, FLB, id ni peso. "
+    "Si ambas coinciden (p. ej. base cuadrada), desempate=0. "
+    "Una colocación no representable rechaza el plan completo. "
+    "«No exportable a yaw» ≠ packing geométricamente inválido. "
+    "Alcance externo: esta convención alinea el decode con kpis_zhao_from_plan "
+    "y el adaptador estricto del repo; no afirma compatibilidad verificada con "
+    "el esquema publicado BED-BPP/Kagerer ni con PCT."
+)
+
+
+class YawExportError(ValueError):
+    """Plan yaw rechazado por completo: hay orientaciones no representables."""
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        incompatible: list[dict[str, Any]],
+    ) -> None:
+        super().__init__(message)
+        self.incompatible = list(incompatible)
+
+
+def _finite(value: Any, field: str) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise ValueError(f"campo no numérico: {field}")
+    number = float(value)
+    if not math.isfinite(number):
+        raise ValueError(f"campo no finito: {field}")
+    return number
+
+
+def _yaw_axis_match(
+    left: tuple[float, float, float],
+    right: tuple[float, float, float],
+    *,
+    eps: float = YAW_EXPORT_TOLERANCE_MM,
+) -> bool:
+    return all(abs(a - b) <= eps for a, b in zip(left, right))
+
+
+def yaw_orientation_flag(
+    original_lwh: tuple[float, float, float],
+    oriented_lwh: tuple[float, float, float],
+    *,
+    eps: float = YAW_EXPORT_TOLERANCE_MM,
+) -> int | None:
+    """0 si oriented==(L,W,H); 1 si oriented==(W,L,H); None si no es yaw fiel.
+
+    Si ambas coinciden, devuelve 0 (desempate determinista documentado).
+    """
+
+    length, width, height = original_lwh
+    if _yaw_axis_match(oriented_lwh, (length, width, height), eps=eps):
+        return 0
+    if _yaw_axis_match(oriented_lwh, (width, length, height), eps=eps):
+        return 1
+    return None
+
+
+def decode_yaw01_oriented_lwh(
+    original_lwh: tuple[float, float, float], orientation: int
+) -> tuple[float, float, float]:
+    """Decodificación del formato destino (misma regla que kpis_zhao_from_plan)."""
+
+    length, width, height = original_lwh
+    if orientation == 0:
+        return length, width, height
+    if orientation == 1:
+        return width, length, height
+    raise ValueError(f"orientación yaw no representable por 0/1: {orientation!r}")
+
+
 def packing_plan_actions(
     problem: PackingProblem, solution: PackingSolution
 ) -> list[dict[str, Any]]:
+    """Exporta el plan en yaw 0/1 bajo ``YAW_EXPORT_CONTRACT``.
+
+    Rechaza el plan **completo** con ``YawExportError`` si alguna colocación
+    no tiene representación yaw fiel. No exporta un subconjunto. No altera
+    altura, FLB, identidad ni peso. No convierte validez interna en invalidez:
+    el error significa solo «no exportable a yaw».
+    """
+
+    by_id = {item.id: item for item in problem.items}
+    allow_rot_global = bool(problem.constraints.allow_rotation)
+    actions: list[dict[str, Any]] = []
+    incompatible: list[dict[str, Any]] = []
+
+    for packed in solution.packed_items:
+        item = by_id.get(packed.item_id)
+        if item is None:
+            incompatible.append(
+                {
+                    "item_id": packed.item_id,
+                    "reason": "id_inexistente_en_problem",
+                    "original_lwh_mm": None,
+                    "oriented_lwh_mm": [
+                        packed.orientation.length,
+                        packed.orientation.width,
+                        packed.orientation.height,
+                    ],
+                }
+            )
+            continue
+        try:
+            L0 = _finite(item.dimensions.length, "item.length")
+            W0 = _finite(item.dimensions.width, "item.width")
+            H0 = _finite(item.dimensions.height, "item.height")
+            ol = _finite(packed.orientation.length, "orientation.length")
+            ow = _finite(packed.orientation.width, "orientation.width")
+            oh = _finite(packed.orientation.height, "orientation.height")
+            x = _finite(packed.position.x, "position.x")
+            y = _finite(packed.position.y, "position.y")
+            z = _finite(packed.position.z, "position.z")
+        except ValueError as exc:
+            incompatible.append(
+                {
+                    "item_id": item.id,
+                    "reason": f"dimensiones_o_coordenadas_invalidas:{exc}",
+                    "original_lwh_mm": [
+                        item.dimensions.length,
+                        item.dimensions.width,
+                        item.dimensions.height,
+                    ],
+                    "oriented_lwh_mm": [
+                        packed.orientation.length,
+                        packed.orientation.width,
+                        packed.orientation.height,
+                    ],
+                }
+            )
+            continue
+        if L0 <= 0 or W0 <= 0 or H0 <= 0 or ol <= 0 or ow <= 0 or oh <= 0:
+            incompatible.append(
+                {
+                    "item_id": item.id,
+                    "reason": "dimensiones_no_positivas",
+                    "original_lwh_mm": [L0, W0, H0],
+                    "oriented_lwh_mm": [ol, ow, oh],
+                }
+            )
+            continue
+
+        original = (L0, W0, H0)
+        oriented = (ol, ow, oh)
+        flag = yaw_orientation_flag(original, oriented)
+        allow_rot = allow_rot_global and item.allowed_orientations != "none"
+        if flag is None:
+            incompatible.append(
+                {
+                    "item_id": item.id,
+                    "reason": "orientacion_no_representable_como_yaw_0_1",
+                    "original_lwh_mm": [L0, W0, H0],
+                    "oriented_lwh_mm": [ol, ow, oh],
+                }
+            )
+            continue
+        if not allow_rot and flag != 0:
+            incompatible.append(
+                {
+                    "item_id": item.id,
+                    "reason": "rotacion_prohibida_por_contrato",
+                    "original_lwh_mm": [L0, W0, H0],
+                    "oriented_lwh_mm": [ol, ow, oh],
+                    "yaw_flag_si_se_permitiera": flag,
+                }
+            )
+            continue
+
+        actions.append(
+            {
+                "item": {
+                    "id": item.id,
+                    "length": L0,
+                    "width": W0,
+                    "height": H0,
+                    "weight": item.weight,
+                },
+                "orientation": flag,
+                "flb_coordinates": [x, y, z],
+            }
+        )
+
+    if incompatible:
+        ids = [str(row.get("item_id")) for row in incompatible]
+        raise YawExportError(
+            "exportación yaw 0/1 rechazada: orientaciones o ítems incompatibles "
+            f"({', '.join(ids)}). El plan completo no se exporta. "
+            "Esto no declara inválida la geometría interna.",
+            incompatible=incompatible,
+        )
+    return actions
+
+
+def packing_plan_actions_legacy_unsafe_yaw(
+    problem: PackingProblem, solution: PackingSolution
+) -> list[dict[str, Any]]:
+    """LEGACY INSEGURO (pre-C03): aplasta a yaw 0/1 sin fidelidad geométrica.
+
+    Conservado solo para forense / contraste con artefactos históricos.
+    **No** es fallback del exportador vigente. No usar en pipelines nuevos.
+    Marca ``legacy_unsafe_yaw_export: true`` en cada acción.
+    """
+
     by_id = {item.id: item for item in problem.items}
     actions: list[dict[str, Any]] = []
     for packed in solution.packed_items:
@@ -96,6 +308,10 @@ def packing_plan_actions(
                 },
                 "orientation": 1 if rotated else 0,
                 "flb_coordinates": [pos.x, pos.y, pos.z],
+                "legacy_unsafe_yaw_export": True,
+                "legacy_note": (
+                    "pre-C03: no garantiza que decode(yaw) == oriented_lwh interno"
+                ),
             }
         )
     return actions
@@ -104,15 +320,6 @@ def packing_plan_actions(
 # ---------------------------------------------------------------------------
 # Geometría local (duplicada a propósito: no importar paper/tools congelados)
 # ---------------------------------------------------------------------------
-
-
-def _finite(value: Any, field: str) -> float:
-    if isinstance(value, bool) or not isinstance(value, (int, float)):
-        raise ValueError(f"campo no numérico: {field}")
-    number = float(value)
-    if not math.isfinite(number):
-        raise ValueError(f"campo no finito: {field}")
-    return number
 
 
 def _interval_overlap(a0: float, a1: float, b0: float, b1: float) -> float:
@@ -156,11 +363,7 @@ def _is_permutation(oriented: tuple[float, float, float], original: tuple[float,
 
 
 def _oriented_from_yaw01(l0: float, w0: float, h0: float, orientation: int) -> tuple[float, float, float]:
-    if orientation == 0:
-        return l0, w0, h0
-    if orientation == 1:
-        return w0, l0, h0
-    raise ValueError(f"orientación yaw no representable por 0/1: {orientation!r}")
+    return decode_yaw01_oriented_lwh((l0, w0, h0), orientation)
 
 
 def _validity_shell() -> dict[str, Any]:
@@ -506,11 +709,13 @@ def kpis_zhao_from_plan(
     n_order: int,
     bin_lwh: tuple[float, float, float] | None = None,
 ) -> dict[str, Any]:
-    """KPIs desde packing plan BED-BPP (FLB + orientation 0/1).
+    """KPIs desde plan con flag yaw 0/1 bajo el contrato interno yaw_0_1_v1.
 
-    El flag 0/1 **no** representa las seis permutaciones internas del motor.
-    No se repara ni se reinterpreta silenciosamente un plan.
-    No se inventan IDs ni dimensiones originales ausentes.
+    Decode: 0→(L,W,H), 1→(W,L,H) de las dims del item del plan (misma regla
+    que ``decode_yaw01_oriented_lwh`` / ``packing_plan_actions``). El flag 0/1
+    **no** representa las seis permutaciones internas del motor. No se repara
+    ni se reinterpreta silenciosamente un plan. No se inventan IDs ni dims
+    ausentes. No certifica equivalencia con formatos externos BED-BPP/Kagerer.
 
     Si ``bin_lwh`` es None se usa ``EURO_PALLET_MM`` con
     ``bin_lwh_source=default_EURO_PALLET_MM``. Para otro target hay que pasar

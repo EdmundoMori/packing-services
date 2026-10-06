@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Una inferencia diagnóstica. Guarda la geometría interna, no el plan 0/1.
 
-La exportación yaw es opcional y va a otro archivo. No es evaluación ni comparación con PCT.
+La exportación yaw estricta es opcional (`--yaw-export`) y va a otro archivo.
+Si se rechaza, la captura interna se conserva. El exportador legacy inseguro
+(`--legacy-unsafe-yaw-export`) es solo forense y nunca es fallback automático.
+No es evaluación ni comparación con PCT.
 """
 
 from __future__ import annotations
@@ -13,6 +16,7 @@ import json
 import subprocess
 import sys
 import time
+import warnings
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -66,11 +70,113 @@ def _dump(model: Any) -> Any:
     return model
 
 
+def _resolve_path(path: Path) -> Path:
+    return path.expanduser().resolve()
+
+
+def assert_distinct_write_paths(*paths: Path | None, label: str = "escritura") -> None:
+    """Rechaza rutas de escritura que resuelven al mismo archivo antes de tocar disco."""
+
+    seen: list[Path] = []
+    for path in paths:
+        if path is None:
+            continue
+        resolved = _resolve_path(path)
+        for prior in seen:
+            if prior == resolved:
+                raise ValueError(
+                    f"rutas de {label} coinciden tras resolve: {resolved}. "
+                    "No se escribe nada; archivos existentes se conservan."
+                )
+        seen.append(resolved)
+
+
+def write_strict_yaw_export(
+    problem: Any,
+    solution: Any,
+    order_id: str,
+    yaw_export: Path,
+) -> dict[str, Any]:
+    """Intenta exportación yaw estricta. No usa legacy como fallback.
+
+    Si el plan se rechaza, no crea ni trunca el archivo destino.
+    """
+
+    from bedbpp_eval import YawExportError, packing_plan_actions
+
+    target = _resolve_path(yaw_export)
+    try:
+        plan = {order_id: packing_plan_actions(problem, solution)}
+    except YawExportError as exc:
+        return {
+            "ok": False,
+            "path": str(target),
+            "exporter": "packing_plan_actions",
+            "contract": "yaw_0_1_v1_internal",
+            "error": str(exc),
+            "incompatible": list(exc.incompatible),
+            "wrote_plan": False,
+            "file_created_or_modified": False,
+            "note": (
+                "Rechazo yaw: la captura interna permanece válida por separado. "
+                "No se escribió plan parcial ni vacío. "
+                "No se invocó packing_plan_actions_legacy_unsafe_yaw."
+            ),
+        }
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return {
+        "ok": True,
+        "path": str(target),
+        "exporter": "packing_plan_actions",
+        "contract": "yaw_0_1_v1_internal",
+        "n_actions": len(plan[order_id]),
+        "wrote_plan": True,
+        "file_created_or_modified": True,
+    }
+
+
+def write_legacy_unsafe_yaw_export(
+    problem: Any,
+    solution: Any,
+    order_id: str,
+    legacy_path: Path,
+) -> dict[str, Any]:
+    """Forense explícito. No es el exportador vigente ni fallback de rechazo."""
+
+    from bedbpp_eval import packing_plan_actions_legacy_unsafe_yaw
+
+    target = _resolve_path(legacy_path)
+    plan = {
+        "_legacy_unsafe_yaw_export": True,
+        "_warning": (
+            "Exportación pre-C03 INSEGURA: puede aplastar orientaciones que cambian altura. "
+            "No usar como plan geométricamente fiel. No es fallback del exportador estricto. "
+            "Solo con --legacy-unsafe-yaw-export (o alias deprecado --legacy-export)."
+        ),
+        order_id: packing_plan_actions_legacy_unsafe_yaw(problem, solution),
+    }
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return {
+        "ok": True,
+        "path": str(target),
+        "exporter": "packing_plan_actions_legacy_unsafe_yaw",
+        "contract": "legacy_unsafe_pre_C03",
+        "wrote_plan": True,
+        "file_created_or_modified": True,
+        "legacy_unsafe_yaw_export": True,
+    }
+
+
 def capture(
     orders_path: Path,
     order_id: str,
     checkpoint_path: Path,
     *,
+    output_path: Path | None = None,
+    yaw_export: Path | None = None,
+    legacy_unsafe_yaw_export: Path | None = None,
     legacy_export: Path | None = None,
 ) -> dict[str, Any]:
     _prepare_imports()
@@ -78,6 +184,23 @@ def capture(
     from packing_services.online.params import support_threshold, wants_consolidate
     from problems import order_to_problem
     from splits import load_orders
+
+    if legacy_export is not None and legacy_unsafe_yaw_export is None:
+        warnings.warn(
+            "--legacy-export es alias de --legacy-unsafe-yaw-export (forense pre-C03 INSEGURO). "
+            "Para yaw fiel use --yaw-export. Nunca es fallback automático del estricto.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        legacy_unsafe_yaw_export = legacy_export
+
+    # Validación de rutas antes de inferir/escribir: conserva archivos existentes.
+    assert_distinct_write_paths(
+        output_path,
+        yaw_export,
+        legacy_unsafe_yaw_export,
+        label="captura/exportación",
+    )
 
     started = datetime.now(timezone.utc)
     t0 = time.perf_counter()
@@ -164,12 +287,17 @@ def capture(
         {"item_id": item.item_id, "reason": item.reason}
         for item in solution.unpacked_items
     ]
-    if legacy_export is not None:
-        from bedbpp_eval import packing_plan_actions
 
-        plan = {order_id: packing_plan_actions(problem, solution)}
-        legacy_export.parent.mkdir(parents=True, exist_ok=True)
-        legacy_export.write_text(json.dumps(plan, indent=2) + "\n", encoding="utf-8")
+    yaw_export_report = None
+    if yaw_export is not None:
+        yaw_export_report = write_strict_yaw_export(problem, solution, order_id, yaw_export)
+
+    legacy_unsafe_report = None
+    if legacy_unsafe_yaw_export is not None:
+        legacy_unsafe_report = write_legacy_unsafe_yaw_export(
+            problem, solution, order_id, legacy_unsafe_yaw_export
+        )
+
     elapsed = time.perf_counter() - t0
     return {
         "units": {"length": "mm", "volume": "mm3", "weight": "kg", "time": "s"},
@@ -198,23 +326,78 @@ def capture(
             "packed_list_index es la posición en solution.packed_items. "
             "El código no acredita que sea un timestamp de decisión."
         ),
-        "legacy_export_path": None if legacy_export is None else str(legacy_export),
+        "yaw_export": yaw_export_report,
+        "legacy_unsafe_yaw_export": legacy_unsafe_report,
+        "legacy_export_path": (
+            None if legacy_unsafe_report is None else legacy_unsafe_report.get("path")
+        ),
     }
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Captura la geometría interna de una inferencia.")
+    parser = argparse.ArgumentParser(
+        description=(
+            "Captura la geometría interna de una inferencia. "
+            "Opcional: --yaw-export (estricto C03) o "
+            "--legacy-unsafe-yaw-export (forense pre-C03, nunca fallback)."
+        )
+    )
     parser.add_argument("--orders", required=True, type=Path)
     parser.add_argument("--order-id", required=True)
     parser.add_argument("--checkpoint", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
-    parser.add_argument("--legacy-export", type=Path, default=None)
+    parser.add_argument(
+        "--yaw-export",
+        type=Path,
+        default=None,
+        help="Plan yaw 0/1 estricto. Si se rechaza, no se escribe el plan y la captura sigue.",
+    )
+    parser.add_argument(
+        "--legacy-unsafe-yaw-export",
+        type=Path,
+        default=None,
+        help="Forense pre-C03 (aplastamiento). Nunca se usa como fallback del estricto.",
+    )
+    parser.add_argument(
+        "--legacy-export",
+        type=Path,
+        default=None,
+        help="Alias deprecado de --legacy-unsafe-yaw-export.",
+    )
     args = parser.parse_args(argv)
     orders = args.orders.expanduser().resolve()
     checkpoint = args.checkpoint.expanduser().resolve()
     output = args.output.expanduser().resolve()
-    legacy = None if args.legacy_export is None else args.legacy_export.expanduser().resolve()
-    document = capture(orders, args.order_id, checkpoint, legacy_export=legacy)
+    yaw_path = None if args.yaw_export is None else args.yaw_export.expanduser().resolve()
+    unsafe = (
+        None
+        if args.legacy_unsafe_yaw_export is None
+        else args.legacy_unsafe_yaw_export.expanduser().resolve()
+    )
+    legacy_alias = None if args.legacy_export is None else args.legacy_export.expanduser().resolve()
+    unsafe_effective = unsafe if unsafe is not None else legacy_alias
+
+    # Antes de inferir o escribir: colisión de rutas → no tocar archivos existentes.
+    try:
+        assert_distinct_write_paths(
+            output,
+            yaw_path,
+            unsafe_effective,
+            label="captura/exportación",
+        )
+    except ValueError as exc:
+        print(json.dumps({"error": str(exc), "wrote": False}, ensure_ascii=False), file=sys.stderr)
+        return 2
+
+    document = capture(
+        orders,
+        args.order_id,
+        checkpoint,
+        output_path=output,
+        yaw_export=yaw_path,
+        legacy_unsafe_yaw_export=unsafe,
+        legacy_export=legacy_alias,
+    )
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(document, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(
@@ -225,6 +408,9 @@ def main(argv: list[str] | None = None) -> int:
                 "n_packed": len(document["placements"]),
                 "n_unpacked": len(document["unpacked"]),
                 "duration_seconds": document["duration_seconds"],
+                "yaw_export_ok": None
+                if document.get("yaw_export") is None
+                else document["yaw_export"].get("ok"),
             },
             ensure_ascii=False,
         )

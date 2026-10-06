@@ -717,5 +717,19 @@
     "alters_packing_plan_actions": false,
     "decision": "correccion_factibilidad_lista_para_revision",
     "note": "Entrada de mantenimiento independiente; no sustituye decisiones históricas."
+  },
+  "documentation_maintenance_C03": {
+    "phase": "C03_yaw_export_contract_correction",
+    "executed_at_local": "2026-10-06",
+    "head_at_edit": "c30e06fafd018c7fe898682de614b9452701fbaf",
+    "branch": "research/paper-online-packing",
+    "review": "paper/reviews/C03_yaw_export_contract_correction.md",
+    "module": "online_policy_ml/src_ml/bedbpp_eval.py",
+    "alters_historical_09_10": false,
+    "alters_frozen_auditors": false,
+    "alters_ep_engine": false,
+    "decision": "correccion_exportacion_lista_para_revision",
+    "note": "Entrada de mantenimiento independiente; packing_plan_actions ahora estricto; legacy unsafe aislado.",
+    "review_closure": "path_collision_checks_and_external_scope_documented"
   }
 }

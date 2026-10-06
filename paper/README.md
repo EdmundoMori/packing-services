@@ -16,6 +16,8 @@ Errata de afirmaciones documentales: [`reviews/C01_current_claims_correction.md`
 
 Corrección de semántica de factibilidad del evaluador histórico (`bedbpp_eval` schema v2): [`reviews/C02_feasibility_semantics_correction.md`](reviews/C02_feasibility_semantics_correction.md). No regenera JSON 09/10.
 
+Corrección del contrato de exportación yaw 0/1 (`packing_plan_actions` estricto): [`reviews/C03_yaw_export_contract_correction.md`](reviews/C03_yaw_export_contract_correction.md). No regenera planes 09/10 ni 01A/01C/01E.
+
 ## Objetivo provisional
 
 Evaluar si el selector aprendido de colocaciones mejora al heurístico del mismo entorno, o si mantiene calidad comparable a PCT con menor coste. La superioridad y la publicación no están demostradas. Esta carpeta no busca confirmar una conclusión previa.
