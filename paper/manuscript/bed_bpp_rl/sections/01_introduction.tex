@@ -2,21 +2,40 @@
 
 Online three-dimensional packing under industrial order streams requires
 decision procedures that respect limited observability and computational
-budgets. BED-BPP provides realistic orders and targets~\citep{kagerer2023bedbpp},
+budgets. This study is organised around two explicit axes:
+(i)~\emph{BED-BPP} industrial orders and targets as the packing domain, and
+(ii)~\emph{reinforcement learning} (RL) as the interaction and learning
+framework to be supported by a reusable resource---not as a claim of effective
+learning already demonstrated.
+
+BED-BPP provides realistic orders and targets~\citep{kagerer2023bedbpp},
 while packing-configuration and extreme-point heuristics supply candidate
-geometry~\citep{zhao2022pct,crainic2008extreme}. Reinforcement learning (RL)
-can, in principle, select among such candidates or rules, but only if the
-\emph{environment interface} makes observations, actions, rewards, termination,
-and budgets explicit and reproducible.
+geometry~\citep{zhao2022pct,crainic2008extreme}. RL can, in principle, select
+among such candidates or rules, but only if the environment interface makes
+observations, actions, rewards, termination, and budgets explicit and
+reproducible.
 
 \paragraph{Question.}
 How can BED-BPP orders be transformed into a reusable interaction and experience
 resource for studying RL policies while keeping observability, actions, returns,
 and compute budgets explicit?
 
-\paragraph{R01 contribution (design only).}
-This manuscript drafts that resource---named BED-BPP-RL---by (i)~verifying which
-repository components can be reused, (ii)~stating a minimal mono-container
-rule-selection contract, and (iii)~defining a versioned transition schema.
-No real orders are executed here; no models are trained; no experience files are
-emitted. Novelty and venue fitness are not claimed.
+\paragraph{Resource layers (kept distinct).}
+\begin{enumerate}
+  \item A BED-BPP mono-container environment for RL interaction
+    (reset/step/close; terminated vs truncated).
+  \item A portable corpus of transitions with agent/audit separation and
+    offline verification.
+  \item A \emph{pending} minimal PPO demonstration on CPU, using \emph{new}
+    experiences and an explicit train/evaluation split---not exporter unit
+    tests and not heuristic baselines as a substitute for RL.
+  \item Results and limitations actually verified so far (synthetic contractual
+    integrity and designed preflight), without claiming learning efficacy,
+    superiority, demonstrated novelty, or editorial acceptance.
+\end{enumerate}
+
+\paragraph{Role of the real preflight.}
+A measured preflight with fixed and seeded-uniform policies is an
+\emph{operational} validation of cost, export, and reload on BED-BPP. It is
+\emph{not} the final empirical result of the article. Training is not opened
+here: the published preflight protocol must be executed and reviewed first.

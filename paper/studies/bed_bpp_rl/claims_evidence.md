@@ -1,26 +1,35 @@
 # Claims ↔ evidence (BED-BPP-RL)
 
+## Ejes del estudio (explícitos)
+
+1. **BED-BPP** — dominio de pedidos/targets industriales.
+2. **Aprendizaje por refuerzo** — interfaz de interacción y, más adelante,
+   demostración PPO mínima en CPU con experiencias **nuevas** y separación
+   train/evaluación.
+
+El preflight con políticas fijas/aleatorias es **validación operativa previa**,
+no el resultado final del artículo. No sustituye la demostración RL. No se abre
+entrenamiento hasta ejecutar y revisar el preflight real publicado.
+
 ## R01–R02A (resumen)
 
-Diseño, entorno sintético e integridad portable: ver revisiones R01/R02/R02A.
+Diseño, entorno sintético e integridad portable: revisiones R01/R02/R02A.
 
 ## R03-preparación
 
 | Afirmación | Evidencia | Estado |
 |------------|-----------|--------|
-| Contraste de identidades y orientaciones sin `orientation_ok` prefijado | `artifact_contrast.py` | Pass |
-| Prefijo de secuencia / rechazo de swaps y extras | adversarial tests | Pass |
-| Correspondencia transición↔placement (ítem, pos, dims) | contrast + tests | Pass |
-| Reward por paso = V_nominal/V_bin; suma = U_geom | contrast | Pass |
-| Cierre vs unpacked tipificado | contrast | Pass |
-| Snapshot insuficiente → no auditoría completa | test | Pass |
-| Propiedad sin datos → `no_comprobada` (no aceptación) | `missing_allow_rotation` test | Pass |
-| Preflight real diseñado, no ejecutado | `preflight_real_protocol.json` | Diseño |
-| Static-only valida protocolo/selección sin packing | `run_preflight_real.py --static-only` | Pass |
-| Presupuestos propuestos con fundamento histórico orientativo | protocolo `budgets_proposed_before_execution` | Documentado |
+| Contraste de artefactos offline | `artifact_contrast.py` + tests | Pass |
+| Preflight real diseñado; static-only sin packing | protocolo + `run_preflight_real.py --static-only` | Pass |
+| Recurso apto en diseño para PPO CPU posterior | contrato env + corpus + loader agente | Diseño (no ejecutado) |
 
-### No afirmado
+### Verificado (no es rendimiento RL)
 
-- Preflight real ejecutado; corpus industrial; entrenamiento RL
-- Cola de tiempos desde 4 pedidos; tamaño definitivo de corpus
-- Estabilidad física; independencia absoluta de la muestra
+Corrección contractual sintética; contraste de artifacts; diseño de preflight.
+
+### No afirmado / pendiente
+
+- Preflight real ejecutado
+- Corpus industrial de aprendizaje
+- Demostración PPO (no exportador, no heurísticas como sustituto)
+- Aprendizaje eficaz, superioridad, novedad demostrada, aceptación editorial

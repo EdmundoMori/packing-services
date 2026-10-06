@@ -1,11 +1,12 @@
 \section{Validation protocol (synthetic + designed preflight)}
 
-Success means a correct, reusable, RL-usable resource---not beating a heuristic.
-R02/R02A established synthetic contractual integrity. R03-preparation closes
-offline artifact contrast: unique input identities, permitted orientations
-(without prefabricated acceptance), strict placement/transition correspondence,
-per-step nominal-volume rewards, typed unpacking/closure checks, and AABB
-containment/non-overlap with
+Success means a correct, reusable resource on the BED-BPP and RL axes---not
+beating a heuristic and not claiming learned policies. R02/R02A established
+synthetic contractual integrity of the environment and transition corpus.
+R03-preparation closes offline artifact contrast: unique input identities,
+permitted orientations (without prefabricated acceptance), strict
+placement/transition correspondence, per-step nominal-volume rewards, typed
+unpacking/closure checks, and AABB containment/non-overlap with
 \texttt{physical\_stability\_verified}=\texttt{null}. Missing fields yield
 explicit not-checked statuses rather than silent passes. Adversarial synthetic
 tests cover unknown ids, disallowed orientations, volume-preserving pose edits,
@@ -14,6 +15,8 @@ swapped placements, conserved-sum reward tampering, and insufficient snapshots.
 A measured real preflight is \emph{designed} but not executed: four orders
 (two targets; item-count quantiles), fixed and seeded-uniform policies
 ($\le 16$ episodes), explicit timeouts/wall/RSS/concurrency, portable corpus
-reopen, and cost timers separated from \texttt{tracemalloc}/CPU. Four orders do
-not demonstrate latency tails. Industrial corpus size and RL demonstration remain
-pending.
+reopen, and cost timers separated from \texttt{tracemalloc}/CPU. That preflight
+is operational validation only. Four orders do not demonstrate latency tails.
+Industrial corpus sizing for learning and the minimal CPU PPO demonstration
+(with new experiences and train/eval separation) remain pending and must follow
+preflight execution and review---not exporter tests or heuristics as substitutes.

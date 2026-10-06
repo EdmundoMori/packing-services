@@ -12,7 +12,7 @@
 
 \title{BED-BPP-RL: A Reusable Environment and Experience Corpus for\\
 Resource-Constrained Online Packing Research\\
-\large Note --- R03 preparation (artifact contrast + preflight design)}
+\large Note --- BED-BPP + RL axes; preflight operational; PPO demo pending}
 \author{Draft from the packing-services research archive}
 \date{}
 
@@ -20,15 +20,17 @@ Resource-Constrained Online Packing Research\\
 \maketitle
 
 \begin{abstract}
-We implement a reusable interaction resource that turns packing instances into
-explicit online episodes for resource-constrained reinforcement learning
-research. The contract uses a mono-container extreme-point session (post-C04),
+BED-BPP-RL is a reusable resource for resource-constrained reinforcement
+learning research on industrial online packing. Its axes are BED-BPP orders and
+an RL interaction contract: a mono-container extreme-point session (post-C04),
 a three-rule discrete action space, a 36-dimensional present-only observation,
-and an incremental nominal-volume reward with \(\gamma=1\). Terminated and
-truncated endings are separated, and experiences are exported under a
-code-validated schema with an independent verifier. Evidence in this note is
-contractual correctness on synthetic instances only; we do not train policies,
-generate an industrial corpus, or claim novelty or benchmark superiority.
+and an incremental nominal-volume reward with \(\gamma=1\), with terminated and
+truncated endings separated and experiences exported under a verifiable schema.
+This note reports synthetic contractual integrity and a designed measured
+preflight; a minimal CPU PPO demonstration on new experiences with train/eval
+separation remains pending and must not be replaced by exporter tests or
+heuristics. We do not claim effective learning, superiority, demonstrated
+novelty, or editorial acceptance.
 \end{abstract}
 
 \input{sections/01_introduction}

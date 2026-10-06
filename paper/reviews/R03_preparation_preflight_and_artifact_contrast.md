@@ -60,6 +60,12 @@ pytest …/test_r02_*.py …/test_r02a_*.py …/test_r03_*.py
 # 40 passed
 ```
 
+El preflight es **validación operativa** (coste/export/reload), no el resultado
+final del artículo ni una demostración RL. Tras ejecutarlo y revisarlo, el
+recurso debe permitir una PPO mínima en CPU con experiencias nuevas y
+separación train/evaluación; eso **no** se abre en R03-prep y **no** se
+sustituye por tests del exportador ni por heurísticas.
+
 ## Decisión
 
 `preflight_real_disenado_y_contraste_de_artefactos_verificado`

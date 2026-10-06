@@ -3,7 +3,7 @@
   "kind": "bed_bpp_rl_preflight_real_protocol_r03",
   "status": "designed_not_executed",
   "title": "Preflight real medido BED-BPP-RL (diseño R03)",
-  "purpose": "Medir coste y comprobar exportación/relectura sobre BED-BPP; no comparar superioridad de políticas.",
+  "purpose": "Validación operativa previa: medir coste y comprobar exportación/relectura sobre BED-BPP. No es el resultado final del artículo ni una demostración RL. No compara superioridad de políticas. La demostración PPO mínima en CPU (experiencias nuevas, train/eval separados) queda pendiente tras ejecutar y revisar este preflight.",
   "not_executed_in_r03_preparation": true,
   "physical_stability_verified": null,
   "dataset": {

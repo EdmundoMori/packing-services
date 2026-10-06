@@ -832,6 +832,16 @@
     "opens_closed_test": false,
     "does_not_reopen_closed_campaigns": true,
     "decision": "preflight_real_disenado_y_contraste_de_artefactos_verificado",
-    "note": "Contraste offline completo de artifacts; preflight real solo diseñado y validado en static-only."
+    "study_axes": ["BED-BPP", "reinforcement_learning"],
+    "preflight_role": "operational_validation_not_final_article_result",
+    "ppo_demo_status": "pending_after_real_preflight_review",
+    "ppo_demo_requirements": [
+      "minimal_cpu_ppo",
+      "new_experiences",
+      "train_eval_separation",
+      "not_replaced_by_exporter_tests_or_heuristics"
+    ],
+    "training_opened": false,
+    "note": "Ejes BED-BPP+RL explícitos; preflight operativo pendiente de ejecución; PPO mínima pendiente; sin claims de aprendizaje eficaz/superioridad/novedad/aceptación editorial."
   }
 }

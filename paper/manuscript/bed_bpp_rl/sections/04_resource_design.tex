@@ -51,5 +51,17 @@ status is audit-not-performed. Complete episodes match \(U_{\mathrm{geom}}\)
 recomposed from nominal item volumes; truncated episodes report a partial
 observed return only. AABB feasibility does not imply physical stability
 (\texttt{physical\_stability\_verified}=\texttt{null}).
-A measured real preflight (four orders, fixed/seeded policies, explicit budgets)
-is designed for a later authorised step; it is not executed in this note.
+
+\paragraph{Operational preflight versus article result.}
+A measured real preflight (four orders, fixed and seeded-uniform policies,
+explicit budgets) is designed as \emph{operational} cost/export/reload
+validation on BED-BPP. It is not the final empirical result of the article and
+does not substitute for RL. Training is not opened until that protocol is
+executed and reviewed.
+
+\paragraph{Pending RL demonstration (not opened here).}
+The resource must remain capable of a later \emph{minimal PPO demonstration on
+CPU} that (i)~uses \emph{new} BED-BPP-RL experiences generated after preflight
+review, (ii)~keeps an explicit train/evaluation separation, and (iii)~is not
+replaced by exporter/unit tests or by reporting heuristic utilization alone.
+That demonstration is pending; no claim of effective learning is made.

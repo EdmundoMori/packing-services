@@ -1,13 +1,17 @@
-# Diseño resumido — BED-BPP-RL (R01→R03-prep)
+# Diseño resumido — BED-BPP-RL
 
-## Estado
+## Ejes
 
-- R01 diseño; R02 entorno sintético; R02A integridad portable.
-- **R03-prep:** contraste completo de artifacts + preflight real diseñado
-  (`--static-only`). Decisión:
-  `preflight_real_disenado_y_contraste_de_artefactos_verificado`.
+BED-BPP (dominio) + RL (interacción y, después, demostración PPO mínima).
 
-## Próximo paso autorizado (fuera de esta entrega)
+## Capas
 
-Ejecutar el preflight real medido según el protocolo; aún no generar corpus
-industrial completo ni entrenar.
+1. Entorno de interacción RL sobre BED-BPP.
+2. Corpus de transiciones verificable.
+3. Demostración RL pendiente (PPO CPU, experiencias nuevas, train/eval).
+4. Resultados/limitaciones realmente comprobados (sintético + diseño de preflight).
+
+## Preflight
+
+Validación operativa previa; no resultado final del artículo. Primero ejecutar
+y revisar el protocolo publicado; **no** abrir entrenamiento ahora.
