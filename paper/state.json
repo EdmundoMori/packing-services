@@ -776,5 +776,24 @@
     "decision": "cerrado_manuscritos_alineados",
     "note": "Entrada independiente; tipografía 10| corregida; agregación seed-within-order; encoder 17; EP histórico vs C04; valoración publicación en planos (a)(b)(c); test cerrado sin proponer apertura.",
     "review_closure": "publication_planes_abc_and_development_scope_aligned"
+  },
+  "documentation_maintenance_C07": {
+    "phase": "C07_evaluator_contract_and_capture_metadata",
+    "executed_at_local": "2026-10-06",
+    "head_at_edit": "2859678a00dd13f0141462085389a0f9da29da2d",
+    "branch": "research/paper-online-packing",
+    "review": "paper/reviews/C07_evaluator_contract_and_capture_metadata.md",
+    "errata": "paper/reviews/errata_actor_eval_mode_learning_development_eval.md",
+    "module": "online_policy_ml/src_ml/bedbpp_eval.py",
+    "future_metadata": [
+      "paper/studies/learning_objectives/tools/capture_actor_eval_metadata_v1.py",
+      "paper/studies/learning_objectives/tools/episode_capture_metadata_c07.py"
+    ],
+    "alters_frozen_protocols": false,
+    "rewrites_captures": false,
+    "alters_hashed_episode_worker": false,
+    "alters_historical_results": false,
+    "decision": "correccion_contractual_lista_para_revision",
+    "note": "Entrada independiente; moncontenedor + IDs de problema + alcance plan; errata actor_eval_mode sin sobrescritura; metadato futuro versionado."
   }
 }

@@ -24,6 +24,8 @@ Corrección de portabilidad de pruebas (rutas de repo vía `__file__`; sin `/hom
 
 Alineación manuscritos–evidencia (C06): [`reviews/C06_manuscript_evidence_alignment.md`](reviews/C06_manuscript_evidence_alignment.md). Prioriza `manuscript/learning_objectives/` (development-only, puerta fallida); `robust_packing_management/` permanece nota preliminar cerrada. No regenera episodios.
 
+Contrato moncontenedor del evaluador y metadato de captura (C07): [`reviews/C07_evaluator_contract_and_capture_metadata.md`](reviews/C07_evaluator_contract_and_capture_metadata.md). Errata `actor_eval_mode`: [`reviews/errata_actor_eval_mode_learning_development_eval.md`](reviews/errata_actor_eval_mode_learning_development_eval.md). No reescribe capturas ni altera hashes de `episode_worker`.
+
 ## Objetivo provisional
 
 Evaluar si el selector aprendido de colocaciones mejora al heurístico del mismo entorno, o si mantiene calidad comparable a PCT con menor coste. La superioridad y la publicación no están demostradas. Esta carpeta no busca confirmar una conclusión previa.

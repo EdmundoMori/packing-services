@@ -30,7 +30,11 @@ EVALUATOR_OUTPUT_SCHEMA_VERSION = 2
 EVALUATOR_CONTRACT = (
     "bedbpp_eval_v2: AABB axis-aligned; face contact allowed; "
     "geometry_valid ≠ physical feasibility under Zhao/Kagerer; "
-    "yaw 0/1 plan ≠ six internal permutations"
+    "yaw 0/1 plan ≠ six internal permutations; "
+    "kpis_zhao mono-container only (C07): exactly one problem container; "
+    "placements must reference that container_id; "
+    "all_items_packed uses problem item IDs (not solution.metrics); "
+    "metrics-counter mismatch does not alone invalidate AABB geometry"
 )
 
 FEASIBLE_MEANING = (
@@ -53,8 +57,25 @@ MIGRATION_NOTE = (
     "métricas de planes inválidos van en claves diagnostic_*; "
     "veredicto_zhao no emite superioridad: comparison_valid exige evidencia "
     "de contrato verificable aquí; banderas solas no bastan; KPI sin plan "
-    "no autoriza «supera»."
+    "no autoriza «supera». "
+    "C07 (aditivo, schema_version permanece 2): kpis_zhao restringido a "
+    "moncontenedor (EvaluatorContractError si 0 o >1 contenedores); "
+    "container_id distinto del único contenedor → salida inválida "
+    "estructurada (geometry_valid≠true); solapes moncontenedor no se "
+    "eluden con container_id inventados; all_items_packed desde IDs del "
+    "problema; metrics_counter_coherence separado; kpis_zhao_from_plan "
+    "declara plan_validation_scope (sin homologación externa)."
 )
+
+
+class EvaluatorContractError(ValueError):
+    """Entrada fuera del contrato moncontenedor de ``kpis_zhao``.
+
+    Se usa para fallos estructurales del problema (p. ej. 0 o varios
+    contenedores) donde no hay un único bin de contrato que evaluar.
+    Los fallos de colocación (container_id ajeno, IDs, geometría) se
+    reportan como salida inválida estructurada, no como esta excepción.
+    """
 
 MARCO_ZHAO = {
     "paper": (
@@ -444,20 +465,49 @@ def _audit_boxes(
     orientation_checked: bool,
     orientation_ok: bool | None,
     unknown_ids: list[str] | None = None,
+    expected_container_id: str | None = None,
+    mono_container_overlap: bool = False,
+    problem_item_ids: list[str] | None = None,
+    duplicate_input_ids: list[str] | None = None,
 ) -> dict[str, Any]:
-    """boxes: id, l, w, h, x, y, z; dimensiones ya orientadas y finitas/positivas."""
+    """boxes: id, l, w, h, x, y, z; dimensiones ya orientadas y finitas/positivas.
+
+    Si ``mono_container_overlap`` es True, los solapes se comprueban entre todas
+    las cajas limpias (no se omiten por ``container_id`` distintos inventados).
+    Si ``expected_container_id`` no es None, un ``container_id`` distinto deja
+    ``container_contract_valid=False`` y ``geometry_valid`` no puede ser True.
+    Si se pasa ``problem_item_ids``, ``all_items_packed`` usa ese conjunto como
+    fuente de verdad (no ``n_order`` ni ``solution.metrics``).
+    """
 
     bin_lwh = _validate_bin_lwh(bin_lwh)
     parse_errors = [b for b in boxes if b.get("parse_error")]
     clean = [b for b in boxes if not b.get("parse_error")]
     unknown = sorted(set(unknown_ids or []))
+    dup_input = sorted(set(duplicate_input_ids or []))
+
+    foreign_container_ids: list[str] = []
+    if expected_container_id is not None:
+        for b in clean:
+            cid = b.get("container_id")
+            if cid != expected_container_id:
+                foreign_container_ids.append(str(cid))
+        foreign_container_ids = sorted(set(foreign_container_ids))
+    container_contract_valid = (
+        expected_container_id is None or len(foreign_container_ids) == 0
+    ) and len(parse_errors) == 0
 
     ids = [b["id"] for b in clean]
     id_counts: dict[str, int] = {}
     for item_id in ids:
         id_counts[item_id] = id_counts.get(item_id, 0) + 1
     duplicate_ids = sorted(i for i, c in id_counts.items() if c > 1)
-    identity_valid = len(parse_errors) == 0 and not duplicate_ids and not unknown
+    identity_valid = (
+        len(parse_errors) == 0
+        and not duplicate_ids
+        and not unknown
+        and not dup_input
+    )
 
     n_fuera = 0
     for b in clean:
@@ -472,8 +522,9 @@ def _audit_boxes(
     for i in range(len(clean)):
         for j in range(i + 1, len(clean)):
             a, b = clean[i], clean[j]
-            if a.get("container_id") != b.get("container_id"):
-                continue
+            if not mono_container_overlap:
+                if a.get("container_id") != b.get("container_id"):
+                    continue
             aa = (a["x"], a["y"], a["z"], a["l"], a["w"], a["h"])
             bb = (b["x"], b["y"], b["z"], b["l"], b["w"], b["h"])
             if _strict_overlap(aa, bb):
@@ -487,17 +538,34 @@ def _audit_boxes(
         and containment_valid is True
         and non_overlap_valid is True
         and identity_valid is True
+        and container_contract_valid is True
         and orientation_valid is not False
     )
 
-    unique_packed = len(set(ids))
-    all_items_packed = (
-        unique_packed == n_order
-        and n_order >= 0
-        and len(parse_errors) == 0
-        and not duplicate_ids
-        and not unknown
-    )
+    if problem_item_ids is not None:
+        problem_ids = list(problem_item_ids)
+        problem_set = set(problem_ids)
+        packed_set = set(ids)
+        all_items_packed = (
+            len(parse_errors) == 0
+            and not duplicate_ids
+            and not unknown
+            and not dup_input
+            and len(problem_ids) == len(problem_set)
+            and packed_set == problem_set
+            and container_contract_valid is True
+        )
+        completeness_n_order = len(problem_ids)
+    else:
+        unique_packed = len(set(ids))
+        all_items_packed = (
+            unique_packed == n_order
+            and n_order >= 0
+            and len(parse_errors) == 0
+            and not duplicate_ids
+            and not unknown
+        )
+        completeness_n_order = n_order
 
     hn_mm = max((b["z"] + b["h"] for b in clean), default=0.0)
     vol_in = 0.0
@@ -510,7 +578,13 @@ def _audit_boxes(
     return {
         "parse_errors": [{"id": b.get("id"), "error": b.get("parse_error")} for b in parse_errors],
         "duplicate_ids": duplicate_ids,
+        "duplicate_input_ids": dup_input,
         "unknown_ids": unknown,
+        "foreign_container_ids": foreign_container_ids,
+        "container_contract_valid": container_contract_valid
+        if expected_container_id is not None
+        else None,
+        "expected_container_id": expected_container_id,
         "n_fuera_bin": n_fuera if len(parse_errors) == 0 else None,
         "n_overlap_pairs": len(overlap_pairs),
         "overlap_pairs": overlap_pairs,
@@ -520,6 +594,7 @@ def _audit_boxes(
         "identity_valid": identity_valid,
         "geometry_valid": geometry_valid,
         "all_items_packed": all_items_packed,
+        "completeness_n_order": completeness_n_order,
         "physical_stability_verified": None,
         "hn_mm": hn_mm,
         "num_inside": num_in,
@@ -563,7 +638,11 @@ def _metrics_block(
             "n_fuera_bin": audit["n_fuera_bin"],
             "n_overlap_pairs": audit["n_overlap_pairs"],
             "duplicate_ids": audit["duplicate_ids"],
+            "duplicate_input_ids": audit.get("duplicate_input_ids", []),
             "unknown_ids": audit.get("unknown_ids", []),
+            "foreign_container_ids": audit.get("foreign_container_ids", []),
+            "container_contract_valid": audit.get("container_contract_valid"),
+            "expected_container_id": audit.get("expected_container_id"),
             "parse_errors": audit["parse_errors"],
             "bin_volume": round(bin_volume, 6),
             "bin_mm": list(audit.get("bin_lwh_mm") or [L, W, H]),
@@ -595,38 +674,79 @@ def _metrics_block(
 # ---------------------------------------------------------------------------
 
 
+def _require_mono_container(problem: PackingProblem) -> Any:
+    containers = list(problem.containers)
+    n = len(containers)
+    if n != 1:
+        raise EvaluatorContractError(
+            "kpis_zhao contrato moncontenedor: se exige exactamente un "
+            f"contenedor en problem.containers; hay {n}. "
+            "Este rechazo es EvaluatorContractError (estructural); no se "
+            "emite geometry_valid=true fuera de contrato."
+        )
+    return containers[0]
+
+
 def kpis_zhao(
     problem: PackingProblem,
     solution: PackingSolution,
     *,
     bin_lwh: tuple[float, float, float] | None = None,
 ) -> dict[str, Any]:
-    """KPIs bajo el contrato local del evaluador (no certificación Zhao).
+    """KPIs bajo el contrato local moncontenedor del evaluador (no certificación Zhao).
 
-    Contenedor: si ``bin_lwh`` es None se usan las dimensiones de
-    ``problem.containers[0]`` (explícitas en la instancia). No se sustituye
-    silenciosamente por EURO_PALLET cuando el problema declara otro bin.
-    ``EURO_PALLET_MM`` solo aplica si el llamador lo pasa o en helpers de plan
-    / publicación con default documentado.
+    Contenedor: exige exactamente un elemento en ``problem.containers``. Si
+    ``bin_lwh`` es None se usan las dimensiones de ese único contenedor
+    (``bin_lwh_source=problem.containers[0]``). Si el llamador pasa
+    ``bin_lwh``, esas dimensiones prevalecen (``bin_lwh_source=caller_explicit``)
+    pero el problema sigue debiendo ser moncontenedor y las colocaciones deben
+    referir el ``container_id`` de ese contenedor.
+
+    0 o >1 contenedores → ``EvaluatorContractError`` (excepción de contrato).
+    ``container_id`` distinto del único contenedor → salida inválida
+    estructurada (``container_contract_valid=false``, ``geometry_valid`` no True);
+    no se omiten solapes mediante ``container_id`` inventados.
+
+    Completitud: ``all_items_packed`` usa los IDs de ``problem.items`` como
+    fuente de verdad. No sustituye ``len(problem.items)`` por
+    ``solution.metrics``. Una discrepancia de contadores se reporta en
+    ``metrics_counter_coherence`` y **no** invalida por sí sola una geometría
+    AABB correctamente comprobada.
 
     ``geometry_valid=true`` exige: números finitos, dims > 0, contención AABB,
-    sin solapes de volumen (contacto de caras OK), IDs conocidos y únicos, y
-    orientación acorde al contrato (si ``allow_rotation`` es falso, debe
-    coincidir el original; no basta una permutación). No comprueba estabilidad
-    física ni el protocolo ICLR completo.
+    sin solapes de volumen (contacto de caras OK), IDs conocidos y únicos,
+    contrato de contenedor, y orientación acorde al contrato (si
+    ``allow_rotation`` es falso, debe coincidir el original; no basta una
+    permutación). No comprueba estabilidad física ni el protocolo ICLR completo.
     """
 
+    container = _require_mono_container(problem)
+    expected_cid = container.id
+
     if bin_lwh is None:
-        container = problem.containers[0]
-        resolved = (float(container.length), float(container.width), float(container.height))
+        resolved = (
+            float(container.length),
+            float(container.width),
+            float(container.height),
+        )
         bin_source = "problem.containers[0]"
     else:
         resolved = bin_lwh
         bin_source = "caller_explicit"
     resolved = _validate_bin_lwh(resolved)
 
-    by_id = {item.id: item for item in problem.items}
-    n_order = len(problem.items)
+    problem_item_ids = [item.id for item in problem.items]
+    input_counts: dict[str, int] = {}
+    for item_id in problem_item_ids:
+        input_counts[item_id] = input_counts.get(item_id, 0) + 1
+    duplicate_input_ids = sorted(i for i, c in input_counts.items() if c > 1)
+    n_order = len(problem_item_ids)
+
+    by_id: dict[str, Any] = {}
+    for item in problem.items:
+        # Primer ID gana para orientación; los duplicados de entrada se reportan.
+        by_id.setdefault(item.id, item)
+
     boxes: list[dict[str, Any]] = []
     unknown_ids: list[str] = []
     orientation_ok: bool | None = True
@@ -678,10 +798,6 @@ def kpis_zhao(
                 }
             )
 
-    n_metrics = int(solution.metrics.items_packed + solution.metrics.items_unpacked)
-    if n_metrics > 0:
-        n_order = n_metrics
-
     audit = _audit_boxes(
         boxes,
         bin_lwh=resolved,
@@ -689,9 +805,40 @@ def kpis_zhao(
         orientation_checked=orientation_checked,
         orientation_ok=orientation_ok if orientation_checked else None,
         unknown_ids=unknown_ids,
+        expected_container_id=expected_cid,
+        mono_container_overlap=True,
+        problem_item_ids=problem_item_ids,
+        duplicate_input_ids=duplicate_input_ids,
     )
 
-    return _metrics_block(
+    reported_packed = int(solution.metrics.items_packed)
+    reported_unpacked = int(solution.metrics.items_unpacked)
+    actual_packed = len(solution.packed_items)
+    actual_unpacked = len(solution.unpacked_items)
+    metrics_counter_coherence = {
+        "solution_metrics_items_packed": reported_packed,
+        "solution_metrics_items_unpacked": reported_unpacked,
+        "placement_count": actual_packed,
+        "unpacked_entry_count": actual_unpacked,
+        "problem_item_count": n_order,
+        "consistent_with_placements": (
+            reported_packed == actual_packed and reported_unpacked == actual_unpacked
+        ),
+        "note": (
+            "Discrepancia de contadores ≠ invalidez geométrica AABB por sí sola; "
+            "all_items_packed usa IDs de problem.items, no solution.metrics."
+        ),
+    }
+
+    # nu: ítems del problema no representados entre colocados únicos conocidos.
+    packed_known = {
+        b["id"]
+        for b in boxes
+        if not b.get("parse_error") and b.get("id") in by_id
+    }
+    missing = max(0, len(set(problem_item_ids)) - len(packed_known)) if not duplicate_input_ids else max(0, n_order - actual_packed)
+
+    out = _metrics_block(
         audit=audit,
         n_order=n_order,
         bin_lwh=resolved,
@@ -699,8 +846,15 @@ def kpis_zhao(
             "source": "PackingSolution.orientation (hasta 6 permutaciones internas; no flag yaw 0/1)",
             "bin_lwh_source": bin_source,
             "allow_rotation_contract": allow_rot_global,
+            "mono_container_contract": True,
+            "metrics_counter_coherence": metrics_counter_coherence,
+            "completeness_source": "problem.item_ids",
         },
     )
+    # Completitud / nu alineados a IDs del problema (no a metrics).
+    out["nu"] = missing if not duplicate_input_ids else max(0, n_order - len(packed_known))
+    out["metrics_counter_coherence"] = metrics_counter_coherence
+    return out
 
 
 def kpis_zhao_from_plan(
@@ -716,6 +870,12 @@ def kpis_zhao_from_plan(
     **no** representa las seis permutaciones internas del motor. No se repara
     ni se reinterpreta silenciosamente un plan. No se inventan IDs ni dims
     ausentes. No certifica equivalencia con formatos externos BED-BPP/Kagerer.
+
+    Alcance (C07): esta función **no** recibe el pedido original. Identidad y
+    dimensiones se comprueban solo dentro del plan. ``all_items_packed`` basado
+    en ``n_order`` **no** prueba coincidencia de IDs con un pedido fuente.
+    No es homologación externa ni comprobación de dataset. El bloqueo de
+    ``comparison_valid`` de C02 se conserva.
 
     Si ``bin_lwh`` es None se usa ``EURO_PALLET_MM`` con
     ``bin_lwh_source=default_EURO_PALLET_MM``. Para otro target hay que pasar
@@ -790,6 +950,7 @@ def kpis_zhao_from_plan(
         n_order=n_order,
         orientation_checked=orientation_checked,
         orientation_ok=orientation_ok if orientation_checked else None,
+        mono_container_overlap=True,
     )
     # Plan vacío: geometría de colocados (ninguno) válida; completitud no.
     if len(actions) == 0:
@@ -808,6 +969,19 @@ def kpis_zhao_from_plan(
         audit["unknown_ids"] = []
         audit["bin_lwh_mm"] = list(resolved)
 
+    plan_validation_scope = {
+        "receives_source_order": False,
+        "identity_and_dimensions": "within_plan_only",
+        "verified_against_independent_instance": False,
+        "all_items_packed_basis": "n_order_parameter_not_source_order_ids",
+        "external_homologation": False,
+        "comparison_valid_policy": "C02_block_preserved",
+        "note": (
+            "all_items_packed con n_order no prueba coincidencia de IDs "
+            "con el pedido fuente; no inventa comprobación de dataset."
+        ),
+    }
+
     return _metrics_block(
         audit=audit,
         n_order=n_order,
@@ -820,8 +994,14 @@ def kpis_zhao_from_plan(
                 "1": "intercambia length y width; height se conserva",
                 "nota": "no equivale a |O|=6 del motor interno",
             },
+            "plan_validation_scope": plan_validation_scope,
         },
     )
+
+
+# ---------------------------------------------------------------------------
+# LFS / publicado / veredicto
+# ---------------------------------------------------------------------------
 
 
 def is_lfs_pointer(path: Path) -> bool:
