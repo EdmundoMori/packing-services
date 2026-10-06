@@ -121,6 +121,12 @@ class BedBppRlEnv:
         decision_budget: int | None = None,
     ) -> tuple[list[float], dict[str, Any]]:
         self.close()
+        if decision_budget is not None:
+            if type(decision_budget) is not int or decision_budget < 0:
+                raise ValueError(
+                    "decision_budget debe ser int estricto >= 0 o None "
+                    "(no bool ni float)"
+                )
         self._assert_contract(problem)
         prepare_imports()
         from packing_services.algorithms._constructive import order_items
@@ -183,8 +189,10 @@ class BedBppRlEnv:
             )
         if self.session is None or self.problem is None:
             raise EnvironmentClosedError("step sin reset activo")
-        if action not in (0, 1, 2):
-            raise InvalidActionError("la acción debe ser 0, 1 o 2")
+        if type(action) is not int or action not in (0, 1, 2):
+            raise InvalidActionError(
+                "la acción debe ser int estricto en {0,1,2} (no bool ni float)"
+            )
 
         # Límite de presupuesto: si queda 0 decisiones permitidas y el episodio
         # sigue abierto → truncar sin fabricar transición (solo si aún no se actuó
@@ -284,16 +292,21 @@ class BedBppRlEnv:
         if self._terminated or self._truncated:
             raise EnvironmentClosedError("truncate sobre episodio ya cerrado")
         if self._decisions_taken == 0:
+            # Observación/máscara del estado abierto ANTES de marcar truncación.
+            observation, info = self._view(action=None, reward=0.0, placed=False)
             self._truncated = True
             self.summary.truncated = True
             self.summary.end_reason = end_reason
             self.summary.zero_transition_terminal = False
             self.summary.notes.append(
-                "Corte de presupuesto sin ninguna acción: resumen sin transición fabricada."
+                "Corte de presupuesto sin ninguna acción: resumen sin transición fabricada; "
+                "obs/máscara bootstrap del estado abierto conservadas."
             )
-            observation, info = self._view(action=None, reward=0.0, placed=False)
             info["truncated"] = True
+            info["terminated"] = False
             info["end_reason"] = end_reason
+            info["bootstrap_observation"] = list(observation)
+            info["bootstrap_action_mask"] = list(info["action_mask"])
             info["episode_summary"] = self.summary.as_dict()
             info["fabricated_transition"] = False
             self._last_observation = list(observation)

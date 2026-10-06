@@ -5,34 +5,37 @@
 | Afirmación | Evidencia |
 |------------|-----------|
 | Recurso definible reutilizando el repo | `reuse_matrix.md`, `reviews/R01_scope_and_reuse.md` |
-| Contrato inicial alineado con implementaciones | `environment_contract_draft.json` (entonces draft) |
 
 ## R02 (implementación sintética)
 
 | Afirmación | Evidencia | Estado |
 |------------|-----------|--------|
-| Interfaz `reset`/`step`/`close` con `(obs,r,terminated,truncated,info)` | `tools/environment.py` (`BedBppRlEnv`) | Verificado en pruebas sintéticas |
-| 36 features documentadas (orden, fórmulas, unidades, terminal) | `tools/observation_spec.py` | Verificado |
-| Observación ≠ Markov suficiente (sin evidencia) | `markov_sufficiency_claimed: false` | Explícito |
-| Capas estado interno / obs / auditoría | `observation_spec.LAYERS` + contrato | Documentado |
-| Terminación auto tras placement sin candidata siguiente | `environment.py` + `test_next_item_impossible_after_placement` | Pass |
-| Cero transiciones si primer ítem imposible | `test_first_item_impossible_zero_transitions` | Pass |
-| Truncación conserva obs/máscara bootstrap | `test_truncation_keeps_bootstrap_observation` | Pass |
-| Terminación natural prioriza sobre presupuesto | `test_natural_termination_priority_over_budget` | Pass |
-| Identidades de acción con geometría coincidente | `test_coincident_geometries_preserve_action_identity` | Pass |
-| `step` tras cierre rechazado | `test_step_after_close_rejected` | Pass |
-| Observación independiente del sufijo | `test_observation_independent_of_suffix` | Pass |
-| Reward = U_geom vía volumen AABB recompuesto | `resource_verifier` + `test_reward_matches_audited_volume` | Pass |
-| Corpus atómico + manifiesto; tmp/duplicados rechazados | `corpus_writer` + `test_interrupted_write_incomplete_and_duplicates` | Pass |
-| Loader agente excluye auditoría | `corpus_loader` + `test_agent_loader_excludes_audit` | Pass |
-| Sin `behavior_log_probs` / sin off-policy por importancia | `corpus_contract.off_policy_importance_supported=false` | Explícito |
-| Motor post-C04 | `engine_check.verify_post_c04_engine` + `test_engine_post_c04` | Pass |
-| `physical_stability_verified` permanece null | verifier + summaries | Pass |
+| Interfaz `reset`/`step`/`close` | `tools/environment.py` | Pass (R02) |
+| 36 features documentadas | `tools/observation_spec.py` | Pass |
+| Truncación / terminación contractual | pruebas R02 | Pass |
+| Motor post-C04 | `engine_check` | Pass |
 
-### No afirmado en R02
+## R02A (integridad)
 
-- Superioridad o novedad demostrada
-- Publicabilidad / tamaño de corpus real
-- Suficiencia Markov de la observación
-- Evaluación off-policy por importancia
-- Rendimiento en pedidos BED-BPP reales
+| Afirmación | Evidencia | Estado |
+|------------|-----------|--------|
+| Validación estructural común (writer/loader/verifier) | `episode_validation.py` | Pass |
+| Rechazo de conteos/IDs/índices/cierres contradictorios | `test_r02a_integrity` | Pass |
+| Rechazo de propuestas ausentes/incompatibles | idem | Pass |
+| Distinción estructural vs auditoría completa | `resource_verifier` niveles | Pass |
+| Sin artifacts → `auditoria_no_realizada` (no completa) | `verify_complete_from_artifacts` | Pass |
+| Manifiesto relativo + size + SHA256 | `CorpusStore` | Pass |
+| Detección de modificación posterior | `test_detect_post_confirmation_modification` | Pass |
+| Carga tras mover el directorio del corpus | `test_load_corpus_after_directory_move` | Pass |
+| Single-writer + lock; sin pérdida silenciosa concurrente | `corpus_writer` docstring + lock | Documentado |
+| Truncación sin acciones conserva obs/máscara abiertas | `truncate_budget` + test | Pass |
+| Callback de política sin auditoría | `policy_public_view` + test | Pass |
+| Tipos estrictos action/budget | environment + tests | Pass |
+| Verificación geométrica/retorno desde archivos sin env | `verify_published_episode` | Pass |
+| `physical_stability_verified=null` | verifier | Pass |
+
+### No afirmado
+
+- Corpus industrial, entrenamiento RL, off-policy por importancia
+- Durabilidad absoluta ante caída de host
+- Suficiencia Markov / novedad / superioridad

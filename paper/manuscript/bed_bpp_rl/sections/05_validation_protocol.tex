@@ -1,15 +1,13 @@
 \section{Validation protocol (synthetic, executed)}
 
 Success means a correct, reusable, RL-usable resource---not beating a heuristic.
-R02 executes synthetic checks under
-\codepath{paper/studies/bed\_bpp\_rl/tools/test\_r02\_synthetic.py}: all items
-placed; first item impossible (zero transitions); next item impossible after a
-valid placement; truncation with usable next observation/mask; natural
-termination coinciding with the budget limit; coincident geometries with
-preserved action identities; \texttt{step} after close; reset releasing the
-previous episode; observation independence from the unseen suffix; reward versus
-audited volume; interrupted writes, incomplete files, and duplicates; agent
-loader excluding audit fields; and an explicit post-C04 engine probe. These
-tests measure contractual correctness only; they are not performance on
-BED-BPP. Real-order corpus sizing and wall budgets remain deferred to a measured
+R02 executed contractual synthetic checks; R02A adds integrity checks under
+\codepath{test\_r02a\_integrity.py}: rejection of contradictory episode fields and
+missing proposals; separation of structural validation from complete
+geometry/volume audit; detection of post-confirmation file modification;
+loading after moving the corpus directory; truncation without actions with a
+usable bootstrap mask; policy callbacks denied audit channels; strict action and
+budget types; and offline verification from persisted artifacts without a live
+environment. These tests measure contractual integrity only; they are not
+performance on BED-BPP. Real-order corpus sizing remains deferred to a measured
 preflight.

@@ -1,7 +1,7 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "kind": "bed_bpp_rl_corpus_transition_v1",
-  "status": "frozen_r02_code_validated",
+  "status": "frozen_r02a_integrity_verified",
   "units": {
     "length": "mm",
     "volume": "mm3",
@@ -48,9 +48,21 @@
   "persistence": {
     "atomic_write": true,
     "confirmed_manifest_required": true,
+    "manifest_kind": "bed_bpp_rl_corpus_manifest_r02a",
+    "manifest_entries": ["relpath", "sha256", "size_bytes"],
+    "paths_relative_to_corpus_root": true,
     "tmp_or_incomplete_rejected": true,
     "duplicate_episode_path_rejected": true,
-    "closure_flag_timing": "set on last transition at episode close before single atomic publish; no rewrite of already published transitions"
+    "writer_model": "single_writer_exclusive_lock",
+    "durability_note": "fsync+atomic replace of episode then manifest; orphan episode after crash before manifest update is not confirmed; no absolute host-crash durability claim",
+    "closure_flag_timing": "set on last transition at episode close before single atomic publish; no rewrite of already published transitions",
+    "artifacts_for_offline_audit": ["bin_lwh_mm", "input_items", "placements"]
+  },
+  "validation_levels": {
+    "structural": "episode_validation.validate_episode_document",
+    "geometry": "AABB containment/non-overlap from persisted placements",
+    "volume_return": "recompose placed volume vs rewards and chosen_geometry",
+    "complete": "structural+geometry+volume; else status auditoria_no_realizada"
   },
   "transition_record": {
     "observation": {

@@ -248,12 +248,11 @@ def test_reward_matches_audited_volume(scenarios):
         behavior_seed=4,
     )
     report = verify_episode_document(document, env=env, problem=problem)
-    assert abs(
-        report["volume_audit"]["u_geom_from_capture"]
-        - report["volume_audit"]["reward_sum_stored"]
-    ) < 1e-9
+    volume = report["volume_audit"]
+    u_key = "u_geom_from_artifacts" if "u_geom_from_artifacts" in volume else "u_geom_from_capture"
+    assert abs(volume[u_key] - volume["reward_sum_stored"]) < 1e-9
     # Independencia: volumen AABB recompuesto, no solo sum(rewards) opaca
-    assert report["volume_audit"]["method"].startswith("recompose")
+    assert volume["method"].startswith("recompose")
     env.close()
 
 
@@ -333,11 +332,14 @@ def test_budget_cut_without_actions(scenarios):
 def test_truncate_budget_zero_actions_summary(scenarios):
     problem = scenarios["all_fit"]
     env = BedBppRlEnv()
-    env.reset(problem)
+    obs0, info0 = env.reset(problem)
+    assert any(info0["action_mask"])
     info = env.truncate_budget(end_reason="budget_wall_cut")
     assert info["truncated"] is True
     assert info["fabricated_transition"] is False
     assert env.summary.n_transitions == 0
+    assert info["bootstrap_observation"] == obs0
+    assert any(info["bootstrap_action_mask"])
     env.close()
 
 

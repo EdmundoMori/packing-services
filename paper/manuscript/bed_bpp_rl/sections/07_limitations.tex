@@ -3,11 +3,9 @@
 The resource is mono-container and rule-discrete; it is not the official
 BED-BPP robotic protocol and does not verify physical stability
 (\texttt{physical\_stability\_verified}=\texttt{null}). The summarised
-observation is not claimed to be Markov-sufficient. The simplified extreme-point
-engine is not proven complete relative to full extreme-point literature.
-R02 evidence is synthetic contractual correctness only. Historical campaigns
-used other motors or objectives; their numbers must not be silently pooled with
-future BED-BPP-RL experiences. Dataset redistribution is constrained by the
-external BED-BPP terms; this repository records hashes and citations, not a
-redistributed dump. Novelty and venue fit are unset. Real-order experience
-generation and training are not authorised by R02.
+observation is not claimed to be Markov-sufficient. Manifest durability is
+limited to atomic \texttt{fsync}+replace under a single writer; host crashes
+between episode and manifest update can leave unconfirmed orphans. R02/R02A
+evidence is synthetic contractual integrity only. Historical campaign numbers
+must not be pooled with future BED-BPP-RL experiences. Novelty and venue fit
+are unset. Real-order generation and training are not authorised by R02A.

@@ -36,14 +36,16 @@ Transitions store agent fields
 \texttt{terminated}, \texttt{truncated})
 separately from audit fields
 (episode/step ids, provenance, proposals, geometries, end reason, hashes).
-Persistence is atomic with a confirmed-file manifest; incomplete or temporary
-files are not valid experiences. Closure flags are assigned when the episode
-document is closed, before a single atomic publish---published transitions are
-not rewritten retrospectively. An agent loader returns only learning fields.
-Behaviour policy and seed are recorded; behaviour log-probabilities are not
-stored, so importance-sampling off-policy evaluation is not promised. The
-independent verifier checks continuity, masks, closure reasons, placement
-identity, containment/non-overlap via the AABB auditor, and recomposed placed
-volume against stored rewards (not a blind re-sum alone). Complete episodes
-match \(U_{\mathrm{geom}}\); truncated episodes report a partial observed
-return only.
+A shared structural validator is used by writer, loader, and verifier; inconsistent
+counts, ids, indices, closures, or missing rule proposals are rejected without
+silent repair. Behaviour callbacks receive only the observation, action mask, and
+expressly allowed public fields---not the full audit \texttt{info}. Persistence
+uses a portable manifest of relative paths with size and SHA256 under a
+single-writer lock (\texttt{fsync} then atomic replace); temporary or modified
+files are rejected. Offline verification distinguishes structural checks from
+geometry and volume audits that require persisted input/placement artifacts; without
+them the status is audit-not-performed rather than a fake complete pass.
+Complete episodes match \(U_{\mathrm{geom}}\) recomposed from AABB placements;
+truncated episodes report a partial observed return only.
+AABB feasibility does not imply physical stability
+(\texttt{physical\_stability\_verified}=\texttt{null}).

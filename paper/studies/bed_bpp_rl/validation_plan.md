@@ -1,26 +1,21 @@
-# Plan de validación (R02 sintético ejecutado)
+# Plan de validación (R02 + R02A)
 
-El criterio de éxito es un **recurso correcto, reutilizable y utilizable por RL**.
-No exige superar una heurística ni obtener mejora positiva.
+## R02 — contractual (pass)
 
-## Verificaciones (R02)
+V1–V6, motor post-C04, loader agente: `test_r02_synthetic.py`.
+
+## R02A — integridad (pass)
 
 | ID | Comprobación | Estado |
 |----|--------------|--------|
-| V1 | Observabilidad sin fuga de futuro | Pass (`test_observation_independent_of_suffix`) |
-| V2 | Legalidad / identidades de acciones | Pass |
-| V3 | Rewards vs \(U_{\mathrm{geom}}\) auditado | Pass (volumen AABB recompuesto) |
-| V4 | Terminación vs truncación | Pass |
-| V5 | Continuidad de transiciones | Pass (verifier) |
-| V6 | Persistencia atómica / manifiesto | Pass |
-| V7 | Semilla + política de comportamiento registradas | Pass (metadatos; reproducibilidad fuerte diferida) |
-| Engine | Motor post-C04 | Pass |
-| Loader | Solo campos agente | Pass |
+| I1 | Conteos/IDs/índices/cierres contradictorios | Pass |
+| I2 | Propuestas ausentes/incompatibles | Pass |
+| I3 | Estructural ≠ auditoría completa | Pass |
+| I4 | Tamper post-confirmación (SHA256) | Pass |
+| I5 | Carga tras mover corpus | Pass |
+| I6 | Truncación 0 acciones + máscara bootstrap | Pass |
+| I7 | Callback sin auditoría | Pass |
+| I8 | Tipos estrictos action/budget | Pass |
+| I9 | Geometría/retorno desde archivos | Pass |
 
-V8 (update PPO mínimo) **no** se ejecuta en R02 (no entrenamiento).
-
-## Pendiente post-preflight
-
-- Tamaño final del corpus real.
-- Presupuesto de pared extrapolado.
-- Manifiestos train/dev/test industriales.
+V8 (update PPO) y corpus real: no en R02A.
