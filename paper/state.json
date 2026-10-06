@@ -795,5 +795,18 @@
     "alters_historical_results": false,
     "decision": "correccion_contractual_lista_para_revision",
     "note": "Entrada independiente; moncontenedor + IDs de problema + alcance plan; errata actor_eval_mode sin sobrescritura; metadato futuro versionado."
+  },
+  "documentation_maintenance_C08": {
+    "phase": "C08_final_maintenance_closure",
+    "executed_at_local": "2026-10-06",
+    "head_at_edit": "3aa19b6d1acaa5806068c8bf52d9ab9ca796d66f",
+    "branch": "research/paper-online-packing",
+    "review": "paper/reviews/C08_final_maintenance_closure.md",
+    "alters_frozen_protocols": false,
+    "rewrites_captures": false,
+    "opens_test": false,
+    "regenerates_historical_results": false,
+    "decision": "mantenimiento_identificado_cerrado_con_limitaciones",
+    "note": "Cierre de hallazgos identificados C01–C08; metadato triestado; Overfull corregidos; no certifica todo el repositorio."
   }
 }

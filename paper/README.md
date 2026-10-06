@@ -20,11 +20,13 @@ Corrección del contrato de exportación yaw 0/1 (`packing_plan_actions` estrict
 
 Corrección de intercepción en franjas EP del motor simplificado (`_support_z`: cima máxima XY con área positiva): [`reviews/C04_extreme_point_projection_correction.md`](reviews/C04_extreme_point_projection_correction.md). No reevalúa campañas cerradas ni altera protocolos congelados.
 
-Corrección de portabilidad de pruebas (rutas de repo vía `__file__`; sin `/home/edmundo/...` ejecutables): [`reviews/C05_test_portability_and_reproducibility.md`](reviews/C05_test_portability_and_reproducibility.md). Entorno actual: [`reviews/C05_current_verification_environment.json`](reviews/C05_current_verification_environment.json). No altera protocolos ni resultados históricos.
+Corrección de portabilidad de pruebas (rutas de repo vía `__file__`; sin `/home/edmundo/...` ejecutables): [`reviews/C05_test_portability_and_reproducibility.md`](reviews/C05_test_portability_and_reproducibility.md). Entorno actual: [`reviews/C05_current_verification_environment.json`](reviews/C05_current_verification_environment.json). El conteo 412/0 es de ese entorno registrado; las integraciones de train transitions pueden hacer skip sin pickle locales; el fixture teacher es sintético para el detector. No altera protocolos ni resultados históricos.
 
 Alineación manuscritos–evidencia (C06): [`reviews/C06_manuscript_evidence_alignment.md`](reviews/C06_manuscript_evidence_alignment.md). Prioriza `manuscript/learning_objectives/` (development-only, puerta fallida); `robust_packing_management/` permanece nota preliminar cerrada. No regenera episodios.
 
 Contrato moncontenedor del evaluador y metadato de captura (C07): [`reviews/C07_evaluator_contract_and_capture_metadata.md`](reviews/C07_evaluator_contract_and_capture_metadata.md). Errata `actor_eval_mode`: [`reviews/errata_actor_eval_mode_learning_development_eval.md`](reviews/errata_actor_eval_mode_learning_development_eval.md). No reescribe capturas ni altera hashes de `episode_worker`.
+
+Cierre final de mantenimiento C01–C08 (metadato triestado, cobertura portable, tiempo development, maquetación): [`reviews/C08_final_maintenance_closure.md`](reviews/C08_final_maintenance_closure.md). No abre el test ni regenera resultados.
 
 ## Objetivo provisional
 

@@ -51,21 +51,21 @@ sufficient margin is analytically trivial and is not an RL task.
 The management action selects protection $m$ from a small menu. A
 \emph{fixed} placement chooser, identical across methods, picks among
 candidates whose envelope is
-\texttt{nominal\_oriented}+\texttt{margin\_oriented} with a shared
+\codepath{nominal_oriented}+\codepath{margin_oriented} with a shared
 front-left-bottom corner (no centred protection). Margin changes the candidate
 set and thus the pose; geometric failure is evaluated on the \emph{realised}
 AABB at that pose.
 
-Three distinct events are used: \texttt{no\_candidate} ends with partial
-nominal volume; \texttt{envelope\_exceeded} means the realisation outgrows the
+Three distinct events are used: \codepath{no_candidate} ends with partial
+nominal volume; \codepath{envelope_exceeded} means the realisation outgrows the
 reserved envelope and is \emph{not} synonymous with geometric failure---if the
 realised box neither overlaps revealed boxes nor exits the container, the
 episode continues and occupancy is updated with the \emph{realised} geometry;
-\texttt{geometric\_failure} ends the episode without recovery. Actions are never
+\codepath{geometric_failure} ends the episode without recovery. Actions are never
 revised retrospectively.
 
 \subsection*{Objective and risk}
 Primary score \(J_B\): nominal volume over container volume if the episode has
-no \texttt{geometric\_failure}, else zero. Immediate risk is
+no \codepath{geometric_failure}, else zero. Immediate risk is
 \(\Pr(\mathrm{geometric\_failure}\mid\mathrm{pose},G^{\mathrm{rev}},P_\varepsilon)\),
 not candidate existence. Coefficients and a PPO reward are not fixed here.

@@ -96,6 +96,26 @@ Resultados de cierre (esta máquina):
 | Suites afectadas desde el repo | **109** | **0** | **0** | — |
 | `tests/` completa | **412** | **0** | **0** | 0 |
 
+Esos conteos (**412 passed / 0 skipped** en `tests/` completa; **109** en las
+suites afectadas) corresponden al **entorno registrado** en
+`C05_current_verification_environment.json` en esta máquina, con los pickle
+locales de train presentes. No son una certificación universal de todos los
+clones.
+
+**Skips posibles fuera de ese entorno (no abiertos aquí):** las dos
+parametrizaciones de
+`tests/test_teacher_leakage.py::test_current_train_transitions_are_informative`
+pueden hacer `pytest.skip` cuando faltan
+`data/train/transitions_p1s1.pkl` /
+`data/train/transitions_p3s2.pkl` (artefactos locales **excluidos de Git**).
+No se remodelan como pruebas sintéticas equivalentes ni se abren esos pickle
+en este cierre.
+
+**Fixture teacher (C05):**
+`test_legacy_volume_teacher_dump_shape_is_tautological` usa un pickle
+**sintético** en `tmp_path` para comprobar el *detector* de forma tautológica;
+**no** sustituye ni valida el dump histórico `transitions_p1s1_volume.pkl`.
+
 Suites afectadas = proyección C04 + `test_ppo_policy` + `test_teacher_leakage` + `online_policy_ml/tests` + tres `paper/tests` de ablación/teacher.
 
 **No ejecutado:** campañas, entrenamiento, notebooks, inferencia, packing de pedidos reales, suite completa `paper/studies/*/tests/`.

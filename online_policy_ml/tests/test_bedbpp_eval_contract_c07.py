@@ -236,7 +236,7 @@ class TestMonoContainerContractC07(unittest.TestCase):
 
 
 class TestCaptureActorEvalMetadataC07(unittest.TestCase):
-    def test_explicit_metadata_assignment(self):
+    def test_eval_observed_true(self):
         class _Model:
             training = False
 
@@ -246,14 +246,65 @@ class TestCaptureActorEvalMetadataC07(unittest.TestCase):
 
         doc = {"recipe": {"method": "preferences", "actor_eval_mode": False}}
         attach_from_policy(doc, _Policy(), is_actor_arm=True)
-        self.assertTrue(doc["recipe"]["actor_eval_mode"])
+        self.assertIs(doc["recipe"]["actor_eval_mode"], True)
         self.assertEqual(doc["recipe"]["actor_eval_mode_metadata_version"], METADATA_VERSION)
         self.assertEqual(doc["recipe"]["actor_eval_mode_source"], "executor_explicit_c07")
+        self.assertEqual(doc["recipe"]["actor_eval_mode_evidence"]["assignment"], "eval_observed")
+
+    def test_training_observed_false(self):
+        class _Model:
+            training = True
+
+        class _Policy:
+            model = _Model()
+
+        doc = {"recipe": {}}
+        attach_from_policy(doc, _Policy(), is_actor_arm=True)
+        self.assertIs(doc["recipe"]["actor_eval_mode"], False)
+        self.assertEqual(doc["recipe"]["actor_eval_mode_evidence"]["assignment"], "training_observed")
+
+    def test_actor_without_model_null(self):
+        class _Policy:
+            pass
+
+        doc = {"recipe": {}}
+        attach_from_policy(doc, _Policy(), is_actor_arm=True)
+        self.assertIsNone(doc["recipe"]["actor_eval_mode"])
+        ev = doc["recipe"]["actor_eval_mode_evidence"]
+        self.assertFalse(ev["actor_model_present"])
+        self.assertEqual(ev["assignment"], "insufficient_evidence")
+
+    def test_model_without_training_attr_null(self):
+        class _Model:
+            pass
+
+        class _Policy:
+            model = _Model()
+
+        doc = {"recipe": {}}
+        attach_from_policy(doc, _Policy(), is_actor_arm=True)
+        self.assertIsNone(doc["recipe"]["actor_eval_mode"])
+        self.assertEqual(
+            doc["recipe"]["actor_eval_mode_evidence"]["model_training_note"],
+            "model_without_training_attr",
+        )
+
+    def test_none_not_converted_via_bool(self):
+        class _Model:
+            training = None
+
+        class _Policy:
+            model = _Model()
+
+        doc = {"recipe": {}}
+        attach_from_policy(doc, _Policy(), is_actor_arm=True)
+        self.assertIsNone(doc["recipe"]["actor_eval_mode"])
+        self.assertIsNot(doc["recipe"]["actor_eval_mode"], False)
 
     def test_greedy_arm_false(self):
         doc = {"recipe": {}}
         attach_actor_eval_mode(doc, actor_eval_mode=False, evidence={"arm": "greedy"})
-        self.assertFalse(doc["recipe"]["actor_eval_mode"])
+        self.assertIs(doc["recipe"]["actor_eval_mode"], False)
 
 
 if __name__ == "__main__":
