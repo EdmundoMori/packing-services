@@ -2,10 +2,13 @@
 
 \paragraph{Primary contrast and Greedy reference.}
 On the frozen development sample, episode-level mean
-preferences$-$classification was $-0.00808$ (order-then-seed aggregation).
+preferences$-$classification was $-0.00808$ after averaging paired seeds within
+each order and then averaging orders with equal weight.
 Both learned arms trailed GreedyBestFit (preferences$-$Greedy $\approx -0.0516$;
 classification$-$Greedy $\approx -0.044$). These readouts describe this
 configuration only; they do not refute preference learning in general.
+Three seeds are not three independent orders: seed variation is nested inside
+orders and then collapsed before the order-level mean.
 
 \paragraph{Exploratory pilot versus this campaign.}
 An earlier counterfactual pilot (different study, smaller development sample,
@@ -25,8 +28,11 @@ within orders, not treated as independent orders.
 
 \paragraph{Scope and missing test.}
 Results apply to twenty-four development orders and two BED-BPP targets under the
-compact contract. Without the preregistered test split, out-of-sample generalisation
-is not established. Physical stability was not verified.
+compact contract. The preregistered test split remains closed under the failed
+continuity gate; out-of-sample generalisation is therefore \emph{not claimed}.
+Closing the test does not by itself make the development report incoherent, nor
+is opening it proposed here to enlarge publication claims. Physical stability
+was not verified and is not part of the reported AABB utilisation claims.
 
 \paragraph{Operational incident.}
 An initial development launch failed at the evaluator harness (venv interpreter

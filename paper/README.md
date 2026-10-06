@@ -22,6 +22,8 @@ Corrección de intercepción en franjas EP del motor simplificado (`_support_z`:
 
 Corrección de portabilidad de pruebas (rutas de repo vía `__file__`; sin `/home/edmundo/...` ejecutables): [`reviews/C05_test_portability_and_reproducibility.md`](reviews/C05_test_portability_and_reproducibility.md). Entorno actual: [`reviews/C05_current_verification_environment.json`](reviews/C05_current_verification_environment.json). No altera protocolos ni resultados históricos.
 
+Alineación manuscritos–evidencia (C06): [`reviews/C06_manuscript_evidence_alignment.md`](reviews/C06_manuscript_evidence_alignment.md). Prioriza `manuscript/learning_objectives/` (development-only, puerta fallida); `robust_packing_management/` permanece nota preliminar cerrada. No regenera episodios.
+
 ## Objetivo provisional
 
 Evaluar si el selector aprendido de colocaciones mejora al heurístico del mismo entorno, o si mantiene calidad comparable a PCT con menor coste. La superioridad y la publicación no están demostradas. Esta carpeta no busca confirmar una conclusión previa.

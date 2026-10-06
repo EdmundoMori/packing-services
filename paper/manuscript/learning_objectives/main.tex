@@ -19,18 +19,20 @@ A Controlled Empirical Study}
 We report a controlled comparison of three candidate-level learning objectives
 (classification, pairwise preferences, and return-difference supervision) for
 online three-dimensional packing under a fixed geometric contract, a shared
-17-feature encoder, and a shared deployment support map $S$ that scores at most
-four alternatives per decision. Nine models were trained on forty-eight BED-BPP
-train orders with paired seeds and evaluated on twenty-four development orders
+17-feature present encoder, and a shared deployment support map $S$ that scores at most
+four alternatives per decision. Nine models were trained with forty full-batch
+Adam steps each on forty-eight BED-BPP train orders (paired seeds) and evaluated
+on twenty-four development orders
 (twenty-four GreedyBestFit episodes on the full legal list plus two hundred
-sixteen support-constrained actors). After order-level aggregation with equal
-weight across orders, mean episode geometric utilisation margin
+sixteen support-constrained actors). After averaging seeds within each order and
+then averaging orders with equal weight, mean episode geometric utilisation margin
 preferences$-$classification was $-0.00808$; both learned arms were below
 GreedyBestFit (preferences$-$Greedy $\approx -0.0516$,
 classification$-$Greedy $\approx -0.044$). A preregistered development gate did
 not pass; the held-out test split was not opened. The study therefore documents
-a bounded negative result under this configuration, not superiority of any
-objective, physical stability, or generalisation beyond development.
+a bounded negative result under this configuration on development only, not
+superiority of any objective, physical stability, or generalisation beyond
+development.
 \end{abstract}
 
 \input{sections/01_introduction}

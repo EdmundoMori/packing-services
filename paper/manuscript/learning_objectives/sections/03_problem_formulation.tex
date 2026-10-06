@@ -10,8 +10,9 @@ the current item has no legal candidate. Physical stability is recorded as
 $\mathrm{null}$.
 
 A candidate encoder maps the present session state and a candidate $a\in\mathcal{L}_t$
-to a 17-dimensional feature vector that excludes future suffix identifiers and
-return labels. Before scoring, every arm applies the same pure support map
+to a $17$-dimensional \emph{present} feature vector (Table~\ref{tab:features17}) that
+excludes future suffix identifiers, returns and the production $35$-feature online
+encoder. Before scoring, every arm applies the same pure support map
 \begin{equation}
   S_t = S(\mathcal{L}_t,a^{\mathrm{greedy}}_t)\subseteq\mathcal{L}_t,
 \end{equation}

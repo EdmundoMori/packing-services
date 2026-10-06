@@ -9,8 +9,10 @@ scores a structured action set with a policy network; Zhao et al.\ introduce
 packing configuration trees (PCT) and train deep reinforcement learning policies
 over tree leaves \citep{zhao2022pct}. Our engine likewise exposes a finite legal
 list, then restricts scoring to a deterministic support map $S$ of at most four
-geometries. We do not claim identity with extreme-point FFD/BFD, nor do we
-evaluate PCT experimentally.
+geometries. Candidate locations themselves come from a simplified extreme-point
+generator in this repository (historical code at evaluation commit
+\texttt{ee9e0ec}); we do not claim identity with extreme-point FFD/BFD or with
+Crainic et al.'s full Algorithm~1, nor do we evaluate PCT experimentally.
 
 \paragraph{Learning of placement selection.}
 Prior work on learned online packing emphasises representation and exploration of

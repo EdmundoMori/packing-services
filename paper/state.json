@@ -759,5 +759,22 @@
     "decision": "correccion_reproducibilidad_lista_para_revision",
     "note": "Entrada de mantenimiento independiente; rutas absolutas personales eliminadas solo en pruebas activas; skips PPO/teacher resueltos con tmp_path/fixture; dataset externo y protocolos congelados intactos.",
     "review_closure": "portable_paths_and_skip_remediation_verified"
+  },
+  "documentation_maintenance_C06": {
+    "phase": "C06_manuscript_evidence_alignment",
+    "executed_at_local": "2026-10-06",
+    "head_at_edit": "a40d2b3051e6c3192af55eec5c1c28e1dd0e6093",
+    "branch": "research/paper-online-packing",
+    "review": "paper/reviews/C06_manuscript_evidence_alignment.md",
+    "manuscripts": [
+      "paper/manuscript/learning_objectives/",
+      "paper/manuscript/robust_packing_management/"
+    ],
+    "alters_frozen_protocols": false,
+    "regenerates_episodes": false,
+    "alters_historical_results": false,
+    "decision": "cerrado_manuscritos_alineados",
+    "note": "Entrada independiente; tipografía 10| corregida; agregación seed-within-order; encoder 17; EP histórico vs C04; valoración publicación en planos (a)(b)(c); test cerrado sin proponer apertura.",
+    "review_closure": "publication_planes_abc_and_development_scope_aligned"
   }
 }

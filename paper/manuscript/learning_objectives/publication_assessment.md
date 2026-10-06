@@ -1,32 +1,43 @@
 # Evaluación de publicabilidad (sin promesas)
 
-## Manuscrito técnicamente completo para su alcance declarado
+Distingue tres planos que **no** deben confundirse:
 
-- Pregunta, protocolo congelado, pérdidas, soporte $S$, entrenamiento y evaluación development descritos.
-- Resultados development con 240 episodios auditados, Greedy de referencia, tres semillas y dos targets.
-- Incidente de arnés documentado como operativo, no como hallazgo principal.
-- Conclusión acotada a **esta configuración**; test no ejecutado.
+## (a) Coherencia técnica del manuscrito
 
-## Evidencia suficiente para afirmaciones limitadas
+El borrador describe de forma auditable la pregunta, el protocolo congelado, el
+encoder de 17 features, el soporte $S$, las pérdidas ejecutadas, el entrenamiento
+(40 pasos Adam full-batch, sin selección de época/semilla/brazo por resultados) y
+la evaluación **development** (240 episodios). Los incidentes de arnés están en
+reproducibilidad, no como explicación causal del contraste algorítmico.
 
-Sí, para afirmaciones del tipo:
+## (b) Alcance de las afirmaciones respaldadas
 
-- bajo el contrato ejecutado, preferencias **no supera** a clasificación en el contraste primario (media ≈ −0.0081);
-- ambos brazos aprendidos **no superan** Greedy en $U_{\mathrm{geom}}$ de episodio en development;
-- la puerta congelada **no** autorizó test.
+Sí, para afirmaciones **limitadas a esta configuración development**:
 
-No, para afirmaciones de superioridad general, estabilidad física, ni comparación con PCT.
+- preferencias no supera a clasificación en el contraste primario (media ≈ −0.00808);
+- ambos brazos aprendidos quedan por debajo de GreedyBestFit en $U_{\mathrm{geom}}$
+  de episodio en development (dato descriptivo; la puerta congelada
+  **no** exige superar a Greedy);
+- la puerta de continuity **no** autorizó abrir el test de este protocolo.
 
-## Novedad y alcance para envío
+No, para superioridad general, comparación con PCT, ni generalización fuera del
+conjunto development. La geometría AABB válida **no** implica estabilidad física;
+si el manuscrito solo reporta $U_{\mathrm{geom}}$ bajo contrato compacto, no hace
+falta “demostrar estabilidad física” como requisito de esas afirmaciones.
 
-No establecidos en este documento. El aporte es un **informe empírico controlado negativo**
-en un entorno de repositorio con contrato explícito; no se reclama método nuevo ni
-mejora algorítmica demostrada.
+## (c) Novedad, relevancia y adecuación a un venue
 
-## Trabajo nuevo que requeriría otra línea (no propuesto aquí)
+**Todavía no establecidas.** Un informe empírico controlado (incluido un resultado
+negativo o no concluyente en development) puede ser técnicamente coherente sin
+estar listo para un venue concreto. Superar una heurística, obtener un margen
+positivo o ejecutar un test adicional **no** son requisitos universales de
+publicación; son condiciones de *otras* afirmaciones o de *este* protocolo de
+continuidad experimental.
 
-- Evaluación test bajo protocolo distinto autorizado.
-- Cambios de soporte, muestra, arquitectura o presupuesto no congelados.
-- Inferencia confirmatoria post hoc.
+El test permanece **cerrado** conforme al protocolo y a la puerta. No se propone
+abrirlo para “rescatar” la publicación. Ampliar afirmaciones de generalización
+exigiría una evaluación independiente **autorizada**; eso no autoriza
+experimentación nueva en este cierre.
 
-**No se garantiza publicación en revista.** Este cierre archiva la configuración; no lanza otra campaña.
+**No se garantiza publicación en revista.** Este documento archiva el alcance;
+no lanza otra campaña.
