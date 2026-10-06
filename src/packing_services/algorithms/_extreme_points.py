@@ -14,9 +14,13 @@ elige según una estrategia:
 - ``"best_fit"``: la colocación que maximiza el área de contacto con paredes y
   otras cajas (mejor "encaje"). Usado por ``best_fit_decreasing_3d``.
 
-Esta variante es una simplificación fiel: proyecta en el eje vertical y usa
-contacto de caras, pero no implementa todas las proyecciones del algoritmo
-original. No garantiza optimalidad.
+Esta variante es una **simplificación** inspirada en Crainic et al. (2008):
+tras colocar un ítem genera candidatas a la derecha (+x), al frente (+y) y
+encima (+z). Para las franjas laterales, ``z`` de la candidata es la **máxima
+cima** (``max_z``) entre cajas ya colocadas cuya huella XY intersecta la
+franja con área positiva — no un rayo descendente desde ``z0`` y **no** el
+Algorithm 1 completo (seis proyecciones YX/YZ/XY/XZ/ZX/ZY). No afirma
+contacto de caras ni estabilidad física. No garantiza optimalidad.
 """
 
 from __future__ import annotations
@@ -60,7 +64,27 @@ class _BinState:
 
 
 def _support_z(x0: float, y0: float, x1: float, y1: float, placed: list[AABB]) -> float:
-    """Altura de apoyo para una huella [x0,x1]x[y0,y1]: mayor techo debajo, o 0."""
+    """Máxima cima (techo) entre cajas que intersectan [x0,x1]×[y0,y1] en XY.
+
+    Comportamiento real (variante local):
+    - Consulta una región **solo XY**; no hay origen en z ni dirección −z.
+    - Un obstáculo **intercepta** sii la intersección de huellas XY tiene
+      **área positiva** (``overlap_x > 0`` y ``overlap_y > 0``).
+    - Entre los interceptores se toma ``max(bz1)``; si ninguno, 0 (suelo).
+    - **No** se excluyen cajas cuyo techo esté por encima de ningún ``z0``:
+      no es un rayo descendente. Una caja alta o “flotante” que cruce la
+      región XY contribuye su techo igual que una baja.
+
+    Distinciones:
+    - No es solape volumétrico (``overlap > EPS``) de colisión.
+    - No es contacto de caras ni estabilidad física.
+    - Contacto exacto de arista/esquina o cara que deja ox=0/oy=0 no
+      intercepta; un solape positivo aunque sea ``< EPS`` sí (la franja de
+      generación tiene ancho ``EPS``, así que ``> EPS`` era inconsistente).
+
+    ``placed`` es el subconjunto que pase el llamador (en generación:
+    ``placed_before``, sin el ítem recién colocado).
+    """
 
     best = 0.0
     for box in placed:
@@ -68,28 +92,35 @@ def _support_z(x0: float, y0: float, x1: float, y1: float, placed: list[AABB]) -
         bx1, by1, bz1 = box.max_corner
         overlap_x = min(x1, bx1) - max(x0, bx0)
         overlap_y = min(y1, by1) - max(y0, by0)
-        if overlap_x > EPS and overlap_y > EPS:
+        if overlap_x > 0.0 and overlap_y > 0.0:
             best = max(best, bz1)
     return best
 
 
 def _generate_extreme_points(box: AABB, placed_before: list[AABB]) -> list[Position]:
-    """Genera nuevos EP tras colocar ``box`` (proyectando en vertical)."""
+    """Genera nuevos EP tras colocar ``box`` (heurística de cima máxima en franja).
+
+    Franjas laterales (aproximación explícita del motor, ancho ``EPS``):
+    - derecha: [x1, x1+EPS] × [y0, y1] → candidata (x1, y0, z★)
+    - frente: [x0, x1] × [y1, y1+EPS] → candidata (x0, y1, z★)
+    donde z★ = ``_support_z`` sobre ``placed_before`` (máx. techo XY, sin
+    filtrar por altura relativa a z0/z1 del ítem nuevo).
+
+    También: (x1,y0,z0), (x0,y1,z0), (x0,y0,z1). La factibilidad
+    (contención / no solape) es posterior y separada.
+    """
 
     x0, y0, z0 = box.min_corner
     x1, y1, z1 = box.max_corner
 
-    # Puntos "crudos" a la derecha (+x), al frente (+y) y encima (+z).
     top = Position(x0, y0, z1)
 
-    # Proyección vertical: el vecino a la derecha/al frente reposa sobre la
-    # superficie que haya debajo en esa franja (o el suelo, z=0).
     right_z = _support_z(x1, y0, x1 + EPS, y1, placed_before)
     front_z = _support_z(x0, y1, x1, y1 + EPS, placed_before)
 
     candidates = [
-        Position(x1, y0, right_z),  # derecha, proyectado a su apoyo
-        Position(x0, y1, front_z),  # frente, proyectado a su apoyo
+        Position(x1, y0, right_z),  # derecha: cima máxima en franja EPS
+        Position(x0, y1, front_z),  # frente: cima máxima en franja EPS
         Position(x1, y0, z0),       # derecha al mismo nivel base
         Position(x0, y1, z0),       # frente al mismo nivel base
         top,                        # encima del ítem

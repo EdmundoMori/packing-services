@@ -731,5 +731,19 @@
     "decision": "correccion_exportacion_lista_para_revision",
     "note": "Entrada de mantenimiento independiente; packing_plan_actions ahora estricto; legacy unsafe aislado.",
     "review_closure": "path_collision_checks_and_external_scope_documented"
+  },
+  "documentation_maintenance_C04": {
+    "phase": "C04_extreme_point_projection_correction",
+    "executed_at_local": "2026-10-06",
+    "head_at_edit": "59fc0d81b115a274f1b8635335b7ec3668a62289",
+    "branch": "research/paper-online-packing",
+    "review": "paper/reviews/C04_extreme_point_projection_correction.md",
+    "module": "src/packing_services/algorithms/_extreme_points.py",
+    "alters_frozen_protocols": false,
+    "alters_historical_campaign_results": false,
+    "alters_ep_projection": true,
+    "reevaluated_closed_campaigns": false,
+    "decision": "correccion_proyeccion_lista_para_revision",
+    "note": "Entrada de mantenimiento independiente; _support_z usa área positiva (cima máxima XY en franja EPS, no rayo -z); no sustituye decisiones/fases/hashes históricos."
   }
 }

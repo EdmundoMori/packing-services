@@ -18,6 +18,8 @@ Corrección de semántica de factibilidad del evaluador histórico (`bedbpp_eval
 
 Corrección del contrato de exportación yaw 0/1 (`packing_plan_actions` estricto): [`reviews/C03_yaw_export_contract_correction.md`](reviews/C03_yaw_export_contract_correction.md). No regenera planes 09/10 ni 01A/01C/01E.
 
+Corrección de intercepción en franjas EP del motor simplificado (`_support_z`: cima máxima XY con área positiva): [`reviews/C04_extreme_point_projection_correction.md`](reviews/C04_extreme_point_projection_correction.md). No reevalúa campañas cerradas ni altera protocolos congelados.
+
 ## Objetivo provisional
 
 Evaluar si el selector aprendido de colocaciones mejora al heurístico del mismo entorno, o si mantiene calidad comparable a PCT con menor coste. La superioridad y la publicación no están demostradas. Esta carpeta no busca confirmar una conclusión previa.
