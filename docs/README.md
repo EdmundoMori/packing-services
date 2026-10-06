@@ -51,7 +51,7 @@ Los siguientes documentos se encuentran fuera del directorio `docs/`, pero forma
 
 - **[`../web-demo/README.md`](../web-demo/README.md)** — Documentación de la interfaz web de demostración para catálogo, ejecución y benchmark.
 
-- **[`../online_policy_ml/docs/informe_cierre_rl_online.md`](../online_policy_ml/docs/informe_cierre_rl_online.md)** — Cierre del subproyecto RL online (método de API, empate vs heurístico, veredicto puntual vs PCT).
+- **[`../online_policy_ml/docs/informe_cierre_rl_online.md`](../online_policy_ml/docs/informe_cierre_rl_online.md)** — Informe **histórico** de cierre del subproyecto RL online (2026-09-15). Interpretación documental posterior: [`../paper/reviews/C01_current_claims_correction.md`](../paper/reviews/C01_current_claims_correction.md).
 
 ---
 

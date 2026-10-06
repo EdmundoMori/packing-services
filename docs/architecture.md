@@ -108,7 +108,7 @@ Implementa el bucle de packing online (`run_online_loop`) con soporte para:
 |---------|-----------|
 | `loop.py`, `budget.py`, `mask.py`, `policies.py`, `session.py`, `params.py` | Componentes del bucle online |
 | `features.py` | Encoder v1 (`FEATURE_VERSION=1`, `FEATURE_DIM=35`) |
-| `learned/` | Loader de checkpoints `packing-services-online-policy` v1; arquitectura MLP `Linear(35,64) → ReLU → Linear(64,1)`; defaults de producción en `learned/production.py` (`mlp_v1_p1s1_ppo.pt` RL con p=1 s=1, empate estadístico con el heurístico; `mlp_v1_p3s2.pt` para cinta) |
+| `learned/` | Loader de checkpoints `packing-services-online-policy` v1; arquitectura MLP `Linear(35,64) → ReLU → Linear(64,1)`; defaults de producción en `learned/production.py` (`mlp_v1_p1s1_ppo.pt` con opción API `policy=rl`, p=1 s=1 — pesos vigentes = actor BC, no mejora PPO demostrada; `mlp_v1_p3s2.pt` para cinta) |
 
 > **Nota:** El modo `packing_mode=offline` no utiliza esta capa. El entrenamiento y el cierre del subproyecto están en `online_policy_ml/` ([informe](../online_policy_ml/docs/informe_cierre_rl_online.md)); el código de producción solo carga artefactos.
 

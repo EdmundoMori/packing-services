@@ -200,7 +200,7 @@ Identificadores disponibles: `00100001`, `00100002`, `00100003`, `00100004`, `00
 
 ### Configuración de Modelos
 
-Si no se especifica `model_path`, se utiliza el PPO de producción (`mlp_v1_p1s1_ppo.pt`, **p=1 s=1**). Es un empate estadístico con el heurístico online; no es un packer mejor. Cierre: [`online_policy_ml/docs/informe_cierre_rl_online.md`](../online_policy_ml/docs/informe_cierre_rl_online.md). p=3,s=2 es el régimen de cinta, no un algoritmo distinto.
+Si no se especifica `model_path`, se utiliza el archivo de producción `mlp_v1_p1s1_ppo.pt` (**p=1 s=1**, opción API asociada a `policy=rl`). Los pesos vigentes coinciden con el actor BC (`best_epoch=0` en el informe de la corrida); eso no demuestra una mejora obtenida mediante PPO. Frente al heurístico online, el holdout n=5 y la evaluación de 200 pedidos dejan intervalos que incluyen cero: resultados **no concluyentes**, no equivalencia demostrada. Cierre histórico: [`online_policy_ml/docs/informe_cierre_rl_online.md`](../online_policy_ml/docs/informe_cierre_rl_online.md). Errata: [`paper/reviews/C01_current_claims_correction.md`](../paper/reviews/C01_current_claims_correction.md). p=3,s=2 es el régimen de cinta, no un algoritmo distinto.
 
 > **Importante:** Un `model_path` vacío (`""`) no realiza fallback al greedy. Los archivos `.pt` requieren `pip install 'packing-services[torch]'`. Con dos o más contenedores el execute aplica disciplina first-fit (`consolidate`, default activo). `consolidate=false` restaura el reparto libre.
 

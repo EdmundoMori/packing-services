@@ -54,8 +54,8 @@ El desarrollo del proyecto sigue un orden de prioridades establecido. Los primer
 2. **Benchmark de metodologías** — *Completado.*
    Sistema de perfiles por tipo de problema y experimento conjunto con validador y métricas comunes. Trabajo pendiente: ampliar el conjunto de pedidos BED-BPP de prueba.
 
-3. **Empaquetado online** — *Completado.*
-   Implementación de heurístico dedicado y política aprendida de producción (RL / PPO). La imitación P2O quedó en `online_policy_ml/versions/v1`. Cierre: [`online_policy_ml/docs/informe_cierre_rl_online.md`](online_policy_ml/docs/informe_cierre_rl_online.md).
+3. **Empaquetado online** — *Completado (infraestructura).*
+   Heurístico dedicado y política aprendida cargable vía API (`drl_policy_3d_bpp` / `policy=rl`). El archivo default `mlp_v1_p1s1_ppo.pt` conserva el nombre y la opción API asociados a RL/PPO, pero los **pesos vigentes coinciden con el actor BC** (`best_epoch=0` en el informe de la corrida; no demuestra mejora obtenida mediante PPO). Informe histórico: [`online_policy_ml/docs/informe_cierre_rl_online.md`](online_policy_ml/docs/informe_cierre_rl_online.md). Errata documental: [`paper/reviews/C01_current_claims_correction.md`](paper/reviews/C01_current_claims_correction.md).
 
 4. **Mejoras de calidad** — *Siguiente paso.*
    Restricciones avanzadas (centro de gravedad, fragilidad), activación de adaptadores externos, métodos exactos de referencia.
@@ -78,7 +78,7 @@ Para más detalles, consultar [`docs/roadmap.md`](docs/roadmap.md).
 | Entrada BED-BPP con holdout de producto | Operativo |
 | Modos offline y online | Operativos |
 | Experimento conjunto con euro-pallet | Operativo |
-| Heurístico online y política DRL | Operativos |
+| Heurístico online y política aprendida (API) | Operativos (pesos default = BC vigente) |
 | Adaptadores externos | Registrados (solo `py3dbp` ejecutable) |
 | Descriptores de espacio de datos | Preparados, no prioritarios |
 
@@ -196,8 +196,8 @@ PYTHONPATH=src python scripts/run_joint_single_container.py
 | GET | `/api/v1/algorithms` | Catálogo de algoritmos (filtrable) |
 | GET | `/api/v1/algorithms/{name}` | Metadatos y esquemas de un algoritmo |
 | **POST** | **`/api/v1/algorithms/{name}/execute`** | **Ejecución canónica de algoritmo** |
-| POST | `/api/v1/online/learned/execute` | Política aprendida RL (PPO); fuerza modo online |
-| POST | `/api/v1/online/rl/execute` | Alias explícito de la misma política RL |
+| POST | `/api/v1/online/learned/execute` | Política aprendida (archivo default `mlp_v1_p1s1_ppo.pt`; opción API RL); fuerza modo online |
+| POST | `/api/v1/online/rl/execute` | Alias explícito de la misma ruta de execute |
 | POST | `/api/v1/validate` | Validación independiente de soluciones |
 | POST | `/api/v1/benchmark` | Comparación de múltiples motores |
 | GET | `/api/v1/benchmark/profiles` | Perfiles de benchmark disponibles |

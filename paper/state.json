@@ -688,5 +688,21 @@
     "commit_performed": false,
     "push_performed": false,
     "commit_message": "research: close robust packing management study without justified RL contribution"
+  },
+  "documentation_maintenance_C01": {
+    "phase": "C01_current_claims_correction",
+    "executed_at_local": "2026-10-06",
+    "head_at_edit": "295dd08e0387ff918378c4acfdf91fdb3a95aaef",
+    "branch": "research/paper-online-packing",
+    "review": "paper/reviews/C01_current_claims_correction.md",
+    "scope": "documentation_only",
+    "alters_results_json": false,
+    "alters_checkpoints": false,
+    "alters_frozen_protocols": false,
+    "alters_source_code": false,
+    "alters_historical_closures": false,
+    "informe_cierre_rl_online": "preserved_with_interpretation_notice",
+    "decision": "correccion_documental_lista_para_revision",
+    "note": "Entrada de mantenimiento independiente; no sustituye decisions/phases/hashes de campañas cerradas."
   }
 }

@@ -113,9 +113,13 @@ El heurístico online y la política aprendida están operativos sobre el mismo 
 - El entrenamiento (metodología P2O y splits) se realiza en `online_policy_ml/` y **no utiliza** los 5 pedidos de `examples/5_bed-bpp.json`.
 - Las metaheurísticas permanecen exclusivamente en modo **offline**; el modo online las rechaza.
 
-### Lectura de producto
+### Lectura de producto (interpretación C01)
 
-La política aprendida (`mlp_v1_p1s1_ppo.pt`) es un **empate estadístico** con `online_3d_bpp_heuristic`. El fine-tuning PPO sobre el encoder v1 está cerrado. STEP y shaping no se promocionan. En el pedido `00100408`, bin cerrado 2000 mm, **supera** a PCT (Zhao ICLR 2022) por factibilidad, no por Uti. de Table 1 ni ranking BED-BPP. Relato: [`../online_policy_ml/docs/informe_cierre_rl_online.md`](../online_policy_ml/docs/informe_cierre_rl_online.md).
+El archivo default `mlp_v1_p1s1_ppo.pt` se sirve con la opción API `policy=rl` (p=1 s=1). Los tensores vigentes coinciden con el actor BC; `best_epoch=0` en el informe de la corrida **no** demuestra mejora obtenida mediante PPO ([`../paper/reviews/06_actor_provenance.md`](../paper/reviews/06_actor_provenance.md)). STEP y shaping no se promocionan.
+
+Holdout n=5 frente al heurístico online: IC95 de la diferencia **incluye cero** → resultado **no concluyente**; no se afirma empate estadístico ni equivalencia. La evaluación independiente de 200 pedidos (paso 08) es otro protocolo y también clasifica `no_concluyente` cuando el intervalo incluye cero.
+
+Sobre el pedido histórico `00100408` y un dato publicado de transferencia PCT (Kagerer): inspección de un caso y comprobaciones geométricas internas auditadas en ese flujo; **no** es comparación homologada ICLR ni evaluación completa BED-BPP; **no** se demostró superioridad frente a PCT. Relato histórico: [`../online_policy_ml/docs/informe_cierre_rl_online.md`](../online_policy_ml/docs/informe_cierre_rl_online.md). Errata: [`../paper/reviews/C01_current_claims_correction.md`](../paper/reviews/C01_current_claims_correction.md).
 
 ### Trabajo Pendiente (Opcional)
 

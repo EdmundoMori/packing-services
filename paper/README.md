@@ -2,6 +2,18 @@
 
 Documentación de investigación. No es el producto ni un resultado publicable.
 
+## Estado vigente (C01)
+
+Resumen alineado con la evidencia publicada (incluye resultados negativos o no concluyentes):
+
+- **Campañas cerradas:** compacta/corta, counterfactual ranking, rl_rule_selection, learning_objectives, robust_packing_management (y cierres previos en `reviews/` / `studies/*/campaign_closure.md`).
+- **learning_objectives:** completó etiquetas, entrenamiento (9 modelos) y evaluación de desarrollo; **puerta incumplida**; **test no ejecutado** (`no_avanzar_con_esta_configuracion`).
+- **robust_packing_management:** cerrado por justificación insuficiente; **sin RL evaluada**; G2 estocástico no ejecutado.
+- **Infraestructura reutilizable:** motor EP, evaluate/capture, runctl/presupuestos, loaders, contratos geométricos y arneses de estudio — sin reinterpretar cierres como éxito algorítmico.
+- **Superioridad y publicabilidad:** **no establecidas.** El intervalo de la evaluación independiente de 200 pedidos incluye cero (`no_concluyente`); no se demostró superioridad frente a PCT; el checkpoint default `mlp_v1_p1s1_ppo.pt` tiene tensores vigentes iguales al BC (`best_epoch=0`).
+
+Errata de afirmaciones documentales: [`reviews/C01_current_claims_correction.md`](reviews/C01_current_claims_correction.md).
+
 ## Objetivo provisional
 
 Evaluar si el selector aprendido de colocaciones mejora al heurístico del mismo entorno, o si mantiene calidad comparable a PCT con menor coste. La superioridad y la publicación no están demostradas. Esta carpeta no busca confirmar una conclusión previa.
@@ -20,6 +32,8 @@ Los informes y JSON ya existentes en `online_policy_ml/` son corridas previas. N
 
 ## Dónde está el estado
 
+Las entradas siguientes son **registros del estado en cada paso** (cronología). Frases como «etiquetas no ejecutadas» u «piloto no ejecutado» describen el momento de esa revisión, **no** necesariamente el presente; el resumen vigente está arriba.
+
 - Estado de la campaña: [`state.json`](state.json).
 - Revisiones por paso: [`reviews/`](reviews/).
 - Paso 00, primera ejecución: [`reviews/00_inventory.md`](reviews/00_inventory.md) (`inv-00-20261002T122453Z`).
@@ -36,7 +50,7 @@ Los informes y JSON ya existentes en `online_policy_ml/` son corridas previas. N
 - Paso 06: procedencia del actor y candidatos de ambos targets, [`reviews/06_actor_provenance.md`](reviews/06_actor_provenance.md). Clasificación: [`results/06_candidate_exposure_by_target.json`](results/06_candidate_exposure_by_target.json). No evalúa esos candidatos.
 - Paso 06A: IDs de las transiciones BC, [`reviews/06a_bc_transition_provenance.md`](reviews/06a_bc_transition_provenance.md). Lectura: [`results/06a_bc_transition_ids.json`](results/06a_bc_transition_ids.json). Candidatos: [`results/06a_candidate_exposure_by_target.json`](results/06a_candidate_exposure_by_target.json).
 - Paso 07: evaluación independiente congelada, [`reviews/07_evaluation_freeze.md`](reviews/07_evaluation_freeze.md). Protocolo: [`protocols/07_independent_evaluation.md`](protocols/07_independent_evaluation.md). Muestra: [`results/07_sample_freeze.json`](results/07_sample_freeze.json). La corrida está en el paso 08.
-- Paso 08: primera corrida de esa evaluación, [`reviews/08_independent_evaluation_run.md`](reviews/08_independent_evaluation_run.md). Resultados: [`results/07_independent_evaluation/`](results/07_independent_evaluation/). Análisis: [`results/07_independent_evaluation/independent_analysis.json`](results/07_independent_evaluation/independent_analysis.json). El intervalo incluye el cero y la clasificación predefinida es no concluyente.
+- Paso 08: primera corrida de esa evaluación, [`reviews/08_independent_evaluation_run.md`](reviews/08_independent_evaluation_run.md). Resultados: [`results/07_independent_evaluation/`](results/07_independent_evaluation/). Análisis: [`results/07_independent_evaluation/independent_analysis.json`](results/07_independent_evaluation/independent_analysis.json). El intervalo incluye el cero y la clasificación predefinida es no concluyente (**no** equivalencia).
 - Paso 09: diagnóstico exploratorio posterior al resultado, [`reviews/09_exploratory_diagnosis.md`](reviews/09_exploratory_diagnosis.md). Lectura: [`results/09_policy_diagnostics.json`](results/09_policy_diagnostics.json). Pedidos ya observados: [`results/09_exposed_evaluation_ids.json`](results/09_exposed_evaluation_ids.json). No cambia la clasificación del paso 08.
 - Paso 10: ablación de normalización congelada, [`reviews/10_normalization_design.md`](reviews/10_normalization_design.md). Protocolo: [`protocols/10_normalization_ablation.md`](protocols/10_normalization_ablation.md). Estadísticas y muestra: [`results/10_normalization_freeze.json`](results/10_normalization_freeze.json). No entrena ni empaqueta.
 - Paso 11: ejecutor de esa ablación, [`reviews/11_ablation_runner.md`](reviews/11_ablation_runner.md). Entrada: [`paper/tools/run_normalization_ablation.py`](tools/run_normalization_ablation.py). No ejecuta las etapas reales.
@@ -51,5 +65,5 @@ Los informes y JSON ya existentes en `online_policy_ml/` son corridas previas. N
 - Cierre de la campaña corta: [`reviews/18_short_campaign_closure.md`](reviews/18_short_campaign_closure.md). Esta vía se cierra. No continúa a comparación externa ni a test confirmatorio con la configuración elegida. El informe no es un artículo listo para envío.
 - Estudio posterior de desarrollo: [`studies/counterfactual_ranking/README.md`](studies/counterfactual_ranking/README.md). El diagnóstico está en [`studies/counterfactual_ranking/diagnostic_review.md`](studies/counterfactual_ranking/diagnostic_review.md). Las etiquetas del piloto están en [`studies/counterfactual_ranking/learning_labels_review.md`](studies/counterfactual_ranking/learning_labels_review.md). El ajuste de los dos brazos está en [`studies/counterfactual_ranking/training_review.md`](studies/counterfactual_ranking/training_review.md). Los episodios de development y la puerta están en [`studies/counterfactual_ranking/packing_review.md`](studies/counterfactual_ranking/packing_review.md). El cierre está en [`studies/counterfactual_ranking/campaign_closure.md`](studies/counterfactual_ranking/campaign_closure.md). No reabre la cuadrícula compacta. La puerta no se cumple: no se avanza con esta configuración. El test final no se selecciona ni se ejecuta.
 - Piloto de selección de reglas, cerrado: [`studies/rl_rule_selection/campaign_closure.md`](studies/rl_rule_selection/campaign_closure.md). Matriz: [`studies/rl_rule_selection/claims_evidence.md`](studies/rl_rule_selection/claims_evidence.md). La política determinista seleccionó Greedy en el desarrollo y la puerta no se cumple. No hay más entrenamiento ni test. No reabre la campaña compacta ni la de counterfactual ranking. La búsqueda experimental de mejora algorítmica se detiene en estas configuraciones.
-- Iniciativa de objetivos de aprendizaje (protocolo + preflight + ejecutor + pérdidas diferenciables + manuscrito alineado): [`studies/learning_objectives/README.md`](studies/learning_objectives/README.md). Revisión 12: [`studies/learning_objectives/reviews/12_manuscript_alignment.md`](studies/learning_objectives/reviews/12_manuscript_alignment.md). Etiquetas completas no ejecutadas. No autoriza entrenamiento, desarrollo ni test. No reabre campañas cerradas.
+- Iniciativa de objetivos de aprendizaje — **cerrada tras puerta de desarrollo fallida**: [`studies/learning_objectives/campaign_closure.md`](studies/learning_objectives/campaign_closure.md). Etiquetas, entrenamiento y desarrollo **sí** se ejecutaron en esa campaña; el test permanece cerrado. La entrada cronológica anterior que decía «etiquetas no ejecutadas» es un registro de un paso previo, no el estado presente. No reabre campañas cerradas.
 - Estudio de gestión de packing bajo incertidumbre geométrica — **cerrado**: [`studies/robust_packing_management/campaign_closure.md`](studies/robust_packing_management/campaign_closure.md). Decisión: `cerrar_linea_por_justificacion_insuficiente`. Preflight determinista de arnés (8 episodios) conservado como histórico; G2 estocástico y RL **no** ejecutados. Manuscrito preliminar archivado: [`manuscript/robust_packing_management/`](manuscript/robust_packing_management/). No reabre campañas cerradas.

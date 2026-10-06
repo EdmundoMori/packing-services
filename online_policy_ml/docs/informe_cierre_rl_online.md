@@ -1,5 +1,14 @@
 # Informe de cierre del subproyecto RL online
 
+> **Aviso de interpretación (C01, 2026-10-06).** Este documento es un **informe histórico**
+> (fecha 2026-09-15) y se conserva sin reescribir su cuerpo. La lectura vigente de
+> «empate estadístico», «supera PCT» y mejora PPO está en la errata
+> [`paper/reviews/C01_current_claims_correction.md`](../../paper/reviews/C01_current_claims_correction.md)
+> (holdout §3 aquí; PCT §4–5 aquí + protocolos Z/K/P; pesos BC / `best_epoch=0` en
+> [`06_actor_provenance.md`](../../paper/reviews/06_actor_provenance.md); evaluación de 200
+> pedidos en [`08_independent_evaluation_run.md`](../../paper/reviews/08_independent_evaluation_run.md)).
+> La corrección documental **no** altera JSON, checkpoints ni resultados de esta corrida.
+
 **Versión detallada (Word, con índice):** [`Informe_cierre_RL_online.docx`](Informe_cierre_RL_online.docx).
 
 **Fecha:** 2026-09-15.
