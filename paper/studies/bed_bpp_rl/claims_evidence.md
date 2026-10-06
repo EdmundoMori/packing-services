@@ -1,41 +1,26 @@
 # Claims ↔ evidence (BED-BPP-RL)
 
-## R01 (diseño)
+## R01–R02A (resumen)
 
-| Afirmación | Evidencia |
-|------------|-----------|
-| Recurso definible reutilizando el repo | `reuse_matrix.md`, `reviews/R01_scope_and_reuse.md` |
+Diseño, entorno sintético e integridad portable: ver revisiones R01/R02/R02A.
 
-## R02 (implementación sintética)
+## R03-preparación
 
 | Afirmación | Evidencia | Estado |
 |------------|-----------|--------|
-| Interfaz `reset`/`step`/`close` | `tools/environment.py` | Pass (R02) |
-| 36 features documentadas | `tools/observation_spec.py` | Pass |
-| Truncación / terminación contractual | pruebas R02 | Pass |
-| Motor post-C04 | `engine_check` | Pass |
-
-## R02A (integridad)
-
-| Afirmación | Evidencia | Estado |
-|------------|-----------|--------|
-| Validación estructural común (writer/loader/verifier) | `episode_validation.py` | Pass |
-| Rechazo de conteos/IDs/índices/cierres contradictorios | `test_r02a_integrity` | Pass |
-| Rechazo de propuestas ausentes/incompatibles | idem | Pass |
-| Distinción estructural vs auditoría completa | `resource_verifier` niveles | Pass |
-| Sin artifacts → `auditoria_no_realizada` (no completa) | `verify_complete_from_artifacts` | Pass |
-| Manifiesto relativo + size + SHA256 | `CorpusStore` | Pass |
-| Detección de modificación posterior | `test_detect_post_confirmation_modification` | Pass |
-| Carga tras mover el directorio del corpus | `test_load_corpus_after_directory_move` | Pass |
-| Single-writer + lock; sin pérdida silenciosa concurrente | `corpus_writer` docstring + lock | Documentado |
-| Truncación sin acciones conserva obs/máscara abiertas | `truncate_budget` + test | Pass |
-| Callback de política sin auditoría | `policy_public_view` + test | Pass |
-| Tipos estrictos action/budget | environment + tests | Pass |
-| Verificación geométrica/retorno desde archivos sin env | `verify_published_episode` | Pass |
-| `physical_stability_verified=null` | verifier | Pass |
+| Contraste de identidades y orientaciones sin `orientation_ok` prefijado | `artifact_contrast.py` | Pass |
+| Prefijo de secuencia / rechazo de swaps y extras | adversarial tests | Pass |
+| Correspondencia transición↔placement (ítem, pos, dims) | contrast + tests | Pass |
+| Reward por paso = V_nominal/V_bin; suma = U_geom | contrast | Pass |
+| Cierre vs unpacked tipificado | contrast | Pass |
+| Snapshot insuficiente → no auditoría completa | test | Pass |
+| Propiedad sin datos → `no_comprobada` (no aceptación) | `missing_allow_rotation` test | Pass |
+| Preflight real diseñado, no ejecutado | `preflight_real_protocol.json` | Diseño |
+| Static-only valida protocolo/selección sin packing | `run_preflight_real.py --static-only` | Pass |
+| Presupuestos propuestos con fundamento histórico orientativo | protocolo `budgets_proposed_before_execution` | Documentado |
 
 ### No afirmado
 
-- Corpus industrial, entrenamiento RL, off-policy por importancia
-- Durabilidad absoluta ante caída de host
-- Suficiencia Markov / novedad / superioridad
+- Preflight real ejecutado; corpus industrial; entrenamiento RL
+- Cola de tiempos desde 4 pedidos; tamaño definitivo de corpus
+- Estabilidad física; independencia absoluta de la muestra

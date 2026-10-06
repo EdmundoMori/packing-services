@@ -56,13 +56,19 @@
     "writer_model": "single_writer_exclusive_lock",
     "durability_note": "fsync+atomic replace of episode then manifest; orphan episode after crash before manifest update is not confirmed; no absolute host-crash durability claim",
     "closure_flag_timing": "set on last transition at episode close before single atomic publish; no rewrite of already published transitions",
-    "artifacts_for_offline_audit": ["bin_lwh_mm", "input_items", "placements"]
+    "artifacts_for_offline_audit": [
+      "bin_lwh_mm",
+      "container_id",
+      "allow_rotation",
+      "input_items",
+      "placements",
+      "unpacked"
+    ]
   },
   "validation_levels": {
     "structural": "episode_validation.validate_episode_document",
-    "geometry": "AABB containment/non-overlap from persisted placements",
-    "volume_return": "recompose placed volume vs rewards and chosen_geometry",
-    "complete": "structural+geometry+volume; else status auditoria_no_realizada"
+    "artifact_contrast": "artifact_contrast.contrast_artifacts (identity, orientation, rewards, closure, AABB)",
+    "complete": "structural+artifact_contrast; else status auditoria_no_realizada; missing fields => no_comprobada"
   },
   "transition_record": {
     "observation": {

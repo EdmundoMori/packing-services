@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "kind": "bed_bpp_rl_preflight_real_protocol_r03",
+  "status": "designed_not_executed",
+  "title": "Preflight real medido BED-BPP-RL (diseño R03)",
+  "purpose": "Medir coste y comprobar exportación/relectura sobre BED-BPP; no comparar superioridad de políticas.",
+  "not_executed_in_r03_preparation": true,
+  "physical_stability_verified": null,
+  "dataset": {
+    "source_citation": "BED-BPP industrial orders (external terms)",
+    "dataset_sha256_reference": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+    "path_not_opened_in_r03_preparation": true
+  },
+  "exclusions": {
+    "reserved_tests_of_closed_campaigns": true,
+    "exclude_sources": [
+      "full.test / confirmatory holdouts de campañas cerradas",
+      "IDs en exclusion lists de protocolos 10/16/17 y learning_objectives test",
+      "scale/test y working/test históricos cuando estén listados como reservados"
+    ],
+    "note": "La exclusión se aplica antes de observar utilizaciones; no se consultan resultados de packing para elegir."
+  },
+  "sample_design": {
+    "n_orders": 4,
+    "per_target": 2,
+    "targets": ["euro-pallet", "rollcontainer"],
+    "selection_rule": "within_target_item_count_quantiles_q25_q75",
+    "selection_deterministic": true,
+    "selection_before_utilization": true,
+    "within_target": {
+      "metric": "n_items_in_order",
+      "lower": "order nearest to empirical 25th percentile of n_items (ties: smallest order_id)",
+      "upper": "order nearest to empirical 75th percentile of n_items (ties: smallest order_id)"
+    },
+    "observed_when_executed": true,
+    "absolute_independence_not_claimed": true,
+    "selection_label_prefix": "bed-bpp-rl-preflight-r03|"
+  },
+  "policies": {
+    "fixed": [
+      "fixed_greedy_best_fit",
+      "fixed_lowest_top",
+      "fixed_least_height_increase"
+    ],
+    "stochastic": [
+      {
+        "name": "uniform_rules",
+        "seed": 20261006,
+        "note": "Semilla documentada; ejercita acciones, no selecciona por U_geom."
+      }
+    ],
+    "max_episodes": 16,
+    "purpose": "Ejercitar acciones y cierres; no rankear políticas por utilización."
+  },
+  "budgets_proposed_before_execution": {
+    "timeout_seconds_per_episode": 60,
+    "global_wall_seconds": 600,
+    "rss_bytes_soft_ceiling": 4294967296,
+    "concurrency": 1,
+    "attempts_per_key": 1,
+    "no_automatic_retries": true,
+    "no_substitutions": true,
+    "stop_on_contract_contrast_failure": true,
+    "persist_failures_and_truncated": true,
+    "foundation": {
+      "historical_orientation_only": true,
+      "rl_rule_selection_development_wall_seconds_per_case_observed_range": "approx_2_to_8",
+      "conservative_product": "16 episodes * ~8s ≈ 128s; ceiling 600s (~5x) for load/export/verify overhead",
+      "not_a_guarantee_of_tail_latency": true,
+      "corpus_size_not_fixed_here": true,
+      "training_budget_not_fixed_here": true
+    }
+  },
+  "measurements": {
+    "timers_seconds": [
+      "load_convert",
+      "candidate_generation",
+      "action_selection",
+      "episode_loop_total",
+      "export",
+      "verification",
+      "campaign_wall"
+    ],
+    "memory": {
+      "record_process_rss_bytes": true,
+      "method": "resource.getrusage(RUSAGE_SELF).ru_maxrss (Linux: kilobytes)",
+      "do_not_confuse_with": ["tracemalloc", "CPU_time"]
+    },
+    "other": [
+      "n_transitions",
+      "end_reason",
+      "proposal_redundancy",
+      "episode_file_size_bytes",
+      "manifest_load_seconds"
+    ],
+    "extrapolation_warning": "Cuatro pedidos no demuestran la cola de tiempos."
+  },
+  "corpus": {
+    "portable_manifest": true,
+    "relative_paths_only": true,
+    "reopen_copied_directory_without_live_env": true,
+    "require_artifact_contrast": true
+  },
+  "executor": {
+    "module": "paper/studies/bed_bpp_rl/tools/run_preflight_real.py",
+    "static_only_flag": "--static-only",
+    "real_run_not_authorised_by_r03_preparation": true,
+    "future_command": "python3 paper/studies/bed_bpp_rl/tools/run_preflight_real.py --protocol paper/studies/bed_bpp_rl/preflight_real_protocol.json --orders <BED_BPP_JSON> --out <CORPUS_DIR>"
+  }
+}

@@ -28,7 +28,7 @@ Contrato moncontenedor del evaluador y metadato de captura (C07): [`reviews/C07_
 
 Cierre final de mantenimiento C01–C08 (metadato triestado, cobertura portable, tiempo development, maquetación): [`reviews/C08_final_maintenance_closure.md`](reviews/C08_final_maintenance_closure.md). No abre el test ni regenera resultados.
 
-Nueva línea **BED-BPP-RL** (R01 diseño; R02 entorno+corpus sintético; R02A integridad portable): [`studies/bed_bpp_rl/`](studies/bed_bpp_rl/), revisiones [`R01`](reviews/R01_scope_and_reuse.md) / [`R02`](reviews/R02_synthetic_env_and_corpus.md) / [`R02A`](reviews/R02A_resource_integrity.md), manuscrito [`manuscript/bed_bpp_rl/`](manuscript/bed_bpp_rl/). Sin corpus real ni entrenamiento.
+Nueva línea **BED-BPP-RL** (R01–R02A; R03-prep contraste+preflight diseñado): [`studies/bed_bpp_rl/`](studies/bed_bpp_rl/), revisiones [`R01`](reviews/R01_scope_and_reuse.md) / [`R02`](reviews/R02_synthetic_env_and_corpus.md) / [`R02A`](reviews/R02A_resource_integrity.md) / [`R03-prep`](reviews/R03_preparation_preflight_and_artifact_contrast.md). Sin corpus real ni entrenamiento.
 
 ## Objetivo provisional
 

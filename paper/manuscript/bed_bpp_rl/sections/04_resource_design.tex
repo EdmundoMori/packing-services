@@ -42,10 +42,14 @@ silent repair. Behaviour callbacks receive only the observation, action mask, an
 expressly allowed public fields---not the full audit \texttt{info}. Persistence
 uses a portable manifest of relative paths with size and SHA256 under a
 single-writer lock (\texttt{fsync} then atomic replace); temporary or modified
-files are rejected. Offline verification distinguishes structural checks from
-geometry and volume audits that require persisted input/placement artifacts; without
-them the status is audit-not-performed rather than a fake complete pass.
-Complete episodes match \(U_{\mathrm{geom}}\) recomposed from AABB placements;
-truncated episodes report a partial observed return only.
-AABB feasibility does not imply physical stability
+files are rejected. Offline verification distinguishes structural checks from a full artifact
+contrast that requires persisted input/placement/unpacked snapshots: identities,
+permitted orientations, one-to-one transition/placement correspondence,
+per-step nominal-volume rewards, and typed closures. Missing fields are reported
+as not checked rather than silently accepted. Without sufficient artifacts the
+status is audit-not-performed. Complete episodes match \(U_{\mathrm{geom}}\)
+recomposed from nominal item volumes; truncated episodes report a partial
+observed return only. AABB feasibility does not imply physical stability
 (\texttt{physical\_stability\_verified}=\texttt{null}).
+A measured real preflight (four orders, fixed/seeded policies, explicit budgets)
+is designed for a later authorised step; it is not executed in this note.

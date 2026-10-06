@@ -1,27 +1,36 @@
 # BED-BPP-RL
 
-**Estado R02A:** integridad del entorno y corpus verificada (solo sintético).
-Decisión: `integridad_del_recurso_verificada_para_disenar_preflight_real`.
+**Estado R03-preparación:** contraste de artefactos verificado + preflight real
+diseñado (static-only). Decisión:
+`preflight_real_disenado_y_contraste_de_artefactos_verificado`.
 
-## Artefactos
+## Artefactos clave
 
-| Documento | Rol |
-|-----------|-----|
-| [`tools/`](tools/) | Env, validación, corpus portable, verifier, pruebas R02/R02A |
-| [`claims_evidence.md`](claims_evidence.md) | Afirmaciones ↔ evidencia |
-| [`environment_contract_draft.json`](environment_contract_draft.json) | Contrato (frozen R02A) |
-| [`corpus_schema_v1.json`](corpus_schema_v1.json) | Esquema + manifiesto portable |
-| [`../../reviews/R02_synthetic_env_and_corpus.md`](../../reviews/R02_synthetic_env_and_corpus.md) | R02 |
-| [`../../reviews/R02A_resource_integrity.md`](../../reviews/R02A_resource_integrity.md) | R02A |
-| [`../../manuscript/bed_bpp_rl/`](../../manuscript/bed_bpp_rl/) | LaTeX |
+| Ruta | Rol |
+|------|-----|
+| `tools/artifact_contrast.py` | Contraste identidad/orientación/rewards/cierre |
+| `preflight_real_protocol.json` | Protocolo operativo (no ejecutado) |
+| `tools/run_preflight_real.py` | Ejecutor (`--static-only` autorizado aquí) |
+| `reviews/R03_preparation_preflight_and_artifact_contrast.md` | Revisión |
 
-## Pruebas
+## Comandos
 
 ```bash
+# Pruebas sintéticas
 python3 -m pytest paper/studies/bed_bpp_rl/tools/test_r02_synthetic.py \
-  paper/studies/bed_bpp_rl/tools/test_r02a_integrity.py -v
+  paper/studies/bed_bpp_rl/tools/test_r02a_integrity.py \
+  paper/studies/bed_bpp_rl/tools/test_r03_artifact_contrast.py \
+  paper/studies/bed_bpp_rl/tools/test_r03_preflight_design.py -v
+
+# Preflight static-only (no empaqueta pedidos reales)
+python3 paper/studies/bed_bpp_rl/tools/run_preflight_real.py --static-only \
+  --protocol paper/studies/bed_bpp_rl/preflight_real_protocol.json
 ```
 
-## No autorizado
+## Preflight futuro (no autorizado en R03-prep)
 
-Pedidos reales, entrenamiento, corpus industrial, preflight real.
+```bash
+python3 paper/studies/bed_bpp_rl/tools/run_preflight_real.py \
+  --protocol paper/studies/bed_bpp_rl/preflight_real_protocol.json \
+  --orders <BED_BPP_JSON> --out <CORPUS_DIR>
+```

@@ -810,32 +810,28 @@
     "note": "Cierre de hallazgos identificados C01–C08; metadato triestado; Overfull corregidos; no certifica todo el repositorio."
   },
   "bed_bpp_rl": {
-    "status": "r02a_resource_integrity_verified",
-    "phase": "R02A_integrity_closure",
+    "status": "r03_preparation_preflight_designed_artifact_contrast_verified",
+    "phase": "R03_preparation",
     "executed_at_local": "2026-10-06",
-    "head_at_edit": "9b3318231f613a737c61a6ca31bb25888c09fd92",
+    "head_at_edit": "dea829836ec2cf30af2d4f09a96e98ec3fdca5dd",
     "branch": "research/paper-online-packing",
     "study": "paper/studies/bed_bpp_rl/",
     "manuscript": "paper/manuscript/bed_bpp_rl/",
     "review_r01": "paper/reviews/R01_scope_and_reuse.md",
     "review_r02": "paper/reviews/R02_synthetic_env_and_corpus.md",
-    "review": "paper/reviews/R02A_resource_integrity.md",
+    "review_r02a": "paper/reviews/R02A_resource_integrity.md",
+    "review": "paper/reviews/R03_preparation_preflight_and_artifact_contrast.md",
     "claims_evidence": "paper/studies/bed_bpp_rl/claims_evidence.md",
-    "reuse_matrix": "paper/studies/bed_bpp_rl/reuse_matrix.md",
-    "environment_contract": "paper/studies/bed_bpp_rl/environment_contract_draft.json",
-    "corpus_schema": "paper/studies/bed_bpp_rl/corpus_schema_v1.json",
-    "tools": "paper/studies/bed_bpp_rl/tools/",
-    "synthetic_tests": [
-      "paper/studies/bed_bpp_rl/tools/test_r02_synthetic.py",
-      "paper/studies/bed_bpp_rl/tools/test_r02a_integrity.py"
-    ],
+    "preflight_protocol": "paper/studies/bed_bpp_rl/preflight_real_protocol.json",
+    "preflight_executor": "paper/studies/bed_bpp_rl/tools/run_preflight_real.py",
+    "preflight_real_executed": false,
     "engine_required": "C04_post_a5fb468",
     "executes_real_orders": false,
     "training": false,
     "corpus_generated": false,
     "opens_closed_test": false,
     "does_not_reopen_closed_campaigns": true,
-    "decision": "integridad_del_recurso_verificada_para_disenar_preflight_real",
-    "note": "Validación estructural común, manifiesto SHA256 portable, auditoría offline por niveles; sin experiencias reales ni entrenamiento."
+    "decision": "preflight_real_disenado_y_contraste_de_artefactos_verificado",
+    "note": "Contraste offline completo de artifacts; preflight real solo diseñado y validado en static-only."
   }
 }

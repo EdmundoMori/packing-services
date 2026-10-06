@@ -47,6 +47,7 @@ def build_episode_artifacts(env: BedBppRlEnv, problem: Any) -> dict[str, Any]:
 
     container = problem.containers[0]
     dims = container.dimensions
+    constraints = problem.constraints
     input_items = [
         {
             "id": str(item.id),
@@ -54,8 +55,12 @@ def build_episode_artifacts(env: BedBppRlEnv, problem: Any) -> dict[str, Any]:
             "width": float(item.width),
             "height": float(item.height),
             "weight": float(item.weight),
+            "allowed_orientations": str(
+                getattr(item, "allowed_orientations", "all") or "all"
+            ),
+            "sequence_index": index,
         }
-        for item in problem.items
+        for index, item in enumerate(problem.items)
     ]
     placements: list[dict[str, Any]] = []
     if env.session is not None:
@@ -72,10 +77,17 @@ def build_episode_artifacts(env: BedBppRlEnv, problem: Any) -> dict[str, Any]:
                     "h": float(packed.orientation.height),
                 }
             )
+    unpacked = [
+        {"item_id": str(row.item_id), "reason": str(row.reason)}
+        for row in getattr(env, "_unpacked", [])
+    ]
     return {
         "bin_lwh_mm": [float(dims.length), float(dims.width), float(dims.height)],
+        "container_id": str(container.id),
+        "allow_rotation": bool(constraints.allow_rotation),
         "input_items": input_items,
         "placements": placements,
+        "unpacked": unpacked,
         "environment_version": ENVIRONMENT_VERSION,
         "engine_commit": ENGINE_REQUIRED_COMMIT,
     }

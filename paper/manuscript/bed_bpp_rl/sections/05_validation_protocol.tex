@@ -1,13 +1,19 @@
-\section{Validation protocol (synthetic, executed)}
+\section{Validation protocol (synthetic + designed preflight)}
 
 Success means a correct, reusable, RL-usable resource---not beating a heuristic.
-R02 executed contractual synthetic checks; R02A adds integrity checks under
-\codepath{test\_r02a\_integrity.py}: rejection of contradictory episode fields and
-missing proposals; separation of structural validation from complete
-geometry/volume audit; detection of post-confirmation file modification;
-loading after moving the corpus directory; truncation without actions with a
-usable bootstrap mask; policy callbacks denied audit channels; strict action and
-budget types; and offline verification from persisted artifacts without a live
-environment. These tests measure contractual integrity only; they are not
-performance on BED-BPP. Real-order corpus sizing remains deferred to a measured
-preflight.
+R02/R02A established synthetic contractual integrity. R03-preparation closes
+offline artifact contrast: unique input identities, permitted orientations
+(without prefabricated acceptance), strict placement/transition correspondence,
+per-step nominal-volume rewards, typed unpacking/closure checks, and AABB
+containment/non-overlap with
+\texttt{physical\_stability\_verified}=\texttt{null}. Missing fields yield
+explicit not-checked statuses rather than silent passes. Adversarial synthetic
+tests cover unknown ids, disallowed orientations, volume-preserving pose edits,
+swapped placements, conserved-sum reward tampering, and insufficient snapshots.
+
+A measured real preflight is \emph{designed} but not executed: four orders
+(two targets; item-count quantiles), fixed and seeded-uniform policies
+($\le 16$ episodes), explicit timeouts/wall/RSS/concurrency, portable corpus
+reopen, and cost timers separated from \texttt{tracemalloc}/CPU. Four orders do
+not demonstrate latency tails. Industrial corpus size and RL demonstration remain
+pending.

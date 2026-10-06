@@ -251,8 +251,8 @@ def test_reward_matches_audited_volume(scenarios):
     volume = report["volume_audit"]
     u_key = "u_geom_from_artifacts" if "u_geom_from_artifacts" in volume else "u_geom_from_capture"
     assert abs(volume[u_key] - volume["reward_sum_stored"]) < 1e-9
-    # Independencia: volumen AABB recompuesto, no solo sum(rewards) opaca
-    assert volume["method"].startswith("recompose")
+    # Independencia: volumen AABB / nominal recompuesto, no solo sum(rewards) opaca
+    assert "volume" in volume["method"] or volume["method"].startswith("recompose") or "nominal" in volume["method"]
     env.close()
 
 
