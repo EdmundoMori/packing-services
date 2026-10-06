@@ -1,0 +1,178 @@
+"""Runtime del preflight real: un episodio en proceso hijo con timeout duro."""
+
+from __future__ import annotations
+
+import json
+import os
+import random
+import resource
+import time
+from pathlib import Path
+from typing import Any
+
+
+POLICY_ACTIONS = {
+    "fixed_greedy_best_fit": 0,
+    "fixed_lowest_top": 1,
+    "fixed_least_height_increase": 2,
+}
+
+
+def rss_kb() -> int:
+    return int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+
+
+def build_policy(name: str, seed: int | None):
+    from episode_export import fixed_action
+
+    if name in POLICY_ACTIONS:
+        return fixed_action(POLICY_ACTIONS[name]), seed
+    if name == "uniform_rules":
+        if type(seed) is not int:
+            raise ValueError("uniform_rules exige semilla int")
+        rng = random.Random(seed)
+
+        def _policy(_obs, mask, _public):
+            legal = [i for i, ok in enumerate(mask) if ok]
+            if not legal:
+                return 0
+            return int(rng.choice(legal))
+
+        return _policy, seed
+    raise ValueError(f"política desconocida: {name}")
+
+
+def run_one_episode(
+    *,
+    orders: dict[str, Any],
+    order_id: str,
+    target_id: str,
+    policy_name: str,
+    behavior_seed: int | None,
+    episode_id: str,
+    decision_budget: int | None = None,
+) -> dict[str, Any]:
+    """Ejecuta un episodio y devuelve documento + métricas (sin publicar)."""
+
+    import sys
+    from pathlib import Path as _Path
+
+    here = _Path(__file__).resolve().parent
+    paper_tools = here.parents[2] / "tools"
+    for entry in (str(here), str(paper_tools)):
+        if entry not in sys.path:
+            sys.path.insert(0, entry)
+
+    from compact_study import build_compact_problem
+    from episode_export import run_and_record
+    from resource_verifier import verify_episode_document
+
+    timers: dict[str, float] = {}
+    t0 = time.perf_counter()
+    problem = build_compact_problem(orders, order_id)
+    timers["load_convert"] = time.perf_counter() - t0
+
+    policy, seed = build_policy(policy_name, behavior_seed)
+    t1 = time.perf_counter()
+    document, env, recorder = run_and_record(
+        problem,
+        episode_id=episode_id,
+        order_id=order_id,
+        target_id=target_id,
+        behavior_policy=policy_name,
+        behavior_seed=seed,
+        policy=policy,
+        decision_budget=decision_budget,
+        hashes={"order_id": order_id, "target": target_id},
+    )
+    timers["episode_loop_total"] = time.perf_counter() - t1
+    timers["candidate_generation"] = float(env.candidate_seconds)
+    timers["action_selection"] = max(
+        0.0, timers["episode_loop_total"] - timers["candidate_generation"]
+    )
+    redundancy_hits = sum(
+        1
+        for row in env._decisions
+        if (row.get("redundancy") or {}).get("any_pair") is True
+    )
+    t2 = time.perf_counter()
+    report = verify_episode_document(document, require_complete=True)
+    timers["verification"] = time.perf_counter() - t2
+    metrics = {
+        "n_transitions": document["n_transitions"],
+        "terminated": document["terminated"],
+        "truncated": document["truncated"],
+        "end_reason": document.get("end_reason"),
+        "reward_sum": document.get("summary", {}).get("reward_sum"),
+        "proposal_pair_redundancy_decisions": redundancy_hits,
+        "candidate_generations": env.candidate_generations,
+        "ru_maxrss_kb": rss_kb(),
+        "timers_seconds": timers,
+        "complete_verification": report.get("complete_verification"),
+        "physical_stability_verified": None,
+    }
+    env.close()
+    return {
+        "document": document,
+        "recorder": recorder,
+        "metrics": metrics,
+        "status": "ok",
+    }
+
+
+def worker_episode_main(payload: dict[str, Any], result_path: str) -> None:
+    """Entry point para proceso hijo: escribe un JSON de resultado."""
+
+    started = time.perf_counter()
+    try:
+        orders = payload["orders"]
+        out = run_one_episode(
+            orders=orders,
+            order_id=payload["order_id"],
+            target_id=payload["target_id"],
+            policy_name=payload["policy_name"],
+            behavior_seed=payload.get("behavior_seed"),
+            episode_id=payload["episode_id"],
+        )
+        # recorder no es JSON-serializable
+        recorder = out.pop("recorder")
+        document = out["document"]
+        metrics = out["metrics"]
+        metrics["timers_seconds"]["worker_wall"] = time.perf_counter() - started
+        Path(result_path).write_text(
+            json.dumps(
+                {
+                    "status": "ok",
+                    "document": document,
+                    "metrics": metrics,
+                    "recorder_meta": {
+                        "episode_id": recorder.episode_id,
+                        "closed": recorder._closed,
+                    },
+                },
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+    except Exception as exc:  # noqa: BLE001 — persistir fallo del hijo
+        Path(result_path).write_text(
+            json.dumps(
+                {
+                    "status": "failed",
+                    "error": repr(exc),
+                    "error_type": type(exc).__name__,
+                    "worker_wall": time.perf_counter() - started,
+                    "ru_maxrss_kb": rss_kb(),
+                    "physical_stability_verified": None,
+                },
+                ensure_ascii=False,
+                indent=2,
+                sort_keys=True,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        raise

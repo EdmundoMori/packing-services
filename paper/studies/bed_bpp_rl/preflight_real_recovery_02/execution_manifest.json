@@ -1,0 +1,155 @@
+{
+  "prior_manifest_sha256": "c17a7b4751695b9228f9bd5263f3df467964dcb3c662b153bd1255ad58d2747a",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "planned_episodes": [
+    {
+      "behavior_seed": null,
+      "episode_id": "preflight-00101784__fixed_greedy_best_fit",
+      "key": "00101784__fixed_greedy_best_fit",
+      "n_items": 44,
+      "order_id": "00101784",
+      "policy_name": "fixed_greedy_best_fit",
+      "target_id": "euro-pallet"
+    },
+    {
+      "behavior_seed": null,
+      "episode_id": "preflight-00101784__fixed_lowest_top",
+      "key": "00101784__fixed_lowest_top",
+      "n_items": 44,
+      "order_id": "00101784",
+      "policy_name": "fixed_lowest_top",
+      "target_id": "euro-pallet"
+    },
+    {
+      "behavior_seed": null,
+      "episode_id": "preflight-00101784__fixed_least_height_increase",
+      "key": "00101784__fixed_least_height_increase",
+      "n_items": 44,
+      "order_id": "00101784",
+      "policy_name": "fixed_least_height_increase",
+      "target_id": "euro-pallet"
+    },
+    {
+      "behavior_seed": 20261006,
+      "episode_id": "preflight-00101784__uniform_rules",
+      "key": "00101784__uniform_rules",
+      "n_items": 44,
+      "order_id": "00101784",
+      "policy_name": "uniform_rules",
+      "target_id": "euro-pallet"
+    },
+    {
+      "behavior_seed": null,
+      "episode_id": "preflight-00101736__fixed_greedy_best_fit",
+      "key": "00101736__fixed_greedy_best_fit",
+      "n_items": 58,
+      "order_id": "00101736",
+      "policy_name": "fixed_greedy_best_fit",
+      "target_id": "euro-pallet"
+    },
+    {
+      "behavior_seed": null,
+      "episode_id": "preflight-00101736__fixed_lowest_top",
+      "key": "00101736__fixed_lowest_top",
+      "n_items": 58,
+      "order_id": "00101736",
+      "policy_name": "fixed_lowest_top",
+      "target_id": "euro-pallet"
+    },
+    {
+      "behavior_seed": null,
+      "episode_id": "preflight-00101736__fixed_least_height_increase",
+      "key": "00101736__fixed_least_height_increase",
+      "n_items": 58,
+      "order_id": "00101736",
+      "policy_name": "fixed_least_height_increase",
+      "target_id": "euro-pallet"
+    },
+    {
+      "behavior_seed": 20261006,
+      "episode_id": "preflight-00101736__uniform_rules",
+      "key": "00101736__uniform_rules",
+      "n_items": 58,
+      "order_id": "00101736",
+      "policy_name": "uniform_rules",
+      "target_id": "euro-pallet"
+    },
+    {
+      "behavior_seed": null,
+      "episode_id": "preflight-00107463__fixed_greedy_best_fit",
+      "key": "00107463__fixed_greedy_best_fit",
+      "n_items": 30,
+      "order_id": "00107463",
+      "policy_name": "fixed_greedy_best_fit",
+      "target_id": "rollcontainer"
+    },
+    {
+      "behavior_seed": null,
+      "episode_id": "preflight-00107463__fixed_lowest_top",
+      "key": "00107463__fixed_lowest_top",
+      "n_items": 30,
+      "order_id": "00107463",
+      "policy_name": "fixed_lowest_top",
+      "target_id": "rollcontainer"
+    },
+    {
+      "behavior_seed": null,
+      "episode_id": "preflight-00107463__fixed_least_height_increase",
+      "key": "00107463__fixed_least_height_increase",
+      "n_items": 30,
+      "order_id": "00107463",
+      "policy_name": "fixed_least_height_increase",
+      "target_id": "rollcontainer"
+    },
+    {
+      "behavior_seed": 20261006,
+      "episode_id": "preflight-00107463__uniform_rules",
+      "key": "00107463__uniform_rules",
+      "n_items": 30,
+      "order_id": "00107463",
+      "policy_name": "uniform_rules",
+      "target_id": "rollcontainer"
+    },
+    {
+      "behavior_seed": null,
+      "episode_id": "preflight-00102588__fixed_greedy_best_fit",
+      "key": "00102588__fixed_greedy_best_fit",
+      "n_items": 44,
+      "order_id": "00102588",
+      "policy_name": "fixed_greedy_best_fit",
+      "target_id": "rollcontainer"
+    },
+    {
+      "behavior_seed": null,
+      "episode_id": "preflight-00102588__fixed_lowest_top",
+      "key": "00102588__fixed_lowest_top",
+      "n_items": 44,
+      "order_id": "00102588",
+      "policy_name": "fixed_lowest_top",
+      "target_id": "rollcontainer"
+    },
+    {
+      "behavior_seed": null,
+      "episode_id": "preflight-00102588__fixed_least_height_increase",
+      "key": "00102588__fixed_least_height_increase",
+      "n_items": 44,
+      "order_id": "00102588",
+      "policy_name": "fixed_least_height_increase",
+      "target_id": "rollcontainer"
+    },
+    {
+      "behavior_seed": 20261006,
+      "episode_id": "preflight-00102588__uniform_rules",
+      "key": "00102588__uniform_rules",
+      "n_items": 44,
+      "order_id": "00102588",
+      "policy_name": "uniform_rules",
+      "target_id": "rollcontainer"
+    }
+  ],
+  "runtime_sha256": "969e8e5feb2939a4569a575cc1d596a0700a2f40b54609c644ccf734411042bc",
+  "launcher_sha256": "01d71fa1a5c1c3723692db794b34b1048a246b1d5d55872460ac6cd8625849eb",
+  "python": "/home/edmundo/packing-services/.venv/bin/python",
+  "prior_accounted_seconds": 3.5635563820000016,
+  "head": "0b56ba67eff6d0c86a7126c675d2d18ce17428a7"
+}

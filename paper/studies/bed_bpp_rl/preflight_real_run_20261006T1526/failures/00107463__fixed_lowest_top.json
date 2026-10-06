@@ -1,0 +1,18 @@
+{
+  "behavior_seed": null,
+  "episode_id": "preflight-00107463__fixed_lowest_top",
+  "error": "ImportError(\"cannot import name 'ENVIRONMENT_VERSION' from 'environment' (/home/edmundo/packing-services/paper/studies/rl_rule_selection/tools/environment.py)\")",
+  "error_type": "ImportError",
+  "exitcode": 1,
+  "key": "00107463__fixed_lowest_top",
+  "n_items": 30,
+  "order_id": "00107463",
+  "physical_stability_verified": null,
+  "policy_name": "fixed_lowest_top",
+  "ru_maxrss_kb": 401504,
+  "status": "failed",
+  "target_id": "rollcontainer",
+  "timed_out": false,
+  "wall_seconds": 0.10857501899999988,
+  "worker_wall": 0.004162040000011302
+}

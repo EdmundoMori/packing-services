@@ -1,0 +1,88 @@
+{
+  "confirmed_files": [
+    {
+      "relpath": "episodes/00101736__fixed_greedy_best_fit.json",
+      "sha256": "da46ac225692e54f7c69a00c30f9780fae9dee157cf0b900a92947aa5a265bd3",
+      "size_bytes": 219001
+    },
+    {
+      "relpath": "episodes/00101736__fixed_least_height_increase.json",
+      "sha256": "3e54d684076e5f788429cdd4d9943df2b3a0e217f9ccf4d302fedb9bcf269bc0",
+      "size_bytes": 218999
+    },
+    {
+      "relpath": "episodes/00101736__fixed_lowest_top.json",
+      "sha256": "803c21892eaf22da1efca385058784c98fded94b9bdbad54bbf8d428fdd7a228",
+      "size_bytes": 217839
+    },
+    {
+      "relpath": "episodes/00101736__uniform_rules.json",
+      "sha256": "8109798284c4eb4d3d7ba841492b30c75dd35532b42fdd287f63a3357a3bd2b0",
+      "size_bytes": 218826
+    },
+    {
+      "relpath": "episodes/00101784__fixed_greedy_best_fit.json",
+      "sha256": "f170741f53340a59519aa2ee0c6a469b074d4a52fdee82773e0e302588e7ddff",
+      "size_bytes": 163323
+    },
+    {
+      "relpath": "episodes/00101784__fixed_least_height_increase.json",
+      "sha256": "be4cd3cce76d13105b713a763fa731bdd58f30200213de5cfb9c86737d94175d",
+      "size_bytes": 163788
+    },
+    {
+      "relpath": "episodes/00101784__fixed_lowest_top.json",
+      "sha256": "33e00b1554f0a6325e85a7377dbc6d98781acb5a49b454fe07143e2c95366efe",
+      "size_bytes": 162798
+    },
+    {
+      "relpath": "episodes/00101784__uniform_rules.json",
+      "sha256": "4d482bd74634cf08b9d5ba36d7e1317ca2d46c80b75473727ac218278d24ca8f",
+      "size_bytes": 162390
+    },
+    {
+      "relpath": "episodes/00102588__fixed_greedy_best_fit.json",
+      "sha256": "7eaf0c89b2945d25066360cf4309dc1e4951dd14eea71d7196b7153d0dcd9bf1",
+      "size_bytes": 142428
+    },
+    {
+      "relpath": "episodes/00102588__fixed_least_height_increase.json",
+      "sha256": "25b427515b59eb835424f7a97efb41474bae82d38bfb4cea8562b9f56d95485f",
+      "size_bytes": 149970
+    },
+    {
+      "relpath": "episodes/00102588__fixed_lowest_top.json",
+      "sha256": "5107937986ceb0d6115f8e82104ef4988b62b345ac0dcc67d0da0a695c7b399e",
+      "size_bytes": 141815
+    },
+    {
+      "relpath": "episodes/00102588__uniform_rules.json",
+      "sha256": "af84217141499a9ded30717dbcc63ed03e15e9229252331c714179d07fc5e77e",
+      "size_bytes": 139177
+    },
+    {
+      "relpath": "episodes/00107463__fixed_greedy_best_fit.json",
+      "sha256": "af14eabb52f41b602757f74c67e19804d8ad2d341c0c8712c73278bb1d73ba8e",
+      "size_bytes": 73127
+    },
+    {
+      "relpath": "episodes/00107463__fixed_least_height_increase.json",
+      "sha256": "26c1a98b7cbbc86054a775ce9c1ba9d42f1b5951e456e66c1ebe7f1dce1514a8",
+      "size_bytes": 90105
+    },
+    {
+      "relpath": "episodes/00107463__fixed_lowest_top.json",
+      "sha256": "3474abfb370a235aeccf6f6673d0592db9a6d487e23a8a1027cf9ca9b4bb2c56",
+      "size_bytes": 103062
+    },
+    {
+      "relpath": "episodes/00107463__uniform_rules.json",
+      "sha256": "cbff65a1e7069509ce6e3d59a95f399ca9cfa6adb7096104fa9b50bfa73cd782",
+      "size_bytes": 89699
+    }
+  ],
+  "durability_note": "fsync+atomic replace del episodio y del manifiesto; no durabilidad absoluta ante crash de host; solo archivos listados y con SHA256 coincidente son confirmados",
+  "kind": "bed_bpp_rl_corpus_manifest_r02a",
+  "schema_version": 2,
+  "writer_model": "single_writer_exclusive_lock"
+}

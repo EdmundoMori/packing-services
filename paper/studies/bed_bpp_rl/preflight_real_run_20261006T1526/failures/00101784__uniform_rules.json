@@ -1,0 +1,18 @@
+{
+  "behavior_seed": 20261006,
+  "episode_id": "preflight-00101784__uniform_rules",
+  "error": "ImportError(\"cannot import name 'ENVIRONMENT_VERSION' from 'environment' (/home/edmundo/packing-services/paper/studies/rl_rule_selection/tools/environment.py)\")",
+  "error_type": "ImportError",
+  "exitcode": 1,
+  "key": "00101784__uniform_rules",
+  "n_items": 44,
+  "order_id": "00101784",
+  "physical_stability_verified": null,
+  "policy_name": "uniform_rules",
+  "ru_maxrss_kb": 401504,
+  "status": "failed",
+  "target_id": "euro-pallet",
+  "timed_out": false,
+  "wall_seconds": 0.10884707599998933,
+  "worker_wall": 0.004968121999979758
+}
