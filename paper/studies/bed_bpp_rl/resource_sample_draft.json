@@ -1,0 +1,387 @@
+{
+  "status": "draft_selected_not_executed",
+  "namespace": "bed-bpp-rl-resource-sample-v1|20261006",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "pool_sha256": "530b1f623f19867f5a178564180d77667597c43d491a0eff1596f1615f8df2b5",
+  "selector_sha256": "dc0022cab6fcd91081932bc7e1433ab03b41c2f917d65e2339f621e23c7758f4",
+  "head": "e08e61103c39835be289fedfc2152c16b4046f4b",
+  "exclusion_sources": [
+    {
+      "path": "online_policy_ml/data/holdout_producto/order_ids.json",
+      "sha256": "766099afe7a3577fa50cd6139600e8bfb8b658f65dcae96b5d3edf675b46a86e",
+      "ids_n": 5
+    },
+    {
+      "path": "online_policy_ml/data/scale/test/order_ids.json",
+      "sha256": "eac92a9d52f863194bddcdffdf4970b8ae8ff53602b8c89db05d08a5ceaec6c5",
+      "ids_n": 20
+    },
+    {
+      "path": "online_policy_ml/data/scale/train/order_ids.json",
+      "sha256": "27d7c298590989825816eb581a124461aef91e2c5b606fb2cd1da5435ccd71dc",
+      "ids_n": 80
+    },
+    {
+      "path": "online_policy_ml/data/scale/val/order_ids.json",
+      "sha256": "42015db73fb3ec9addf006190efd223d5972522ad69480810fc70fd317f72e79",
+      "ids_n": 20
+    },
+    {
+      "path": "online_policy_ml/data/splits/blocked_demo_ids.json",
+      "sha256": "9f2a5ed0d13efdb5fbb4f480c493e971e06dfce3c60acca2489981a7ff25bd77",
+      "ids_n": 5
+    },
+    {
+      "path": "online_policy_ml/data/splits/full_split.json",
+      "sha256": "099ffade390c55c3fc723e582b5c8c84f15abe0e1c8feed816442338f7f90a0e",
+      "ids_n": 8498
+    },
+    {
+      "path": "online_policy_ml/data/splits/scale_split.json",
+      "sha256": "efadcd91790c00c5d7c14c2f288dac033ed0bbdba00ace1cdb6dac88c62cc8ec",
+      "ids_n": 120
+    },
+    {
+      "path": "online_policy_ml/data/splits/test_order_ids_full.json",
+      "sha256": "96d005e0b69be35a5cb97c4882c3a2a11a02f7914f790193073f3768f6570550",
+      "ids_n": 1499
+    },
+    {
+      "path": "online_policy_ml/data/splits/train_order_ids_full.json",
+      "sha256": "77cb5cd628985c30e498e5549258ae9ad71b1f528ecc5ade88290ec123e91066",
+      "ids_n": 6999
+    },
+    {
+      "path": "online_policy_ml/data/splits/working_split.json",
+      "sha256": "e4afe77d34f9034cfccb28f34873960cef5be660d921938e4dee93d664f29742",
+      "ids_n": 40
+    },
+    {
+      "path": "online_policy_ml/data/test/order_ids.json",
+      "sha256": "0ce4d793094e7aec2e9058a64bf25fee1d6d5a007e2b883482f086410688533b",
+      "ids_n": 8
+    },
+    {
+      "path": "online_policy_ml/data/train/order_ids.json",
+      "sha256": "6903f65230157910bd8df69e8d3657e3c1508e45dfe554ec492b9ac0d261e3bc",
+      "ids_n": 24
+    },
+    {
+      "path": "online_policy_ml/data/val/order_ids.json",
+      "sha256": "f0b5eeb591582aac8f2871ca49dcf00c1d6edad3fd60188cc98d4800bca93155",
+      "ids_n": 8
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/holdout_producto/order_ids.json",
+      "sha256": "766099afe7a3577fa50cd6139600e8bfb8b658f65dcae96b5d3edf675b46a86e",
+      "ids_n": 5
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/scale/test/order_ids.json",
+      "sha256": "a4d74fd74ee2e8feb61bad44bd3088e8a8165cddc2225488f2172e2b3f454ce2",
+      "ids_n": 20
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/scale/train/order_ids.json",
+      "sha256": "5b6afe8db8831658cee94f9cdb90a4b790a9f09341fe41a0194298e6f4a80b1a",
+      "ids_n": 80
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/scale/val/order_ids.json",
+      "sha256": "41d3234f8af015f7da7afc1e3859214420b5ee4c89575581a7265777f95e5a49",
+      "ids_n": 20
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/splits/blocked_demo_ids.json",
+      "sha256": "9f2a5ed0d13efdb5fbb4f480c493e971e06dfce3c60acca2489981a7ff25bd77",
+      "ids_n": 5
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/splits/full_split.json",
+      "sha256": "099ffade390c55c3fc723e582b5c8c84f15abe0e1c8feed816442338f7f90a0e",
+      "ids_n": 8498
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/splits/scale_split.json",
+      "sha256": "8d3411748dbd047d69a865e7c69711fcf5201f80c304c1b269e1369146a1fe7a",
+      "ids_n": 120
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/splits/test_order_ids_full.json",
+      "sha256": "96d005e0b69be35a5cb97c4882c3a2a11a02f7914f790193073f3768f6570550",
+      "ids_n": 1499
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/splits/train_order_ids_full.json",
+      "sha256": "77cb5cd628985c30e498e5549258ae9ad71b1f528ecc5ade88290ec123e91066",
+      "ids_n": 6999
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/splits/working_split.json",
+      "sha256": "e4afe77d34f9034cfccb28f34873960cef5be660d921938e4dee93d664f29742",
+      "ids_n": 40
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/test/order_ids.json",
+      "sha256": "0ce4d793094e7aec2e9058a64bf25fee1d6d5a007e2b883482f086410688533b",
+      "ids_n": 8
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/train/order_ids.json",
+      "sha256": "6903f65230157910bd8df69e8d3657e3c1508e45dfe554ec492b9ac0d261e3bc",
+      "ids_n": 24
+    },
+    {
+      "path": "online_policy_ml/versions/v1/data/val/order_ids.json",
+      "sha256": "f0b5eeb591582aac8f2871ca49dcf00c1d6edad3fd60188cc98d4800bca93155",
+      "ids_n": 8
+    },
+    {
+      "path": "paper/protocols/03_internal_pilot.json",
+      "sha256": "088a9601c4a9672e77fd776ae889ac35675322e8a3955c7ae3f025cfaf837a65",
+      "ids_n": 20
+    },
+    {
+      "path": "paper/protocols/07_independent_evaluation.json",
+      "sha256": "260e738d2cc28318891f8db8e7c21098eed6a9e7bf5ab714c378996c8ccb88f8",
+      "ids_n": 209
+    },
+    {
+      "path": "paper/protocols/10_normalization_ablation.json",
+      "sha256": "1430f6bea168809ac85767d04b911a0d25f4ac7aafae5c27c20abc934f7e9c93",
+      "ids_n": 82
+    },
+    {
+      "path": "paper/protocols/14_teacher_probe.json",
+      "sha256": "80714361db3de40d74b4bf3fa7583dc57e4d72067932b89785de2490426106a9",
+      "ids_n": 0
+    },
+    {
+      "path": "paper/protocols/16_compact_selector_study.json",
+      "sha256": "c67f000974ada207be7261ddf787f0044d8e0f04d3d9bbe0575b8497112e77bf",
+      "ids_n": 45
+    },
+    {
+      "path": "paper/protocols/16_external_online_bph.json",
+      "sha256": "12588ec173ea3939c3d54f502d89ccacd0627dc089dc29c8675afd973dffd981",
+      "ids_n": 0
+    },
+    {
+      "path": "paper/protocols/17_compact_calibration.json",
+      "sha256": "3f1349ebe5f5327530c3db341ae7888ec56d3506dc15ee861e04838645caac23",
+      "ids_n": 90
+    },
+    {
+      "path": "paper/results/09_exposed_evaluation_ids.json",
+      "sha256": "c47e75cd857f3f6dadbf9b3585d0f13b0df9f2833aac9abd5280ce5b8c7f2d52",
+      "ids_n": 220
+    },
+    {
+      "path": "paper/studies/bed_bpp_rl/preflight_real_recovery_02/execution_manifest.json",
+      "sha256": "06751c4d46c06384c87f70b2d4068c188a0109197cc7ad49c6215c2cf4c74698",
+      "ids_n": 4
+    },
+    {
+      "path": "paper/studies/counterfactual_ranking/learning_protocol_frozen.json",
+      "sha256": "5fd74cc0a6fc52aaf248a977934d9e199919096aa82c3ae6b0309a03e6aa6946",
+      "ids_n": 56
+    },
+    {
+      "path": "paper/studies/counterfactual_ranking/protocol_frozen.json",
+      "sha256": "e8fafb399a59863fc7a03f011b91f93e22af78f3a0d7aa78520c4a9e035717c1",
+      "ids_n": 2
+    },
+    {
+      "path": "paper/studies/counterfactual_ranking/sample_manifest.json",
+      "sha256": "149d5f09b53652374d9af0d4a67ad9601d78c51aa11bc6c53fb5b630eee78120",
+      "ids_n": 20
+    },
+    {
+      "path": "paper/studies/learning_objectives/protocol_frozen.json",
+      "sha256": "385f25c60e92dc936c02363b7152031d20b2728db13c2f9d4911446930b83b05",
+      "ids_n": 0
+    },
+    {
+      "path": "paper/studies/learning_objectives/sample_manifest.json",
+      "sha256": "782eb3abe10163270db8dec9594d099ea936e4491747278bee1b06a73accda62",
+      "ids_n": 172
+    },
+    {
+      "path": "paper/studies/rl_rule_selection/protocol_frozen.json",
+      "sha256": "61923d12ef9069cc0bdb95e547b22a89f05fe1db703f80182420bc79350b9c25",
+      "ids_n": 0
+    },
+    {
+      "path": "paper/studies/robust_packing_management/sample_manifest.json",
+      "sha256": "b71000ce8f60d435183b4c3c2319d1044391556ec10f9461ec0710e5396fa92f",
+      "ids_n": 10
+    }
+  ],
+  "excluded_ids_n": 8744,
+  "excluded_absent_from_dataset_n": 0,
+  "signature_definition": "target, bin, compact constraints, ordered items with sorted dimensions and weight; IDs omitted",
+  "pool_remaining": {
+    "euro-pallet": 567,
+    "rollcontainer": 692
+  },
+  "train": {
+    "euro-pallet": [
+      {
+        "order_id": "00105039",
+        "target": "euro-pallet",
+        "n_items": 31,
+        "signature": "1de3eb2763e21580312754062b838256c654b65ef952c1caafc1151f84ea0860"
+      },
+      {
+        "order_id": "00106121",
+        "target": "euro-pallet",
+        "n_items": 27,
+        "signature": "3b23df5f1375007365da4b41cd1b9c9ab09730367692354e7f9f97f038987329"
+      },
+      {
+        "order_id": "00109001",
+        "target": "euro-pallet",
+        "n_items": 51,
+        "signature": "85bc24bff776560de6985ab5e2d1961f528a4cf947ac91854b394e60023990a2"
+      },
+      {
+        "order_id": "00106982",
+        "target": "euro-pallet",
+        "n_items": 61,
+        "signature": "ceb632acfd30885078ed9a39a54706079e16b73db9ae05accd34910df8f0b681"
+      },
+      {
+        "order_id": "00105674",
+        "target": "euro-pallet",
+        "n_items": 60,
+        "signature": "9b58fe377b8d799f610735c0542db63ea126c2b7c67730f9cb5eabacfa496132"
+      },
+      {
+        "order_id": "00104410",
+        "target": "euro-pallet",
+        "n_items": 40,
+        "signature": "83bf5c9803c92dcb7c8878d9347eb1a7178655f8afc22b05c8b18de093b40b01"
+      },
+      {
+        "order_id": "00109956",
+        "target": "euro-pallet",
+        "n_items": 51,
+        "signature": "52429aa5c809a094f765e1fd2d013a873a8b86154a869b8f07e0c299e8ef8b40"
+      },
+      {
+        "order_id": "00101984",
+        "target": "euro-pallet",
+        "n_items": 49,
+        "signature": "996195827854e8f47f2e56bcad516b27add38471cc2995e770af8d8638855d55"
+      }
+    ],
+    "rollcontainer": [
+      {
+        "order_id": "00108492",
+        "target": "rollcontainer",
+        "n_items": 34,
+        "signature": "338d80b618189a6c28c643e6fd40e21af7c100ae58740f8ddce3fcb61c562e56"
+      },
+      {
+        "order_id": "00101927",
+        "target": "rollcontainer",
+        "n_items": 34,
+        "signature": "618810d53dd2c0956b432593508f11694b941d2bf404b5a504aff387a5dd4bd2"
+      },
+      {
+        "order_id": "00108103",
+        "target": "rollcontainer",
+        "n_items": 20,
+        "signature": "9b42ad0a57dd8b9e14cefeda3c6b6293ac66abbda06e918bd2c2ada482afe187"
+      },
+      {
+        "order_id": "00103951",
+        "target": "rollcontainer",
+        "n_items": 43,
+        "signature": "ae27f6b6eec3cb5d7eeaf871eaf2a57c9abbceb320d1123cf27ac20283b337b0"
+      },
+      {
+        "order_id": "00105909",
+        "target": "rollcontainer",
+        "n_items": 20,
+        "signature": "202068f0ce276f5f842e59e5388cf5ad254c15aee31641c4cdfe94368ae0994e"
+      },
+      {
+        "order_id": "00104106",
+        "target": "rollcontainer",
+        "n_items": 53,
+        "signature": "90f906a56f2cb8acfa24e1fc0d440829c4dac3f039407760b5a87b42f1def7c6"
+      },
+      {
+        "order_id": "00102505",
+        "target": "rollcontainer",
+        "n_items": 47,
+        "signature": "9dc8695546c65bdb5623756f071145781049883a11c8bfbaacebab4db3539590"
+      },
+      {
+        "order_id": "00105187",
+        "target": "rollcontainer",
+        "n_items": 43,
+        "signature": "da0da6862e9019eb6624218984d05dc5b68012efebc70afedbdc56725ce97160"
+      }
+    ]
+  },
+  "evaluation": {
+    "euro-pallet": [
+      {
+        "order_id": "00107493",
+        "target": "euro-pallet",
+        "n_items": 42,
+        "signature": "9f4ef0ec7e493afd2b907b2335002fb8a7a871876e0d1eab51cde4215d196856"
+      },
+      {
+        "order_id": "00100650",
+        "target": "euro-pallet",
+        "n_items": 35,
+        "signature": "f71d417c773f41260857bf6ed926894408ba36f3f9fcf46558d71d0db5b3a29f"
+      },
+      {
+        "order_id": "00104287",
+        "target": "euro-pallet",
+        "n_items": 39,
+        "signature": "ceac8c67199a73c23729501e11239d254fdc87b9ac735d7b3f3ceb4448a21f2d"
+      },
+      {
+        "order_id": "00109146",
+        "target": "euro-pallet",
+        "n_items": 51,
+        "signature": "c32dd790e33e9cd7befb708811d07a9278ea433b61f32549238e1aff75d86b1d"
+      }
+    ],
+    "rollcontainer": [
+      {
+        "order_id": "00102077",
+        "target": "rollcontainer",
+        "n_items": 18,
+        "signature": "1a8d99d79c7a4a9de7cfc0c63e407039d363a90352c0e06091cd84e4bc064541"
+      },
+      {
+        "order_id": "00108484",
+        "target": "rollcontainer",
+        "n_items": 43,
+        "signature": "25341bfceb36e90e87b30d78a26b41f0b569e707b08772a364a28477ec5cf6a9"
+      },
+      {
+        "order_id": "00107982",
+        "target": "rollcontainer",
+        "n_items": 39,
+        "signature": "b1d3d64423f98dba68ee4c7540938e9314d91463d9500c1d11c551fcd8e8f755"
+      },
+      {
+        "order_id": "00104158",
+        "target": "rollcontainer",
+        "n_items": 18,
+        "signature": "d31e0bf34562fdf67f4a1942489905ce169303bc17edbe735a679299c109ef98"
+      }
+    ]
+  },
+  "absolute_independence_established": false,
+  "packing_executed": false,
+  "training_executed": false,
+  "sampling_not_a_representativeness_claim": true
+}
