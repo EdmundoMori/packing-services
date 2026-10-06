@@ -44,11 +44,24 @@ from ablation_train import (  # noqa: E402
 from normalization_features import candidate_matrix, fit_standardizer, transform_rows  # noqa: E402
 from pilot_problems import prepare_imports  # noqa: E402
 
-PROTOCOL = Path("/home/edmundo/packing-services/paper/protocols/10_normalization_ablation.json")
-FREEZE = Path("/home/edmundo/packing-services/paper/results/10_normalization_freeze.json")
-REAL_RUN = Path("/home/edmundo/packing-services/paper/results/11_normalization_ablation")
+_PAPER = Path(__file__).resolve().parents[1]
+PROTOCOL = _PAPER / "protocols" / "10_normalization_ablation.json"
+FREEZE = _PAPER / "results" / "10_normalization_freeze.json"
+REAL_RUN = _PAPER / "results" / "11_normalization_ablation"
 STATS_HASH = "9a8604afe01455e5cd1e075ec32f408d42c464e1256173b0c970a7b15c69e266"
 LIST_HASH = "f2b969649484166fe02052fbd26c09ba25337f898b74e17ff4ba86db2fd4ae69"
+
+
+def _require_published_ablation_run() -> Path:
+    """Integridad histórica: fallo claro si falta el artefacto publicado."""
+    packing = REAL_RUN / "packing"
+    if not REAL_RUN.is_dir() or not packing.is_dir():
+        raise FileNotFoundError(
+            "Artefacto histórico obligatorio ausente: "
+            f"{REAL_RUN} (con subcarpeta packing/). "
+            "No es dependencia opcional; sin él no se verifica la corrida 11."
+        )
+    return REAL_RUN
 
 
 def _synthetic_rows(count: int, prefix: str, statistics: dict | None = None) -> list[dict]:
@@ -111,8 +124,7 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(contract["hyperparameters"]["epochs"], 10)
         self.assertEqual(contract["hyperparameters"]["select_best"], "val_loss")
         self.assertEqual(len(contract["orders"]), 50)
-        self.assertTrue(REAL_RUN.is_dir())
-        self.assertTrue((REAL_RUN / "packing").is_dir())
+        _require_published_ablation_run()
 
 
 class PairingTests(unittest.TestCase):
@@ -463,8 +475,7 @@ class PackingAndAggregateTests(unittest.TestCase):
                     )
         finally:
             ablation_train.fit_paired_seed = original
-        self.assertTrue(REAL_RUN.is_dir())
-        self.assertTrue((REAL_RUN / "packing").is_dir())
+        _require_published_ablation_run()
 
     def test_complete_training_exposes_ten_artifacts(self):
         def fake_fit(*args, **kwargs):
@@ -538,8 +549,7 @@ class PackingAndAggregateTests(unittest.TestCase):
                     assert_training_ready(output, load_contract(PROTOCOL, FREEZE))
         finally:
             ablation_train.fit_paired_seed = original
-        self.assertTrue(REAL_RUN.is_dir())
-        self.assertTrue((REAL_RUN / "packing").is_dir())
+        _require_published_ablation_run()
 
 
 if __name__ == "__main__":

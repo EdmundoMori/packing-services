@@ -155,11 +155,22 @@ class TeacherBehaviorTests(unittest.TestCase):
         self.assertEqual(rows[1]["worker_status"], "crash")
 
 
+_PAPER = Path(__file__).resolve().parents[1]
+_PROTOCOL_14 = _PAPER / "protocols" / "14_teacher_probe.json"
+
+
 class ComparatorTests(unittest.TestCase):
     def test_published_heuristic_results_can_be_reused(self):
-        protocol = json.loads(
-            Path("/home/edmundo/packing-services/paper/protocols/14_teacher_probe.json").read_text(encoding="utf-8")
-        )
+        if not _PROTOCOL_14.is_file():
+            raise FileNotFoundError(
+                f"Protocolo histórico obligatorio ausente: {_PROTOCOL_14}"
+            )
+        if not PACKING_DIR.is_dir():
+            raise FileNotFoundError(
+                "Artefacto histórico obligatorio ausente (packing ablación 11): "
+                f"{PACKING_DIR}"
+            )
+        protocol = json.loads(_PROTOCOL_14.read_text(encoding="utf-8"))
         report = assess_comparator(
             PACKING_DIR,
             development_orders(),

@@ -27,10 +27,22 @@ from ablation_pack import (  # noqa: E402
 from ablation_train import research_checkpoint, save_research_checkpoint  # noqa: E402
 from pilot_execute import invoke_worker  # noqa: E402
 
-PROTOCOL = Path("/home/edmundo/packing-services/paper/protocols/10_normalization_ablation.json")
-FREEZE = Path("/home/edmundo/packing-services/paper/results/10_normalization_freeze.json")
-REAL_RUN = Path("/home/edmundo/packing-services/paper/results/11_normalization_ablation")
+_PAPER = Path(__file__).resolve().parents[1]
+PROTOCOL = _PAPER / "protocols" / "10_normalization_ablation.json"
+FREEZE = _PAPER / "results" / "10_normalization_freeze.json"
+REAL_RUN = _PAPER / "results" / "11_normalization_ablation"
 TRAINING_PACK_HASH = "9d18a8eac4b11d20f0c6e20582c3d3186964fd35772dce6741ebb9727628eac6"
+
+
+def _require_published_ablation_run() -> Path:
+    packing = REAL_RUN / "packing"
+    if not REAL_RUN.is_dir() or not packing.is_dir():
+        raise FileNotFoundError(
+            "Artefacto histórico obligatorio ausente: "
+            f"{REAL_RUN} (con subcarpeta packing/). "
+            "No es dependencia opcional; sin él no se verifica la corrida 11."
+        )
+    return REAL_RUN
 
 
 def _orders() -> dict:
@@ -259,7 +271,7 @@ class PackingContractTests(unittest.TestCase):
             self.assertIn("oriented_lwh_mm", stored["placements"][0])
             self.assertNotIn("input_mismatch", rows[0]["failure_types"])
             self.assertIsNone(rows[0]["physical_stability_verified"])
-            self.assertTrue((REAL_RUN / "packing").is_dir())
+            _require_published_ablation_run()
 
     def test_artifact_hash_arm_and_seed_come_from_content(self):
         statistics, digest = _statistics()
@@ -296,6 +308,7 @@ class PackingContractTests(unittest.TestCase):
             self.assertIn("brazo", str(ctx.exception))
 
     def test_published_model_hashes_match_without_loading(self):
+        _require_published_ablation_run()
         verification = json.loads((REAL_RUN / "training_verification.json").read_text(encoding="utf-8"))
         self.assertEqual(len(verification["models"]), 10)
         for row in verification["models"]:
@@ -309,7 +322,6 @@ class PackingContractTests(unittest.TestCase):
             TRAINING_PACK_HASH,
         )
         self.assertEqual(len(provenance["model_sha256"]), 10)
-        self.assertTrue((REAL_RUN / "packing").is_dir())
 
     def test_exact_550_keys_reject_foreign_duplicate_and_non_finite(self):
         contract = load_contract(PROTOCOL, FREEZE)

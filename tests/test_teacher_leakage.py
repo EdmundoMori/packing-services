@@ -291,12 +291,28 @@ def test_current_train_transitions_are_informative(relative: str):
     assert report["closed_form_rate"] < 0.9
 
 
-def test_legacy_volume_teacher_dump_is_tautological_if_present():
-    path = ML_ROOT / "data/train/transitions_p1s1_volume.pkl"
-    if not path.is_file():
-        pytest.skip("no hay dump diagnóstico del maestro de volumen")
-    payload = _load(path)
-    assert payload["teacher"] == "privileged_volume_ep"
-    report = audit_transitions(payload, label=str(path))
+def test_legacy_volume_teacher_dump_shape_is_tautological(tmp_path):
+    """Misma aserción que el dump histórico ``transitions_p1s1_volume.pkl``, con fixture.
+
+    El ``.pkl`` de diagnóstico no está en git; no es requisito de la suite.
+    Aquí se serializa un payload sintético tautológico y se audita vía pickle.
+    """
+
+    import pickle
+
+    rng = np.random.default_rng(19)
+    payload = {
+        "teacher": "privileged_volume_ep",
+        "feature_version": 1,
+        "transitions": [
+            _transition_from_rule(int(rng.integers(3, 12)), rng) for _ in range(80)
+        ],
+    }
+    path = tmp_path / "transitions_p1s1_volume.pkl"
+    with path.open("wb") as handle:
+        pickle.dump(payload, handle)
+    loaded = _load(path)
+    assert loaded["teacher"] == "privileged_volume_ep"
+    report = audit_transitions(loaded, label=str(path))
     assert report["closed_form_rate"] == pytest.approx(1.0, abs=1e-9)
     assert report["is_tautological"] is True

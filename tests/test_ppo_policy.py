@@ -19,7 +19,6 @@ from packing_services.domain.models import (
 )
 from packing_services.online.learned.production import (
     DEFAULT_MODEL_PATH,
-    PPO_MODEL_PATH,
     apply_policy_preset,
     rl_learned_parameters,
 )
@@ -64,12 +63,12 @@ def test_unknown_policy_is_rejected():
         apply_policy_preset({"policy": "dqn"})
 
 
-def test_rl_preset_without_checkpoint_explains_notebook_05():
-    repo_ppo = REPO / PPO_MODEL_PATH
-    if repo_ppo.is_file():
-        pytest.skip("el checkpoint PPO ya existe")
+def test_rl_preset_without_checkpoint_explains_notebook_05(tmp_path):
+    """Error de preset cuando el model_path no existe (unitario; sin borrar artefactos)."""
+    missing = tmp_path / "no_such_ppo_checkpoint.pt"
+    assert not missing.exists()
     with pytest.raises(InvalidInputError, match="policy=rl requiere"):
-        apply_policy_preset({"policy": "rl"})
+        apply_policy_preset({"policy": "rl", "model_path": str(missing)})
 
 
 def test_rl_route_is_registered():
@@ -79,9 +78,10 @@ def test_rl_route_is_registered():
     assert rl_learned_parameters()["policy"] == "rl"
 
 
-def test_rl_execute_without_checkpoint_is_400():
-    if (REPO / PPO_MODEL_PATH).is_file():
-        pytest.skip("el checkpoint PPO ya existe")
+def test_rl_execute_without_checkpoint_is_400(tmp_path):
+    """La ruta HTTP rechaza policy=rl si el checkpoint indicado no existe."""
+    missing = tmp_path / "no_such_ppo_checkpoint.pt"
+    assert not missing.exists()
     response = client.post(
         "/api/v1/online/rl/execute",
         json={
@@ -93,11 +93,11 @@ def test_rl_execute_without_checkpoint_is_400():
             "items": [
                 {"id": "I1", "length": 10, "width": 10, "height": 10, "weight": 1}
             ],
-            "parameters": {"policy": "rl"},
+            "parameters": {"policy": "rl", "model_path": str(missing)},
         },
     )
     assert response.status_code == 422
-    assert "05_ppo_finetune" in response.text or "PPO" in response.text
+    assert "05_ppo_finetune" in response.text or "PPO" in response.text or "policy=rl requiere" in response.text
 
 
 def test_ppo_rollout_on_tiny_instance(tmp_path):
