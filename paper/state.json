@@ -704,5 +704,18 @@
     "informe_cierre_rl_online": "preserved_with_interpretation_notice",
     "decision": "correccion_documental_lista_para_revision",
     "note": "Entrada de mantenimiento independiente; no sustituye decisions/phases/hashes de campañas cerradas."
+  },
+  "documentation_maintenance_C02": {
+    "phase": "C02_feasibility_semantics_correction",
+    "executed_at_local": "2026-10-06",
+    "head_at_edit": "49c10846467d80607214e5f053a72c1851365369",
+    "branch": "research/paper-online-packing",
+    "review": "paper/reviews/C02_feasibility_semantics_correction.md",
+    "module": "online_policy_ml/src_ml/bedbpp_eval.py",
+    "schema_version": 2,
+    "alters_historical_09_10_json": false,
+    "alters_packing_plan_actions": false,
+    "decision": "correccion_factibilidad_lista_para_revision",
+    "note": "Entrada de mantenimiento independiente; no sustituye decisiones históricas."
   }
 }
