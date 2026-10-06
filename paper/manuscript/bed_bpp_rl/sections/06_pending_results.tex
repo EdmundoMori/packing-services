@@ -1,19 +1,31 @@
 \section{Results and pending work}
 
-\paragraph{Verified so far (not RL performance).}
-Synthetic integrity (R02/R02A) and artifact-contrast adversarial checks
-(R03-preparation) are complete. The real preflight protocol is designed and
-validated in static-only mode without packing industrial orders. These are
-contractual and operational checks of the BED-BPP-RL resource.
+\paragraph{Verified resource operation.}
+The industrial preflight comprises four BED-BPP orders, two per target,
+and four behaviour policies: three fixed rules and uniform rule selection.
+The recovery completed 16 episodes and exported 648 transitions.
+All episodes ended naturally; none was truncated.
+Eight episodes placed the full sequence, whereas eight stopped when
+the next item had no legal candidate.
 
-\paragraph{Not reported / pending.}
-\begin{itemize}
-  \item Industrial BED-BPP experience tables and measured preflight outcomes
-    (pending authorised execution of the published protocol).
-  \item Minimal CPU PPO demonstration on \emph{new} experiences with explicit
-    train/evaluation separation (pending after preflight review; not opened
-    now; not replaceable by exporter tests or heuristic scores).
-  \item Claims of effective learning, policy superiority, demonstrated novelty,
-    or editorial acceptance---none are made.
-\end{itemize}
-Historical campaign figures are not reused as results of this resource.
+The persisted episodes passed input, placement, geometry and return
+checks. A copy of the corpus was verified from a different directory.
+The recovery wall time was approximately 29.30 seconds.
+The earlier failed attempt is preserved separately and contributes
+approximately 3.56 seconds to the operational accounting.
+It produced no confirmed packing episodes.
+
+\paragraph{Scope of these results.}
+These measurements demonstrate operation on four orders, not broad
+coverage, tail latency, physical stability or effective RL learning.
+Equal final volume does not imply identical plans.
+Recorded identical RSS peaks are not interpreted as incremental
+memory measurements for individual episodes.
+
+\paragraph{Pending work.}
+The initial corpus and a minimal CPU PPO demonstration remain pending.
+The proposed design separates training and evaluation orders and
+requires new on-policy experiences for PPO.
+No claims of policy superiority, demonstrated novelty or editorial
+acceptance are made.
+Historical campaign results are not reused as results of this resource.

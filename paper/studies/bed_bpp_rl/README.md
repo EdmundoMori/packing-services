@@ -33,5 +33,7 @@ python3 paper/studies/bed_bpp_rl/tools/run_preflight_real.py --static-only \
 
 ## Siguiente paso (aún no ejecutado aquí)
 
-Ejecutar y revisar el preflight real con el protocolo publicado; después,
-demostración PPO mínima — no antes.
+Preflight real cerrado y verificado: 16 episodios, 648 transiciones.
+Ver `reviews/R03_real_preflight_closure.md`.
+Siguiente: revisar `corpus_and_ppo_design_draft.md` e implementar los
+ejecutores antes de generar el corpus o entrenar.

@@ -832,7 +832,10 @@
     "opens_closed_test": false,
     "does_not_reopen_closed_campaigns": true,
     "decision": "preflight_real_disenado_y_contraste_de_artefactos_verificado",
-    "study_axes": ["BED-BPP", "reinforcement_learning"],
+    "study_axes": [
+      "BED-BPP",
+      "reinforcement_learning"
+    ],
     "preflight_role": "operational_validation_not_final_article_result",
     "ppo_demo_status": "pending_after_real_preflight_review",
     "ppo_demo_requirements": [
@@ -843,5 +846,15 @@
     ],
     "training_opened": false,
     "note": "Ejes BED-BPP+RL explícitos; preflight operativo pendiente de ejecución; PPO mínima pendiente; sin claims de aprendizaje eficaz/superioridad/novedad/aceptación editorial."
+  },
+  "bed_bpp_rl_preflight_documentation": {
+    "reference_commit": "1dd08dfc715395bf2c4849b78d93b645e80e69f5",
+    "preflight_verified": true,
+    "episodes": 16,
+    "transitions": 648,
+    "portable_copy_verified": true,
+    "corpus_design_status": "draft_not_frozen",
+    "ppo_training_executed": false,
+    "new_experiments_executed_in_this_step": false
   }
 }
