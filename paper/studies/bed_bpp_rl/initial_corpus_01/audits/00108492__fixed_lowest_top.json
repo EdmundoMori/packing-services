@@ -1,0 +1,228 @@
+{
+  "artifact_properties": {
+    "aabb_containment": {
+      "checked": true,
+      "ok": true
+    },
+    "aabb_non_overlap": {
+      "checked": true,
+      "ok": true
+    },
+    "accumulated_volume_return": {
+      "bin_volume_mm3": 1120000000.0,
+      "checked": true,
+      "ok": true,
+      "placed_volume_mm3": 263866000.0,
+      "reward_sum": 0.23559464285714288,
+      "u_geom": 0.23559464285714285
+    },
+    "input_dims_finite_positive": {
+      "checked": true,
+      "ok": true
+    },
+    "input_ids_unique": {
+      "checked": true,
+      "n": 34,
+      "ok": true
+    },
+    "orientations": {
+      "checked": true,
+      "details": [
+        {
+          "checked": true,
+          "index": 0,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 1,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 2,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 3,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 4,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 5,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 6,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 7,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 8,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 9,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 10,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        }
+      ],
+      "ok": true
+    },
+    "per_step_reward_vs_nominal_volume": {
+      "checked": true,
+      "details": [
+        {
+          "checked": true,
+          "expected": 0.02285625,
+          "index": 0,
+          "ok": true,
+          "reward": 0.02285625
+        },
+        {
+          "checked": true,
+          "expected": 0.02538482142857143,
+          "index": 1,
+          "ok": true,
+          "reward": 0.02538482142857143
+        },
+        {
+          "checked": true,
+          "expected": 0.02538482142857143,
+          "index": 2,
+          "ok": true,
+          "reward": 0.02538482142857143
+        },
+        {
+          "checked": true,
+          "expected": 0.02538482142857143,
+          "index": 3,
+          "ok": true,
+          "reward": 0.02538482142857143
+        },
+        {
+          "checked": true,
+          "expected": 0.025714285714285714,
+          "index": 4,
+          "ok": true,
+          "reward": 0.025714285714285714
+        },
+        {
+          "checked": true,
+          "expected": 0.024142857142857143,
+          "index": 5,
+          "ok": true,
+          "reward": 0.024142857142857143
+        },
+        {
+          "checked": true,
+          "expected": 0.017839285714285714,
+          "index": 6,
+          "ok": true,
+          "reward": 0.017839285714285714
+        },
+        {
+          "checked": true,
+          "expected": 0.0165,
+          "index": 7,
+          "ok": true,
+          "reward": 0.0165
+        },
+        {
+          "checked": true,
+          "expected": 0.0165,
+          "index": 8,
+          "ok": true,
+          "reward": 0.0165
+        },
+        {
+          "checked": true,
+          "expected": 0.01794375,
+          "index": 9,
+          "ok": true,
+          "reward": 0.01794375
+        },
+        {
+          "checked": true,
+          "expected": 0.01794375,
+          "index": 10,
+          "ok": true,
+          "reward": 0.01794375
+        }
+      ],
+      "ok": true
+    },
+    "physical_stability": {
+      "checked": true,
+      "note": "AABB no implica estabilidad física",
+      "ok": null,
+      "value": null
+    },
+    "placement_sequence_prefix": {
+      "checked": true,
+      "n_placed": 11,
+      "ok": true
+    },
+    "transition_placement_correspondence": {
+      "checked": true,
+      "ok": true
+    },
+    "unpacked_closure": {
+      "checked": true,
+      "end_reason": "no_legal_candidate_after_placement",
+      "n_unpacked": 23,
+      "ok": true
+    }
+  },
+  "complete_contrast": true,
+  "complete_verification": true,
+  "containment_valid": true,
+  "continuity_ok": true,
+  "end_reason": "no_legal_candidate_after_placement",
+  "masks_ok": true,
+  "n_transitions": 11,
+  "non_overlap_valid": true,
+  "observed_return_kind": "complete_u_geom",
+  "ok": true,
+  "physical_stability_verified": null,
+  "structural_ok": true,
+  "terminated": true,
+  "truncated": false,
+  "unchecked_properties": [],
+  "volume_audit": {
+    "bin_volume_mm3": 1120000000.0,
+    "match": true,
+    "method": "per_step_nominal_volume_and_prefix_identity_contrast",
+    "placed_volume_mm3": 263866000.0,
+    "reward_sum_stored": 0.23559464285714288,
+    "u_geom_from_artifacts": 0.23559464285714285
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "automatic_restart": false,
+  "command": [
+    "/home/edmundo/packing-services/.venv/bin/python",
+    "-u",
+    "/home/edmundo/packing-services/paper/studies/bed_bpp_rl/tools/run_resource_corpus_v1.py",
+    "--worker",
+    "--orders",
+    "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+    "--protocol",
+    "/home/edmundo/packing-services/paper/studies/bed_bpp_rl/resource_corpus_protocol_frozen_v1.json",
+    "--out",
+    "/home/edmundo/packing-services/paper/studies/bed_bpp_rl/initial_corpus_01"
+  ],
+  "pid": 9021,
+  "timeout_seconds": 600
+}

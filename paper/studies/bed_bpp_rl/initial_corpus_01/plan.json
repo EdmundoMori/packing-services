@@ -1,0 +1,396 @@
+{
+  "adapter_sha256": "2cea60935b9fc8a6d308b2d8f770517c75ceca6ce26e7e371c200924f35d1da1",
+  "cases": [
+    {
+      "episode_id": "00105039__fixed_greedy_best_fit",
+      "order_id": "00105039",
+      "policy": "fixed_greedy_best_fit",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00105039__fixed_lowest_top",
+      "order_id": "00105039",
+      "policy": "fixed_lowest_top",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00105039__fixed_least_height_increase",
+      "order_id": "00105039",
+      "policy": "fixed_least_height_increase",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00105039__uniform_rules",
+      "order_id": "00105039",
+      "policy": "uniform_rules",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00106121__fixed_greedy_best_fit",
+      "order_id": "00106121",
+      "policy": "fixed_greedy_best_fit",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00106121__fixed_lowest_top",
+      "order_id": "00106121",
+      "policy": "fixed_lowest_top",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00106121__fixed_least_height_increase",
+      "order_id": "00106121",
+      "policy": "fixed_least_height_increase",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00106121__uniform_rules",
+      "order_id": "00106121",
+      "policy": "uniform_rules",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00109001__fixed_greedy_best_fit",
+      "order_id": "00109001",
+      "policy": "fixed_greedy_best_fit",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00109001__fixed_lowest_top",
+      "order_id": "00109001",
+      "policy": "fixed_lowest_top",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00109001__fixed_least_height_increase",
+      "order_id": "00109001",
+      "policy": "fixed_least_height_increase",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00109001__uniform_rules",
+      "order_id": "00109001",
+      "policy": "uniform_rules",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00106982__fixed_greedy_best_fit",
+      "order_id": "00106982",
+      "policy": "fixed_greedy_best_fit",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00106982__fixed_lowest_top",
+      "order_id": "00106982",
+      "policy": "fixed_lowest_top",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00106982__fixed_least_height_increase",
+      "order_id": "00106982",
+      "policy": "fixed_least_height_increase",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00106982__uniform_rules",
+      "order_id": "00106982",
+      "policy": "uniform_rules",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00105674__fixed_greedy_best_fit",
+      "order_id": "00105674",
+      "policy": "fixed_greedy_best_fit",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00105674__fixed_lowest_top",
+      "order_id": "00105674",
+      "policy": "fixed_lowest_top",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00105674__fixed_least_height_increase",
+      "order_id": "00105674",
+      "policy": "fixed_least_height_increase",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00105674__uniform_rules",
+      "order_id": "00105674",
+      "policy": "uniform_rules",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00104410__fixed_greedy_best_fit",
+      "order_id": "00104410",
+      "policy": "fixed_greedy_best_fit",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00104410__fixed_lowest_top",
+      "order_id": "00104410",
+      "policy": "fixed_lowest_top",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00104410__fixed_least_height_increase",
+      "order_id": "00104410",
+      "policy": "fixed_least_height_increase",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00104410__uniform_rules",
+      "order_id": "00104410",
+      "policy": "uniform_rules",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00109956__fixed_greedy_best_fit",
+      "order_id": "00109956",
+      "policy": "fixed_greedy_best_fit",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00109956__fixed_lowest_top",
+      "order_id": "00109956",
+      "policy": "fixed_lowest_top",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00109956__fixed_least_height_increase",
+      "order_id": "00109956",
+      "policy": "fixed_least_height_increase",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00109956__uniform_rules",
+      "order_id": "00109956",
+      "policy": "uniform_rules",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00101984__fixed_greedy_best_fit",
+      "order_id": "00101984",
+      "policy": "fixed_greedy_best_fit",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00101984__fixed_lowest_top",
+      "order_id": "00101984",
+      "policy": "fixed_lowest_top",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00101984__fixed_least_height_increase",
+      "order_id": "00101984",
+      "policy": "fixed_least_height_increase",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00101984__uniform_rules",
+      "order_id": "00101984",
+      "policy": "uniform_rules",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "00108492__fixed_greedy_best_fit",
+      "order_id": "00108492",
+      "policy": "fixed_greedy_best_fit",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00108492__fixed_lowest_top",
+      "order_id": "00108492",
+      "policy": "fixed_lowest_top",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00108492__fixed_least_height_increase",
+      "order_id": "00108492",
+      "policy": "fixed_least_height_increase",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00108492__uniform_rules",
+      "order_id": "00108492",
+      "policy": "uniform_rules",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00101927__fixed_greedy_best_fit",
+      "order_id": "00101927",
+      "policy": "fixed_greedy_best_fit",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00101927__fixed_lowest_top",
+      "order_id": "00101927",
+      "policy": "fixed_lowest_top",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00101927__fixed_least_height_increase",
+      "order_id": "00101927",
+      "policy": "fixed_least_height_increase",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00101927__uniform_rules",
+      "order_id": "00101927",
+      "policy": "uniform_rules",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00108103__fixed_greedy_best_fit",
+      "order_id": "00108103",
+      "policy": "fixed_greedy_best_fit",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00108103__fixed_lowest_top",
+      "order_id": "00108103",
+      "policy": "fixed_lowest_top",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00108103__fixed_least_height_increase",
+      "order_id": "00108103",
+      "policy": "fixed_least_height_increase",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00108103__uniform_rules",
+      "order_id": "00108103",
+      "policy": "uniform_rules",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00103951__fixed_greedy_best_fit",
+      "order_id": "00103951",
+      "policy": "fixed_greedy_best_fit",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00103951__fixed_lowest_top",
+      "order_id": "00103951",
+      "policy": "fixed_lowest_top",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00103951__fixed_least_height_increase",
+      "order_id": "00103951",
+      "policy": "fixed_least_height_increase",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00103951__uniform_rules",
+      "order_id": "00103951",
+      "policy": "uniform_rules",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00105909__fixed_greedy_best_fit",
+      "order_id": "00105909",
+      "policy": "fixed_greedy_best_fit",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00105909__fixed_lowest_top",
+      "order_id": "00105909",
+      "policy": "fixed_lowest_top",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00105909__fixed_least_height_increase",
+      "order_id": "00105909",
+      "policy": "fixed_least_height_increase",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00105909__uniform_rules",
+      "order_id": "00105909",
+      "policy": "uniform_rules",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00104106__fixed_greedy_best_fit",
+      "order_id": "00104106",
+      "policy": "fixed_greedy_best_fit",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00104106__fixed_lowest_top",
+      "order_id": "00104106",
+      "policy": "fixed_lowest_top",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00104106__fixed_least_height_increase",
+      "order_id": "00104106",
+      "policy": "fixed_least_height_increase",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00104106__uniform_rules",
+      "order_id": "00104106",
+      "policy": "uniform_rules",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00102505__fixed_greedy_best_fit",
+      "order_id": "00102505",
+      "policy": "fixed_greedy_best_fit",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00102505__fixed_lowest_top",
+      "order_id": "00102505",
+      "policy": "fixed_lowest_top",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00102505__fixed_least_height_increase",
+      "order_id": "00102505",
+      "policy": "fixed_least_height_increase",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00102505__uniform_rules",
+      "order_id": "00102505",
+      "policy": "uniform_rules",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00105187__fixed_greedy_best_fit",
+      "order_id": "00105187",
+      "policy": "fixed_greedy_best_fit",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00105187__fixed_lowest_top",
+      "order_id": "00105187",
+      "policy": "fixed_lowest_top",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00105187__fixed_least_height_increase",
+      "order_id": "00105187",
+      "policy": "fixed_least_height_increase",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "00105187__uniform_rules",
+      "order_id": "00105187",
+      "policy": "uniform_rules",
+      "target": "rollcontainer"
+    }
+  ],
+  "industrial_execution_authorized": true,
+  "mode": "industrial_corpus",
+  "protocol_sha256": "bcbe18d24025431fb6547349ebce184e7f9806fbb2210e7695fdeb1913a57c04",
+  "timeout_kind": "cooperative",
+  "uniform_base_seed": 20261006,
+  "uniform_seed_derivation": "sha256(bed-bpp-rl-corpus-v1|base_seed|order_id), first 8 bytes big-endian",
+  "wall_seconds": 600
+}
