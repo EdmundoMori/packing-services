@@ -1,0 +1,48 @@
+{
+  "confirmed_files": [
+    {
+      "relpath": "syn-euro__fixed_greedy_best_fit.json",
+      "sha256": "909dee58ea3d93d647c3f24135a02aaf810063397d504f160d5b73cfb6e0b3fc",
+      "size_bytes": 8412
+    },
+    {
+      "relpath": "syn-euro__fixed_lowest_top.json",
+      "sha256": "3667a06bf7467005573fbd55b97f4d8c977699332dd29b42f2052c758d72b163",
+      "size_bytes": 8382
+    },
+    {
+      "relpath": "syn-euro__fixed_least_height_increase.json",
+      "sha256": "efd53e73662711da925666339b8a02b1abafa2e3de37320ade4e9f91413e3d29",
+      "size_bytes": 8448
+    },
+    {
+      "relpath": "syn-euro__uniform_rules.json",
+      "sha256": "ed909890ac04f57dfdc4f9b69abd4c4d2ca3afe478f320987a44697d47dda66b",
+      "size_bytes": 8409
+    },
+    {
+      "relpath": "syn-roll__fixed_greedy_best_fit.json",
+      "sha256": "18faf70e267c189e5a70fa253906c3d6cc488c4f6da2e2e30161d0ac4e306d19",
+      "size_bytes": 8521
+    },
+    {
+      "relpath": "syn-roll__fixed_lowest_top.json",
+      "sha256": "e01eedaca382f1159c5d72dad532beab2f9a23b001b8b071f268076dd4f56807",
+      "size_bytes": 8491
+    },
+    {
+      "relpath": "syn-roll__fixed_least_height_increase.json",
+      "sha256": "8c6d2dd4534aa13f67842bc75929ff7c8b06ca895885334d933acc208f5b725d",
+      "size_bytes": 8557
+    },
+    {
+      "relpath": "syn-roll__uniform_rules.json",
+      "sha256": "fe815d98c6bc4d67753c43394c150f9f16c82e19974f26cc3cfa864989dfd14e",
+      "size_bytes": 8521
+    }
+  ],
+  "durability_note": "fsync+atomic replace del episodio y del manifiesto; no durabilidad absoluta ante crash de host; solo archivos listados y con SHA256 coincidente son confirmados",
+  "kind": "bed_bpp_rl_corpus_manifest_r02a",
+  "schema_version": 2,
+  "writer_model": "single_writer_exclusive_lock"
+}

@@ -1,0 +1,59 @@
+{
+  "adapter_sha256": "a98f614d3663cd79e7472376d05d4218974e481ce3b9d0fc3de680dee9335c0b",
+  "cases": [
+    {
+      "episode_id": "syn-euro__fixed_greedy_best_fit",
+      "order_id": "syn-euro",
+      "policy": "fixed_greedy_best_fit",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "syn-euro__fixed_lowest_top",
+      "order_id": "syn-euro",
+      "policy": "fixed_lowest_top",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "syn-euro__fixed_least_height_increase",
+      "order_id": "syn-euro",
+      "policy": "fixed_least_height_increase",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "syn-euro__uniform_rules",
+      "order_id": "syn-euro",
+      "policy": "uniform_rules",
+      "target": "euro-pallet"
+    },
+    {
+      "episode_id": "syn-roll__fixed_greedy_best_fit",
+      "order_id": "syn-roll",
+      "policy": "fixed_greedy_best_fit",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "syn-roll__fixed_lowest_top",
+      "order_id": "syn-roll",
+      "policy": "fixed_lowest_top",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "syn-roll__fixed_least_height_increase",
+      "order_id": "syn-roll",
+      "policy": "fixed_least_height_increase",
+      "target": "rollcontainer"
+    },
+    {
+      "episode_id": "syn-roll__uniform_rules",
+      "order_id": "syn-roll",
+      "policy": "uniform_rules",
+      "target": "rollcontainer"
+    }
+  ],
+  "industrial_execution_authorized": false,
+  "mode": "synthetic_only",
+  "timeout_kind": "cooperative",
+  "uniform_base_seed": 20261006,
+  "uniform_seed_derivation": "sha256(bed-bpp-rl-corpus-v1|base_seed|order_id), first 8 bytes big-endian",
+  "wall_seconds": 30
+}
