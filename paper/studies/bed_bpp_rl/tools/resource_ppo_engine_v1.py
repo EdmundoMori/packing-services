@@ -1,0 +1,237 @@
+"""Synthetic-only campaign integration. Never reads industrial BED-BPP orders.
+
+Cooperative deadline, not a hard timeout. An interrupted update is unconfirmed;
+no automatic resume. This is not the industrial campaign executor.
+"""
+import argparse
+import copy
+import shutil
+import resource
+from dataclasses import asdict
+import hashlib
+import importlib.util
+import json
+import os
+from pathlib import Path
+import tempfile
+import time
+import torch
+
+# Explicit local environment: historical environment modules share the name.
+HERE = Path(__file__).resolve().parent
+spec = importlib.util.spec_from_file_location('environment', HERE/'environment.py')
+import sys
+module = importlib.util.module_from_spec(spec)
+sys.modules['environment'] = module
+spec.loader.exec_module(module)
+from ppo_core_v1 import ActorCritic, PPOConfig, make_optimizer, update, act
+from ppo_rollout_v1 import EpisodeCollector, batch_from_record, verify_record, save_record, model_digest
+from synthetic_problems import scenario_catalog
+from ppo_episode_audit_v1 import verify_episode_audits
+from ppo_training_episode_v1 import TrainingAuditedEnv
+
+
+def atomic_torch(path, payload):
+    path = Path(path)
+    if path.exists(): raise FileExistsError(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp = tempfile.mkstemp(prefix='.checkpoint_', dir=path.parent)
+    try:
+        with os.fdopen(fd, 'wb') as stream:
+            torch.save(payload, stream); stream.flush(); os.fsync(stream.fileno())
+        os.link(tmp, path)
+    finally:
+        os.unlink(tmp)
+
+
+def write_json(path, payload):
+    save_record(path, payload)
+
+
+def checkpoint(model, optimizer, generators, *, decisions, updates):
+    return dict(model=model.state_dict(), optimizer=optimizer.state_dict(),
+        rng={key: value.get_state() for key, value in generators.items()},
+        torch_rng=torch.get_rng_state(), decisions=decisions, updates=updates)
+
+
+def run_campaign(output, *, decisions=256, rollout_size=128, seed=101,
+                 wall_seconds=60.0, fail_before_update=None, train_rows=None, problem_factory=None, mode="synthetic", protocol_path=None, orders_path=None):
+    for value in (decisions, rollout_size, seed):
+        if type(value) is not int: raise ValueError('Strict integers required')
+    if decisions <= 0 or rollout_size <= 0 or decisions % rollout_size:
+        raise ValueError('Positive divisible decision budget required')
+    if wall_seconds <= 0: raise ValueError('Positive wall required')
+    if mode not in ('synthetic','industrial'):raise ValueError('Unknown mode')
+    if mode=='industrial':
+        if protocol_path is None or orders_path is None:raise ValueError('Frozen training protocol required')
+        from resource_training_gate_v1 import validate_phase
+        contract,expected_rows=validate_phase(protocol_path,orders_path)
+        if seed not in contract['seeds'] or decisions!=2048 or rollout_size!=128 or wall_seconds!=600:raise ValueError('Training budget/seed mismatch')
+        if train_rows!=expected_rows:raise ValueError('Training sample mismatch')
+        from compact_study import build_compact_problem
+        orders=json.loads(Path(orders_path).read_text())
+        def problem_factory(row):return build_compact_problem(orders,row['order_id'])
+    if train_rows is None:
+        train_rows=[{'order_id':'syn-euro','target':'euro-pallet'}, {'order_id':'syn-roll','target':'rollcontainer'}]
+    if not train_rows or len({r['order_id'] for r in train_rows})!=len(train_rows):raise ValueError('Invalid training rows')
+    if mode=='synthetic' and any(not r['order_id'].startswith('syn-') for r in train_rows):raise ValueError('Industrial IDs blocked in synthetic mode')
+    if problem_factory is None:
+        from synthetic_problems import make_problem
+        def problem_factory(row):
+            return make_problem(row['order_id'], [('a',200,180,120),('b',150,140,100),('c',80,80,80)],target=row['target'])
+    output = Path(output)
+    output.mkdir(parents=True, exist_ok=False)
+    start = time.perf_counter(); deadline = start+wall_seconds
+    config = PPOConfig()
+    torch.manual_seed(seed)
+    model = ActorCritic(config); initial_model=copy.deepcopy(model); probes={}
+    optimizer = make_optimizer(model, config)
+    generators = {name: torch.Generator().manual_seed(seed+offset)
+                  for name, offset in [('actions', 1000), ('minibatches', 2000), ('order', 3000)]}
+    write_json(output/'plan.json', dict(mode='synthetic_only' if mode=='synthetic' else 'industrial_ppo', seed=seed,
+        decisions=decisions, rollout_size=rollout_size, wall_seconds=wall_seconds,
+        ppo_config=asdict(config), deadline_kind='cooperative', train_rows=train_rows,
+        order_rule='complete seeded permutations; no return-based prioritization', source_sha256={
+            name: hashlib.sha256((HERE/name).read_bytes()).hexdigest()
+            for name in ('ppo_core_v1.py','ppo_rollout_v1.py','resource_ppo_engine_v1.py','ppo_training_episode_v1.py','ppo_episode_audit_v1.py','environment.py')}))
+    atomic_torch(output/'initial.pt', checkpoint(model, optimizer, generators, decisions=0, updates=0))
+    env = TrainingAuditedEnv(output/'episodes', seed=seed); collector = None
+    order_indices=[]; order_position=0; cycle=0; empty_episodes=0; order_trace=[]
+    collected = 0; trained = 0; updates = 0; episode = 0; boundary_continuations = 0
+    try:
+        while trained < decisions:
+            if time.perf_counter() >= deadline: raise TimeoutError('Cooperative deadline')
+            folder = output/f'update_{updates+1:03d}'; folder.mkdir()
+            atomic_torch(folder/'behavior.pt', checkpoint(model, optimizer, generators, decisions=collected, updates=updates))
+            parts = []; count = 0; segment = 0
+            while count < rollout_size:
+                if time.perf_counter() >= deadline: raise TimeoutError('Cooperative deadline')
+                if collector is None or collector.closed:
+                    episode += 1
+                    if order_position>=len(order_indices):
+                        order_indices=torch.randperm(len(train_rows),generator=generators['order']).tolist()
+                        order_position=0;cycle+=1
+                    row=train_rows[order_indices[order_position]];order_position+=1
+                    order_trace.append(dict(episode_number=episode,cycle=cycle,order_id=row['order_id']))
+                    problem = problem_factory(row)
+                    obs, info = env.reset_order(problem, order_id=row['order_id'],target_id=row['target'],decision_budget=decisions-collected)
+                    collector = EpisodeCollector(env, obs, info, episode_id=env.recorder.episode_id)
+                elif count == 0 and updates:
+                    boundary_continuations += 1
+                record = collector.collect(model, rollout_size-count, generator=generators['actions'])
+                if not record['rows']:
+                    empty_episodes+=1
+                    if empty_episodes>=len(train_rows):raise ValueError('Full sequence of empty training episodes')
+                    continue
+                empty_episodes=0
+                if record['rows'][0]['step_index']==0 and row['order_id'] not in probes:
+                    first=record['rows'][0]
+                    probes[row['order_id']]={'observation':first['observation'],'mask':first['action_mask']}
+                verify_record(record, model)
+                path = folder/f'segment_{segment:03d}.json'
+                write_json(path, record)
+                restored = json.loads(path.read_text())
+                verify_record(restored, model)
+                env.persist_prefix()
+                parts.append(batch_from_record(restored))
+                n = len(record['rows']); count += n; collected += n; segment += 1
+            batch = {key: torch.cat([part[key] for part in parts]) for key in parts[0]}
+            atomic_torch(folder/'batch.pt', batch)
+            # Re-read the behavior checkpoint and reproduce records independently.
+            saved = torch.load(folder/'behavior.pt', map_location='cpu', weights_only=True)
+            audit_model = ActorCritic(config); audit_model.load_state_dict(saved['model'])
+            for path in sorted(folder.glob('segment_*.json')):
+                verify_record(json.loads(path.read_text()), audit_model)
+            write_json(folder/'preupdate_verification.json', dict(verified=True, rows=count,
+                behavior_model_sha256=model_digest(audit_model)))
+            if fail_before_update == updates+1:
+                raise RuntimeError('Synthetic injected failure before optimizer')
+            if time.perf_counter() >= deadline: raise TimeoutError('Cooperative deadline')
+            report = update(model, optimizer, batch, config=config, generator=generators['minibatches'])
+            if time.perf_counter() >= deadline:
+                raise TimeoutError('Update finished after deadline: not confirmed')
+            atomic_torch(folder/'after.pt', checkpoint(model, optimizer, generators,
+                decisions=collected, updates=updates+1))
+            write_json(folder/'optimizer_report.json', report)
+            # Commit marker written last. Artifacts without it are unconfirmed.
+            files = [p for p in sorted(folder.iterdir()) if p.is_file()]
+            write_json(folder/'confirmed.json', dict(update=updates+1, rows=count,
+                files=[dict(relpath=p.relative_to(output).as_posix(), size_bytes=p.stat().st_size,
+                    sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in files]))
+            trained += count; updates += 1
+        write_json(output/'order_trace.json', order_trace)
+        probe_report=[]
+        with torch.no_grad():
+            for order_id,probe in sorted(probes.items()):
+                observation=torch.tensor([probe['observation']],dtype=torch.float32)
+                mask=torch.tensor([probe['mask']],dtype=torch.bool)
+                _,_,_,before_probs=act(initial_model,observation,mask,deterministic=True)
+                _,_,_,after_probs=act(model,observation,mask,deterministic=True)
+                probe_report.append(dict(order_id=order_id,**probe,initial_probabilities=before_probs[0].tolist(),
+                    final_probabilities=after_probs[0].tolist(),initial_argmax=int(before_probs.argmax()),final_argmax=int(after_probs.argmax())))
+        write_json(output/'policy_probes.json',dict(scope='visited train reset observations',probes=probe_report,demonstrates_efficacy=False))
+        last=output/f'update_{updates:03d}'/'after.pt'
+        shutil.copyfile(last,output/'final.pt')
+        write_json(output/'final_checkpoint.json',dict(source=last.relative_to(output).as_posix(),
+            sha256=hashlib.sha256(last.read_bytes()).hexdigest(),selection='final_confirmed_update_only'))
+        write_json(output/'resource_usage.json',dict(ru_maxrss_kb=int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss),
+            RSS_scope='whole worker process high-water mark; Linux/WSL KB; not incremental'))
+        summary = dict(status='completed', mode='synthetic_only' if mode=='synthetic' else 'industrial_ppo', collected_decisions=collected,
+            trained_decisions=trained, confirmed_updates=updates, episodes_started=episode,
+            open_episode=not collector.closed, boundary_continuations=boundary_continuations,
+            optimizer_steps=sum(json.loads(p.read_text())['optimizer_steps']
+                for p in output.glob('update_*/optimizer_report.json')),
+            wall_seconds=time.perf_counter()-start, physical_stability_verified=None,
+            geometry_audit_performed=True, industrial_orders_used=(mode=='industrial'),
+            geometry_verification=verify_episode_audits(output/'episodes'))
+        write_json(output/'summary.json', summary)
+        return summary
+    except Exception as exc:
+        write_json(output/'failure.json', dict(status='incomplete', error=repr(exc),
+            collected_decisions=collected, trained_decisions=trained,
+            confirmed_updates=updates, wall_seconds=time.perf_counter()-start,
+            automatic_resume=False))
+        raise
+    finally:
+        env.close()
+
+
+def verify_saved(output):
+    output = Path(output)
+    plan = json.loads((output/'plan.json').read_text())
+    config = PPOConfig(**plan['ppo_config']); rows = 0; updates = 0
+    for marker in sorted(output.glob('update_*/confirmed.json')):
+        confirmation = json.loads(marker.read_text())
+        for item in confirmation['files']:
+            path = output/item['relpath']
+            if path.stat().st_size != item['size_bytes'] or hashlib.sha256(path.read_bytes()).hexdigest() != item['sha256']:
+                raise ValueError('Artifact hash mismatch')
+        folder = marker.parent
+        saved = torch.load(folder/'behavior.pt', map_location='cpu', weights_only=True)
+        model = ActorCritic(config); model.load_state_dict(saved['model'])
+        parts = []
+        for path in sorted(folder.glob('segment_*.json')):
+            record = json.loads(path.read_text()); verify_record(record, model)
+            parts.append(batch_from_record(record))
+        batch = torch.load(folder/'batch.pt', map_location='cpu', weights_only=True)
+        for key in batch:
+            if not torch.equal(batch[key], torch.cat([part[key] for part in parts])):
+                raise ValueError('Persisted batch mismatch')
+        rows += confirmation['rows']; updates += 1
+    return dict(confirmed_updates=updates, verified_training_rows=rows,
+        optimizer_replay_performed=False, geometry_audit_performed=True,
+        geometry_verification=verify_episode_audits(output/'episodes'))
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument('--synthetic', action='store_true')
+    group.add_argument('--verify-only', action='store_true')
+    parser.add_argument('--out', type=Path, required=True)
+    args = parser.parse_args()
+    torch.set_num_threads(1); torch.set_num_interop_threads(1)
+    result = verify_saved(args.out) if args.verify_only else run_campaign(args.out)
+    print(json.dumps(result, indent=2))
+
+if __name__ == '__main__': main()
