@@ -1,0 +1,126 @@
+{
+  "deadline_kind": "cooperative",
+  "decisions": 2048,
+  "mode": "industrial_ppo",
+  "order_rule": "complete seeded permutations; no return-based prioritization",
+  "ppo_config": {
+    "clip_ratio": 0.2,
+    "entropy_coefficient": 0.01,
+    "hidden_size": 64,
+    "learning_rate": 0.0003,
+    "max_grad_norm": 0.5,
+    "minibatch_size": 64,
+    "optimisation_epochs": 4,
+    "value_coefficient": 0.5,
+    "weight_decay": 0.0
+  },
+  "rollout_size": 128,
+  "seed": 102,
+  "source_sha256": {
+    "environment.py": "8842ab5d0e4ecea4e6724faf8e2e3d6468054cbf1b5d723e4c0387b185680d9d",
+    "ppo_core_v1.py": "0a84fa6cf095d67ec808296bc5103a72a7a465cd3ed85faa5093f002cad3c70e",
+    "ppo_episode_audit_v1.py": "2841beafef3c7a78b150dad9ca1c9b8bb4a3b159d0aa789ca8ec7049a6c853fc",
+    "ppo_rollout_v1.py": "4cc13dfcc686bfd321310baf8c5b641f8012751917c6690c1014f7e5428384a9",
+    "ppo_training_episode_v1.py": "43ec375bdceb499bde50d049a4c5c27ac97e26562cef807f01cb15c7520aae6c",
+    "resource_ppo_engine_v1.py": "542767988393ab0926b798f0b83d12dc3257825a38a954bc8ff9f01092f2125a"
+  },
+  "train_rows": [
+    {
+      "n_items": 31,
+      "order_id": "00105039",
+      "signature": "1de3eb2763e21580312754062b838256c654b65ef952c1caafc1151f84ea0860",
+      "target": "euro-pallet"
+    },
+    {
+      "n_items": 27,
+      "order_id": "00106121",
+      "signature": "3b23df5f1375007365da4b41cd1b9c9ab09730367692354e7f9f97f038987329",
+      "target": "euro-pallet"
+    },
+    {
+      "n_items": 51,
+      "order_id": "00109001",
+      "signature": "85bc24bff776560de6985ab5e2d1961f528a4cf947ac91854b394e60023990a2",
+      "target": "euro-pallet"
+    },
+    {
+      "n_items": 61,
+      "order_id": "00106982",
+      "signature": "ceb632acfd30885078ed9a39a54706079e16b73db9ae05accd34910df8f0b681",
+      "target": "euro-pallet"
+    },
+    {
+      "n_items": 60,
+      "order_id": "00105674",
+      "signature": "9b58fe377b8d799f610735c0542db63ea126c2b7c67730f9cb5eabacfa496132",
+      "target": "euro-pallet"
+    },
+    {
+      "n_items": 40,
+      "order_id": "00104410",
+      "signature": "83bf5c9803c92dcb7c8878d9347eb1a7178655f8afc22b05c8b18de093b40b01",
+      "target": "euro-pallet"
+    },
+    {
+      "n_items": 51,
+      "order_id": "00109956",
+      "signature": "52429aa5c809a094f765e1fd2d013a873a8b86154a869b8f07e0c299e8ef8b40",
+      "target": "euro-pallet"
+    },
+    {
+      "n_items": 49,
+      "order_id": "00101984",
+      "signature": "996195827854e8f47f2e56bcad516b27add38471cc2995e770af8d8638855d55",
+      "target": "euro-pallet"
+    },
+    {
+      "n_items": 34,
+      "order_id": "00108492",
+      "signature": "338d80b618189a6c28c643e6fd40e21af7c100ae58740f8ddce3fcb61c562e56",
+      "target": "rollcontainer"
+    },
+    {
+      "n_items": 34,
+      "order_id": "00101927",
+      "signature": "618810d53dd2c0956b432593508f11694b941d2bf404b5a504aff387a5dd4bd2",
+      "target": "rollcontainer"
+    },
+    {
+      "n_items": 20,
+      "order_id": "00108103",
+      "signature": "9b42ad0a57dd8b9e14cefeda3c6b6293ac66abbda06e918bd2c2ada482afe187",
+      "target": "rollcontainer"
+    },
+    {
+      "n_items": 43,
+      "order_id": "00103951",
+      "signature": "ae27f6b6eec3cb5d7eeaf871eaf2a57c9abbceb320d1123cf27ac20283b337b0",
+      "target": "rollcontainer"
+    },
+    {
+      "n_items": 20,
+      "order_id": "00105909",
+      "signature": "202068f0ce276f5f842e59e5388cf5ad254c15aee31641c4cdfe94368ae0994e",
+      "target": "rollcontainer"
+    },
+    {
+      "n_items": 53,
+      "order_id": "00104106",
+      "signature": "90f906a56f2cb8acfa24e1fc0d440829c4dac3f039407760b5a87b42f1def7c6",
+      "target": "rollcontainer"
+    },
+    {
+      "n_items": 47,
+      "order_id": "00102505",
+      "signature": "9dc8695546c65bdb5623756f071145781049883a11c8bfbaacebab4db3539590",
+      "target": "rollcontainer"
+    },
+    {
+      "n_items": 43,
+      "order_id": "00105187",
+      "signature": "da0da6862e9019eb6624218984d05dc5b68012efebc70afedbdc56725ce97160",
+      "target": "rollcontainer"
+    }
+  ],
+  "wall_seconds": 600
+}

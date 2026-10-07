@@ -1,0 +1,171 @@
+{
+  "audit_performed": true,
+  "complete_contrast": true,
+  "containment_valid": true,
+  "level": "artifact_contrast",
+  "non_overlap_valid": true,
+  "note": "AABB no implica estabilidad f\u00edsica",
+  "observed_return_kind": "zero_or_empty",
+  "ok": true,
+  "physical_stability_verified": null,
+  "properties": {
+    "aabb_containment": {
+      "checked": true,
+      "ok": true
+    },
+    "aabb_non_overlap": {
+      "checked": true,
+      "ok": true
+    },
+    "accumulated_volume_return": {
+      "bin_volume_mm3": 1920000000.0,
+      "checked": true,
+      "ok": true,
+      "placed_volume_mm3": 216576000.0,
+      "reward_sum": 0.11280000000000001,
+      "u_geom": 0.1128
+    },
+    "input_dims_finite_positive": {
+      "checked": true,
+      "ok": true
+    },
+    "input_ids_unique": {
+      "checked": true,
+      "n": 51,
+      "ok": true
+    },
+    "orientations": {
+      "checked": true,
+      "details": [
+        {
+          "checked": true,
+          "index": 0,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 1,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 2,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 3,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 4,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 5,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 6,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        }
+      ],
+      "ok": true
+    },
+    "per_step_reward_vs_nominal_volume": {
+      "checked": true,
+      "details": [
+        {
+          "checked": true,
+          "expected": 0.0144703125,
+          "index": 0,
+          "ok": true,
+          "reward": 0.0144703125
+        },
+        {
+          "checked": true,
+          "expected": 0.0128625,
+          "index": 1,
+          "ok": true,
+          "reward": 0.0128625
+        },
+        {
+          "checked": true,
+          "expected": 0.015429166666666667,
+          "index": 2,
+          "ok": true,
+          "reward": 0.015429166666666667
+        },
+        {
+          "checked": true,
+          "expected": 0.02396875,
+          "index": 3,
+          "ok": true,
+          "reward": 0.02396875
+        },
+        {
+          "checked": true,
+          "expected": 0.019536458333333333,
+          "index": 4,
+          "ok": true,
+          "reward": 0.019536458333333333
+        },
+        {
+          "checked": true,
+          "expected": 0.0170625,
+          "index": 5,
+          "ok": true,
+          "reward": 0.0170625
+        },
+        {
+          "checked": true,
+          "expected": 0.0094703125,
+          "index": 6,
+          "ok": true,
+          "reward": 0.0094703125
+        }
+      ],
+      "ok": true
+    },
+    "physical_stability": {
+      "checked": true,
+      "note": "AABB no implica estabilidad f\u00edsica",
+      "ok": null,
+      "value": null
+    },
+    "placement_sequence_prefix": {
+      "checked": true,
+      "n_placed": 7,
+      "ok": true
+    },
+    "transition_placement_correspondence": {
+      "checked": true,
+      "ok": true
+    },
+    "unpacked_closure": {
+      "checked": true,
+      "end_reason": null,
+      "n_unpacked": 0,
+      "ok": true
+    }
+  },
+  "unchecked_properties": [],
+  "volume_audit": {
+    "bin_volume_mm3": 1920000000.0,
+    "match": true,
+    "method": "per_step_nominal_volume_and_prefix_identity_contrast",
+    "placed_volume_mm3": 216576000.0,
+    "reward_sum_stored": 0.11280000000000001,
+    "u_geom_from_artifacts": 0.1128
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "status": "completed",
+  "mode": "industrial_ppo",
+  "collected_decisions": 2048,
+  "trained_decisions": 2048,
+  "confirmed_updates": 16,
+  "episodes_started": 56,
+  "open_episode": false,
+  "boundary_continuations": 13,
+  "optimizer_steps": 128,
+  "wall_seconds": 78.47018469299837,
+  "physical_stability_verified": null,
+  "geometry_audit_performed": true,
+  "industrial_orders_used": true,
+  "geometry_verification": {
+    "prefixes": 69,
+    "closed_episodes": 56,
+    "unique_transitions": 2048,
+    "physical_stability_verified": null
+  }
+}

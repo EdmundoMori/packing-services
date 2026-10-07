@@ -1,0 +1,68 @@
+{
+  "status": "training_closure_checks_passed",
+  "execution_commit": "fbc3e7c1ed09ad7ec755150a25eeabd5d7d7d967",
+  "seeds": [
+    {
+      "seed": 101,
+      "decisions": 2048,
+      "confirmed_updates": 16,
+      "optimizer_steps": 128,
+      "worker_wall_seconds": 79.32384875199932,
+      "ru_maxrss_kb": 693116,
+      "final_checkpoint_sha256": "0a9ee45e891a84c3574edbf2ea5acca52ebaa91f7b40f1b8d33248694c6511f4",
+      "recorded_train_probes": 16,
+      "mean_probability_L1_change": 0.062322670593857765,
+      "changed_argmax_probes": 0,
+      "evidence_sha256": {
+        "summary.json": "f7c2eb4256b9f348655d87a9a1c4c1042dff3e09e92c0c4795029af36253cb7a",
+        "resource_usage.json": "77cafe3c0410c76747fb8f5e8014bfdbe8ea0d3d3abc5f252b1d67bb379e901e",
+        "final_checkpoint.json": "544df62b5e5c2b53468e10e90365ea8f5a2fb8f86af8aac435dd3a0f11f2ecf3",
+        "policy_probes.json": "25dd664a0d193787c1f50e66c88026cd353379dd207be27553e867fb7a9b7281"
+      }
+    },
+    {
+      "seed": 102,
+      "decisions": 2048,
+      "confirmed_updates": 16,
+      "optimizer_steps": 128,
+      "worker_wall_seconds": 78.47018469299837,
+      "ru_maxrss_kb": 695312,
+      "final_checkpoint_sha256": "806227af295df1e8df39032c31b99ed97946993a0a2e459bd1a14f937afb4713",
+      "recorded_train_probes": 16,
+      "mean_probability_L1_change": 0.0726634357124567,
+      "changed_argmax_probes": 16,
+      "evidence_sha256": {
+        "summary.json": "b8c5948e8f1f820fe2fd86ba4742402115ead2bc262aa46b5e68e7b4f9bc840d",
+        "resource_usage.json": "99b384f2d5f64f40c525a9c92e07fd0341e9450bf8b7bda310f3609ec7442720",
+        "final_checkpoint.json": "a5ee7480a6d5feab0d59a0ef1226dc1005f272c7d354064dcd1ed2ae7c683ba3",
+        "policy_probes.json": "8977deb4592e68253866739667a365b73f963384487f3af62f020490c6bdffd2"
+      }
+    },
+    {
+      "seed": 103,
+      "decisions": 2048,
+      "confirmed_updates": 16,
+      "optimizer_steps": 128,
+      "worker_wall_seconds": 83.48832349999975,
+      "ru_maxrss_kb": 695096,
+      "final_checkpoint_sha256": "9803ffb7e3acce44a417487d47ff00a3f7612ae1a711bb6f9ad3405d63d8846e",
+      "recorded_train_probes": 16,
+      "mean_probability_L1_change": 0.12066367268562317,
+      "changed_argmax_probes": 0,
+      "evidence_sha256": {
+        "summary.json": "1a60c9146c231e07c1221683ceb48c667d6926693cb92085e2c0e7d36e4c8022",
+        "resource_usage.json": "206020ddd88706170c83fae54f1f8be70934b059cc83113840923e88158397b3",
+        "final_checkpoint.json": "009f8c742fa67ea8dc5a69d093db3d21f303b60f2c7aa8f4335e39570031be69",
+        "policy_probes.json": "ccffcd7e1974bb1805de4961036744d69912d4f1c583beba6b314702448561bc"
+      }
+    }
+  ],
+  "total_trained_decisions": 6144,
+  "new_training_executed": false,
+  "new_packing_executed": false,
+  "evaluation_executed": false,
+  "optimizer_replay_performed": false,
+  "probe_logits_recomputed_in_this_check": false,
+  "physical_stability_verified": null,
+  "scope": "Existing summaries, checkpoint identity and recorded probes. Earlier geometry/rollout verification and checkpoint-based probe recomputation were reported separately."
+}

@@ -1,0 +1,36 @@
+{
+  "evaluation_executed": false,
+  "reports": [
+    {
+      "automatic_restart": false,
+      "exitcode": 0,
+      "scientific_completeness_verified": false,
+      "seed": 101,
+      "status": "process_exited_zero",
+      "timed_out": false,
+      "timeout_seconds": 600,
+      "wall_seconds": 85.29022322999936
+    },
+    {
+      "automatic_restart": false,
+      "exitcode": 0,
+      "scientific_completeness_verified": false,
+      "seed": 102,
+      "status": "process_exited_zero",
+      "timed_out": false,
+      "timeout_seconds": 600,
+      "wall_seconds": 83.61611118899964
+    },
+    {
+      "automatic_restart": false,
+      "exitcode": 0,
+      "scientific_completeness_verified": false,
+      "seed": 103,
+      "status": "process_exited_zero",
+      "timed_out": false,
+      "timeout_seconds": 600,
+      "wall_seconds": 88.84238428299977
+    }
+  ],
+  "status": "processes_completed_pending_independent_review"
+}

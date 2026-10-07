@@ -1,0 +1,548 @@
+{
+  "audit_performed": true,
+  "complete_contrast": true,
+  "containment_valid": true,
+  "level": "artifact_contrast",
+  "non_overlap_valid": true,
+  "note": "AABB no implica estabilidad f\u00edsica",
+  "observed_return_kind": "zero_or_empty",
+  "ok": true,
+  "physical_stability_verified": null,
+  "properties": {
+    "aabb_containment": {
+      "checked": true,
+      "ok": true
+    },
+    "aabb_non_overlap": {
+      "checked": true,
+      "ok": true
+    },
+    "accumulated_volume_return": {
+      "bin_volume_mm3": 1920000000.0,
+      "checked": true,
+      "ok": true,
+      "placed_volume_mm3": 1067274000.0,
+      "reward_sum": 0.5558718749999999,
+      "u_geom": 0.555871875
+    },
+    "input_dims_finite_positive": {
+      "checked": true,
+      "ok": true
+    },
+    "input_ids_unique": {
+      "checked": true,
+      "n": 40,
+      "ok": true
+    },
+    "orientations": {
+      "checked": true,
+      "details": [
+        {
+          "checked": true,
+          "index": 0,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 1,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 2,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 3,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 4,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 5,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 6,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 7,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 8,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 9,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 10,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 11,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 12,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 13,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 14,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 15,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 16,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 17,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 18,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 19,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 20,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 21,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 22,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 23,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 24,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 25,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 26,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 27,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 28,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 29,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 30,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 31,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 32,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 33,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 34,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        },
+        {
+          "checked": true,
+          "index": 35,
+          "ok": true,
+          "status": "comprobada_permutacion"
+        }
+      ],
+      "ok": true
+    },
+    "per_step_reward_vs_nominal_volume": {
+      "checked": true,
+      "details": [
+        {
+          "checked": true,
+          "expected": 0.01974375,
+          "index": 0,
+          "ok": true,
+          "reward": 0.01974375
+        },
+        {
+          "checked": true,
+          "expected": 0.016396875,
+          "index": 1,
+          "ok": true,
+          "reward": 0.016396875
+        },
+        {
+          "checked": true,
+          "expected": 0.016396875,
+          "index": 2,
+          "ok": true,
+          "reward": 0.016396875
+        },
+        {
+          "checked": true,
+          "expected": 0.014883333333333333,
+          "index": 3,
+          "ok": true,
+          "reward": 0.014883333333333333
+        },
+        {
+          "checked": true,
+          "expected": 0.009625,
+          "index": 4,
+          "ok": true,
+          "reward": 0.009625
+        },
+        {
+          "checked": true,
+          "expected": 0.009625,
+          "index": 5,
+          "ok": true,
+          "reward": 0.009625
+        },
+        {
+          "checked": true,
+          "expected": 0.009625,
+          "index": 6,
+          "ok": true,
+          "reward": 0.009625
+        },
+        {
+          "checked": true,
+          "expected": 0.009625,
+          "index": 7,
+          "ok": true,
+          "reward": 0.009625
+        },
+        {
+          "checked": true,
+          "expected": 0.01974375,
+          "index": 8,
+          "ok": true,
+          "reward": 0.01974375
+        },
+        {
+          "checked": true,
+          "expected": 0.0104671875,
+          "index": 9,
+          "ok": true,
+          "reward": 0.0104671875
+        },
+        {
+          "checked": true,
+          "expected": 0.0104671875,
+          "index": 10,
+          "ok": true,
+          "reward": 0.0104671875
+        },
+        {
+          "checked": true,
+          "expected": 0.01974375,
+          "index": 11,
+          "ok": true,
+          "reward": 0.01974375
+        },
+        {
+          "checked": true,
+          "expected": 0.0137109375,
+          "index": 12,
+          "ok": true,
+          "reward": 0.0137109375
+        },
+        {
+          "checked": true,
+          "expected": 0.0137109375,
+          "index": 13,
+          "ok": true,
+          "reward": 0.0137109375
+        },
+        {
+          "checked": true,
+          "expected": 0.0137109375,
+          "index": 14,
+          "ok": true,
+          "reward": 0.0137109375
+        },
+        {
+          "checked": true,
+          "expected": 0.01974375,
+          "index": 15,
+          "ok": true,
+          "reward": 0.01974375
+        },
+        {
+          "checked": true,
+          "expected": 0.016396875,
+          "index": 16,
+          "ok": true,
+          "reward": 0.016396875
+        },
+        {
+          "checked": true,
+          "expected": 0.014083333333333333,
+          "index": 17,
+          "ok": true,
+          "reward": 0.014083333333333333
+        },
+        {
+          "checked": true,
+          "expected": 0.014083333333333333,
+          "index": 18,
+          "ok": true,
+          "reward": 0.014083333333333333
+        },
+        {
+          "checked": true,
+          "expected": 0.015,
+          "index": 19,
+          "ok": true,
+          "reward": 0.015
+        },
+        {
+          "checked": true,
+          "expected": 0.015,
+          "index": 20,
+          "ok": true,
+          "reward": 0.015
+        },
+        {
+          "checked": true,
+          "expected": 0.015708333333333335,
+          "index": 21,
+          "ok": true,
+          "reward": 0.015708333333333335
+        },
+        {
+          "checked": true,
+          "expected": 0.015708333333333335,
+          "index": 22,
+          "ok": true,
+          "reward": 0.015708333333333335
+        },
+        {
+          "checked": true,
+          "expected": 0.0375,
+          "index": 23,
+          "ok": true,
+          "reward": 0.0375
+        },
+        {
+          "checked": true,
+          "expected": 0.01974375,
+          "index": 24,
+          "ok": true,
+          "reward": 0.01974375
+        },
+        {
+          "checked": true,
+          "expected": 0.01974375,
+          "index": 25,
+          "ok": true,
+          "reward": 0.01974375
+        },
+        {
+          "checked": true,
+          "expected": 0.0104671875,
+          "index": 26,
+          "ok": true,
+          "reward": 0.0104671875
+        },
+        {
+          "checked": true,
+          "expected": 0.0104671875,
+          "index": 27,
+          "ok": true,
+          "reward": 0.0104671875
+        },
+        {
+          "checked": true,
+          "expected": 0.0179765625,
+          "index": 28,
+          "ok": true,
+          "reward": 0.0179765625
+        },
+        {
+          "checked": true,
+          "expected": 0.0179765625,
+          "index": 29,
+          "ok": true,
+          "reward": 0.0179765625
+        },
+        {
+          "checked": true,
+          "expected": 0.0148078125,
+          "index": 30,
+          "ok": true,
+          "reward": 0.0148078125
+        },
+        {
+          "checked": true,
+          "expected": 0.0148078125,
+          "index": 31,
+          "ok": true,
+          "reward": 0.0148078125
+        },
+        {
+          "checked": true,
+          "expected": 0.0148078125,
+          "index": 32,
+          "ok": true,
+          "reward": 0.0148078125
+        },
+        {
+          "checked": true,
+          "expected": 0.0148078125,
+          "index": 33,
+          "ok": true,
+          "reward": 0.0148078125
+        },
+        {
+          "checked": true,
+          "expected": 0.0148078125,
+          "index": 34,
+          "ok": true,
+          "reward": 0.0148078125
+        },
+        {
+          "checked": true,
+          "expected": 0.014758333333333333,
+          "index": 35,
+          "ok": true,
+          "reward": 0.014758333333333333
+        }
+      ],
+      "ok": true
+    },
+    "physical_stability": {
+      "checked": true,
+      "note": "AABB no implica estabilidad f\u00edsica",
+      "ok": null,
+      "value": null
+    },
+    "placement_sequence_prefix": {
+      "checked": true,
+      "n_placed": 36,
+      "ok": true
+    },
+    "transition_placement_correspondence": {
+      "checked": true,
+      "ok": true
+    },
+    "unpacked_closure": {
+      "checked": true,
+      "end_reason": null,
+      "n_unpacked": 0,
+      "ok": true
+    }
+  },
+  "unchecked_properties": [],
+  "volume_audit": {
+    "bin_volume_mm3": 1920000000.0,
+    "match": true,
+    "method": "per_step_nominal_volume_and_prefix_identity_contrast",
+    "placed_volume_mm3": 1067274000.0,
+    "reward_sum_stored": 0.5558718749999999,
+    "u_geom_from_artifacts": 0.555871875
+  }
+}

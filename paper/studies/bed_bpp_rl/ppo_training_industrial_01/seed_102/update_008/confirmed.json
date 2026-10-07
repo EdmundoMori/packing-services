@@ -1,0 +1,46 @@
+{
+  "files": [
+    {
+      "relpath": "update_008/after.pt",
+      "sha256": "c61b3d45b8f98883a49354b1468165b594a5520485ccf33abff89f3cb9da128f",
+      "size_bytes": 60239
+    },
+    {
+      "relpath": "update_008/batch.pt",
+      "sha256": "b5a09991b5fd525f09ff4207bb386eefa6f83735a328370be2fccb162014dde0",
+      "size_bytes": 24657
+    },
+    {
+      "relpath": "update_008/behavior.pt",
+      "sha256": "ddceb5198750ab20cc3b02874f3ae0f6a9badd52e87bc72072131632535a1263",
+      "size_bytes": 60239
+    },
+    {
+      "relpath": "update_008/optimizer_report.json",
+      "sha256": "ad3c179331587420724f04cdd12848232bbe444ff1fb97cb406c2fedb9fa3ba3",
+      "size_bytes": 7509
+    },
+    {
+      "relpath": "update_008/preupdate_verification.json",
+      "sha256": "2ef166dee51044835ab9683feaed947449ddce15152cb241483ae9a038f4c56a",
+      "size_bytes": 133
+    },
+    {
+      "relpath": "update_008/segment_000.json",
+      "sha256": "ebbc300e769b3bcc586cc3b1bb179002d979d157cd182888d1a5dfc62937e095",
+      "size_bytes": 102663
+    },
+    {
+      "relpath": "update_008/segment_001.json",
+      "sha256": "42e53a2cc337631766cb5ae9c85b1924b5d4b827e4caa21c91f87aa7274ff739",
+      "size_bytes": 116117
+    },
+    {
+      "relpath": "update_008/segment_002.json",
+      "sha256": "8ac13a5b5b5f08d2b20aba1e1fba6030dc784c55e9e419c44b14928e3a66c94a",
+      "size_bytes": 35775
+    }
+  ],
+  "rows": 128,
+  "update": 8
+}
