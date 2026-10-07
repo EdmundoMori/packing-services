@@ -1,0 +1,38 @@
+{
+  "deadline_kind": "cooperative",
+  "decisions": 256,
+  "mode": "synthetic_only",
+  "order_rule": "complete seeded permutations; no return-based prioritization",
+  "ppo_config": {
+    "clip_ratio": 0.2,
+    "entropy_coefficient": 0.01,
+    "hidden_size": 64,
+    "learning_rate": 0.0003,
+    "max_grad_norm": 0.5,
+    "minibatch_size": 64,
+    "optimisation_epochs": 4,
+    "value_coefficient": 0.5,
+    "weight_decay": 0.0
+  },
+  "rollout_size": 128,
+  "seed": 101,
+  "source_sha256": {
+    "environment.py": "8842ab5d0e4ecea4e6724faf8e2e3d6468054cbf1b5d723e4c0387b185680d9d",
+    "ppo_core_v1.py": "0a84fa6cf095d67ec808296bc5103a72a7a465cd3ed85faa5093f002cad3c70e",
+    "ppo_episode_audit_v1.py": "2841beafef3c7a78b150dad9ca1c9b8bb4a3b159d0aa789ca8ec7049a6c853fc",
+    "ppo_rollout_v1.py": "4cc13dfcc686bfd321310baf8c5b641f8012751917c6690c1014f7e5428384a9",
+    "ppo_training_episode_v1.py": "43ec375bdceb499bde50d049a4c5c27ac97e26562cef807f01cb15c7520aae6c",
+    "run_ppo_training_draft_v1.py": "3093c53343d5d9eb1b04b50c196f7be9808b04ebefcc5cce468234282b821e21"
+  },
+  "train_rows": [
+    {
+      "order_id": "syn-euro",
+      "target": "euro-pallet"
+    },
+    {
+      "order_id": "syn-roll",
+      "target": "rollcontainer"
+    }
+  ],
+  "wall_seconds": 60.0
+}

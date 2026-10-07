@@ -1,0 +1,12 @@
+{
+  "confirmed_updates": 2,
+  "verified_training_rows": 256,
+  "optimizer_replay_performed": false,
+  "geometry_audit_performed": true,
+  "geometry_verification": {
+    "prefixes": 87,
+    "closed_episodes": 86,
+    "unique_transitions": 256,
+    "physical_stability_verified": null
+  }
+}
