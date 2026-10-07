@@ -1,0 +1,5 @@
+{
+  "automatic_restart": false,
+  "error": "RuntimeError('Error(s) in loading state_dict for ActorCritic:\\n\\tMissing key(s) in state_dict: \"encoder.0.weight\", \"encoder.0.bias\", \"actor.weight\", \"actor.bias\", \"critic.weight\", \"critic.bias\". \\n\\tUnexpected key(s) in state_dict: \"model\", \"optimizer\", \"rng\", \"torch_rng\", \"decisions\", \"updates\". ')",
+  "status": "incomplete"
+}

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/edmundo/packing-services/paper/studies/bed_bpp_rl/tools/run_resource_evaluation_v1.py", line 199, in <module>
+    if __name__=='__main__': main()
+  File "/home/edmundo/packing-services/paper/studies/bed_bpp_rl/tools/run_resource_evaluation_v1.py", line 196, in main
+    result=generate(load(args.orders),p['design']['cases'],models,args.out,mode='industrial',wall_seconds=600,protocol_sha256=sha(args.protocol),protocol_path=args.protocol,orders_path=args.orders)
+  File "/home/edmundo/packing-services/paper/studies/bed_bpp_rl/tools/run_resource_evaluation_v1.py", line 144, in generate
+    policy, decisions = actor_policy(checkpoint); seed = None
+  File "/home/edmundo/packing-services/paper/studies/bed_bpp_rl/tools/run_resource_evaluation_v1.py", line 70, in actor_policy
+    model = ActorCritic(); model.load_state_dict(torch.load(checkpoint, map_location='cpu', weights_only=True))
+  File "/home/edmundo/packing-services/.venv/lib/python3.10/site-packages/torch/nn/modules/module.py", line 2643, in load_state_dict
+    raise RuntimeError(
+RuntimeError: Error(s) in loading state_dict for ActorCritic:
+	Missing key(s) in state_dict: "encoder.0.weight", "encoder.0.bias", "actor.weight", "actor.bias", "critic.weight", "critic.bias". 
+	Unexpected key(s) in state_dict: "model", "optimizer", "rng", "torch_rng", "decisions", "updates". 

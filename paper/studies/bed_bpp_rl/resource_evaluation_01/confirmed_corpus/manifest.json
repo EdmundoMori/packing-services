@@ -1,0 +1,28 @@
+{
+  "confirmed_files": [
+    {
+      "relpath": "00107493__fixed_greedy_best_fit.json",
+      "sha256": "708ef5d8b85bc04dfe3a85e842323fdcdcd5e75c02508a4d4b10f79e7e8e91fd",
+      "size_bytes": 156751
+    },
+    {
+      "relpath": "00107493__fixed_lowest_top.json",
+      "sha256": "b24c05dd2b71bbdc0055be173851610aedfa57c1fb2ab1f2cfa9e1242ca9c9c8",
+      "size_bytes": 158681
+    },
+    {
+      "relpath": "00107493__fixed_least_height_increase.json",
+      "sha256": "2963f344fb656485c43282f2d31ddf4ab2ca7aa1335cbb22dfce5c307386872d",
+      "size_bytes": 132944
+    },
+    {
+      "relpath": "00107493__uniform_rules.json",
+      "sha256": "352f89990f1f23a6f7aaf4f308b5a88bf710696177e9fcade8ac058d9931300c",
+      "size_bytes": 157420
+    }
+  ],
+  "durability_note": "fsync+atomic replace del episodio y del manifiesto; no durabilidad absoluta ante crash de host; solo archivos listados y con SHA256 coincidente son confirmados",
+  "kind": "bed_bpp_rl_corpus_manifest_r02a",
+  "schema_version": 2,
+  "writer_model": "single_writer_exclusive_lock"
+}

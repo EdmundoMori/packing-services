@@ -1,0 +1,453 @@
+{
+  "attempts": 1,
+  "automatic_restart": false,
+  "code_sha256": {
+    "run_resource_evaluation_recovery_v2.py": "50be0392bdf66299c64e1a13791db9413f1f42ab557cc6dc83b54eb55ba3a22b",
+    "test_resource_evaluation_recovery_v2.py": "1346e7fd8584e696ff4432da4379b5d8eb892c3798494e880399d9cfb3eb7067"
+  },
+  "correction": "load checkpoint[model]; policies, data, actions and weights unchanged",
+  "dataset_sha256": "6ecc91d92b9ce88de113ac66c45a450ac3eec303018f14cd73e4bd0eaf8eb3cc",
+  "design": {
+    "actor_action": "masked argmax; exact tie uses lowest rule index",
+    "aggregation": "report each seed; average seeds within each order, then equal-weight orders",
+    "attempts_per_key": 1,
+    "automatic_restart": false,
+    "cases": [
+      {
+        "episode_id": "00107493__fixed_greedy_best_fit",
+        "model_seed": null,
+        "order_id": "00107493",
+        "policy": "fixed_greedy_best_fit",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00107493__fixed_lowest_top",
+        "model_seed": null,
+        "order_id": "00107493",
+        "policy": "fixed_lowest_top",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00107493__fixed_least_height_increase",
+        "model_seed": null,
+        "order_id": "00107493",
+        "policy": "fixed_least_height_increase",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00107493__uniform_rules",
+        "model_seed": null,
+        "order_id": "00107493",
+        "policy": "uniform_rules",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00107493__ppo_deterministic_seed_101",
+        "model_seed": 101,
+        "order_id": "00107493",
+        "policy": "ppo_deterministic_seed_101",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00107493__ppo_deterministic_seed_102",
+        "model_seed": 102,
+        "order_id": "00107493",
+        "policy": "ppo_deterministic_seed_102",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00107493__ppo_deterministic_seed_103",
+        "model_seed": 103,
+        "order_id": "00107493",
+        "policy": "ppo_deterministic_seed_103",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00100650__fixed_greedy_best_fit",
+        "model_seed": null,
+        "order_id": "00100650",
+        "policy": "fixed_greedy_best_fit",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00100650__fixed_lowest_top",
+        "model_seed": null,
+        "order_id": "00100650",
+        "policy": "fixed_lowest_top",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00100650__fixed_least_height_increase",
+        "model_seed": null,
+        "order_id": "00100650",
+        "policy": "fixed_least_height_increase",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00100650__uniform_rules",
+        "model_seed": null,
+        "order_id": "00100650",
+        "policy": "uniform_rules",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00100650__ppo_deterministic_seed_101",
+        "model_seed": 101,
+        "order_id": "00100650",
+        "policy": "ppo_deterministic_seed_101",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00100650__ppo_deterministic_seed_102",
+        "model_seed": 102,
+        "order_id": "00100650",
+        "policy": "ppo_deterministic_seed_102",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00100650__ppo_deterministic_seed_103",
+        "model_seed": 103,
+        "order_id": "00100650",
+        "policy": "ppo_deterministic_seed_103",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00104287__fixed_greedy_best_fit",
+        "model_seed": null,
+        "order_id": "00104287",
+        "policy": "fixed_greedy_best_fit",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00104287__fixed_lowest_top",
+        "model_seed": null,
+        "order_id": "00104287",
+        "policy": "fixed_lowest_top",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00104287__fixed_least_height_increase",
+        "model_seed": null,
+        "order_id": "00104287",
+        "policy": "fixed_least_height_increase",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00104287__uniform_rules",
+        "model_seed": null,
+        "order_id": "00104287",
+        "policy": "uniform_rules",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00104287__ppo_deterministic_seed_101",
+        "model_seed": 101,
+        "order_id": "00104287",
+        "policy": "ppo_deterministic_seed_101",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00104287__ppo_deterministic_seed_102",
+        "model_seed": 102,
+        "order_id": "00104287",
+        "policy": "ppo_deterministic_seed_102",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00104287__ppo_deterministic_seed_103",
+        "model_seed": 103,
+        "order_id": "00104287",
+        "policy": "ppo_deterministic_seed_103",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00109146__fixed_greedy_best_fit",
+        "model_seed": null,
+        "order_id": "00109146",
+        "policy": "fixed_greedy_best_fit",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00109146__fixed_lowest_top",
+        "model_seed": null,
+        "order_id": "00109146",
+        "policy": "fixed_lowest_top",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00109146__fixed_least_height_increase",
+        "model_seed": null,
+        "order_id": "00109146",
+        "policy": "fixed_least_height_increase",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00109146__uniform_rules",
+        "model_seed": null,
+        "order_id": "00109146",
+        "policy": "uniform_rules",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00109146__ppo_deterministic_seed_101",
+        "model_seed": 101,
+        "order_id": "00109146",
+        "policy": "ppo_deterministic_seed_101",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00109146__ppo_deterministic_seed_102",
+        "model_seed": 102,
+        "order_id": "00109146",
+        "policy": "ppo_deterministic_seed_102",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00109146__ppo_deterministic_seed_103",
+        "model_seed": 103,
+        "order_id": "00109146",
+        "policy": "ppo_deterministic_seed_103",
+        "target": "euro-pallet"
+      },
+      {
+        "episode_id": "00102077__fixed_greedy_best_fit",
+        "model_seed": null,
+        "order_id": "00102077",
+        "policy": "fixed_greedy_best_fit",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00102077__fixed_lowest_top",
+        "model_seed": null,
+        "order_id": "00102077",
+        "policy": "fixed_lowest_top",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00102077__fixed_least_height_increase",
+        "model_seed": null,
+        "order_id": "00102077",
+        "policy": "fixed_least_height_increase",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00102077__uniform_rules",
+        "model_seed": null,
+        "order_id": "00102077",
+        "policy": "uniform_rules",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00102077__ppo_deterministic_seed_101",
+        "model_seed": 101,
+        "order_id": "00102077",
+        "policy": "ppo_deterministic_seed_101",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00102077__ppo_deterministic_seed_102",
+        "model_seed": 102,
+        "order_id": "00102077",
+        "policy": "ppo_deterministic_seed_102",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00102077__ppo_deterministic_seed_103",
+        "model_seed": 103,
+        "order_id": "00102077",
+        "policy": "ppo_deterministic_seed_103",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00108484__fixed_greedy_best_fit",
+        "model_seed": null,
+        "order_id": "00108484",
+        "policy": "fixed_greedy_best_fit",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00108484__fixed_lowest_top",
+        "model_seed": null,
+        "order_id": "00108484",
+        "policy": "fixed_lowest_top",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00108484__fixed_least_height_increase",
+        "model_seed": null,
+        "order_id": "00108484",
+        "policy": "fixed_least_height_increase",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00108484__uniform_rules",
+        "model_seed": null,
+        "order_id": "00108484",
+        "policy": "uniform_rules",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00108484__ppo_deterministic_seed_101",
+        "model_seed": 101,
+        "order_id": "00108484",
+        "policy": "ppo_deterministic_seed_101",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00108484__ppo_deterministic_seed_102",
+        "model_seed": 102,
+        "order_id": "00108484",
+        "policy": "ppo_deterministic_seed_102",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00108484__ppo_deterministic_seed_103",
+        "model_seed": 103,
+        "order_id": "00108484",
+        "policy": "ppo_deterministic_seed_103",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00107982__fixed_greedy_best_fit",
+        "model_seed": null,
+        "order_id": "00107982",
+        "policy": "fixed_greedy_best_fit",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00107982__fixed_lowest_top",
+        "model_seed": null,
+        "order_id": "00107982",
+        "policy": "fixed_lowest_top",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00107982__fixed_least_height_increase",
+        "model_seed": null,
+        "order_id": "00107982",
+        "policy": "fixed_least_height_increase",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00107982__uniform_rules",
+        "model_seed": null,
+        "order_id": "00107982",
+        "policy": "uniform_rules",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00107982__ppo_deterministic_seed_101",
+        "model_seed": 101,
+        "order_id": "00107982",
+        "policy": "ppo_deterministic_seed_101",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00107982__ppo_deterministic_seed_102",
+        "model_seed": 102,
+        "order_id": "00107982",
+        "policy": "ppo_deterministic_seed_102",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00107982__ppo_deterministic_seed_103",
+        "model_seed": 103,
+        "order_id": "00107982",
+        "policy": "ppo_deterministic_seed_103",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00104158__fixed_greedy_best_fit",
+        "model_seed": null,
+        "order_id": "00104158",
+        "policy": "fixed_greedy_best_fit",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00104158__fixed_lowest_top",
+        "model_seed": null,
+        "order_id": "00104158",
+        "policy": "fixed_lowest_top",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00104158__fixed_least_height_increase",
+        "model_seed": null,
+        "order_id": "00104158",
+        "policy": "fixed_least_height_increase",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00104158__uniform_rules",
+        "model_seed": null,
+        "order_id": "00104158",
+        "policy": "uniform_rules",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00104158__ppo_deterministic_seed_101",
+        "model_seed": 101,
+        "order_id": "00104158",
+        "policy": "ppo_deterministic_seed_101",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00104158__ppo_deterministic_seed_102",
+        "model_seed": 102,
+        "order_id": "00104158",
+        "policy": "ppo_deterministic_seed_102",
+        "target": "rollcontainer"
+      },
+      {
+        "episode_id": "00104158__ppo_deterministic_seed_103",
+        "model_seed": 103,
+        "order_id": "00104158",
+        "policy": "ppo_deterministic_seed_103",
+        "target": "rollcontainer"
+      }
+    ],
+    "checkpoint_selection": "all three final confirmed checkpoints",
+    "concurrency": 1,
+    "episodes": 56,
+    "evaluation_authorized": false,
+    "models": {
+      "101": {
+        "relpath": "ppo_training_industrial_01/seed_101/final.pt",
+        "sha256": "0a9ee45e891a84c3574edbf2ea5acca52ebaa91f7b40f1b8d33248694c6511f4"
+      },
+      "102": {
+        "relpath": "ppo_training_industrial_01/seed_102/final.pt",
+        "sha256": "806227af295df1e8df39032c31b99ed97946993a0a2e459bd1a14f937afb4713"
+      },
+      "103": {
+        "relpath": "ppo_training_industrial_01/seed_103/final.pt",
+        "sha256": "9803ffb7e3acce44a417487d47ff00a3f7612ae1a711bb6f9ad3405d63d8846e"
+      }
+    },
+    "packing_executed": false,
+    "physical_stability_verified": null,
+    "protocol_frozen": false,
+    "sample_sha256": "f4c45d1bd632dae498562d3ae21ad2a770f7dfcff757ca4a300aecc82c9ed0be",
+    "scope": "resource usability demonstration on eight held-out orders; no general superiority claim",
+    "status": "evaluation_design_verified_not_frozen",
+    "training_closure_sha256": "d2640df73484a62588941e1b73a387ac620d905cd96fe14a00e62cce1a0cf22c",
+    "training_executed": false,
+    "uniform_base_seed": 20261007,
+    "uniform_seed_derivation": "sha256(bed-bpp-rl-corpus-v1|base_seed|order_id), first 8 bytes big-endian",
+    "wall_seconds_proposed": 600
+  },
+  "original_protocol_sha256": "e45f3d66ad250cee8b8b348583f93ab5ab2149dcf1a6ac9deb5100ea830e330b",
+  "prior_accounted_seconds": 12.938334873000713,
+  "prior_supervisor_sha256": "e0dc7259f1b472ffe764f25db0d8e85d8c78456bba9c7687157807db30f6b8be",
+  "remaining_seconds": 587.0616651269993,
+  "reused": {
+    "00107493__fixed_greedy_best_fit.json": "708ef5d8b85bc04dfe3a85e842323fdcdcd5e75c02508a4d4b10f79e7e8e91fd",
+    "00107493__fixed_least_height_increase.json": "2963f344fb656485c43282f2d31ddf4ab2ca7aa1335cbb22dfce5c307386872d",
+    "00107493__fixed_lowest_top.json": "b24c05dd2b71bbdc0055be173851610aedfa57c1fb2ab1f2cfa9e1242ca9c9c8",
+    "00107493__uniform_rules.json": "352f89990f1f23a6f7aaf4f308b5a88bf710696177e9fcade8ac058d9931300c"
+  },
+  "sha256": "252a4fa43020575a399be57b7f4c125fd3ee3d023abd0e4d8220b395d295c714",
+  "source_manifest_sha256": "cf20f598979e599ab0f01fb0f295a0b62ebcfb12b1bf48ed28eeb2c7f972387b",
+  "source_relpath": "resource_evaluation_01",
+  "status": "frozen_evaluation_recovery"
+}
