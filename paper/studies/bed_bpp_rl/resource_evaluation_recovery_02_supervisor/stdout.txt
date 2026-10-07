@@ -1,0 +1,367 @@
+{
+  "status": "verified",
+  "episodes": 56,
+  "transitions": 1802,
+  "terminated": 56,
+  "truncated": 0,
+  "geometry_audit_performed": true,
+  "physical_stability_verified": null,
+  "training_executed": false,
+  "evaluation_episodes": 56,
+  "policy_means": {
+    "fixed_greedy_best_fit": 0.6654158586774552,
+    "fixed_lowest_top": 0.6775018798828124,
+    "fixed_least_height_increase": 0.6622489990234374,
+    "uniform_rules": 0.670116863141741,
+    "ppo_deterministic_seed_101": 0.6654158586774552,
+    "ppo_deterministic_seed_102": 0.6775018798828124,
+    "ppo_deterministic_seed_103": 0.6654158586774552
+  },
+  "per_order": [
+    {
+      "order_id": "00107493",
+      "target": "euro-pallet",
+      "policy": "fixed_greedy_best_fit",
+      "U_geom": 0.7110359374999999
+    },
+    {
+      "order_id": "00107493",
+      "target": "euro-pallet",
+      "policy": "fixed_lowest_top",
+      "U_geom": 0.74339375
+    },
+    {
+      "order_id": "00107493",
+      "target": "euro-pallet",
+      "policy": "fixed_least_height_increase",
+      "U_geom": 0.6213707031249999
+    },
+    {
+      "order_id": "00107493",
+      "target": "euro-pallet",
+      "policy": "uniform_rules",
+      "U_geom": 0.7110359374999999
+    },
+    {
+      "order_id": "00107493",
+      "target": "euro-pallet",
+      "policy": "ppo_deterministic_seed_101",
+      "U_geom": 0.7110359374999999
+    },
+    {
+      "order_id": "00107493",
+      "target": "euro-pallet",
+      "policy": "ppo_deterministic_seed_102",
+      "U_geom": 0.74339375
+    },
+    {
+      "order_id": "00107493",
+      "target": "euro-pallet",
+      "policy": "ppo_deterministic_seed_103",
+      "U_geom": 0.7110359374999999
+    },
+    {
+      "order_id": "00100650",
+      "target": "euro-pallet",
+      "policy": "fixed_greedy_best_fit",
+      "U_geom": 0.8323538411458332
+    },
+    {
+      "order_id": "00100650",
+      "target": "euro-pallet",
+      "policy": "fixed_lowest_top",
+      "U_geom": 0.8323538411458332
+    },
+    {
+      "order_id": "00100650",
+      "target": "euro-pallet",
+      "policy": "fixed_least_height_increase",
+      "U_geom": 0.8323538411458332
+    },
+    {
+      "order_id": "00100650",
+      "target": "euro-pallet",
+      "policy": "uniform_rules",
+      "U_geom": 0.8323538411458332
+    },
+    {
+      "order_id": "00100650",
+      "target": "euro-pallet",
+      "policy": "ppo_deterministic_seed_101",
+      "U_geom": 0.8323538411458332
+    },
+    {
+      "order_id": "00100650",
+      "target": "euro-pallet",
+      "policy": "ppo_deterministic_seed_102",
+      "U_geom": 0.8323538411458332
+    },
+    {
+      "order_id": "00100650",
+      "target": "euro-pallet",
+      "policy": "ppo_deterministic_seed_103",
+      "U_geom": 0.8323538411458332
+    },
+    {
+      "order_id": "00104287",
+      "target": "euro-pallet",
+      "policy": "fixed_greedy_best_fit",
+      "U_geom": 0.6049057291666665
+    },
+    {
+      "order_id": "00104287",
+      "target": "euro-pallet",
+      "policy": "fixed_lowest_top",
+      "U_geom": 0.6049057291666665
+    },
+    {
+      "order_id": "00104287",
+      "target": "euro-pallet",
+      "policy": "fixed_least_height_increase",
+      "U_geom": 0.6049057291666665
+    },
+    {
+      "order_id": "00104287",
+      "target": "euro-pallet",
+      "policy": "uniform_rules",
+      "U_geom": 0.6049057291666665
+    },
+    {
+      "order_id": "00104287",
+      "target": "euro-pallet",
+      "policy": "ppo_deterministic_seed_101",
+      "U_geom": 0.6049057291666665
+    },
+    {
+      "order_id": "00104287",
+      "target": "euro-pallet",
+      "policy": "ppo_deterministic_seed_102",
+      "U_geom": 0.6049057291666665
+    },
+    {
+      "order_id": "00104287",
+      "target": "euro-pallet",
+      "policy": "ppo_deterministic_seed_103",
+      "U_geom": 0.6049057291666665
+    },
+    {
+      "order_id": "00109146",
+      "target": "euro-pallet",
+      "policy": "fixed_greedy_best_fit",
+      "U_geom": 0.6500343749999997
+    },
+    {
+      "order_id": "00109146",
+      "target": "euro-pallet",
+      "policy": "fixed_lowest_top",
+      "U_geom": 0.6500343749999997
+    },
+    {
+      "order_id": "00109146",
+      "target": "euro-pallet",
+      "policy": "fixed_least_height_increase",
+      "U_geom": 0.6500343749999997
+    },
+    {
+      "order_id": "00109146",
+      "target": "euro-pallet",
+      "policy": "uniform_rules",
+      "U_geom": 0.6500343749999997
+    },
+    {
+      "order_id": "00109146",
+      "target": "euro-pallet",
+      "policy": "ppo_deterministic_seed_101",
+      "U_geom": 0.6500343749999997
+    },
+    {
+      "order_id": "00109146",
+      "target": "euro-pallet",
+      "policy": "ppo_deterministic_seed_102",
+      "U_geom": 0.6500343749999997
+    },
+    {
+      "order_id": "00109146",
+      "target": "euro-pallet",
+      "policy": "ppo_deterministic_seed_103",
+      "U_geom": 0.6500343749999997
+    },
+    {
+      "order_id": "00102077",
+      "target": "rollcontainer",
+      "policy": "fixed_greedy_best_fit",
+      "U_geom": 0.5777140625
+    },
+    {
+      "order_id": "00102077",
+      "target": "rollcontainer",
+      "policy": "fixed_lowest_top",
+      "U_geom": 0.6673444196428572
+    },
+    {
+      "order_id": "00102077",
+      "target": "rollcontainer",
+      "policy": "fixed_least_height_increase",
+      "U_geom": 0.6673444196428572
+    },
+    {
+      "order_id": "00102077",
+      "target": "rollcontainer",
+      "policy": "uniform_rules",
+      "U_geom": 0.7121595982142858
+    },
+    {
+      "order_id": "00102077",
+      "target": "rollcontainer",
+      "policy": "ppo_deterministic_seed_101",
+      "U_geom": 0.5777140625
+    },
+    {
+      "order_id": "00102077",
+      "target": "rollcontainer",
+      "policy": "ppo_deterministic_seed_102",
+      "U_geom": 0.6673444196428572
+    },
+    {
+      "order_id": "00102077",
+      "target": "rollcontainer",
+      "policy": "ppo_deterministic_seed_103",
+      "U_geom": 0.5777140625
+    },
+    {
+      "order_id": "00108484",
+      "target": "rollcontainer",
+      "policy": "fixed_greedy_best_fit",
+      "U_geom": 0.6777857142857143
+    },
+    {
+      "order_id": "00108484",
+      "target": "rollcontainer",
+      "policy": "fixed_lowest_top",
+      "U_geom": 0.6524857142857143
+    },
+    {
+      "order_id": "00108484",
+      "target": "rollcontainer",
+      "policy": "fixed_least_height_increase",
+      "U_geom": 0.6524857142857143
+    },
+    {
+      "order_id": "00108484",
+      "target": "rollcontainer",
+      "policy": "uniform_rules",
+      "U_geom": 0.6524857142857143
+    },
+    {
+      "order_id": "00108484",
+      "target": "rollcontainer",
+      "policy": "ppo_deterministic_seed_101",
+      "U_geom": 0.6777857142857143
+    },
+    {
+      "order_id": "00108484",
+      "target": "rollcontainer",
+      "policy": "ppo_deterministic_seed_102",
+      "U_geom": 0.6524857142857143
+    },
+    {
+      "order_id": "00108484",
+      "target": "rollcontainer",
+      "policy": "ppo_deterministic_seed_103",
+      "U_geom": 0.6777857142857143
+    },
+    {
+      "order_id": "00107982",
+      "target": "rollcontainer",
+      "policy": "fixed_greedy_best_fit",
+      "U_geom": 0.6699124999999999
+    },
+    {
+      "order_id": "00107982",
+      "target": "rollcontainer",
+      "policy": "fixed_lowest_top",
+      "U_geom": 0.6699124999999999
+    },
+    {
+      "order_id": "00107982",
+      "target": "rollcontainer",
+      "policy": "fixed_least_height_increase",
+      "U_geom": 0.6699124999999999
+    },
+    {
+      "order_id": "00107982",
+      "target": "rollcontainer",
+      "policy": "uniform_rules",
+      "U_geom": 0.5983749999999999
+    },
+    {
+      "order_id": "00107982",
+      "target": "rollcontainer",
+      "policy": "ppo_deterministic_seed_101",
+      "U_geom": 0.6699124999999999
+    },
+    {
+      "order_id": "00107982",
+      "target": "rollcontainer",
+      "policy": "ppo_deterministic_seed_102",
+      "U_geom": 0.6699124999999999
+    },
+    {
+      "order_id": "00107982",
+      "target": "rollcontainer",
+      "policy": "ppo_deterministic_seed_103",
+      "U_geom": 0.6699124999999999
+    },
+    {
+      "order_id": "00104158",
+      "target": "rollcontainer",
+      "policy": "fixed_greedy_best_fit",
+      "U_geom": 0.5995847098214286
+    },
+    {
+      "order_id": "00104158",
+      "target": "rollcontainer",
+      "policy": "fixed_lowest_top",
+      "U_geom": 0.5995847098214286
+    },
+    {
+      "order_id": "00104158",
+      "target": "rollcontainer",
+      "policy": "fixed_least_height_increase",
+      "U_geom": 0.5995847098214286
+    },
+    {
+      "order_id": "00104158",
+      "target": "rollcontainer",
+      "policy": "uniform_rules",
+      "U_geom": 0.5995847098214286
+    },
+    {
+      "order_id": "00104158",
+      "target": "rollcontainer",
+      "policy": "ppo_deterministic_seed_101",
+      "U_geom": 0.5995847098214286
+    },
+    {
+      "order_id": "00104158",
+      "target": "rollcontainer",
+      "policy": "ppo_deterministic_seed_102",
+      "U_geom": 0.5995847098214286
+    },
+    {
+      "order_id": "00104158",
+      "target": "rollcontainer",
+      "policy": "ppo_deterministic_seed_103",
+      "U_geom": 0.5995847098214286
+    }
+  ],
+  "actor_logits_recomputed": false,
+  "superiority_inference_performed": false,
+  "reused_episodes": 4,
+  "new_episodes": 52,
+  "mode": "industrial",
+  "industrial_orders_used": true,
+  "wall_seconds": 46.360878383000454,
+  "ru_maxrss_kb": 914916,
+  "RSS_scope": "whole worker high-water mark; Linux KB"
+}

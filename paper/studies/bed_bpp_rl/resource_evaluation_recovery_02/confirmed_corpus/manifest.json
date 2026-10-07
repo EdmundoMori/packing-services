@@ -1,0 +1,288 @@
+{
+  "confirmed_files": [
+    {
+      "relpath": "00107493__fixed_greedy_best_fit.json",
+      "sha256": "708ef5d8b85bc04dfe3a85e842323fdcdcd5e75c02508a4d4b10f79e7e8e91fd",
+      "size_bytes": 156751
+    },
+    {
+      "relpath": "00107493__fixed_least_height_increase.json",
+      "sha256": "2963f344fb656485c43282f2d31ddf4ab2ca7aa1335cbb22dfce5c307386872d",
+      "size_bytes": 132944
+    },
+    {
+      "relpath": "00107493__fixed_lowest_top.json",
+      "sha256": "b24c05dd2b71bbdc0055be173851610aedfa57c1fb2ab1f2cfa9e1242ca9c9c8",
+      "size_bytes": 158681
+    },
+    {
+      "relpath": "00107493__uniform_rules.json",
+      "sha256": "352f89990f1f23a6f7aaf4f308b5a88bf710696177e9fcade8ac058d9931300c",
+      "size_bytes": 157420
+    },
+    {
+      "relpath": "00107493__ppo_deterministic_seed_101.json",
+      "sha256": "34e4dd06d0c3389694e212653ef9e6d4d074cae2eac90a0c1dcd69668eec5eb5",
+      "size_bytes": 159775
+    },
+    {
+      "relpath": "00107493__ppo_deterministic_seed_102.json",
+      "sha256": "ee75e456e2c364b3050b5257e736657abf8f8fb2b04967808ef36adefcb8cb1f",
+      "size_bytes": 162207
+    },
+    {
+      "relpath": "00107493__ppo_deterministic_seed_103.json",
+      "sha256": "c1865dfc51313cda94835f8fbaa4b9a1d33ad963fe4f5cbbf5f6400e7f99dd96",
+      "size_bytes": 159775
+    },
+    {
+      "relpath": "00100650__fixed_greedy_best_fit.json",
+      "sha256": "bcffefd0cc421ffb1390f9a4f2f962d993db32d80315ae1aa5b478e411e43c8c",
+      "size_bytes": 133608
+    },
+    {
+      "relpath": "00100650__fixed_lowest_top.json",
+      "sha256": "7d6d76cf2c67c244480a0ff4c5edf3ac2665063a1c30cce7c5b6e356c9bf76bf",
+      "size_bytes": 133389
+    },
+    {
+      "relpath": "00100650__fixed_least_height_increase.json",
+      "sha256": "c891caee80b61e667c1a98f070d7051f7438fda15d66ae506d8ea5f7a46905f7",
+      "size_bytes": 134181
+    },
+    {
+      "relpath": "00100650__uniform_rules.json",
+      "sha256": "4c9cb58dcc967801450004a183cb249cac30406f48ea9baf5311d812214f8792",
+      "size_bytes": 133713
+    },
+    {
+      "relpath": "00100650__ppo_deterministic_seed_101.json",
+      "sha256": "7ec756171e2858a1e7f19481b4fb0aded411a9782048cece8d170f12f1873e95",
+      "size_bytes": 136200
+    },
+    {
+      "relpath": "00100650__ppo_deterministic_seed_102.json",
+      "sha256": "c5e67d3a15327ec529e13aba39dd745974bd5588aa1a7d75a4b72306d71097a7",
+      "size_bytes": 136341
+    },
+    {
+      "relpath": "00100650__ppo_deterministic_seed_103.json",
+      "sha256": "10371f61d5a65f83e9c53cc67f28abf0264ee3e69757013f89494c8593040069",
+      "size_bytes": 136200
+    },
+    {
+      "relpath": "00104287__fixed_greedy_best_fit.json",
+      "sha256": "501b190c8d226a549ddf7c6341834efb8324aff1c0c4a98391baa518572c73ac",
+      "size_bytes": 146469
+    },
+    {
+      "relpath": "00104287__fixed_lowest_top.json",
+      "sha256": "c76856a16c2e181e91f0d572f74a4d52f8b8f5c8f066a3ecf9a5d07a672e0df5",
+      "size_bytes": 145291
+    },
+    {
+      "relpath": "00104287__fixed_least_height_increase.json",
+      "sha256": "9e33aa57478fd93f4d7c48e1239b8a30c44fc2bb25d54a6766c516dcdec3b1d9",
+      "size_bytes": 146304
+    },
+    {
+      "relpath": "00104287__uniform_rules.json",
+      "sha256": "901ec901ebe3482a562c2bbf77393ff7e71fe6ac50c48cf1056768f565793462",
+      "size_bytes": 146625
+    },
+    {
+      "relpath": "00104287__ppo_deterministic_seed_101.json",
+      "sha256": "66ce0d057e2b31716fbe19006ced9e0b8e8f0d4e3b396140f98510c8e8f17af0",
+      "size_bytes": 149349
+    },
+    {
+      "relpath": "00104287__ppo_deterministic_seed_102.json",
+      "sha256": "467f55b93c4379d2f88eb8b8a86264e8eb91e8576ce4913cc9bd14ffe1c4bff4",
+      "size_bytes": 148571
+    },
+    {
+      "relpath": "00104287__ppo_deterministic_seed_103.json",
+      "sha256": "85ba3f800daf41a19d30d881098aa4968479a2b9ce7b105832275ee35d9a6c5f",
+      "size_bytes": 149349
+    },
+    {
+      "relpath": "00109146__fixed_greedy_best_fit.json",
+      "sha256": "260f11393d9fa768595db52b1b461f257169ce8c3ca37a473c0571603e8da4e3",
+      "size_bytes": 196436
+    },
+    {
+      "relpath": "00109146__fixed_lowest_top.json",
+      "sha256": "1b5984217b039f56b2f64a6598ff513df5eb7ca449052219da760b5209fde2b8",
+      "size_bytes": 193914
+    },
+    {
+      "relpath": "00109146__fixed_least_height_increase.json",
+      "sha256": "96cd0eeedd1d6790ff15e54af2153ed711565c03901ea090472f147d0519c7a1",
+      "size_bytes": 195570
+    },
+    {
+      "relpath": "00109146__uniform_rules.json",
+      "sha256": "d8248b03bdfa34376232311a00e172a0255f96066366c40a4e178918ebe61f1d",
+      "size_bytes": 195503
+    },
+    {
+      "relpath": "00109146__ppo_deterministic_seed_101.json",
+      "sha256": "bf54debb98888007d1af1fc24636d26645df44dfa32d20ffd06e1b15fd277426",
+      "size_bytes": 200180
+    },
+    {
+      "relpath": "00109146__ppo_deterministic_seed_102.json",
+      "sha256": "80f0e5ed7a68f31ad43a9e126180fbd01ccf2cd94c51a0af267ee8df754d527b",
+      "size_bytes": 198178
+    },
+    {
+      "relpath": "00109146__ppo_deterministic_seed_103.json",
+      "sha256": "9486337c62741f46386f41afb1d4606ce99e2929a3325dc110cede0eaca9333f",
+      "size_bytes": 200180
+    },
+    {
+      "relpath": "00102077__fixed_greedy_best_fit.json",
+      "sha256": "1fd44ca1d80031713a4800578200ab6d53e7b530eee7d2d1ad056757295160a8",
+      "size_bytes": 48920
+    },
+    {
+      "relpath": "00102077__fixed_lowest_top.json",
+      "sha256": "8ad8e43e3a6faed3f7a2c2322080a5c6dd990136094299338ff4a78e578afdfc",
+      "size_bytes": 55372
+    },
+    {
+      "relpath": "00102077__fixed_least_height_increase.json",
+      "sha256": "7db1fd95aac7ccbca99c77754425bd428289f0270e3a6fdb62cc2a4cb6212c2d",
+      "size_bytes": 55612
+    },
+    {
+      "relpath": "00102077__uniform_rules.json",
+      "sha256": "8e929f0a5b2a89e2b8967e965802f455ef934a20805b9ddd45bba9bf078d4243",
+      "size_bytes": 59195
+    },
+    {
+      "relpath": "00102077__ppo_deterministic_seed_101.json",
+      "sha256": "a32df04918651fd655536e0cd53c5593ae0383fc1deb50221bf9a4d840ab222a",
+      "size_bytes": 49856
+    },
+    {
+      "relpath": "00102077__ppo_deterministic_seed_102.json",
+      "sha256": "fd94428dcd09c900fa09783ec772022423a0116d506e62a87991dd17b4eb66db",
+      "size_bytes": 56602
+    },
+    {
+      "relpath": "00102077__ppo_deterministic_seed_103.json",
+      "sha256": "99d45bb5c745f9534d1f7b2b55adf153e70eb8df4678113d6740baa22737562f",
+      "size_bytes": 49856
+    },
+    {
+      "relpath": "00108484__fixed_greedy_best_fit.json",
+      "sha256": "cba64342fb81956d5695bfaaa00cf581a3b0f217a5d2435cc0de1b14ce8e81cb",
+      "size_bytes": 126387
+    },
+    {
+      "relpath": "00108484__fixed_lowest_top.json",
+      "sha256": "1e42807f7af70a36bfe1bbf6d4c6582141383c021243429eb29716a511f276c9",
+      "size_bytes": 123386
+    },
+    {
+      "relpath": "00108484__fixed_least_height_increase.json",
+      "sha256": "68f4177680c26cef6873f7f20c35bbb24590801227c4f0f21fec619f7c4b427d",
+      "size_bytes": 124331
+    },
+    {
+      "relpath": "00108484__uniform_rules.json",
+      "sha256": "8f3b6da3c12e02e6006388f16d8bf2a9b7a95bfa07ce844b63bb1e5696914a5a",
+      "size_bytes": 123894
+    },
+    {
+      "relpath": "00108484__ppo_deterministic_seed_101.json",
+      "sha256": "931ddd0246b881e440740785692815ed3835790a9e4bf971a1f357e73b50f40d",
+      "size_bytes": 128763
+    },
+    {
+      "relpath": "00108484__ppo_deterministic_seed_102.json",
+      "sha256": "27570f0d1921dba4ee2dd3c039a9c5d625a7af9acfd1ec13335f9a1517fb7b1a",
+      "size_bytes": 126010
+    },
+    {
+      "relpath": "00108484__ppo_deterministic_seed_103.json",
+      "sha256": "3ccfab580f88e3b4b220e4eecfdaaca9016f9250ba0b92310617036d45d3b259",
+      "size_bytes": 128763
+    },
+    {
+      "relpath": "00107982__fixed_greedy_best_fit.json",
+      "sha256": "f1c2773dbc92cc823c4356d71c9a824780b1d5d8be18a1123795a56ee3570aa3",
+      "size_bytes": 136174
+    },
+    {
+      "relpath": "00107982__fixed_lowest_top.json",
+      "sha256": "efe28d0575f0ca217d507bc19c52cc99737355a806602db74e208c4f29f8e407",
+      "size_bytes": 135693
+    },
+    {
+      "relpath": "00107982__fixed_least_height_increase.json",
+      "sha256": "3913c361ddb5d64833e1a51ec6d3838f054f2bbb9cf797aa770ef72602338aaa",
+      "size_bytes": 136696
+    },
+    {
+      "relpath": "00107982__uniform_rules.json",
+      "sha256": "b4b63b6edbc3a33d41ee242485f537a633c9873a8b41bfa80098d29fac0413e2",
+      "size_bytes": 122569
+    },
+    {
+      "relpath": "00107982__ppo_deterministic_seed_101.json",
+      "sha256": "055b8d70ada77823bf0e7a2663da1470412800d3dbb6938d381775529a4f3538",
+      "size_bytes": 138766
+    },
+    {
+      "relpath": "00107982__ppo_deterministic_seed_102.json",
+      "sha256": "74f5e6eae779e2bd5107656d22dc58fde2d8b94991605126e5833b8ff8944641",
+      "size_bytes": 138645
+    },
+    {
+      "relpath": "00107982__ppo_deterministic_seed_103.json",
+      "sha256": "8945399deec9f61bcfac9f0c502f6d9bccfdd8718b61dd3e55df55eef75f6709",
+      "size_bytes": 138766
+    },
+    {
+      "relpath": "00104158__fixed_greedy_best_fit.json",
+      "sha256": "bb1db58ea4ce904f94295e67b062058e8037efd41715420e483ba8accdfbdc18",
+      "size_bytes": 52714
+    },
+    {
+      "relpath": "00104158__fixed_lowest_top.json",
+      "sha256": "92e01e8ba618045885c38753672be070077ca4013b13a532cdf761f2eff1b75e",
+      "size_bytes": 52468
+    },
+    {
+      "relpath": "00104158__fixed_least_height_increase.json",
+      "sha256": "b90bdf2020b0e516d95a275f046630d9bbe9773202b059aba792abb209915b88",
+      "size_bytes": 52776
+    },
+    {
+      "relpath": "00104158__uniform_rules.json",
+      "sha256": "c9bb17a723ab1b3f34170bdfc4d5dfa05a67bd517a24a6781991f68176247128",
+      "size_bytes": 52794
+    },
+    {
+      "relpath": "00104158__ppo_deterministic_seed_101.json",
+      "sha256": "d22451e17c72e82f4708387bdb7ff0017ab5a5c41f5d39445258e8aca5ded956",
+      "size_bytes": 53722
+    },
+    {
+      "relpath": "00104158__ppo_deterministic_seed_102.json",
+      "sha256": "51713312504015e57778df7d33febf0c2821b5dcd511e5ef613a74ee2d0cb505",
+      "size_bytes": 53616
+    },
+    {
+      "relpath": "00104158__ppo_deterministic_seed_103.json",
+      "sha256": "c4c9e3e5b3e376daec8e66dee54cbabd4b0879e01a3fd219f40308e46285ab5f",
+      "size_bytes": 53722
+    }
+  ],
+  "durability_note": "fsync+atomic replace del episodio y del manifiesto; no durabilidad absoluta ante crash de host; solo archivos listados y con SHA256 coincidente son confirmados",
+  "kind": "bed_bpp_rl_corpus_manifest_r02a",
+  "schema_version": 2,
+  "writer_model": "single_writer_exclusive_lock"
+}

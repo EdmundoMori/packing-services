@@ -1,0 +1,17 @@
+{
+  "automatic_restart": false,
+  "command": [
+    "/home/edmundo/packing-services/.venv/bin/python",
+    "-u",
+    "/home/edmundo/packing-services/paper/studies/bed_bpp_rl/tools/run_resource_evaluation_recovery_v2.py",
+    "--worker",
+    "--orders",
+    "/home/edmundo/bed-bpp-env/example_data/benchmark_data/bed-bpp_v1.json",
+    "--protocol",
+    "/home/edmundo/packing-services/paper/studies/bed_bpp_rl/resource_evaluation_recovery_protocol_v2.json",
+    "--out",
+    "/home/edmundo/packing-services/paper/studies/bed_bpp_rl/resource_evaluation_recovery_02"
+  ],
+  "pid": 16358,
+  "timeout_seconds": 587.0616651269993
+}
