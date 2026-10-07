@@ -37,3 +37,9 @@ No demuestra mejora de política ni autoriza campaña industrial.
 Pendientes: integración de muestra, contrato operativo congelado,
 registro de recursos y demostración PPO industrial.
 R04 y sus artefactos permanecen intactos.
+
+## Complemento de publicación
+La revisión remota detectó que runs/ estaba ignorado por Git.
+Los cuatro registros originales del supervisor se copiaron, sin modificación,
+a ppo_synthetic_audited_01/supervisor_evidence/.
+No se repitió entrenamiento ni evaluación.

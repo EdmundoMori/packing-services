@@ -1,0 +1,13 @@
+{
+  "automatic_restart": false,
+  "command": [
+    "/home/edmundo/packing-services/.venv/bin/python",
+    "-u",
+    "/home/edmundo/packing-services/paper/studies/bed_bpp_rl/tools/run_ppo_synthetic_audited_v1.py",
+    "--synthetic",
+    "--out",
+    "/home/edmundo/packing-services/paper/studies/bed_bpp_rl/ppo_synthetic_audited_01"
+  ],
+  "pid": 4466,
+  "timeout_seconds": 45.0
+}
